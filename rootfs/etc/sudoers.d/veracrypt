@@ -1,0 +1,1 @@
+%veracrypt_grp  ALL=(root) NOPASSWD:/usr/bin/veracrypt, /usr/bin/mount, /usr/bin/uptime

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+<menu id="root-menu" label="Openbox 3">
+  <item label="Web Browser">
+    <action name="Execute"><execute>librewolf</execute></action>
+  </item>
+  <item label="I2P WebConsole">
+    <action name="Execute"><execute>librewolf "http://127.0.0.1:7070"</execute></action>
+  </item>
+  <separator />
+  <item label="Text Editor">
+    <action name="Execute"><execute>featherpad</execute></action>
+  </item>
+  <item label="File Manager">
+    <action name="Execute"><execute>pcmanfm</execute></action>
+  </item>
+  <separator />
+  <menu id="/Office" label="Office">
+    <item label="LibreOffice Writer">
+      <action name="Execute"><execute>libreoffice --writer</execute></action>
+    </item>
+    <item label="LibreOffice Calc">
+      <action name="Execute"><execute>libreoffice --calc</execute></action>
+    </item>
+    <item label="LibreOffice Math">
+      <action name="Execute"><execute>libreoffice --math</execute></action>
+    </item>
+    <item label="LibreOffice Impress">
+      <action name="Execute"><execute>libreoffice --impress</execute></action>
+    </item>
+    <item label="LibreOffice Draw">
+      <action name="Execute"><execute>libreoffice --draw</execute></action>
+    </item>
+  </menu>
+  <menu id="/Multimedia" label="Multimedia">
+    <item label="Audacity">
+      <action name="Execute"><execute>audacity-3.2.1.AppImage</execute></action>
+    </item>
+    <item label="Gimp">
+      <action name="Execute"><execute>gimp</execute></action>
+    </item>
+    <item label="VLC Media player">
+      <action name="Execute"><execute>vlc</execute></action>
+    </item>
+  </menu>
+  <menu id="/Accessories" label="Accessories">
+    <item label="Monero Wallet">
+      <action name="Execute"><execute>monero-wallet-gui</execute></action>
+    </item>
+    <item label="KeePassXC">
+      <action name="Execute"><execute>KeePassXC-2.7.1.AppImage</execute></action>
+    </item>
+    <item label="VeraCrypt">
+      <action name="Execute"><execute>veracrypt</execute></action>
+    </item>
+    <item label="GPG Frontend">
+      <action name="Execute"><execute>GpgFrontend-2.0.9.AppImage</execute></action>
+    </item>
+    <item label="QR Generator">
+      <action name="Execute"><execute>qtqr</execute></action>
+    </item>
+  </menu>
+ <menu id="/Communication" label="Communication">
+    <item label="HexChat IRC">
+      <action name="Execute"><execute>hexchat</execute></action>
+    </item>
+    <item label="Sylpheed E-mail">
+      <action name="Execute"><execute>sylpheed</execute></action>
+    </item>
+  </menu>
+  <separator />
+  <menu id="/System" label="System">
+    <item label="Terminal">
+      <action name="Execute"><execute>x-terminal-emulator</execute></action>
+    </item>
+    <item label="Display Resolution">
+      <action name="Execute"><execute>arandr</execute></action>
+    </item>
+    <item label="Virtual Keyboard">
+      <action name="Execute"><execute>onboard</execute></action>
+    </item>
+    <separator />
+    <menu id="/Openbox" label="Openbox">
+      <item label="Window Manager Settings">
+        <action name="Execute"><execute>obconf</execute></action>
+      </item>
+      <item label="Restart Window Manager">
+        <action name="Restart" />
+      </item>
+      <item label="Exit Window Manager">
+        <action name="Exit" />
+      </item>
+    </menu>
+  </menu>
+  <separator />
+  <item label="Reboot">
+    <action name="Execute">
+      <prompt>Are you sure?</prompt>
+      <execute>reboot</execute>
+    </action>
+  </item>
+  <item label="Shutdown">
+    <action name="Execute">
+       <prompt>Are you sure?</prompt>
+       <execute>poweroff</execute>
+    </action>
+  </item>
+</menu>
+
+</openbox_menu>
