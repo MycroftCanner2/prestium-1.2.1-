@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/bin
+/usr/bin/qrencode
+/usr/share
+/usr/share/doc
+/usr/share/doc/qrencode
+/usr/share/doc/qrencode/NEWS.gz
+/usr/share/doc/qrencode/README.gz
+/usr/share/doc/qrencode/TODO
+/usr/share/doc/qrencode/changelog.Debian.gz
+/usr/share/doc/qrencode/changelog.gz
+/usr/share/doc/qrencode/copyright
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/qrencode.1.gz

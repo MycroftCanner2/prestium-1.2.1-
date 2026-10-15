@@ -1,0 +1,7 @@
+2b57214bb165c5b423887378255b0a66  usr/lib/x86_64-linux-gnu/perl5/5.32/POSIX/strptime.pm
+80cd73724ea047a0709220ed89077659  usr/lib/x86_64-linux-gnu/perl5/5.32/auto/POSIX/strptime/strptime.so
+81a5338d1130ef683f7e89a0dab8037c  usr/share/doc/libposix-strptime-perl/changelog.Debian.amd64.gz
+969fe6def3becbd4583fa9ebf1299d5c  usr/share/doc/libposix-strptime-perl/changelog.Debian.gz
+c46b25e4e8e3be48b6b29654d122b12d  usr/share/doc/libposix-strptime-perl/changelog.gz
+70fbbcbf4f65ea1a2dc33ae0500bc93c  usr/share/doc/libposix-strptime-perl/copyright
+e73f547fdaca45302c180e612c851956  usr/share/man/man3/POSIX::strptime.3pm.gz

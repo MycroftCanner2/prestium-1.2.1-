@@ -1,0 +1,9 @@
+231f460a2ce33eec004893bfb7b1d64c  usr/lib/x86_64-linux-gnu/perl5/5.32/Net/LibIDN.pm
+893e7b20a283cd7771582e1262618ef8  usr/lib/x86_64-linux-gnu/perl5/5.32/auto/Net/LibIDN/LibIDN.so
+bd9baac57513092e2bb65c9f13f8a489  usr/lib/x86_64-linux-gnu/perl5/5.32/auto/Net/LibIDN/autosplit.ix
+01b980efc7d93abfb98838d26e101805  usr/share/doc/libnet-libidn-perl/changelog.Debian.amd64.gz
+c89512bcfe2d6861402942e89bd01476  usr/share/doc/libnet-libidn-perl/changelog.Debian.gz
+95b61b6d433752ac39358c709d798406  usr/share/doc/libnet-libidn-perl/changelog.gz
+0f6c82cc8795bc88c8b8eb0faf6e6bf9  usr/share/doc/libnet-libidn-perl/copyright
+d165f4fb20a1d886e6b9eea58c384eaf  usr/share/lintian/overrides/libnet-libidn-perl
+279522cd199f82a8fe9605c633261a8a  usr/share/man/man3/Net::LibIDN.3pm.gz

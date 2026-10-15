@@ -1,0 +1,243 @@
+/usr
+/usr/bin
+/usr/bin/veracrypt
+/usr/bin/veracrypt-uninstall.sh
+/usr/sbin
+/usr/sbin/mount.veracrypt
+/usr/share
+/usr/share/applications
+/usr/share/applications/veracrypt.desktop
+/usr/share/doc
+/usr/share/doc/veracrypt
+/usr/share/doc/veracrypt/HTML
+/usr/share/doc/veracrypt/HTML/AES.html
+/usr/share/doc/veracrypt/HTML/Acknowledgements.html
+/usr/share/doc/veracrypt/HTML/Additional Security Requirements and Precautions.html
+/usr/share/doc/veracrypt/HTML/Authenticity and Integrity.html
+/usr/share/doc/veracrypt/HTML/Authors.html
+/usr/share/doc/veracrypt/HTML/BCH_Logo_48x30.png
+/usr/share/doc/veracrypt/HTML/BC_Logo_30x30.png
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial.html
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_001.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_002.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_003.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_004.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_005.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_007.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_008.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_009.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_010.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_011.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_012.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_013.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_014.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_015.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_016.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_017.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_018.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_019.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_020.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_021.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_022.jpg
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_023.gif
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_024.gif
+/usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_034.png
+/usr/share/doc/veracrypt/HTML/Camellia.html
+/usr/share/doc/veracrypt/HTML/Cascades.html
+/usr/share/doc/veracrypt/HTML/Changing Passwords and Keyfiles.html
+/usr/share/doc/veracrypt/HTML/Choosing Passwords and Keyfiles.html
+/usr/share/doc/veracrypt/HTML/Command Line Usage.html
+/usr/share/doc/veracrypt/HTML/Contact.html
+/usr/share/doc/veracrypt/HTML/Contributed Resources.html
+/usr/share/doc/veracrypt/HTML/Converting TrueCrypt volumes and partitions.html
+/usr/share/doc/veracrypt/HTML/Converting TrueCrypt volumes and partitions_truecrypt_convertion.jpg
+/usr/share/doc/veracrypt/HTML/Creating New Volumes.html
+/usr/share/doc/veracrypt/HTML/Data Leaks.html
+/usr/share/doc/veracrypt/HTML/Default Mount Parameters.html
+/usr/share/doc/veracrypt/HTML/Default Mount Parameters_VeraCrypt_password_using_default_parameters.png
+/usr/share/doc/veracrypt/HTML/Defragmenting.html
+/usr/share/doc/veracrypt/HTML/Digital Signatures.html
+/usr/share/doc/veracrypt/HTML/Disclaimers.html
+/usr/share/doc/veracrypt/HTML/Documentation.html
+/usr/share/doc/veracrypt/HTML/Donation.html
+/usr/share/doc/veracrypt/HTML/Donation_Bank.html
+/usr/share/doc/veracrypt/HTML/Donation_VC_BTC_Sigwit.png
+/usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_BitcoinCash.png
+/usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Bitcoin_small.png
+/usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Ethereum.png
+/usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Litecoin.png
+/usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Monero.png
+/usr/share/doc/veracrypt/HTML/Donation_donate.gif
+/usr/share/doc/veracrypt/HTML/Donation_donate_CHF.gif
+/usr/share/doc/veracrypt/HTML/Donation_donate_Dollars.gif
+/usr/share/doc/veracrypt/HTML/Donation_donate_Euros.gif
+/usr/share/doc/veracrypt/HTML/Donation_donate_GBP.gif
+/usr/share/doc/veracrypt/HTML/Donation_donate_PLN.gif
+/usr/share/doc/veracrypt/HTML/Donation_donate_YEN.gif
+/usr/share/doc/veracrypt/HTML/Encryption Algorithms.html
+/usr/share/doc/veracrypt/HTML/Encryption Scheme.html
+/usr/share/doc/veracrypt/HTML/Ethereum_Logo_19x30.png
+/usr/share/doc/veracrypt/HTML/FAQ.html
+/usr/share/doc/veracrypt/HTML/Favorite Volumes.html
+/usr/share/doc/veracrypt/HTML/Hardware Acceleration.html
+/usr/share/doc/veracrypt/HTML/Hash Algorithms.html
+/usr/share/doc/veracrypt/HTML/Header Key Derivation.html
+/usr/share/doc/veracrypt/HTML/Hibernation File.html
+/usr/share/doc/veracrypt/HTML/Hidden Operating System.html
+/usr/share/doc/veracrypt/HTML/Hidden Volume.html
+/usr/share/doc/veracrypt/HTML/Home_VeraCrypt_Default_Mount_Parameters.png
+/usr/share/doc/veracrypt/HTML/Home_VeraCrypt_menu_Default_Mount_Parameters.png
+/usr/share/doc/veracrypt/HTML/Home_facebook_veracrypt.png
+/usr/share/doc/veracrypt/HTML/Home_reddit.png
+/usr/share/doc/veracrypt/HTML/Home_utilities-file-archiver-3.png
+/usr/share/doc/veracrypt/HTML/Hot Keys.html
+/usr/share/doc/veracrypt/HTML/How to Back Up Securely.html
+/usr/share/doc/veracrypt/HTML/Incompatibilities.html
+/usr/share/doc/veracrypt/HTML/Introduction.html
+/usr/share/doc/veracrypt/HTML/Issues and Limitations.html
+/usr/share/doc/veracrypt/HTML/Journaling File Systems.html
+/usr/share/doc/veracrypt/HTML/Keyfiles in VeraCrypt.html
+/usr/share/doc/veracrypt/HTML/Keyfiles in VeraCrypt_Image_040.gif
+/usr/share/doc/veracrypt/HTML/Keyfiles.html
+/usr/share/doc/veracrypt/HTML/Kuznyechik.html
+/usr/share/doc/veracrypt/HTML/LTC_Logo_30x30.png
+/usr/share/doc/veracrypt/HTML/Language Packs.html
+/usr/share/doc/veracrypt/HTML/Legal Information.html
+/usr/share/doc/veracrypt/HTML/Main Program Window.html
+/usr/share/doc/veracrypt/HTML/Malware.html
+/usr/share/doc/veracrypt/HTML/Memory Dump Files.html
+/usr/share/doc/veracrypt/HTML/Miscellaneous.html
+/usr/share/doc/veracrypt/HTML/Modes of Operation.html
+/usr/share/doc/veracrypt/HTML/Monero_Logo_30x30.png
+/usr/share/doc/veracrypt/HTML/Mounting VeraCrypt Volumes.html
+/usr/share/doc/veracrypt/HTML/Multi-User Environment.html
+/usr/share/doc/veracrypt/HTML/Notation.html
+/usr/share/doc/veracrypt/HTML/Paging File.html
+/usr/share/doc/veracrypt/HTML/Parallelization.html
+/usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM).html
+/usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step1.png
+/usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step2.png
+/usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step1.png
+/usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step2.png
+/usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step1.png
+/usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step2.png
+/usr/share/doc/veracrypt/HTML/Physical Security.html
+/usr/share/doc/veracrypt/HTML/Pipelining.html
+/usr/share/doc/veracrypt/HTML/Plausible Deniability.html
+/usr/share/doc/veracrypt/HTML/Portable Mode.html
+/usr/share/doc/veracrypt/HTML/Preface.html
+/usr/share/doc/veracrypt/HTML/Program Menu.html
+/usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes.html
+/usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_027.jpg
+/usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_028.jpg
+/usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_029.jpg
+/usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_030.jpg
+/usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_031.jpg
+/usr/share/doc/veracrypt/HTML/RIPEMD-160.html
+/usr/share/doc/veracrypt/HTML/Random Number Generator.html
+/usr/share/doc/veracrypt/HTML/Reallocated Sectors.html
+/usr/share/doc/veracrypt/HTML/References.html
+/usr/share/doc/veracrypt/HTML/Release Notes.html
+/usr/share/doc/veracrypt/HTML/Removable Medium Volume.html
+/usr/share/doc/veracrypt/HTML/Removing Encryption.html
+/usr/share/doc/veracrypt/HTML/SHA-256.html
+/usr/share/doc/veracrypt/HTML/SHA-512.html
+/usr/share/doc/veracrypt/HTML/Security Model.html
+/usr/share/doc/veracrypt/HTML/Security Requirements and Precautions.html
+/usr/share/doc/veracrypt/HTML/Security Requirements for Hidden Volumes.html
+/usr/share/doc/veracrypt/HTML/Security Tokens & Smart Cards.html
+/usr/share/doc/veracrypt/HTML/Serpent.html
+/usr/share/doc/veracrypt/HTML/Sharing over Network.html
+/usr/share/doc/veracrypt/HTML/Source Code.html
+/usr/share/doc/veracrypt/HTML/Standard Compliance.html
+/usr/share/doc/veracrypt/HTML/Streebog.html
+/usr/share/doc/veracrypt/HTML/Supported Operating Systems.html
+/usr/share/doc/veracrypt/HTML/Supported Systems for System Encryption.html
+/usr/share/doc/veracrypt/HTML/System Encryption.html
+/usr/share/doc/veracrypt/HTML/System Favorite Volumes.html
+/usr/share/doc/veracrypt/HTML/Technical Details.html
+/usr/share/doc/veracrypt/HTML/Trim Operation.html
+/usr/share/doc/veracrypt/HTML/Troubleshooting.html
+/usr/share/doc/veracrypt/HTML/TrueCrypt Support.html
+/usr/share/doc/veracrypt/HTML/TrueCrypt Support_truecrypt_mode_gui.jpg
+/usr/share/doc/veracrypt/HTML/Twofish.html
+/usr/share/doc/veracrypt/HTML/Unencrypted Data in RAM.html
+/usr/share/doc/veracrypt/HTML/Uninstalling VeraCrypt.html
+/usr/share/doc/veracrypt/HTML/Using VeraCrypt Without Administrator Privileges.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt Background Task.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt Hidden Operating System.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt License.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt Rescue Disk.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt System Files.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt Volume Format Specification.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt Volume.html
+/usr/share/doc/veracrypt/HTML/VeraCrypt128x128.png
+/usr/share/doc/veracrypt/HTML/Volume Clones.html
+/usr/share/doc/veracrypt/HTML/Wear-Leveling.html
+/usr/share/doc/veracrypt/HTML/Whirlpool.html
+/usr/share/doc/veracrypt/HTML/arrow_right.gif
+/usr/share/doc/veracrypt/HTML/bank_30x30.png
+/usr/share/doc/veracrypt/HTML/flag-au-small.png
+/usr/share/doc/veracrypt/HTML/flag-au.png
+/usr/share/doc/veracrypt/HTML/flag-eu-small.png
+/usr/share/doc/veracrypt/HTML/flag-eu.png
+/usr/share/doc/veracrypt/HTML/flag-gb-small.png
+/usr/share/doc/veracrypt/HTML/flag-gb.png
+/usr/share/doc/veracrypt/HTML/flag-nz-small.png
+/usr/share/doc/veracrypt/HTML/flag-nz.png
+/usr/share/doc/veracrypt/HTML/flag-us-small.png
+/usr/share/doc/veracrypt/HTML/flag-us.png
+/usr/share/doc/veracrypt/HTML/flattr-badge-large.png
+/usr/share/doc/veracrypt/HTML/gf2_mul.gif
+/usr/share/doc/veracrypt/HTML/liberapay_donate.svg
+/usr/share/doc/veracrypt/HTML/paypal_30x30.png
+/usr/share/doc/veracrypt/HTML/styles.css
+/usr/share/doc/veracrypt/HTML/twitter_veracrypt.PNG
+/usr/share/doc/veracrypt/License.txt
+/usr/share/mime
+/usr/share/mime/packages
+/usr/share/mime/packages/veracrypt.xml
+/usr/share/pixmaps
+/usr/share/pixmaps/veracrypt.xpm
+/usr/share/veracrypt
+/usr/share/veracrypt/languages
+/usr/share/veracrypt/languages/Language.ar.xml
+/usr/share/veracrypt/languages/Language.be.xml
+/usr/share/veracrypt/languages/Language.bg.xml
+/usr/share/veracrypt/languages/Language.ca.xml
+/usr/share/veracrypt/languages/Language.cs.xml
+/usr/share/veracrypt/languages/Language.da.xml
+/usr/share/veracrypt/languages/Language.de.xml
+/usr/share/veracrypt/languages/Language.el.xml
+/usr/share/veracrypt/languages/Language.es.xml
+/usr/share/veracrypt/languages/Language.et.xml
+/usr/share/veracrypt/languages/Language.eu.xml
+/usr/share/veracrypt/languages/Language.fa.xml
+/usr/share/veracrypt/languages/Language.fi.xml
+/usr/share/veracrypt/languages/Language.fr.xml
+/usr/share/veracrypt/languages/Language.he.xml
+/usr/share/veracrypt/languages/Language.hu.xml
+/usr/share/veracrypt/languages/Language.id.xml
+/usr/share/veracrypt/languages/Language.it.xml
+/usr/share/veracrypt/languages/Language.ja.xml
+/usr/share/veracrypt/languages/Language.ka.xml
+/usr/share/veracrypt/languages/Language.ko.xml
+/usr/share/veracrypt/languages/Language.lv.xml
+/usr/share/veracrypt/languages/Language.my.xml
+/usr/share/veracrypt/languages/Language.nl.xml
+/usr/share/veracrypt/languages/Language.nn.xml
+/usr/share/veracrypt/languages/Language.pl.xml
+/usr/share/veracrypt/languages/Language.pt-br.xml
+/usr/share/veracrypt/languages/Language.ro.xml
+/usr/share/veracrypt/languages/Language.ru.xml
+/usr/share/veracrypt/languages/Language.sk.xml
+/usr/share/veracrypt/languages/Language.sl.xml
+/usr/share/veracrypt/languages/Language.sv.xml
+/usr/share/veracrypt/languages/Language.th.xml
+/usr/share/veracrypt/languages/Language.tr.xml
+/usr/share/veracrypt/languages/Language.uk.xml
+/usr/share/veracrypt/languages/Language.uz.xml
+/usr/share/veracrypt/languages/Language.vi.xml
+/usr/share/veracrypt/languages/Language.zh-cn.xml
+/usr/share/veracrypt/languages/Language.zh-hk.xml
+/usr/share/veracrypt/languages/Language.zh-tw.xml

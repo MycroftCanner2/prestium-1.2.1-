@@ -1,0 +1,4 @@
+c1922928ccc7c509d5a317c4e644327c  usr/bin/libwacom-list-local-devices
+e9f688459a084e468b920d43ea513263  usr/share/doc/libwacom-bin/changelog.Debian.gz
+180d92a6a450dea26100d99fa84c3b69  usr/share/doc/libwacom-bin/copyright
+be9b373d3045328b48e8d846eacedf36  usr/share/man/man1/libwacom-list-local-devices.1.gz

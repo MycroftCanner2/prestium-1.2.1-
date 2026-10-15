@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/hexchat
+/usr/lib/x86_64-linux-gnu/hexchat/plugins
+/usr/lib/x86_64-linux-gnu/hexchat/plugins/perl.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/hexchat-perl
+/usr/share/doc/hexchat-perl/changelog.Debian.gz
+/usr/share/doc/hexchat-perl/changelog.gz
+/usr/share/doc/hexchat-perl/copyright
+/usr/share/metainfo
+/usr/share/metainfo/io.github.Hexchat.Plugin.Perl.metainfo.xml

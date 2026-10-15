@@ -1,0 +1,7 @@
+1f871e7d950d6855de798c56faf6631c  usr/lib/xorg/modules/drivers/radeon_drv.so
+2cddf2c2c45e73672231c61d79ace717  usr/share/X11/xorg.conf.d/10-radeon.conf
+ce4572826e8f66ed20528164036ecd6f  usr/share/doc/xserver-xorg-video-radeon/NEWS.Debian.gz
+2ce121a1bd8b7abed0c41529b4022c8e  usr/share/doc/xserver-xorg-video-radeon/changelog.Debian.gz
+337d8c23073f063923621e0b046e53ae  usr/share/doc/xserver-xorg-video-radeon/changelog.gz
+9486f7f25f55823424669dbeb24fa215  usr/share/doc/xserver-xorg-video-radeon/copyright
+0abbd29bccb9f4a23d9180ebf8d089f7  usr/share/man/man4/radeon.4.gz

@@ -1,0 +1,6 @@
+a1fb3d0d9cca77ea72ff10551709174b  usr/lib/x86_64-linux-gnu/libCbc.so.3.10.5
+b9b2696ee1a57f83a470f810d31836c5  usr/lib/x86_64-linux-gnu/libCbcSolver.so.3.10.5
+3087c15b87e4ab29c841fd6b8dcffe62  usr/lib/x86_64-linux-gnu/libOsiCbc.so.3.10.5
+2586fd6930da957c6464e64cab8bd3b5  usr/share/doc/coinor-libcbc3/changelog.Debian.gz
+aba6b0c69c25a2f8d2a5dcb36a1e2d7b  usr/share/doc/coinor-libcbc3/copyright
+3721b76642497a49220a3c6c0059a7a6  usr/share/lintian/overrides/coinor-libcbc3

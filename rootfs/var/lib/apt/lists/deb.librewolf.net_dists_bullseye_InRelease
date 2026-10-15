@@ -1,0 +1,222 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: LibreWolf
+Label: LibreWolf
+Suite: bullseye
+Codename: bullseye
+NotAutomatic: no
+ButAutomaticUpgrades: no
+Components: main 
+Architectures: amd64
+Date: Wed, 11 Jan 2023 19:45:16 UTC
+Valid-Until: Tue, 30 Nov 2038 00:00:00 UTC
+MD5Sum:
+ 830358cc52f3f35807fc16d5998be801 60123 main/binary-amd64/Packages
+ 8deec7d96163423ce513f58d3e8d5080 9054 main/binary-amd64/Packages.gz
+ 3472fe723ca62659015aa192ddd806a0 210 main/binary-amd64/Release
+ 6079562f5e6fd03e20a87d1f221b058b 55818568 .refs/main/librewolf-99.0.1-4.en-US.debian11.x86_64.deb
+ cfd126f17459b096c0cf913bb81bffa1 55987240 .refs/main/librewolf-99.0.1-1.en-US.debian11.x86_64.deb
+ 4c13daa5169194b38b999536bc03e33b 70302514 .refs/main/librewolf-108.0.2-1.en-US.debian11.x86_64.deb
+ 951561cb4a1e056b9307a2d60fc990d6 68605422 .refs/main/librewolf-105.0.2-1.en-US.debian11.x86_64.deb
+ 33d9bb65564a357ec339ed3b60a3f3df 68564150 .refs/main/librewolf-105.0-1.en-US.debian11.x86_64.deb
+ f873f3657c87242380b06ac7519d7043 55986112 .refs/main/librewolf-99.0-1.en-US.debian11.x86_64.deb
+ 8738580e4b2095335e670f223e5bb25a 55727916 .refs/main/librewolf-98.0-1.en-US.debian11.x86_64.deb
+ 32d4280932054b7d08c609648fbc5e13 55814500 .refs/main/librewolf-99.0.1-2.en-US.debian11.x86_64.deb
+ e6865e2cc5d2d1bf4eb45aed21c66751 69822126 .refs/main/librewolf-106.0.4-1.en-US.debian11.x86_64.deb
+ 71fe7757b81370e384a7bdb337abeb89 67982206 .refs/main/librewolf-100.0.2-1.en-US.debian11.x86_64.deb
+ a4a57a32f36eec588ef1b0945543699d 55183944 .refs/main/librewolf-97.0-1.en-US.debian11.x86_64.deb
+ 4b5fb7eef6284fe31f27e6a50e26476b 69808186 .refs/main/librewolf-106.0.1-1.en-US.debian11.x86_64.deb
+ 13d4509347798bf791133ec267c082b3 67912278 .refs/main/librewolf-103.0-3.en-US.debian11.x86_64.deb
+ 8f361ed8d5567d122939d650281205a4 55728244 .refs/main/librewolf-98.0.2-1.en-US.debian11.x86_64.deb
+ f130c1afbfeea228c214fb5c62d5cce5 69649934 .refs/main/librewolf-107.0-1.en-US.debian11.x86_64.deb
+ 807996d27b124bd3b839c21374734a27 55188140 .refs/main/librewolf-97.0.1-1.en-US.debian11.x86_64.deb
+ e62353b8afc103fbb82dcff324e66983 55181692 .refs/main/librewolf-97.0-2.en-US.debian11.x86_64.deb
+ 0391eb622b9b990c58207c0bc8f2d37f 70251638 .refs/main/librewolf-108.0-1.en-US.debian11.x86_64.deb
+ 4b250881e18c54cf812bc9051bde9265 68322662 .refs/main/librewolf-100.0.1-1.en-US.debian11.x86_64.deb
+ d5727e764c88d1e358a28c6477f1d4c9 68154414 .refs/main/librewolf-101.0-2.en-US.debian11.x86_64.deb
+ 8110439ef351c1b203b9541fa51ed7e3 55731224 .refs/main/librewolf-98.0-2.en-US.debian11.x86_64.deb
+ b65ea8bfcd4e9fdf86c2dc2b6286bf52 68371114 .refs/main/librewolf-104.0.2-1.en-US.debian11.x86_64.deb
+ 6159185e634d6adf1655a7289071b1e5 70261306 .refs/main/librewolf-108.0.1-1.en-US.debian11.x86_64.deb
+ f03642cb71e992e6a58cdee4f19882c1 68161158 .refs/main/librewolf-101.0.1-1.en-US.debian11.x86_64.deb
+ 8485df13e561776a0e24310793c11fdc 70092242 .refs/main/librewolf-107.0.1-1.en-US.debian11.x86_64.deb
+ b3b4bb8486b934d0ce7723cd127395df 69820418 .refs/main/librewolf-106.0.3-1.en-US.debian11.x86_64.deb
+ 246a62585e0121b3ed937a84cfa6b3d9 68611474 .refs/main/librewolf-105.0.3-1.en-US.debian11.x86_64.deb
+ f42867a56513bf9a3415a7a6083c5e3c 70062074 .refs/main/librewolf-107.0.1-2.en-US.debian11.x86_64.deb
+ 39e7f04c9ca4d5466ad2d0521385700d 68288276 .refs/main/librewolf-100.0-3.en-US.debian11.x86_64.deb
+ f498cb4dd39fe0d481abbb21c9768a4c 68564486 .refs/main/librewolf-105.0.1-1.en-US.debian11.x86_64.deb
+ 8f5d0ef6a93218ef1283b23efb629b58 67946486 .refs/main/librewolf-103.0.1-1.en-US.debian11.x86_64.deb
+ d8ec90bff78b76572ea88d1bf38d1a5f 54993068 .refs/main/librewolf-96.0.3-1.en-US.debian11.x86_64.deb
+ 3db1914ce92e6719441ab49edf2ca4f7 67508334 .refs/main/librewolf-102.0.1-4.en-US.debian11.x86_64.deb
+ 0799cd07b0637314eeab60c37ff9a88f 54987700 .refs/main/librewolf-96.0.3-3.en-US.debian11.x86_64.deb
+ 9c7495beb8e8b68e9fb7ff4a7f4306ef 68135122 .refs/main/librewolf-102.0-2.en-US.debian11.x86_64.deb
+ 2a52161d2eb27deeb5a912d0c0031bf9 67906790 .refs/main/librewolf-103.0-2.en-US.debian11.x86_64.deb
+ b66a46fe205a8f04c4690b1109e00d7a 67969674 .refs/main/librewolf-103.0.2-1.en-US.debian11.x86_64.deb
+ c919b3c1f73de766eb9a80bb28695cb4 69828834 .refs/main/librewolf-106.0.2-1.en-US.debian11.x86_64.deb
+ 8658275ac0b01d15c904df86f7acb14c 69811922 .refs/main/librewolf-106.0-2.en-US.debian11.x86_64.deb
+ 578608a790a056b48cd5c5c6696ef743 55127552 .refs/main/librewolf-97.0.2-1.en-US.debian11.x86_64.deb
+ 736e8240de9610f6d09120435d2ce727 69818314 .refs/main/librewolf-106.0.5-1.en-US.debian11.x86_64.deb
+ fdd5b57c3fedc44444fd82d13b09eb3b 68255394 .refs/main/librewolf-104.0-1.en-US.debian11.x86_64.deb
+ 6f7afac5b48a48d5a3b57326ddc7b630 68145598 .refs/main/librewolf-102.0.1-1.en-US.debian11.x86_64.deb
+ e8ad57604c95cdb1d441a9c174e34573 63210724 .refs/main/librewolf-100.0-1.en-US.debian11.x86_64.deb
+SHA1:
+ 543c0815c630169aee55b08cee64defddf6da759 60123 main/binary-amd64/Packages
+ f880b680b68bf6fe0de1aa6623580b194fb07113 9054 main/binary-amd64/Packages.gz
+ aa10e32282a2f3695f7c327adf6ece9aea47cd6d 210 main/binary-amd64/Release
+ 0f65df3fc5a7fb202afe830c7b897892bda245fd 55818568 .refs/main/librewolf-99.0.1-4.en-US.debian11.x86_64.deb
+ 4e4a2a1b7b6eca7d99c9d868e12b3b953b3fc6e4 55987240 .refs/main/librewolf-99.0.1-1.en-US.debian11.x86_64.deb
+ 92946e426fb5b16fb5a6a42a3464d71e82231c8b 70302514 .refs/main/librewolf-108.0.2-1.en-US.debian11.x86_64.deb
+ 1cdc15ad0cf938013221d2e05cdb76d9a251e7e0 68605422 .refs/main/librewolf-105.0.2-1.en-US.debian11.x86_64.deb
+ 4af2c06bcb3fc8ddc6c34143b007ecb1984410aa 68564150 .refs/main/librewolf-105.0-1.en-US.debian11.x86_64.deb
+ 5f38c8f7645e63858140716d54b1b86975bc1ae5 55986112 .refs/main/librewolf-99.0-1.en-US.debian11.x86_64.deb
+ 829a3518c833f00e30801c737b6cb1051afecebf 55727916 .refs/main/librewolf-98.0-1.en-US.debian11.x86_64.deb
+ a986ef5e7461ae0cb2924c97ec5686e4160331ba 55814500 .refs/main/librewolf-99.0.1-2.en-US.debian11.x86_64.deb
+ c45c16eee4517b4861efccde15d7de20c301b524 69822126 .refs/main/librewolf-106.0.4-1.en-US.debian11.x86_64.deb
+ fb40de26a16c8bbec3fb18306f0d726f70305243 67982206 .refs/main/librewolf-100.0.2-1.en-US.debian11.x86_64.deb
+ 048b418eaaa8e9f5c376e72d09163c5146c9fda2 55183944 .refs/main/librewolf-97.0-1.en-US.debian11.x86_64.deb
+ 330abfb21b8a1ecff67bbb886a79afd6c427d934 69808186 .refs/main/librewolf-106.0.1-1.en-US.debian11.x86_64.deb
+ 0f5587918d68a23d295575400e974eb3325f3fec 67912278 .refs/main/librewolf-103.0-3.en-US.debian11.x86_64.deb
+ bdaadc8916897daf63124496cfdd25a55ed7169c 55728244 .refs/main/librewolf-98.0.2-1.en-US.debian11.x86_64.deb
+ bcecf79d80096b34e4ffcaa3a54935fe1874e77b 69649934 .refs/main/librewolf-107.0-1.en-US.debian11.x86_64.deb
+ 0e14dc0ea22922bb14f21d2ae060ac541fe6d9d0 55188140 .refs/main/librewolf-97.0.1-1.en-US.debian11.x86_64.deb
+ f61ef435644cf3a5528e5fb5d3521eacad426ddb 55181692 .refs/main/librewolf-97.0-2.en-US.debian11.x86_64.deb
+ 607f2e146ca7b1cff5611f797fbe42a4789d4ba2 70251638 .refs/main/librewolf-108.0-1.en-US.debian11.x86_64.deb
+ dfda77bdac456cd0d17c23966be508a2b1247f39 68322662 .refs/main/librewolf-100.0.1-1.en-US.debian11.x86_64.deb
+ eb7af78b937cb103c8b14a13c9610d05cd4174e7 68154414 .refs/main/librewolf-101.0-2.en-US.debian11.x86_64.deb
+ e46debe4d26e83266a5c0a8c2fd984952c540b97 55731224 .refs/main/librewolf-98.0-2.en-US.debian11.x86_64.deb
+ 6ae063bb02c084b95b128d1e9f57e8f8c1c15936 68371114 .refs/main/librewolf-104.0.2-1.en-US.debian11.x86_64.deb
+ 97cbd668ec8df7651059e6cd74c8f20fb75014a7 70261306 .refs/main/librewolf-108.0.1-1.en-US.debian11.x86_64.deb
+ a9b02ebb1b59826d2a392c9138e0add5512d11dd 68161158 .refs/main/librewolf-101.0.1-1.en-US.debian11.x86_64.deb
+ fbe772ecc4b35b8ebbf828314e4c80af1301d7cc 70092242 .refs/main/librewolf-107.0.1-1.en-US.debian11.x86_64.deb
+ e2b41c42e38b1af3b955aa7c87a6d576976a7c42 69820418 .refs/main/librewolf-106.0.3-1.en-US.debian11.x86_64.deb
+ db819c80af3bbf82e655e93bb4b8063f847279a3 68611474 .refs/main/librewolf-105.0.3-1.en-US.debian11.x86_64.deb
+ 960c2c1b61518e86caa835a3a4559e5317bbccf5 70062074 .refs/main/librewolf-107.0.1-2.en-US.debian11.x86_64.deb
+ 86ad3ca4fcad0433d03699fc2f4bad5933bbaa40 68288276 .refs/main/librewolf-100.0-3.en-US.debian11.x86_64.deb
+ ed4f994fd0a935af224dc02cd4dbcfa24282f92b 68564486 .refs/main/librewolf-105.0.1-1.en-US.debian11.x86_64.deb
+ 98ca6225053f9001d2f2a0eb189427efd0ffd495 67946486 .refs/main/librewolf-103.0.1-1.en-US.debian11.x86_64.deb
+ 1d02385a6cf89a1c6a875c379c90327544a6ec82 54993068 .refs/main/librewolf-96.0.3-1.en-US.debian11.x86_64.deb
+ 519b69d07820990667dc06e36d507751d971dd07 67508334 .refs/main/librewolf-102.0.1-4.en-US.debian11.x86_64.deb
+ efbf732c56d5964959c0c9bca32bcd193c05d04c 54987700 .refs/main/librewolf-96.0.3-3.en-US.debian11.x86_64.deb
+ 3a6fa9bb32d8765a4587e054d8f605f21aa0f936 68135122 .refs/main/librewolf-102.0-2.en-US.debian11.x86_64.deb
+ b640e28d7c054d13e1ee8107bd485da0fe5489c8 67906790 .refs/main/librewolf-103.0-2.en-US.debian11.x86_64.deb
+ d213a1a903bea49d78376ccdcde8edda3baa1449 67969674 .refs/main/librewolf-103.0.2-1.en-US.debian11.x86_64.deb
+ b8e868dc806be4f0238f81b627a77e48599beed9 69828834 .refs/main/librewolf-106.0.2-1.en-US.debian11.x86_64.deb
+ cf18f51b32c01b65d35938c3fb9da5fee4342f42 69811922 .refs/main/librewolf-106.0-2.en-US.debian11.x86_64.deb
+ 80826535ae876ab94b3681efc6adce16fc6e92fd 55127552 .refs/main/librewolf-97.0.2-1.en-US.debian11.x86_64.deb
+ 0ca02c1cd76e4251f1f57ed32fcca2c2e026148f 69818314 .refs/main/librewolf-106.0.5-1.en-US.debian11.x86_64.deb
+ e0cf7b2673a786e55a8d017d04b9768dd2f63efb 68255394 .refs/main/librewolf-104.0-1.en-US.debian11.x86_64.deb
+ 4f120a4c85a3b37c54c6c4b23d9e580209fa2641 68145598 .refs/main/librewolf-102.0.1-1.en-US.debian11.x86_64.deb
+ 5623d78e6a265841a054bd42d6d36f7beab0a4b7 63210724 .refs/main/librewolf-100.0-1.en-US.debian11.x86_64.deb
+SHA256:
+ e1e23e41817666acc9cfc20516e8bdd786f91dd796104c80001a6eed0e4dec5e 60123 main/binary-amd64/Packages
+ e2e302de39ee03f66270d7b003a5a700945197d07d4f104da15d0ce4dfbb2086 9054 main/binary-amd64/Packages.gz
+ 9bd9e83cee296d6dfde76ee5ea82b3dd093822437d34442c0ad5b23e032fa0a4 210 main/binary-amd64/Release
+ 43cba0e7772ec9ed56246b82612053c37573c33d09dd0e5d80acc8df118f3c89 55818568 .refs/main/librewolf-99.0.1-4.en-US.debian11.x86_64.deb
+ 00ec5b4b3475dadc07d24b4fa54a210762d8b47d115ca7203bbc96281c7e6ad2 55987240 .refs/main/librewolf-99.0.1-1.en-US.debian11.x86_64.deb
+ ed2928ec945c393947952ba54f7e32510f9491720ca3b744b2f502976f3a36b9 70302514 .refs/main/librewolf-108.0.2-1.en-US.debian11.x86_64.deb
+ 9f77e4680be25d8179f32e3b4808feee2b5e7bcfbf650dd716e91f19fa62f0b6 68605422 .refs/main/librewolf-105.0.2-1.en-US.debian11.x86_64.deb
+ ea6d49edb7ed6cb95533998581e941e33fbfcf23cbc069e008d3c355164a8dc6 68564150 .refs/main/librewolf-105.0-1.en-US.debian11.x86_64.deb
+ 67a2b690a555975438fdc3b50b07a81dc9793d7df0c8532f36202b19ddb58e70 55986112 .refs/main/librewolf-99.0-1.en-US.debian11.x86_64.deb
+ b056521c384151f937bc162f5032cacc535426fad306b13c7be690c39a5c99e1 55727916 .refs/main/librewolf-98.0-1.en-US.debian11.x86_64.deb
+ 8b26660793159121b7df8495ad426e21b756d6cad532e460eefdd31b72043894 55814500 .refs/main/librewolf-99.0.1-2.en-US.debian11.x86_64.deb
+ 75e457815424b5ba296dfebc206bfc5979f6a9898437d37cdc35a0f8d8d85dc3 69822126 .refs/main/librewolf-106.0.4-1.en-US.debian11.x86_64.deb
+ 7ab354dc44657a41f093032669fa5ed2791f3ebbd0ab7a0abefa228644ee2c29 67982206 .refs/main/librewolf-100.0.2-1.en-US.debian11.x86_64.deb
+ f53048ea63e4fd5f0c1ae2526d5b78445add83bb9f6e50fc8bc6f7c2e6719799 55183944 .refs/main/librewolf-97.0-1.en-US.debian11.x86_64.deb
+ 22b978d19cfd870a91f72e6dfb9e797b62746b61440fec4763a4fa8e086910b0 69808186 .refs/main/librewolf-106.0.1-1.en-US.debian11.x86_64.deb
+ c5aa7ba502f95b28e27c08f32de92765b884587d736179c239242d4a98003909 67912278 .refs/main/librewolf-103.0-3.en-US.debian11.x86_64.deb
+ 418e492a866bb523fa3850e800d205e5cb3c85a61bf762b3422f722c2c0030af 55728244 .refs/main/librewolf-98.0.2-1.en-US.debian11.x86_64.deb
+ d083bc09bcdfce9ff1dc4dc10dd3862ed07cba0c73d30370c18b448ff33266aa 69649934 .refs/main/librewolf-107.0-1.en-US.debian11.x86_64.deb
+ 612aac8f84d02355b6d305fec2b42d3e0bbfcfd4f914c69681d9108217f9a729 55188140 .refs/main/librewolf-97.0.1-1.en-US.debian11.x86_64.deb
+ d7112a44574ac09dae86963874f5a17ecd17288c9da049ab34873b37072f55d6 55181692 .refs/main/librewolf-97.0-2.en-US.debian11.x86_64.deb
+ aa2d30551603fb523176326f48ddb997f7c885e4573e249359fed5c1d61089fa 70251638 .refs/main/librewolf-108.0-1.en-US.debian11.x86_64.deb
+ 0d46af88e527a5c7ba8ab2e8a48e17794cfe84a46e53bb0440402b1044e88a70 68322662 .refs/main/librewolf-100.0.1-1.en-US.debian11.x86_64.deb
+ 3a625bc75b0c0901a77ad73d787fba9669a7fbd64b72c945bb3ca1ab04dec467 68154414 .refs/main/librewolf-101.0-2.en-US.debian11.x86_64.deb
+ c92fd1dc88153350a2665c9f2e7c313da2c5f3a933168b10bbcda7be361fd184 55731224 .refs/main/librewolf-98.0-2.en-US.debian11.x86_64.deb
+ bcd8830dfd638da3cc2ef62a817486b6bbe14f4e09cc5583219562c9e957bfdc 68371114 .refs/main/librewolf-104.0.2-1.en-US.debian11.x86_64.deb
+ 62eb59db99b6586b60a4738d7fa66bd505de1bede5c9a7637137a636c999b437 70261306 .refs/main/librewolf-108.0.1-1.en-US.debian11.x86_64.deb
+ 137d6bbad5d249372a32a2f971734ac588049738fc3bc432e7c675193b02006d 68161158 .refs/main/librewolf-101.0.1-1.en-US.debian11.x86_64.deb
+ 60bc26c121f0c8de51ddc65c0d38ca821ccee991b78c440d31251c83c1d0312a 70092242 .refs/main/librewolf-107.0.1-1.en-US.debian11.x86_64.deb
+ b06fb7771bc928ea79eacef18a3b6d69ca2de2325050b606c995c16296d9cd34 69820418 .refs/main/librewolf-106.0.3-1.en-US.debian11.x86_64.deb
+ bb35543b910dfd0bbd50189148b9f0493cc9d146e9543ae5e991485e44860948 68611474 .refs/main/librewolf-105.0.3-1.en-US.debian11.x86_64.deb
+ 5b13e746a71c00305d40bb829b82db931fe6abda1470360df5dd4a6366d64b6e 70062074 .refs/main/librewolf-107.0.1-2.en-US.debian11.x86_64.deb
+ f8036799979556dde20629b6a85015b0b781d06e7aeadb89b46d31e23babfa52 68288276 .refs/main/librewolf-100.0-3.en-US.debian11.x86_64.deb
+ 1f75902698ff70343b1c59287ecb42a54e9238cdda4166a6fada8ec3b44f2b85 68564486 .refs/main/librewolf-105.0.1-1.en-US.debian11.x86_64.deb
+ f3623015a682f2ab39aaf7963f1c6b2d6d3b6a062fea23760ba2376f8c1209c0 67946486 .refs/main/librewolf-103.0.1-1.en-US.debian11.x86_64.deb
+ de2a88cec14cf834cd33a4c03030c1c485dec28c3b54f55af7a66c48cdb199f2 54993068 .refs/main/librewolf-96.0.3-1.en-US.debian11.x86_64.deb
+ 110598ea02129d666b526845b26927c9ccc06ffdf2f0665bc019b53e302c1e8d 67508334 .refs/main/librewolf-102.0.1-4.en-US.debian11.x86_64.deb
+ 8a1e1cf532a8ae966fb0c575e3197d92b29fcc28053fee85c9fc77a3b78fa31d 54987700 .refs/main/librewolf-96.0.3-3.en-US.debian11.x86_64.deb
+ 9c1567305ce1e95a251a1a6ff88cb4ad78763940fac9deaaf2d0287ace699beb 68135122 .refs/main/librewolf-102.0-2.en-US.debian11.x86_64.deb
+ 3c053adc1bc9d856b50ad63922788cc5dcd3cdfcd2dd2a737e12d84ceab056f6 67906790 .refs/main/librewolf-103.0-2.en-US.debian11.x86_64.deb
+ b92b3a0f4c1eb450b5642b677d911f4c25ea09bbfc4eb6b3dd71d8b95590df13 67969674 .refs/main/librewolf-103.0.2-1.en-US.debian11.x86_64.deb
+ 3f97e7f680a5bdd2bef24e9e250f9df2c32b0b042b65ebc0ed499e289707a37c 69828834 .refs/main/librewolf-106.0.2-1.en-US.debian11.x86_64.deb
+ 980b89a9d139c5ff9160f71a8c423c901e059bcee1798aca5d748dc46f3126e8 69811922 .refs/main/librewolf-106.0-2.en-US.debian11.x86_64.deb
+ ca4083ee0e6c3a47f0c80323160410cab401afd38ae4c9fee17e58e308ced626 55127552 .refs/main/librewolf-97.0.2-1.en-US.debian11.x86_64.deb
+ f0d6090bb89b3255f7a14f9751bcce20d01b03ecf41dbccd045b28b85039f0d5 69818314 .refs/main/librewolf-106.0.5-1.en-US.debian11.x86_64.deb
+ 58407b252b2c3fa86ce17424400f15edb4bf5e2a5f1cc6c5ecfcacefa1bfae91 68255394 .refs/main/librewolf-104.0-1.en-US.debian11.x86_64.deb
+ 9a71328053d700cd41cb62cbe83cc3db7c5f594866f7871933240016282f755e 68145598 .refs/main/librewolf-102.0.1-1.en-US.debian11.x86_64.deb
+ ac991f2ee96bb00d29d6ef3b108fb9a12342869043cfdbd767d2f079d39ef933 63210724 .refs/main/librewolf-100.0-1.en-US.debian11.x86_64.deb
+SHA512:
+ b5064ad4ba513a155cb5fe0b471b99c113e4e8a1a5d0715ad389845ea6cc5622232819f8322fa18fc47f36c8e2fc4ca516df9a8bb665bcd8583eb488bf5ef2d6 60123 main/binary-amd64/Packages
+ 81844e0bb1833c26dbb1ff0878cdf59ecbb12267c6aab97f7e3f10fa42d077e2f3ac1eb1cbfb01594ef6303889f9de5014107639ad7513fc2c43ca9300a5290b 9054 main/binary-amd64/Packages.gz
+ 8bdae40a4e6ddb4a11469d4a6af34f98caeb9d5572c236877604db1926a75c2ffb0389e891ea0114ec3a2f442e75a49d530b46c3118ca45e0691419f4a7302b6 210 main/binary-amd64/Release
+ efe339bec4dac0795e91844e5355c58926dfe4bcf5a02fd7ec4dae9e896ae067e89673b1b7f5022558ffb8afdb7afaa3654bb725c54b2661dbd8724884473ce7 55818568 .refs/main/librewolf-99.0.1-4.en-US.debian11.x86_64.deb
+ 80a8dcfb514e495ad4d6ff58e1cb05454c97d696527c513c0c696d943df0376493278507a79f2d796635bc9afd568bbff99431c8be32c48f096b591754fdbceb 55987240 .refs/main/librewolf-99.0.1-1.en-US.debian11.x86_64.deb
+ 0f64a6150ddb4d0ff0cdd678950deaa3f4d9de8e3aa958582aa82f8718145debbae5758a3cac5aac6649462b2e4c2c0184790c15456fbe4a8fde4a32dda39e0d 70302514 .refs/main/librewolf-108.0.2-1.en-US.debian11.x86_64.deb
+ 027907c4b81c14df1cf75a952ab171a74115a74937f7e093c68683242842e8af44e8c377071663eb367f711dc486b52dadb0c15abaac7a765360a374492a7ca5 68605422 .refs/main/librewolf-105.0.2-1.en-US.debian11.x86_64.deb
+ d40cbd2f90d8ad2bd6bc143ff43a340828ccc8f50fd1bbaf1f67380d9cb7e8a0f20cda36bec57bb3c5f99ee9b3008ce38d45999afe279f9f70cfe599de6d0b93 68564150 .refs/main/librewolf-105.0-1.en-US.debian11.x86_64.deb
+ 21f0e4bb4f4304420c3c672808475c2224abdf5c1b0df4d33af60118c3ed72bac07b601898c7c7ba081f5a0ff412fc5e854f56f2faf66c545297511e2e796b59 55986112 .refs/main/librewolf-99.0-1.en-US.debian11.x86_64.deb
+ ea10d3483c0a10fba9cdad14fc2715574105b7b53f8a1da93b507677ff5a0533e0d81794fe7c0e9ba7bba08ab2034d22742df233cfd7031275d7d1fc04845480 55727916 .refs/main/librewolf-98.0-1.en-US.debian11.x86_64.deb
+ 391a7069f2606182654628db3c5324ec82f042cba30729a4e893333a547ab10644145924b44bdb8e4bc2db8564c2191f63e7f44b0c8e5d1a10b585532387cd04 55814500 .refs/main/librewolf-99.0.1-2.en-US.debian11.x86_64.deb
+ 269e8c98de3e29576cb565e93eae459fe85eea73dbc032dd5acba45fa449acf998fe7dce895c73146cb6e6c6bb4eb1f142f68bcb4e88a34dcf95917ee98f412f 69822126 .refs/main/librewolf-106.0.4-1.en-US.debian11.x86_64.deb
+ 29358dc9f91a333af9b77ecbd310f451aae07b5335daabc258a8755dfce47e1ed25fe546ede3f0340cd670abf4c0ec32bd276ef1f70f0b010bf23575a8c17e6c 67982206 .refs/main/librewolf-100.0.2-1.en-US.debian11.x86_64.deb
+ 3a36dd483c83a2f2d20d0b2471195c259d3c62e6688713e99d3462d8f21df00965dae05347e213471da8636eb0ef1b7d0576c0372290b241a257fa4c061386a1 55183944 .refs/main/librewolf-97.0-1.en-US.debian11.x86_64.deb
+ 1a5a19ca3127cdead919f82f7ff77a5894532254d8baa26f5f70476ef220bd7c9fb4be2cf4124df236dd2a175537249d9f3701e0ae7c4b07248f811fe41ad40a 69808186 .refs/main/librewolf-106.0.1-1.en-US.debian11.x86_64.deb
+ 0fc6bfcae07cb1621baa752a04567a45500c962db854a1bd3e334f46a7faa5b913d50851c97c217389d3434aa97123d00c3484563e9d179a713fe4e281849e58 67912278 .refs/main/librewolf-103.0-3.en-US.debian11.x86_64.deb
+ 9a2909d66a53ef511de92e8849d6b994504d8870ca4d9efa1ade8c0cf31a5f52ba35519a6e7f476db39a9d1ca0d4c129cda4432a5df59985a297ab0b865cfb2e 55728244 .refs/main/librewolf-98.0.2-1.en-US.debian11.x86_64.deb
+ d3951fe3275bcb8207eb6cd9f29b20f27a7abce38a190c38b8199e8f61b4b743adf41da9b673d4591d23919358d53379763838f5b936b5a0e51f2d2323e7e7eb 69649934 .refs/main/librewolf-107.0-1.en-US.debian11.x86_64.deb
+ 9a56a3574fe29ca27af1164c8cb2401f473cb18547815f1a8fffe4d3b4a661b5b4383f283b76576003fca5fbb24e844a9ba74f1b1c5598e1cdfc503b850ea4fc 55188140 .refs/main/librewolf-97.0.1-1.en-US.debian11.x86_64.deb
+ 709a9400f9c89bd4839fdd5bd1884bf1c486c0ae204b52567537aaf6df2d8e2fb556810c437a38eea8aa672845c06b730295030093f51a5cf84a9978f9c82504 55181692 .refs/main/librewolf-97.0-2.en-US.debian11.x86_64.deb
+ b79336979a7fe5c3b15cca4b69dfdd3a0b6c7d7d0fde7784e5441f63968d5064d50abd5ef9646a0f0c5c5636dfa7aecc8a4bd5fe7ca8475e0448ba86e8b3637b 70251638 .refs/main/librewolf-108.0-1.en-US.debian11.x86_64.deb
+ 88666b8a57060577721bb3ad7720ea039a82fda175a111f6b52a8daa3c97152e0bdca964541de5cbfea24495b3aee0b1065b8e68f94fdd6e2db0f723c91ef1d6 68322662 .refs/main/librewolf-100.0.1-1.en-US.debian11.x86_64.deb
+ dd325c54850def4b4ac43b113f94b058b8d25540a227ee3cd3719f8d45770e0ce05c9680a9ef23f5ce09e6a78f2d487cbefd6f35a11a0d473c41f568b3cd2501 68154414 .refs/main/librewolf-101.0-2.en-US.debian11.x86_64.deb
+ 818ae7d6e2a78ef5b73003df4c6648221518c5d0d28ec9f35379989c3769bb4bc7f224f29ec7efe5f568e410575a09fa8000132df006d1d8141e345ab67db3c0 55731224 .refs/main/librewolf-98.0-2.en-US.debian11.x86_64.deb
+ 15d8e9916e7b7bd0cd37faf928b1525306a8b7a9de447848b786304f5d43c498c47204eee2403811cf88d29311c91441f3cc907eb00c44ddad0672bf17263551 68371114 .refs/main/librewolf-104.0.2-1.en-US.debian11.x86_64.deb
+ da0a1f2804f5697f520e72e976700908ca4b25e3c757284e64adc0c1ee453ac65e64a62ad3e74bb58075e7eefde42e08c1f3b9df20f77a23fc4c845385393799 70261306 .refs/main/librewolf-108.0.1-1.en-US.debian11.x86_64.deb
+ 4f484a1b8fe76551058fda0d7eb8dff98d716d5ddab77590bdf395f9d0b8a7406d627b7fb6179fd4e22ba2a2d7b4feaad46b651409bbabbadd1de4c82d7e517d 68161158 .refs/main/librewolf-101.0.1-1.en-US.debian11.x86_64.deb
+ f1070acd37604456a1e4d377bf86d98c6fa2fbf16a55f76eff52997b830a3522b61c03cb2b2cb57ca84f36f15fae79ff0cefc626d92c781463676d1fc5f52e60 70092242 .refs/main/librewolf-107.0.1-1.en-US.debian11.x86_64.deb
+ 2b9e719ba1aec49b08206e32e6bd7530df3b9cee61c6ad60ed7ec78c1968d9d58891512df48371492f5e84dd54d6757773e55548448febb8941624599bcae95b 69820418 .refs/main/librewolf-106.0.3-1.en-US.debian11.x86_64.deb
+ 246c4472168fad36bbaaa08bdcc37ce93480d026e908473266ca44cdeb1e47cc19a31dd137361a50960e6ecd0a5eb4de91498f2a2c01790f6ea54c2de0d96b9a 68611474 .refs/main/librewolf-105.0.3-1.en-US.debian11.x86_64.deb
+ 644e531830814f973645fd60b97d03798ebc79a5690f94193df959eba5bd3d82018b5c971dff773a54902add6c5059a63047117e43f37946e520b0696c9b00aa 70062074 .refs/main/librewolf-107.0.1-2.en-US.debian11.x86_64.deb
+ 3b732323db105d73c5a39db5431657eed557194a5c6bb9a33579e8387044fccb6338ea6cb38f63c19d447e1d63b35b20ac555a8e002f0062e25c2ac57fa94e01 68288276 .refs/main/librewolf-100.0-3.en-US.debian11.x86_64.deb
+ 70085bbe2d3fd2e1dcb9d2fd09aea514cff6807202ef80cb9b18ca9e3881ad021968fe584b8e16e0c9047a4603db2b9a5f4b9fa1a6b2817293c0433f8635789e 68564486 .refs/main/librewolf-105.0.1-1.en-US.debian11.x86_64.deb
+ cb42e0f0e2f44286712b22be1ebb9ef1e08daf5d109045750895176f8187d0043509ce3708b594371043a39235a6379a1f273c226564d4f736886c1f24eff3e5 67946486 .refs/main/librewolf-103.0.1-1.en-US.debian11.x86_64.deb
+ 297336d1ded4eeeb974c54b0ef696c264bdd00e371d95f0d6ef3e9a5586e6bfe56f62201a4879aa01c4e1e8e7ccad898117eeaa40de8e995d96fa68eca932539 54993068 .refs/main/librewolf-96.0.3-1.en-US.debian11.x86_64.deb
+ 53f5519e5a490a1c70d232614bf99cfab5eb0da30b861fe4fff208b5eebb0dc5c91c23a2dba970568c2566159b33fe7d7fb0ae62380dc8756b593a505f51f674 67508334 .refs/main/librewolf-102.0.1-4.en-US.debian11.x86_64.deb
+ 90d113b795c25aa7913cddf4e113789a896b6faa61670d56a8eb5d838e5be64d78d9e75be0d3d540c9d515fdc8a47d796f92e6b26b8ba791a4bc6f96a58ee49c 54987700 .refs/main/librewolf-96.0.3-3.en-US.debian11.x86_64.deb
+ 5ec9b8fb2de1d5a9403fc285dbd436492c75abeb6e812a1214c185f810b627c79cf9675a51c9e6141d525a372fa75a379b0bd260c46b5179f21e033f3b14b884 68135122 .refs/main/librewolf-102.0-2.en-US.debian11.x86_64.deb
+ 1aff43e994e8a2f4538897bdca85396c1c4062223676fe81ab23fe101030634773cacc43901aac376ceb6624b6ab479c7bc9252022d56ecc67121487b0e029b6 67906790 .refs/main/librewolf-103.0-2.en-US.debian11.x86_64.deb
+ 9626505aa06255342b4204c226f28f105b6dd8ef7192f26cf3ce33ad2438e600a78cfa9e2c1cec77f70c78c06348dd50dfda67ced4976aafcb5ff35287bddd3f 67969674 .refs/main/librewolf-103.0.2-1.en-US.debian11.x86_64.deb
+ d62cdaa5e1a0fac7156b4d2b45b9e8417483dadbc4c6eee0c351dd1f241a4e12fd34e2b674fb32eb29e7c8f6dafe2e89d51daa20466858d0799ea65c7de8856a 69828834 .refs/main/librewolf-106.0.2-1.en-US.debian11.x86_64.deb
+ 2dd6f64f4803450bcbd83fb4415a09c9e814e39a5ba81b97c54eb21cc2410b98ea53d48522aab96023aea59a03c1a9b2978e9b9d31daf1f6e4d39aaf9b8788e6 69811922 .refs/main/librewolf-106.0-2.en-US.debian11.x86_64.deb
+ 0dc2752d658f796faf50939d887f3478bf441a46b5f1e07fa9323f6df82e12f37612fbf3da37ac6aef8d60ae15692089c385cf2935e683d38ef5a5e15fb47139 55127552 .refs/main/librewolf-97.0.2-1.en-US.debian11.x86_64.deb
+ f9af62ef566f637f4393f75a710000cd3be3608f6e4f06cd068665a2ab11657940d1b039feb497622e25188a8a41119bba4193592615b05aacbb2e2b18c7bb5d 69818314 .refs/main/librewolf-106.0.5-1.en-US.debian11.x86_64.deb
+ fbb436b6bd4ea20d90d8bae7cee132c3d267cfae36063b72b236cf905fa1b4bfd151dab4d33a8a75ea04d5cf7dbead18f8b0941fb4e0281cf1da6e9327da17fd 68255394 .refs/main/librewolf-104.0-1.en-US.debian11.x86_64.deb
+ 530ab0c1ed147abc1480e893e45219b6ddb4765b790b5b25c53a1da72359405742dd1337b68ac3d2b0d1e083251b367b623eb5cd573e5c8713058a42536c23da 68145598 .refs/main/librewolf-102.0.1-1.en-US.debian11.x86_64.deb
+ 51bb4926103b811098ebf59bee9ae25d5a562d2809efc3b6cb488336371679608615f58cf3b909a0ad4f7af0d3444a11f2a5474004d3081f655aecaf3b0a7f7b 63210724 .refs/main/librewolf-100.0-1.en-US.debian11.x86_64.deb
+-----BEGIN PGP SIGNATURE-----
+
+iQJIBAEBCgAyFiEEA093du9eDGE9L3k00p+9X5PAz8MFAmO/Eg0UHG1hbHRlanVy
+QGRpc21haWwuZGUACgkQ0p+9X5PAz8P6uQ//a6z0MMGRk6fAB08isqpiVOkJW/HC
+pKU3GSocMnB7/plxd987bNXy2jNb1DJ0pA3q+TlFESAHFEBz3dUVgnGeWaVXBgT3
+iNlLt/KwB+GopV/Lpg6PQQaE9jYplnW6IH27n+225KNYDYMQwyB3jYXEPyfGgNmi
+cAfAJ22OiYlYJYiJq5HdR5tCCiTVhMwdeYzYv7SIsATFJ/0cFHKLdcPImwg0hnOL
+qpQ8MyT2xYmBpUo1VsswejvG1iEHgd/Uz6vhun7825ZcT2hRPMtWlODeHQ19Nk3a
+ImazYcjdUR0zekXVoTcdmDkuDpDzEdCovs8+a61sNe3vUKEfFnNWPql7s3FCyKt1
+OgB89nehvaCgAXVi3kFhFTHJraPNjv001zo5NJl6Mpx0Q7JKdlJ/pGBRcf7ubeDf
+i9kOCyJFvurBH5pBSNHH4Sb4H1UUf//qx/CwufJ1BHQqxeLyXmc3KHhJiFaSA4L/
+42VVGHKMKCMX/3aXPWQ1WiKyuf1HcMLbdxWOJ7lt8a26IdB8rhSJaKIMX/UlWNXo
+SLTHGDHXkxtIOTrUlkt7h11Ys78Zf9A5AWIKpYbXFh1RK05XWA69iJegBwJk/p3/
+CZEz1l/HD9mSm4ZYozw4tJsMmpi+XhcNgylXq+7qq7C71SzhdMatVQeoWqnwVKWz
+6HxqPnDYS/t3OSc=
+=IYeV
+-----END PGP SIGNATURE-----

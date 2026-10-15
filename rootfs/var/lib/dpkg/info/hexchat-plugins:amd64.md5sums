@@ -1,0 +1,9 @@
+e22e04cb9f8dfb48317400757c0190b1  usr/lib/x86_64-linux-gnu/hexchat/plugins/checksum.so
+58b40bf34669de04315af87fdbda2155  usr/lib/x86_64-linux-gnu/hexchat/plugins/fishlim.so
+775c2f733ff7eed1e5233475b6ec1f65  usr/lib/x86_64-linux-gnu/hexchat/plugins/sysinfo.so
+0a62fc227c6d3d0949ea423463aefc92  usr/share/doc/hexchat-plugins/changelog.Debian.gz
+8e3546fb7cf6497284d5a8200b17d071  usr/share/doc/hexchat-plugins/changelog.gz
+eff992716f2df353112fbbb2a2af907e  usr/share/doc/hexchat-plugins/copyright
+2a53258a5e3fedd9a40aa01311d07c57  usr/share/metainfo/io.github.Hexchat.Plugin.Checksum.metainfo.xml
+40c46efbe9dcff4ecee8fc0b872ea9b7  usr/share/metainfo/io.github.Hexchat.Plugin.Fishlim.metainfo.xml
+ce0829906a10b692890442a598a51e2c  usr/share/metainfo/io.github.Hexchat.Plugin.Sysinfo.metainfo.xml

@@ -1,0 +1,22 @@
+DKMS make.log for broadcom-sta-6.30.223.271 for kernel 5.10.0-19-amd64 (x86_64)
+Fri 18 Nov 2022 05:29:00 PM UTC
+CFG80211 API is prefered for this kernel version
+Makefile:89: Neither CFG80211 nor Wireless Extension is enabled in kernel
+KBUILD_NOPEDANTIC=1 make -C /lib/modules/5.10.0-19-amd64/build M=`pwd`
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/usr/src/linux-headers-5.10.0-19-amd64'
+CFG80211 API is prefered for this kernel version
+Using CFG80211 API
+Kernel architecture is X86_64
+  CC [M]  /var/lib/dkms/broadcom-sta/6.30.223.271/build/src/shared/linux_osl.o
+  CC [M]  /var/lib/dkms/broadcom-sta/6.30.223.271/build/src/wl/sys/wl_linux.o
+  CC [M]  /var/lib/dkms/broadcom-sta/6.30.223.271/build/src/wl/sys/wl_iw.o
+  CC [M]  /var/lib/dkms/broadcom-sta/6.30.223.271/build/src/wl/sys/wl_cfg80211_hybrid.o
+  LD [M]  /var/lib/dkms/broadcom-sta/6.30.223.271/build/wl.o
+CFG80211 API is prefered for this kernel version
+Using CFG80211 API
+Kernel architecture is X86_64
+  MODPOST /var/lib/dkms/broadcom-sta/6.30.223.271/build/Module.symvers
+  CC [M]  /var/lib/dkms/broadcom-sta/6.30.223.271/build/wl.mod.o
+  LD [M]  /var/lib/dkms/broadcom-sta/6.30.223.271/build/wl.ko
+make[1]: Leaving directory '/usr/src/linux-headers-5.10.0-19-amd64'

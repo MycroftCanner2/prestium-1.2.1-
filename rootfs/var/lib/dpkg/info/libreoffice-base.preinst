@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+
+if [ upgrade = "$1" ] || dpkg --compare-versions "$2" lt 1:6.4.0~beta1-2; then
+       dpkg-divert --remove --no-rename \
+               --divert /usr/lib/libreoffice/share/basic/dialog.xlc.noaccess \
+                       /usr/lib/libreoffice/share/basic/dialog.xlc
+       dpkg-divert --remove --no-rename \
+               --divert /usr/lib/libreoffice/share/basic/script.xlc.noaccess \
+                       /usr/lib/libreoffice/share/basic/script.xlc
+	# cleanup
+	rm -f /usr/lib/libreoffice/share/basic/script.xlc.noaccess
+	rm -f /usr/lib/libreoffice/share/basic/dialog.xlc.noaccess
+fi
+
+# Automatically added by dh_installdeb/13.3.4
+dpkg-maintscript-helper symlink_to_dir /usr/share/doc/libreoffice-base /usr/share/doc/libreoffice-core 1:6.4.0\~alpha1\~git20191013 -- "$@"
+# End automatically added section
+
+
+exit 0

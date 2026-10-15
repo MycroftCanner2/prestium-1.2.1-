@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_ucf/13.3.4
+if [ "$1" = "purge" ]; then
+	for ext in .ucf-new .ucf-old .ucf-dist ""; do
+		rm -f "/etc/libreoffice/registry/pyuno.xcd$ext"
+	done
+	
+	if [ -x "`which ucf 2>/dev/null`" ]; then
+		ucf --purge "/etc/libreoffice/registry/pyuno.xcd"
+	fi
+	if [ -x "`which ucfr --force 2>/dev/null`" ]; then
+		ucfr --force --purge python3-uno "/etc/libreoffice/registry/pyuno.xcd"
+	fi
+fi
+# End automatically added section

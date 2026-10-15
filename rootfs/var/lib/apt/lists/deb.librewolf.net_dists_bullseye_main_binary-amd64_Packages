@@ -1,0 +1,956 @@
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: libc6, libgcc1, libstdc++6, wget
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 96.0.3-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_96.0.3-1_all.deb
+MD5sum: d8ec90bff78b76572ea88d1bf38d1a5f
+SHA1: 1d02385a6cf89a1c6a875c379c90327544a6ec82
+SHA256: de2a88cec14cf834cd33a4c03030c1c485dec28c3b54f55af7a66c48cdb199f2
+SHA512: 297336d1ded4eeeb974c54b0ef696c264bdd00e371d95f0d6ef3e9a5586e6bfe56f62201a4879aa01c4e1e8e7ccad898117eeaa40de8e995d96fa68eca932539
+Size: 54993068
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: libc6, libgcc1, libstdc++6, wget
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 96.0.3-3
+Filename: pool/bullseye/main/libr/librewolf/librewolf_96.0.3-3_all.deb
+MD5sum: 0799cd07b0637314eeab60c37ff9a88f
+SHA1: efbf732c56d5964959c0c9bca32bcd193c05d04c
+SHA256: 8a1e1cf532a8ae966fb0c575e3197d92b29fcc28053fee85c9fc77a3b78fa31d
+SHA512: 90d113b795c25aa7913cddf4e113789a896b6faa61670d56a8eb5d838e5be64d78d9e75be0d3d540c9d515fdc8a47d796f92e6b26b8ba791a4bc6f96a58ee49c
+Size: 54987700
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: libc6, libgcc1, libstdc++6, wget
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 97.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_97.0-1_all.deb
+MD5sum: a4a57a32f36eec588ef1b0945543699d
+SHA1: 048b418eaaa8e9f5c376e72d09163c5146c9fda2
+SHA256: f53048ea63e4fd5f0c1ae2526d5b78445add83bb9f6e50fc8bc6f7c2e6719799
+SHA512: 3a36dd483c83a2f2d20d0b2471195c259d3c62e6688713e99d3462d8f21df00965dae05347e213471da8636eb0ef1b7d0576c0372290b241a257fa4c061386a1
+Size: 55183944
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: libc6, libgcc1, libstdc++6, wget
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 97.0-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_97.0-2_all.deb
+MD5sum: e62353b8afc103fbb82dcff324e66983
+SHA1: f61ef435644cf3a5528e5fb5d3521eacad426ddb
+SHA256: d7112a44574ac09dae86963874f5a17ecd17288c9da049ab34873b37072f55d6
+SHA512: 709a9400f9c89bd4839fdd5bd1884bf1c486c0ae204b52567537aaf6df2d8e2fb556810c437a38eea8aa672845c06b730295030093f51a5cf84a9978f9c82504
+Size: 55181692
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: libc6, libgcc1, libstdc++6, wget
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 97.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_97.0.1-1_all.deb
+MD5sum: 807996d27b124bd3b839c21374734a27
+SHA1: 0e14dc0ea22922bb14f21d2ae060ac541fe6d9d0
+SHA256: 612aac8f84d02355b6d305fec2b42d3e0bbfcfd4f914c69681d9108217f9a729
+SHA512: 9a56a3574fe29ca27af1164c8cb2401f473cb18547815f1a8fffe4d3b4a661b5b4383f283b76576003fca5fbb24e844a9ba74f1b1c5598e1cdfc503b850ea4fc
+Size: 55188140
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: libc6, libgcc1, libstdc++6, wget
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 97.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_97.0.2-1_all.deb
+MD5sum: 578608a790a056b48cd5c5c6696ef743
+SHA1: 80826535ae876ab94b3681efc6adce16fc6e92fd
+SHA256: ca4083ee0e6c3a47f0c80323160410cab401afd38ae4c9fee17e58e308ced626
+SHA512: 0dc2752d658f796faf50939d887f3478bf441a46b5f1e07fa9323f6df82e12f37612fbf3da37ac6aef8d60ae15692089c385cf2935e683d38ef5a5e15fb47139
+Size: 55127552
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.7.2), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 98.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_98.0-1_all.deb
+MD5sum: 8738580e4b2095335e670f223e5bb25a
+SHA1: 829a3518c833f00e30801c737b6cb1051afecebf
+SHA256: b056521c384151f937bc162f5032cacc535426fad306b13c7be690c39a5c99e1
+SHA512: ea10d3483c0a10fba9cdad14fc2715574105b7b53f8a1da93b507677ff5a0533e0d81794fe7c0e9ba7bba08ab2034d22742df233cfd7031275d7d1fc04845480
+Size: 55727916
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 98.0-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_98.0-2_all.deb
+MD5sum: 8110439ef351c1b203b9541fa51ed7e3
+SHA1: e46debe4d26e83266a5c0a8c2fd984952c540b97
+SHA256: c92fd1dc88153350a2665c9f2e7c313da2c5f3a933168b10bbcda7be361fd184
+SHA512: 818ae7d6e2a78ef5b73003df4c6648221518c5d0d28ec9f35379989c3769bb4bc7f224f29ec7efe5f568e410575a09fa8000132df006d1d8141e345ab67db3c0
+Size: 55731224
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 98.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_98.0.2-1_all.deb
+MD5sum: 8f361ed8d5567d122939d650281205a4
+SHA1: bdaadc8916897daf63124496cfdd25a55ed7169c
+SHA256: 418e492a866bb523fa3850e800d205e5cb3c85a61bf762b3422f722c2c0030af
+SHA512: 9a2909d66a53ef511de92e8849d6b994504d8870ca4d9efa1ade8c0cf31a5f52ba35519a6e7f476db39a9d1ca0d4c129cda4432a5df59985a297ab0b865cfb2e
+Size: 55728244
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 99.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_99.0-1_all.deb
+MD5sum: f873f3657c87242380b06ac7519d7043
+SHA1: 5f38c8f7645e63858140716d54b1b86975bc1ae5
+SHA256: 67a2b690a555975438fdc3b50b07a81dc9793d7df0c8532f36202b19ddb58e70
+SHA512: 21f0e4bb4f4304420c3c672808475c2224abdf5c1b0df4d33af60118c3ed72bac07b601898c7c7ba081f5a0ff412fc5e854f56f2faf66c545297511e2e796b59
+Size: 55986112
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 99.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_99.0.1-1_all.deb
+MD5sum: cfd126f17459b096c0cf913bb81bffa1
+SHA1: 4e4a2a1b7b6eca7d99c9d868e12b3b953b3fc6e4
+SHA256: 00ec5b4b3475dadc07d24b4fa54a210762d8b47d115ca7203bbc96281c7e6ad2
+SHA512: 80a8dcfb514e495ad4d6ff58e1cb05454c97d696527c513c0c696d943df0376493278507a79f2d796635bc9afd568bbff99431c8be32c48f096b591754fdbceb
+Size: 55987240
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 99.0.1-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_99.0.1-2_all.deb
+MD5sum: 32d4280932054b7d08c609648fbc5e13
+SHA1: a986ef5e7461ae0cb2924c97ec5686e4160331ba
+SHA256: 8b26660793159121b7df8495ad426e21b756d6cad532e460eefdd31b72043894
+SHA512: 391a7069f2606182654628db3c5324ec82f042cba30729a4e893333a547ab10644145924b44bdb8e4bc2db8564c2191f63e7f44b0c8e5d1a10b585532387cd04
+Size: 55814500
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 99.0.1-4
+Filename: pool/bullseye/main/libr/librewolf/librewolf_99.0.1-4_all.deb
+MD5sum: 6079562f5e6fd03e20a87d1f221b058b
+SHA1: 0f65df3fc5a7fb202afe830c7b897892bda245fd
+SHA256: 43cba0e7772ec9ed56246b82612053c37573c33d09dd0e5d80acc8df118f3c89
+SHA512: efe339bec4dac0795e91844e5355c58926dfe4bcf5a02fd7ec4dae9e896ae067e89673b1b7f5022558ffb8afdb7afaa3654bb725c54b2661dbd8724884473ce7
+Size: 55818568
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 100.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_100.0-1_all.deb
+MD5sum: e8ad57604c95cdb1d441a9c174e34573
+SHA1: 5623d78e6a265841a054bd42d6d36f7beab0a4b7
+SHA256: ac991f2ee96bb00d29d6ef3b108fb9a12342869043cfdbd767d2f079d39ef933
+SHA512: 51bb4926103b811098ebf59bee9ae25d5a562d2809efc3b6cb488336371679608615f58cf3b909a0ad4f7af0d3444a11f2a5474004d3081f655aecaf3b0a7f7b
+Size: 63210724
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 100.0-3
+Filename: pool/bullseye/main/libr/librewolf/librewolf_100.0-3_all.deb
+MD5sum: 39e7f04c9ca4d5466ad2d0521385700d
+SHA1: 86ad3ca4fcad0433d03699fc2f4bad5933bbaa40
+SHA256: f8036799979556dde20629b6a85015b0b781d06e7aeadb89b46d31e23babfa52
+SHA512: 3b732323db105d73c5a39db5431657eed557194a5c6bb9a33579e8387044fccb6338ea6cb38f63c19d447e1d63b35b20ac555a8e002f0062e25c2ac57fa94e01
+Size: 68288276
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 100.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_100.0.1-1_all.deb
+MD5sum: 4b250881e18c54cf812bc9051bde9265
+SHA1: dfda77bdac456cd0d17c23966be508a2b1247f39
+SHA256: 0d46af88e527a5c7ba8ab2e8a48e17794cfe84a46e53bb0440402b1044e88a70
+SHA512: 88666b8a57060577721bb3ad7720ea039a82fda175a111f6b52a8daa3c97152e0bdca964541de5cbfea24495b3aee0b1065b8e68f94fdd6e2db0f723c91ef1d6
+Size: 68322662
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 100.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_100.0.2-1_all.deb
+MD5sum: 71fe7757b81370e384a7bdb337abeb89
+SHA1: fb40de26a16c8bbec3fb18306f0d726f70305243
+SHA256: 7ab354dc44657a41f093032669fa5ed2791f3ebbd0ab7a0abefa228644ee2c29
+SHA512: 29358dc9f91a333af9b77ecbd310f451aae07b5335daabc258a8755dfce47e1ed25fe546ede3f0340cd670abf4c0ec32bd276ef1f70f0b010bf23575a8c17e6c
+Size: 67982206
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 101.0-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_101.0-2_all.deb
+MD5sum: d5727e764c88d1e358a28c6477f1d4c9
+SHA1: eb7af78b937cb103c8b14a13c9610d05cd4174e7
+SHA256: 3a625bc75b0c0901a77ad73d787fba9669a7fbd64b72c945bb3ca1ab04dec467
+SHA512: dd325c54850def4b4ac43b113f94b058b8d25540a227ee3cd3719f8d45770e0ce05c9680a9ef23f5ce09e6a78f2d487cbefd6f35a11a0d473c41f568b3cd2501
+Size: 68154414
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 101.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_101.0.1-1_all.deb
+MD5sum: f03642cb71e992e6a58cdee4f19882c1
+SHA1: a9b02ebb1b59826d2a392c9138e0add5512d11dd
+SHA256: 137d6bbad5d249372a32a2f971734ac588049738fc3bc432e7c675193b02006d
+SHA512: 4f484a1b8fe76551058fda0d7eb8dff98d716d5ddab77590bdf395f9d0b8a7406d627b7fb6179fd4e22ba2a2d7b4feaad46b651409bbabbadd1de4c82d7e517d
+Size: 68161158
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 102.0-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_102.0-2_all.deb
+MD5sum: 9c7495beb8e8b68e9fb7ff4a7f4306ef
+SHA1: 3a6fa9bb32d8765a4587e054d8f605f21aa0f936
+SHA256: 9c1567305ce1e95a251a1a6ff88cb4ad78763940fac9deaaf2d0287ace699beb
+SHA512: 5ec9b8fb2de1d5a9403fc285dbd436492c75abeb6e812a1214c185f810b627c79cf9675a51c9e6141d525a372fa75a379b0bd260c46b5179f21e033f3b14b884
+Size: 68135122
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 102.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_102.0.1-1_all.deb
+MD5sum: 6f7afac5b48a48d5a3b57326ddc7b630
+SHA1: 4f120a4c85a3b37c54c6c4b23d9e580209fa2641
+SHA256: 9a71328053d700cd41cb62cbe83cc3db7c5f594866f7871933240016282f755e
+SHA512: 530ab0c1ed147abc1480e893e45219b6ddb4765b790b5b25c53a1da72359405742dd1337b68ac3d2b0d1e083251b367b623eb5cd573e5c8713058a42536c23da
+Size: 68145598
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 102.0.1-4
+Filename: pool/bullseye/main/libr/librewolf/librewolf_102.0.1-4_all.deb
+MD5sum: 3db1914ce92e6719441ab49edf2ca4f7
+SHA1: 519b69d07820990667dc06e36d507751d971dd07
+SHA256: 110598ea02129d666b526845b26927c9ccc06ffdf2f0665bc019b53e302c1e8d
+SHA512: 53f5519e5a490a1c70d232614bf99cfab5eb0da30b861fe4fff208b5eebb0dc5c91c23a2dba970568c2566159b33fe7d7fb0ae62380dc8756b593a505f51f674
+Size: 67508334
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 103.0-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_103.0-2_all.deb
+MD5sum: 2a52161d2eb27deeb5a912d0c0031bf9
+SHA1: b640e28d7c054d13e1ee8107bd485da0fe5489c8
+SHA256: 3c053adc1bc9d856b50ad63922788cc5dcd3cdfcd2dd2a737e12d84ceab056f6
+SHA512: 1aff43e994e8a2f4538897bdca85396c1c4062223676fe81ab23fe101030634773cacc43901aac376ceb6624b6ab479c7bc9252022d56ecc67121487b0e029b6
+Size: 67906790
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 103.0-3
+Filename: pool/bullseye/main/libr/librewolf/librewolf_103.0-3_all.deb
+MD5sum: 13d4509347798bf791133ec267c082b3
+SHA1: 0f5587918d68a23d295575400e974eb3325f3fec
+SHA256: c5aa7ba502f95b28e27c08f32de92765b884587d736179c239242d4a98003909
+SHA512: 0fc6bfcae07cb1621baa752a04567a45500c962db854a1bd3e334f46a7faa5b913d50851c97c217389d3434aa97123d00c3484563e9d179a713fe4e281849e58
+Size: 67912278
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 103.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_103.0.1-1_all.deb
+MD5sum: 8f5d0ef6a93218ef1283b23efb629b58
+SHA1: 98ca6225053f9001d2f2a0eb189427efd0ffd495
+SHA256: f3623015a682f2ab39aaf7963f1c6b2d6d3b6a062fea23760ba2376f8c1209c0
+SHA512: cb42e0f0e2f44286712b22be1ebb9ef1e08daf5d109045750895176f8187d0043509ce3708b594371043a39235a6379a1f273c226564d4f736886c1f24eff3e5
+Size: 67946486
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 103.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_103.0.2-1_all.deb
+MD5sum: b66a46fe205a8f04c4690b1109e00d7a
+SHA1: d213a1a903bea49d78376ccdcde8edda3baa1449
+SHA256: b92b3a0f4c1eb450b5642b677d911f4c25ea09bbfc4eb6b3dd71d8b95590df13
+SHA512: 9626505aa06255342b4204c226f28f105b6dd8ef7192f26cf3ce33ad2438e600a78cfa9e2c1cec77f70c78c06348dd50dfda67ced4976aafcb5ff35287bddd3f
+Size: 67969674
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 104.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_104.0-1_all.deb
+MD5sum: fdd5b57c3fedc44444fd82d13b09eb3b
+SHA1: e0cf7b2673a786e55a8d017d04b9768dd2f63efb
+SHA256: 58407b252b2c3fa86ce17424400f15edb4bf5e2a5f1cc6c5ecfcacefa1bfae91
+SHA512: fbb436b6bd4ea20d90d8bae7cee132c3d267cfae36063b72b236cf905fa1b4bfd151dab4d33a8a75ea04d5cf7dbead18f8b0941fb4e0281cf1da6e9327da17fd
+Size: 68255394
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 104.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_104.0.2-1_all.deb
+MD5sum: b65ea8bfcd4e9fdf86c2dc2b6286bf52
+SHA1: 6ae063bb02c084b95b128d1e9f57e8f8c1c15936
+SHA256: bcd8830dfd638da3cc2ef62a817486b6bbe14f4e09cc5583219562c9e957bfdc
+SHA512: 15d8e9916e7b7bd0cd37faf928b1525306a8b7a9de447848b786304f5d43c498c47204eee2403811cf88d29311c91441f3cc907eb00c44ddad0672bf17263551
+Size: 68371114
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 105.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_105.0-1_all.deb
+MD5sum: 33d9bb65564a357ec339ed3b60a3f3df
+SHA1: 4af2c06bcb3fc8ddc6c34143b007ecb1984410aa
+SHA256: ea6d49edb7ed6cb95533998581e941e33fbfcf23cbc069e008d3c355164a8dc6
+SHA512: d40cbd2f90d8ad2bd6bc143ff43a340828ccc8f50fd1bbaf1f67380d9cb7e8a0f20cda36bec57bb3c5f99ee9b3008ce38d45999afe279f9f70cfe599de6d0b93
+Size: 68564150
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 105.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_105.0.1-1_all.deb
+MD5sum: f498cb4dd39fe0d481abbb21c9768a4c
+SHA1: ed4f994fd0a935af224dc02cd4dbcfa24282f92b
+SHA256: 1f75902698ff70343b1c59287ecb42a54e9238cdda4166a6fada8ec3b44f2b85
+SHA512: 70085bbe2d3fd2e1dcb9d2fd09aea514cff6807202ef80cb9b18ca9e3881ad021968fe584b8e16e0c9047a4603db2b9a5f4b9fa1a6b2817293c0433f8635789e
+Size: 68564486
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 105.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_105.0.2-1_all.deb
+MD5sum: 951561cb4a1e056b9307a2d60fc990d6
+SHA1: 1cdc15ad0cf938013221d2e05cdb76d9a251e7e0
+SHA256: 9f77e4680be25d8179f32e3b4808feee2b5e7bcfbf650dd716e91f19fa62f0b6
+SHA512: 027907c4b81c14df1cf75a952ab171a74115a74937f7e093c68683242842e8af44e8c377071663eb367f711dc486b52dadb0c15abaac7a765360a374492a7ca5
+Size: 68605422
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 105.0.3-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_105.0.3-1_all.deb
+MD5sum: 246a62585e0121b3ed937a84cfa6b3d9
+SHA1: db819c80af3bbf82e655e93bb4b8063f847279a3
+SHA256: bb35543b910dfd0bbd50189148b9f0493cc9d146e9543ae5e991485e44860948
+SHA512: 246c4472168fad36bbaaa08bdcc37ce93480d026e908473266ca44cdeb1e47cc19a31dd137361a50960e6ecd0a5eb4de91498f2a2c01790f6ea54c2de0d96b9a
+Size: 68611474
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 106.0-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_106.0-2_all.deb
+MD5sum: 8658275ac0b01d15c904df86f7acb14c
+SHA1: cf18f51b32c01b65d35938c3fb9da5fee4342f42
+SHA256: 980b89a9d139c5ff9160f71a8c423c901e059bcee1798aca5d748dc46f3126e8
+SHA512: 2dd6f64f4803450bcbd83fb4415a09c9e814e39a5ba81b97c54eb21cc2410b98ea53d48522aab96023aea59a03c1a9b2978e9b9d31daf1f6e4d39aaf9b8788e6
+Size: 69811922
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 106.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_106.0.1-1_all.deb
+MD5sum: 4b5fb7eef6284fe31f27e6a50e26476b
+SHA1: 330abfb21b8a1ecff67bbb886a79afd6c427d934
+SHA256: 22b978d19cfd870a91f72e6dfb9e797b62746b61440fec4763a4fa8e086910b0
+SHA512: 1a5a19ca3127cdead919f82f7ff77a5894532254d8baa26f5f70476ef220bd7c9fb4be2cf4124df236dd2a175537249d9f3701e0ae7c4b07248f811fe41ad40a
+Size: 69808186
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 106.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_106.0.2-1_all.deb
+MD5sum: c919b3c1f73de766eb9a80bb28695cb4
+SHA1: b8e868dc806be4f0238f81b627a77e48599beed9
+SHA256: 3f97e7f680a5bdd2bef24e9e250f9df2c32b0b042b65ebc0ed499e289707a37c
+SHA512: d62cdaa5e1a0fac7156b4d2b45b9e8417483dadbc4c6eee0c351dd1f241a4e12fd34e2b674fb32eb29e7c8f6dafe2e89d51daa20466858d0799ea65c7de8856a
+Size: 69828834
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 106.0.3-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_106.0.3-1_all.deb
+MD5sum: b3b4bb8486b934d0ce7723cd127395df
+SHA1: e2b41c42e38b1af3b955aa7c87a6d576976a7c42
+SHA256: b06fb7771bc928ea79eacef18a3b6d69ca2de2325050b606c995c16296d9cd34
+SHA512: 2b9e719ba1aec49b08206e32e6bd7530df3b9cee61c6ad60ed7ec78c1968d9d58891512df48371492f5e84dd54d6757773e55548448febb8941624599bcae95b
+Size: 69820418
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 106.0.4-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_106.0.4-1_all.deb
+MD5sum: e6865e2cc5d2d1bf4eb45aed21c66751
+SHA1: c45c16eee4517b4861efccde15d7de20c301b524
+SHA256: 75e457815424b5ba296dfebc206bfc5979f6a9898437d37cdc35a0f8d8d85dc3
+SHA512: 269e8c98de3e29576cb565e93eae459fe85eea73dbc032dd5acba45fa449acf998fe7dce895c73146cb6e6c6bb4eb1f142f68bcb4e88a34dcf95917ee98f412f
+Size: 69822126
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 106.0.5-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_106.0.5-1_all.deb
+MD5sum: 736e8240de9610f6d09120435d2ce727
+SHA1: 0ca02c1cd76e4251f1f57ed32fcca2c2e026148f
+SHA256: f0d6090bb89b3255f7a14f9751bcce20d01b03ecf41dbccd045b28b85039f0d5
+SHA512: f9af62ef566f637f4393f75a710000cd3be3608f6e4f06cd068665a2ab11657940d1b039feb497622e25188a8a41119bba4193592615b05aacbb2e2b18c7bb5d
+Size: 69818314
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 107.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_107.0-1_all.deb
+MD5sum: f130c1afbfeea228c214fb5c62d5cce5
+SHA1: bcecf79d80096b34e4ffcaa3a54935fe1874e77b
+SHA256: d083bc09bcdfce9ff1dc4dc10dd3862ed07cba0c73d30370c18b448ff33266aa
+SHA512: d3951fe3275bcb8207eb6cd9f29b20f27a7abce38a190c38b8199e8f61b4b743adf41da9b673d4591d23919358d53379763838f5b936b5a0e51f2d2323e7e7eb
+Size: 69649934
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 107.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_107.0.1-1_all.deb
+MD5sum: 8485df13e561776a0e24310793c11fdc
+SHA1: fbe772ecc4b35b8ebbf828314e4c80af1301d7cc
+SHA256: 60bc26c121f0c8de51ddc65c0d38ca821ccee991b78c440d31251c83c1d0312a
+SHA512: f1070acd37604456a1e4d377bf86d98c6fa2fbf16a55f76eff52997b830a3522b61c03cb2b2cb57ca84f36f15fae79ff0cefc626d92c781463676d1fc5f52e60
+Size: 70092242
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 107.0.1-2
+Filename: pool/bullseye/main/libr/librewolf/librewolf_107.0.1-2_all.deb
+MD5sum: f42867a56513bf9a3415a7a6083c5e3c
+SHA1: 960c2c1b61518e86caa835a3a4559e5317bbccf5
+SHA256: 5b13e746a71c00305d40bb829b82db931fe6abda1470360df5dd4a6366d64b6e
+SHA512: 644e531830814f973645fd60b97d03798ebc79a5690f94193df959eba5bd3d82018b5c971dff773a54902add6c5059a63047117e43f37946e520b0696c9b00aa
+Size: 70062074
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 108.0-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_108.0-1_all.deb
+MD5sum: 0391eb622b9b990c58207c0bc8f2d37f
+SHA1: 607f2e146ca7b1cff5611f797fbe42a4789d4ba2
+SHA256: aa2d30551603fb523176326f48ddb997f7c885e4573e249359fed5c1d61089fa
+SHA512: b79336979a7fe5c3b15cca4b69dfdd3a0b6c7d7d0fde7784e5441f63968d5064d50abd5ef9646a0f0c5c5636dfa7aecc8a4bd5fe7ca8475e0448ba86e8b3637b
+Size: 70251638
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 108.0.1-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_108.0.1-1_all.deb
+MD5sum: 6159185e634d6adf1655a7289071b1e5
+SHA1: 97cbd668ec8df7651059e6cd74c8f20fb75014a7
+SHA256: 62eb59db99b6586b60a4738d7fa66bd505de1bede5c9a7637137a636c999b437
+SHA512: da0a1f2804f5697f520e72e976700908ca4b25e3c757284e64adc0c1ee453ac65e64a62ad3e74bb58075e7eefde42e08c1f3b9df20f77a23fc4c845385393799
+Size: 70261306
+
+Architecture: all
+Build-Depends: inkscape, librsvg2-bin
+Depends: lsb-release, libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.31), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libdbus-glib-1-2 (>= 0.78), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.10.1), libgcc-s1 (>= 3.3), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libharfbuzz0b (>= 0.6.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 10), libx11-6, libx11-xcb1 (>= 2:1.6.9), libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1, libxtst6
+Recommends: libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Description: The Librewolf Browser
+Download-Size: 56.0 MB
+Essential: no
+Installed-Size: 204 MB
+Maintainer: Bert van der Weerd <bert@stanzabird.nl>
+Package: librewolf
+Priority: optional
+Provides: gnome-www-browser, www-browser, x-www-browser
+Section: web
+Version: 108.0.2-1
+Filename: pool/bullseye/main/libr/librewolf/librewolf_108.0.2-1_all.deb
+MD5sum: 4c13daa5169194b38b999536bc03e33b
+SHA1: 92946e426fb5b16fb5a6a42a3464d71e82231c8b
+SHA256: ed2928ec945c393947952ba54f7e32510f9491720ca3b744b2f502976f3a36b9
+SHA512: 0f64a6150ddb4d0ff0cdd678950deaa3f4d9de8e3aa958582aa82f8718145debbae5758a3cac5aac6649462b2e4c2c0184790c15456fbe4a8fde4a32dda39e0d
+Size: 70302514
+

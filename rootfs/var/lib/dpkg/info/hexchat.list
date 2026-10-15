@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/bin
+/usr/bin/hexchat
+/usr/share
+/usr/share/applications
+/usr/share/applications/io.github.Hexchat.desktop
+/usr/share/doc
+/usr/share/doc/hexchat
+/usr/share/doc/hexchat/changelog.Debian.gz
+/usr/share/doc/hexchat/changelog.gz
+/usr/share/doc/hexchat/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/hexchat
+/usr/share/metainfo
+/usr/share/metainfo/io.github.Hexchat.appdata.xml

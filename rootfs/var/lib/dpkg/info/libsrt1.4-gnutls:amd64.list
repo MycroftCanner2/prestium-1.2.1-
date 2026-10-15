@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libsrt-gnutls.so.1.4.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libsrt1.4-gnutls
+/usr/share/doc/libsrt1.4-gnutls/changelog.Debian.gz
+/usr/share/doc/libsrt1.4-gnutls/copyright
+/usr/lib/x86_64-linux-gnu/libsrt-gnutls.so.1.4

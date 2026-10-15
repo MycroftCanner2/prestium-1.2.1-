@@ -1,0 +1,16 @@
+d194db92d5656602010826a4dd711a70  usr/lib/x86_64-linux-gnu/libflite.so.2.2
+f1cdb7e53fb3128e913035ff07c94cf9  usr/lib/x86_64-linux-gnu/libflite_cmu_grapheme_lang.so.2.2
+31e6897fe885177a2eaf467cc6996609  usr/lib/x86_64-linux-gnu/libflite_cmu_grapheme_lex.so.2.2
+34b62dab52d96c6dd1ad5f3dcd5593c9  usr/lib/x86_64-linux-gnu/libflite_cmu_indic_lang.so.2.2
+d8584d75b10c78eb9e4bb458cef64ec4  usr/lib/x86_64-linux-gnu/libflite_cmu_indic_lex.so.2.2
+60a76b61445ae9f6ac716433e132b22d  usr/lib/x86_64-linux-gnu/libflite_cmu_time_awb.so.2.2
+ef7659fb06eff7fa33066bf0126d2758  usr/lib/x86_64-linux-gnu/libflite_cmu_us_awb.so.2.2
+59c385d5628525eb1ecbddef4304a4b4  usr/lib/x86_64-linux-gnu/libflite_cmu_us_kal.so.2.2
+79fd9e51681f2c677a00c6e640d0cdfe  usr/lib/x86_64-linux-gnu/libflite_cmu_us_kal16.so.2.2
+815fe95c9b8d301f9d84612eb1169211  usr/lib/x86_64-linux-gnu/libflite_cmu_us_rms.so.2.2
+cff820c3e5895adea05b2b8a74bc1744  usr/lib/x86_64-linux-gnu/libflite_cmu_us_slt.so.2.2
+653a45883350cccda8024e5c827be118  usr/lib/x86_64-linux-gnu/libflite_cmulex.so.2.2
+d5e5e1cb906905f4ee01852bb9b337d5  usr/lib/x86_64-linux-gnu/libflite_usenglish.so.2.2
+447367f7f4a7ce6cf6eaf3fffd6c072d  usr/share/doc/libflite1/changelog.Debian.gz
+bde18543624afa66f6b4b5145b49454d  usr/share/doc/libflite1/copyright
+a7636e875f2e17881d6de83b206614d0  usr/share/lintian/overrides/libflite1
