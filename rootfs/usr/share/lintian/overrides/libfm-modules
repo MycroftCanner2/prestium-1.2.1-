@@ -1,0 +1,2 @@
+# This module really does not use any libc functions directly.
+library-not-linked-against-libc usr/lib/*/libfm/modules/gtk-menu-trash.so

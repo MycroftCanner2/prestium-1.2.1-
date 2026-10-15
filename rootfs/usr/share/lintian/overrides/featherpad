@@ -1,0 +1,3 @@
+featherpad: binary-without-manpage usr/bin/featherpad
+featherpad: binary-without-manpage usr/bin/fpad
+

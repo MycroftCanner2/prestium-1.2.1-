@@ -1,0 +1,2 @@
+# System-wide directory where extensions must be added
+python3-nautilus: package-contains-empty-directory usr/share/nautilus-python/extensions/

@@ -1,0 +1,3 @@
+# One of the example scripts (not essential) requires assert.pl, so we
+# add libperl4-corelibs-perl as a Recommended dependency only (cf. cdrdao)
+libnet-dns-perl: script-uses-perl4-libs-without-dep usr/share/doc/libnet-dns-perl/examples/contrib/check_zone:94 assert.pl
