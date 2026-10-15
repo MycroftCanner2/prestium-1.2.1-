@@ -1,0 +1,3 @@
+# Over GitHub's 100 MB per-file limit; see LARGE_FILES.md
+rootfs/usr/local/bin/monero-wallet-gui
+rootfs/usr/share/librewolf/libxul.so
