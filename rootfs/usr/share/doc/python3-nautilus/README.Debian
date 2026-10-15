@@ -1,0 +1,12 @@
+nautilus-python for Debian
+--------------------------
+
+Plugins are loaded by default from two locations:
+
+ /usr/share/nautilus-python/extensions - all-user plugin directory
+ ~/.local/share/nautilus-python/extensions - per-user plugin directory
+
+Sample plugins can be found in /usr/share/doc/python-nautilus/examples. To use
+them, copy them to one of the locations above and restart nautilus--this can
+be done gracefully by running 'nautilus --quit'.
+

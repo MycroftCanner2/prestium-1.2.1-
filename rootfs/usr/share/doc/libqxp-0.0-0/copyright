@@ -1,0 +1,51 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libqxp
+Source: http://dev-www.libreoffice.org/src/libqxp/ 
+
+Files: *
+Copyright: Copyright (C) 2017 Aleksas Pantechovskis <alex.pantec@gmail.com>
+           Copyright (C) 2017 David Tardon <dtardon@redhat.com>
+License: MPL-2.0
+ In Debian systems the full text of the MPL 2.0 can be found in
+ /usr/share/common-licenses/MPL-2.0
+
+Files: m4/*stdcxx*
+Copyright: Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
+           Copyright (c) 2012 Zack Weinberg <zackw@panix.com>
+           Copyright (c) 2013 Roy Stogner <roystgnr@ices.utexas.edu>
+           Copyright (c) 2014, 2015 Google Inc.; contributed by Alexey Sokolov <sokolov@google.com>
+           Copyright (c) 2015 Paul Norman <penorman@mac.com>
+           Copyright (c) 2015 Moritz Klammler <moritz@klammler.eu>
+License: other
+ #   Copying and distribution of this file, with or without modification, are
+ #   permitted in any medium without royalty provided the copyright notice
+ #   and this notice are preserved.  This file is offered as-is, without any
+ #   warranty.
+
+Files: m4/dlp_fallthrough.m4
+Copyright: Copyright (c) 2017 David Tardon <dtardon@redhat.com>
+License: other
+ #   Copying and distribution of this file, with or without modification, are
+ #   permitted in any medium without royalty provided the copyright notice
+ #   and this notice are preserved.  This file is offered as-is, without any
+ #   warranty.
+
+Files: debian/*
+Copyright: 2017 Rene Engelhard <rene@debian.org>
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <https://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+

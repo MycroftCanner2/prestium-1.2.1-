@@ -1,0 +1,113 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: obsession
+Source: https://bitbucket.org/fabriceT/obsession
+License: GPL-3+
+
+
+Files: *
+Copyright: 2011-2013 Fabrice THIROUX <fabrice.thiroux@free.fr>
+License: GPL-3+
+Comment: Wrong licence in autostart/xdg-autostart.vala, patch forwarded upstream
+
+Files: dbus-interface.h
+       obsession-common.c
+       obsession-exit.c
+       obsession-logout.c
+Copyright: 2010-2011 Hong Jen Yee (aka PCMan) <pcman.tw@gmail.com>
+           2011-2013 Fabrice THIROUX <fabrice.thiroux@free.fr>
+License: GPL-2+ and GPL-3+
+Comment: Erroneous URL in debus-interface.h, patch forwarded upstream
+
+Files: po/*
+Copyright: 1994-1998 The Open Group
+           2008-2011 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+           2011-2013 Fabrice THIROUX <fabrice.thiroux@free.fr>
+License: GPL-2+ and GPL-3+
+
+Files: dbus-interface.c
+Copyright: 2010-2011 Robert Ancell <robert.ancell@canonical.com>
+           2008-2011 Hong Jen Yee (aka PCMan) <pcman.tw@gmail.com>
+           2012 Fabrice THIROUX <fabrice.thiroux@free.fr>
+License: LGPL-3+ and GPL-2+ and GPL-3+
+
+Files: images/*
+Copyright: 2007 Alexandre Moore (saki)
+License: LGPL-3
+Comment: images are LGPL-3 according to upstream website, COPYING is lying
+
+Files: debian/*
+Copyright: 2014 Fabien Givors <f+debian@chezlefab.net>
+License: GPL-2+ or LGPL-3+
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or any
+ later version. See http://www.gnu.org/copyleft/gpl.html the full text
+ of the license.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: GPL-3+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or any
+ later version. See http://www.gnu.org/copyleft/gpl.html the full text
+ of the license.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+License: LGPL-3
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; version 3 of the License.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License version 3 can be found in "/usr/share/common-licenses/LGPL-3".
+
+License: LGPL-3+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or any
+ later version. See http://www.gnu.org/copyleft/lgpl.html the full text
+ of the license.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this program; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License version 3 can be found in "/usr/share/common-licenses/LGPL-3".

@@ -1,0 +1,3 @@
+* Upstream no longer using unicode.cpp/unicode.h; replaced with 3rdparty/utf8-cpp/ (update license, drop dfsg)
+* libboost dep seems removed
+* backport others, like #if

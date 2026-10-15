@@ -1,0 +1,43 @@
+wxWidgets for Debian
+====================
+
+The following packages are built from the wxWidgets source:
+
+GUI toolkit-independent packages:
+---------------------------------
+
+libwxbase3.0-<N>	      wxBase runtime shared libraries
+libwxbase3.0-dev	      extra files required for building wxBase apps
+
+wx-common		      common helper files and support applications.
+wx3.0-headers		      common header files for building wxWidgets apps
+wx3.0-examples 		      wxWidgets demos and samples (source)
+wx3.0-i18n		      message catalogs for native language support
+
+GTK3-specific packages:
+-----------------------
+
+libwxgtk3.0-gtk3-<N>	      wxGTK runtime shared libraries
+libwxgtk3.0-gtk3-dev	      extra files required for building wxGTK apps
+
+libwxgtk-media3.0-gtk3-<N>    wxGTK runtime shared libraries for wxMediaCtrl
+			      - these are in a separate package as they pull
+			      in a lot of large dependencies
+libwxgtk-media3.0-gtk3-dev    extra files required for building wxGTK apps
+			      using wxMediaCtrl
+
+libwxgtk-webview3.0-gtk3-<N>  wxGTK runtime shared libraries for wxWebView
+			      - these are in a separate package as they pull
+			      in a lot of large dependencies
+libwxgtk-webview3.0-gtk3-dev  extra files required for building wxGTK apps
+			      using wxWebView
+
+
+	Note that static libraries are no longer supplied in these
+	packages.  Please read, or have understood:
+	https://akkadia.org/drepper/no_static_linking.html
+	among others before reporting this as a bug.
+
+
+ -- Olly Betts <olly@survex.com>  Thu, 24 Oct 2019 23:16:00 +0000
+

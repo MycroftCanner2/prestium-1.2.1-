@@ -1,0 +1,9 @@
+Things to do:
+  * Clean up the code. It's a bit messy.
+  * Add user switching support for obsession-exit.
+  * Obsession-logout and obsession-exit have some code in common. Share it in a new file.
+  * Comment the code.
+  * Take a look a LXDE git for changes since the last lxsession release.
+  * Rewrite some tools in vala ? (done for xdg-autostart)
+  * ideas ?
+  
