@@ -9,8 +9,9 @@
 /usr/share/doc/libsasl2-2
 /usr/share/doc/libsasl2-2/NEWS.Debian.gz
 /usr/share/doc/libsasl2-2/README.Debian
-/usr/share/doc/libsasl2-2/README.configure-options
 /usr/share/doc/libsasl2-2/changelog.Debian.gz
-/usr/share/doc/libsasl2-2/changelog.gz
 /usr/share/doc/libsasl2-2/copyright
+/usr/share/man
+/usr/share/man/man5
+/usr/share/man/man5/libsasl.5.gz
 /usr/lib/x86_64-linux-gnu/libsasl2.so.2

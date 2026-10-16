@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libQt5Network.so.5.15.2
+/usr/lib/x86_64-linux-gnu/libQt5Network.so.5.15.8
 /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/plugins
 /usr/lib/x86_64-linux-gnu/qt5/plugins/bearer
@@ -13,7 +13,6 @@
 /usr/share/doc
 /usr/share/doc/libqt5network5
 /usr/share/doc/libqt5network5/changelog.Debian.gz
-/usr/share/doc/libqt5network5/changelog.gz
 /usr/share/doc/libqt5network5/copyright
 /usr/share/lintian
 /usr/share/lintian/overrides

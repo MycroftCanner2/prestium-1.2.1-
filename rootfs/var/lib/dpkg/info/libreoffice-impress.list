@@ -85,6 +85,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/commentsbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/commontaskbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/connectorsbar.xml
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/distributebar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/drawingobjectbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/ellipsesbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/extrusionobjectbar.xml
@@ -124,7 +125,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/viewerbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/toolbar/zoombar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui
-/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/annotationmenu.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/annotation.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/annotationtagmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/clientboxfragment.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/currentmastermenu.ui
@@ -140,6 +141,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/dlgfield.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/dockinganimation.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/effectmenu.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/fieldmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/fontsizemenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/fontstylemenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/gluebox.ui
@@ -154,13 +156,17 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/layoutwindow.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/masterlayoutdlg.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/mastermenu.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/masterpagemenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/masterpagepanel.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/masterpagepanelall.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/masterpagepanelrecent.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/navigatorpanel.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_compact.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_groupedbar_compact.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_groupedbar_full.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_groups.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_online.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/notebookbar_single.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/optimpressgeneralpage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/pagesfieldbox.ui
@@ -176,7 +182,9 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/slidecontextmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/slidedesigndialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/slidetransitionspanel.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/snapmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/tabledesignpanel.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/tabviewbar.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/ui/templatedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/simpress
 /usr/lib/libreoffice/share/config/soffice.cfg/simpress/effects.xml

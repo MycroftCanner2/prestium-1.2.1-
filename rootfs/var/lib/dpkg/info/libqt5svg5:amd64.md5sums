@@ -1,5 +1,5 @@
-11b87e4afd2dcc78814273b2c0122a90  usr/lib/x86_64-linux-gnu/libQt5Svg.so.5.15.2
-e7e31c833a53f5e250fa5fb3ad4f9171  usr/lib/x86_64-linux-gnu/qt5/plugins/iconengines/libqsvgicon.so
-d445b0b7a55db4a3abae4f51b56979b7  usr/lib/x86_64-linux-gnu/qt5/plugins/imageformats/libqsvg.so
-b41288cb05b94f7183129f82723bf57d  usr/share/doc/libqt5svg5/changelog.Debian.gz
-197ae075909aa832d08c1de59ce47d1f  usr/share/doc/libqt5svg5/copyright
+b87ac89b06714b98393906d276600480  usr/lib/x86_64-linux-gnu/libQt5Svg.so.5.15.8
+8f78cdda46bb9ab04825ea4eb4d2dfc0  usr/lib/x86_64-linux-gnu/qt5/plugins/iconengines/libqsvgicon.so
+2a09b0875fb71712afa82e53000b2643  usr/lib/x86_64-linux-gnu/qt5/plugins/imageformats/libqsvg.so
+a296f80c3aa9b6f9aa54bcf3770d211b  usr/share/doc/libqt5svg5/changelog.Debian.gz
+707d0ba9087556d4ec581fddfadfc31b  usr/share/doc/libqt5svg5/copyright

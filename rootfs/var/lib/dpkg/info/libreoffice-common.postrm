@@ -22,13 +22,13 @@ case "$1" in
 	;;
 esac
 
-# Automatically added by dh_installdeb/13.3.4
+# Automatically added by dh_installdeb/13.11.4
 dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.oosplash /etc/apparmor.d/usr.lib.libreoffice.program.oosplash 1:5.4.3-1 -- "$@"
 dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.senddoc /etc/apparmor.d/usr.lib.libreoffice.program.senddoc 1:5.4.3-1 -- "$@"
 dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.soffice.bin /etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin 1:5.4.3-1 -- "$@"
 dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.xpdfimport /etc/apparmor.d/usr.lib.libreoffice.program.xpdfimport 1:5.4.3-1 -- "$@"
 # End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.xpdfimport" ] ; then
     rm -f "/etc/apparmor.d/disable/usr.lib.libreoffice.program.xpdfimport" || true
     rm -f "/etc/apparmor.d/force-complain/usr.lib.libreoffice.program.xpdfimport" || true
@@ -39,7 +39,7 @@ if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.xpd
     rmdir /etc/apparmor.d         2>/dev/null || true
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin" ] ; then
     rm -f "/etc/apparmor.d/disable/usr.lib.libreoffice.program.soffice.bin" || true
     rm -f "/etc/apparmor.d/force-complain/usr.lib.libreoffice.program.soffice.bin" || true
@@ -50,7 +50,7 @@ if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.sof
     rmdir /etc/apparmor.d         2>/dev/null || true
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.senddoc" ] ; then
     rm -f "/etc/apparmor.d/disable/usr.lib.libreoffice.program.senddoc" || true
     rm -f "/etc/apparmor.d/force-complain/usr.lib.libreoffice.program.senddoc" || true
@@ -61,7 +61,7 @@ if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.sen
     rmdir /etc/apparmor.d         2>/dev/null || true
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.oosplash" ] ; then
     rm -f "/etc/apparmor.d/disable/usr.lib.libreoffice.program.oosplash" || true
     rm -f "/etc/apparmor.d/force-complain/usr.lib.libreoffice.program.oosplash" || true
@@ -72,91 +72,86 @@ if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.lib.libreoffice.program.oos
     rmdir /etc/apparmor.d         2>/dev/null || true
 fi
 # End automatically added section
-# Automatically added by dh_icons/13.3.4
-if which update-icon-caches >/dev/null 2>&1 ; then
-	update-icon-caches /usr/share/icons/locolor
-fi
-# End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "purge" ]; then
 	for ext in .ucf-new .ucf-old .ucf-dist ""; do
 		rm -f "/etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd$ext"
 	done
 	
-	if [ -x "`which ucf 2>/dev/null`" ]; then
+	if [ -x "`command -v ucf`" ]; then
 		ucf --purge "/etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd"
 	fi
-	if [ -x "`which ucfr --force 2>/dev/null`" ]; then
+	if [ -x "`command -v ucfr`" ]; then
 		ucfr --force --purge libreoffice-common "/etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd"
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "purge" ]; then
 	for ext in .ucf-new .ucf-old .ucf-dist ""; do
 		rm -f "/etc/libreoffice/registry/Langpack-en-US.xcd$ext"
 	done
 	
-	if [ -x "`which ucf 2>/dev/null`" ]; then
+	if [ -x "`command -v ucf`" ]; then
 		ucf --purge "/etc/libreoffice/registry/Langpack-en-US.xcd"
 	fi
-	if [ -x "`which ucfr --force 2>/dev/null`" ]; then
+	if [ -x "`command -v ucfr`" ]; then
 		ucfr --force --purge libreoffice-common "/etc/libreoffice/registry/Langpack-en-US.xcd"
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "purge" ]; then
 	for ext in .ucf-new .ucf-old .ucf-dist ""; do
 		rm -f "/etc/libreoffice/registry/lingucomponent.xcd$ext"
 	done
 	
-	if [ -x "`which ucf 2>/dev/null`" ]; then
+	if [ -x "`command -v ucf`" ]; then
 		ucf --purge "/etc/libreoffice/registry/lingucomponent.xcd"
 	fi
-	if [ -x "`which ucfr --force 2>/dev/null`" ]; then
+	if [ -x "`command -v ucfr`" ]; then
 		ucfr --force --purge libreoffice-common "/etc/libreoffice/registry/lingucomponent.xcd"
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "purge" ]; then
 	for ext in .ucf-new .ucf-old .ucf-dist ""; do
 		rm -f "/etc/libreoffice/registry/xsltfilter.xcd$ext"
 	done
 	
-	if [ -x "`which ucf 2>/dev/null`" ]; then
+	if [ -x "`command -v ucf`" ]; then
 		ucf --purge "/etc/libreoffice/registry/xsltfilter.xcd"
 	fi
-	if [ -x "`which ucfr --force 2>/dev/null`" ]; then
+	if [ -x "`command -v ucfr`" ]; then
 		ucfr --force --purge libreoffice-common "/etc/libreoffice/registry/xsltfilter.xcd"
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "purge" ]; then
 	for ext in .ucf-new .ucf-old .ucf-dist ""; do
 		rm -f "/etc/libreoffice/registry/pdfimport.xcd$ext"
 	done
 	
-	if [ -x "`which ucf 2>/dev/null`" ]; then
+	if [ -x "`command -v ucf`" ]; then
 		ucf --purge "/etc/libreoffice/registry/pdfimport.xcd"
 	fi
-	if [ -x "`which ucfr --force 2>/dev/null`" ]; then
+	if [ -x "`command -v ucfr`" ]; then
 		ucfr --force --purge libreoffice-common "/etc/libreoffice/registry/pdfimport.xcd"
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "purge" ]; then
 	for ext in .ucf-new .ucf-old .ucf-dist ""; do
 		rm -f "/etc/libreoffice/registry/main.xcd$ext"
 	done
 	
-	if [ -x "`which ucf 2>/dev/null`" ]; then
+	if [ -x "`command -v ucf`" ]; then
 		ucf --purge "/etc/libreoffice/registry/main.xcd"
 	fi
-	if [ -x "`which ucfr --force 2>/dev/null`" ]; then
+	if [ -x "`command -v ucfr`" ]; then
 		ucfr --force --purge libreoffice-common "/etc/libreoffice/registry/main.xcd"
 	fi
 fi

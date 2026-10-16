@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+/usr/lib/x86_64-linux-gnu/librsvg-2.so.2.48.0
 /usr/share
 /usr/share/doc
 /usr/share/doc/librsvg2-2
@@ -14,6 +14,4 @@
 /usr/share/lintian
 /usr/share/lintian/overrides
 /usr/share/lintian/overrides/librsvg2-2
-/usr/share/locale
-/usr/share/locale/es/LC_MESSAGES/librsvg.mo
 /usr/lib/x86_64-linux-gnu/librsvg-2.so.2

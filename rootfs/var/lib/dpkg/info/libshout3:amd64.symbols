@@ -129,6 +129,7 @@ libshout.so.3 libshout3 #MINVER#
  httpp_get_any_var@Base 2.4.3
  httpp_get_param_var@Base 2.4.3
  httpp_str_to_method@Base 2.4.1
+ shout_cb_connection_callback@Base 2.4.6
  shout_close@Base 2.2.2
  shout_connection__read@Base 2.4.3
  shout_connection__recoverable@Base 2.4.3
@@ -195,6 +196,7 @@ libshout.so.3 libshout3 #MINVER#
  shout_open@Base 2.2.2
  shout_open_mp3@Base 2.2.2
  shout_open_ogg@Base 2.2.2
+ shout_open_text@Base 2.4.6
  shout_open_webm@Base 2.3.0
  shout_parse_xaudiocast_response@Base 2.4.1
  shout_queue_collect@Base 2.4.1
@@ -222,6 +224,7 @@ libshout.so.3 libshout3 #MINVER#
  shout_set_host@Base 2.2.2
  shout_set_meta@Base 2.4.1
  shout_set_metadata@Base 2.2.2
+ shout_set_metadata_utf8@Base 2.4.6
  shout_set_mount@Base 2.2.2
  shout_set_name@Base 2.2.2
  shout_set_nonblocking@Base 2.2.2

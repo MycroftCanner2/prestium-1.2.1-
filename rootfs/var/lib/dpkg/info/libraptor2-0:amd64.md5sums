@@ -1,8 +1,4 @@
-24f644fccc454a3c02313e546a0c77b0  usr/lib/x86_64-linux-gnu/libraptor2.so.0.0.0
-ab1019e9f4e820e3a622385e8ad26e62  usr/share/doc/libraptor2-0/AUTHORS
-264dab9d7a301b7e23b4f06480137f53  usr/share/doc/libraptor2-0/NEWS.gz
-5fbad9f847a08f1e212379843f2bf459  usr/share/doc/libraptor2-0/NOTICE
-e7ba26de57ce0e71637e4f967711a90c  usr/share/doc/libraptor2-0/README.gz
-f3f4b7b6b471572e6ba6e5d1beede797  usr/share/doc/libraptor2-0/changelog.Debian.gz
-3238470e3b44603782f82ce390f379d8  usr/share/doc/libraptor2-0/changelog.gz
-55457f4a2d3a07284e635198c065cf4a  usr/share/doc/libraptor2-0/copyright
+63a642b5b9fac96bedfeaefa17711a32  usr/lib/x86_64-linux-gnu/libraptor2.so.0.0.0
+e9816fba25429ee9657d5ca8b19b39bd  usr/share/doc/libraptor2-0/changelog.Debian.gz
+9e203942d09c64cb9550ef87f93f47fe  usr/share/doc/libraptor2-0/changelog.gz
+f50b29dd77700c61a27838aa296026a0  usr/share/doc/libraptor2-0/copyright

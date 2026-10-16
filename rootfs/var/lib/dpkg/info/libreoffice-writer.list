@@ -38,6 +38,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/insertfield.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/oleobject.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/preview.xml
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/showtrackedchanges.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/source.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/table.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/text.xml
@@ -152,6 +153,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swreport/popupmenu/media.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swreport/popupmenu/oleobject.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swreport/popupmenu/preview.xml
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swreport/popupmenu/showtrackedchanges.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swreport/popupmenu/table.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swreport/popupmenu/text.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swreport/statusbar
@@ -212,6 +214,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/popupmenu/notebookbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/popupmenu/oleobject.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/popupmenu/preview.xml
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/popupmenu/showtrackedchanges.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/popupmenu/table.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/popupmenu/text.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/statusbar
@@ -268,7 +271,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/addressblockdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/addressfragment.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/alreadyexistsdialog.ui
-/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/annotationmenu.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/annotation.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/asciifilterdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/asksearchdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/assignfieldsdialog.ui
@@ -280,8 +283,10 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/autotext.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/bibliofragment.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/bibliographyentry.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/bookmarkmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/bulletsandnumbering.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/businessdatapage.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/calendar.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/cannotsavelabeldialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/captiondialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/captionoptions.ui
@@ -296,6 +301,10 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/combobox.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/comboboxfragment.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/conditionpage.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontrolcalendar.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontroldlg.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontroldropdown.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/contentcontrollistitemdlg.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/converttexttable.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/createaddresslist.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/createauthorentry.ui
@@ -324,7 +333,6 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/fldfuncpage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/fldrefpage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/fldvarpage.ui
-/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/floatingnavigation.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/floatingsync.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/footendnotedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/footnoteareapage.ui
@@ -338,7 +346,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/frmtypepage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/frmurlpage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/gotopagedialog.ui
-/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/headerfootermenu.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/hfmenubutton.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/indentpage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/indexentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/infonotfounddialog.ui
@@ -386,6 +394,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_groupedbar_compact.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_groupedbar_full.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_groups.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_online.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/notebookbar_single.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/numberingnamedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/numparapage.ui
@@ -399,10 +408,10 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/optredlinepage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/opttablepage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/opttestpage.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/outlinebutton.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/outlinenumbering.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/outlinenumberingpage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/outlinepositionpage.ui
-/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pagebreakmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pagecolumncontrol.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pagefooterpanel.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pageformatpanel.ui
@@ -410,8 +419,10 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pagemargincontrol.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pageorientationcontrol.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pagesizecontrol.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pagestylemenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pagestylespanel.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/paradialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/pbmenubutton.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/picturedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/picturepage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/poseditbox.ui
@@ -426,7 +437,6 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/querycontinueenddialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/querydefaultcompatdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/queryredlinedialog.ui
-/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/queryrotateintostandarddialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/querysavelabeldialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/readonlymenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/renameautotextdialog.ui
@@ -471,6 +481,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/tokenwidget.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/toxbuttonwidget.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/toxentrywidget.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/unfloatbutton.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/viewoptionspage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/warndatasourcedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swriter/ui/warnemaildialog.ui
@@ -496,6 +507,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swxform/popupmenu/media.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swxform/popupmenu/oleobject.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swxform/popupmenu/preview.xml
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/swxform/popupmenu/showtrackedchanges.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swxform/popupmenu/table.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swxform/popupmenu/text.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/swxform/statusbar

@@ -2,8 +2,8 @@
 /etc
 /lib
 /lib/x86_64-linux-gnu
-/lib/x86_64-linux-gnu/libhistory.so.8.1
-/lib/x86_64-linux-gnu/libreadline.so.8.1
+/lib/x86_64-linux-gnu/libhistory.so.8.2
+/lib/x86_64-linux-gnu/libreadline.so.8.2
 /usr
 /usr/share
 /usr/share/doc

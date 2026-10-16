@@ -17,7 +17,7 @@ libQt5Help.so.5 libqt5help5 #MINVER#
  Qt_5.8@Qt_5.8 5.9.0~beta3
  Qt_5.9@Qt_5.9 5.9.0~beta3
  Qt_5@Qt_5 5.6.0~beta
- Qt_5_PRIVATE_API@Qt_5_PRIVATE_API 5.6.0~beta
+ Qt_5_PRIVATE_API@Qt_5_PRIVATE_API 0
  _ZN11QHelpEngine11indexWidgetEv@Qt_5 5.6.0~beta
  _ZN11QHelpEngine11qt_metacallEN11QMetaObject4CallEiPPv@Qt_5 5.6.0~beta
  _ZN11QHelpEngine11qt_metacastEPKc@Qt_5 5.6.0~beta

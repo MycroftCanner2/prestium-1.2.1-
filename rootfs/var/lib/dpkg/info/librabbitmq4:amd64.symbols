@@ -80,6 +80,7 @@ librabbitmq.so.4 librabbitmq4 #MINVER#
  amqp_set_initialize_ssl_library@Base 0.6.0
  amqp_set_rpc_timeout@Base 0.9.0
  amqp_set_sockfd@Base 0.6.0
+ amqp_set_ssl_engine@Base 0.11.0
  amqp_simple_rpc@Base 0.6.0
  amqp_simple_rpc_decoded@Base 0.6.0
  amqp_simple_wait_frame@Base 0.6.0
@@ -93,6 +94,8 @@ librabbitmq.so.4 librabbitmq4 #MINVER#
  amqp_ssl_socket_set_cacert@Base 0.6.0
  amqp_ssl_socket_set_key@Base 0.6.0
  amqp_ssl_socket_set_key_buffer@Base 0.6.0
+ amqp_ssl_socket_set_key_engine@Base 0.11.0
+ amqp_ssl_socket_set_key_passwd@Base 0.11.0
  amqp_ssl_socket_set_ssl_versions@Base 0.8.0
  amqp_ssl_socket_set_verify@Base 0.6.0
  amqp_ssl_socket_set_verify_hostname@Base 0.8.0

@@ -68,6 +68,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/toolbar/colorbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/toolbar/commentsbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/toolbar/connectorsbar.xml
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/toolbar/distributebar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/toolbar/drawingobjectbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/toolbar/ellipsesbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/toolbar/extrusionobjectbar.xml
@@ -121,6 +122,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_compact.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_groupedbar_compact.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_online.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/notebookbar_single.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/paranumberingtab.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/ui/queryunlinkimagedialog.ui

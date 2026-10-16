@@ -1,7 +1,6 @@
-b7972e97a3c50f4cf47e53dd95cb41b7  usr/lib/x86_64-linux-gnu/librevenge-0.0.so.0.0.4
-26c389108ddcfd968a9399c434ee7622  usr/lib/x86_64-linux-gnu/librevenge-generators-0.0.so.0.0.4
-e36850b4db459768b285fc59ceb0b2da  usr/lib/x86_64-linux-gnu/librevenge-stream-0.0.so.0.0.4
-ea94d926ad3e790dc853acfa502a293b  usr/share/doc/librevenge-0.0-0/changelog.Debian.amd64.gz
-adcc3a0642306d6824d8f223224a303f  usr/share/doc/librevenge-0.0-0/changelog.Debian.gz
-2790710ed78aab91f9cc427213da30be  usr/share/doc/librevenge-0.0-0/changelog.gz
+03724a00893728fbfdac679b69f7bef5  usr/lib/x86_64-linux-gnu/librevenge-0.0.so.0.0.5
+25351ce67528c92319cd4d7db71dc2cf  usr/lib/x86_64-linux-gnu/librevenge-generators-0.0.so.0.0.5
+317ef6804f9ef79d70259f77821f09ea  usr/lib/x86_64-linux-gnu/librevenge-stream-0.0.so.0.0.5
+79db1d5312faca3c470678e3983e7778  usr/share/doc/librevenge-0.0-0/changelog.Debian.gz
+ad4ac2bea3ecf71b78293c1aa344c66c  usr/share/doc/librevenge-0.0-0/changelog.gz
 5106ce287c1d99e6ee5bea872cd046f5  usr/share/doc/librevenge-0.0-0/copyright

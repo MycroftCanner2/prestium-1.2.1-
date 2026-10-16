@@ -30,11 +30,15 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/alignmentdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/catalogdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/dockingelements.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/editwindow.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/fontdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/fontsizedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/fonttypedialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/mathwindow.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/printeroptions.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/savedefaultsdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/sidebarelements_math.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/sidebarproperties_math.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/smathsettings.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/spacingdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/smath/ui/symdefinedialog.ui

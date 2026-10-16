@@ -15,7 +15,9 @@ validate_extensions() {
 }
 
 make_lo_sync_extensions() {
-	touch /usr/lib/libreoffice/share/extensions
+	if [ -d /usr/lib/libreoffice/share/extensions ]; then
+		touch /usr/lib/libreoffice/share/extensions
+	fi
 }
 
 if [ "$1" = "triggered" ]; then
@@ -39,50 +41,43 @@ if [ "$1" = "triggered" ]; then
         done
 fi
 
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
 	ucf --three-way "/usr/lib/libreoffice/share/.registry/main.xcd" "/etc/libreoffice/registry/main.xcd"
 	ucfr --force libreoffice-common "/etc/libreoffice/registry/main.xcd"
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
 	ucf --three-way "/usr/lib/libreoffice/share/.registry/pdfimport.xcd" "/etc/libreoffice/registry/pdfimport.xcd"
 	ucfr --force libreoffice-common "/etc/libreoffice/registry/pdfimport.xcd"
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
 	ucf --three-way "/usr/lib/libreoffice/share/.registry/xsltfilter.xcd" "/etc/libreoffice/registry/xsltfilter.xcd"
 	ucfr --force libreoffice-common "/etc/libreoffice/registry/xsltfilter.xcd"
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
 	ucf --three-way "/usr/lib/libreoffice/share/.registry/lingucomponent.xcd" "/etc/libreoffice/registry/lingucomponent.xcd"
 	ucfr --force libreoffice-common "/etc/libreoffice/registry/lingucomponent.xcd"
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
 	ucf --three-way "/usr/lib/libreoffice/share/.registry/Langpack-en-US.xcd" "/etc/libreoffice/registry/Langpack-en-US.xcd"
 	ucfr --force libreoffice-common "/etc/libreoffice/registry/Langpack-en-US.xcd"
 fi
 # End automatically added section
-# Automatically added by dh_ucf/13.3.4
+# Automatically added by dh_ucf/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
 	ucf --three-way "/usr/lib/libreoffice/share/.registry/res/fcfg_langpack_en-US.xcd" "/etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd"
 	ucfr --force libreoffice-common "/etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd"
 fi
 # End automatically added section
-# Automatically added by dh_icons/13.3.4
-if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	if which update-icon-caches >/dev/null 2>&1 ; then
-		update-icon-caches /usr/share/icons/locolor
-	fi
-fi
-# End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.lib.libreoffice.program.oosplash"
     if [ -f "$APP_PROFILE" ]; then
@@ -101,7 +96,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.lib.libreoffice.program.senddoc"
     if [ -f "$APP_PROFILE" ]; then
@@ -120,7 +115,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin"
     if [ -f "$APP_PROFILE" ]; then
@@ -139,7 +134,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/2.13.6-10
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.lib.libreoffice.program.xpdfimport"
     if [ -f "$APP_PROFILE" ]; then
@@ -158,7 +153,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_installdeb/13.3.4
+# Automatically added by dh_installdeb/13.11.4
 dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.oosplash /etc/apparmor.d/usr.lib.libreoffice.program.oosplash 1:5.4.3-1 -- "$@"
 dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.senddoc /etc/apparmor.d/usr.lib.libreoffice.program.senddoc 1:5.4.3-1 -- "$@"
 dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.soffice.bin /etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin 1:5.4.3-1 -- "$@"

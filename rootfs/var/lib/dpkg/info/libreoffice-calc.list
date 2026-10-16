@@ -52,6 +52,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/row_operations.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/rowheader.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/sheettab.xml
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/sparkline.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/statusbar
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/statusbar/statusbar.xml
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/toolbar
@@ -104,6 +105,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/chardialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/checkwarningdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/chisquaretestdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/colormenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/colorrowdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/colwidthdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/condformatmanager.ui
@@ -122,7 +124,6 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/dataform.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/dataformfragment.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/dataproviderdlg.ui
-/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/dataproviderentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/datastreams.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/datetimetransformationentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/definedatabaserangedialog.ui
@@ -130,14 +131,19 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/deletecells.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/deletecolumnentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/deletecontents.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/deleterowentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/descriptivestatisticsdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/doubledialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/dropmenu.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/erroralerttabpage-mobile.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/erroralerttabpage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/exponentialsmoothingdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/externaldata.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/filldlg.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/filterdropdown.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/filterlist.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/filtersubdropdown.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/findreplaceentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/floatingborderstyle.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/floatinglinestyle.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/footerdialog.ui
@@ -146,6 +152,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/fourieranalysisdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/functionpanel.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/goalseekdlg.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/gotosheetdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/groupbydate.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/groupbynumber.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/groupdialog.ui
@@ -153,6 +160,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/headerfootercontent.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/headerfooterdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/imoptdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/inputbar.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/inputstringdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/insertcells.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/insertname.ui
@@ -160,6 +168,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/integerdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/leftfooterdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/leftheaderdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/listmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/managenamesdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/mergecellsdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/mergecolumnentry.ui
@@ -174,6 +183,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_groupedbar_compact.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_groupedbar_full.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_groups.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/notebookbar_online.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/numberbox.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/numbertransformationentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/optcalculatepage.ui
@@ -185,6 +195,7 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/optimalcolwidthdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/optimalrowheightdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/optsortlists.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/pagelistmenu.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/pagetemplatedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/paradialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/paratemplatedialog.ui
@@ -215,8 +226,12 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/selectdatasource.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/selectrange.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/selectsource.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedfirstfooterdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedfirstheaderdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedfooterdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedheaderdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedleftfooterdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedleftheaderdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedocumentdlg.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sharedwarningdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sheetprintpage.ui
@@ -237,12 +252,15 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sortoptionspage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sorttransformationentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sortwarning.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sparklinedatarangedialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/sparklinedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/splitcolumnentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/standardfilterdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/statisticsinfopage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/subtotaldialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/subtotalgrppage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/subtotaloptionspage.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/swaprowsentry.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/tabcolordialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/textimportcsv.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/textimportoptions.ui
@@ -252,7 +270,9 @@
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/ungroupdialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/validationcriteriapage.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/validationdialog.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/validationhelptabpage-mobile.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/validationhelptabpage.ui
+/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/warnautocorrect.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/xmlsourcedialog.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/zoombox.ui
 /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/ui/ztestdialog.ui

@@ -1,4 +1,7 @@
-ae6ef6f007f8575e5abf599a5d4247fd  usr/share/bug/libreoffice-style-colibre/presubj
-2a492270133b9e574c8aa3310b3572f7  usr/share/doc/libreoffice-style-colibre/changelog.Debian.gz
-f2e2355707043e25176789df0d59e18a  usr/share/doc/libreoffice-style-colibre/copyright
-ef1c68f1a769e8ec5b9d1392710c1246  usr/share/libreoffice/share/config/images_colibre.zip
+7ab413e7638e0bf31a8ce0bf3b910ba8  usr/share/bug/libreoffice-style-colibre/presubj
+de9b9bcb1331a114e470458006a47bff  usr/share/doc/libreoffice-style-colibre/changelog.Debian.gz
+3813907d8d86591fc9b8dd90da5209e0  usr/share/doc/libreoffice-style-colibre/copyright
+59f7a8fd75d0fc930f2b25d2e6720f9f  usr/share/libreoffice/share/config/images_colibre.zip
+744ad6565c7d55a14917d71053adeff9  usr/share/libreoffice/share/config/images_colibre_dark.zip
+ed99b0da630532f53f1b234020c9e406  usr/share/libreoffice/share/config/images_colibre_dark_svg.zip
+7bd238e642a331a132f29063bc1655dd  usr/share/libreoffice/share/config/images_colibre_svg.zip

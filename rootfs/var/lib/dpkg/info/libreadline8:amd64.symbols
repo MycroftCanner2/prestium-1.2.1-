@@ -1,5 +1,6 @@
 libhistory.so.8 libreadline8 #MINVER#
  _hs_append_history_line@Base 7.0~rc1
+ _hs_at_end_of_history@Base 8.2~beta
  _hs_history_patsearch@Base 8.0~
  _hs_replace_history_data@Base 7.0~beta
  _rl_adjust_point@Base 6.0
@@ -77,9 +78,12 @@ libhistory.so.8 libreadline8 #MINVER#
  xrealloc@Base 6.0
 libreadline.so.8 libreadline8 #MINVER#
  _hs_append_history_line@Base 7.0~rc1
+ _hs_at_end_of_history@Base 8.2~beta
  _hs_history_patsearch@Base 8.0~
  _hs_replace_history_data@Base 7.0~beta
  _rl_abort_internal@Base 6.0
+ _rl_active_region_end_color@Base 8.2~beta
+ _rl_active_region_start_color@Base 8.2~beta
  _rl_add_executing_keyseq@Base 8.1~alpha1
  _rl_add_macro_char@Base 6.0
  _rl_adjust_point@Base 6.0
@@ -131,6 +135,7 @@ libreadline.so.8 libreadline8 #MINVER#
  _rl_copy_undo_list@Base 6.0
  _rl_cr@Base 8.1~alpha1
  _rl_current_display_line@Base 6.0
+ _rl_del_executing_keyseq@Base 8.2~beta
  _rl_digit_p@Base 6.0
  _rl_digit_value@Base 6.0
  _rl_disable_meta_key@Base 6.3
@@ -153,10 +158,10 @@ libreadline.so.8 libreadline8 #MINVER#
  _rl_enable_paren_matching@Base 6.0
  _rl_end_executing_keyseq@Base 8.1~alpha1
  _rl_eof_char@Base 6.0
- _rl_eof_found@Base 8.0~beta1
  _rl_erase_at_end_of_line@Base 6.0
  _rl_erase_entire_line@Base 6.0
  _rl_errmsg@Base 6.0
+ _rl_executing_func@Base 8.2~beta
  _rl_executing_keyseq_size@Base 6.3
  _rl_find_completion_word@Base 6.0
  _rl_find_next_mbchar@Base 6.0
@@ -174,6 +179,7 @@ libreadline.so.8 libreadline8 #MINVER#
  _rl_get_screen_size@Base 6.0
  _rl_history_preserve_point@Base 6.0
  _rl_history_saved_point@Base 6.0
+ _rl_history_search_pos@Base 8.2~beta
  _rl_horizontal_scroll_mode@Base 6.0
  _rl_in_stream@Base 6.0
  _rl_init_eightbit@Base 6.0
@@ -251,12 +257,16 @@ libreadline.so.8 libreadline8 #MINVER#
  _rl_read_mbstring@Base 6.0
  _rl_redisplay_after_sigwinch@Base 6.0
  _rl_refresh_line@Base 8.1~alpha1
+ _rl_region_color_off@Base 8.2~beta
+ _rl_region_color_on@Base 8.2~beta
  _rl_release_sigint@Base 6.0
  _rl_release_sigwinch@Base 6.1
  _rl_replace_text@Base 6.0
  _rl_reset_argument@Base 6.0
  _rl_reset_completion_state@Base 6.0
+ _rl_reset_locale@Base 8.2
  _rl_reset_prompt@Base 6.3
+ _rl_reset_region_color@Base 8.2~beta
  _rl_restore_tty_signals@Base 6.0
  _rl_revert_all_at_newline@Base 6.0
  _rl_revert_all_lines@Base 6.0
@@ -308,6 +318,9 @@ libreadline.so.8 libreadline8 #MINVER#
  _rl_term_pc@Base 6.0
  _rl_term_up@Base 6.0
  _rl_terminal_can_insert@Base 6.0
+ _rl_timeout_handle_sigalrm@Base 8.2~beta
+ _rl_timeout_init@Base 8.2~beta
+ _rl_timeout_select@Base 8.2~beta
  _rl_to_lower@Base 6.0
  _rl_to_upper@Base 6.0
  _rl_top_level@Base 6.0
@@ -521,6 +534,7 @@ libreadline.so.8 libreadline8 #MINVER#
  rl_end_of_history@Base 6.0
  rl_end_of_line@Base 6.0
  rl_end_undo_group@Base 6.0
+ rl_eof_found@Base 8.2~beta
  rl_erase_empty_line@Base 6.0
  rl_event_hook@Base 6.0
  rl_exchange_point_and_mark@Base 6.0
@@ -532,6 +546,7 @@ libreadline.so.8 libreadline8 #MINVER#
  rl_expand_prompt@Base 6.0
  rl_explicit_arg@Base 6.0
  rl_extend_line_buffer@Base 6.0
+ rl_fetch_history@Base 8.2~beta
  rl_filename_completion_desired@Base 6.0
  rl_filename_completion_function@Base 6.0
  rl_filename_dequoting_function@Base 6.0
@@ -678,6 +693,7 @@ libreadline.so.8 libreadline8 #MINVER#
  rl_set_retained_kills@Base 6.0
  rl_set_screen_size@Base 6.0
  rl_set_signals@Base 6.0
+ rl_set_timeout@Base 8.2~beta
  rl_show_char@Base 6.0
  rl_signal_event_hook@Base 6.3
  rl_skip_csi_sequence@Base 6.1
@@ -690,9 +706,12 @@ libreadline.so.8 libreadline8 #MINVER#
  rl_tab_insert@Base 6.0
  rl_terminal_name@Base 6.0
  rl_tilde_expand@Base 6.0
+ rl_timeout_event_hook@Base 8.2~beta
+ rl_timeout_remaining@Base 8.2~beta
  rl_translate_keyseq@Base 6.0
  rl_transpose_chars@Base 6.0
  rl_transpose_words@Base 6.0
+ rl_trim_arg_from_keyseq@Base 8.2~beta
  rl_tty_set_default_bindings@Base 6.0
  rl_tty_set_echoing@Base 7.0~rc1
  rl_tty_status@Base 6.0

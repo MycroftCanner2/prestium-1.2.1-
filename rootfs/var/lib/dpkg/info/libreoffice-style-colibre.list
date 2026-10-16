@@ -16,4 +16,10 @@
 /usr/share/libreoffice/share
 /usr/share/libreoffice/share/config
 /usr/share/libreoffice/share/config/images_colibre.zip
+/usr/share/libreoffice/share/config/images_colibre_dark.zip
+/usr/share/libreoffice/share/config/images_colibre_dark_svg.zip
+/usr/share/libreoffice/share/config/images_colibre_svg.zip
 /usr/lib/libreoffice/share/config/images_colibre.zip
+/usr/lib/libreoffice/share/config/images_colibre_dark.zip
+/usr/lib/libreoffice/share/config/images_colibre_dark_svg.zip
+/usr/lib/libreoffice/share/config/images_colibre_svg.zip

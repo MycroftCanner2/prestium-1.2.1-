@@ -1,6 +1,7 @@
 libselinux.so.1 libselinux1 #MINVER#
 * Build-Depends-Package: libselinux1-dev
  LIBSELINUX_1.0@LIBSELINUX_1.0 3.1~
+ LIBSELINUX_3.4@LIBSELINUX_3.4 3.4
  avc_add_callback@LIBSELINUX_1.0 3.1~
  avc_audit@LIBSELINUX_1.0 3.1~
  avc_av_stats@LIBSELINUX_1.0 3.1~
@@ -190,6 +191,8 @@ libselinux.so.1 libselinux1 #MINVER#
  selinux_reset_config@LIBSELINUX_1.0 3.1~
  selinux_restorecon@LIBSELINUX_1.0 3.1~
  selinux_restorecon_default_handle@LIBSELINUX_1.0 3.1~
+ selinux_restorecon_get_skipped_errors@LIBSELINUX_3.4 3.4
+ selinux_restorecon_parallel@LIBSELINUX_3.4 3.4
  selinux_restorecon_set_alt_rootpath@LIBSELINUX_1.0 3.1~
  selinux_restorecon_set_exclude_list@LIBSELINUX_1.0 3.1~
  selinux_restorecon_set_sehandle@LIBSELINUX_1.0 3.1~
