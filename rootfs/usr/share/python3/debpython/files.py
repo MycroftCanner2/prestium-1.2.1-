@@ -46,8 +46,8 @@ def from_directory(dname, extensions=('.py',)):
 def from_package(package_name, extensions=('.py',)):
     """Generate *.py file names available in given package."""
     extensions = tuple(extensions)  # .endswith doesn't like list
-    process = Popen("/usr/bin/dpkg -L %s" % package_name,
-                    shell=True, stdout=PIPE)
+    process = Popen(('/usr/bin/dpkg', '-L', package_name), stdout=PIPE,
+                         stderr=PIPE)
     stdout, stderr = process.communicate()
     if process.returncode != 0:
         raise Exception("cannot get content of %s" % package_name)

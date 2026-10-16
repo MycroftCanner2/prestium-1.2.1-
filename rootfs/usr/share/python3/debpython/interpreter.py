@@ -349,7 +349,7 @@ class Interpreter:
 
     def _execute(self, command, version=None, cache=True):
         version = Version(version or self.version)
-        command = "{} -c '{}'".format(self._vstr(version), command.replace("'", "\'"))
+        command = (self._vstr(version), "-c", command)
         if cache and command in self.__class__._cache:
             return self.__class__._cache[command]
 

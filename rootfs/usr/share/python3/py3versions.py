@@ -36,6 +36,10 @@ def read_default(name=None):
     return None
 
 
+def version_to_tuple(version):
+    return tuple(int(part) for part in version.split('.'))
+
+
 def parse_versions(vstring):
     if len(vstring.split(',')) > 2:
         raise ValueError('too many arguments provided for X-Python3-Version: min and max only.')
@@ -54,7 +58,7 @@ def parse_versions(vstring):
         if field in ('current', 'current_ext'):
             continue
         vinfo.setdefault('versions', set())
-        ve = re.compile(r'(>=|<=|<<|=)? *(\d\.\d)$')
+        ve = re.compile(r'(>=|<=|<<|=)? *(\d\.\d+)$')
         m = ve.match(field)
         try:
             if not m:
@@ -68,7 +72,8 @@ def parse_versions(vstring):
             else:
                 relop_seen = True
                 filtop = operators[op]
-                version_range = [av for av in version_range if filtop(av, v)]
+                version_range = [av for av in version_range if filtop(
+                    version_to_tuple(av), version_to_tuple(v))]
         except Exception:
             raise ValueError('error parsing Python3-Version attribute')
     if 'versions' in vinfo:
@@ -187,13 +192,23 @@ def installed_versions(version_only=False):
     import glob
     supported = supported_versions()
     versions = [os.path.basename(s)
-                for s in glob.glob('/usr/bin/python3.[0-9]')
+                for s in glob.glob('/usr/bin/python3.[0-9]') + glob.glob('/usr/bin/python3.[0-9][0-9]')
                 if os.path.basename(s) in supported]
     versions.sort()
     if version_only:
         return [v[6:] for v in versions]
     else:
         return versions
+
+
+def minmax_supported_version(minmax, version_only=False):
+    supported_versions_list = supported_versions(True)
+    version = minmax(version_to_tuple(ver) for ver in supported_versions_list)
+    version_str = '%d.%d' % version
+    if version_only:
+        return version_str
+    else:
+        return 'python' + version_str
 
 
 class ControlFileValueError(ValueError):
@@ -284,6 +299,12 @@ def main():
     parser.add_option('-i', '--installed',
                       help='print the installed supported python3 versions',
                       action='store_true', dest='installed')
+    parser.add_option('--min-supported',
+                      help='print the minimum supported python3 version',
+                      action='store_true', dest='minsupported')
+    parser.add_option('--max-supported',
+                      help='print the maximum supported python3 version',
+                      action='store_true', dest='maxsupported')
     parser.add_option('-v', '--version',
                       help='print just the version number(s)',
                       default=False, action='store_true', dest='version_only')
@@ -300,6 +321,10 @@ def main():
         print(' '.join(supported_versions(opts.version_only)))
     elif opts.installed and len(args) == 0:
         print(' '.join(installed_versions(opts.version_only)))
+    elif opts.minsupported and len(args) == 0:
+        print(minmax_supported_version(min, opts.version_only))
+    elif opts.maxsupported and len(args) == 0:
+        print(minmax_supported_version(max, opts.version_only))
     elif opts.requested and len(args) <= 1:
         if len(args) == 0:
             versions = 'debian/control'

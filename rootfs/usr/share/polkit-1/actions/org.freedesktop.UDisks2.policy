@@ -634,7 +634,7 @@
       <allow_active>auth_admin_keep</allow_active>
     </defaults>
   </action>
-  <!-- mount a device attached to another seat -->
+  <!-- unlock a device attached to another seat -->
   <action id="org.freedesktop.udisks2.encrypted-unlock-other-seat">
     <description>Unlock an encrypted device plugged into another seat</description>
     <description xml:lang="zh_TW">解鎖插入其他位置的加密裝置</description>
@@ -2539,7 +2539,7 @@
     </defaults>
   </action>
   <!-- ###################################################################### -->
-  <!-- Drive configuration (Power Management, Acustics, etc.) -->
+  <!-- Drive configuration (Power Management, Acoustics, etc.) -->
   <action id="org.freedesktop.udisks2.modify-drive-settings">
     <description>Modify drive settings</description>
     <description xml:lang="zh_TW">修改碟機設定</description>

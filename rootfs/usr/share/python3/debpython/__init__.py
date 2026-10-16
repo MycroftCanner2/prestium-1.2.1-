@@ -24,7 +24,7 @@ class memoize:
 
 
 def execute(command, cwd=None, env=None, log_output=None):
-    """Execute external shell commad.
+    """Execute external commad.
 
     :param cdw: currennt working directory
     :param env: environment
@@ -33,7 +33,7 @@ def execute(command, cwd=None, env=None, log_output=None):
         * None if output should be included in the returned dict, or
         * False if output should be redirectored to stdout/stderr
     """
-    args = {'shell': True, 'cwd': cwd, 'env': env}
+    args = {'shell': False, 'cwd': cwd, 'env': env}
     close = False
     if log_output is False:
         pass
@@ -45,11 +45,11 @@ def execute(command, cwd=None, env=None, log_output=None):
             log_output = open(log_output, 'a')
         if datetime:
             log_output.write('\n# command executed on {}'.format(datetime.now().isoformat()))
-        log_output.write('\n$ {}\n'.format(command))
+        log_output.write('\n$ {}\n'.format(repr(command)))
         log_output.flush()
         args.update(stdout=log_output, stderr=log_output)
 
-    log.debug('invoking: %s', command)
+    log.debug('invoking: %r', command)
     with Popen(command, **args) as process:
         stdout, stderr = process.communicate()
         close and log_output.close()
