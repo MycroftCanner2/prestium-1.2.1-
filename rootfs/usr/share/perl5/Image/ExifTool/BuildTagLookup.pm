@@ -35,7 +35,7 @@ use Image::ExifTool::Sony;
 use Image::ExifTool::Validate;
 use Image::ExifTool::MacOS;
 
-$VERSION = '3.41';
+$VERSION = '3.51';
 @ISA = qw(Exporter);
 
 sub NumbersFirst($$);
@@ -68,6 +68,7 @@ my %tweakOrder = (
     IPTC    => 'Exif',  # put IPTC after EXIF,
     GPS     => 'XMP',   # etc...
     Composite => 'Extra',
+    CBOR    => 'JSON',
     GeoTiff => 'GPS',
     CanonVRD=> 'CanonCustom',
     DJI     => 'Casio',
@@ -141,6 +142,9 @@ my %formatOK = (
     signed      => 1,
     unsigned    => 1,
     utf8        => 1,
+    Unicode     => 1, # (Microsoft Xtra)
+    GUID        => 1, # (Microsoft Xtra)
+    vt_filetime => 1, # (Microsoft Xtra)
 );
 
 # Descriptions for the TagNames documentation
@@ -234,7 +238,7 @@ types of meta information.  To determine a tag name, either consult this
 documentation or run C<exiftool -s> on a file containing the information in
 question.
 
-I<(This documentation is the result of years of research, testing and
+I<(This documentation is the result of decades of research, testing and
 reverse engineering, and is the most complete metadata tag list available
 anywhere on the internet.  It is provided not only for ExifTool users, but
 more importantly as a public service to help augment the collective
@@ -310,7 +314,10 @@ C<integer> is a string of digits (possibly beginning with a '+' or '-'),
 C<real> is a floating point number, C<rational> is entered as a floating
 point number but stored as two C<integer> strings separated by a '/'
 character, C<date> is a date/time string entered in the format "YYYY:mm:dd
-HH:MM:SS[.ss][+/-HH:MM]", C<boolean> is either "True" or "False", C<struct>
+HH:MM:SS[.ss][+/-HH:MM]" but some partial date/time formats are also
+accepted (see L<https://exiftool.org/faq.html#Q5>), C<boolean> is either
+"True" or "False" (but "true" and "false" may be written as a ValueConv
+value for compatibility with non-conforming applications), C<struct>
 indicates a structured tag, and C<lang-alt> is a tag that supports alternate
 languages.
 
@@ -430,11 +437,18 @@ L<UserData|Image::ExifTool::TagNames/QuickTime UserData Tags>, and
 finally in L<Keys|Image::ExifTool::TagNames/QuickTime Keys Tags>,
 but this order may be changed by setting the PREFERRED level of the
 appropriate table in the config file (see
-L<example.config|../config.html#PREF> in the full distribution for
-an example).  ExifTool currently writes only top-level metadata in
-QuickTime-based files; it extracts other track-specific and timed
-metadata, but can not yet edit tags in these locations (with the
-exception of track-level date/time tags).
+L<example.config|../config.html#PREF> in the full distribution for an
+example).  Note that some tags with the same name but different ID's may
+exist in the same location, but the family 7 group names may be used to
+differentiate these.  ExifTool currently writes only top-level metadata in
+QuickTime-based files; it extracts other track-specific and timed metadata,
+but can not yet edit tags in these locations (with the exception of
+track-level date/time tags).
+
+Beware that the Keys tags are actually stored inside the ItemList in the
+file, so deleting the ItemList group as a block (ie. C<-ItemList:all=>) also
+deletes Keys tags.  Instead, to preserve Keys tags the ItemList tags may be
+deleted individually with C<-QuickTime:ItemList:all=>.
 
 Alternate language tags may be accessed for
 L<ItemList|Image::ExifTool::TagNames/QuickTime ItemList Tags> and
@@ -453,14 +467,19 @@ According to the specification, integer-format QuickTime date/time tags
 should be stored as UTC.  Unfortunately, digital cameras often store local
 time values instead (presumably because they don't know the time zone).  For
 this reason, by default ExifTool does not assume a time zone for these
-values.  However, if the L<QuickTimeUTC|../ExifTool.html#QuickTimeUTC> API option is set, then ExifTool will
+values.  However, if the API L<QuickTimeUTC|../ExifTool.html#QuickTimeUTC> option is set, then ExifTool will
 assume these values are properly stored as UTC, and will convert them to
 local time when extracting.
 
 When writing string-based date/time tags, the system time zone is added if
 the PrintConv option is enabled and no time zone is specified.  This is
-because Apple software may display a crazy values if the time zone is
-missing for some tags.
+because Apple software may display crazy values if the time zone is missing
+for some tags.
+
+By default ExifTool will remove null padding from some QuickTime containers
+in Canon CR3 files when writing, but the
+L<QuickTimePad|../ExifTool.html#QuickTimePad> option may be used to preserve
+the original size by padding with nulls if necessary.
 
 See
 L<https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/>
@@ -489,11 +508,13 @@ been decoded.  Use the L<Unknown|../ExifTool.html#Unknown> (-u) option to extrac
 },
     GeoTiff => q{
 ExifTool extracts the following tags from GeoTIFF images.  See
-L<http://www.remotesensing.org/geotiff/spec/geotiffhome.html> for the
-complete GeoTIFF specification.  Also included in the table below are
-ChartTIFF tags (see L<http://www.charttiff.com/whitepapers.shtml>). GeoTIFF
-tags are not writable individually, but they may be copied en mass via the
-block tags GeoTiffDirectory, GeoTiffDoubleParams and GeoTiffAsciiParams.
+L<https://web.archive.org/web/20070820121549/http://www.remotesensing.org/geotiff/spec/geotiffhome.html>
+for the complete GeoTIFF specification.  Also included in the table below
+are ChartTIFF tags (see
+L<https://web.archive.org/web/20020828193928/http://www.charttiff.com/whitepapers.shtml>).
+GeoTIFF tags are not writable individually, but they may be copied en mass
+via the block tags GeoTiffDirectory, GeoTiffDoubleParams and
+GeoTiffAsciiParams.
 },
     JFIF => q{
 The following information is extracted from the JPEG JFIF header.  See
@@ -633,7 +654,7 @@ overlapping EXIF, IPTC and XMP tags to be reconciled when reading, and
 synchronized when writing.  The MWG Composite tags below are designed to aid
 in the implementation of these recommendations.  As well, the MWG defines
 new XMP tags which are listed in the subsequent tables below.  See
-L<https://web.archive.org/web/20181006115950/http://www.metadataworkinggroup.org/specs/>
+L<https://web.archive.org/web/20180919181934/http://www.metadataworkinggroup.org/pdf/mwg_guidance.pdf>
 for the official MWG specification.
 },
     MacOS => q{
@@ -657,7 +678,7 @@ L<Image::ExifTool::BuildTagLookup|Image::ExifTool::BuildTagLookup>.
 
 ~head1 AUTHOR
 
-Copyright 2003-2021, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
@@ -698,10 +719,14 @@ my %shortcutNotes = (
         large binary data tags which may be excluded to reduce memory usage if
         memory limitations are a problem
     },
+   'ls-l' => q{
+        mimics columns shown by Unix "ls -l" command.  Includes some tags which are
+        extracted only if the API L<SystemTags|../ExifTool.html#SystemTags> option
+        is enabled
+    },
 );
 
-
-# same thing for RIFF INFO tags found in the EXIF spec
+# lookup for RIFF INFO tags which are found in the EXIF spec
 my %riffSpec = (
     IARL => 1,  ICRD => 1,  IGNR => 1,  IPLT => 1,  ISRC => 1,
     IART => 1,  ICRP => 1,  IKEY => 1,  IPRD => 1,  ISRF => 1,
@@ -741,7 +766,7 @@ sub new
     my (%tagNameInfo, %id, %longID, %longName, %shortName, %tableNum,
         %tagLookup, %tagExists, %noLookup, %tableWritable, %sepTable, %case,
         %structs, %compositeModules, %isPlugin, %flattened, %structLookup,
-        @writePseudo);
+        @writePseudo, %dupXmpTag);
     $self->{TAG_NAME_INFO} = \%tagNameInfo;
     $self->{ID_LOOKUP} = \%id;
     $self->{LONG_ID} = \%longID;
@@ -889,6 +914,12 @@ TagID:  foreach $tagID (@keys) {
                 foreach (@grps) {
                     warn "Group name starts with 'ID-' for $short $name\n" if /^ID-/i;
                 }
+                if ($isXMP and not $$tagInfo{Avoid} and not $$tagInfo{Struct} and
+                    ($$tagInfo{Writable} or $$table{WRITABLE}))
+                {
+                    $dupXmpTag{$name} and warn "Duplicate writable XMP tag $name\n";
+                    $dupXmpTag{$name} = 1;
+                }
                 # validate Name (must not start with a digit or else XML output will not be valid;
                 # must not start with a dash or exiftool command line may get confused)
                 if ($name !~ /^[_A-Za-z][-\w]+$/ and
@@ -1025,7 +1056,7 @@ TagID:  foreach $tagID (@keys) {
                 if ($$tagInfo{SubIFD}) {
                     warn "Warning: Wrong SubDirectory Start for SubIFD tag - $short $name\n" unless $isSub;
                 } else {
-                    warn "Warning: SubIFD flag not set for $short $name\n" if $isSub;
+                    warn "Warning: SubIFD flag not set for $short $name\n" if $isSub and not $processBinaryData;
                 }
                 if ($$tagInfo{Notes}) {
                     my $note = $$tagInfo{Notes};
@@ -1267,16 +1298,19 @@ TagID:  foreach $tagID (@keys) {
                         $printConv = shift @printConvList;
                         $index = shift @indexList;
                     }
-                } elsif ($printConv and $printConv =~ /DecodeBits\(\$val,\s*(\{.*\})\s*\)/s) {
+                # look inside scalar PrintConv for a bit/byte conversion
+                # (see Photoshop:PrintFlags for use of "$byte" decoding)
+                } elsif ($printConv and $printConv =~ /DecodeBits\(\$(val|byte),\s*(\\\%[\w:]+|\{.*\})\s*\)/s) {
+                    my $type = $1 eq 'byte' ? 'Byte' : 'Bit';
                     $$self{Model} = '';   # needed for Nikon ShootingMode
-                    my $bits = eval $1;
+                    my $bits = eval $2;
                     delete $$self{Model};
                     if ($@) {
                         warn $@;
                     } else {
                         my @pk = sort { NumbersFirst($a,$b) } keys %$bits;
                         foreach (@pk) {
-                            push @values, "Bit $_ = " . $$bits{$_};
+                            push @values, "$type $_ = " . $$bits{$_};
                         }
                     }
                 }
@@ -1302,9 +1336,12 @@ TagID:  foreach $tagID (@keys) {
                     if ($writable) {
                         foreach ('PrintConv','ValueConv') {
                             next unless $$tagInfo{$_};
-                            next if $$tagInfo{$_ . 'Inv'};
-                            next if ref($$tagInfo{$_}) =~ /^(HASH|ARRAY)$/;
-                            next if $$tagInfo{WriteAlso};
+                            next if defined $$tagInfo{$_ . 'Inv'};
+                            # (undefined inverse conversion overrides hash lookup)
+                            unless (exists $$tagInfo{$_ . 'Inv'}) {
+                                next if ref($$tagInfo{$_}) =~ /^(HASH|ARRAY)$/;
+                                next if $$tagInfo{WriteAlso};
+                            }
                             if ($_ eq 'ValueConv') {
                                 undef $writable;
                             } else {
@@ -1319,6 +1356,7 @@ TagID:  foreach $tagID (@keys) {
                         my $count = $$tagInfo{Count} || 1;
                         # adjust count to Writable size if different than Format
                         if ($writable and $format and $writable ne $format and
+                            $writable ne 'string' and $format ne 'string' and
                             $Image::ExifTool::Exif::formatNumber{$writable} and
                             $Image::ExifTool::Exif::formatNumber{$format})
                         {
@@ -1476,7 +1514,7 @@ TagID:  foreach $tagID (@keys) {
                     }
                 }
                 foreach $tagID (sort keys %$hash) {
-                    warn sprintf("Warning: Missing %s for %s %s, tag %d (0x%.4x)\n",
+                    warn sprintf("Warning: Missing %s for %s %s, tag %s (0x%.4x)\n",
                                  $var, $short, $$hash{$tagID}, $tagID, $tagID);
                 }
             }
@@ -2106,7 +2144,7 @@ sub WriteTagNames($$)
         $short = $$shortName{$tableName};
         my @names = split ' ', $short;
         my $class = shift @names;
-        if (@names) {
+        if (@names and $class ne 'Other') {
             # add heading for tables without a Main
             unless ($heading eq $class) {
                 $heading = $class;
@@ -2134,6 +2172,13 @@ sub WriteTagNames($$)
         $short = $$shortName{$tableName};
         $short = $tableName unless $short;
         $url = "$short.html";
+        # handle various tables in "Other.pm"
+        if ($short =~ /^Other (.*)/) {
+            $short = $1;
+            $url = 'Other.html#' . $1;
+        } else {
+            $url = "$short.html";
+        }
         print HTMLFILE "<a href='${url}'>$short</a>";
         ++$count;
     }
@@ -2540,6 +2585,9 @@ sub WriteTagNames($$)
                 $tip = '';
                 # use copyright symbol in QuickTime UserData tags
                 $tagIDstr =~ s/^"\\xa9/"&copy;/;
+                # escape necessary characters in html
+                $tagIDstr =~ s/>/&gt;/g;
+                $tagIDstr =~ s/</&lt;/g;
             }
             # add tooltip for special writable attributes
             my $wtip = '';
@@ -2732,7 +2780,7 @@ Returned list of writable pseudo tags.
 
 =head1 AUTHOR
 
-Copyright 2003-2021, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

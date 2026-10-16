@@ -14,13 +14,15 @@ use vars qw($VERSION);
 use Image::ExifTool qw(:DataAccess :Utils);
 use Image::ExifTool::Import;
 
-$VERSION = '1.02';
+$VERSION = '1.05';
 
+sub ProcessJSON($$);
 sub ProcessTag($$$$%);
 
 %Image::ExifTool::JSON::Main = (
     GROUPS => { 0 => 'JSON', 1 => 'JSON', 2 => 'Other' },
     VARS => { NO_ID => 1 },
+    PROCESS_PROC => \&ProcessJSON,
     NOTES => q{
         Other than a few tags in the table below, JSON tags have not been
         pre-defined.  However, ExifTool will read any existing tags from basic
@@ -81,8 +83,12 @@ sub ProcessTag($$$$%)
             FoundTag($et, $tagTablePtr, $tag, $val, %flags, Struct => 1);
             return unless $et->Options('Struct') > 1;
         }
-        foreach (sort keys %$val) {
-            ProcessTag($et, $tagTablePtr, $tag . ucfirst, $$val{$_}, %flags, Flat => 1);
+        # support hashes with ordered keys
+        my @keys = $$val{_ordered_keys_} ? @{$$val{_ordered_keys_}} : sort keys %$val;
+        foreach (@keys) {
+            my $tg = $tag . ((/^\d/ and $tag =~ /\d$/) ? '_' : '') . ucfirst;
+            $tg =~ s/([^a-zA-Z])([a-z])/$1\U$2/g;
+            ProcessTag($et, $tagTablePtr, $tg, $$val{$_}, %flags, Flat => 1);
         }
     } elsif (ref $val eq 'ARRAY') {
         foreach (@$val) {
@@ -103,7 +109,26 @@ sub ProcessJSON($$)
     my ($et, $dirInfo) = @_;
     my $raf = $$dirInfo{RAF};
     my $structOpt = $et->Options('Struct');
-    my (%database, $key, $tag);
+    my (%database, $key, $tag, $dataPt);
+
+    unless ($raf) {
+        $dataPt = $$dirInfo{DataPt};
+        if ($$dirInfo{DirStart} or ($$dirInfo{DirLen} and $$dirInfo{DirLen} ne length($$dataPt))) {
+            my $buff = substr(${$$dirInfo{DataPt}}, $$dirInfo{DirStart}, $$dirInfo{DirLen});
+            $dataPt = \$buff;
+        }
+        $raf = new File::RandomAccess($dataPt);
+        # extract as a block if requested
+        my $blockName = $$dirInfo{BlockInfo} ? $$dirInfo{BlockInfo}{Name} : '';
+        my $blockExtract = $et->Options('BlockExtract');
+        if ($blockName and ($blockExtract or $$et{REQ_TAG_LOOKUP}{lc $blockName} or
+            ($$et{TAGS_FROM_FILE} and not $$et{EXCL_TAG_LOOKUP}{lc $blockName})))
+        {
+            $et->FoundTag($$dirInfo{BlockInfo}, $$dataPt);
+            return 1 if $blockExtract and $blockExtract > 1;
+        }
+        $et->VerboseDir('JSON');
+    }
 
     # read information from JSON file into database structure
     my $err = Image::ExifTool::Import::ReadJSON($raf, \%database,
@@ -111,7 +136,7 @@ sub ProcessJSON($$)
 
     return 0 if $err or not %database;
 
-    $et->SetFileType();
+    $et->SetFileType() unless $dataPt;
 
     my $tagTablePtr = GetTagTable('Image::ExifTool::JSON::Main');
 
@@ -151,7 +176,7 @@ information from JSON files.
 
 =head1 AUTHOR
 
-Copyright 2003-2021, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

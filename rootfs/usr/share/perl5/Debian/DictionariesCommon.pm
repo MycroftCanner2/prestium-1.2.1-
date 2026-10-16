@@ -37,6 +37,7 @@ my $debug               = 1 if ( defined $ENV{'DICT_COMMON_DEBUG'} );
 # Directories and files to store default values
 my $sys_etc_dir         = "/etc/dictionaries-common";
 my $sys_default_dir     = "$cachedir";
+my $hunspelldir         = "/usr/share/hunspell";
 my $ispelldefault       = "ispell-default";
 my $userdefault         = ( defined $ENV{HOME} ) ? "$ENV{HOME}/.$ispelldefault" : undef;
 my %sys_default_file    = ("ispell"   => "$sys_default_dir/ispell-default",
@@ -205,6 +206,14 @@ sub updatedb {
 
     %dictionaries = (%dictionaries, %dicts);
   }
+
+  # Merge auto-detected and declared hunspell info.
+  if ( "$class" eq "hunspell" ){
+    %dictionaries = %{
+      dc_merge_installed_hunspell_dicts
+	($hunspelldir,\%dictionaries) };
+  }
+
   &dico_dumpdb($class,\%dictionaries);
 }
 
@@ -408,6 +417,195 @@ sub dico_find_matching_choice {
 }
 
 # ------------------------------------------------------------------
+sub dc_merge_installed_hunspell_dicts {
+# ------------------------------------------------------------------
+# Parse installed hunspell dicts for hunspell-info like stuff and
+# merge it with declared list.
+# ------------------------------------------------------------------
+  my $hunspelldir = shift;
+  my $main_dicts  = shift;
+
+  # Do nothing if no hunspell dicts are installed
+  return {} unless ( -d $hunspelldir);
+
+  $main_dicts = {} unless $main_dicts;
+
+  my @hunspell_aff = <$hunspelldir/*.aff>;
+  my $parsed_dicts = {};
+  my $locales_info = {};
+  my $emacs_equivs = {
+    "cs_CZ" => "czech",
+    "da_DK" => "dansk",
+    "de_DE" => "german8",
+    "en_GB" => "british",
+    "en_US" => "american",
+    "eo"    => "esperanto",
+    "es"    => "castellano8",
+    "es_ES" => "castellano8",
+    "fi_FI" => "finnish",
+    "fr_FR" => "francais",
+    "he_IL" => "hebrew",
+    "it_IT" => "italiano",
+    "nl_NL" => "nederlands",
+    "nn_NO" => "norsk",
+    "pl_PL" => "polish",
+    "pt_BR" => "brasileiro",
+    "pt_PT" => "portugues",
+    "ru_RU" => "russian",
+    "sk_SK" => "slovak",
+    "sl_SI" => "slovenian",
+    "sv_SE" => "svenska"
+  };
+  # Function to get value for key in hunspell aff file
+  my $parse_value = sub {
+    my $string = shift;
+    my $file   = shift;
+
+    my $value = ( grep(/^\s*$string/,@{$file}) )[0];
+    if ( defined $value ){
+      chomp $value;
+      $value =~ s/\s+$//;
+      $value =~ s/^\s*$string\s*//;
+    }
+    return $value;
+  };
+  # Extract aff basename in a way that does not need anything
+  # outside perl-base (File::Basename is in perl-modules).
+  my $aff_basename = sub {
+    my $path = shift;
+    my $base =  (split( /\/|\\/, $path))[-1];
+    $base =~ s/.aff$//;
+    return $base;
+  };
+
+  dico_debugprint "--< Debian/DictionariesCommon.pm: Start dc_merge_installed_hunspell_dicts function";
+
+  foreach my $aff ( @hunspell_aff ){
+    my $info = {};
+
+    chomp $aff;
+
+    if ( -l "$aff" && ! -e "$aff" ){
+      print STDERR "dmihd: Skipping broken symlink \"$aff\"\n";
+      next;
+    }
+
+    my $lang = &$aff_basename($aff);
+    $info->{'hash-name'}    = $lang;
+    $info->{'emacsen-name'} = $lang;
+
+    open my $fh, '<:raw', $aff
+	or die "dmihd: Could not open \"$aff\" for read. Aborting.\n";
+    my @aff_contents = <$fh>;
+    close $fh;
+
+    my $coding = &$parse_value("SET",\@aff_contents);
+    if ( defined $coding ){
+      if ( $coding =~ m/^iso\d.*/i ){
+	# Emacs uses iso- for iso coding systems.
+	$coding =~ s/^iso/iso-/i;
+      }
+      $info->{'coding-system'} = lc($coding);
+    }
+
+    my $wordchars = &$parse_value("WORDCHARS",\@aff_contents);
+    if ( defined $wordchars ){
+      $info->{'otherchars'} = "[$wordchars]";
+    }
+
+    my $allchars = &$parse_value("TRY",\@aff_contents);
+    if ( defined $allchars ){
+      my $nonasciichars   =  $allchars;
+      $nonasciichars      =~ s/[[:ascii:]]//g;
+      $info->{'additionalchars'} = $nonasciichars;
+      my @tmp2 = map { "\\" . sprintf("%o", ord($_)) } split('',$nonasciichars);
+      my $octal_nonascii =
+	  join('',
+	       map { "\\" . sprintf("%o", ord($_)) } split('',$nonasciichars)
+	  );
+      $info->{'casechars'}     = "[a-zA-Z$octal_nonascii]";
+      $info->{'not-casechars'} = "[^a-zA-Z$octal_nonascii]";
+      # $info->{'allchars'} =  $allchars;
+    }
+    $info->{'package'} = "auto-detect";
+
+    if ( -l $aff ){
+      if ( my $target = readlink ($aff) ) {
+	chomp $target;
+	$target = &$aff_basename($target);
+	$locales_info->{$target}->{$lang}++;
+      };
+    } else {
+      $parsed_dicts->{$lang} = $info;
+      $locales_info->{$lang}->{$lang}++;
+    }
+  }
+
+  foreach my $lang ( keys %$parsed_dicts ){
+    if ( defined $locales_info->{$lang} ){
+      $parsed_dicts->{$lang}->{'hunspell-locales'} =
+	  join(', ', sort keys %{$locales_info->{$lang}});
+    }
+  }
+
+  # Add aliases for classical emacsen dict names
+  foreach my $lang ( keys %$parsed_dicts ){
+    if ( defined $emacs_equivs->{$lang} ){
+      $parsed_dicts->{$lang}->{'emacsen-name'} = $emacs_equivs->{$lang};
+    }
+  }
+
+  my %main_dicts_emacsen;
+  my %main_dicts_hashes;
+  # Get a list of emacsen and hash names declared in hunspell-info files.
+  foreach my $lang ( keys %$main_dicts ){
+    my $lang_entries = $main_dicts->{$lang};
+    $main_dicts_emacsen{$lang_entries->{'emacsen-name'}}++
+	if ( defined $lang_entries->{'emacsen-name'} );
+    $main_dicts_hashes{$lang_entries->{'hash-name'}}++
+	unless ( $lang_entries->{'emacsen-name'} eq "english_american" );
+  }
+  # Show some debugging code
+  dico_debugprint "main-dicts: ". join(', ',sort keys %$main_dicts);
+  dico_debugprint "emacsen-names:" . join(', ',sort keys %main_dicts_emacsen);
+  dico_debugprint "hash-names:" . join(', ',sort keys %main_dicts_hashes);
+  dico_debugprint "parsed-dicts-before: " .  join(', ',sort keys %$parsed_dicts);
+
+  # Remove parsed entries redundant with a declared dict.
+  foreach my $lang ( keys %$parsed_dicts ){
+    if ( defined $main_dicts_emacsen{$parsed_dicts->{$lang}->{'emacsen-name'}}
+	 ||
+	 defined $main_dicts_hashes{$parsed_dicts->{$lang}->{'hash-name'}}
+      ){
+      # Parsed dict matches emacsen or hash name of a declared dict.
+      delete $parsed_dicts->{$lang};
+    } else {
+      my %lang_locales = ();
+      if ( defined $parsed_dicts->{$lang}->{'hunspell-locales'} ){
+	map { $lang_locales{$_}++ }
+	split ('\s*,\s*',$parsed_dicts->{$lang}->{'hunspell-locales'});
+      }
+      # A parsed dict locale matches hash name of a declared dict.
+      foreach my $locale ( keys %lang_locales ){
+	if ( defined $main_dicts_hashes{$locale} ){
+	  delete $parsed_dicts->{$lang};
+	  last;
+	}
+      }
+    }
+  }
+  dico_debugprint "parsed-dicts-cleaned: ", join(', ',sort keys %$parsed_dicts);
+
+  # Merge parsed dicts with declared main dicts (preferred)
+  foreach my $lang ( keys %$main_dicts ){
+    $parsed_dicts->{$lang} = $main_dicts->{$lang};
+  }
+  dico_debugprint "output-hunspell-dicts: ", join(', ',sort keys %$parsed_dicts), "\n>--";
+
+  return $parsed_dicts;
+}
+
+# ------------------------------------------------------------------
 sub build_emacsen_support {
 # ------------------------------------------------------------------
 # Put info from dicts info files into emacsen-ispell-dicts.el
@@ -452,6 +650,9 @@ sub build_emacsen_support {
 	dico_debugprint(" - $class-emacsen: Adding \" -d $hashname\" to \"$ispellargs\"");
 	$ispellargs .= " -d $hashname";
       }
+
+      # Escape double quotes in otherchars unless already escaped
+      $otherchars =~ s/\"/\\"/ unless $otherchars =~ /\\"/;
 
       foreach my $emacsenname ( split(',\s*',$emacsen_names) ){
 	$entries{$class}{$emacsenname} = $entries{'all'}{$emacsenname} =

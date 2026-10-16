@@ -94,8 +94,8 @@ Contains the path to the dpkg architecture tables directory.
 our ($PROGNAME) = $0 =~ m{(?:.*/)?([^/]*)};
 
 # The following lines are automatically fixed at install time
-our $PROGVERSION = '1.20.12';
-our $PROGMAKE = '/usr/bin/make';
+our $PROGVERSION = '1.21.23';
+our $PROGMAKE = 'make';
 our $PROGTAR = 'tar';
 our $PROGPATCH = 'patch';
 
@@ -122,13 +122,13 @@ This module, core variables.
 
 Architecture handling functions.
 
-=item L<Dpkg::Build::Info>
-
-Build information functions.
-
 =item L<Dpkg::BuildFlags>
 
 Set, modify and query compilation build flags.
+
+=item L<Dpkg::BuildInfo>
+
+Build information functions.
 
 =item L<Dpkg::BuildOptions>
 
@@ -185,7 +185,7 @@ Manage (list of known) control fields.
 
 =item L<Dpkg::Control::Hash>
 
-Parse and manipulate a block of RFC822-like fields.
+Parse and manipulate a stanza of deb822 fields.
 
 =item L<Dpkg::Control::Info>
 

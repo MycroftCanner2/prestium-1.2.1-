@@ -120,16 +120,20 @@ sub process_command {
 		($command, @params)=split(' ', $_);
 	}
 	if (! defined $command) {
-		return $codes{syntaxerror}.' '.
+		my $ret = $codes{syntaxerror}.' '.
 			"Bad line \"$_\" received from confmodule.";
+		debug developer => "--> $ret";
+		return $ret;
 	}
 	$command=lc($command);
 	if (lc($command) eq "stop") {
 		return $this->finish;
 	}
 	if (! $this->can("command_$command")) {
-		return $codes{syntaxerror}.' '.
+		my $ret = $codes{syntaxerror}.' '.
 		       "Unsupported command \"$command\" (full line was \"$_\") received from confmodule.";
+		debug developer => "--> $ret";
+		return $ret;
 	}
 	$command="command_$command";
 	my $ret=join(' ', $this->$command(@params));
