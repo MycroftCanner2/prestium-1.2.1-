@@ -2,10 +2,10 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libQt5EglFSDeviceIntegration.so.5.15.2
-/usr/lib/x86_64-linux-gnu/libQt5EglFsKmsSupport.so.5.15.2
-/usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.2
-/usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5.15.2
+/usr/lib/x86_64-linux-gnu/libQt5EglFSDeviceIntegration.so.5.15.8
+/usr/lib/x86_64-linux-gnu/libQt5EglFsKmsSupport.so.5.15.8
+/usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.8
+/usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5.15.8
 /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/plugins
 /usr/lib/x86_64-linux-gnu/qt5/plugins/egldeviceintegrations
@@ -42,7 +42,6 @@
 /usr/share/doc
 /usr/share/doc/libqt5gui5
 /usr/share/doc/libqt5gui5/changelog.Debian.gz
-/usr/share/doc/libqt5gui5/changelog.gz
 /usr/share/doc/libqt5gui5/copyright
 /usr/share/lintian
 /usr/share/lintian/overrides

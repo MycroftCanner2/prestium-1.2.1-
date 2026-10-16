@@ -1,5 +1,5 @@
-38b0fe2b0db5fc620c159ecf01c81871  usr/lib/x86_64-linux-gnu/libpipeline.so.1.5.3
-f0055c4c7f279b582c60d15ae3d21968  usr/share/doc/libpipeline1/NEWS.gz
-d730ca9b1dd04e7dc16ff9d1f20ef65e  usr/share/doc/libpipeline1/changelog.Debian.gz
-04b4b2c59ccb5d4a0c839ddd9cebf471  usr/share/doc/libpipeline1/changelog.gz
-3f6cd45bc1542df229141174fe154a61  usr/share/doc/libpipeline1/copyright
+3c91a8aa0bf8ccd546adbc7ade8c9a39  usr/lib/x86_64-linux-gnu/libpipeline.so.1.5.7
+66b037c9b1cbe1f93aacc90125075336  usr/share/doc/libpipeline1/NEWS.md.gz
+59aecf43c724cdd06a9187cd993bfbdf  usr/share/doc/libpipeline1/changelog.Debian.gz
+46fc927aab4a31747d296dcacded4a98  usr/share/doc/libpipeline1/changelog.gz
+98e3033a9c8886998d9468ec9bf94ceb  usr/share/doc/libpipeline1/copyright

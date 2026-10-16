@@ -1,4 +1,5 @@
 libpciaccess.so.0 libpciaccess0 #MINVER#
+* Build-Depends-Package: libpciaccess-dev
  pci_device_cfg_read@Base 0
  pci_device_cfg_read_u16@Base 0
  pci_device_cfg_read_u32@Base 0
@@ -9,6 +10,7 @@ libpciaccess.so.0 libpciaccess0 #MINVER#
  pci_device_cfg_write_u32@Base 0
  pci_device_cfg_write_u8@Base 0
  pci_device_close_io@Base 0.11.0
+ pci_device_disable@Base 0.17
  pci_device_enable@Base 0.10.2
  pci_device_find_by_slot@Base 0
  pci_device_get_agp_info@Base 0

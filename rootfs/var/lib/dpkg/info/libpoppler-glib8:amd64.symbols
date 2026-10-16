@@ -1,7 +1,15 @@
 libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
 * Build-Depends-Package: libpoppler-glib-dev
- _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_@Base 20.09.0
- _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_@Base 20.09.0
+ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_@Base 22.12.0
+ _ZNSt6vectorIP8FontInfoSaIS1_EE17_M_default_appendEm@Base 22.12.0
+ _ZNSt6vectorIiSaIiEE17_M_default_appendEm@Base 22.12.0
+ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_@Base 22.12.0
+ _ZNSt6vectorIiSaIiEE7reserveEm@Base 22.12.0
+ _ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 22.12.0
+ _ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 22.12.0
+ _ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 22.12.0
+ _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 22.12.0
+ _ZZNSt9once_flag18_Prepare_executionC4IZSt9call_onceIRFiPP14FT_LibraryRec_EJS5_EEvRS_OT_DpOT0_EUlvE_EERS9_ENUlvE_4_FUNEv@Base 22.12.0
  poppler_action_copy@Base 0.18.0
  poppler_action_free@Base 0.18.0
  poppler_action_get_type@Base 0.18.0
@@ -71,6 +79,12 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_annot_square_get_type@Base 0.26.0
  poppler_annot_square_new@Base 0.26.0
  poppler_annot_square_set_interior_color@Base 0.26.0
+ poppler_annot_stamp_get_icon@Base 22.08.0
+ poppler_annot_stamp_get_type@Base 22.08.0
+ poppler_annot_stamp_icon_get_type@Base 22.08.0
+ poppler_annot_stamp_new@Base 22.08.0
+ poppler_annot_stamp_set_custom_image@Base 22.08.0
+ poppler_annot_stamp_set_icon@Base 22.08.0
  poppler_annot_text_get_icon@Base 0.18.0
  poppler_annot_text_get_is_open@Base 0.18.0
  poppler_annot_text_get_state@Base 0.18.0
@@ -96,7 +110,9 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_attachment_get_type@Base 0.18.0
  poppler_attachment_save@Base 0.18.0
  poppler_attachment_save_to_callback@Base 0.18.0
+ poppler_attachment_save_to_fd@Base 22.02.0
  poppler_backend_get_type@Base 0.18.0
+ poppler_certificate_status_get_type@Base 22.02.0
  poppler_color_copy@Base 0.18.0
  poppler_color_free@Base 0.18.0
  poppler_color_get_type@Base 0.18.0
@@ -121,6 +137,7 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_document_get_modification_date_time@Base 20.09.0
  poppler_document_get_n_attachments@Base 0.18.0
  poppler_document_get_n_pages@Base 0.18.0
+ poppler_document_get_n_signatures@Base 22.02.0
  poppler_document_get_page@Base 0.18.0
  poppler_document_get_page_by_label@Base 0.18.0
  poppler_document_get_page_layout@Base 0.18.0
@@ -137,6 +154,7 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_document_get_print_page_ranges@Base 0.81.0
  poppler_document_get_print_scaling@Base 0.81.0
  poppler_document_get_producer@Base 0.18.0
+ poppler_document_get_signature_fields@Base 22.02.0
  poppler_document_get_subject@Base 0.18.0
  poppler_document_get_title@Base 0.18.0
  poppler_document_get_type@Base 0.18.0
@@ -145,12 +163,14 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_document_is_linearized@Base 0.18.0
  poppler_document_new_from_bytes@Base 0.85.0
  poppler_document_new_from_data@Base 0.18.0
+ poppler_document_new_from_fd@Base 22.02.0
  poppler_document_new_from_file@Base 0.18.0
  poppler_document_new_from_gfile@Base 0.22.1
  poppler_document_new_from_stream@Base 0.22.1
  poppler_document_reset_form@Base 0.90.0
  poppler_document_save@Base 0.18.0
  poppler_document_save_a_copy@Base 0.18.0
+ poppler_document_save_to_fd@Base 22.02.0
  poppler_document_set_author@Base 0.46.0
  poppler_document_set_creation_date@Base 0.46.0
  poppler_document_set_creation_date_time@Base 20.09.0
@@ -214,6 +234,9 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_form_field_mapping_free@Base 0.18.0
  poppler_form_field_mapping_get_type@Base 0.18.0
  poppler_form_field_mapping_new@Base 0.18.0
+ poppler_form_field_signature_validate_async@Base 22.02.0
+ poppler_form_field_signature_validate_finish@Base 22.02.0
+ poppler_form_field_signature_validate_sync@Base 22.02.0
  poppler_form_field_text_do_scroll@Base 0.18.0
  poppler_form_field_text_do_spell_check@Base 0.18.0
  poppler_form_field_text_get_max_len@Base 0.18.0
@@ -257,12 +280,16 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_link_mapping_free@Base 0.18.0
  poppler_link_mapping_get_type@Base 0.18.0
  poppler_link_mapping_new@Base 0.18.0
+ poppler_media_get_auto_play@Base 21.06.0
  poppler_media_get_filename@Base 0.18.0
  poppler_media_get_mime_type@Base 0.18.0
+ poppler_media_get_repeat_count@Base 21.06.0
+ poppler_media_get_show_controls@Base 21.06.0
  poppler_media_get_type@Base 0.18.0
  poppler_media_is_embedded@Base 0.18.0
  poppler_media_save@Base 0.18.0
  poppler_media_save_to_callback@Base 0.18.0
+ poppler_media_save_to_fd@Base 22.02.0
  poppler_movie_get_aspect@Base 0.90.0
  poppler_movie_get_duration@Base 0.81.0
  poppler_movie_get_filename@Base 0.18.0
@@ -340,6 +367,7 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_ps_file_free@Base 0.18.0
  poppler_ps_file_get_type@Base 0.18.0
  poppler_ps_file_new@Base 0.18.0
+ poppler_ps_file_new_fd@Base 22.02.0
  poppler_ps_file_set_duplex@Base 0.18.0
  poppler_ps_file_set_paper_size@Base 0.18.0
  poppler_quadrilateral_copy@Base 0.26.0
@@ -347,10 +375,21 @@ libpoppler-glib.so.8 libpoppler-glib8 #MINVER#
  poppler_quadrilateral_get_type@Base 0.26.0
  poppler_quadrilateral_new@Base 0.26.0
  poppler_rectangle_copy@Base 0.18.0
+ poppler_rectangle_find_get_ignored_hyphen@Base 21.06.0
+ poppler_rectangle_find_get_match_continued@Base 21.06.0
  poppler_rectangle_free@Base 0.18.0
  poppler_rectangle_get_type@Base 0.18.0
  poppler_rectangle_new@Base 0.18.0
  poppler_selection_style_get_type@Base 0.18.0
+ poppler_signature_info_copy@Base 22.02.0
+ poppler_signature_info_free@Base 22.02.0
+ poppler_signature_info_get_certificate_status@Base 22.02.0
+ poppler_signature_info_get_local_signing_time@Base 22.02.0
+ poppler_signature_info_get_signature_status@Base 22.02.0
+ poppler_signature_info_get_signer_name@Base 22.02.0
+ poppler_signature_info_get_type@Base 22.02.0
+ poppler_signature_status_get_type@Base 22.02.0
+ poppler_signature_validation_flags_get_type@Base 22.02.0
  poppler_structure_block_align_get_type@Base 0.26.0
  poppler_structure_border_style_get_type@Base 0.26.0
  poppler_structure_element_get_abbreviation@Base 0.26.0

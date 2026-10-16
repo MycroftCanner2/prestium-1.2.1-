@@ -3,7 +3,7 @@ Type: string
 Description: Services to restart for PAM library upgrade:
  Most services that use PAM need to be restarted to use modules built for
  this new version of libpam.  Please review the following space-separated
- list of  services to be restarted now, and correct it
+ list of services to be restarted now, and correct it
  if needed.
 Description-bg.UTF-8: Рестартиране на услуги при обновяване на PAM:
  Повечето услуги, които използват PAM трябва да бъдат рестартирани за да могат да използват модулите за новата версия на libpam. Прегледайте списъка от услуги по-долу и го коригирайте ако е необходимо. Имената на отделните услуги трябва да са отделени с интервал.
@@ -19,10 +19,14 @@ Description-pt.UTF-8: Serviços a reiniciar para a actualização da biblioteca 
  A maioria dos serviços que usam PAM necessitam ser reiniciados para usarem os módulos construídos para esta nova versão do libpam. Por favor, reveja a seguinte lista de serviços, separados por espaços, a serem reiniciados agora e corrija-a se for necessário.
 Description-pt_BR.UTF-8: Serviços a serem reiniciados para atualização da biblioteca PAM:
  A maioria dos serviços que utilizam PAM precisam ser reiniciados para usar os módulos construídos para esta nova versão da libpam. Por favor, revise a seguinte lista de serviços que serão reiniciados agora, separados por espaços, e a corrija, se necessário.
+Description-ro.UTF-8: Serviciile repornite la actualizarea bibliotecii PAM:
+ Majoritatea serviciilor ce folosesc PAM trebuie repornite pentru a folosi modulele pentru noua versiune de libpam. Verificați și ajustați după caz lista următoare (separată prin spațiu) cu servicii care trebuie repornite.
 Description-ru.UTF-8: Службы, которые будут перезапущены после обновления библиотеки PAM:
  Чтобы задействовать новые версии модулей из libpam, нужно перезапустить большинство служб, использующих PAM. Внимательно просмотрите и при необходимости отредактируйте следующий список служб, которые будут перезапущены. Элементы списка разделяются пробелом.
 Description-sk.UTF-8: Pri aktualizácii knižnice PAM reštartovať nasledovné služby:
  Väčšinu služieb, ktoré používajú PAM, je nutné reštartovať, aby sa použili moduly vytvorené pre túto novú verziu libpamu.  Skontrolujte prosím nasledujúci zoznam služieb oddelených medzerou, ktoré sa teraz reštartujú. V prípade potreby ho opravte.
+Description-tr.UTF-8: PAM kitaplığının yükseltilmesi için yeniden başlatılacak hizmetler:
+ PAM kullanan çoğu hizmet, libpam'ın bu yeni sürümü için derlenmiş modüllerden yararlanabilmek için yeniden başlatılmak zorundadır. Lütfen yeniden başlatılacak hizmetlere ilişkin init.d betiklerinin boşluklarla ayrılmış aşağıdaki listesini inceleyin ve gerekliyse düzeltin.
 Description-zh_CN.UTF-8: 因 PAM 库升级而需要重新启动的服务：
  为了使用基于这个新版本 libpam 编译的模块，绝大部分使用 PAM 的服务都需要被重新启动。请复查下面这个需要重新启动的服务所对应的列表，script 名称之间以半角空格分隔。如列表有误，请直接更正。
 
@@ -70,7 +74,7 @@ Description-sk.UTF-8: Správcu obrazovky je potrebné reštartovať ručne
 Description-sv.UTF-8: Skärmhanterare måste startas om manuellt
  Skärmhanterarna wdm och xdm måste startas om för den nya versionen av libpam men det finns X-inloggningssessioner som skulle avslutas av en sådan omstart. Du behöver därför starta om dessa tjänster manuellt innan ytterligare X-inloggningar är möjliga.
 Description-tr.UTF-8: Görüntü yöneticisinin elle yeniden başlatılması gerekli
- wdm ve xdm görüntü yöneticileri, libpam'ın yeni sürümünden yararlanabilmek için yeniden başlatılmalı; fakat sisteminizde etkin X oturumları var.  Görüntü yöneticisi yeniden başlatılırsa bu oturumlar da kapatılır.  Bu yüzden ileride yeni X oturumları açabilmek için bu hizmetleri elle yeniden başlatmanız gerekecek.
+ wdm ve xdm görüntü yöneticileri, libpam'ın yeni sürümünden yararlanabilmek için yeniden başlatılmalıdır. Sisteminizde şu anda açık X oturumları var. Görüntü yöneticileri yeniden başlatılırsa bu oturumların kapanmasına neden olacaklar. Bu nedenle yeni X oturumları açılmadan önce için bu hizmetleri elle yeniden başlatmanız gerekiyor.
 Description-zh_CN.UTF-8: 必须手动重新启动显示管理器
  由于 libpam 更新到新版本，wdm 和 xdm 等显示管理器需要被重新启动。但是您的系统上有正在运行的 X 登录会话，而如果重新启动显示管理器服务，这些 X 会话就会被强行结束。因此，您需要手动重新启动这些服务，否则您将无法再登录进 X 窗口系统。
 
@@ -208,7 +212,7 @@ Description-tr.UTF-8: Bazı hizmetler PAM yükseltmesi için yeniden başlatıla
  .
  ${services}
  .
- Bu hizmetleri '/etc/init.d/<hizmet> start' komutunu kullanarak elinizle başlatmanız gerekecek.
+ Bu hizmetleri '/etc/init.d/<hizmet> start' komutunu kullanarak elle başlatmanız gerekiyor.
 Description-vi.UTF-8: Lỗi khởi chạy lại một số dịch vụ để nâng cấp PAM
  Những dịch vụ theo đây không thể được khởi chạy lại để nâng cấp thư viện PAM:
  .
@@ -257,13 +261,15 @@ Description-pt.UTF-8: Reiniciar os serviços durante actualizações do pacote s
  Há serviços instalados no seu sistema que necessitam de ser reiniciados quando certas bibliotecas, tais como libpam, libc e libssl, são actualizadas. Uma vez que estes reinícios podem causar interrupções de serviço do sistema, será normalmente questionado em cada actualização sobre a lista de serviços que deseja reiniciar. Pode escolher esta opção para evitar as questões; neste caso, todos os reinicios serão efectuados automaticamente e não será questionado em cada actualização das bibliotecas.
 Description-pt_BR.UTF-8: Reiniciar serviços durante a atualização de pacotes sem perguntar?
  Existem serviços instalados no seu sistema que precisam ser reiniciados quando determinadas bibliotecas, tais como libpam, libc e libssl são atualizadas. Uma vez que essas reinicializações podem causar interrupções de serviços para o sistema, normalmente você terá que responder a cada atualização qual será a lista de serviços que quiser reiniciar. Você pode escolher esta opção para evitar novas solicitações; ao invés disso, todas as reinicializações necessárias serão realizadas automaticamente para evitar que você responda a cada atualização de biblioteca.
+Description-ro.UTF-8: Să se repornească serviciile fără confirmare în timpul unei actualizări?
+ Pe acest sistem sunt instalate servicii care trebuie repornite atunci când anumite biblioteci, cum ar fi libpam, libc și libssl sunt actualizate. Deoarece aceste reporniri pot cauza întreruperi în furnizarea serviciului în mod normal se solicită confirmarea listei de servicii pe care doriți să le reporniți la fiecare actualizare. Puteți alege această opțiune pentru a evita confirmarea. În schimb toate repornirile necesare vor fi executate automat pentru a evita întrebările la fiecare actualizare de biblioteci.
 Description-ru.UTF-8: Перезапускать службы при обновлении пакета, не задавая вопросов?
  В системе установлены службы, которые требуют перезапуска после обновления определённых библиотек (например, libpam, libc и libssl). Поскольку это может вызвать перерыв в работе служб, то обычно при каждом обновлении вам будет предложено указать список служб, которые вы хотите перезапустить. Чтобы этот вопрос не задавался, вы можете ответить утвердительно; в этом случае все необходимые службы будут перезапущены автоматически.
 Description-sk.UTF-8: Reštartovať služby počas aktualizácií balíka bez pýtania?
  Na vašom systéme bežia služby, ktoré ne potrebné reštartovať pri aktualizácii určitých knižníc ako libpam, libc a libssl. Pretože tieto reštarty môžu spôsobiť prerušenia služby systému, za bežných okolností budete vyzvaní pri každej aktualizácie so zoznamom služieb, ktoré chcete reštartovať. Túto voľbu môžete vybrať, ak nechcete byť vyzývaný, ale namiesto toho chcete, aby sa všetky potrebné reštarty vykonali automaticky za vás a tak sa vyhnúť kladeniu otázok pri každej aktualizácii knižnice.
 Description-sv.UTF-8: Ska tjänster startas om vid paketuppgraderingar utan att först fråga om det?
  Det finns tjänster installerade på systemet som behöver startas om när vissa bibliotek (ex. libpam, libc och libssl) uppdateras. Eftersom dessa omstarter kan innebära avbrott i tjänsterna på systemet kommer du vanligen att få en fråga för varje uppgradering med en lista över tjänster som ska startas om. Du kan välja detta alternativ för att undvika att frågan ställs. Istället kommer alla nödvändiga omstarter att skötas automatiskt och du undviker frågor vid varje biblioteksuppgradering.
-Description-tr.UTF-8: Paket yükseltme esnasında hizmetler sorulmadan yeniden başlatılsın mı?
- Sisteminizde libpam, libc ve libssl gibi bazı kitaplıklar yükseltildiğinde yeniden başlatılması gereken bazı hizmetler kurulu. Yeniden başlatma işlemleri sisteminizin sunduğu hizmetlerde kesintilere neden olabileceğinden dolayı her yükseltme işlemi esnasında yeniden başlatmak istediğiniz hizmetler size sorulacaktır. Eğer bu sorunun sorulmasını istemiyorsanız bu seçeneği kullanabilirsiniz. Bu seçenek seçildiği takdirde bir kitaplık yükseltmesi yapılırken gereken tüm yeniden başlatma işlemleri size sorulmaksızın otomatik olarak yapılacaktır.
+Description-tr.UTF-8: Hizmetler, paket yükseltme sırasında size sorulmadan yeniden başlatılsın mı?
+ Sisteminizde libpam, libc ve libssl gibi bazı kitaplıklar yükseltildiğinde yeniden başlatılması gereken bazı hizmetler kurulu. Yeniden başlatma işlemleri sisteminizin sunduğu hizmetlerde kesintilere neden olabileceğinden dolayı her yükseltme işlemi sırasında yeniden başlatmak istediğiniz hizmetler size sorulacaktır. Sorulmasını istemiyorsanız bu seçeneği kullanabilirsiniz. Bu durumda bir kitaplık yükseltmesi yapılırken gereken tüm yeniden başlatma işlemleri size sorulmaksızın otomatik olarak yapılacaktır.
 Description-zh_CN.UTF-8: 是否在软件包升级过程中不经询问直接重新启动服务？
  您的系统上有一些正在运行的服务需要在特定的软件库（如 libpam、libc、libssl）的升级过程中重新启动。因为重新启动这些服务可能造成系统功能的中断，通常情况下您会在每次升级时收到决定是否重启服务的提醒。您也可以选择本选项以避免收到提醒；在此情况下，所有必需的服务重启均会自动进行，您也不会在各个库进行更新时收到询问。

@@ -4,10 +4,13 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_attr_allow_breaks_new@Base 1.44.3
  pango_attr_background_alpha_new@Base 1.37.5
  pango_attr_background_new@Base 1.14.0
+ pango_attr_baseline_shift_new@Base 1.50.3
+ pango_attr_break@Base 1.50.3
  pango_attr_fallback_new@Base 1.14.0
  pango_attr_family_new@Base 1.14.0
  pango_attr_font_desc_new@Base 1.14.0
  pango_attr_font_features_new@Base 1.37.2
+ pango_attr_font_scale_new@Base 1.50.3
  pango_attr_foreground_alpha_new@Base 1.37.5
  pango_attr_foreground_new@Base 1.14.0
  pango_attr_gravity_hint_new@Base 1.18.0
@@ -23,10 +26,13 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_attr_iterator_range@Base 1.14.0
  pango_attr_language_new@Base 1.14.0
  pango_attr_letter_spacing_new@Base 1.14.0
+ pango_attr_line_height_new@Base 1.50.3
+ pango_attr_line_height_new_absolute@Base 1.50.3
  pango_attr_list_change@Base 1.14.0
  pango_attr_list_copy@Base 1.14.0
  pango_attr_list_equal@Base 1.45.5
  pango_attr_list_filter@Base 1.14.0
+ pango_attr_list_from_string@Base 1.50.3
  pango_attr_list_get_attributes@Base 1.44.3
  pango_attr_list_get_iterator@Base 1.14.0
  pango_attr_list_get_type@Base 1.14.0
@@ -35,12 +41,14 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_attr_list_new@Base 1.14.0
  pango_attr_list_ref@Base 1.14.0
  pango_attr_list_splice@Base 1.14.0
+ pango_attr_list_to_string@Base 1.50.3
  pango_attr_list_unref@Base 1.14.0
  pango_attr_list_update@Base 1.44.3
  pango_attr_overline_color_new@Base 1.45.5
  pango_attr_overline_new@Base 1.45.5
  pango_attr_rise_new@Base 1.14.0
  pango_attr_scale_new@Base 1.14.0
+ pango_attr_sentence_new@Base 1.50.3
  pango_attr_shape_new@Base 1.14.0
  pango_attr_shape_new_with_data@Base 1.14.0
  pango_attr_show_new@Base 1.44.3
@@ -50,6 +58,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_attr_strikethrough_color_new@Base 1.14.0
  pango_attr_strikethrough_new@Base 1.14.0
  pango_attr_style_new@Base 1.14.0
+ pango_attr_text_transform_new@Base 1.50.3
  pango_attr_type_get_name@Base 1.22.0
  pango_attr_type_get_type@Base 1.14.0
  pango_attr_type_register@Base 1.14.0
@@ -57,11 +66,22 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_attr_underline_new@Base 1.14.0
  pango_attr_variant_new@Base 1.14.0
  pango_attr_weight_new@Base 1.14.0
+ pango_attr_word_new@Base 1.50.3
+ pango_attribute_as_color@Base 1.50.3
+ pango_attribute_as_float@Base 1.50.3
+ pango_attribute_as_font_desc@Base 1.50.3
+ pango_attribute_as_font_features@Base 1.50.3
+ pango_attribute_as_int@Base 1.50.3
+ pango_attribute_as_language@Base 1.50.3
+ pango_attribute_as_shape@Base 1.50.3
+ pango_attribute_as_size@Base 1.50.3
+ pango_attribute_as_string@Base 1.50.3
  pango_attribute_copy@Base 1.14.0
  pango_attribute_destroy@Base 1.14.0
  pango_attribute_equal@Base 1.14.0
  pango_attribute_get_type@Base 1.44.3
  pango_attribute_init@Base 1.20.0
+ pango_baseline_shift_get_type@Base 1.50.3
  pango_bidi_type_for_unichar@Base 1.22.0
  pango_bidi_type_get_type@Base 1.22.0
  pango_break@Base 1.14.0
@@ -157,6 +177,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_font_description_to_string@Base 1.14.0
  pango_font_description_unset_fields@Base 1.14.0
  pango_font_descriptions_free@Base 1.14.0
+ pango_font_deserialize@Base 1.50.3
  pango_font_face_describe@Base 1.14.0
  pango_font_face_get_face_name@Base 1.14.0
  pango_font_face_get_family@Base 1.45.5
@@ -176,6 +197,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_font_get_font_map@Base 1.14.0
  pango_font_get_glyph_extents@Base 1.14.0
  pango_font_get_hb_font@Base 1.44.3
+ pango_font_get_languages@Base 1.50.3
  pango_font_get_metrics@Base 1.14.0
  pango_font_get_type@Base 1.14.0
  pango_font_has_char@Base 1.44.3
@@ -202,6 +224,8 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_font_metrics_new@Base 1.14.0
  pango_font_metrics_ref@Base 1.14.0
  pango_font_metrics_unref@Base 1.14.0
+ pango_font_scale_get_type@Base 1.50.3
+ pango_font_serialize@Base 1.50.3
  pango_fontset_foreach@Base 1.14.0
  pango_fontset_get_font@Base 1.14.0
  pango_fontset_get_metrics@Base 1.14.0
@@ -236,6 +260,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_glyph_string_get_type@Base 1.14.0
  pango_glyph_string_get_width@Base 1.14.0
  pango_glyph_string_index_to_x@Base 1.14.0
+ pango_glyph_string_index_to_x_full@Base 1.50.3
  pango_glyph_string_new@Base 1.14.0
  pango_glyph_string_set_size@Base 1.14.0
  pango_glyph_string_x_to_index@Base 1.14.0
@@ -256,6 +281,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_itemize_with_base_dir@Base 1.14.0
  pango_language_from_string@Base 1.14.0
  pango_language_get_default@Base 1.18.0
+ pango_language_get_preferred@Base 1.47.0
  pango_language_get_sample_string@Base 1.14.0
  pango_language_get_scripts@Base 1.22.0
  pango_language_get_type@Base 1.14.0
@@ -264,10 +290,15 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_language_to_string@Base 1.22.0
  pango_layout_context_changed@Base 1.14.0
  pango_layout_copy@Base 1.14.0
+ pango_layout_deserialize@Base 1.50.3
+ pango_layout_deserialize_error_get_type@Base 1.50.3
+ pango_layout_deserialize_error_quark@Base 1.50.3
+ pango_layout_deserialize_flags_get_type@Base 1.50.3
  pango_layout_get_alignment@Base 1.14.0
  pango_layout_get_attributes@Base 1.14.0
  pango_layout_get_auto_dir@Base 1.14.0
  pango_layout_get_baseline@Base 1.22.0
+ pango_layout_get_caret_pos@Base 1.50.3
  pango_layout_get_character_count@Base 1.29.4
  pango_layout_get_context@Base 1.14.0
  pango_layout_get_cursor_pos@Base 1.14.0
@@ -279,6 +310,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_layout_get_indent@Base 1.14.0
  pango_layout_get_iter@Base 1.14.0
  pango_layout_get_justify@Base 1.14.0
+ pango_layout_get_justify_last_line@Base 1.50.3
  pango_layout_get_line@Base 1.14.0
  pango_layout_get_line_count@Base 1.14.0
  pango_layout_get_line_readonly@Base 1.18.0
@@ -317,6 +349,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_layout_iter_get_line_readonly@Base 1.18.0
  pango_layout_iter_get_line_yrange@Base 1.14.0
  pango_layout_iter_get_run@Base 1.14.0
+ pango_layout_iter_get_run_baseline@Base 1.50.3
  pango_layout_iter_get_run_extents@Base 1.14.0
  pango_layout_iter_get_run_readonly@Base 1.18.0
  pango_layout_iter_get_type@Base 1.14.0
@@ -326,15 +359,21 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_layout_iter_next_run@Base 1.14.0
  pango_layout_line_get_extents@Base 1.14.0
  pango_layout_line_get_height@Base 1.44.3
+ pango_layout_line_get_length@Base 1.50.3
  pango_layout_line_get_pixel_extents@Base 1.14.0
+ pango_layout_line_get_resolved_direction@Base 1.50.3
+ pango_layout_line_get_start_index@Base 1.50.3
  pango_layout_line_get_type@Base 1.14.0
  pango_layout_line_get_x_ranges@Base 1.14.0
  pango_layout_line_index_to_x@Base 1.14.0
+ pango_layout_line_is_paragraph_start@Base 1.50.3
  pango_layout_line_ref@Base 1.14.0
  pango_layout_line_unref@Base 1.14.0
  pango_layout_line_x_to_index@Base 1.14.0
  pango_layout_move_cursor_visually@Base 1.14.0
  pango_layout_new@Base 1.14.0
+ pango_layout_serialize@Base 1.50.3
+ pango_layout_serialize_flags_get_type@Base 1.50.3
  pango_layout_set_alignment@Base 1.14.0
  pango_layout_set_attributes@Base 1.14.0
  pango_layout_set_auto_dir@Base 1.14.0
@@ -343,6 +382,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_layout_set_height@Base 1.20.0
  pango_layout_set_indent@Base 1.14.0
  pango_layout_set_justify@Base 1.14.0
+ pango_layout_set_justify_last_line@Base 1.50.3
  pango_layout_set_line_spacing@Base 1.44.3
  pango_layout_set_markup@Base 1.14.0
  pango_layout_set_markup_with_accel@Base 1.14.0
@@ -352,6 +392,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_layout_set_text@Base 1.14.0
  pango_layout_set_width@Base 1.14.0
  pango_layout_set_wrap@Base 1.14.0
+ pango_layout_write_to_file@Base 1.50.3
  pango_layout_xy_to_index@Base 1.14.0
  pango_log2vis_get_embedding_levels@Base 1.14.0
  pango_lookup_aliases@Base 1.14.0
@@ -364,6 +405,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_matrix_free@Base 1.14.0
  pango_matrix_get_font_scale_factor@Base 1.14.0
  pango_matrix_get_font_scale_factors@Base 1.37.2
+ pango_matrix_get_slant_ratio@Base 1.50.4
  pango_matrix_get_type@Base 1.14.0
  pango_matrix_rotate@Base 1.14.0
  pango_matrix_scale@Base 1.14.0
@@ -418,6 +460,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_shape@Base 1.14.0
  pango_shape_flags_get_type@Base 1.44.3
  pango_shape_full@Base 1.32.4
+ pango_shape_item@Base 1.50.3
  pango_shape_with_flags@Base 1.44.3
  pango_show_flags_get_type@Base 1.44.3
  pango_skip_space@Base 1.14.0
@@ -427,6 +470,8 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_tab_align_get_type@Base 1.14.0
  pango_tab_array_copy@Base 1.14.0
  pango_tab_array_free@Base 1.14.0
+ pango_tab_array_from_string@Base 1.50.3
+ pango_tab_array_get_decimal_point@Base 1.50.3
  pango_tab_array_get_positions_in_pixels@Base 1.14.0
  pango_tab_array_get_size@Base 1.14.0
  pango_tab_array_get_tab@Base 1.14.0
@@ -435,8 +480,13 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_tab_array_new@Base 1.14.0
  pango_tab_array_new_with_positions@Base 1.14.0
  pango_tab_array_resize@Base 1.14.0
+ pango_tab_array_set_decimal_point@Base 1.50.3
+ pango_tab_array_set_positions_in_pixels@Base 1.50.3
  pango_tab_array_set_tab@Base 1.14.0
+ pango_tab_array_sort@Base 1.50.3
+ pango_tab_array_to_string@Base 1.50.3
  pango_tailor_break@Base 1.44.3
+ pango_text_transform_get_type@Base 1.50.3
  pango_trim_string@Base 1.14.0
  pango_underline_get_type@Base 1.14.0
  pango_unichar_direction@Base 1.14.0

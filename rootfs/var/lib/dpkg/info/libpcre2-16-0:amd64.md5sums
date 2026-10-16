@@ -1,4 +1,4 @@
-e92a3db24d002d352a3d76a8c57ff3bf  usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.10.1
-fc8725693b1fcf89ea132ce1ae014efa  usr/share/doc/libpcre2-16-0/changelog.Debian.gz
-7fb71eb79c3fa8782ae8f39afbcdf16c  usr/share/doc/libpcre2-16-0/changelog.gz
-2fd254e240f8f30f95d53cb1af479b04  usr/share/doc/libpcre2-16-0/copyright
+3bff3c3948ec460073106f0631ac723e  usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.11.2
+9bdd63757223e5bd2b1ed7c62c2a6d76  usr/share/doc/libpcre2-16-0/changelog.Debian.gz
+9f957b073defd3010e8c3e073e2e81f3  usr/share/doc/libpcre2-16-0/changelog.gz
+ea1070671dcb630b23a0a68ab100f244  usr/share/doc/libpcre2-16-0/copyright

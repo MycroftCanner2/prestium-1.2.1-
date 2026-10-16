@@ -35,19 +35,7 @@ handle_profiles_with_removed_modules() {
         
 
 if dpkg --compare-versions "$2" lt-nl 1.4.0-5; then
-    db_version 2.0
-    handle_profiles_with_removed_modules pam_tally
-    # We have a generic template for removing pam-profiles because
-    # there is a sane automatic action.  If we detect the modules in
-    # user configurations we want a specific template so we can
-    # recommend a replacement
-    # /dev/null reference is to make sure we don't grep stdin if
-    # somehow ls returns empty
-    if grep -qe '^[^#]*pam_tally' $(ls -1d /etc/pam.d/* | grep -e '^/etc/pam.d/[0-9a-zA-Z/-]*$' ) /dev/null ; then
-        db_input critical libpam-modules/deprecate-tally ||true
-        db_go ||true
-        exit 2
-    fi
+	db_version 2.0
 
 	if pidof xscreensaver xlockmore >/dev/null; then
 		db_input critical libpam-modules/disable-screensaver || true

@@ -1,3 +1,4 @@
-a209526cdfb8789178aeac6e3504bf51  usr/lib/x86_64-linux-gnu/libpolkit-agent-1.so.0.0.0
-1ea5d33d1e84c42f5b885af3468918fb  usr/share/doc/libpolkit-agent-1-0/changelog.Debian.gz
-c49724c9c7ffb96648f9d52a72c02e83  usr/share/doc/libpolkit-agent-1-0/copyright
+589ed9a07c7f11f8e43a0c4d6f417ba3  usr/lib/x86_64-linux-gnu/libpolkit-agent-1.so.0.0.0
+b039d75b4888caa56a95e8170d2c9e26  usr/share/doc/libpolkit-agent-1-0/NEWS.Debian.gz
+467e017bdb10436200137acfa0c4d1e9  usr/share/doc/libpolkit-agent-1-0/changelog.Debian.gz
+bbab86366c7735eeb867287f26851947  usr/share/doc/libpolkit-agent-1-0/copyright

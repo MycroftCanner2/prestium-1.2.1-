@@ -17,7 +17,7 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  Qt_5.8@Qt_5.8 5.9.0~beta3
  Qt_5.9@Qt_5.9 5.9.0~beta3
  Qt_5@Qt_5 5.6.0~beta
- Qt_5_PRIVATE_API@Qt_5_PRIVATE_API 5.6.0~beta
+ Qt_5_PRIVATE_API@Qt_5_PRIVATE_API 0
  _Z20domPropertyToVariantP20QAbstractFormBuilderPK11QMetaObjectPK11DomProperty@Qt_5 5.6.0~beta
  _Z20domPropertyToVariantPK11DomProperty@Qt_5 5.6.0~beta
  _Z20variantToDomPropertyP20QAbstractFormBuilderPK11QMetaObjectRK7QStringRK8QVariant@Qt_5 5.6.0~beta
@@ -2697,7 +2697,7 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZNK18qdesigner_internal12IconSelector4iconEv@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12ListContents14createTreeItemEPNS_17DesignerIconCacheE@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12ListContents15applyToComboBoxEP9QComboBoxPNS_17DesignerIconCacheE@Qt_5 5.6.0~beta
- _ZNK18qdesigner_internal12ListContents17applyToListWidgetEP11QListWidgetPNS_17DesignerIconCacheEb@Qt_5 5.6.0~beta
+ _ZNK18qdesigner_internal12ListContents17applyToListWidgetEP11QListWidgetPNS_17DesignerIconCacheEb6QFlagsIN2Qt13AlignmentFlagEE@Qt_5 5.15.5
  _ZNK18qdesigner_internal12MetaDataBase10metaObjectEv@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12MetaDataBase16metaDataBaseItemEP7QObject@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12MetaDataBase4coreEv@Qt_5 5.6.0~beta

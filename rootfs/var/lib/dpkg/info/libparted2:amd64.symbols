@@ -24,6 +24,7 @@ libparted.so.2 libparted2 #MINVER#
  _apfs1_type@Base 3.1
  _apfs2_type@Base 3.1
  _asfs_type@Base 3.1
+ _gl_alloc_nomem@Base 3.1
  _ped_device_probe@Base 3.1
  _ped_disk_alloc@Base 3.1
  _ped_disk_free@Base 3.1
@@ -33,6 +34,7 @@ libparted.so.2 libparted2 #MINVER#
  amiga_find_part@Base 3.1
  argmatch@Base 3.1
  argmatch_die@Base 3.1
+ argmatch_exact@Base 3.1
  argmatch_invalid@Base 3.1
  argmatch_to_argument@Base 3.1
  argmatch_valid@Base 3.1
@@ -88,6 +90,16 @@ libparted.so.2 libparted2 #MINVER#
  get_stat_mtime@Base 3.1
  get_stat_mtime_ns@Base 3.1
  getprogname@Base 3.1
+ gl_dynarray_at_failure@Base 3.1
+ gl_dynarray_emplace_enlarge@Base 3.1
+ gl_dynarray_finalize@Base 3.1
+ gl_dynarray_resize@Base 3.1
+ gl_dynarray_resize_clear@Base 3.1
+ gl_scratch_buffer_dupfree@Base 3.1
+ gl_scratch_buffer_grow@Base 3.1
+ gl_scratch_buffer_grow_preserve@Base 3.1
+ gl_scratch_buffer_set_array_size@Base 3.1
+ glthread_once_multithreaded@Base 3.1
  glthread_once_singlethreaded@Base 3.1
  glthread_recursive_lock_init_multithreaded@Base 3.1
  glthread_rwlock_init_for_glibc@Base 3.1
@@ -101,6 +113,10 @@ libparted.so.2 libparted2 #MINVER#
  hfsp_block_count@Base 3.1
  hfsplus_probe@Base 3.1
  hfsx_probe@Base 3.1
+ icalloc@Base 3.1
+ imalloc@Base 3.1
+ irealloc@Base 3.1
+ ireallocarray@Base 3.1
  last_component@Base 3.1
  linux_disk_ops@Base 3.1
  locale_charset@Base 3.1
@@ -373,19 +389,6 @@ libparted.so.2 libparted2 #MINVER#
  quoting_style_vals@Base 3.1
  rpl_fcntl@Base 3.1
  rpl_mbrtowc@Base 3.1
- rpl_re_compile_fastmap@Base 3.1
- rpl_re_compile_pattern@Base 3.1
- rpl_re_match@Base 3.1
- rpl_re_match_2@Base 3.1
- rpl_re_search@Base 3.1
- rpl_re_search_2@Base 3.1
- rpl_re_set_registers@Base 3.1
- rpl_re_set_syntax@Base 3.1
- rpl_re_syntax_options@Base 3.1
- rpl_regcomp@Base 3.1
- rpl_regerror@Base 3.1
- rpl_regexec@Base 3.1
- rpl_regfree@Base 3.1
  safe_read@Base 3.1
  set_char_quoting@Base 3.1
  set_cloexec_flag@Base 3.1
@@ -410,13 +413,22 @@ libparted.so.2 libparted2 #MINVER#
  xalloc_die@Base 3.1
  xcalloc@Base 3.1
  xcharalloc@Base 3.1
+ xicalloc@Base 3.1
+ ximalloc@Base 3.1
+ ximemdup0@Base 3.1
+ ximemdup@Base 3.1
+ xinmalloc@Base 3.1
+ xirealloc@Base 3.1
+ xireallocarray@Base 3.1
+ xizalloc@Base 3.1
  xmalloc@Base 3.1
  xmemdup@Base 3.1
  xnmalloc@Base 3.1
  xnrealloc@Base 3.1
+ xpalloc@Base 3.1
  xrealloc@Base 3.1
+ xreallocarray@Base 3.1
  xstrdup@Base 3.1
- xstrndup@Base 3.1
  xstrtol@Base 3.1
  xstrtoll@Base 3.1
  xstrtoul@Base 3.1

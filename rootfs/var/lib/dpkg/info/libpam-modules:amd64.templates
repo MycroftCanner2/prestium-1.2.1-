@@ -48,7 +48,7 @@ Description-sk.UTF-8: je nutné reštartovať xscreensaver a xlockmore pred aktu
 Description-sv.UTF-8: xscreensaver och xlockmore måste startas om innan uppgraderingen kan genomföras
  En eller flera instanser av xscreensaver eller xlockmore körs på det här systemet. På grund av förändringar i biblioteket kan uppgraderingen av paketet libpam-modules innebära att du inte kan identifiera dig i dessa program. Programmen behöver startas om eller allra helst stängas av helt före uppgraderingen, resultatet kan annars innebära att du inte kan komma åt dina aktiva sessioner på systemet.
 Description-tr.UTF-8: Yükseltme işleminden önce xscreensaver ve xlockmore yeniden başlatılmalı
- Sisteminizde çalışmakta olan birden fazla xscreensaver ya da xlockmore örneğine rastlandı. Uyumsuz kitaplık değişiklikleri yüzünden, libpam-modules paketinin yükseltilmesi bu programlarda kimlik doğrulamasını olanaksız hale getirecek. Mevcut oturumların kilitlenmesi önlemek için, yükseltme işlemine devam etmeden önce bu programları durdurmalı ya da yeniden başlatmalısınız.
+ Sisteminizde çalışmakta olan birden fazla xscreensaver ya da xlockmore örneğine rastlandı. Uyumsuz kitaplık değişiklikleri yüzünden, libpam-modules paketinin yükseltilmesi bu programlarda kimlik doğrulaması yapmanızı olanaksız kılacaktır. Oturum açmış kullanıcılarınızın oturumlarının kilitlenmemesi için, yükseltmeyi sürdürmeden önce bu programları durdurmalı ya da yeniden başlatmalısınız.
 Description-vi.UTF-8: xscreensaver và xlockmore phải được khởi chạy lại trước khi nâng cấp
  Một hai nhiều tiến trình xscreensaver hay xlockmore được phát hiện trên hệ thống này. Do thay đổi thư viện không tương thích, việc nâng cấp gói libpam-modules sẽ để lại trường hợp người dùng không thể xác thực với những chương trình này. Vì thế bạn nên khởi chạy lại hoặc ngừng chạy những chương trình này trước khi tiếp tục tiến trình nâng cấp, để tránh chặn người dùng đăng nhập vào buổi hợp đang chạy.
 Description-zh_CN.UTF-8: 在升级前必须重新启动 xscreensaver 和 xlockmore
@@ -75,10 +75,14 @@ Description-pt.UTF-8: Perfis PAM com Módulos Deprecados Desativados
  O seu sistema tem perfis PAM activos com os módulos PAM ${modules}. Estes módulos foram removidos do PAM. Deixar estes perfis activos iria impedir os utilizadores de aceder ao seu sistema. Deste modo, estes perfis foram desactivados.
 Description-pt_BR.UTF-8: Perfis PAM com módulos obsoletos desabilitados
  O seu sistema tinha perfis PAM habilitados com os módulos PAM ${modules}. Esses módulos foram removidos do PAM. Deixar esses perfis PAM habilitados impediria que os usuários acessassem o seu sistema. Como resultado, esses perfis foram desabilitados.
+Description-ro.UTF-8: Profilele PAM cu module învechite au fost dezactivate
+ Acest sistem are profile PAM activate cu modulele PAM ${modules}. Aceste module au fost scoase din PAM. Păstrarea acestor profile PAM activate ar împiedica accesul utilizatorilor la sistem. În consecință aceste profile au fost dezactivate.
 Description-ru.UTF-8: Профили PAM с устаревшими модулями отключены
  В вашей системе были включены профили PAM с модулями ${modules}. Эти модули были удалены из PAM. Если оставить данные профили включёнными, то пользователи не смогут получить доступ к системе. По этой причине данные профили были отключены.
 Description-sk.UTF-8: Profily PAM s vypnutými zastaranými modulmi
  Váš systém mal povolené PAM profily s modulmi ${modules}. Tieto moduly boli odstránené z PAM. Ponechanie týchto PAM profilov by zabránilo používateľom v prístupe k vášmu systému. V dôsledku toho boli tieto profily vypnuté.
+Description-tr.UTF-8: Artık kullanılmayan modülleri içeren PAM profilleri etkisizleştirildi
+ Sisteminizde ${modules} PAM modüllerinin etkinleştirildiği PAM profilleri bulunuyordu. Bu modüller şimdi kaldırıldığı için, o PAM profillerindeki ilgili içerikler de etkisizleştirildi. Öbür türlü kullanıcıların sisteminize erişiminde sorunlar yaşanacaktı.
 Description-zh_CN.UTF-8: 已禁用带有已弃用模块的 PAM 配置策略
  您的系统上存在带有 ${modules} PAM 模块的 PAM 配置策略。这些模块已从 PAM 中移除。如继续启用这些 PAM 配置策略则用户将无法经此方式验证并访问系统。因此，这些配置策略已被禁用。
 
@@ -120,6 +124,10 @@ Description-pt_BR.UTF-8: você está usando pam_tally ou pam_tally2 na sua confi
  Os módulos pam_tally e pam_tally2 foram removidos do PAM. Você está usando um desses módulos na sua configuração do PAM em /etc/pam.d. Você deve remover o uso desses módulos antes que o PAM possa ser atualizado. Incluir esses módulos na sua configuração do PAM depois da atualização impedirá que os usuários consigam logar no sistema.
  .
  Considere o módulo pam_faillock como um substituto para o pam_tally.
+Description-ro.UTF-8: folosiți pam_tally sau pam_tally2
+ Modulele pam_tally și pam_tally2 au fost scoase din PAM. Acum utilizați unul din aceste module în configurația PAM din /etc/pam.d. Înainde de a putea actualiza PAM utilizarea acestor module trebuie oprită. Includerea acestor module după actualizare în configurația PAM va împiedica accesul utilizatorilor la sistem.
+ .
+ Modulul pam_faillock are putea fi un înlocuitor pentru pam_tally.
 Description-ru.UTF-8: В вашей конфигурации используется pam_tally или pam_tally2
  Модули pam_tally и pam_tally2 были удалены из PAM, однако в ваших настройках PAM в /etc/pam.d используется один из этих модулей. Перед обновлением PAM необходимо удалить использование данных модулей; включение этих модулей в конфигурацию PAM после обновления не позволит пользователям войти в систему.
  .
@@ -128,6 +136,10 @@ Description-sk.UTF-8: používate pam_tally alebo pam_tally2 vo vašej konfigur�
  Moduly pam_tally a pam_tally2 boli z PAM odstránené. Používate jeden z týchto modulov v konfigurácii PAM v /etc/pam.d. Pred aktualizáciou PAM musíte odstrániť použitie týchto modulov. Zahrnutie týchto modulov do konfigurácie PAM by po aktualizácii znemožnilo používateľom prihlásiť sa do systému.
  .
  Zvážte pam_faillock modul ako náhradu za pam_tally.
+Description-tr.UTF-8: Yapılandırmanızda pam_tally ya da pam_tally2 modülünü kullanıyorsunuz
+ pam_tally ve pam_tally2 modülleri PAM sisteminden kaldırıldı. /etc/pam.d dizinindeki yapılandırmalarınızda bu modüllerden birini kullanıyorsunuz. PAM yükseltmesi öncesinde bu kullanımları kaldırmanız gerekiyor. Bu modülleri kullanan PAM yapılandırmalarını öylece bırakırsanız, kullanıcılarınız yükseltmeden sonra sisteminize giriş yapamayacaklardır.
+ .
+ pam_tally yerine pam_faillock modülünü kullanmayı düşünebilirsiniz.
 Description-zh_CN.UTF-8: 您的配置文件中正在使用 pam_tally 或 pam_tally2
  请注意，pam_tally 和 pam_tally2 模块已从 PAM 中移除。您正在系统上 /etc/pam.d 中的配置文件中使用其中某个模块。在 PAM 更新之前，您必须移除对这些模块的使用；在升级后依旧于 PAM 配置中使用这些模块将导致用户无法使用该方式登录系统。
  .

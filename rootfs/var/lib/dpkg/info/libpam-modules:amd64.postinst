@@ -5,24 +5,16 @@
 
 if [ -z "$2" ] || dpkg --compare-versions "$2" lt 0.99.7.1-3
 then
-	if ! [ -f /etc/security/opasswd ]; then
+	if ! [ -f "$DPKG_ROOT"/etc/security/opasswd ]; then
 		umask 066
-		touch /etc/security/opasswd
+		touch "$DPKG_ROOT"/etc/security/opasswd
 		umask 022
 	fi
 fi
 
-if dpkg --compare-versions "$2" lt 0.99.9.0-1 && ! [ -f /etc/environment ]
+if dpkg --compare-versions "$2" lt 0.99.9.0-1 && ! [ -f "$DPKG_ROOT"/etc/environment ]
 then
-	touch /etc/environment
-fi
-
-if dpkg --compare-versions "$2" lt-nl 1.1.2-1 \
-   && grep -q 'pam_unix.*\bmin=[0-9]\+' /etc/pam.d/common-password
-then
-	echo "'min=' option to pam_unix is obsolete."
-	echo "replacing with 'minlen=' in /etc/pam.d/common-password."
-	sed -i -e'/pam_unix/ s/\bmin=/minlen=/' /etc/pam.d/common-password
+	touch "$DPKG_ROOT"/etc/environment
 fi
 
 

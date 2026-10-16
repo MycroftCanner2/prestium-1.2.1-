@@ -1,8 +1,9 @@
-3ad17689b75310b4d8e0516022d32ad2  usr/lib/x86_64-linux-gnu/libpulse-simple.so.0.1.1
-5c608faa886d2e14dba9bd12b32a134f  usr/lib/x86_64-linux-gnu/libpulse.so.0.23.0
-a1e3a62b7432837bcb8c186f17eeda99  usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-14.2.so
+b85a4d27bedc792d8038f4d89122b97e  usr/lib/x86_64-linux-gnu/libpulse-simple.so.0.1.1
+b9776cb4516512df907d39ea60261bb2  usr/lib/x86_64-linux-gnu/libpulse.so.0.24.2
+f82e278523c864b26a6168c6f82e88e6  usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-16.1.so
 29f1d7d2a4355bd959a8b54c68cfe102  usr/share/doc/libpulse0/NEWS.Debian.gz
-3d11860e652da3e5848a5db109f01e95  usr/share/doc/libpulse0/NEWS.gz
-19dd81f438fcfdd0c67d67d3146cfa06  usr/share/doc/libpulse0/README
-afa0bbee2845d673db26240ad13ac052  usr/share/doc/libpulse0/changelog.Debian.gz
-f6d91103239c2b9421ec7985187a01be  usr/share/doc/libpulse0/copyright
+245b08fce2a7ca68336c47619fa66e98  usr/share/doc/libpulse0/NEWS.gz
+e3286a2c9993189429af5d448ee42e8e  usr/share/doc/libpulse0/README
+f0209133ba1faa515e3c0d66f67768ba  usr/share/doc/libpulse0/changelog.Debian.amd64.gz
+93a86f4d4a1a3e64c00702663e2a02de  usr/share/doc/libpulse0/changelog.Debian.gz
+732d3eb1425bdd5fe29ed5305c7973d2  usr/share/doc/libpulse0/copyright
