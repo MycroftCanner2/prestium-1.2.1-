@@ -25,7 +25,7 @@ case "$flavour" in
     xemacs*)
 	flags="-no-site-file"
 	;;
-    emacs19|emacs20|emacs21|emacs22|emacs-snapshot*)
+    emacs19|emacs20|emacs21|emacs22|emacs23|emacs-snapshot*)
 	# Do not byte-compile anything for above emacsen flavours
 	echo "install/${package}: Skipping byte-compilation for $flavour"
 	exit 0

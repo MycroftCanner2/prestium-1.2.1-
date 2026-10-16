@@ -4,11 +4,13 @@ package re;
 use strict;
 use warnings;
 
-our $VERSION     = "0.40";
+our $VERSION     = "0.43";
 our @ISA         = qw(Exporter);
-our @EXPORT_OK   = ('regmust',
-                    qw(is_regexp regexp_pattern
-                       regname regnames regnames_count));
+our @EXPORT_OK   = qw{
+	is_regexp regexp_pattern
+	regname regnames regnames_count
+	regmust optimization
+};
 our %EXPORT_OK = map { $_ => 1 } @EXPORT_OK;
 
 my %bitmask = (
@@ -69,8 +71,6 @@ my %flags = (
 
     EXTRA             => 0x3FF0000,
     TRIEM             => 0x0010000,
-    OFFSETS           => 0x0020000,
-    OFFSETSDBG        => 0x0040000,
     STATE             => 0x0080000,
     OPTIMISEM         => 0x0100000,
     STACK             => 0x0280000,
@@ -79,9 +79,7 @@ my %flags = (
     DUMP_PRE_OPTIMIZE => 0x1000000,
     WILDCARD          => 0x2000000,
 );
-$flags{ALL} = -1 & ~($flags{OFFSETS}
-                    |$flags{OFFSETSDBG}
-                    |$flags{BUFFERS}
+$flags{ALL} = -1 & ~($flags{BUFFERS}
                     |$flags{DUMP_PRE_OPTIMIZE}
                     |$flags{WILDCARD}
                     );

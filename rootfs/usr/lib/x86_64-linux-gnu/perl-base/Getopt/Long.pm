@@ -4,8 +4,8 @@
 # Author          : Johan Vromans
 # Created On      : Tue Sep 11 15:00:12 1990
 # Last Modified By: Johan Vromans
-# Last Modified On: Mon Aug 12 17:05:46 2019
-# Update Count    : 1728
+# Last Modified On: Tue Aug 18 14:48:05 2020
+# Update Count    : 1739
 # Status          : Released
 
 ################ Module Preamble ################
@@ -18,10 +18,10 @@ use warnings;
 package Getopt::Long;
 
 use vars qw($VERSION);
-$VERSION        =  2.51;
+$VERSION        =  2.52;
 # For testing versions only.
 use vars qw($VERSION_STRING);
-$VERSION_STRING = "2.51";
+$VERSION_STRING = "2.52";
 
 use Exporter;
 use vars qw(@ISA @EXPORT @EXPORT_OK);
@@ -538,6 +538,7 @@ sub GetOptionsFromArray(@) {
 	    while ( defined $arg ) {
 
 		# Get the canonical name.
+		my $given = $opt;
 		print STDERR ("=> cname for \"$opt\" is ") if $debug;
 		$opt = $ctl->[CTL_CNAME];
 		print STDERR ("\"$ctl->[CTL_CNAME]\"\n") if $debug;
@@ -606,6 +607,7 @@ sub GetOptionsFromArray(@) {
 				&{$linkage{$opt}}
 				  (Getopt::Long::CallBack->new
 				   (name    => $opt,
+				    given   => $given,
 				    ctl     => $ctl,
 				    opctl   => \%opctl,
 				    linkage => \%linkage,
@@ -1143,7 +1145,7 @@ sub FindOption ($$$$$) {
 	 : !(defined $rest || @$argv > 0) ) {
 	# Complain if this option needs an argument.
 #	if ( $mand && !($type eq 's' ? defined($optarg) : 0) ) {
-	if ( $mand ) {
+	if ( $mand || $ctl->[CTL_DEST] == CTL_DEST_HASH ) {
 	    return (0) if $passthrough;
 	    warn ("Option ", $opt, " requires an argument\n");
 	    $error++;
@@ -1559,6 +1561,11 @@ sub new {
 sub name {
     my $self = shift;
     ''.$self->{name};
+}
+
+sub given {
+    my $self = shift;
+    $self->{given};
 }
 
 use overload

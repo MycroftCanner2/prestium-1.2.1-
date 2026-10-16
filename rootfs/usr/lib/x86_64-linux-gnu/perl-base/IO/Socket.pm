@@ -22,9 +22,11 @@ require IO::Socket::UNIX if ($^O ne 'epoc' && $^O ne 'symbian');
 
 our @ISA = qw(IO::Handle);
 
-our $VERSION = "1.43";
+our $VERSION = "1.49";
 
 our @EXPORT_OK = qw(sockatmark);
+
+our $errstr;
 
 sub import {
     my $pkg = shift;
@@ -119,7 +121,7 @@ sub connect {
 	if (defined $timeout && ($!{EINPROGRESS} || $!{EWOULDBLOCK})) {
 	    require IO::Select;
 
-	    my $sel = new IO::Select $sock;
+	    my $sel = IO::Select->new( $sock );
 
 	    undef $!;
 	    my($r,$w,$e) = IO::Select::select(undef,$sel,$sel,$timeout);
@@ -131,11 +133,11 @@ sub connect {
 		# set we now emulate the behavior in Linux
 		#    - Karthik Rajagopalan
 		$err = $sock->getsockopt(SOL_SOCKET,SO_ERROR);
-		$@ = "connect: $err";
+		$errstr = $@ = "connect: $err";
 	    }
 	    elsif(!@$w[0]) {
 		$err = $! || (exists &Errno::ETIMEDOUT ? &Errno::ETIMEDOUT : 1);
-		$@ = "connect: timeout";
+		$errstr = $@ = "connect: timeout";
 	    }
 	    elsif (!connect($sock,$addr) &&
                 not ($!{EISCONN} || ($^O eq 'MSWin32' &&
@@ -146,12 +148,12 @@ sub connect {
 		# Windows sets errno to WSAEINVAL (10022) (pre-5.19.4) or
 		# EINVAL (22) (5.19.4 onwards).
 		$err = $!;
-		$@ = "connect: $!";
+		$errstr = $@ = "connect: $!";
 	    }
 	}
         elsif ($blocking || !($!{EINPROGRESS} || $!{EWOULDBLOCK}))  {
 	    $err = $!;
-	    $@ = "connect: $!";
+	    $errstr = $@ = "connect: $!";
 	}
     }
 
@@ -241,10 +243,10 @@ sub accept {
     if(defined $timeout) {
 	require IO::Select;
 
-	my $sel = new IO::Select $sock;
+	my $sel = IO::Select->new( $sock );
 
 	unless ($sel->can_read($timeout)) {
-	    $@ = 'accept: timeout';
+	    $errstr = $@ = 'accept: timeout';
 	    $! = (exists &Errno::ETIMEDOUT ? &Errno::ETIMEDOUT : 1);
 	    return;
 	}

@@ -3,6 +3,8 @@
 use Errno;
 use strict;
 
+$ENV{'EMACS_INHIBIT_AUTOMATIC_NATIVE_COMPILATION'} = 't';
+
 my $lib_dir = "/usr/lib/emacsen-common";
 my $invoked_by_old_pkg;
 my $flavor;

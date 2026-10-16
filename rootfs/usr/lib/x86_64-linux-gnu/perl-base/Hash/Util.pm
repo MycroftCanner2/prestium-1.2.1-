@@ -6,10 +6,10 @@ use Carp;
 use warnings;
 no warnings 'uninitialized';
 use warnings::register;
-use Scalar::Util qw(reftype);
+no warnings 'experimental::builtin';
+use builtin qw(reftype);
 
 require Exporter;
-our @ISA        = qw(Exporter);
 our @EXPORT_OK  = qw(
                      fieldhash fieldhashes
 
@@ -42,7 +42,7 @@ our @EXPORT_OK  = qw(
 BEGIN {
     # make sure all our XS routines are available early so their prototypes
     # are correctly applied in the following code.
-    our $VERSION = '0.23';
+    our $VERSION = '0.28';
     require XSLoader;
     XSLoader::load();
 }

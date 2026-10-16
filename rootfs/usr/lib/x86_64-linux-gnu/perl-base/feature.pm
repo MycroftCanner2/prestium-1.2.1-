@@ -5,34 +5,40 @@
 
 package feature;
 
-our $VERSION = '1.58';
+our $VERSION = '1.72';
 
 our %feature = (
-    fc              => 'feature_fc',
-    isa             => 'feature_isa',
-    say             => 'feature_say',
-    state           => 'feature_state',
-    switch          => 'feature_switch',
-    bitwise         => 'feature_bitwise',
-    indirect        => 'feature_indirect',
-    evalbytes       => 'feature_evalbytes',
-    signatures      => 'feature_signatures',
-    current_sub     => 'feature___SUB__',
-    refaliasing     => 'feature_refaliasing',
-    postderef_qq    => 'feature_postderef_qq',
-    unicode_eval    => 'feature_unieval',
-    declared_refs   => 'feature_myref',
-    unicode_strings => 'feature_unicode',
+    fc                      => 'feature_fc',
+    isa                     => 'feature_isa',
+    say                     => 'feature_say',
+    try                     => 'feature_try',
+    defer                   => 'feature_defer',
+    state                   => 'feature_state',
+    switch                  => 'feature_switch',
+    bitwise                 => 'feature_bitwise',
+    indirect                => 'feature_indirect',
+    evalbytes               => 'feature_evalbytes',
+    signatures              => 'feature_signatures',
+    current_sub             => 'feature___SUB__',
+    refaliasing             => 'feature_refaliasing',
+    postderef_qq            => 'feature_postderef_qq',
+    unicode_eval            => 'feature_unieval',
+    declared_refs           => 'feature_myref',
+    unicode_strings         => 'feature_unicode',
+    multidimensional        => 'feature_multidimensional',
+    bareword_filehandles    => 'feature_bareword_filehandles',
+    extra_paired_delimiters => 'feature_more_delims',
 );
 
 our %feature_bundle = (
-    "5.10"    => [qw(indirect say state switch)],
-    "5.11"    => [qw(indirect say state switch unicode_strings)],
-    "5.15"    => [qw(current_sub evalbytes fc indirect say state switch unicode_eval unicode_strings)],
-    "5.23"    => [qw(current_sub evalbytes fc indirect postderef_qq say state switch unicode_eval unicode_strings)],
-    "5.27"    => [qw(bitwise current_sub evalbytes fc indirect postderef_qq say state switch unicode_eval unicode_strings)],
-    "all"     => [qw(bitwise current_sub declared_refs evalbytes fc indirect isa postderef_qq refaliasing say signatures state switch unicode_eval unicode_strings)],
-    "default" => [qw(indirect)],
+    "5.10"    => [qw(bareword_filehandles indirect multidimensional say state switch)],
+    "5.11"    => [qw(bareword_filehandles indirect multidimensional say state switch unicode_strings)],
+    "5.15"    => [qw(bareword_filehandles current_sub evalbytes fc indirect multidimensional say state switch unicode_eval unicode_strings)],
+    "5.23"    => [qw(bareword_filehandles current_sub evalbytes fc indirect multidimensional postderef_qq say state switch unicode_eval unicode_strings)],
+    "5.27"    => [qw(bareword_filehandles bitwise current_sub evalbytes fc indirect multidimensional postderef_qq say state switch unicode_eval unicode_strings)],
+    "5.35"    => [qw(bareword_filehandles bitwise current_sub evalbytes fc isa postderef_qq say signatures state unicode_eval unicode_strings)],
+    "all"     => [qw(bareword_filehandles bitwise current_sub declared_refs defer evalbytes extra_paired_delimiters fc indirect isa multidimensional postderef_qq refaliasing say signatures state switch try unicode_eval unicode_strings)],
+    "default" => [qw(bareword_filehandles indirect multidimensional)],
 );
 
 $feature_bundle{"5.12"} = $feature_bundle{"5.11"};
@@ -53,6 +59,9 @@ $feature_bundle{"5.29"} = $feature_bundle{"5.27"};
 $feature_bundle{"5.30"} = $feature_bundle{"5.27"};
 $feature_bundle{"5.31"} = $feature_bundle{"5.27"};
 $feature_bundle{"5.32"} = $feature_bundle{"5.27"};
+$feature_bundle{"5.33"} = $feature_bundle{"5.27"};
+$feature_bundle{"5.34"} = $feature_bundle{"5.27"};
+$feature_bundle{"5.36"} = $feature_bundle{"5.35"};
 $feature_bundle{"5.9.5"} = $feature_bundle{"5.10"};
 my %noops = (
     postderef => 1,
@@ -63,8 +72,8 @@ my %removed = (
 );
 
 our $hint_shift   = 26;
-our $hint_mask    = 0x1c000000;
-our @hint_bundles = qw( default 5.10 5.11 5.15 5.23 5.27 );
+our $hint_mask    = 0x3c000000;
+our @hint_bundles = qw( default 5.10 5.11 5.15 5.23 5.27 5.35 );
 
 # This gets set (for now) in $^H as well as in %^H,
 # for runtime speed of the uc/lc/ucfirst/lcfirst functions.
@@ -158,6 +167,67 @@ sub unknown_feature_bundle {
 sub croak {
     require Carp;
     Carp::croak(@_);
+}
+
+sub features_enabled {
+    my ($depth) = @_;
+
+    $depth //= 1;
+    my @frame = caller($depth+1)
+      or return;
+    my ($hints, $hinthash) = @frame[8, 10];
+
+    my $bundle_number = $hints & $hint_mask;
+    if ($bundle_number != $hint_mask) {
+        return $feature_bundle{$hint_bundles[$bundle_number >> $hint_shift]}->@*;
+    }
+    else {
+        my @features;
+        for my $feature (sort keys %feature) {
+            if ($hinthash->{$feature{$feature}}) {
+                push @features, $feature;
+            }
+        }
+        return @features;
+    }
+}
+
+sub feature_enabled {
+    my ($feature, $depth) = @_;
+
+    $depth //= 1;
+    my @frame = caller($depth+1)
+      or return;
+    my ($hints, $hinthash) = @frame[8, 10];
+
+    my $hint_feature = $feature{$feature}
+      or croak "Unknown feature $feature";
+    my $bundle_number = $hints & $hint_mask;
+    if ($bundle_number != $hint_mask) {
+        my $bundle = $hint_bundles[$bundle_number >> $hint_shift];
+        for my $bundle_feature ($feature_bundle{$bundle}->@*) {
+            return 1 if $bundle_feature eq $feature;
+        }
+        return 0;
+    }
+    else {
+        return $hinthash->{$hint_feature} // 0;
+    }
+}
+
+sub feature_bundle {
+    my $depth = shift;
+
+    $depth //= 1;
+    my @frame = caller($depth+1)
+      or return;
+    my $bundle_number = $frame[8] & $hint_mask;
+    if ($bundle_number != $hint_mask) {
+        return $hint_bundles[$bundle_number >> $hint_shift];
+    }
+    else {
+        return undef;
+    }
 }
 
 1;

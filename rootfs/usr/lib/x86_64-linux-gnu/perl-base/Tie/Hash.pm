@@ -1,6 +1,6 @@
 package Tie::Hash;
 
-our $VERSION = '1.05';
+our $VERSION = '1.06';
 
 use Carp;
 use warnings::register;
@@ -10,7 +10,7 @@ sub new {
     $pkg->TIEHASH(@_);
 }
 
-# Grandfather "new"
+# Legacy support for new()
 
 sub TIEHASH {
     my $pkg = shift;

@@ -1,17 +1,20 @@
 #  You may distribute under the terms of either the GNU General Public License
 #  or the Artistic License (the same terms as Perl itself)
 #
-#  (C) Paul Evans, 2010-2015 -- leonerd@leonerd.org.uk
+#  (C) Paul Evans, 2010-2020 -- leonerd@leonerd.org.uk
 
 package IO::Socket::IP;
+
+use v5;
+use strict;
+use warnings;
+
 # $VERSION needs to be set before  use base 'IO::Socket'
 #  - https://rt.cpan.org/Ticket/Display.html?id=92107
 BEGIN {
-   $VERSION = '0.39';
+   our $VERSION = '0.41';
 }
 
-use strict;
-use warnings;
 use base qw( IO::Socket );
 
 use Carp;

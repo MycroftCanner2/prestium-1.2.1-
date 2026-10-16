@@ -10,7 +10,7 @@ use strict;
 use warnings;
 our ( %Config, $VERSION );
 
-$VERSION = "5.032001";
+$VERSION = "5.036000";
 
 # Skip @Config::EXPORT because it only contains %Config, which we special
 # case below as it's not a function. @Config::EXPORT won't change in the
@@ -56,11 +56,11 @@ sub import {
     return;
 }
 
-die "$0: Perl lib version (5.32.1) doesn't match executable '$^X' version ($])"
+die "$0: Perl lib version (5.36.0) doesn't match executable '$^X' version ($])"
     unless $^V;
 
-$^V eq 5.32.1
-    or die sprintf "%s: Perl lib version (5.32.1) doesn't match executable '$^X' version (%vd)", $0, $^V;
+$^V eq 5.36.0
+    or die sprintf "%s: Perl lib version (5.36.0) doesn't match executable '$^X' version (%vd)", $0, $^V;
 
 sub FETCH {
     my($self, $key) = @_;
@@ -83,7 +83,7 @@ sub AUTOLOAD {
 
 # tie returns the object, so the value returned to require will be true.
 tie %Config, 'Config', {
-    archlibexp => '/usr/lib/x86_64-linux-gnu/perl/5.32',
+    archlibexp => '/usr/lib/x86_64-linux-gnu/perl/5.36',
     archname => 'x86_64-linux-gnu-thread-multi',
     cc => 'x86_64-linux-gnu-gcc',
     d_readlink => 'define',
@@ -92,19 +92,19 @@ tie %Config, 'Config', {
     dlsrc => 'dl_dlopen.xs',
     dont_use_nlink => undef,
     exe_ext => '',
-    inc_version_list => '5.32.0 5.32.0/x86_64-linux-gnu-thread-multi',
+    inc_version_list => '',
     intsize => '4',
     ldlibpthname => 'LD_LIBRARY_PATH',
-    libpth => '/usr/local/lib /usr/include/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib/../lib /usr/lib/x86_64-linux-gnu /usr/lib/../lib /lib',
+    libpth => '/usr/local/lib /usr/lib/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib',
     osname => 'linux',
     osvers => '4.19.0',
     path_sep => ':',
-    privlibexp => '/usr/share/perl/5.32',
+    privlibexp => '/usr/share/perl/5.36',
     scriptdir => '/usr/bin',
-    sitearchexp => '/usr/local/lib/x86_64-linux-gnu/perl/5.32.1',
-    sitelibexp => '/usr/local/share/perl/5.32.1',
+    sitearchexp => '/usr/local/lib/x86_64-linux-gnu/perl/5.36.0',
+    sitelibexp => '/usr/local/share/perl/5.36.0',
     so => 'so',
     useithreads => 'define',
     usevendorprefix => 'define',
-    version => '5.32.1',
+    version => '5.36.0',
 };

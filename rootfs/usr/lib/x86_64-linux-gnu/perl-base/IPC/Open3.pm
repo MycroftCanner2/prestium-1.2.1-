@@ -2,16 +2,14 @@ package IPC::Open3;
 
 use strict;
 no strict 'refs'; # because users pass me bareword filehandles
-our ($VERSION, @ISA, @EXPORT);
 
-require Exporter;
+use Exporter 'import';
 
 use Carp;
 use Symbol qw(gensym qualify);
 
-$VERSION	= '1.21';
-@ISA		= qw(Exporter);
-@EXPORT		= qw(open3);
+our $VERSION	= '1.22';
+our @EXPORT		= qw(open3);
 
 # &open3: Marc Horowitz <marc@mit.edu>
 # derived mostly from &open2 by tom christiansen, <tchrist@convex.com>
