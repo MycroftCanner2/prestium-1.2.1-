@@ -1,54 +1,50 @@
+ani.so libimlib2 #MINVER#
+ loader@Base 1.10.0
 argb.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
- save@Base 1.4.5
+ loader@Base 1.10.0
 bmp.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
- save@Base 1.4.5
+ loader@Base 1.10.0
 bumpmap.so libimlib2 #MINVER#
  deinit@Base 1.4.5
  exec@Base 1.4.5
  init@Base 1.4.5
 bz2.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
+ loader@Base 1.10.0
 colormod.so libimlib2 #MINVER#
  deinit@Base 1.4.5
  exec@Base 1.4.5
  init@Base 1.4.5
 ff.so libimlib2 #MINVER#
- formats@Base 1.4.8
- load2@Base 1.7.0
- save@Base 1.4.8
+ loader@Base 1.10.0
 gif.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
+ loader@Base 1.10.0
+heif.so libimlib2 #MINVER#
+ loader@Base 1.10.0
 ico.so libimlib2 #MINVER#
- formats@Base 1.6.1
- load2@Base 1.7.0
+ loader@Base 1.10.0
 id3.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
+ loader@Base 1.10.0
+j2k.so libimlib2 #MINVER#
+ loader@Base 1.10.0
 jpeg.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
- save@Base 1.4.5
+ loader@Base 1.10.0
+jxl.so libimlib2 #MINVER#
+ loader@Base 1.10.0
 lbm.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
+ loader@Base 1.10.0
 libImlib2.so.1 libimlib2 #MINVER#
  __imlib_AllocateData@Base 1.6.1
  __imlib_AttachTag@Base 1.4.5
- __imlib_FindBestLoaderForFile@Base 1.4.5
- __imlib_FindBestLoaderForFormat@Base 1.6.1
+ __imlib_FindBestLoader@Base 1.9.1
  __imlib_FreeData@Base 1.6.1
+ __imlib_GetFrame@Base 1.10.0
+ __imlib_GetKey@Base 1.9.1
  __imlib_GetTag@Base 1.4.5
  __imlib_LoadEmbedded@Base 1.7.0
+ __imlib_LoadEmbeddedMem@Base 1.10.0
  __imlib_LoadProgress@Base 1.7.0
  __imlib_LoadProgressRows@Base 1.7.0
  __imlib_LoadProgressSetPass@Base 1.7.0
- __imlib_LoaderSetFormats@Base 1.7.0
  __imlib_ReplaceData@Base 1.6.1
  imlib_add_color_to_color_range@Base 1.4.5
  imlib_add_path_to_font_path@Base 1.4.5
@@ -156,6 +152,7 @@ libImlib2.so.1 libimlib2 #MINVER#
  imlib_get_cache_used@Base 1.5.0
  imlib_get_color_modifier_tables@Base 1.4.5
  imlib_get_color_usage@Base 1.4.5
+ imlib_get_error@Base 1.10.0
  imlib_get_font_ascent@Base 1.4.5
  imlib_get_font_cache_size@Base 1.4.5
  imlib_get_font_descent@Base 1.4.5
@@ -199,6 +196,7 @@ libImlib2.so.1 libimlib2 #MINVER#
  imlib_image_get_data@Base 1.4.5
  imlib_image_get_data_for_reading_only@Base 1.4.5
  imlib_image_get_filename@Base 1.4.5
+ imlib_image_get_frame_info@Base 1.9.1
  imlib_image_get_height@Base 1.4.5
  imlib_image_get_width@Base 1.4.5
  imlib_image_has_alpha@Base 1.4.5
@@ -228,8 +226,12 @@ libImlib2.so.1 libimlib2 #MINVER#
  imlib_load_font@Base 1.4.5
  imlib_load_image@Base 1.4.5
  imlib_load_image_fd@Base 1.7.0
+ imlib_load_image_frame@Base 1.9.1
+ imlib_load_image_frame_mem@Base 1.10.0
  imlib_load_image_immediately@Base 1.4.5
  imlib_load_image_immediately_without_cache@Base 1.4.5
+ imlib_load_image_mem@Base 1.10.0
+ imlib_load_image_with_errno_return@Base 1.9.1
  imlib_load_image_with_error_return@Base 1.4.5
  imlib_load_image_without_cache@Base 1.4.5
  imlib_modify_color_modifier_brightness@Base 1.4.5
@@ -254,6 +256,7 @@ libImlib2.so.1 libimlib2 #MINVER#
  imlib_reset_color_modifier@Base 1.4.5
  imlib_rotate_image_from_buffer@Base 1.4.5
  imlib_save_image@Base 1.4.5
+ imlib_save_image_with_errno_return@Base 1.9.1
  imlib_save_image_with_error_return@Base 1.4.5
  imlib_set_cache_size@Base 1.4.5
  imlib_set_color_modifier_tables@Base 1.4.5
@@ -261,6 +264,7 @@ libImlib2.so.1 libimlib2 #MINVER#
  imlib_set_font_cache_size@Base 1.4.5
  imlib_set_ximage_cache_count_max@Base 1.5.0
  imlib_set_ximage_cache_size_max@Base 1.5.0
+ imlib_strerror@Base 1.9.1
  imlib_text_draw@Base 1.4.5
  imlib_text_draw_with_return_metrics@Base 1.4.5
  imlib_text_get_index_and_location@Base 1.4.5
@@ -275,33 +279,30 @@ libImlib2.so.1 libimlib2 #MINVER#
  imlib_updates_merge@Base 1.4.5
  imlib_updates_merge_for_rendering@Base 1.4.5
  imlib_updates_set_coordinates@Base 1.4.5
+ imlib_version@Base 1.9.1
+lzma.so libimlib2 #MINVER#
+ loader@Base 1.10.0
 png.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
- save@Base 1.4.5
+ loader@Base 1.10.0
 pnm.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
- save@Base 1.4.5
+ loader@Base 1.10.0
+ps.so libimlib2 #MINVER#
+ loader@Base 1.10.0
+svg.so libimlib2 #MINVER#
+ loader@Base 1.10.0
 testfilter.so libimlib2 #MINVER#
  deinit@Base 1.4.5
  exec@Base 1.4.5
  init@Base 1.4.5
 tga.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
- save@Base 1.4.5
+ loader@Base 1.10.0
 tiff.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
- save@Base 1.4.5
+ loader@Base 1.10.0
 webp.so libimlib2 #MINVER#
- formats@Base 1.6.1
- load2@Base 1.7.0
- save@Base 1.6.1
+ loader@Base 1.10.0
+xbm.so libimlib2 #MINVER#
+ loader@Base 1.10.0
 xpm.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
+ loader@Base 1.10.0
 zlib.so libimlib2 #MINVER#
- formats@Base 1.4.5
- load2@Base 1.7.0
+ loader@Base 1.10.0

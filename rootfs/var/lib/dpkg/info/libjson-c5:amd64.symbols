@@ -2,6 +2,7 @@ libjson-c.so.5 libjson-c5 #MINVER#
 * Build-Depends-Package: libjson-c-dev
  JSONC_0.14@JSONC_0.14 0.15
  JSONC_0.15@JSONC_0.15 0.15
+ JSONC_0.16@JSONC_0.16 0.16
  JSONC_PRIVATE@JSONC_PRIVATE 0.15
  array_list_add@JSONC_PRIVATE 0.15
  array_list_bsearch@JSONC_0.14 0.15

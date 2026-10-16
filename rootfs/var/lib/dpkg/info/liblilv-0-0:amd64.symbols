@@ -155,3 +155,18 @@ liblilv-0.so.0 liblilv-0-0 #MINVER#
  lilv_world_set_option@Base 0.4.2
  lilv_world_unload_bundle@Base 0.20.0~dfsg0
  lilv_world_unload_resource@Base 0.20.0~dfsg0
+ zix_tree_begin@Base 0.24.14
+ zix_tree_end@Base 0.24.14
+ zix_tree_find@Base 0.24.14
+ zix_tree_free@Base 0.24.14
+ zix_tree_get@Base 0.24.14
+ zix_tree_insert@Base 0.24.14
+ zix_tree_iter_is_end@Base 0.24.14
+ zix_tree_iter_is_rend@Base 0.24.14
+ zix_tree_iter_next@Base 0.24.14
+ zix_tree_iter_prev@Base 0.24.14
+ zix_tree_new@Base 0.24.14
+ zix_tree_rbegin@Base 0.24.14
+ zix_tree_remove@Base 0.24.14
+ zix_tree_rend@Base 0.24.14
+ zix_tree_size@Base 0.24.14

@@ -22,7 +22,10 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  _cmsGetTransformFlags@Base 2.12~rc1
  _cmsGetTransformFormatters16@Base 2.4
  _cmsGetTransformFormattersFloat@Base 2.4
+ _cmsGetTransformMaxWorkers@Base 2.14
  _cmsGetTransformUserData@Base 2.4
+ _cmsGetTransformWorker@Base 2.14
+ _cmsGetTransformWorkerFlags@Base 2.14
  _cmsHalf2Float@Base 2.4
  _cmsICCcolorSpace@Base 2.2+git20110628
  _cmsIOPrintf@Base 2.2+git20110628
@@ -99,6 +102,7 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsCMCdeltaE@Base 2.2+git20110628
  cmsChangeBuffersFormat@Base 2.2+git20110628
  cmsChannelsOf@Base 2.2+git20110628
+ cmsChannelsOfColorSpace@Base 2.14
  cmsCloseIOhandler@Base 2.2+git20110628
  cmsCloseProfile@Base 2.2+git20110628
  cmsCreateBCHSWabstractProfile@Base 2.2+git20110628
@@ -138,6 +142,7 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsDesaturateLab@Base 2.2+git20110628
  cmsDetectBlackPoint@Base 2.2+git20110628
  cmsDetectDestinationBlackPoint@Base 2.4
+ cmsDetectRGBProfileGamma@Base 2.13
  cmsDetectTAC@Base 2.2+git20110628
  cmsDictAddEntry@Base 2.2+git20110628
  cmsDictAlloc@Base 2.2+git20110628
@@ -195,6 +200,7 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsGetProfileInfo@Base 2.2+git20110628
  cmsGetProfileInfoASCII@Base 2.2+git20110628
  cmsGetProfileVersion@Base 2.2+git20110628
+ cmsGetStageContextID@Base 2.13
  cmsGetSupportedIntents@Base 2.2+git20110628
  cmsGetSupportedIntentsTHR@Base 2.6
  cmsGetTagCount@Base 2.2+git20110628

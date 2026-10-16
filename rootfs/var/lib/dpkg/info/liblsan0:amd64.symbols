@@ -31,6 +31,9 @@ liblsan.so.0 liblsan0 #MINVER#
  __asan_backtrace_qsort@Base 4.9
  __asan_backtrace_release_view@Base 4.9
  __asan_backtrace_syminfo@Base 4.9
+ __asan_backtrace_syminfo_to_full_callback@Base 11
+ __asan_backtrace_syminfo_to_full_error_callback@Base 11
+ __asan_backtrace_uncompress_lzma@Base 11
  __asan_backtrace_uncompress_zdebug@Base 8
  __asan_backtrace_vector_finish@Base 4.9
  __asan_backtrace_vector_grow@Base 4.9
@@ -75,6 +78,7 @@ liblsan.so.0 liblsan0 #MINVER#
  __interceptor_mprobe@Base 8
  __interceptor_posix_memalign@Base 4.9
  __interceptor_pthread_create@Base 4.9
+ __interceptor_pthread_detach@Base 11
  __interceptor_pthread_join@Base 4.9
  __interceptor_pvalloc@Base 4.9
  __interceptor_realloc@Base 4.9
@@ -84,6 +88,7 @@ liblsan.so.0 liblsan0 #MINVER#
  __interceptor_strerror@Base 10
  __interceptor_valloc@Base 4.9
  __libc_memalign@Base 4.9
+ __lsan_default_options@Base 11
  __lsan_disable@Base 4.9
  __lsan_do_leak_check@Base 4.9
  __lsan_do_recoverable_leak_check@Base 6
@@ -96,6 +101,7 @@ liblsan.so.0 liblsan0 #MINVER#
  __sancov_lowest_stack@Base 8
  __sanitizer_acquire_crash_state@Base 9
  __sanitizer_cov_8bit_counters_init@Base 8
+ __sanitizer_cov_bool_flag_init@Base 11
  __sanitizer_cov_dump@Base 4.9
  __sanitizer_cov_pcs_init@Base 8
  __sanitizer_cov_reset@Base 8
@@ -124,6 +130,7 @@ liblsan.so.0 liblsan0 #MINVER#
  __sanitizer_get_heap_size@Base 5
  __sanitizer_get_module_and_offset_for_pc@Base 8
  __sanitizer_get_ownership@Base 5
+ __sanitizer_get_report_path@Base 12
  __sanitizer_get_unmapped_bytes@Base 5
  __sanitizer_install_malloc_and_free_hooks@Base 7
  __sanitizer_on_print@Base 10
@@ -150,6 +157,7 @@ liblsan.so.0 liblsan0 #MINVER#
  mprobe@Base 8
  posix_memalign@Base 4.9
  pthread_create@Base 4.9
+ pthread_detach@Base 11
  pthread_join@Base 4.9
  pvalloc@Base 4.9
  realloc@Base 4.9

@@ -1,7 +1,7 @@
 /.
 /lib
 /lib/x86_64-linux-gnu
-/lib/x86_64-linux-gnu/libkeyutils.so.1.9
+/lib/x86_64-linux-gnu/libkeyutils.so.1.10
 /usr
 /usr/share
 /usr/share/doc

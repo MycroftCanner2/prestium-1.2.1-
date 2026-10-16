@@ -89,6 +89,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_aff_list_insert@Base 0.11
  isl_aff_list_map@Base 0.19
  isl_aff_list_n_aff@Base 0.10
+ isl_aff_list_peek@Base 0.24
+ isl_aff_list_read_from_str@Base 0.25
  isl_aff_list_reverse@Base 0.20
  isl_aff_list_set_aff@Base 0.11
  isl_aff_list_size@Base 0.20
@@ -140,6 +142,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_aff_substitute@Base 0.10
  isl_aff_substitute_equalities@Base 0.15
  isl_aff_take_domain_local_space@Base 0.19
+ isl_aff_to_list@Base 0.24
  isl_aff_to_str@Base 0.10
  isl_aff_unbind_params_insert_domain@Base 0.22
  isl_aff_val_on_domain@Base 0.13
@@ -295,6 +298,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_ast_expr_list_insert@Base 0.11
  isl_ast_expr_list_map@Base 0.19
  isl_ast_expr_list_n_ast_expr@Base 0.11
+ isl_ast_expr_list_peek@Base 0.24
  isl_ast_expr_list_reverse@Base 0.20
  isl_ast_expr_list_set_ast_expr@Base 0.11
  isl_ast_expr_list_size@Base 0.20
@@ -318,6 +322,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_ast_expr_sub@Base 0.11
  isl_ast_expr_substitute_ids@Base 0.13
  isl_ast_expr_to_C_str@Base 0.18
+ isl_ast_expr_to_list@Base 0.24
  isl_ast_expr_to_str@Base 0.11
  isl_ast_graft_add_guard@Base 0.11
  isl_ast_graft_alloc@Base 0.11
@@ -359,6 +364,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_ast_graft_list_map@Base 0.19
  isl_ast_graft_list_merge@Base 0.11
  isl_ast_graft_list_n_ast_graft@Base 0.11
+ isl_ast_graft_list_peek@Base 0.24
  isl_ast_graft_list_preimage_multi_aff@Base 0.11
  isl_ast_graft_list_reverse@Base 0.20
  isl_ast_graft_list_set_ast_graft@Base 0.11
@@ -370,6 +376,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_ast_graft_list_unembed@Base 0.11
  isl_ast_graft_preimage_multi_aff@Base 0.11
  isl_ast_graft_set_enforced@Base 0.11
+ isl_ast_graft_to_list@Base 0.24
  isl_ast_graft_to_str@Base 0.11
  isl_ast_graft_unembed@Base 0.11
  isl_ast_node_alloc@Base 0.11
@@ -430,6 +437,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_ast_node_list_insert@Base 0.11
  isl_ast_node_list_map@Base 0.19
  isl_ast_node_list_n_ast_node@Base 0.11
+ isl_ast_node_list_peek@Base 0.24
  isl_ast_node_list_print@Base 0.11
  isl_ast_node_list_reverse@Base 0.20
  isl_ast_node_list_set_ast_node@Base 0.11
@@ -443,6 +451,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_ast_node_print_macros@Base 0.11
  isl_ast_node_set_annotation@Base 0.11
  isl_ast_node_to_C_str@Base 0.18
+ isl_ast_node_to_list@Base 0.24
  isl_ast_node_to_str@Base 0.11
  isl_ast_node_user_get_expr@Base 0.11
  isl_ast_op_type_print_macro@Base 0.11
@@ -625,6 +634,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_basic_map_list_intersect@Base 0.15
  isl_basic_map_list_map@Base 0.19
  isl_basic_map_list_n_basic_map@Base 0.15
+ isl_basic_map_list_peek@Base 0.24
  isl_basic_map_list_reverse@Base 0.20
  isl_basic_map_list_set_basic_map@Base 0.15
  isl_basic_map_list_size@Base 0.20
@@ -706,6 +716,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_basic_map_sort_divs@Base 0.10
  isl_basic_map_sum@Base 0.10
  isl_basic_map_swap_div@Base 0.10
+ isl_basic_map_to_list@Base 0.24
  isl_basic_map_to_str@Base 0.10
  isl_basic_map_total_dim@Base 0.10
  isl_basic_map_transform_dims@Base 0.17
@@ -849,6 +860,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_basic_set_list_intersect@Base 0.14
  isl_basic_set_list_map@Base 0.19
  isl_basic_set_list_n_basic_set@Base 0.10
+ isl_basic_set_list_peek@Base 0.24
  isl_basic_set_list_reverse@Base 0.20
  isl_basic_set_list_set_basic_set@Base 0.11
  isl_basic_set_list_size@Base 0.20
@@ -904,7 +916,6 @@ libisl.so.23 libisl23 #MINVER#
  isl_basic_set_remove_unknown_divs@Base 0.11
  isl_basic_set_reset_space@Base 0.10
  isl_basic_set_sample@Base 0.10
- isl_basic_set_sample_bounded@Base 0.10
  isl_basic_set_sample_point@Base 0.10
  isl_basic_set_sample_vec@Base 0.10
  isl_basic_set_sample_with_cone@Base 0.10
@@ -923,8 +934,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_basic_set_sort_constraints@Base 0.10
  isl_basic_set_sort_divs@Base 0.18
  isl_basic_set_space_has_equal_params@Base 0.19
- isl_basic_set_substitute@Base 0.10
  isl_basic_set_tighten_outward@Base 0.18
+ isl_basic_set_to_list@Base 0.24
+ isl_basic_set_to_set@Base 0.24
  isl_basic_set_to_str@Base 0.10
  isl_basic_set_total_dim@Base 0.10
  isl_basic_set_transform_dims@Base 0.10
@@ -946,6 +958,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_blk_is_error@Base 0.10
  isl_bool_not@Base 0.17
  isl_bool_ok@Base 0.21
+ isl_bound_add@Base 0.24
+ isl_bound_add_tight@Base 0.24
  isl_calloc_or_die@Base 0.13
  isl_cell_foreach_simplex@Base 0.10
  isl_cell_foreach_vertex@Base 0.10
@@ -1002,6 +1016,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_constraint_list_insert@Base 0.11
  isl_constraint_list_map@Base 0.19
  isl_constraint_list_n_constraint@Base 0.11
+ isl_constraint_list_peek@Base 0.24
  isl_constraint_list_reverse@Base 0.20
  isl_constraint_list_set_constraint@Base 0.11
  isl_constraint_list_size@Base 0.20
@@ -1010,12 +1025,12 @@ libisl.so.23 libisl23 #MINVER#
  isl_constraint_list_to_str@Base 0.21
  isl_constraint_negate@Base 0.10
  isl_constraint_plain_cmp@Base 0.14
- isl_constraint_set_coefficient@Base 0.10
  isl_constraint_set_coefficient_si@Base 0.10
  isl_constraint_set_coefficient_val@Base 0.12.1
  isl_constraint_set_constant@Base 0.10
  isl_constraint_set_constant_si@Base 0.10
  isl_constraint_set_constant_val@Base 0.12.1
+ isl_constraint_to_list@Base 0.24
  isl_constraint_to_str@Base 0.10
  isl_context_gbr_op@Base 0.10
  isl_context_lex_op@Base 0.10
@@ -1093,6 +1108,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_id_dump@Base 0.10
  isl_id_free@Base 0.10
  isl_id_get_ctx@Base 0.10
+ isl_id_get_free_user@Base 0.25
  isl_id_get_hash@Base 0.13
  isl_id_get_name@Base 0.10
  isl_id_get_user@Base 0.10
@@ -1116,6 +1132,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_id_list_insert@Base 0.11
  isl_id_list_map@Base 0.19
  isl_id_list_n_id@Base 0.11
+ isl_id_list_peek@Base 0.24
+ isl_id_list_read_from_str@Base 0.25
  isl_id_list_reverse@Base 0.20
  isl_id_list_set_id@Base 0.11
  isl_id_list_size@Base 0.20
@@ -1151,6 +1169,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_id_to_id_has@Base 0.17
  isl_id_to_id_set@Base 0.17
  isl_id_to_id_try_get@Base 0.17
+ isl_id_to_list@Base 0.24
  isl_id_to_pw_aff_alloc@Base 0.13
  isl_id_to_pw_aff_copy@Base 0.13
  isl_id_to_pw_aff_cow@Base 0.13
@@ -1170,6 +1189,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_inequality_negate@Base 0.10
  isl_local_alloc_from_mat@Base 0.20
  isl_local_cmp@Base 0.17
+ isl_local_copy@Base 0.25
  isl_local_dim@Base 0.20
  isl_local_div_is_known@Base 0.17
  isl_local_div_is_marked_unknown@Base 0.19
@@ -1177,6 +1197,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_local_extend_point_vec@Base 0.20
  isl_local_free@Base 0.20
  isl_local_get_ctx@Base 0.20
+ isl_local_move_vars@Base 0.25
  isl_local_reorder@Base 0.20
  isl_local_space_add_dims@Base 0.10
  isl_local_space_add_div@Base 0.10
@@ -1206,6 +1227,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_local_space_get_dim_name@Base 0.10
  isl_local_space_get_div@Base 0.10
  isl_local_space_get_hash@Base 0.17
+ isl_local_space_get_local@Base 0.25
  isl_local_space_get_space@Base 0.10
  isl_local_space_has_dim_id@Base 0.11
  isl_local_space_has_dim_name@Base 0.10
@@ -1244,7 +1266,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_local_space_swap_div@Base 0.11
  isl_local_space_take_space@Base 0.19
  isl_local_space_to_str@Base 0.10
+ isl_local_space_var_offset@Base 0.25
  isl_local_space_wrap@Base 0.15
+ isl_local_var_offset@Base 0.25
  isl_malloc_or_die@Base 0.13
  isl_map_add_basic_map@Base 0.10
  isl_map_add_constraint@Base 0.10
@@ -1261,6 +1285,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_apply_domain@Base 0.10
  isl_map_apply_pw_qpolynomial_fold@Base 0.10
  isl_map_apply_range@Base 0.10
+ isl_map_as_pw_multi_aff@Base 0.24
  isl_map_basic_map_check_equal_space@Base 0.23
  isl_map_bind_domain@Base 0.22
  isl_map_bind_range@Base 0.22
@@ -1295,6 +1320,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_domain_is_wrapping@Base 0.13
  isl_map_domain_map@Base 0.10
  isl_map_domain_product@Base 0.10
+ isl_map_domain_tuple_dim@Base 0.25
  isl_map_drop@Base 0.10
  isl_map_drop_constraints_involving_dims@Base 0.11
  isl_map_drop_constraints_involving_unknown_divs@Base 0.23
@@ -1343,9 +1369,12 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_get_ctx@Base 0.10
  isl_map_get_dim_id@Base 0.10
  isl_map_get_dim_name@Base 0.10
+ isl_map_get_domain_tuple_id@Base 0.24
  isl_map_get_hash@Base 0.10
+ isl_map_get_range_lattice_tile@Base 0.25
  isl_map_get_range_simple_fixed_box_hull@Base 0.20
  isl_map_get_range_stride_info@Base 0.20
+ isl_map_get_range_tuple_id@Base 0.24
  isl_map_get_space@Base 0.10
  isl_map_get_tuple_id@Base 0.10
  isl_map_get_tuple_name@Base 0.10
@@ -1357,8 +1386,10 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_grow@Base 0.10
  isl_map_has_dim_id@Base 0.10
  isl_map_has_dim_name@Base 0.11
+ isl_map_has_domain_tuple_id@Base 0.24
  isl_map_has_equal_params@Base 0.19
  isl_map_has_equal_space@Base 0.10
+ isl_map_has_range_tuple_id@Base 0.24
  isl_map_has_rational@Base 0.11
  isl_map_has_space@Base 0.23
  isl_map_has_space_tuples@Base 0.23
@@ -1371,11 +1402,13 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_intersect_domain@Base 0.10
  isl_map_intersect_domain_factor_domain@Base 0.23
  isl_map_intersect_domain_factor_range@Base 0.19
+ isl_map_intersect_domain_wrapped_domain@Base 0.25
  isl_map_intersect_multi_pw_aff_explicit_domain@Base 0.23
  isl_map_intersect_params@Base 0.10
  isl_map_intersect_range@Base 0.10
  isl_map_intersect_range_factor_domain@Base 0.22
  isl_map_intersect_range_factor_range@Base 0.19
+ isl_map_intersect_range_wrapped_domain@Base 0.25
  isl_map_involves_dims@Base 0.10
  isl_map_is_bijective@Base 0.10
  isl_map_is_disjoint@Base 0.11
@@ -1434,6 +1467,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_list_insert@Base 0.15
  isl_map_list_map@Base 0.19
  isl_map_list_n_map@Base 0.15
+ isl_map_list_peek@Base 0.24
+ isl_map_list_read_from_str@Base 0.25
  isl_map_list_reverse@Base 0.20
  isl_map_list_set_map@Base 0.15
  isl_map_list_size@Base 0.20
@@ -1498,6 +1533,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_range_map@Base 0.10
  isl_map_range_product@Base 0.10
  isl_map_range_reverse@Base 0.22
+ isl_map_range_tuple_dim@Base 0.25
  isl_map_reaching_path_lengths@Base 0.10
  isl_map_read_from_file@Base 0.10
  isl_map_read_from_str@Base 0.10
@@ -1519,6 +1555,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_sample@Base 0.10
  isl_map_set_dim_id@Base 0.10
  isl_map_set_dim_name@Base 0.10
+ isl_map_set_domain_tuple_id@Base 0.24
+ isl_map_set_range_tuple_id@Base 0.24
  isl_map_set_rational@Base 0.10
  isl_map_set_tuple_id@Base 0.10
  isl_map_set_tuple_name@Base 0.10
@@ -1544,7 +1582,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_map_to_basic_set_has@Base 0.13
  isl_map_to_basic_set_set@Base 0.13
  isl_map_to_basic_set_try_get@Base 0.17
+ isl_map_to_list@Base 0.24
  isl_map_to_str@Base 0.10
+ isl_map_to_union_map@Base 0.24
  isl_map_transitive_closure@Base 0.10
  isl_map_tuple_is_equal@Base 0.23
  isl_map_uncurry@Base 0.11
@@ -1646,6 +1686,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_merge_divs@Base 0.10
  isl_morph_alloc@Base 0.10
  isl_morph_basic_set@Base 0.10
+ isl_morph_check_applies@Base 0.24
  isl_morph_compose@Base 0.10
  isl_morph_copy@Base 0.10
  isl_morph_cow@Base 0.10
@@ -1678,6 +1719,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_aff_align_params@Base 0.10
  isl_multi_aff_alloc@Base 0.10
  isl_multi_aff_apply_aligned_set@Base 0.15
+ isl_multi_aff_as_map@Base 0.24
+ isl_multi_aff_as_set@Base 0.24
  isl_multi_aff_bind@Base 0.22
  isl_multi_aff_bind_domain@Base 0.22
  isl_multi_aff_bind_domain_wrapped_domain@Base 0.22
@@ -1710,11 +1753,13 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_aff_get_dim_id@Base 0.13
  isl_multi_aff_get_domain_space@Base 0.10
  isl_multi_aff_get_list@Base 0.23
+ isl_multi_aff_get_range_tuple_id@Base 0.24
  isl_multi_aff_get_space@Base 0.10
  isl_multi_aff_get_tuple_id@Base 0.13
  isl_multi_aff_get_tuple_name@Base 0.10
  isl_multi_aff_gist@Base 0.10
  isl_multi_aff_gist_params@Base 0.10
+ isl_multi_aff_has_range_tuple_id@Base 0.24
  isl_multi_aff_has_tuple_id@Base 0.13
  isl_multi_aff_identity@Base 0.11
  isl_multi_aff_identity_multi_aff@Base 0.22
@@ -1735,6 +1780,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_aff_mod_multi_val@Base 0.15
  isl_multi_aff_move_dims@Base 0.13
  isl_multi_aff_move_explicit_domain_dims@Base 0.20
+ isl_multi_aff_multi_val_on_domain_space@Base 0.24
  isl_multi_aff_multi_val_on_space@Base 0.15
  isl_multi_aff_neg@Base 0.15
  isl_multi_aff_peek_space@Base 0.20
@@ -1753,10 +1799,12 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_aff_read_from_str@Base 0.10
  isl_multi_aff_realign_domain@Base 0.10
  isl_multi_aff_reset_domain_space@Base 0.10
+ isl_multi_aff_reset_range_tuple_id@Base 0.24
  isl_multi_aff_reset_space@Base 0.10
  isl_multi_aff_reset_space_and_domain@Base 0.10
  isl_multi_aff_reset_tuple_id@Base 0.13
  isl_multi_aff_reset_user@Base 0.13
+ isl_multi_aff_restore_space@Base 0.25
  isl_multi_aff_scale@Base 0.10
  isl_multi_aff_scale_down_multi_val@Base 0.13
  isl_multi_aff_scale_down_val@Base 0.15
@@ -1766,12 +1814,17 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_aff_set_at@Base 0.22
  isl_multi_aff_set_dim_id@Base 0.13
  isl_multi_aff_set_dim_name@Base 0.10
+ isl_multi_aff_set_range_tuple_id@Base 0.24
  isl_multi_aff_set_tuple_id@Base 0.10
  isl_multi_aff_set_tuple_name@Base 0.11
  isl_multi_aff_size@Base 0.22
  isl_multi_aff_splice@Base 0.11
  isl_multi_aff_sub@Base 0.12.1
  isl_multi_aff_substitute@Base 0.10
+ isl_multi_aff_take_space@Base 0.25
+ isl_multi_aff_to_multi_pw_aff@Base 0.24
+ isl_multi_aff_to_multi_union_pw_aff@Base 0.24
+ isl_multi_aff_to_pw_multi_aff@Base 0.24
  isl_multi_aff_to_str@Base 0.10
  isl_multi_aff_unbind_params_insert_domain@Base 0.23
  isl_multi_aff_zero@Base 0.10
@@ -1813,9 +1866,11 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_id_reset_space@Base 0.22
  isl_multi_id_reset_space_and_domain@Base 0.22
  isl_multi_id_reset_user@Base 0.22
+ isl_multi_id_restore_space@Base 0.25
  isl_multi_id_set_at@Base 0.22
  isl_multi_id_set_id@Base 0.22
  isl_multi_id_size@Base 0.22
+ isl_multi_id_take_space@Base 0.25
  isl_multi_id_to_str@Base 0.22
  isl_multi_pw_aff_add@Base 0.16
  isl_multi_pw_aff_add_constant_multi_val@Base 0.23
@@ -1826,6 +1881,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_pw_aff_apply_aff@Base 0.13
  isl_multi_pw_aff_apply_aligned_set@Base 0.15
  isl_multi_pw_aff_apply_pw_aff@Base 0.13
+ isl_multi_pw_aff_as_map@Base 0.24
+ isl_multi_pw_aff_as_multi_aff@Base 0.25
+ isl_multi_pw_aff_as_set@Base 0.24
  isl_multi_pw_aff_bind@Base 0.22
  isl_multi_pw_aff_bind_domain@Base 0.22
  isl_multi_pw_aff_bind_domain_wrapped_domain@Base 0.22
@@ -1858,12 +1916,14 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_pw_aff_get_hash@Base 0.17
  isl_multi_pw_aff_get_list@Base 0.23
  isl_multi_pw_aff_get_pw_aff@Base 0.11
+ isl_multi_pw_aff_get_range_tuple_id@Base 0.24
  isl_multi_pw_aff_get_space@Base 0.11
  isl_multi_pw_aff_get_tuple_id@Base 0.13
  isl_multi_pw_aff_get_tuple_name@Base 0.11
  isl_multi_pw_aff_gist@Base 0.11
  isl_multi_pw_aff_gist_params@Base 0.11
  isl_multi_pw_aff_has_non_trivial_domain@Base 0.20
+ isl_multi_pw_aff_has_range_tuple_id@Base 0.24
  isl_multi_pw_aff_has_tuple_id@Base 0.13
  isl_multi_pw_aff_identity@Base 0.11
  isl_multi_pw_aff_identity_multi_pw_aff@Base 0.22
@@ -1879,6 +1939,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_pw_aff_involves_param_id_list@Base 0.22
  isl_multi_pw_aff_is_cst@Base 0.17
  isl_multi_pw_aff_is_equal@Base 0.13
+ isl_multi_pw_aff_isa_multi_aff@Base 0.25
  isl_multi_pw_aff_lex_ge_map@Base 0.23
  isl_multi_pw_aff_lex_gt_map@Base 0.15
  isl_multi_pw_aff_lex_le_map@Base 0.23
@@ -1905,10 +1966,12 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_pw_aff_read_from_str@Base 0.13
  isl_multi_pw_aff_realign_domain@Base 0.11
  isl_multi_pw_aff_reset_domain_space@Base 0.11
+ isl_multi_pw_aff_reset_range_tuple_id@Base 0.24
  isl_multi_pw_aff_reset_space@Base 0.11
  isl_multi_pw_aff_reset_space_and_domain@Base 0.11
  isl_multi_pw_aff_reset_tuple_id@Base 0.13
  isl_multi_pw_aff_reset_user@Base 0.13
+ isl_multi_pw_aff_restore_space@Base 0.25
  isl_multi_pw_aff_scale_down_multi_val@Base 0.13
  isl_multi_pw_aff_scale_down_val@Base 0.15
  isl_multi_pw_aff_scale_multi_val@Base 0.12.1
@@ -1917,11 +1980,13 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_pw_aff_set_dim_id@Base 0.13
  isl_multi_pw_aff_set_dim_name@Base 0.11
  isl_multi_pw_aff_set_pw_aff@Base 0.11
+ isl_multi_pw_aff_set_range_tuple_id@Base 0.24
  isl_multi_pw_aff_set_tuple_id@Base 0.11
  isl_multi_pw_aff_set_tuple_name@Base 0.11
  isl_multi_pw_aff_size@Base 0.22
  isl_multi_pw_aff_splice@Base 0.11
  isl_multi_pw_aff_sub@Base 0.15
+ isl_multi_pw_aff_take_space@Base 0.25
  isl_multi_pw_aff_to_str@Base 0.11
  isl_multi_pw_aff_unbind_params_insert_domain@Base 0.23
  isl_multi_pw_aff_union_add@Base 0.23
@@ -1966,6 +2031,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_union_pw_aff_get_dim_id@Base 0.15
  isl_multi_union_pw_aff_get_domain_space@Base 0.15
  isl_multi_union_pw_aff_get_list@Base 0.23
+ isl_multi_union_pw_aff_get_range_tuple_id@Base 0.24
  isl_multi_union_pw_aff_get_space@Base 0.15
  isl_multi_union_pw_aff_get_tuple_id@Base 0.15
  isl_multi_union_pw_aff_get_tuple_name@Base 0.15
@@ -1973,6 +2039,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_union_pw_aff_gist@Base 0.15
  isl_multi_union_pw_aff_gist_params@Base 0.15
  isl_multi_union_pw_aff_has_non_trivial_domain@Base 0.20
+ isl_multi_union_pw_aff_has_range_tuple_id@Base 0.24
  isl_multi_union_pw_aff_has_tuple_id@Base 0.15
  isl_multi_union_pw_aff_intersect_domain@Base 0.15
  isl_multi_union_pw_aff_intersect_params@Base 0.15
@@ -1996,10 +2063,12 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_union_pw_aff_read_from_str@Base 0.15
  isl_multi_union_pw_aff_realign_domain@Base 0.15
  isl_multi_union_pw_aff_reset_domain_space@Base 0.15
+ isl_multi_union_pw_aff_reset_range_tuple_id@Base 0.24
  isl_multi_union_pw_aff_reset_space@Base 0.15
  isl_multi_union_pw_aff_reset_space_and_domain@Base 0.15
  isl_multi_union_pw_aff_reset_tuple_id@Base 0.15
  isl_multi_union_pw_aff_reset_user@Base 0.15
+ isl_multi_union_pw_aff_restore_space@Base 0.25
  isl_multi_union_pw_aff_scale_down_multi_val@Base 0.15
  isl_multi_union_pw_aff_scale_down_val@Base 0.15
  isl_multi_union_pw_aff_scale_multi_val@Base 0.15
@@ -2007,11 +2076,13 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_union_pw_aff_set_at@Base 0.22
  isl_multi_union_pw_aff_set_dim_id@Base 0.15
  isl_multi_union_pw_aff_set_dim_name@Base 0.15
+ isl_multi_union_pw_aff_set_range_tuple_id@Base 0.24
  isl_multi_union_pw_aff_set_tuple_id@Base 0.15
  isl_multi_union_pw_aff_set_tuple_name@Base 0.15
  isl_multi_union_pw_aff_set_union_pw_aff@Base 0.15
  isl_multi_union_pw_aff_size@Base 0.22
  isl_multi_union_pw_aff_sub@Base 0.15
+ isl_multi_union_pw_aff_take_space@Base 0.25
  isl_multi_union_pw_aff_to_str@Base 0.15
  isl_multi_union_pw_aff_union_add@Base 0.15
  isl_multi_union_pw_aff_zero@Base 0.15
@@ -2042,10 +2113,12 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_val_get_dim_id@Base 0.13
  isl_multi_val_get_domain_space@Base 0.12.1
  isl_multi_val_get_list@Base 0.23
+ isl_multi_val_get_range_tuple_id@Base 0.24
  isl_multi_val_get_space@Base 0.12.1
  isl_multi_val_get_tuple_id@Base 0.13
  isl_multi_val_get_tuple_name@Base 0.12.1
  isl_multi_val_get_val@Base 0.12.1
+ isl_multi_val_has_range_tuple_id@Base 0.24
  isl_multi_val_has_tuple_id@Base 0.13
  isl_multi_val_insert_dims@Base 0.12.1
  isl_multi_val_insert_explicit_domain_dims@Base 0.20
@@ -2071,10 +2144,12 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_val_read_from_str@Base 0.15
  isl_multi_val_realign_domain@Base 0.12.1
  isl_multi_val_reset_domain_space@Base 0.12.1
+ isl_multi_val_reset_range_tuple_id@Base 0.24
  isl_multi_val_reset_space@Base 0.12.1
  isl_multi_val_reset_space_and_domain@Base 0.12.1
  isl_multi_val_reset_tuple_id@Base 0.13
  isl_multi_val_reset_user@Base 0.13
+ isl_multi_val_restore_space@Base 0.25
  isl_multi_val_scale_down_multi_val@Base 0.13
  isl_multi_val_scale_down_val@Base 0.15
  isl_multi_val_scale_multi_val@Base 0.12.1
@@ -2082,12 +2157,14 @@ libisl.so.23 libisl23 #MINVER#
  isl_multi_val_set_at@Base 0.22
  isl_multi_val_set_dim_id@Base 0.13
  isl_multi_val_set_dim_name@Base 0.12.1
+ isl_multi_val_set_range_tuple_id@Base 0.24
  isl_multi_val_set_tuple_id@Base 0.12.1
  isl_multi_val_set_tuple_name@Base 0.12.1
  isl_multi_val_set_val@Base 0.12.1
  isl_multi_val_size@Base 0.22
  isl_multi_val_splice@Base 0.12.1
  isl_multi_val_sub@Base 0.15
+ isl_multi_val_take_space@Base 0.25
  isl_multi_val_to_str@Base 0.13
  isl_multi_val_zero@Base 0.12.1
  isl_obj_map_vtable@Base 0.10
@@ -2196,6 +2273,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_point_sub_ui@Base 0.10
  isl_point_take_space@Base 0.20
  isl_point_take_vec@Base 0.20
+ isl_point_to_set@Base 0.24
  isl_point_to_str@Base 0.11
  isl_point_void@Base 0.10
  isl_point_zero@Base 0.10
@@ -2301,6 +2379,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_printer_print_pw_qpolynomial_list@Base 0.20
  isl_printer_print_qpolynomial@Base 0.10
  isl_printer_print_qpolynomial_fold@Base 0.10
+ isl_printer_print_qpolynomial_list@Base 0.24
  isl_printer_print_schedule@Base 0.10
  isl_printer_print_schedule_constraints@Base 0.18
  isl_printer_print_schedule_node@Base 0.15
@@ -2354,6 +2433,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_aff_alloc@Base 0.10
  isl_pw_aff_alloc_size@Base 0.10
  isl_pw_aff_as_aff@Base 0.22
+ isl_pw_aff_as_map@Base 0.24
  isl_pw_aff_bind_domain@Base 0.22
  isl_pw_aff_bind_domain_wrapped_domain@Base 0.22
  isl_pw_aff_bind_id@Base 0.22
@@ -2450,6 +2530,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_aff_list_min@Base 0.10
  isl_pw_aff_list_n_pw_aff@Base 0.10
  isl_pw_aff_list_ne_set@Base 0.10
+ isl_pw_aff_list_peek@Base 0.24
+ isl_pw_aff_list_read_from_str@Base 0.25
  isl_pw_aff_list_reverse@Base 0.20
  isl_pw_aff_list_set_pw_aff@Base 0.11
  isl_pw_aff_list_set_rational@Base 0.11
@@ -2461,7 +2543,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_aff_lt_set@Base 0.10
  isl_pw_aff_matching_params@Base 0.13
  isl_pw_aff_max@Base 0.10
+ isl_pw_aff_max_val@Base 0.25
  isl_pw_aff_min@Base 0.10
+ isl_pw_aff_min_val@Base 0.25
  isl_pw_aff_mod@Base 0.10
  isl_pw_aff_mod_val@Base 0.12.1
  isl_pw_aff_move_dims@Base 0.13
@@ -2502,7 +2586,6 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_aff_set_dim_name@Base 0.10
  isl_pw_aff_set_rational@Base 0.11
  isl_pw_aff_set_tuple_id@Base 0.10
- isl_pw_aff_sort@Base 0.17
  isl_pw_aff_split_dims@Base 0.10
  isl_pw_aff_sub@Base 0.10
  isl_pw_aff_subtract_domain@Base 0.15
@@ -2510,7 +2593,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_aff_take_space@Base 0.22
  isl_pw_aff_tdiv_q@Base 0.11
  isl_pw_aff_tdiv_r@Base 0.11
+ isl_pw_aff_to_list@Base 0.24
  isl_pw_aff_to_str@Base 0.10
+ isl_pw_aff_to_union_pw_aff@Base 0.24
  isl_pw_aff_union_add@Base 0.10
  isl_pw_aff_union_max@Base 0.10
  isl_pw_aff_union_min@Base 0.10
@@ -2529,7 +2614,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_multi_aff_align_params@Base 0.10
  isl_pw_multi_aff_alloc@Base 0.10
  isl_pw_multi_aff_alloc_size@Base 0.10
+ isl_pw_multi_aff_as_map@Base 0.24
  isl_pw_multi_aff_as_multi_aff@Base 0.22
+ isl_pw_multi_aff_as_set@Base 0.24
  isl_pw_multi_aff_bind_domain@Base 0.22
  isl_pw_multi_aff_bind_domain_wrapped_domain@Base 0.22
  isl_pw_multi_aff_check_equal_space@Base 0.23
@@ -2560,6 +2647,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_multi_aff_from_pw_aff@Base 0.13
  isl_pw_multi_aff_from_range@Base 0.13
  isl_pw_multi_aff_from_set@Base 0.10
+ isl_pw_multi_aff_get_at@Base 0.24
  isl_pw_multi_aff_get_base_at@Base 0.22
  isl_pw_multi_aff_get_ctx@Base 0.10
  isl_pw_multi_aff_get_dim_id@Base 0.10
@@ -2567,6 +2655,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_multi_aff_get_domain_at@Base 0.23
  isl_pw_multi_aff_get_domain_space@Base 0.10
  isl_pw_multi_aff_get_pw_aff@Base 0.10
+ isl_pw_multi_aff_get_range_tuple_id@Base 0.24
  isl_pw_multi_aff_get_space@Base 0.10
  isl_pw_multi_aff_get_tuple_id@Base 0.10
  isl_pw_multi_aff_get_tuple_name@Base 0.10
@@ -2574,6 +2663,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_multi_aff_gist_params@Base 0.10
  isl_pw_multi_aff_has_dim_id@Base 0.10
  isl_pw_multi_aff_has_equal_space@Base 0.10
+ isl_pw_multi_aff_has_range_tuple_id@Base 0.24
  isl_pw_multi_aff_has_tuple_id@Base 0.10
  isl_pw_multi_aff_has_tuple_name@Base 0.11
  isl_pw_multi_aff_identity@Base 0.11
@@ -2611,6 +2701,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_multi_aff_list_insert@Base 0.20
  isl_pw_multi_aff_list_map@Base 0.20
  isl_pw_multi_aff_list_n_pw_multi_aff@Base 0.20
+ isl_pw_multi_aff_list_peek@Base 0.24
+ isl_pw_multi_aff_list_read_from_str@Base 0.25
  isl_pw_multi_aff_list_reverse@Base 0.20
  isl_pw_multi_aff_list_set_pw_multi_aff@Base 0.20
  isl_pw_multi_aff_list_size@Base 0.20
@@ -2648,21 +2740,25 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_multi_aff_restore_base_at@Base 0.22
  isl_pw_multi_aff_restore_space@Base 0.22
  isl_pw_multi_aff_scale@Base 0.10
+ isl_pw_multi_aff_scale_down_multi_val@Base 0.25
  isl_pw_multi_aff_scale_down_val@Base 0.15
  isl_pw_multi_aff_scale_multi_val@Base 0.12.1
  isl_pw_multi_aff_scale_val@Base 0.12.1
  isl_pw_multi_aff_set_dim_id@Base 0.10
  isl_pw_multi_aff_set_dim_name@Base 0.10
  isl_pw_multi_aff_set_pw_aff@Base 0.11
+ isl_pw_multi_aff_set_range_tuple_id@Base 0.24
  isl_pw_multi_aff_set_tuple_id@Base 0.10
- isl_pw_multi_aff_sort@Base 0.17
  isl_pw_multi_aff_split_dims@Base 0.10
  isl_pw_multi_aff_sub@Base 0.12.1
  isl_pw_multi_aff_substitute@Base 0.10
  isl_pw_multi_aff_subtract_domain@Base 0.15
  isl_pw_multi_aff_take_base_at@Base 0.22
  isl_pw_multi_aff_take_space@Base 0.22
+ isl_pw_multi_aff_to_list@Base 0.24
+ isl_pw_multi_aff_to_multi_pw_aff@Base 0.24
  isl_pw_multi_aff_to_str@Base 0.10
+ isl_pw_multi_aff_to_union_pw_multi_aff@Base 0.24
  isl_pw_multi_aff_union_add@Base 0.10
  isl_pw_multi_aff_union_lexmax@Base 0.11
  isl_pw_multi_aff_union_lexmin@Base 0.11
@@ -2775,6 +2871,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_qpolynomial_fold_list_insert@Base 0.20
  isl_pw_qpolynomial_fold_list_map@Base 0.20
  isl_pw_qpolynomial_fold_list_n_pw_qpolynomial_fold@Base 0.20
+ isl_pw_qpolynomial_fold_list_peek@Base 0.24
  isl_pw_qpolynomial_fold_list_reverse@Base 0.20
  isl_pw_qpolynomial_fold_list_set_pw_qpolynomial_fold@Base 0.20
  isl_pw_qpolynomial_fold_list_size@Base 0.20
@@ -2795,6 +2892,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_qpolynomial_fold_print@Base 0.10
  isl_pw_qpolynomial_fold_project_domain_on_params@Base 0.10
  isl_pw_qpolynomial_fold_project_out@Base 0.10
+ isl_pw_qpolynomial_fold_read_from_str@Base 0.24
  isl_pw_qpolynomial_fold_realign_domain@Base 0.10
  isl_pw_qpolynomial_fold_reset_domain_space@Base 0.10
  isl_pw_qpolynomial_fold_reset_space@Base 0.10
@@ -2809,12 +2907,13 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_qpolynomial_fold_set_dim_name@Base 0.10
  isl_pw_qpolynomial_fold_set_tuple_id@Base 0.10
  isl_pw_qpolynomial_fold_size@Base 0.10
- isl_pw_qpolynomial_fold_sort@Base 0.17
  isl_pw_qpolynomial_fold_split_dims@Base 0.10
  isl_pw_qpolynomial_fold_subtract_domain@Base 0.15
  isl_pw_qpolynomial_fold_take_base_at@Base 0.22
  isl_pw_qpolynomial_fold_take_space@Base 0.22
+ isl_pw_qpolynomial_fold_to_list@Base 0.24
  isl_pw_qpolynomial_fold_to_str@Base 0.10
+ isl_pw_qpolynomial_fold_to_union_pw_qpolynomial_fold@Base 0.24
  isl_pw_qpolynomial_fold_zero@Base 0.10
  isl_pw_qpolynomial_foreach_lifted_piece@Base 0.10
  isl_pw_qpolynomial_foreach_piece@Base 0.10
@@ -2868,6 +2967,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_qpolynomial_list_insert@Base 0.20
  isl_pw_qpolynomial_list_map@Base 0.20
  isl_pw_qpolynomial_list_n_pw_qpolynomial@Base 0.20
+ isl_pw_qpolynomial_list_peek@Base 0.24
  isl_pw_qpolynomial_list_reverse@Base 0.20
  isl_pw_qpolynomial_list_set_pw_qpolynomial@Base 0.20
  isl_pw_qpolynomial_list_size@Base 0.20
@@ -2906,15 +3006,16 @@ libisl.so.23 libisl23 #MINVER#
  isl_pw_qpolynomial_set_dim_id@Base 0.10
  isl_pw_qpolynomial_set_dim_name@Base 0.10
  isl_pw_qpolynomial_set_tuple_id@Base 0.10
- isl_pw_qpolynomial_sort@Base 0.17
  isl_pw_qpolynomial_split_dims@Base 0.10
  isl_pw_qpolynomial_split_periods@Base 0.10
  isl_pw_qpolynomial_sub@Base 0.10
  isl_pw_qpolynomial_subtract_domain@Base 0.15
  isl_pw_qpolynomial_take_base_at@Base 0.22
  isl_pw_qpolynomial_take_space@Base 0.22
+ isl_pw_qpolynomial_to_list@Base 0.24
  isl_pw_qpolynomial_to_polynomial@Base 0.10
  isl_pw_qpolynomial_to_str@Base 0.10
+ isl_pw_qpolynomial_to_union_pw_qpolynomial@Base 0.24
  isl_pw_qpolynomial_zero@Base 0.10
  isl_qpolynomial_add@Base 0.10
  isl_qpolynomial_add_dims@Base 0.10
@@ -2928,6 +3029,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_qpolynomial_coeff@Base 0.10
  isl_qpolynomial_copy@Base 0.10
  isl_qpolynomial_cow@Base 0.10
+ isl_qpolynomial_cst_bound@Base 0.24
  isl_qpolynomial_cst_on_domain@Base 0.10
  isl_qpolynomial_degree@Base 0.10
  isl_qpolynomial_dim@Base 0.10
@@ -2959,7 +3061,6 @@ libisl.so.23 libisl23 #MINVER#
  isl_qpolynomial_fold_gist@Base 0.10
  isl_qpolynomial_fold_gist_params@Base 0.10
  isl_qpolynomial_fold_insert_dims@Base 0.10
- isl_qpolynomial_fold_involves_dims@Base 0.10
  isl_qpolynomial_fold_is_empty@Base 0.10
  isl_qpolynomial_fold_is_nan@Base 0.15
  isl_qpolynomial_fold_lift@Base 0.10
@@ -2967,6 +3068,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_qpolynomial_fold_move_dims@Base 0.10
  isl_qpolynomial_fold_mul_isl_int@Base 0.10
  isl_qpolynomial_fold_opt_on_domain@Base 0.10
+ isl_qpolynomial_fold_peek_list@Base 0.24
  isl_qpolynomial_fold_plain_cmp@Base 0.17
  isl_qpolynomial_fold_plain_is_equal@Base 0.10
  isl_qpolynomial_fold_print@Base 0.10
@@ -3005,6 +3107,33 @@ libisl.so.23 libisl23 #MINVER#
  isl_qpolynomial_is_one@Base 0.10
  isl_qpolynomial_is_zero@Base 0.10
  isl_qpolynomial_lift@Base 0.10
+ isl_qpolynomial_list_add@Base 0.24
+ isl_qpolynomial_list_alloc@Base 0.24
+ isl_qpolynomial_list_clear@Base 0.24
+ isl_qpolynomial_list_concat@Base 0.24
+ isl_qpolynomial_list_copy@Base 0.24
+ isl_qpolynomial_list_cow@Base 0.24
+ isl_qpolynomial_list_drop@Base 0.24
+ isl_qpolynomial_list_dump@Base 0.24
+ isl_qpolynomial_list_dup@Base 0.24
+ isl_qpolynomial_list_every@Base 0.24
+ isl_qpolynomial_list_foreach@Base 0.24
+ isl_qpolynomial_list_foreach_scc@Base 0.24
+ isl_qpolynomial_list_free@Base 0.24
+ isl_qpolynomial_list_from_qpolynomial@Base 0.24
+ isl_qpolynomial_list_get_at@Base 0.24
+ isl_qpolynomial_list_get_ctx@Base 0.24
+ isl_qpolynomial_list_get_qpolynomial@Base 0.24
+ isl_qpolynomial_list_insert@Base 0.24
+ isl_qpolynomial_list_map@Base 0.24
+ isl_qpolynomial_list_n_qpolynomial@Base 0.24
+ isl_qpolynomial_list_peek@Base 0.24
+ isl_qpolynomial_list_reverse@Base 0.24
+ isl_qpolynomial_list_set_qpolynomial@Base 0.24
+ isl_qpolynomial_list_size@Base 0.24
+ isl_qpolynomial_list_sort@Base 0.24
+ isl_qpolynomial_list_swap@Base 0.24
+ isl_qpolynomial_list_to_str@Base 0.24
  isl_qpolynomial_morph_domain@Base 0.10
  isl_qpolynomial_move_dims@Base 0.10
  isl_qpolynomial_mul@Base 0.10
@@ -3032,6 +3161,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_qpolynomial_substitute@Base 0.10
  isl_qpolynomial_substitute_equalities@Base 0.10
  isl_qpolynomial_terms_of_sign@Base 0.10
+ isl_qpolynomial_to_list@Base 0.24
  isl_qpolynomial_to_str@Base 0.10
  isl_qpolynomial_val_on_domain@Base 0.12.1
  isl_qpolynomial_var_on_domain@Base 0.10
@@ -3056,6 +3186,23 @@ libisl.so.23 libisl23 #MINVER#
  isl_restriction_input@Base 0.10
  isl_restriction_none@Base 0.10
  isl_restriction_output@Base 0.10
+ isl_sched_edge_has_type@Base 0.25
+ isl_sched_edge_is_condition@Base 0.25
+ isl_sched_edge_is_conditional_validity@Base 0.25
+ isl_sched_edge_is_proximity@Base 0.25
+ isl_sched_edge_scc_exactly@Base 0.25
+ isl_sched_graph_compute_maxvar@Base 0.25
+ isl_sched_graph_detect_ccs@Base 0.25
+ isl_sched_graph_extract_sccs@Base 0.25
+ isl_sched_graph_extract_sub_graph@Base 0.25
+ isl_sched_graph_find_node@Base 0.25
+ isl_sched_graph_free@Base 0.25
+ isl_sched_graph_has_validity_edge@Base 0.25
+ isl_sched_graph_init@Base 0.25
+ isl_sched_graph_is_node@Base 0.25
+ isl_sched_node_extract_partial_schedule_multi_aff@Base 0.25
+ isl_sched_node_scc_exactly@Base 0.25
+ isl_sched_node_update_vmap@Base 0.25
  isl_schedule_align_params@Base 0.15
  isl_schedule_band_align_params@Base 0.15
  isl_schedule_band_copy@Base 0.15
@@ -3167,6 +3314,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_schedule_node_band_split@Base 0.15
  isl_schedule_node_band_tile@Base 0.15
  isl_schedule_node_child@Base 0.15
+ isl_schedule_node_compute_finish_band@Base 0.25
+ isl_schedule_node_compute_wcc_band@Base 0.25
+ isl_schedule_node_compute_wcc_clustering@Base 0.25
  isl_schedule_node_context_get_context@Base 0.15
  isl_schedule_node_copy@Base 0.15
  isl_schedule_node_cow@Base 0.15
@@ -3218,6 +3368,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_schedule_node_graft_after@Base 0.15
  isl_schedule_node_graft_before@Base 0.15
  isl_schedule_node_graft_tree@Base 0.15
+ isl_schedule_node_grandchild@Base 0.25
+ isl_schedule_node_grandparent@Base 0.25
  isl_schedule_node_group@Base 0.15
  isl_schedule_node_guard_get_guard@Base 0.15
  isl_schedule_node_has_children@Base 0.15
@@ -3249,6 +3401,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_schedule_node_root@Base 0.15
  isl_schedule_node_sequence_splice@Base 0.15
  isl_schedule_node_sequence_splice_child@Base 0.16
+ isl_schedule_node_sequence_splice_children@Base 0.25
  isl_schedule_node_to_str@Base 0.16
  isl_schedule_pair@Base 0.15
  isl_schedule_peek_leaf@Base 0.15
@@ -3353,6 +3506,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_schedule_tree_list_insert@Base 0.15
  isl_schedule_tree_list_map@Base 0.19
  isl_schedule_tree_list_n_schedule_tree@Base 0.15
+ isl_schedule_tree_list_peek@Base 0.24
  isl_schedule_tree_list_reverse@Base 0.20
  isl_schedule_tree_list_set_schedule_tree@Base 0.15
  isl_schedule_tree_list_size@Base 0.20
@@ -3370,6 +3524,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_schedule_tree_sequence_splice@Base 0.15
  isl_schedule_tree_set_children@Base 0.15
  isl_schedule_tree_set_pair@Base 0.17
+ isl_schedule_tree_to_list@Base 0.24
  isl_schedule_tree_update_anchored@Base 0.15
  isl_seq_abs_max@Base 0.10
  isl_seq_abs_min_non_zero@Base 0.10
@@ -3412,6 +3567,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_set_alloc_space@Base 0.10
  isl_set_apply@Base 0.10
  isl_set_apply_pw_qpolynomial_fold@Base 0.10
+ isl_set_as_pw_multi_aff@Base 0.24
  isl_set_basic_set_check_equal_space@Base 0.23
  isl_set_bind@Base 0.22
  isl_set_bounded_simple_hull@Base 0.10
@@ -3479,6 +3635,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_set_get_dim_id@Base 0.10
  isl_set_get_dim_name@Base 0.10
  isl_set_get_hash@Base 0.10
+ isl_set_get_lattice_tile@Base 0.25
  isl_set_get_plain_multi_val_if_fixed@Base 0.23
  isl_set_get_simple_fixed_box_hull@Base 0.23
  isl_set_get_space@Base 0.10
@@ -3547,6 +3704,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_set_list_insert@Base 0.11
  isl_set_list_map@Base 0.19
  isl_set_list_n_set@Base 0.10
+ isl_set_list_peek@Base 0.24
+ isl_set_list_read_from_str@Base 0.25
  isl_set_list_reverse@Base 0.20
  isl_set_list_set_set@Base 0.11
  isl_set_list_size@Base 0.20
@@ -3573,6 +3732,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_set_normalize@Base 0.10
  isl_set_opt@Base 0.10
  isl_set_opt_val@Base 0.12.1
+ isl_set_param_pw_aff_on_domain_id@Base 0.25
  isl_set_params@Base 0.10
  isl_set_partial_lexmax@Base 0.10
  isl_set_partial_lexmin@Base 0.10
@@ -3597,6 +3757,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_set_project_out_all_params@Base 0.22
  isl_set_project_out_param_id@Base 0.22
  isl_set_project_out_param_id_list@Base 0.22
+ isl_set_pw_aff_on_domain_val@Base 0.25
+ isl_set_pw_multi_aff_on_domain_multi_val@Base 0.24
  isl_set_read_from_file@Base 0.10
  isl_set_read_from_str@Base 0.10
  isl_set_realign@Base 0.10
@@ -3639,8 +3801,11 @@ libisl.so.23 libisl23 #MINVER#
  isl_set_to_ast_graft_list_has@Base 0.22
  isl_set_to_ast_graft_list_set@Base 0.22
  isl_set_to_ast_graft_list_try_get@Base 0.22
+ isl_set_to_list@Base 0.24
  isl_set_to_str@Base 0.10
+ isl_set_to_union_set@Base 0.24
  isl_set_translation@Base 0.23
+ isl_set_tuple_dim@Base 0.25
  isl_set_unbind_params@Base 0.22
  isl_set_unbind_params_insert_domain@Base 0.22
  isl_set_union@Base 0.10
@@ -3691,7 +3856,11 @@ libisl.so.23 libisl23 #MINVER#
  isl_space_domain_factor_range@Base 0.15
  isl_space_domain_is_wrapping@Base 0.13
  isl_space_domain_map@Base 0.13
+ isl_space_domain_map_multi_aff@Base 0.24
+ isl_space_domain_map_pw_multi_aff@Base 0.24
  isl_space_domain_product@Base 0.10
+ isl_space_domain_wrapped_domain@Base 0.25
+ isl_space_domain_wrapped_range@Base 0.25
  isl_space_drop_all_params@Base 0.21
  isl_space_drop_dims@Base 0.10
  isl_space_drop_inputs@Base 0.10
@@ -3713,21 +3882,28 @@ libisl.so.23 libisl23 #MINVER#
  isl_space_get_ctx@Base 0.10
  isl_space_get_dim_id@Base 0.10
  isl_space_get_dim_name@Base 0.10
+ isl_space_get_domain_tuple_id@Base 0.24
  isl_space_get_full_hash@Base 0.23
+ isl_space_get_range_tuple_id@Base 0.24
  isl_space_get_tuple_domain_hash@Base 0.23
  isl_space_get_tuple_hash@Base 0.19
  isl_space_get_tuple_id@Base 0.10
  isl_space_get_tuple_name@Base 0.10
  isl_space_has_dim_id@Base 0.10
  isl_space_has_dim_name@Base 0.10
+ isl_space_has_domain_tuple_id@Base 0.24
  isl_space_has_domain_tuples@Base 0.20
  isl_space_has_equal_ids@Base 0.19
  isl_space_has_equal_params@Base 0.19
  isl_space_has_equal_tuples@Base 0.18
  isl_space_has_named_params@Base 0.10
+ isl_space_has_range_tuple_id@Base 0.24
  isl_space_has_range_tuples@Base 0.22
  isl_space_has_tuple_id@Base 0.10
  isl_space_has_tuple_name@Base 0.10
+ isl_space_identity_multi_aff_on_domain@Base 0.24
+ isl_space_identity_multi_pw_aff_on_domain@Base 0.24
+ isl_space_identity_pw_multi_aff_on_domain@Base 0.24
  isl_space_insert_dims@Base 0.10
  isl_space_is_domain@Base 0.10
  isl_space_is_domain_internal@Base 0.11
@@ -3747,7 +3923,14 @@ libisl.so.23 libisl23 #MINVER#
  isl_space_match@Base 0.10
  isl_space_may_be_set@Base 0.10
  isl_space_move_dims@Base 0.10
+ isl_space_multi_aff@Base 0.24
+ isl_space_multi_aff_on_domain_multi_val@Base 0.24
+ isl_space_multi_id@Base 0.24
+ isl_space_multi_pw_aff@Base 0.24
+ isl_space_multi_union_pw_aff@Base 0.24
+ isl_space_multi_val@Base 0.24
  isl_space_offset@Base 0.10
+ isl_space_param_aff_on_domain_id@Base 0.25
  isl_space_params@Base 0.10
  isl_space_params_alloc@Base 0.10
  isl_space_product@Base 0.10
@@ -3757,8 +3940,13 @@ libisl.so.23 libisl23 #MINVER#
  isl_space_range_factor_range@Base 0.13
  isl_space_range_is_wrapping@Base 0.13
  isl_space_range_map@Base 0.13
+ isl_space_range_map_multi_aff@Base 0.24
+ isl_space_range_map_pw_multi_aff@Base 0.24
  isl_space_range_product@Base 0.10
  isl_space_range_reverse@Base 0.22
+ isl_space_range_wrapped_domain@Base 0.25
+ isl_space_range_wrapped_range@Base 0.25
+ isl_space_read_from_str@Base 0.25
  isl_space_replace_params@Base 0.19
  isl_space_reset@Base 0.10
  isl_space_reset_dim_id@Base 0.10
@@ -3768,7 +3956,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_space_set_alloc@Base 0.10
  isl_space_set_dim_id@Base 0.10
  isl_space_set_dim_name@Base 0.10
+ isl_space_set_domain_tuple_id@Base 0.24
  isl_space_set_from_params@Base 0.10
+ isl_space_set_range_tuple_id@Base 0.24
  isl_space_set_tuple_id@Base 0.10
  isl_space_set_tuple_name@Base 0.10
  isl_space_to_str@Base 0.10
@@ -3777,10 +3967,17 @@ libisl.so.23 libisl23 #MINVER#
  isl_space_uncurry@Base 0.11
  isl_space_underlying@Base 0.10
  isl_space_unit@Base 0.22
+ isl_space_universe_map@Base 0.24
+ isl_space_universe_set@Base 0.24
  isl_space_unwrap@Base 0.10
  isl_space_wrap@Base 0.10
  isl_space_wrapped_dim@Base 0.22
  isl_space_wrapped_tuple_is_equal@Base 0.23
+ isl_space_zero_aff_on_domain@Base 0.24
+ isl_space_zero_multi_aff@Base 0.24
+ isl_space_zero_multi_pw_aff@Base 0.24
+ isl_space_zero_multi_union_pw_aff@Base 0.24
+ isl_space_zero_multi_val@Base 0.24
  isl_space_zip@Base 0.10
  isl_stat_non_null@Base 0.22
  isl_stream_eat@Base 0.10
@@ -3809,9 +4006,11 @@ libisl.so.23 libisl23 #MINVER#
  isl_stream_read_pw_aff@Base 0.10
  isl_stream_read_pw_multi_aff@Base 0.10
  isl_stream_read_pw_qpolynomial@Base 0.10
+ isl_stream_read_pw_qpolynomial_fold@Base 0.24
  isl_stream_read_schedule@Base 0.15
  isl_stream_read_schedule_constraints@Base 0.18
  isl_stream_read_set@Base 0.10
+ isl_stream_read_space@Base 0.25
  isl_stream_read_union_access_info@Base 0.19
  isl_stream_read_union_map@Base 0.10
  isl_stream_read_union_pw_aff@Base 0.16
@@ -3902,7 +4101,6 @@ libisl.so.23 libisl23 #MINVER#
  isl_tab_shift_var@Base 0.15
  isl_tab_sign_of_max@Base 0.10
  isl_tab_snap@Base 0.10
- isl_tab_solve_lp@Base 0.10
  isl_tab_swap_constraints@Base 0.21
  isl_tab_track_bmap@Base 0.10
  isl_tab_track_bset@Base 0.10
@@ -3959,6 +4157,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_map_apply_domain@Base 0.10
  isl_union_map_apply_range@Base 0.10
  isl_union_map_apply_union_pw_qpolynomial_fold@Base 0.10
+ isl_union_map_as_map@Base 0.24
+ isl_union_map_as_multi_union_pw_aff@Base 0.24
+ isl_union_map_as_union_pw_multi_aff@Base 0.24
  isl_union_map_bind_range@Base 0.22
  isl_union_map_coalesce@Base 0.10
  isl_union_map_compute_divs@Base 0.10
@@ -4017,12 +4218,14 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_map_intersect_domain_factor_range@Base 0.22
  isl_union_map_intersect_domain_space@Base 0.23
  isl_union_map_intersect_domain_union_set@Base 0.23
+ isl_union_map_intersect_domain_wrapped_domain_union_set@Base 0.25
  isl_union_map_intersect_params@Base 0.10
  isl_union_map_intersect_range@Base 0.10
  isl_union_map_intersect_range_factor_domain@Base 0.22
  isl_union_map_intersect_range_factor_range@Base 0.19
  isl_union_map_intersect_range_space@Base 0.23
  isl_union_map_intersect_range_union_set@Base 0.23
+ isl_union_map_intersect_range_wrapped_domain_union_set@Base 0.25
  isl_union_map_involves_dims@Base 0.15
  isl_union_map_is_bijective@Base 0.10
  isl_union_map_is_disjoint@Base 0.15
@@ -4066,6 +4269,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_map_list_insert@Base 0.15
  isl_union_map_list_map@Base 0.19
  isl_union_map_list_n_union_map@Base 0.15
+ isl_union_map_list_peek@Base 0.24
  isl_union_map_list_reverse@Base 0.20
  isl_union_map_list_set_union_map@Base 0.15
  isl_union_map_list_size@Base 0.20
@@ -4112,6 +4316,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_map_subtract@Base 0.10
  isl_union_map_subtract_domain@Base 0.11
  isl_union_map_subtract_range@Base 0.11
+ isl_union_map_to_list@Base 0.24
  isl_union_map_to_str@Base 0.10
  isl_union_map_transitive_closure@Base 0.10
  isl_union_map_uncurry@Base 0.11
@@ -4176,6 +4381,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_pw_aff_list_insert@Base 0.15
  isl_union_pw_aff_list_map@Base 0.19
  isl_union_pw_aff_list_n_union_pw_aff@Base 0.15
+ isl_union_pw_aff_list_peek@Base 0.24
+ isl_union_pw_aff_list_read_from_str@Base 0.25
  isl_union_pw_aff_list_reverse@Base 0.20
  isl_union_pw_aff_list_set_union_pw_aff@Base 0.15
  isl_union_pw_aff_list_size@Base 0.20
@@ -4200,6 +4407,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_pw_aff_subtract_domain@Base 0.15
  isl_union_pw_aff_subtract_domain_space@Base 0.23
  isl_union_pw_aff_subtract_domain_union_set@Base 0.23
+ isl_union_pw_aff_to_list@Base 0.24
  isl_union_pw_aff_to_str@Base 0.15
  isl_union_pw_aff_union_add@Base 0.15
  isl_union_pw_aff_val_on_domain@Base 0.15
@@ -4208,7 +4416,9 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_pw_multi_aff_add_pw_multi_aff@Base 0.10
  isl_union_pw_multi_aff_align_params@Base 0.10
  isl_union_pw_multi_aff_apply_union_pw_multi_aff@Base 0.23
+ isl_union_pw_multi_aff_as_multi_union_pw_aff@Base 0.24
  isl_union_pw_multi_aff_as_pw_multi_aff@Base 0.22
+ isl_union_pw_multi_aff_as_union_map@Base 0.24
  isl_union_pw_multi_aff_coalesce@Base 0.10
  isl_union_pw_multi_aff_copy@Base 0.10
  isl_union_pw_multi_aff_cow@Base 0.10
@@ -4270,6 +4480,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_pw_multi_aff_list_insert@Base 0.15
  isl_union_pw_multi_aff_list_map@Base 0.19
  isl_union_pw_multi_aff_list_n_union_pw_multi_aff@Base 0.15
+ isl_union_pw_multi_aff_list_peek@Base 0.24
  isl_union_pw_multi_aff_list_reverse@Base 0.20
  isl_union_pw_multi_aff_list_set_union_pw_multi_aff@Base 0.15
  isl_union_pw_multi_aff_list_size@Base 0.20
@@ -4296,6 +4507,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_pw_multi_aff_subtract_domain@Base 0.15
  isl_union_pw_multi_aff_subtract_domain_space@Base 0.23
  isl_union_pw_multi_aff_subtract_domain_union_set@Base 0.23
+ isl_union_pw_multi_aff_to_list@Base 0.24
  isl_union_pw_multi_aff_to_str@Base 0.10
  isl_union_pw_multi_aff_union_add@Base 0.15
  isl_union_pw_qpolynomial_add@Base 0.10
@@ -4401,6 +4613,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_set_align_params@Base 0.10
  isl_union_set_apply@Base 0.10
  isl_union_set_apply_union_pw_qpolynomial_fold@Base 0.10
+ isl_union_set_as_set@Base 0.24
  isl_union_set_coalesce@Base 0.10
  isl_union_set_coefficients@Base 0.10
  isl_union_set_combined_lineality_space@Base 0.19
@@ -4468,6 +4681,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_set_list_insert@Base 0.15
  isl_union_set_list_map@Base 0.19
  isl_union_set_list_n_union_set@Base 0.15
+ isl_union_set_list_peek@Base 0.24
+ isl_union_set_list_read_from_str@Base 0.25
  isl_union_set_list_reverse@Base 0.20
  isl_union_set_list_set_union_set@Base 0.15
  isl_union_set_list_size@Base 0.20
@@ -4499,6 +4714,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_union_set_solutions@Base 0.10
  isl_union_set_space_has_equal_params@Base 0.19
  isl_union_set_subtract@Base 0.10
+ isl_union_set_to_list@Base 0.24
  isl_union_set_to_str@Base 0.10
  isl_union_set_union@Base 0.10
  isl_union_set_universe@Base 0.10
@@ -4581,6 +4797,8 @@ libisl.so.23 libisl23 #MINVER#
  isl_val_list_insert@Base 0.12.1
  isl_val_list_map@Base 0.19
  isl_val_list_n_val@Base 0.12.1
+ isl_val_list_peek@Base 0.24
+ isl_val_list_read_from_str@Base 0.25
  isl_val_list_reverse@Base 0.20
  isl_val_list_set_val@Base 0.12.1
  isl_val_list_size@Base 0.20
@@ -4615,6 +4833,7 @@ libisl.so.23 libisl23 #MINVER#
  isl_val_sgn@Base 0.12.1
  isl_val_sub@Base 0.12.1
  isl_val_sub_ui@Base 0.12.1
+ isl_val_to_list@Base 0.24
  isl_val_to_str@Base 0.12.1
  isl_val_trunc@Base 0.12.1
  isl_val_zero@Base 0.12.1

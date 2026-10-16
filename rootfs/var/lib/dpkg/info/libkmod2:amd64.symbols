@@ -1,4 +1,5 @@
 libkmod.so.2 libkmod2 #MINVER#
+* Build-Depends-Package: libkmod-dev
  LIBKMOD_22@LIBKMOD_22 22~
  LIBKMOD_5@LIBKMOD_5 5~
  LIBKMOD_6@LIBKMOD_6 6~
@@ -51,6 +52,7 @@ libkmod.so.2 libkmod2 #MINVER#
  kmod_module_new_from_loaded@LIBKMOD_5 5~
  kmod_module_new_from_lookup@LIBKMOD_5 5~
  kmod_module_new_from_name@LIBKMOD_5 5~
+ kmod_module_new_from_name_lookup@LIBKMOD_5 30~
  kmod_module_new_from_path@LIBKMOD_5 5~
  kmod_module_probe_insert_module@LIBKMOD_5 5~
  kmod_module_ref@LIBKMOD_5 5~
