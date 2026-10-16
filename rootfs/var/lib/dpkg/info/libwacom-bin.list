@@ -1,7 +1,10 @@
 /.
 /usr
 /usr/bin
+/usr/bin/libwacom-list-devices
 /usr/bin/libwacom-list-local-devices
+/usr/bin/libwacom-show-stylus
+/usr/bin/libwacom-update-db
 /usr/share
 /usr/share/doc
 /usr/share/doc/libwacom-bin
@@ -9,4 +12,5 @@
 /usr/share/doc/libwacom-bin/copyright
 /usr/share/man
 /usr/share/man/man1
+/usr/share/man/man1/libwacom-list-devices.1.gz
 /usr/share/man/man1/libwacom-list-local-devices.1.gz

@@ -2,13 +2,12 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.10
+/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14
 /usr/share
 /usr/share/doc
 /usr/share/doc/libxml2
-/usr/share/doc/libxml2/AUTHORS
-/usr/share/doc/libxml2/README
 /usr/share/doc/libxml2/README.Debian
+/usr/share/doc/libxml2/README.md
 /usr/share/doc/libxml2/changelog.Debian.gz
 /usr/share/doc/libxml2/changelog.gz
 /usr/share/doc/libxml2/copyright

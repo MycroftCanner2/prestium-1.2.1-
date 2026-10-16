@@ -17,6 +17,7 @@ libXfixes.so.3 libxfixes3 #MINVER#
  XFixesFetchRegion@Base 0
  XFixesFetchRegionAndBounds@Base 0
  XFixesFindDisplay@Base 0
+ XFixesGetClientDisconnectMode@Base 1:6.0.0
  XFixesGetCursorImage@Base 0
  XFixesGetCursorName@Base 0
  XFixesHideCursor@Base 1:4.0.1
@@ -27,6 +28,7 @@ libXfixes.so.3 libxfixes3 #MINVER#
  XFixesRegionExtents@Base 0
  XFixesSelectCursorInput@Base 0
  XFixesSelectSelectionInput@Base 0
+ XFixesSetClientDisconnectMode@Base 1:6.0.0
  XFixesSetCursorName@Base 0
  XFixesSetGCClipRegion@Base 0
  XFixesSetPictureClipRegion@Base 0

@@ -185,6 +185,7 @@ libX11.so.6 libx11-6 #MINVER#
  XFreeModifiermap@Base 0
  XFreePixmap@Base 0
  XFreeStringList@Base 0
+ XFreeThreads@Base 2:1.8.3
  XGContextFromGC@Base 0
  XGeometry@Base 0
  XGetAtomName@Base 0

@@ -46,6 +46,9 @@ libxcb-xfixes.so.0 libxcb-xfixes0 #MINVER#
  xcb_xfixes_fetch_region_reply@Base 0
  xcb_xfixes_fetch_region_sizeof@Base 1.8
  xcb_xfixes_fetch_region_unchecked@Base 0
+ xcb_xfixes_get_client_disconnect_mode@Base 1.15
+ xcb_xfixes_get_client_disconnect_mode_reply@Base 1.15
+ xcb_xfixes_get_client_disconnect_mode_unchecked@Base 1.15
  xcb_xfixes_get_cursor_image@Base 0
  xcb_xfixes_get_cursor_image_and_name@Base 0
  xcb_xfixes_get_cursor_image_and_name_cursor_image@Base 0
@@ -88,6 +91,8 @@ libxcb-xfixes.so.0 libxcb-xfixes0 #MINVER#
  xcb_xfixes_select_cursor_input_checked@Base 0
  xcb_xfixes_select_selection_input@Base 0
  xcb_xfixes_select_selection_input_checked@Base 0
+ xcb_xfixes_set_client_disconnect_mode@Base 1.15
+ xcb_xfixes_set_client_disconnect_mode_checked@Base 1.15
  xcb_xfixes_set_cursor_name@Base 0
  xcb_xfixes_set_cursor_name_checked@Base 0
  xcb_xfixes_set_cursor_name_name@Base 1.12

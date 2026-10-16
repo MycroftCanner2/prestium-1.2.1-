@@ -1,4 +1,5 @@
 libxdo.so.3 libxdo3 #MINVER#
+* Build-Depends-Package: libxdo-dev
  xdo_activate_window@Base 1:3.20130104.1
  xdo_clear_active_modifiers@Base 1:3.20130104.1
  xdo_click_window@Base 1:3.20130104.1

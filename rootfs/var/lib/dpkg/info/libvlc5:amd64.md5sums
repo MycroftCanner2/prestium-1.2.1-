@@ -1,6 +1,6 @@
-2a0d584171c31d65b580473f4af622a8  usr/lib/x86_64-linux-gnu/libvlc.so.5.6.1
+2b52dd6b4a0b48506cb399f5ff86c2b8  usr/lib/x86_64-linux-gnu/libvlc.so.5.6.1
 143dd060cd683f7da6fa97b4de08f0bc  usr/share/bug/libvlc5/control
 db5a9ef7d588ac8bafe061d1968be5cd  usr/share/bug/libvlc5/presubj
-9cfaa7a95316e4fd1b422d10a6ed3bd6  usr/share/doc/libvlc5/changelog.Debian.gz
-21232418116b72822d3ba32759b9e291  usr/share/doc/libvlc5/changelog.gz
-3e9b1692d84e75e0c5adba245f8b8331  usr/share/doc/libvlc5/copyright
+9ae7af3a13e99839657af898bf077c23  usr/share/doc/libvlc5/changelog.Debian.gz
+d0f6aa630ac462c7dfd9b25f6a31d3bb  usr/share/doc/libvlc5/changelog.gz
+2cf769622e05d506a35a12f5cbc6c24b  usr/share/doc/libvlc5/copyright
