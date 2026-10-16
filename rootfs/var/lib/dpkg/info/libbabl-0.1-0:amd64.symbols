@@ -2,6 +2,7 @@ libbabl-0.1.so.0 libbabl-0.1-0 #MINVER#
 * Build-Depends-Package: libbabl-dev
  V0_1_0@V0_1_0 0.1.72
  babl_backtrack@V0_1_0 0.1.72
+ babl_chromatic_adaptation_matrix@V0_1_0 1:0.1.90
  babl_class_name@V0_1_0 0.1.72
  babl_component@V0_1_0 0.1.72
  babl_component_new@V0_1_0 0.1.72
@@ -21,6 +22,7 @@ libbabl-0.1.so.0 libbabl-0.1-0 #MINVER#
  babl_fast_fish@V0_1_0 0.1.72
  babl_fish@V0_1_0 0.1.72
  babl_fish_db@V0_1_0 0.1.72
+ babl_fish_get_process@V0_1_0 1:0.1.90
  babl_fish_path@V0_1_0 0.1.72
  babl_format@V0_1_0 0.1.72
  babl_format_class_for_each@V0_1_0 0.1.72
@@ -39,6 +41,7 @@ libbabl-0.1.so.0 libbabl-0.1-0 #MINVER#
  babl_format_with_space@V0_1_0 0.1.72
  babl_formats_count@V0_1_0 0.1.72
  babl_free@V0_1_0 0.1.72
+ babl_gc@V0_1_0 1:0.1.98
  babl_get_model_flags@V0_1_0 0.1.72
  babl_get_name@V0_1_0 0.1.72
  babl_get_user_data@V0_1_0 0.1.72

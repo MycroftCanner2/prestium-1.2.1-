@@ -111,8 +111,12 @@
 /usr/share/doc
 /usr/share/doc/libaspell15
 /usr/share/doc/libaspell15/NEWS.Debian.gz
+/usr/share/doc/libaspell15/changelog.Debian.amd64.gz
 /usr/share/doc/libaspell15/changelog.Debian.gz
 /usr/share/doc/libaspell15/changelog.gz
 /usr/share/doc/libaspell15/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libaspell15
 /usr/lib/x86_64-linux-gnu/libaspell.so.15
 /usr/lib/x86_64-linux-gnu/libpspell.so.15

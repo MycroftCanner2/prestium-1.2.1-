@@ -1,8 +1,8 @@
 2f9e08f9bf7b36487cf140d34e188b43  usr/lib/x86_64-linux-gnu/avahi/service-types.db
 dd54b89b6dbf2d8e19c9b6c8e8a1857c  usr/share/doc/libavahi-common-data/NEWS.gz
 359847954ee1f4e9970c4afd10ce796b  usr/share/doc/libavahi-common-data/README
-31c08d768e0c0d415859d7d5436c42f8  usr/share/doc/libavahi-common-data/changelog.Debian.gz
-4c617d7998f16bc9a487e52f0b53d9ea  usr/share/doc/libavahi-common-data/copyright
+9d2f86987522eee95ce4a67a6e887c4e  usr/share/doc/libavahi-common-data/changelog.Debian.gz
+f8163344e823bc1d4c462c991a2b9c4f  usr/share/doc/libavahi-common-data/copyright
 049eb28b27bd6bbacc2fb236b6646dcf  usr/share/locale/ach/LC_MESSAGES/avahi.mo
 57af3cfacd21f9e613ab4282e05d20aa  usr/share/locale/ar/LC_MESSAGES/avahi.mo
 d150801245b85bdaf0bdd5ad9812b8b4  usr/share/locale/bg/LC_MESSAGES/avahi.mo

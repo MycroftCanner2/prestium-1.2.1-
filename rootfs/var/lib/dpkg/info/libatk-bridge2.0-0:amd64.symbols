@@ -1,4 +1,5 @@
 libatk-bridge-2.0.so.0 libatk-bridge2.0-0 #MINVER#
+* Build-Depends-Package: libatk-bridge2.0-dev
  _atk_bridge_find_property_func@Base 2.26.0
  _atk_bridge_remove_pending_application_registration@Base 2.34.1-2~
  _atk_bridge_schedule_application_registration@Base 2.34.1-2~
@@ -102,11 +103,19 @@ libatk-bridge-2.0.so.0 libatk-bridge2.0-0 #MINVER#
  spi_org_a11y_atspi_DeviceEventListener@Base 2.26.0
  spi_org_a11y_atspi_Document@Base 2.26.0
  spi_org_a11y_atspi_EditableText@Base 2.26.0
+ spi_org_a11y_atspi_Event_Document@Base 2.45.90
+ spi_org_a11y_atspi_Event_Focus@Base 2.45.90
+ spi_org_a11y_atspi_Event_Keyboard@Base 2.45.90
+ spi_org_a11y_atspi_Event_Mouse@Base 2.45.90
+ spi_org_a11y_atspi_Event_Object@Base 2.45.90
+ spi_org_a11y_atspi_Event_Terminal@Base 2.45.90
+ spi_org_a11y_atspi_Event_Window@Base 2.45.90
  spi_org_a11y_atspi_Hyperlink@Base 2.26.0
  spi_org_a11y_atspi_Hypertext@Base 2.26.0
  spi_org_a11y_atspi_Image@Base 2.26.0
  spi_org_a11y_atspi_Registry@Base 2.26.0
  spi_org_a11y_atspi_Selection@Base 2.26.0
+ spi_org_a11y_atspi_Socket@Base 2.45.1
  spi_org_a11y_atspi_Table@Base 2.26.0
  spi_org_a11y_atspi_TableCell@Base 2.26.0
  spi_org_a11y_atspi_Text@Base 2.26.0

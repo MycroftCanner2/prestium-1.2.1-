@@ -1,2 +1,3 @@
-libbfd 2.35.2-system libbinutils (>= 2.35.2), libbinutils (<< 2.35.3)
-libopcodes 2.35.2-system libbinutils (>= 2.35.2), libbinutils (<< 2.35.3)
+libbfd 2.40-system libbinutils (>= 2.40), libbinutils (<< 2.40.1)
+libopcodes 2.40-system libbinutils (>= 2.40), libbinutils (<< 2.40.1)
+libsframe 0 libbinutils (>= 2.39.50)

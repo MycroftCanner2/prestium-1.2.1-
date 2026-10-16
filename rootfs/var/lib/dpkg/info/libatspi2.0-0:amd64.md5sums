@@ -1,3 +1,4 @@
-55980629c131f5efe7a49af8b9b37bca  usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
-c901f2b1b966c90fde49b047f49575a1  usr/share/doc/libatspi2.0-0/changelog.Debian.gz
-2fc7f3f5597c08c2bf11fc9e77db4f9e  usr/share/doc/libatspi2.0-0/copyright
+a790bad292860bcd0054581518ec58e8  usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+c700828b5a4159e622716b972cbf3746  usr/share/doc/libatspi2.0-0/changelog.Debian.gz
+1dd5b347d4a834473bb609f7a0859e88  usr/share/doc/libatspi2.0-0/copyright
+aef2cfd77b5b4bad29ddd7cdcf31295d  usr/share/lintian/overrides/libatspi2.0-0

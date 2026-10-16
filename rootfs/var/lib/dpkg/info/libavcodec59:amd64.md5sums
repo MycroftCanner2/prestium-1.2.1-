@@ -1,0 +1,5 @@
+3fa9d7900762728b8a46ebadfadfa6df  usr/lib/x86_64-linux-gnu/libavcodec.so.59.37.100
+84a126da1daa336a08a205e9ab2c3aec  usr/share/doc/libavcodec59/changelog.Debian.gz
+9a52720aeaf302fa2c850b495b48413b  usr/share/doc/libavcodec59/changelog.gz
+f256357dc30de7d3d96f1e60364f311e  usr/share/doc/libavcodec59/copyright
+6243717f2b717e5815fa161c77e9e5e7  usr/share/lintian/overrides/libavcodec59

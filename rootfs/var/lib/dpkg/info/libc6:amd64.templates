@@ -147,6 +147,12 @@ Description-pt_BR.UTF-8: Você quer atualizar a glibc agora?
  Este script detectou os seguintes serviços instalados que devem ser parados antes da atualização: ${services}
  .
  Se você quer interromper a atualização agora e continuar posteriormente, por favor, responda Não para a questão abaixo.
+Description-ro.UTF-8: Doriți să actualizați «glibc» acum?
+ Serviciile și programele care rulează și utilizează NSS trebuiesc repornite, altfel este posibil să nu mai poată efectua căutarea sau autentificarea. Procesul de instalare este capabil să repornească unele servicii (cum ar fi ssh sau telnetd), dar alte programe nu pot fi repornite automat. Un astfel de program care necesită oprire și repornire manuală după actualizarea glibc este «xdm», «gdm3», «sddm», sau orice alt administrator de sesiune grafică - deoarece repornirea automată ar putea deconecta sesiunile dumneavoastră active X11.
+ .
+ Acest script a detectat următoarele servicii instalate care trebuie oprite înainte de actualizare: ${services}
+ .
+ Dacă doriți să întrerupeți actualizarea acum și să continuați mai târziu, răspundeți Nu la întrebarea de mai jos.
 Description-ru.UTF-8: Хотите выполнить обновление glibc сейчас?
  Запущенные службы и программы, использующие NSS, должны быть перезапущены, иначе они не будут способны выполнять поиск или аутентификацию. В процессе установки возможно перезапустить некоторые службы (такие как ssh или telnetd), но другие программы не могут быть автоматически перезапущены. Одной из таких программ, требующих ручной остановки и перезапуска после обновления glibc, является xdm, так как её автоматический перезапуск может отключить ваши активные сессии X11.
  .
@@ -165,12 +171,12 @@ Description-sv.UTF-8: Vill du uppgradera glibc nu?
  Skriptet hittade följande installerade tjänster som måste stoppas före uppgraderingen: ${services}
  .
  Om du vill avbryta uppgraderingen nu och fortsätta senare anger du Nej på frågan nedan.
-Description-tr.UTF-8: glibc'yi şimdi yükseltmek istiyor musunuz?
- NSS kullanan hizmetler, yeniden başlatılmadıkları takdirde arama veya kimlik doğrulama gibi işlemleri yapamayacaklardır. Kurulum süreci bazı hizmetleri yeniden başlatabilir (örneğin sshd veya telnetd'yi), ama her hizmet otomatik olarak yeniden başlatılamaz. glibc yükseltmesinden sonra elle yeniden başlatmanız gereken hizmetlerden biri de xdm'dir, çünkü otomatik olarak yeniden başlatılması halinde etkin X11 oturumlarının kapanmasına sebep olur. 
+Description-tr.UTF-8: glibc paketini şimdi yükseltmek istiyor musunuz?
+ NSS kullanan hizmetler ve programlar yeniden başlatılmalıdır. Başlatılmazlarsa, kimlik arama veya doğrulama gibi işlemleri düzgün yapamayacaklardır. Kurulum süreci ssh ve telnetd gibi bazı hizmetleri yeniden başlatmayı başarabilmekle birlikte, her hizmeti kendiliğinden yeniden başlatamaz. glibc yükseltmesinden sonra elle yeniden başlatmanız gereken hizmetlerden biri de xdm'dir. Çünkü onun kendiliğinden yeniden başlatılması, açılmış X11 oturumlarının kopmasına sebep olabilir.
  .
- Bu betik, yükseltme işlemi yapılmadan önce şu hizmetlerin yeniden başlatılması gerektiğini algıladı: ${services}
+ Bu betik, yükseltme işlemi yapılmadan önce bu hizmetlerin yeniden başlatılması gerektiğini algıladı: ${services}
  .
- Eğer yükseltme işlemini ertelemek istiyorsanız lütfen aşağıdaki soruya Hayır yanıtını verin.
+ Eğer yükseltme işlemini şimdi durdurup sonra sürdürmek istiyorsanız, aşağıdaki soruya "Hayır" yanıtını verin.
 Description-vi.UTF-8: Bạn có muốn nâng cấp glibc ngay bây giờ không?
  Các dịch vụ và chương trình đều đang chạy dựa vào NSS thì cần phải được khởi chạy lại: không thì chúng không còn có khả năng tra tìm hay xác thực lại. Tiến trình cài đặt có khả năng khởi chạy lại một số dịch vụ riêng (v.d. ssh hoặc têlnetd) nhưng không thể tự động khởi chạy lại các chương trình khác. Một chương trình như vậy mà cần phải bị dừng chạy rồi được khởi chạy lại bằng sau khi nâng cấp glibc là xdm, vì việc tự động cài đặt có thể ngắt kết nối đến phiên chạy X11 đang hoạt động.
  .
@@ -284,7 +290,7 @@ Description-pt_BR.UTF-8: Serviços a serem reiniciados para atualização da bib
  .
  Nota: reiniciar sshd/telnetd não deveria afetar quaisquer conexões existentes.
 Description-ro.UTF-8: Servicii ce trebuiesc repornite la înnoirea bibliotecii GNU libc:
- Serviciile și programele care rulează și folosesc NSS trebuiesc repornite, altfel este posibil să nu mai poată efectua autentificarea sau căutarea numelor (în cazul serviciilor gen ssh, acest lucru poate determina imposibilitatea autentificării). Analizati următoarea listă ce conține, separate prin spațiu, scripturi init.d ale serviciilor ce trebuiesc repornite acum și corectați-o dacă este nevoie.
+ Serviciile și programele care rulează și folosesc NSS trebuiesc repornite, altfel este posibil să nu mai poată efectua autentificarea sau căutarea numelor (în cazul serviciilor precum ssh, acest lucru poate determina imposibilitatea autentificării). Revizați următoarea listă ce conține, separate prin spațiu, scripturi init.d ale serviciilor ce trebuiesc repornite acum și corectați-o dacă este nevoie.
  .
  Notă: repornirea sshd/telnetd nu ar trebui să afecteze conexiunile existente.
 Description-ru.UTF-8: Для обновления GNU libc должны быть перезапущены следующие службы:
@@ -299,10 +305,10 @@ Description-sv.UTF-8: Tjänster att starta om för uppgradering av GNU libc-bibl
  Körande tjänster och program som använder NSS behöver startas om, annars kanske de inte kan köra uppslag eller autentisering längre (för tjänster såsom ssh kan det påverka din möjlighet att logga in). Granska följande blankstegsseparerade lista över init.d-skript för tjänster som ska startas om nu, och gör ändringar om det behövs.
  .
  Observera: omstart av sshd/telnetd ska inte påverka befintliga anslutningar.
-Description-tr.UTF-8: GNU libc kitaplığı yükseltmesi esnasında yeniden başlatılacak olan hizmetler:
- NSS kullanan hizmetler yeniden başlatılmadıkları takdirde arama veya kimlik doğrulama gibi işlemleri yapamayacaklardır (örneğin ssh gibi hizmetler için, böyle bir durumda oturum açamayabilirsiniz). Lütfen yeniden başlatılacak hizmetlere ilişkin init.d betiklerinin boşluklarla ayrılmış aşağıdaki listesini inceleyin ve gerekliyse listeyi düzeltin.
+Description-tr.UTF-8: GNU libc kitaplığının yükseltmesi için yeniden başlatılacak olan hizmetler:
+ NSS kullanan hizmetler ve programlar yeniden başlatılmalıdır. Başlatılmazlarsa, kimlik arama veya doğrulama gibi işlemleri düzgün yapamayacaklardır. Örneğin ssh hizmeti ile oturum açamayabilirsiniz. Yeniden başlatılacak hizmetlere ilişkin init.d betiklerinin boşluklarla ayrılmış aşağıdaki listesini inceleyin ve gerekiyorsa düzeltin.
  .
- Not: sshd/telnetd'nin yeniden başlatılması mevcut bağlantıları etkilemez.
+ Not: sshd/telnetd hizmetlerinin yeniden başlatılması varolan bağlantıları etkilemez.
 Description-vi.UTF-8: Các dịch vụ cần khởi chạy lại để nâng cấp thư viện libc GNU:
  Các dịch vụ và chương trình đều đang chạy khi sử dụng NSS thì cần phải được khởi chạy lại: không thì không còn có khả năng tra tìm hay xác thực lại (đối với dịch vụ như SSH, trường hợp này có thể ngăn cản bạn đăng nhập). Hãy xem lại danh sách định giới bằng dấu cách các văn lệnh init.d cho dịch vụ cần khởi chạy lại ngay bây giờ, và sửa nếu thích hợp.
  .
@@ -453,12 +459,12 @@ Description-pt_BR.UTF-8: Falha ao reiniciar alguns serviços para atualização 
  ${services}
  .
  Você deverá iniciá-los manualmente executando "invoke-rc.d <serviço> start".
-Description-ro.UTF-8: Eșec la pornirea unor servicii pentru înnoirea GNU libc
- Următoarele servicii nu ar trebui repornite la înnoirea bibliotecii GNU libc.
+Description-ro.UTF-8: Eșec la repornirea unor servicii pentru înnoirea GNU libc
+ Următoarele servicii nu ar trebui repornite la înnoirea bibliotecii GNU libc:
  .
  ${services}
  .
- Va trebui să porniți aceste servicii manual executând comanda 'invoke-rc.d <serviciu> start'.
+ Va trebui să porniți aceste servicii manual executând comanda «invoke-rc.d <serviciul_dorit> start».
 Description-ru.UTF-8: Произошёл сбой при перезапуске некоторых служб для обновления GNU libc
  Следующие службы не могут быть перезапущены для обновления библиотеки GNU libc:
  .
@@ -477,12 +483,12 @@ Description-sv.UTF-8: Misslyckades med att starta om vissa tjänster för uppgra
  ${services}
  .
  Du behöver starta dessa manuellt genom att köra "invoke-rc.d <tjänst> start".
-Description-tr.UTF-8: GNU libc yükseltmesi esnasında bazı hizmetler yeniden başlatılamadı
- Aşağıdaki hizmetler GNU libc yükseltmesi için yeniden başlatılırken bazı sorunlar oluştu:
+Description-tr.UTF-8: GNU libc kitaplığının yükseltmesi sırasında bazı hizmetler yeniden başlatılamadı
+ Aşağıdaki hizmetler glibc yükseltmesi için yeniden başlatılamadı:
  .
  ${services}
  .
- Bu hizmetleri 'invoke-rc.d <hizmet> start' komutunu kullanarak elle başlatmanız gerekmektedir.
+ Bu hizmetleri "invoke-rc.d <hizmet> start" komutunu kullanarak elle başlatmanız gerekecektedir.
 Description-vi.UTF-8: Lỗi khởi chạy lại một số dịch vụ để nâng cấp libc GNU.
  Những dịch vụ theo đây không thể được khởi chạy lại để nâng cấp thư viện libc GNU:
  .
@@ -533,6 +539,8 @@ Description-it.UTF-8: Riavvio di xscreensaver e xlockmore prima dell'aggiornamen
  Su questo sistema sono state rilevate una o più istanze di xscreensaver o xlockmore in esecuzione. A causa di modifiche incompatibili nella libreria, l'aggiornamento della libreria GNU libc impedirà di autenticarsi con questi programmi. È necessario riavviare o fermare questi servizi prima di proseguire con questo aggiornamento per evitare di chiudere fuori dalla propria sessione degli utenti connessi.
 Description-ja.UTF-8: xscreensaver と xlockmore はアップグレードする前に再起動する必要があります。
  このシステムで 1 つ以上の xscreensaver あるいは xlockmore の動作が検出されました。非互換のライブラリ変更のため、GNU libc パッケージの更新はこれらのプログラムでの認証ができない状態になるでしょう。ユーザが現在のセッションの外に締め出されるのを避けるため、このパッケージの更新を続ける前に、これらのプログラムを再起動するか停止するように手配すべきです。
+Description-ko.UTF-8: 업그레이드 전에 xscreensaver 및 xlockmore를 다시 시작해야 합니다.
+ 이 시스템에 하나 이상의 xscreensaver 또는 xlockmore가 발견되었습니다. 호환되지 않은 라이브러리 변경 사항 때문에, GNU libc 라이브러리를 업그레이드하면 이 프로그램에 인증할 수 없게 됩니다. 업그레이드를 계속 하기 전에 이 프로그램을 다시 시작하거나 중단해야 합니다. 그래야 현재 사용자 세션이 잠겨버리는 상황을 피할 수 있습니다.
 Description-nb.UTF-8: xscreensaver og xlockmore må restartes før oppgradering
  En eller flere instanser av xsreensaver eller xlockmore kjører nå på dette systemet. På  grunn av  ikke-kompatible endringer i biblioteket vil oppgraderingen gjøre det umulig å autentisere til disse programmene. Du må sørge for at disse programmene blir stoppet eller restartet før denne oppgraderingen fortsetter, slik at dine brukere ikke blir utestengt fra sine gjeldende økter.
 Description-nl.UTF-8: xscreensaver en xlockmore moeten voor het opwaarderen worden herstart
@@ -545,6 +553,8 @@ Description-pt.UTF-8: xscreensaver e xlockmore têm de ser reiniciados antes da 
  Foram detectadas uma ou mais instâncias de xscreensaver ou xlockmore neste sistema. Devido a alterações incompatíveis da biblioteca, a actualização da biblioteca GNU libc deixá-lo-á incapaz de se autenticar para estes programas. Deve providenciar para que estes programas sejam reiniciados ou parados antes de continuar com esta actualização, para evitar que os seus utilizadores fiquem bloqueados e impedidos de aceder às suas sessões actuais.
 Description-pt_BR.UTF-8: xscreensaver e xlockmore devem ser reiniciados antes da atualização
  Uma ou mais instâncias do xscreensaver ou do xlockmore foram detectadas em execução neste sistema. Por causa de modificações incompatíveis de biblioteca, a atualização da biblioteca GNU libc impossibilitará você de se autenticar nestes programas. Você deve providenciar que estes programas sejam reiniciados ou parados antes de continuar com esta atualização, para evitar bloquear seus usuários fora de suas sessões atuais.
+Description-ro.UTF-8: «xscreensaver» și «xlockmore» trebuie să fie repornite înainte de a face înnoirea
+ Una sau mai multe instanțe ale programelor «xscreensaver» sau «xlockmore» au fost detectate pe acest sistem. Din cauza modificărilor incompatibile ale bibliotecii, înnoirea bibliotecii GNU libc vă va lăsa în imposibilitatea de a vă autentifica la aceste programe. Ar trebui să aranjați ca aceste programe să fie repornite sau oprite înainte de a continua această actualizare, pentru a evita blocarea utilizatorilor în sesiunile lor curente.
 Description-ru.UTF-8: Перед обновлением требуется перезапустить xscreensaver и xlockmore
  В системе обнаружен один или несколько экземпляров xscreensaver или xlockmore. Так как данное обновление устанавливает несовместимую с прошлой версией библиотеку GNU libc, эти программы не смогут проводить аутентификацию. Перед тем как продолжить данное обновление, вам нужно перезапустить или остановить эти программы, чтобы избежать блокировки имеющихся сеансов пользователей.
 Description-sk.UTF-8: xscreensaver a xlockmore je nutné pred aktualizáciou reštartovať
@@ -552,9 +562,11 @@ Description-sk.UTF-8: xscreensaver a xlockmore je nutné pred aktualizáciou re�
 Description-sv.UTF-8: xscreensaver och xlockmore måste startas om innan uppgraderingen påbörjas
  En eller flera instanser av xscreensaver eller xlockmore har hittats på systemet. På grund av inkompatibilitet i och med förändringar av biblioteket kan uppgraderingen av GNU libc innebära att du inte kan autentisera med dessa program. Se till att alla instanser av programmen startas om eller stoppas innan du fortsätter med denna uppgradering för att undvika att användare blir utelåsta från sina sessioner.
 Description-tr.UTF-8: Yükseltme işleminden önce xscreensaver ve xlockmore hizmetleri yeniden başlatılmalı
- Sisteminizde çalışmakta olan birden fazla xscreensaver ya da xlockmore örneğine rastlandı. Uyumsuz kitaplık değişiklikleri yüzünden, GNU libc paketinin yükseltilmesi bu programlarda kimlik doğrulamasını olanaksız hale getirecek. Mevcut oturumların kilitlenmesi önlemek için, yükseltme işlemine devam etmeden önce bu programları durdurmalı ya da yeniden başlatmalısınız.
+ Sisteminizde bir ya da daha fazla xscreensaver veya xlockmore örneğinin çalışmakta olduğu algılandı. Uyumsuz kitaplık değişiklikleri yüzünden, glibc paketinin yükseltilmesi bu programlarda kimlik doğrulamasını olanaksız kılacaktır. Varolan oturumların kilitlenmesi önlemek için, yükseltme işleminini sürdürmeden önce bu programları durdurmalı ya da yeniden başlatmalısınız.
 Description-vi.UTF-8: Trước khi nâng cấp thì cần phải khởi chạy lại xscreensaver và xlockmore
  Một hay nhiều tiến trình đang chạy của xscreensaver hay xlockmore đã được phát hiện trên hệ thống này. Do thay đổi không tương thích nhau trong các thư viện, việc nâng cấp thư viện libc của GNU có thể dẫn đến hai chương trình này không cho phép xác thực. Để tránh trường hợp này, dừng chạy hay khởi chạy lại tiến trình nào đang chạy của hai chương trình này trước khi tiếp tục nâng cấp.
+Description-zh_CN.UTF-8: xscreensaver 和 xlockmore 需要重启才能升级
+ 在此系统上检测到一个或多个正在运行的 xscreensaver 或 xlockmore 进程。由于 GNU libc 库的升级存在不兼容的更改，因此升级后会导致用户无法在这些程序中进行身份认证（或登录）。为避免出现用户无法解锁会话的情况，在继续升级前请重新启动或停止这些程序。
 
 Template: libraries/restart-without-asking
 Type: boolean
@@ -587,6 +599,8 @@ Description-it.UTF-8: Riavviare i servizi durante l'aggiornamento senza chiedere
  Sul proprio sistema sono installati dei servizi che devono essere riavviati dopo l'aggiornamento di determinate librerie, quali libpam, libc e libssl. Poiché questi riavvii possono causare delle interruzioni dei servizi offerti dal sistema normalmente, a ogni aggiornamento, viene mostrato l'elenco dei servizi e viene chiesto di confermarne il riavvio. È possibile evitare che sia chiesta la conferma del riavvio accettando questa opzione; saranno effettuati automaticamente tutti i riavvii necessari senza fare domande per ogni aggiornamento della libreria.
 Description-ja.UTF-8: パッケージのアップグレード中、質問することなくサービスを再起動しますか?
  このシステムには、libpam や libc、libssl といった特定のライブラリがアップグレードされたときに再起動を必要とするサービスがインストールされています。この再起動はそのシステムで動作しているサービスの中断を伴う可能性があるため、通常は再起動させるサービス一覧をアップグレードの度に質問します。このオプションを選択するとその質問を避けられます。代わりに、再起動が必要な場合は全て自動で再起動させるため、ライブラリをアップグレードする度に質問されるのを避けられます。
+Description-ko.UTF-8: 패키지 업그레이드 중에 물어보지 않고 서비스를 다시 시작할까요?
+ 시스템에 설치된 서비스 중에는, 특정 라이브러리를 (예를 들어 libpam, libc, libssl) 업그레이드할 때 다시 시작해야 하는 서비스가 있습니다. 다시 시작하면서 시스템의 서비스가 중단될 수도 있기 때문에, 업그레이드할 때마다 다시 시작해야 하는 서비스 목록을 표시합니다. 이 재시작 확인을 건너 뛸 수도 있습니다. 건너 뛰는 경우 필요한 모든 재시작을 자동으로 수행하므로, 라이브러리를 업그레이드할 때마다 질문을 받지 않아도 됩니다.
 Description-nb.UTF-8: Skal tjenester restartes uten spørsmål under pakkeoppgraderinger?
  På systemet ditt finnes det tjenester som må startes på nytt når visse biblioteker, slik som libpam, libc og libssl, oppgraderes. Slike omstarter kan avbryte tjenester på systemet, og normalt blir du spurt ved hver oppgradering om hvilke tjenester du vil starte på nytt. Du kan slå på dette valget for å slippe å bli spurt, da blir i stedet alle nødvendige omstarter gjort automatisk slik at du ikke får spørsmål ved hver biblioteksoppgradering.
 Description-nl.UTF-8: Diensten zonder vragen herstarten bij het opwaarderen van pakketten?
@@ -599,40 +613,49 @@ Description-pt.UTF-8: Reiniciar serviços sem perguntar durante a actualização
  Há serviços instalados no seu sistema que necessitam de ser reiniciados quando são actualizadas certas bibliotecas, como libpam, libc e libssl. Uma vez que estes reinícios podem causar interrupção de serviços no sistema, é-lhe normalmente perguntado em cada actualização que serviços deseja reiniciar. Pode escolher esta opção para que os reinícios necessários sejam automaticamente tratados pelo processo de actualização em vez de lhe serem colocadas questões.
 Description-pt_BR.UTF-8: Reiniciar serviços durante a atualização de pacotes sem perguntar?
  Existem serviços instalados no seu sistema que precisam ser reiniciados quando determinadas bibliotecas, tais como libpam, libc e libssl são atualizadas. Uma vez que essas reinicializações podem causar interrupções de serviços para o sistema, normalmente você terá que responder a cada atualização qual será a lista de serviços que quiser reiniciar. Você pode escolher esta opção para evitar novas solicitações; ao invés disso, todas as reinicializações necessárias serão realizadas automaticamente, para evitar que você responda a cada atualização de biblioteca.
+Description-ro.UTF-8: Doriți ca serviciile să fie repornite în timpul înnoirii pachetului fără să fiți întrebați?
+ Există servicii instalate pe sistemul dumneavoastră care trebuie repornite atunci când anumite biblioteci, cum ar fi „libpam”, „libc” și „libss”l, sunt actualizate. Deoarece aceste reporniri pot cauza întreruperi ale serviciilor pentru sistem, vi se va solicita în mod normal, la fiecare actualizare, lista de servicii pe care doriți să le reporniți. Puteți alege această opțiune pentru a evita să vi se solicite acordul pentru acest lucru; în schimb, toate repornirile necesare vor fi efectuate automat pentru dvs., astfel încât să puteți evita să vi se pună întrebări la fiecare actualizare a bibliotecii.
 Description-ru.UTF-8: Перезапускать службы при обновлении пакета без подтверждения?
  В системе установлены службы, которые требуют перезапуска после обновления определённых библиотек (например, libpam, libc и libssl). Так как это может вызвать перерыв в работе службы, то обычно при каждом обновлении запрашивается подтверждение списка служб, которые нужно перезапустить. Чтобы этот вопрос не задавался, вы можете ответить утвердительно; в этом случае все необходимые службы будут перезапущены автоматически.
 Description-sk.UTF-8: Reštartovať služby počas aktualizácie balíka bez pýtania sa?
  Na vašom systéme sú nainštalované služby, ktoré je potrebné reštartovať pri aktualizácii určitých knižníc ako libpam, libc, a libssl. Keďže tieto reštarty môžu spôsobiť prerušenie služby systému, za bežných okolností sa vám systém správy balíkov pri každej aktualizácii ponúkne zoznam služieb, ktoré chcete reštartovať. Môžete zvoliť, aby sa vás systém správy balíkov už viac nepýtal, ale aby sa namiesto toho všetky potrebné reštarty vykonávali automaticky, takže sa vyhnete kladeniu otázok pri každej aktualizácii knižnice.
 Description-sv.UTF-8: Ska tjänster startas om vid paketuppgraderingar utan att först fråga?
  Det finns tjänster installerade på systemet som behöver startas om när vissa bibliotek, exempelvis libpam, libc och libssl, uppgraderas. Eftersom dessa omstarter kan orsaka avbrott i tjänsten ställs normalt en fråga vid varje uppgradering där en lista med tjänster som ska startas om presenteras. Du kan välja att aktivera detta alternativ för att undvika att frågan ställs. Istället kommer alla nödvändiga omstarter att göras automatiskt.
-Description-tr.UTF-8: Hizmetler paket yükseltme işlemi esnasında size sorulmadan yeniden başlatılsın mı?
- Sisteminizde libpam, libc ve libssl gibi bazı kitaplıklar yükseltildiğinde yeniden başlatılması gereken bazı hizmetler kurulu. Yeniden başlatma işlemleri sisteminizin sunduğu hizmetlerde kesintilere neden olabileceğinden dolayı her yükseltme işlemi esnasında yeniden başlatmak istediğiniz hizmetler size sorulacaktır. Eğer bu sorunun sorulmasını istemiyorsanız bu seçeneği kullanabilirsiniz. Bu seçenek seçildiği takdirde bir kitaplık yükseltmesi yapılırken gereken tüm yeniden başlatma işlemleri size sorulmaksızın otomatik olarak yapılacaktır.
+Description-tr.UTF-8: Hizmetler paket yükseltme işlemi sırasında size sorulmadan yeniden başlatılsın mı?
+ Sisteminizde libpam, libc ve libssl gibi bazı kitaplıklar yükseltildiğinde yeniden başlatılması gereken hizmetler kurulu. Yeniden başlatma işlemleri sisteminizin sunduğu hizmetlerde kesintilere neden olabileceğinden dolayı her yükseltme işlemi sırasında yeniden başlatmak istediğiniz hizmetler için onayınız alınacaktır. Eğer onayınızın alınmasını istemiyorsanız, "Evet" seçeneğini kullanabilirsiniz. Bu seçeneği seçerseniz, bir kitaplık yükseltmesi yapılırken gereken tüm yeniden başlatma işlemleri size sorulmaksızın kendiliğinden yapılacaktır.
+Description-zh_CN.UTF-8: 要在升级时自动重启服务吗？
+ 您系统中部分运行中的服务由于依赖或使用了当前正在更新的库（如 libpam、libc、libssl 等），需要重新启动。鉴于此类重启的操作可能会导致系统中的服务被中断，每次更新时系统通常会提示您选择需要重启的服务。您可以勾选该选项，让系统在后续遇到此类更新时自动重启必要的服务，同时避免在更新时出现此提示。
 
 Template: glibc/kernel-too-old
 Type: error
 Description: Kernel must be upgraded
  This version of the GNU libc requires kernel version ${kernel_ver} or
- later.  Please upgrade your kernel before installing glibc.
-Description-da.UTF-8: Kerne skal opgraderes
- Denne version af GNU libc kræver kerneversionen ${kernel_ver} eller senere. Opgrader venligst din kerne før installation af glibc.
+ later.  Please upgrade your kernel and reboot before installing glibc.
+ You may need to use "apt -f install" after reboot to solve dependencies.
+Description-cs.UTF-8: Je nutné aktualizovat jádro
+ Tato verze GNU libc vyžaduje jádro verze ${kernel_ver} nebo novější. Před instalací glibc nejprve aktualizujte jádro a restartujte počítač. Po restartu možná budete muset vyřešit závislosti příkazem „apt -f install“.
 Description-de.UTF-8: Kernel muss aktualisiert werden.
- Diese Version der GNU-Libc benötigt Kernel Version ${kernel_ver} oder neuer. Bitte führen Sie vor der Installation der Glibc ein Upgrade durch.
-Description-el.UTF-8: Ο πυρήνας πρέπει να αναβαθμιστεί
- Αυτή η έκδοση του GNU libc απαιτεί πυρήνα έκδοσης ${kernel_ver} ή νεότερο. Παρακαλώ αναβαθμίστε τον πυρήνα σας πριν εγκαταστήσετε το glibc.
-Description-fr.UTF-8: Mise à niveau du noyau nécessaire
- Cette version de la bibliothèque C de GNU nécessite au minimum la version ${kernel_ver} du noyau. Veuillez mettre le noyau à niveau avant l'installation de glibc.
+ Diese Version der GNU-Libc benötigt Kernel Version ${kernel_ver} oder neuer. Bitte führen Sie vor der Installation der Glibc ein Upgrade durch und starten Sie das System neu. Nach dem Neustart könnte es sein, dass Sie »apt -f install« verwenden müssen, um Abhängigkeiten aufzulösen.
+Description-es.UTF-8: Es necesario actualizar el núcleo
+ Esta versión de la biblioteca C de GNU (libc) requiere como mínimo la versión ${kernel_ver} del núcleo. Actualice el núcleo antes de instalar glibc. Es posible que tenga que ejecutar «apt -f install» después de reiniciar para resolver dependencias.
 Description-it.UTF-8: È necessario aggiornare il kernel
- Questa versione di GNU libc richiede che la versione del kernel sia ${kernel_ver} o successiva. Aggiornare il kernel prima di installare glibc.
-Description-ja.UTF-8: カーネルをアップグレードする必要があります
- このバージョンの GNU libc はカーネルバージョン ${kernel_ver} 以降が必要です。glibc をインストールする前にカーネルをアップグレードしてください。
+ Questa versione di GNU libc richiede che la versione del kernel sia ${kernel_ver} o successiva. Aggiornare il kernel e riavviare prima di installare glibc. Dopo il riavvio potrebbe essere necessario eseguire «apt -f install» per risolvere le dipendenze.
+Description-ko.UTF-8: 커널을 업그레이드해야 합니다
+ 이 버전의 GNU libc는 ${kernel_ver} 이후 버전 커널이 필요합니다. glibc를 설치하기 전에 커널을 업그레이드하고 다시 시작하십시오. 다시 시작한 뒤 의존성을 해결하기 위해 "apt -f install" 명령을 사용해야 할 수도 있습니다.
 Description-nl.UTF-8: De kernel moet opgewaardeerd worden
- Deze versie van GNU libc heeft kernel versie ${kernel_ver} of een meer recente versie nodig. Gelieve de kernel op te waarderen vooraleer glibc te installeren.
+ Deze versie van GNU libc heeft kernel versie ${kernel_ver} of een meer recente versie nodig. Gelieve uw kernel op te waarderen en de computer te herstarten voor u glibc installeert. Mogelijk moet u na de herstart "apt -f install" gebruiken om vereisten op te lossen.
 Description-pt.UTF-8: O kernel necessita de ser actualizado
- Esta versão da GNU libc necessita da versão ${kernel_ver} ou mais recente. Por favor, actualize o kernel antes de instalar a glibc.
+ Esta versão da GNU libc necessita da versão ${kernel_ver} ou mais recente. Por favor, actualize o kernel e reinicie antes de instalar a glibc. Pode ter que utilizar "apt -f install" após o reinício para resolver as dependências.
 Description-pt_BR.UTF-8: O kernel deve ser atualizado
- Essa versão da GNU libc requer um kernel versão ${kernel_ver} ou mais recente. Por favor, atualize o seu kernel antes de instalar a glibc.
-Description-ru.UTF-8: Следует обновить ядро
- Для данной версии GNU libc требуется ядро версии ${kernel_ver} или новее. Обновите ядро до выполнения установки glibc.
+ Essa versão da GNU libc requer um kernel versão ${kernel_ver} ou mais recente. Por favor, atualize o seu kernel e reinicialize o computador antes de instalar a glibc. Você talvez precise usar "apt -f install" depois de reinicializar para resolver dependências.
+Description-ro.UTF-8: Nucleul trebuie să fie înnoit
+ Această versiune a bibliotecii libc GNU necesită versiunea nucleului ${kernel_ver} sau o versiune ulterioară.  Actualizați nucleul și să reporniți înainte de a instala glibc. Este posibil să fie nevoie să utilizați comanda «apt -f install» după repornire, pentru a rezolva problemele de dependențe.
+Description-sk.UTF-8: Kernel sa musí aktualizovať
+ Táto verzia GNU libc vyžaduje verziu kernelu ${kernel_ver} alebo neskoršiu. Aktualizujte prosím Váš kernel a reštartujte systém pred inštaláciou glibc. V prípade chýbajúcich závislostí po reštarte, použite príkaz "apt -f install".
+Description-tr.UTF-8: Linux çekirdeği güncellenmelidir
+ GNU libc kitaplığının bu sürümü ${kernel_ver} çekirdek sürümü ya da daha yenisi ile çalışabilmektedir. GNU libc kurulumu öncesinde çekirdek sürümünüzü güncelleyin ve sisteminizi yeniden başlatın. Bağımlılık sorunlarını gidermek için, yeniden başlatmanız sonrasında "apt -f install" komutunu kullanmanız gerekebilir.
+Description-zh_CN.UTF-8: 内核需要升级
+ 此版本的 GNU glibc 需要版本为 ${kernel_ver} 或更高版本的内核。安装 glibc 前请先升级你的内核并重启计算机。重启后你可能需要使用 "apt -f install" 来解决依赖问题。
 
 Template: glibc/kernel-not-supported
 Type: note
@@ -640,21 +663,35 @@ Description: Kernel version not supported
  This version of the GNU libc requires kernel version ${kernel_ver} or
  later.  Older versions might work but are not officially supported by
  Debian.  Please consider upgrading your kernel.
+Description-cs.UTF-8: Nepodporovaná verze jádra
+ Tato verze GNU libc vyžaduje jádro verze ${kernel_ver} nebo novější. Starší verze možná mohou fungovat, ale není to oficiálně podporováno. Zvažte prosím aktualizaci jádra.
 Description-da.UTF-8: Kerneversion er ikke understøttet
  Denne version af GNU libc kræver kerneversionen ${kernel_ver} eller senere. Ældre versioner kan fungere men er ikke officielt understøttet af Debian. Overvej at opgradere din kerne.
 Description-de.UTF-8: Kernelversion wird nicht unterstützt
  Diese Version der GNU-Libc benötigt Kernel Version ${kernel_ver} oder neuer. Ältere Versionen können funktionieren, werden aber nicht offiziell durch Debian unterstützt. Bitte prüfen Sie ein Upgrade Ihres Kernels.
 Description-el.UTF-8: Η έκδοση του πυρήνα δεν υποστηρίζεται
  Αυτή η έκδοση του GNU libc απαιτεί πυρήνα έκδοσης ${kernel_ver} ή νεότερο. Οι παλαιότερες εκδόσεις ίσως λειτουργήσουν αλλά δεν υποστηρίζονται επίσημα από το Debian. Παρακαλώ σκεφτείτε να αναβαθμίσετε τον πυρήνα σας.
+Description-es.UTF-8: Versión del núcleo incompatible
+ Esta versión de la biblioteca C de GNU (libc) requiere como mínimo la versión ${kernel_ver} del núcleo. Las versiones anteriores pueden funcionar pero no están soportadas oficialmente por Debian. Considere actualizar el núcleo.
 Description-fr.UTF-8: Version du noyau non gérée
  Cette version de la bibliothèque C de GNU nécessite au minimum la version ${kernel_ver} du noyau. Des versions antérieures pourraient fonctionner, mais ne sont pas officiellement gérées par Debian. Veuillez prévoir la mise à niveau du noyau.
 Description-it.UTF-8: Versione del kernel non supportata
  Questa versione di GNU libc richiede che la versione del kernel sia ${kernel_ver} o successiva. Potrebbe funzionare anche con le versioni precedenti ma non sono ufficialmente supportate da Debian. Si raccomanda di aggiornare il kernel.
+Description-ko.UTF-8: 커널 버전을 지원하지 않습니다
+ 이 버전의 GNU libc는 ${kernel_ver} 이후 버전 커널이 필요합니다. 더 과거 버전도 동작하지만 데비안에서 공식적으로 지원하지 않습니다. 커널 업그레이드를 고려해 보십시오.
 Description-nl.UTF-8: Niet-ondersteunde kernelversie
  Deze versie van GNU libc heeft kernel versie ${kernel_ver} of een meer recente versie nodig. Het kan zijn dat oudere versies wel werken, maar officieel wordt dit niet ondersteund door Debian. U zou er best aan doen uw kernel op te waarderen.
 Description-pt.UTF-8: Versão não suportada do kernel
  Esta versão da GNU libc requer a versão ${kernel_ver} ou mais recente. Versões mais antigas podem funcionar mas não são oficialmente suportadas pela Debian. Por favor, considere actualizar o kernel.
 Description-pt_BR.UTF-8: Versão de kernel não suportada
  Essa versão da GNU libc requer um kernel versão ${kernel_ver} ou mais recente. Versões mais antigas poderão funcionar, mas não são suportadas oficialmente pelo Debian. Por favor, considere atualizar o seu kernel.
+Description-ro.UTF-8: Versiunea nucleului este incompatibilă cu cea a bibliotecii C de GNU, «glibc»
+ Această versiune a bibliotecii libc GNU necesită versiunea nucleului ${kernel_ver} sau o versiune ulterioară.  Versiunile mai vechi ar putea funcționa, dar nu sunt acceptate oficial de Debian.  N-ar fi rău, să luați în considerare actualizarea nucleului.
 Description-ru.UTF-8: Версия ядра не поддерживается
  Для данной версии GNU libc требуется ядро версии ${kernel_ver} или новее. Более старые версии могут работать, но они официально не поддерживаются в Debian. Рассмотрите возможность обновления ядра.
+Description-sk.UTF-8: Verzia kernelu nie je podporovaná
+ Táto verzia GNU libc vyžaduje verziu kernelu ${kernel_ver} alebo neskoršiu. Staršia verzia môže fungovať, ale nie je oficiálne podporovaná Debianom. Zvážte prosím aktualizáciu vášho kernelu.
+Description-tr.UTF-8: Linux çekirdeği sürümü desteklenmiyor
+ GNU libc kitaplığının bu sürümü ${kernel_ver} çekirdek sürümü ya da daha yenisi ile çalışabilmektedir. Eski sürümler ile çalışabilse de, eski sürümler Debian tarafından desteklenmemektedir. Çekirdek sürümünüzü güncelleme konusunu değerlendirin.
+Description-zh_CN.UTF-8: 不支持的内核版本
+ 此版本的 GNU glibc 需要版本为 ${kernel_ver} 或更高版本的内核。  使用旧版本内核时系统可能会正常运行，但是此类情况不被 Debian 正式支持。请考虑升级你的内核。

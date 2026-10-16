@@ -2,6 +2,7 @@ libbluray.so.2 libbluray2 #MINVER#
 * Build-Depends-Package: libbluray-dev
  bd_chapter_pos@Base 1:0.2.2
  bd_close@Base 1:0.2.2
+ bd_event_name@Base 1:1.3.0
  bd_free_bdjo@Base 1:0.7.0
  bd_free_clpi@Base 1:0.2.2
  bd_free_mobj@Base 1:0.7.0

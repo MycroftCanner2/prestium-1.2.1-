@@ -1,3 +1,4 @@
-ced43d31dad00528c46491f3165bd28b  usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23609.1
-f762109f4b328c49527a669dc1db71cb  usr/share/doc/libatk1.0-0/changelog.Debian.gz
-d3ca236f285a2626de422f560a8e89c6  usr/share/doc/libatk1.0-0/copyright
+a9a14a902934ae541e26ee96bf76035d  usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.24609.1
+c3655bb5758126327a232e79c9e63c3f  usr/share/doc/libatk1.0-0/changelog.Debian.gz
+1dd5b347d4a834473bb609f7a0859e88  usr/share/doc/libatk1.0-0/copyright
+78ad1a952016472e059c95277189bbd8  usr/share/lintian/overrides/libatk1.0-0

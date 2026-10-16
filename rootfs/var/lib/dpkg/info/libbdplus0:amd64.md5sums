@@ -1,5 +1,5 @@
-3ca7b6691b7d1eec55463161cd651d48  usr/lib/x86_64-linux-gnu/libbdplus.so.0.1.0
-e2d98ebc879eff8c73ce3b75f2cac5bd  usr/share/doc/libbdplus0/README.txt.gz
-98f5599395b7503d050319523e949f37  usr/share/doc/libbdplus0/changelog.Debian.gz
-e835f145afbdc85aba235bc56bdf2896  usr/share/doc/libbdplus0/changelog.gz
-0d15f7a94d26895acc1966006c1a8c51  usr/share/doc/libbdplus0/copyright
+99eb5452bbbe41db47f1bfdc4d15a4cd  usr/lib/x86_64-linux-gnu/libbdplus.so.0.2.0
+a427121fb8ad591dddedbf6739327df2  usr/share/doc/libbdplus0/README.md.gz
+5cfc41440d01f68f3b3d1c61ffcc132e  usr/share/doc/libbdplus0/changelog.Debian.gz
+e22625abeba96c07f9c9a3e767281f84  usr/share/doc/libbdplus0/changelog.gz
+1bd0d5c14a282ba977e6729f33a96bdc  usr/share/doc/libbdplus0/copyright

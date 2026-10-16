@@ -5,7 +5,7 @@
 /usr/lib/x86_64-linux-gnu/bluetooth
 /usr/lib/x86_64-linux-gnu/bluetooth/plugins
 /usr/lib/x86_64-linux-gnu/bluetooth/plugins/sixaxis.so
-/usr/lib/x86_64-linux-gnu/libbluetooth.so.3.19.3
+/usr/lib/x86_64-linux-gnu/libbluetooth.so.3.19.8
 /usr/share
 /usr/share/doc
 /usr/share/doc/libbluetooth3

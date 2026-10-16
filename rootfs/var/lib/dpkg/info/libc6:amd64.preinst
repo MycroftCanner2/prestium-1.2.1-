@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-export LC_ALL=C
 
 type=$1
 preversion=$2
@@ -12,56 +11,20 @@ kernel_compare_versions () {
     test $verA -$2 $verB
 }
 
-if [ "$type" != abort-upgrade -a -z "$DPKG_ROOT" ]
+if [ "$type" != abort-upgrade ]
 then
-    # Check if the debconf module is available and usable
-    USE_DEBCONF=
-    if [ "$DEBIAN_HAS_FRONTEND" ]; then
-        # Debconf is already loaded, so we already checked if the frontend
-        # is usable or not
+    # Load debconf module if available and usable
+    if [ -f /usr/share/debconf/confmodule ] && \
+       ( [ "$DEBCONF_USE_CDEBCONF" ] || perl -e "" 2>/dev/null ) ; then
+        . /usr/share/debconf/confmodule
         USE_DEBCONF=1
-    elif [ -f /usr/share/debconf/confmodule ]; then
-        # cdebconf has a working fallback mechanism in case dialog
-        # is not usable, so do not try to do anything smart here
-        if [ "$DEBCONF_USE_CDEBCONF" ] ; then
-            USE_DEBCONF=1
-        # debconf requires perl
-        elif perl -e "" 2>/dev/null ; then
-            # Check that the selected frontend will work
-            if [ -n "$DEBIAN_FRONTEND" ] ; then
-                frontend="$DEBIAN_FRONTEND"
-            else
-                # Query the frontend without first sourcing the confmodule to avoid
-                # losing control of the tty. This snippet must not be copied blindly.
-                frontend="$(echo 'GET debconf/frontend' | debconf-communicate | sed '/^0 /!d;s/^0 //')"
-                frontend="${frontend:-Dialog}"
-            fi
-            frontend=`echo $frontend | tr '[:upper:]' '[:lower:]'`
-            case "$frontend" in
-            dialog)
-                # debconf uses whiptail by default unless dialog is available and
-                # $DEBCONF_FORCE_DIALOG is set
-                if [ -x "$(which whiptail)" ] && ! ( [ -n "$DEBCONF_FORCE_DIALOG" ] && [ -x "$(which dialog)" ] ); then
-                    frontend=whiptail
-                fi
-                # Only enable debconf if the whiptail/dialog are not available
-                # (in which case debconf has a fallback mechanism) or usable
-                if ! [ -x "$(which $frontend)" ] || $frontend --version > /dev/null 2>&1 ; then
-                    USE_DEBCONF=1
-                fi
-                ;;
-            *)
-                 # For now assume that all other frontends are fine
-                 USE_DEBCONF=1
-                ;;
-            esac
-        fi
+    else
+        USE_DEBCONF=
     fi
 
-    # Load debconf module if available and usable
-    if [ "$USE_DEBCONF" ]; then
-        . /usr/share/debconf/confmodule
-    fi
+    # Only change LC_ALL after loading debconf to ensure the debconf templates
+    # are properly localized.
+    export LC_ALL=C
 
     # See if LD_LIBRARY_PATH contains the traditional /lib, but not the
     # multiarch path
@@ -115,8 +78,8 @@ then
                 db_stop
             else
                 echo "ERROR: This version of the GNU libc requires kernel version"
-                echo "$kernel_ver_rec or later.  Please upgrade your kernel before installing"
-                echo "glibc."
+                echo "$kernel_ver_rec or later.  Please upgrade your kernel and reboot before installing"
+                echo 'glibc. You may need to use "apt -f install" after reboot to solve dependencies.'
                 echo
             fi
             exit 1
@@ -159,8 +122,39 @@ then
                 db_stop
             else
                 echo "ERROR: This version of the GNU libc requires kernel version"
-                echo "$kernel_ver_min or later.  Please upgrade your kernel before installing"
-                echo "glibc."
+                echo "$kernel_ver_min or later.  Please upgrade your kernel and reboot before installing"
+                echo 'glibc. You may need to use "apt -f install" after reboot to solve dependencies.'
+                echo
+            fi
+            exit 1
+        fi
+
+    elif [ $system = "GNU" ]
+    then
+        kernel_ver=`uname -v | cut -d / -f 1 | cut -d ' ' -f 2`
+        kernel_ver_git=${kernel_ver#*+git}
+        kernel_ver_git=${kernel_ver_git%%-*}
+        kernel_ver=${kernel_ver%+git*}
+        kernel_ver_min=1.8
+        kernel_ver_git_min=20210923
+        if kernel_compare_versions "$kernel_ver" lt $kernel_ver_min || \
+         ( kernel_compare_versions "$kernel_ver" eq $kernel_ver_min && \
+            [ "$kernel_ver_git" -lt $kernel_ver_git_min ] )
+        then
+            if [ "$USE_DEBCONF" ]
+            then
+                db_version 2.0
+                db_fset glibc/kernel-too-old seen false
+                db_reset glibc/kernel-too-old
+                db_subst glibc/kernel-too-old kernel_ver $kernel_ver_min+git$kernel_ver_git_min
+                db_input critical glibc/kernel-too-old || true
+                db_go
+                db_stop
+            else
+                echo "ERROR: This version of the GNU libc requires kernel version"
+                echo "$kernel_ver_min+git$kernel_ver_git_min or later."
+                echo "Please upgrade your kernel and reboot before installing glibc."
+                echo 'You may need to use "apt -f install" after reboot to solve dependencies.'
                 echo
             fi
             exit 1
@@ -168,12 +162,12 @@ then
     fi
 fi
 
-if [ "$type" = upgrade -a -z "$DPKG_ROOT" ]
+if [ "$type" = upgrade ]
 then
-    if [ -n "$preversion" ] && [ -x "$(which ischroot)" ] && ! ischroot; then
+    if [ -n "$preversion" ] && [ -x "$(command -v ischroot)" ] && ! ischroot; then
 	# NSS authentication trouble guard
-	if dpkg --compare-versions "$preversion" lt 2.31; then
-	    if pidof xscreensaver xlockmore >/dev/null; then
+	if dpkg --compare-versions "$preversion" lt 2.36; then
+	    if grep -E -q '(^|/)(xscreensaver|xlockmore)' /proc/*/cmdline 2>/dev/null; then
 		if [ "$USE_DEBCONF" ] ; then
 		    db_version 2.0
 		    db_reset glibc/disable-screensaver
@@ -282,18 +276,64 @@ then
 	            exit 1
 		fi
 	    fi
-	fi # end upgrading and $preversion lt 2.31
+
+            # As long systemd-logind has not seen any login request since the system has been
+            # booted, it has not loaded any NSS module. In that condition if glibc is upgraded
+            # (that means with a non session shell or by some automation), the NSS modules are
+            # replaced by a new major version which might be incompatible (and definitely are
+            # for some versions).
+            #
+            # The solution implemented for most daemons is to restart them, but unfortunately
+            # it is not something supported with systemd-logind (see bug#91950).
+            #
+            # As a workaround, when detected that the system is using systemd and that the
+            # systemd-logind process has not not loaded any NSS module, force systemd-logind to
+            # load NSS modules. This is done by disabling lingering on a non-existing user. This
+            # has to be done by talking directly to systemd-logind through sd-bus, as loginctl
+            # first checks if the user actually exist. The nonexistent uid is chosen as
+            # 4294967294, which is reserved by Policy §9.2.2.
+            #
+            # Note that starting with glibc 2.34, the nss_files is builtin. When glibc >= 2.34
+            # ends-up in a stable release, this workaround can therefore be dropped.
+            if dpkg --compare-versions "$preversion" lt 2.34 && [ -d /run/systemd/system ]; then
+                if ! grep -q -E 'libnss_(compat|db|files)' /proc/$(systemctl show --property MainPID --value systemd-logind.service)/maps >/dev/null 2>&1; then
+                    echo "Forcing systemd-logind to load NSS modules..."
+                    busctl call --system org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager \
+                        SetUserLinger ubb 4294967294 false false >/dev/null 2>&1 || true
+                fi
+            fi
+
+	fi # end upgrading and $preversion lt 2.36
     fi # Upgrading
 
     # This will keep us from using hwcap libs (optimized) during an
     # upgrade.
-    touch /etc/ld.so.nohwcap
+    touch "$DPKG_ROOT/etc/ld.so.nohwcap"
+fi
+
+# We create the top-level lib symlink on merged-usr systems, so that we can
+# cover cases where for example libc6:amd64 on i386 is installed and then removed
+# (which deletes the symlink too). Note that we only suppor the simplest case,
+# no conversion (moving files) is done here, as that's the job of the usrmerge
+# package. See: https://bugs.debian.org/926699
+# Once all packages install only under /usr, this can be removed, as removing
+# this package will no longer result in the symlink being deleted.
+if [ "$1" = "install" ] || [ "$1" = "upgrade" ]; then
+    if [ -L "$DPKG_ROOT/lib" ]; then
+        # Has the link already been created?
+        # If it has not, is a directory already there? Half-merged systems are
+        # the problem of usrmerge, simply ignore them here.
+        if [ ! -L "${DPKG_ROOT}/lib64" ] && [ ! -d "${DPKG_ROOT}/lib64" ]; then
+            mkdir -p "$DPKG_ROOT/usr/lib64"
+            ln -s usr/lib64 "${DPKG_ROOT}/lib64"
+        fi
+    fi
 fi
 
 
 
 if [ -n "$preversion" ]; then
-    if dpkg --compare-versions "$preversion" lt 2.31; then
+    if dpkg --compare-versions "$preversion" lt 2.36; then
        # unconditionally wipe ld.so.cache on major version upgrades; this
        # makes those upgrades a bit slower, but is less error-prone than
        # hoping we notice every time the cache format is changed upstream

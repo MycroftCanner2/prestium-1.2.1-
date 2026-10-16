@@ -7,8 +7,12 @@ libapparmor.so.1 libapparmor1 #MINVER#
  APPARMOR_2.13.1@APPARMOR_2.13.1 2.13.1
  APPARMOR_2.13@APPARMOR_2.13 2.13
  APPARMOR_2.9@APPARMOR_2.9 2.8.94
+ APPARMOR_3.0@APPARMOR_3.0 3.0.0
  IMMUNIX_1.0@IMMUNIX_1.0 2.6~devel
  PRIVATE@PRIVATE 2.10
+ __aa_query_label@APPARMOR_1.1 3.0.4
+ __change_hat@APPARMOR_1.0 3.0.4
+ __old_change_hat@IMMUNIX_1.0 3.0.4
  _aa_asprintf@PRIVATE 2.13.5
  _aa_autoclose@PRIVATE 2.10
  _aa_autofclose@PRIVATE 2.10
@@ -23,11 +27,14 @@ libapparmor.so.1 libapparmor1 #MINVER#
  aa_features_id@APPARMOR_2.13 2.13
  aa_features_is_equal@APPARMOR_2.10 2.10
  aa_features_new@APPARMOR_2.10 2.10
+ aa_features_new_from_file@APPARMOR_3.0 3.0.1
  aa_features_new_from_kernel@APPARMOR_2.10 2.10
  aa_features_new_from_string@APPARMOR_2.10 2.10
  aa_features_ref@APPARMOR_2.10 2.10
  aa_features_supports@APPARMOR_2.10 2.10
  aa_features_unref@APPARMOR_2.10 2.10
+ aa_features_value@APPARMOR_3.0 3.0.0
+ aa_features_write_to_fd@APPARMOR_3.0 3.0.0
  aa_features_write_to_file@APPARMOR_2.10 2.10
  aa_find_mountpoint@APPARMOR_1.1 2.7.0~beta1+bzr1772
  aa_getcon@APPARMOR_1.1 2.7.0~beta1+bzr1772
@@ -73,3 +80,4 @@ libapparmor.so.1 libapparmor1 #MINVER#
  change_hat@IMMUNIX_1.0 2.6~devel
  free_record@APPARMOR_1.0 2.6~devel
  parse_record@APPARMOR_1.0 2.6~devel
+ query_label@APPARMOR_2.9 3.0.4
