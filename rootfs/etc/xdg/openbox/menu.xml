@@ -6,11 +6,14 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
-  <item label="Web Browser">
-    <action name="Execute"><execute>librewolf</execute></action>
+  <item label="Web Browser (I2P)">
+    <action name="Execute"><execute>librewolf-i2p</execute></action>
+  </item>
+  <item label="Web Browser (Tor)">
+    <action name="Execute"><execute>librewolf-tor</execute></action>
   </item>
   <item label="I2P WebConsole">
-    <action name="Execute"><execute>librewolf "http://127.0.0.1:7070"</execute></action>
+    <action name="Execute"><execute>librewolf-i2p "http://127.0.0.1:7070"</execute></action>
   </item>
   <separator />
   <item label="Text Editor">

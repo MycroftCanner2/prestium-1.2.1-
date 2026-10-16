@@ -78,3 +78,75 @@ The four files over GitHub's 100 MB limit are left out of git, as on `main`; see
   firewalled, which helps tunnel building.
 - Boot: optical-drive fallback in live-boot, `loop.max_loop=64` for the 10+ squashfs layers.
 - Tested in QEMU (IDE CD, e1000): ferm loads, NetworkManager gets DHCP, i2pd starts, Tor bootstraps to 100%.
+
+## Package update, I2P-everywhere and browser/reseed changes (2026-10-16, still 1.6)
+Version strings stay 1.6 (os-release, boot menus, ISO name). Shipped as one more live layer,
+`live/95-update.squashfs` (zstd). It is a file-level diff of the rootfs, with overlay whiteouts for
+removed files, on top of the unchanged layers 00-base..94-netfix. 12 layers in total, under `loop.max_loop=64`.
+
+### Versions
+| Package | before | now | source |
+|---|---|---|---|
+| Debian 12 + security | current | `apt full-upgrade`: nothing pending | deb.debian.org / security.debian.org |
+| Kernel | 6.1.0-53-amd64 (6.1.187-1) | unchanged (newest bookworm kernel) | Debian |
+| i2pd | 2.61.0-1bookworm1 | unchanged (newest release); PurpleI2P apt repo added | repo.i2pd.xyz |
+| Tor | 0.4.9.11-0+deb12u1 | **0.4.9.14-1~d12.bookworm+1** (+ tor-geoipdb, deb.torproject.org-keyring) | deb.torproject.org |
+| Nyx | 2.1.0-2.2 | unchanged (last upstream release is 2.1.0) | Debian |
+| qBittorrent | 4.5.2-3+deb12u1 | **5.2.4** official AppImage, libtorrent 2.0 build | github.com/qbittorrent/qBittorrent |
+| Feather | 2.8.1 | unchanged (newest) | featherwallet.org |
+| LibreWolf | 157.0.1-1 | **158.0-1** (repo signing key refreshed) | repo.librewolf.net |
+
+### Monero Wallet GUI removed
+Feather is the only wallet. No Monero GUI binary, package, menu entry, desktop file or autostart
+is left in any layer. The last remnant, an empty `~/.config/monero-project`, is whited out.
+The i2pd client tunnel "Monero SOCKS Proxy" (127.0.0.1:4448) is still in tunnels.conf. Feather does not use it; it uses SOCKS 4447.
+
+### qBittorrent 5.2.4 with native I2P
+- AppImage SHA-256 `eda6c0ca39f9befb0cd111b76a3d8b8bf3fd859323f2d4aac8c18f63766c2a1a`. It matches
+  the GitHub release digest and has a good signature from sledgehammer_999 (D8F3 DA77 AAC6 7410 5359 9C13 6E4A 2D02 5B7C C9A2).
+- Extracted to `/opt/qbittorrent`, so no FUSE is needed. The `/usr/local/bin/qbittorrent` wrapper keeps the menu entry working. Debian's qbittorrent package is purged.
+- `~/.config/qBittorrent/qBittorrent.conf` (live user + /etc/skel): I2P via SAM 127.0.0.1:7656,
+  mixed mode off (I2P peers only), DHT/PeX/LSD off, UPnP/NAT-PMP off, anonymous mode, bound to lo/127.0.0.1.
+
+### I2P for network apps
+- i2pd SOCKS proxy enabled on 127.0.0.1:4447.
+- Feather: proxy = I2P (SOCKS 127.0.0.1:4447), so it uses its I2P node list and I2P websocket. The first-run network page is skipped.
+- Gajim: global proxy "I2P HTTP (i2pd 4444)". "I2P SOCKS (i2pd 4447)" and "Tor" (9050) are also defined.
+- HexChat: unchanged (I2P SOCKS tunnel 4449, I2P IRC servers). Now also in /etc/skel.
+- Sylpheed: template account "I2P mail (postman)", SMTP 127.0.0.1:7659 / POP3 127.0.0.1:7660.
+- Everything else still uses `/etc/environment` http(s)_proxy = 127.0.0.1:4450 (I2P).
+
+### Web browsers
+- Menu: **Web Browser (I2P)** (`librewolf-i2p`, default profile, HTTP proxy 127.0.0.1:4444) and
+  **Web Browser (Tor)** (`librewolf-tor`, separate profile `~/.librewolf-tor`, SOCKS5 127.0.0.1:9050,
+  `network.proxy.socks_remote_dns=true`, no I2P proxy). The I2P WebConsole entry uses the I2P browser.
+- `librewolf.cfg` Prestium block chooses the proxy from `PRESTIUM_BROWSER` (set by librewolf-tor).
+  The block and policies.json (NoScript + uBlock forced, HTTPS-only off, DoH off) were re-applied after the 158 upgrade overwrote them.
+- Desktop files: `/usr/local/share/applications/librewolf.desktop` ("Web Browser (I2P)", also the http/https handler)
+  and `librewolf-tor.desktop`. The default tint2 launcher (/etc/xdg) now lists both instead of non-existent firefox/chromium entries.
+- ferm unchanged: uid 1000 may already open TCP to any 127.0.0.1 port ≥1024, which covers 9050, 4444, 4447 and 7656.
+
+### i2pd reseed: bundled StormyCloud su3 only
+- `/var/lib/i2pd/stormycloud-i2pseeds.su3` was downloaded from https://reseed.stormycloud.org/i2pseeds.su3 on 2026-10-16.
+  su3 version/date 1792180824 = 2026-10-16 20:00:24 UTC, 48,235 bytes, 61 RouterInfos,
+  SHA-256 `389a8796bb9b840dcf4d9d0664663533d877ea35a462bae2f2bdabbcf9a8c044`, signer `admin@stormycloud.org`, RSA-SHA512-4096.
+- The signing cert `certificates/reseed/admin_at_stormycloud.org.crt` is already shipped by the i2pd 2.61 package and is byte-identical to
+  i2pd 2.61.0 `contrib/certificates/reseed/` (SHA-256 61a7535a…). Signature checked with openssl, and i2pd loaded all 61 routers with verify=true.
+- `[reseed]`: `verify = true`, `file = /var/lib/i2pd/stormycloud-i2pseeds.su3`, `urls =`, `yggurls =`.
+  In i2pd 2.61 `Reseeder::Bootstrap()`, a set `reseed.file` means only that file is used: there is no fallback to servers.
+  Empty `urls`/`yggurls` also replace the compiled-in default list, so `ReseedFromServers()` would stop at "No reseed servers specified".
+- Caveat: the bundled RouterInfos age. The image needs a fresh su3 regularly (re-download and rebuild), or bootstrapping will eventually fail.
+
+### Build and test (2026-10-16)
+- `Prestium-1.6-amd64.iso`, 2,011,299,840 bytes,
+  SHA-256 `29a3e1d9d03c9a13cbc4826355764fbd4c5324573138f6d2d6762fc9ba8634fc`. It has 12 live layers (00-base … 95-update) and no test layer.
+- Two leftover "Prestium 1.7" comments were reset to 1.6, in `/usr/local/bin/qbittorrent` and `/var/lib/i2pd/i2pd.conf`. No 1.7 version string remains.
+- QEMU test (IDE CD, e1000, user-mode network). It booted the same ISO plus a test-only layer that turned on i2pd info logging and ran checks; that layer is not in the release ISO.
+  Results:
+  - autologin into Openbox; ferm, NetworkManager (DHCP), i2pd, Tor and LightDM all active, with no failed units.
+  - Tor bootstrapped to 100%.
+  - i2pd loaded its reseed certificates and the bundled su3, with no reseed download. i2pd opened no :80/:443 connections. It reached about 145 routers, with 52% tunnel success.
+  - Listening on 127.0.0.1: SOCKS 4447, SAM 7656, HTTP 4444, Tor 9050.
+  - qBittorrent 5.2.4 connected to SAM 7656 and listens only on 127.0.0.1.
+  - No Monero GUI remnants.
+  - The only firewall drops were IPv6 router solicitations.

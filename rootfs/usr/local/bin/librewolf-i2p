@@ -1,0 +1,4 @@
+#!/bin/sh
+# Prestium: "Web Browser (I2P)" - default LibreWolf profile, I2P HTTP proxy 127.0.0.1:4444
+unset PRESTIUM_BROWSER
+exec /usr/bin/librewolf "$@"

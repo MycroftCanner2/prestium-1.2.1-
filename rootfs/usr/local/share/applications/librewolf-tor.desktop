@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Web Browser (Tor)
+GenericName=Web Browser
+Comment=LibreWolf through Tor (SOCKS5 127.0.0.1:9050, remote DNS), separate profile
+Exec=librewolf-tor %u
+Icon=librewolf
+Terminal=false
+Type=Application
+StartupNotify=true
+StartupWMClass=librewolf-tor
+Categories=Network;WebBrowser;

@@ -1523,6 +1523,22 @@ Description: Command-line tools to process Debian package information
                     the apt database
 Homepage: https://github.com/ajkaijanaho/dctrl-tools
 
+Package: deb.torproject.org-keyring
+Status: install ok installed
+Priority: important
+Section: misc
+Installed-Size: 20
+Maintainer: Peter Palfrader <weasel@debian.org>
+Architecture: all
+Version: 2025.08.08
+Conffiles:
+ /etc/apt/trusted.gpg.d/deb.torproject.org-keyring.gpg 0dea6eb91fba670db5a6ff824d40552a
+Description: GnuPG archive key of the deb.torproject.org repository
+ The deb.torproject.org repository digitally signs its Release
+ files. This package contains the current repository key used for
+ that, and upon installation configures your system to accept archives
+ signed with this key.
+
 Package: debconf
 Status: install ok installed
 Priority: required
@@ -18232,10 +18248,10 @@ Package: librewolf
 Status: install ok installed
 Priority: optional
 Section: web
-Installed-Size: 468522
-Maintainer: <@16295e9aa054>
+Installed-Size: 473231
+Maintainer: <@bfbeacb0bb3a>
 Architecture: amd64
-Version: 157.0.1-1
+Version: 158.0-1
 Provides: www-browser, gnome-www-browser
 Depends: libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.28), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.6), libgcc1 (>= 1:4.5), libgdk-pixbuf-2.0-0 (>= 2.22.0) | libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.37.3), libgtk-3-0 (>= 3.13.7), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 5), libx11-6, libx11-xcb1, libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.3-1), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1
 Conffiles:
@@ -26340,36 +26356,6 @@ Description: Minimal subset of the Python language (version 3.11)
  contained in this package.
 Cnf-Visible-Pkgname: python3.11
 
-Package: qbittorrent
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 12020
-Maintainer: Christian Marillat <marillat@debian.org>
-Architecture: amd64
-Version: 4.5.2-3+deb12u1
-Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.3), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.12.2) | libqt5gui5-gles (>= 5.12.2), libqt5network5 (>= 5.15.1), libqt5sql5 (>= 5.2.0), libqt5widgets5 (>= 5.15.1), libqt5xml5 (>= 5.2.0), libssl3 (>= 3.0.0), libstdc++6 (>= 11), libtorrent-rasterbar2.0 (>= 2.0.8), zlib1g (>= 1:1.2.0), libqt5sql5-sqlite
-Description: bittorrent client based on libtorrent-rasterbar with a Qt5 GUI
- BitTorrent client written in C++ and based on libtorrent-rasterbar with a
- Qt5 user interface. qBittorrent is a feature rich but lightweight client
- that is very similar to uTorrent. Its main features are:
- .
-  * Polished uTorrent-like user interface
-  * Well integrated and extensible search engine
-  * Remote control through a Web user interface
-  * Vuze-compatible protocol encryption
-  * uTorrent-compatible Peer eXchange (PeX)
-  * DHT (trackerless) support
-  * UPnP / NAT-PMP port forwarding
-  * IPv6 compliant
-  * RSS support with advanced download filters
-  * Advanced control over torrent content and trackers
-  * IP Filtering (eMule / Peer Guardian filters)
-  * Torrents queueing and prioritizing
-  * Good localization (~25 languages supported)
-  * Unicode support
-Homepage: https://www.qbittorrent.org/
-
 Package: qrencode
 Status: install ok installed
 Priority: optional
@@ -26932,18 +26918,18 @@ Package: tor
 Status: install ok installed
 Priority: optional
 Section: net
-Installed-Size: 5870
+Installed-Size: 5894
 Maintainer: Peter Palfrader <weasel@debian.org>
 Architecture: amd64
-Version: 0.4.9.11-0+deb12u1
+Version: 0.4.9.14-1~d12.bookworm+1
 Depends: libc6 (>= 2.34), libcap2 (>= 1:2.10), libevent-2.1-7 (>= 2.1.8-stable), liblzma5 (>= 5.1.1alpha+20120614), libseccomp2 (>= 0.0.0~20120605), libssl3 (>= 3.0.0), libsystemd0, libzstd1 (>= 1.5.2), zlib1g (>= 1:1.1.4), adduser, runit-helper (>= 2.14.0~), lsb-base
 Recommends: logrotate, tor-geoipdb, torsocks
 Suggests: mixmaster, torbrowser-launcher, socat, apparmor-utils, nyx, obfs4proxy
 Breaks: runit (<< 2.1.2-51~)
 Conflicts: libssl0.9.8 (<< 0.9.8g-9)
 Conffiles:
- /etc/apparmor.d/abstractions/tor 3765d32a2834004a1b5fb2c7360998da
- /etc/apparmor.d/system_tor 2920c5c9e0dac3172176b998e4894767
+ /etc/apparmor.d/abstractions/tor cb0014a9b59bc70dd122213ecc53abd8
+ /etc/apparmor.d/system_tor 32a7c411a6aa0bb5bf2b5c4fccf70201
  /etc/cron.weekly/tor 78214da84411cbfef01ed0c037514288
  /etc/default/tor 4eed467922fcd0eb49f8c2fa938d53c0
  /etc/init.d/tor 6cc688c9411c61015c3e4f91e61bc408
@@ -26982,6 +26968,32 @@ Description: anonymizing overlay network for TCP
  the Tor Browser Bundle, a standalone tarball that includes static
  builds of Tor, Torbutton, and a modified Firefox that is patched to fix
  a variety of privacy bugs.
+Homepage: https://www.torproject.org/
+
+Package: tor-geoipdb
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 26321
+Maintainer: Peter Palfrader <weasel@debian.org>
+Architecture: all
+Source: tor
+Version: 0.4.9.14-1~d12.bookworm+1
+Replaces: tor (<< 0.2.4.8)
+Depends: tor (>= 0.4.9.14-1~d12.bookworm+1)
+Breaks: tor (<< 0.2.4.8)
+Description: GeoIP database for Tor
+ This package provides a GeoIP database for Tor, i.e. it maps IPv4 addresses
+ to countries.
+ .
+ Bridge relays (special Tor relays that aren't listed in the main Tor
+ directory) use this information to report which countries they see
+ connections from.  These statistics enable the Tor network operators to
+ learn when certain countries start blocking access to bridges.
+ .
+ Clients can also use this to learn what country each relay is in, so
+ Tor controllers like arm or Vidalia can use it, or if they want to
+ configure path selection preferences.
 Homepage: https://www.torproject.org/
 
 Package: tzdata

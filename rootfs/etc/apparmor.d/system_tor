@@ -20,6 +20,12 @@ profile system_tor flags=(attach_disconnected) {
   /{,var/}run/tor/control.authcookie.tmp rw,
   /{,var/}run/systemd/notify w,
 
+  # Attached to / by attach_disconnected; once we can start requiring
+  # AppArmor 4.0 or newer, we should instead use attach_disconnected.path
+  # and adjust these rules accordingly.
+  /systemd/journal/dev-log w,
+  /systemd/notify w,
+
   # Site-specific additions and overrides. See local/README for details.
   #include <local/system_tor>
 }
