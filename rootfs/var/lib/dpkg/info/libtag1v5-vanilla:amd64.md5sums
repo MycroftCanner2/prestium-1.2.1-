@@ -1,5 +1,5 @@
-ece7a6cff32c3dbeab290f7d3420a27e  usr/lib/x86_64-linux-gnu/libtag.so.1.17.0
-a91e2f1c9be8da66cc279582e28debff  usr/share/doc/libtag1v5-vanilla/changelog.Debian.gz
-cf64a8b828a9eee77315a126a0260fb3  usr/share/doc/libtag1v5-vanilla/changelog.gz
-0a1aa41e90d6b4affb0757c0c3ef4bac  usr/share/doc/libtag1v5-vanilla/copyright
+47e1a53eaaab7b01d7083ae711ed84dd  usr/lib/x86_64-linux-gnu/libtag.so.1.19.0
+2438a2fbb8d302bdc061d505bb49f8b2  usr/share/doc/libtag1v5-vanilla/changelog.Debian.gz
+739e33de95c85ca62bb42c6971d82ec1  usr/share/doc/libtag1v5-vanilla/changelog.gz
+ad191af12889e7d0465239b4ecd124e8  usr/share/doc/libtag1v5-vanilla/copyright
 111a3586eb1c3e407009bbbfb449d0ab  usr/share/lintian/overrides/libtag1v5-vanilla

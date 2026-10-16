@@ -1,4 +1,5 @@
-6e7becd2431d4e627f885d93bec16f20  usr/lib/libreoffice/program/libuno_cppu.so.3
-ae6ef6f007f8575e5abf599a5d4247fd  usr/share/bug/libuno-cppu3/presubj
-2a492270133b9e574c8aa3310b3572f7  usr/share/doc/libuno-cppu3/changelog.Debian.gz
-f2e2355707043e25176789df0d59e18a  usr/share/doc/libuno-cppu3/copyright
+dc8bc2b79f24bf865e1a3b89157da4d5  usr/lib/libreoffice/program/libuno_cppu.so.3
+7ab413e7638e0bf31a8ce0bf3b910ba8  usr/share/bug/libuno-cppu3/presubj
+3e2bd1ae6747ad410a8cfda4a4dc458b  usr/share/doc/libuno-cppu3/changelog.Debian.gz
+3813907d8d86591fc9b8dd90da5209e0  usr/share/doc/libuno-cppu3/copyright
+4d73426524191fc2a7617f3e76678d7d  usr/share/lintian/overrides/libuno-cppu3

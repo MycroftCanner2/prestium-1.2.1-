@@ -1,6 +1,7 @@
-d4871e1244c3efca4aa834b660baee6f  usr/lib/x86_64-linux-gnu/libv4lconvert.so.0.0.0
-7cf3d66298cbe55f67a4bccd4725b40c  usr/lib/x86_64-linux-gnu/libv4lconvert0/ov511-decomp
-a35872838e82e4e79530427e40ebb6a6  usr/lib/x86_64-linux-gnu/libv4lconvert0/ov518-decomp
-569641004662b73809a94b2007f3264b  usr/share/doc/libv4lconvert0/changelog.Debian.gz
-3c6dccf470928355cc948b6a1bad6f32  usr/share/doc/libv4lconvert0/changelog.gz
-f5e022ccf3e8c47d818a0f45f91e8788  usr/share/doc/libv4lconvert0/copyright
+84119a0e43156cc6aaf95fd0b9de4f1b  usr/lib/x86_64-linux-gnu/libv4lconvert.so.0.0.0
+2109b00820f1f6d9287167cb5bd8a89c  usr/lib/x86_64-linux-gnu/libv4lconvert0/ov511-decomp
+6f35ed0d7fa6c6e7011630d2675c6e55  usr/lib/x86_64-linux-gnu/libv4lconvert0/ov518-decomp
+faa0fc6b550b411b149f1d68e160381f  usr/share/doc/libv4lconvert0/changelog.Debian.amd64.gz
+950cb201879783f6cd982968bf9dd2ad  usr/share/doc/libv4lconvert0/changelog.Debian.gz
+baaecf4d31d4cffe1162612dacd10a4b  usr/share/doc/libv4lconvert0/changelog.gz
+a3d7cf81db27570fd3e43f16b3711fc3  usr/share/doc/libv4lconvert0/copyright

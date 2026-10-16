@@ -55,7 +55,9 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib10FileStream8truncateEl@Base 1.9.1-2.2~
  _ZN6TagLib10FileStream9readBlockEm@Base 1.9.1-2.2~
  _ZN6TagLib10FileStreamC1EPKcb@Base 1.9.1-2.2~
+ _ZN6TagLib10FileStreamC1Eib@Base 1.12~beta~1
  _ZN6TagLib10FileStreamC2EPKcb@Base 1.9.1-2.2~
+ _ZN6TagLib10FileStreamC2Eib@Base 1.12~beta~1
  _ZN6TagLib10FileStreamD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib10FileStreamD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib10FileStreamD2Ev@Base 1.9.1-2.2~
@@ -223,6 +225,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3APE3TagD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib3APE3TagD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib3APE3TagD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib3APE4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib3APE4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib3APE4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib3APE4File4readEb@Base 1.11
@@ -329,6 +332,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3ASF4File11FilePrivate24ContentDescriptionObject6renderEPS1_@Base 1.11
  _ZN6TagLib3ASF4File11FilePrivate32ExtendedContentDescriptionObject5parseEPS1_j@Base 1.11
  _ZN6TagLib3ASF4File11FilePrivate32ExtendedContentDescriptionObject6renderEPS1_@Base 1.11
+ _ZN6TagLib3ASF4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib3ASF4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib3ASF4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib3ASF4File4readEv@Base 1.11
@@ -391,6 +395,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3MP43Tag10removeItemERKNS_6StringE@Base 1.11
  _ZN6TagLib3MP43Tag10setCommentERKNS_6StringE@Base 1.9.1-2.2~
  _ZN6TagLib3MP43Tag11itemListMapEv@Base 1.9.1-2.2~
+ _ZN6TagLib3MP43Tag11setTextItemERKNS_6StringES4_@Base 1.12
  _ZN6TagLib3MP43Tag12parseIntPairEPKNS0_4AtomE@Base 1.11
  _ZN6TagLib3MP43Tag12saveExistingENS_10ByteVectorERKNS_4ListIPNS0_4AtomEEE@Base 1.11
  _ZN6TagLib3MP43Tag13parseFreeFormEPKNS0_4AtomE@Base 1.11
@@ -400,6 +405,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3MP43Tag13updateParentsERKNS_4ListIPNS0_4AtomEEEli@Base 1.11
  _ZN6TagLib3MP43Tag27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib3MP43Tag4saveEv@Base 1.9.1-2.2~
+ _ZN6TagLib3MP43Tag5stripEv@Base 1.13
  _ZN6TagLib3MP43Tag7addItemERKNS_6StringERKNS0_4ItemE@Base 1.9.1-2.2~
  _ZN6TagLib3MP43Tag7saveNewENS_10ByteVectorE@Base 1.11
  _ZN6TagLib3MP43Tag7setItemERKNS_6StringERKNS0_4ItemE@Base 1.11
@@ -424,10 +430,20 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3MP43TagD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib3MP43TagD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib3MP43TagD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib3MP44Atom10containersE@Base 1.13
+ _ZN6TagLib3MP44Atom4findEPKcS3_S3_S3_@Base 1.13
+ _ZN6TagLib3MP44Atom4pathERNS_4ListIPS1_EEPKcS7_S7_@Base 1.13
+ _ZN6TagLib3MP44Atom7findallEPKcb@Base 1.13
+ _ZN6TagLib3MP44AtomC1EPNS_4FileE@Base 1.13
+ _ZN6TagLib3MP44AtomC2EPNS_4FileE@Base 1.13
+ _ZN6TagLib3MP44AtomD1Ev@Base 1.13
+ _ZN6TagLib3MP44AtomD2Ev@Base 1.13
+ _ZN6TagLib3MP44File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib3MP44File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib3MP44File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib3MP44File4readEb@Base 1.11
  _ZN6TagLib3MP44File4saveEv@Base 1.9.1-2.2~
+ _ZN6TagLib3MP44File5stripEi@Base 1.13
  _ZN6TagLib3MP44FileC1EPKcbNS_15AudioProperties9ReadStyleE@Base 1.9.1-2.2~
  _ZN6TagLib3MP44FileC1EPNS_8IOStreamEbNS_15AudioProperties9ReadStyleE@Base 1.9.1-2.2~
  _ZN6TagLib3MP44FileC2EPKcbNS_15AudioProperties9ReadStyleE@Base 1.9.1-2.2~
@@ -462,6 +478,12 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3MP44ItemD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib3MP44ItemD2Ev@Base 1.9.1-2.2~
  _ZN6TagLib3MP44ItemaSERKS1_@Base 1.9.1-2.2~
+ _ZN6TagLib3MP45Atoms4findEPKcS3_S3_S3_@Base 1.13
+ _ZN6TagLib3MP45Atoms4pathEPKcS3_S3_S3_@Base 1.13
+ _ZN6TagLib3MP45AtomsC1EPNS_4FileE@Base 1.13
+ _ZN6TagLib3MP45AtomsC2EPNS_4FileE@Base 1.13
+ _ZN6TagLib3MP45AtomsD1Ev@Base 1.13
+ _ZN6TagLib3MP45AtomsD2Ev@Base 1.13
  _ZN6TagLib3MP48CoverArt4swapERS1_@Base 1.11
  _ZN6TagLib3MP48CoverArtC1ENS1_6FormatERKNS_10ByteVectorE@Base 1.9.1-2.2~
  _ZN6TagLib3MP48CoverArtC1ERKS1_@Base 1.9.1-2.2~
@@ -479,6 +501,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3MPC10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib3MPC10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib3MPC10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib3MPC4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib3MPC4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib3MPC4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib3MPC4File4readEb@Base 1.11
@@ -582,6 +605,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3Ogg11XiphCommentD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg11XiphCommentD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg11XiphCommentD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib3Ogg4FLAC4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib3Ogg4FLAC4File12streamLengthEv@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg4FLAC4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg4FLAC4File14streamInfoDataEv@Base 1.9.1-2.2~
@@ -616,6 +640,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3Ogg4Opus10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg4Opus10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg4Opus10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib3Ogg4Opus4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib3Ogg4Opus4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg4Opus4File4readEb@Base 1.11
  _ZN6TagLib3Ogg4Opus4File4saveEv@Base 1.9.1-2.2~
@@ -643,6 +668,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib3Ogg5Speex10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg5Speex10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg5Speex10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib3Ogg5Speex4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib3Ogg5Speex4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib3Ogg5Speex4File4readEb@Base 1.11
  _ZN6TagLib3Ogg5Speex4File4saveEv@Base 1.9.1-2.2~
@@ -709,6 +735,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib4FLAC20UnknownMetadataBlockD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib4FLAC20UnknownMetadataBlockD2Ev@Base 1.9.1-2.2~
  _ZN6TagLib4FLAC4File10addPictureEPNS0_7PictureE@Base 1.9.1-2.2~
+ _ZN6TagLib4FLAC4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib4FLAC4File11pictureListEv@Base 1.9.1-2.2~
  _ZN6TagLib4FLAC4File11xiphCommentEb@Base 1.9.1-2.2~
  _ZN6TagLib4FLAC4File12streamLengthEv@Base 1.9.1-2.2~
@@ -753,8 +780,6 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib4File10isReadableEPKc@Base 1.9.1-2.2~
  _ZN6TagLib4File10isWritableEPKc@Base 1.9.1-2.2~
  _ZN6TagLib4File10writeBlockERKNS_10ByteVectorE@Base 1.9.1-2.2~
- _ZN6TagLib4File11FilePrivateC1EPNS_8IOStreamEb@Base 1.9.1-2.2~
- _ZN6TagLib4File11FilePrivateC2EPNS_8IOStreamEb@Base 1.9.1-2.2~
  _ZN6TagLib4File11removeBlockEmm@Base 1.9.1-2.2~
  _ZN6TagLib4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
@@ -787,6 +812,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib4MPEG10XingHeaderD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib4MPEG10XingHeaderD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib4MPEG10XingHeaderD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib4MPEG4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib4MPEG4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib4MPEG4File15lastFrameOffsetEv@Base 1.9.1-2.2~
  _ZN6TagLib4MPEG4File15nextFrameOffsetEl@Base 1.9.1-2.2~
@@ -796,6 +822,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib4MPEG4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib4MPEG4File4readEb@Base 1.11
  _ZN6TagLib4MPEG4File4saveEi@Base 1.9.1-2.2~
+ _ZN6TagLib4MPEG4File4saveEiNS_4File9StripTagsENS_5ID3v27VersionENS2_13DuplicateTagsE@Base 1.12~beta~1
  _ZN6TagLib4MPEG4File4saveEib@Base 1.9.1-2.2~
  _ZN6TagLib4MPEG4File4saveEibi@Base 1.9.1-2.2~
  _ZN6TagLib4MPEG4File4saveEibib@Base 1.9.1-2.2~
@@ -836,10 +863,12 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib4RIFF3WAV10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF3WAV10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF3WAV10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib4RIFF3WAV4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib4RIFF3WAV4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF3WAV4File15removeTagChunksENS2_8TagTypesE@Base 1.11
  _ZN6TagLib4RIFF3WAV4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF3WAV4File4readEb@Base 1.11
+ _ZN6TagLib4RIFF3WAV4File4saveENS2_8TagTypesENS_4File9StripTagsENS_5ID3v27VersionE@Base 1.12~beta~1
  _ZN6TagLib4RIFF3WAV4File4saveENS2_8TagTypesEbi@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF3WAV4File4saveEv@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF3WAV4File5stripENS2_8TagTypesE@Base 1.9.1-2.2~
@@ -858,9 +887,11 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib4RIFF4AIFF10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4AIFF10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4AIFF10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib4RIFF4AIFF4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib4RIFF4AIFF4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4AIFF4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4AIFF4File4readEb@Base 1.11
+ _ZN6TagLib4RIFF4AIFF4File4saveENS_5ID3v27VersionE@Base 1.12~beta~1
  _ZN6TagLib4RIFF4AIFF4File4saveEv@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4AIFF4FileC1EPKcbNS_15AudioProperties9ReadStyleE@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4AIFF4FileC1EPNS_8IOStreamEbNS_15AudioProperties9ReadStyleE@Base 1.9.1-2.2~
@@ -907,6 +938,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib4RIFF4Info3TagD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4Info3TagD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib4RIFF4Info3TagD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib4zlib11isAvailableEv@Base 1.13
  _ZN6TagLib5ID3v110genreIndexERKNS_6StringE@Base 1.9.1-2.2~
  _ZN6TagLib5ID3v113StringHandlerC1Ev@Base 1.9.1-2.2~
  _ZN6TagLib5ID3v113StringHandlerC2Ev@Base 1.9.1-2.2~
@@ -1359,6 +1391,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib6Vorbis10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib6Vorbis10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib6Vorbis10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib6Vorbis4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib6Vorbis4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib6Vorbis4File4readEb@Base 1.11
  _ZN6TagLib6Vorbis4File4saveEv@Base 1.9.1-2.2~
@@ -1373,6 +1406,8 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib7FileRef21defaultFileExtensionsEv@Base 1.9.1-2.2~
  _ZN6TagLib7FileRef4saveEv@Base 1.9.1-2.2~
  _ZN6TagLib7FileRef4swapERS0_@Base 1.11
+ _ZN6TagLib7FileRef5parseEPKcbNS_15AudioProperties9ReadStyleE@Base 1.12~beta~1
+ _ZN6TagLib7FileRef5parseEPNS_8IOStreamEbNS_15AudioProperties9ReadStyleE@Base 1.12~beta~1
  _ZN6TagLib7FileRef6createEPKcbNS_15AudioProperties9ReadStyleE@Base 1.9.1-2.2~
  _ZN6TagLib7FileRefC1EPKcbNS_15AudioProperties9ReadStyleE@Base 1.9.1-2.2~
  _ZN6TagLib7FileRefC1EPNS_4FileE@Base 1.9.1-2.2~
@@ -1397,6 +1432,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib7WavPack10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib7WavPack10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib7WavPack10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib7WavPack4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib7WavPack4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib7WavPack4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
  _ZN6TagLib7WavPack4File4readEb@Base 1.11
@@ -1423,6 +1459,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZN6TagLib9TrueAudio10PropertiesD0Ev@Base 1.9.1-2.2~
  _ZN6TagLib9TrueAudio10PropertiesD1Ev@Base 1.9.1-2.2~
  _ZN6TagLib9TrueAudio10PropertiesD2Ev@Base 1.9.1-2.2~
+ _ZN6TagLib9TrueAudio4File11isSupportedEPNS_8IOStreamE@Base 1.12~beta~1
  _ZN6TagLib9TrueAudio4File13setPropertiesERKNS_11PropertyMapE@Base 1.9.1-2.2~
  _ZN6TagLib9TrueAudio4File20setID3v2FrameFactoryEPKNS_5ID3v212FrameFactoryE@Base 1.9.1-2.2~
  _ZN6TagLib9TrueAudio4File27removeUnsupportedPropertiesERKNS_10StringListE@Base 1.9.1-2.2~
@@ -1493,6 +1530,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZNK6TagLib10StringList8toStringERKNS_6StringE@Base 1.9.1-2.2~
  _ZNK6TagLib11PropertyMap15unsupportedDataEv@Base 1.9.1-2.2~
  _ZNK6TagLib11PropertyMap4findERKNS_6StringE@Base 1.9.1-2.2~
+ _ZNK6TagLib11PropertyMap5valueERKNS_6StringERKNS_10StringListE@Base 1.13
  _ZNK6TagLib11PropertyMap8containsERKNS_6StringE@Base 1.9.1-2.2~
  _ZNK6TagLib11PropertyMap8containsERKS0_@Base 1.9.1-2.2~
  _ZNK6TagLib11PropertyMap8toStringEv@Base 1.9.1-2.2~
@@ -1970,12 +2008,14 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZNK6TagLib5ID3v212ChapterFrame9elementIDEv@Base 1.11
  _ZNK6TagLib5ID3v212ChapterFrame9endOffsetEv@Base 1.11
  _ZNK6TagLib5ID3v212ChapterFrame9startTimeEv@Base 1.11
+ _ZNK6TagLib5ID3v212FrameFactory11createFrameERKNS_10ByteVectorEPKNS0_6HeaderE@Base 1.12~beta~1
  _ZNK6TagLib5ID3v212FrameFactory11createFrameERKNS_10ByteVectorEPNS0_6HeaderE@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v212FrameFactory11createFrameERKNS_10ByteVectorEb@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v212FrameFactory11createFrameERKNS_10ByteVectorEj@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v212FrameFactory11updateFrameEPNS0_5Frame6HeaderE@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v212FrameFactory19defaultTextEncodingEv@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v212FrameFactory22rebuildAggregateFramesEPNS0_3TagE@Base 1.11
+ _ZNK6TagLib5ID3v212PodcastFrame12asPropertiesEv@Base 1.12
  _ZNK6TagLib5ID3v212PodcastFrame12renderFieldsEv@Base 1.11
  _ZNK6TagLib5ID3v212PodcastFrame8toStringEv@Base 1.11
  _ZNK6TagLib5ID3v212PrivateFrame12renderFieldsEv@Base 1.9.1-2.2~
@@ -2097,6 +2137,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZNK6TagLib5ID3v23Tag6artistEv@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v23Tag6footerEv@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v23Tag6headerEv@Base 1.9.1-2.2~
+ _ZNK6TagLib5ID3v23Tag6renderENS0_7VersionE@Base 1.12~beta~1
  _ZNK6TagLib5ID3v23Tag6renderEi@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v23Tag6renderEv@Base 1.9.1-2.2~
  _ZNK6TagLib5ID3v23Tag7commentEv@Base 1.9.1-2.2~
@@ -2212,36 +2253,6 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZNK6TagLib9TrueAudio4File11hasID3v2TagEv@Base 1.9.1-2.2~
  _ZNK6TagLib9TrueAudio4File15audioPropertiesEv@Base 1.9.1-2.2~
  _ZNK6TagLib9TrueAudio4File3tagEv@Base 1.9.1-2.2~
- _ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc@Base 1.9.1-2.2~
- _ZNSt6vectorIcSaIcEE17_M_default_appendEm@Base 1.11.1+dfsg.1
- _ZNSt7__cxx1110_List_baseIN6TagLib10ByteVectorESaIS2_EE8_M_clearEv@Base 1.9.1-2.2~
- _ZNSt7__cxx1110_List_baseIN6TagLib6StringESaIS2_EE8_M_clearEv@Base 1.9.1-2.2~
- _ZNSt7__cxx114listIN6TagLib10ByteVectorESaIS2_EE6insertISt20_List_const_iteratorIS2_EvEESt14_List_iteratorIS2_ES7_T_SA_@Base 1.11.1+dfsg.1-3~
- _ZNSt7__cxx114listIN6TagLib6StringESaIS2_EE6insertISt20_List_const_iteratorIS2_EvEESt14_List_iteratorIS2_ES7_T_SA_@Base 1.11.1+dfsg.1-3~
- _ZNSt8_Rb_treeIKN6TagLib6StringESt4pairIS2_NS0_3APE4ItemEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE11equal_rangeERS2_@Base 1.11
- _ZNSt8_Rb_treeIKN6TagLib6StringESt4pairIS2_NS0_3APE4ItemEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE24_M_get_insert_unique_posERS2_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIKN6TagLib6StringESt4pairIS2_NS0_3APE4ItemEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS2_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIKN6TagLib6StringESt4pairIS2_NS0_3APE4ItemEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE4findERS2_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib10ByteVectorESt4pairIKS1_NS0_6StringEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE11equal_rangeERS3_@Base 1.11
- _ZNSt8_Rb_treeIN6TagLib10ByteVectorESt4pairIKS1_NS0_6StringEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE24_M_get_insert_unique_posERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib10ByteVectorESt4pairIKS1_NS0_6StringEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib10ByteVectorESt4pairIKS1_NS0_6StringEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_10StringListEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE11equal_rangeERS3_@Base 1.11
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_10StringListEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_@Base 1.11.1+dfsg.1-3~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_10StringListEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE24_M_get_insert_unique_posERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_10StringListEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_10StringListEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_3MP44ItemEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE11equal_rangeERS3_@Base 1.11
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_3MP44ItemEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS6_ESE_@Base 1.11.1+dfsg.1-3~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_3MP44ItemEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE24_M_get_insert_unique_posERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_3MP44ItemEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_NS0_3MP44ItemEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE4findERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_@Base 1.9.1-2.2~
- _ZNSt8_Rb_treeIN6TagLib6StringESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_@Base 1.11.1+dfsg.1
- _ZNSt8_Rb_treeIjSt4pairIKjN6TagLib10ByteVectorEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_@Base 1.11
- _ZNSt8_Rb_treeIjSt4pairIKjN6TagLib10ByteVectorEESt10_Select1stIS4_ESt4lessIjESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_@Base 1.11
  _ZTIN6TagLib10ByteVectorE@Base 1.9.1-2.2~
  _ZTIN6TagLib10FileStreamE@Base 1.9.1-2.2~
  _ZTIN6TagLib10RefCounterE@Base 1.9.1-2.2~
@@ -2273,15 +2284,11 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTIN6TagLib3ASF4File11FilePrivate24ContentDescriptionObjectE@Base 1.11
  _ZTIN6TagLib3ASF4File11FilePrivate32ExtendedContentDescriptionObjectE@Base 1.11
  _ZTIN6TagLib3ASF4FileE@Base 1.9.1-2.2~
- _ZTIN6TagLib3ASF7Picture14PicturePrivateE@Base 1.9.1-2.2~
  _ZTIN6TagLib3ASF7PictureE@Base 1.9.1-2.2~
- _ZTIN6TagLib3ASF9Attribute16AttributePrivateE@Base 1.9.1-2.2~
  _ZTIN6TagLib3ASF9AttributeE@Base 1.9.1-2.2~
  _ZTIN6TagLib3MP410PropertiesE@Base 1.9.1-2.2~
  _ZTIN6TagLib3MP43TagE@Base 1.9.1-2.2~
  _ZTIN6TagLib3MP44FileE@Base 1.9.1-2.2~
- _ZTIN6TagLib3MP44Item11ItemPrivateE@Base 1.9.1-2.2~
- _ZTIN6TagLib3MP48CoverArt15CoverArtPrivateE@Base 1.9.1-2.2~
  _ZTIN6TagLib3MPC10PropertiesE@Base 1.9.1-2.2~
  _ZTIN6TagLib3MPC4FileE@Base 1.9.1-2.2~
  _ZTIN6TagLib3Mod10PropertiesE@Base 1.9.1-2.2~
@@ -2309,7 +2316,6 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTIN6TagLib4MPEG10PropertiesE@Base 1.9.1-2.2~
  _ZTIN6TagLib4MPEG10XingHeaderE@Base 1.9.1-2.2~
  _ZTIN6TagLib4MPEG4FileE@Base 1.9.1-2.2~
- _ZTIN6TagLib4MPEG6Header13HeaderPrivateE@Base 1.9.1-2.2~
  _ZTIN6TagLib4MPEG6HeaderE@Base 1.9.1-2.2~
  _ZTIN6TagLib4RIFF3WAV10PropertiesE@Base 1.9.1-2.2~
  _ZTIN6TagLib4RIFF3WAV4FileE@Base 1.9.1-2.2~
@@ -2348,11 +2354,11 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTIN6TagLib5ID3v25FrameE@Base 1.9.1-2.2~
  _ZTIN6TagLib5ID3v26FooterE@Base 1.9.1-2.2~
  _ZTIN6TagLib5ID3v26HeaderE@Base 1.9.1-2.2~
- _ZTIN6TagLib6String13StringPrivateE@Base 1.9.1-2.2~
  _ZTIN6TagLib6StringE@Base 1.9.1-2.2~
  _ZTIN6TagLib6Vorbis10PropertiesE@Base 1.9.1-2.2~
  _ZTIN6TagLib6Vorbis4FileE@Base 1.9.1-2.2~
- _ZTIN6TagLib7FileRef14FileRefPrivateE@Base 1.9.1-2.2~
+ _ZTIN6TagLib7FileRef16FileTypeResolverE@Base 1.13
+ _ZTIN6TagLib7FileRef18StreamTypeResolverE@Base 1.13
  _ZTIN6TagLib7FileRefE@Base 1.9.1-2.2~
  _ZTIN6TagLib7WavPack10PropertiesE@Base 1.9.1-2.2~
  _ZTIN6TagLib7WavPack4FileE@Base 1.9.1-2.2~
@@ -2470,6 +2476,8 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTSN6TagLib6Vorbis10PropertiesE@Base 1.9.1-2.2~
  _ZTSN6TagLib6Vorbis4FileE@Base 1.9.1-2.2~
  _ZTSN6TagLib7FileRef14FileRefPrivateE@Base 1.9.1-2.2~
+ _ZTSN6TagLib7FileRef16FileTypeResolverE@Base 1.13
+ _ZTSN6TagLib7FileRef18StreamTypeResolverE@Base 1.13
  _ZTSN6TagLib7FileRefE@Base 1.9.1-2.2~
  _ZTSN6TagLib7WavPack10PropertiesE@Base 1.9.1-2.2~
  _ZTSN6TagLib7WavPack4FileE@Base 1.9.1-2.2~
@@ -2507,21 +2515,16 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTVN6TagLib3ASF4File11FilePrivate24ContentDescriptionObjectE@Base 1.11
  _ZTVN6TagLib3ASF4File11FilePrivate32ExtendedContentDescriptionObjectE@Base 1.11
  _ZTVN6TagLib3ASF4FileE@Base 1.9.1-2.2~
- _ZTVN6TagLib3ASF7Picture14PicturePrivateE@Base 1.9.1-2.2~
  _ZTVN6TagLib3ASF7PictureE@Base 1.9.1-2.2~
- _ZTVN6TagLib3ASF9Attribute16AttributePrivateE@Base 1.9.1-2.2~
  _ZTVN6TagLib3ASF9AttributeE@Base 1.9.1-2.2~
  _ZTVN6TagLib3MP410PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib3MP43TagE@Base 1.9.1-2.2~
  _ZTVN6TagLib3MP44FileE@Base 1.9.1-2.2~
- _ZTVN6TagLib3MP44Item11ItemPrivateE@Base 1.9.1-2.2~
- _ZTVN6TagLib3MP48CoverArt15CoverArtPrivateE@Base 1.9.1-2.2~
  _ZTVN6TagLib3MPC10PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib3MPC4FileE@Base 1.9.1-2.2~
  _ZTVN6TagLib3Mod10PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib3Mod3TagE@Base 1.9.1-2.2~
  _ZTVN6TagLib3Mod4FileE@Base 1.9.1-2.2~
- _ZTVN6TagLib3Mod8FileBaseE@Base 1.9.1-2.2~
  _ZTVN6TagLib3Ogg10PageHeaderE@Base 1.9.1-2.2~
  _ZTVN6TagLib3Ogg11XiphCommentE@Base 1.9.1-2.2~
  _ZTVN6TagLib3Ogg4FLAC4FileE@Base 1.9.1-2.2~
@@ -2543,7 +2546,6 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTVN6TagLib4MPEG10PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib4MPEG10XingHeaderE@Base 1.9.1-2.2~
  _ZTVN6TagLib4MPEG4FileE@Base 1.9.1-2.2~
- _ZTVN6TagLib4MPEG6Header13HeaderPrivateE@Base 1.9.1-2.2~
  _ZTVN6TagLib4MPEG6HeaderE@Base 1.9.1-2.2~
  _ZTVN6TagLib4RIFF3WAV10PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib4RIFF3WAV4FileE@Base 1.9.1-2.2~
@@ -2582,11 +2584,9 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTVN6TagLib5ID3v25FrameE@Base 1.9.1-2.2~
  _ZTVN6TagLib5ID3v26FooterE@Base 1.9.1-2.2~
  _ZTVN6TagLib5ID3v26HeaderE@Base 1.9.1-2.2~
- _ZTVN6TagLib6String13StringPrivateE@Base 1.9.1-2.2~
  _ZTVN6TagLib6StringE@Base 1.9.1-2.2~
  _ZTVN6TagLib6Vorbis10PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib6Vorbis4FileE@Base 1.9.1-2.2~
- _ZTVN6TagLib7FileRef14FileRefPrivateE@Base 1.9.1-2.2~
  _ZTVN6TagLib7FileRefE@Base 1.9.1-2.2~
  _ZTVN6TagLib7WavPack10PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib7WavPack4FileE@Base 1.9.1-2.2~
@@ -2594,6 +2594,7 @@ libtag.so.1 libtag1v5 #MINVER#
  _ZTVN6TagLib9TrueAudio10PropertiesE@Base 1.9.1-2.2~
  _ZTVN6TagLib9TrueAudio4FileE@Base 1.9.1-2.2~
  _ZlsRSoRKN6TagLib10ByteVectorE@Base 1.9.1-2.2~
+ _ZlsRSoRKN6TagLib10StringListE@Base 1.13
  _ZlsRSoRKN6TagLib6StringE@Base 1.9.1-2.2~
  _ZplPKcRKN6TagLib6StringE@Base 1.9.1-2.2~
  _ZplRKN6TagLib6StringEPKc@Base 1.9.1-2.2~

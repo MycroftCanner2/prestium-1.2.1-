@@ -12,6 +12,9 @@ libubsan.so.1 libubsan1 #MINVER#
  __asan_backtrace_qsort@Base 4.9
  __asan_backtrace_release_view@Base 4.9
  __asan_backtrace_syminfo@Base 4.9
+ __asan_backtrace_syminfo_to_full_callback@Base 11
+ __asan_backtrace_syminfo_to_full_error_callback@Base 11
+ __asan_backtrace_uncompress_lzma@Base 11
  __asan_backtrace_uncompress_zdebug@Base 8
  __asan_backtrace_vector_finish@Base 4.9
  __asan_backtrace_vector_grow@Base 4.9
@@ -44,6 +47,7 @@ libubsan.so.1 libubsan1 #MINVER#
  __sancov_lowest_stack@Base 8
  __sanitizer_acquire_crash_state@Base 9
  __sanitizer_cov_8bit_counters_init@Base 8
+ __sanitizer_cov_bool_flag_init@Base 11
  __sanitizer_cov_dump@Base 4.9
  __sanitizer_cov_pcs_init@Base 8
  __sanitizer_cov_reset@Base 8
@@ -66,6 +70,7 @@ libubsan.so.1 libubsan1 #MINVER#
  __sanitizer_dump_coverage@Base 8
  __sanitizer_dump_trace_pc_guard_coverage@Base 8
  __sanitizer_get_module_and_offset_for_pc@Base 8
+ __sanitizer_get_report_path@Base 12
  __sanitizer_install_malloc_and_free_hooks@Base 7
  __sanitizer_on_print@Base 10
  __sanitizer_report_error_summary@Base 4.9
@@ -99,6 +104,8 @@ libubsan.so.1 libubsan1 #MINVER#
  __ubsan_handle_implicit_conversion_abort@Base 9
  __ubsan_handle_invalid_builtin@Base 8
  __ubsan_handle_invalid_builtin_abort@Base 8
+ __ubsan_handle_invalid_objc_cast@Base 11
+ __ubsan_handle_invalid_objc_cast_abort@Base 11
  __ubsan_handle_load_invalid_value@Base 4.9
  __ubsan_handle_load_invalid_value_abort@Base 4.9
  __ubsan_handle_missing_return@Base 4.9

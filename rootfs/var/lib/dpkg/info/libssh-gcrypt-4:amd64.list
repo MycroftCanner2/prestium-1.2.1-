@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libssh-gcrypt.so.4.8.6
+/usr/lib/x86_64-linux-gnu/libssh-gcrypt.so.4.9.6
 /usr/share
 /usr/share/doc
 /usr/share/doc/libssh-gcrypt-4

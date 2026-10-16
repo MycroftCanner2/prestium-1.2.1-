@@ -46,6 +46,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libtirpc-dev
+/usr/share/doc/libtirpc-dev/NEWS.Debian.gz
 /usr/share/doc/libtirpc-dev/THANKS
 /usr/share/doc/libtirpc-dev/TODO
 /usr/share/doc/libtirpc-dev/changelog.Debian.gz

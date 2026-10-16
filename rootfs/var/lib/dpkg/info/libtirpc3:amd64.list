@@ -6,6 +6,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libtirpc3
+/usr/share/doc/libtirpc3/NEWS.Debian.gz
 /usr/share/doc/libtirpc3/changelog.Debian.gz
 /usr/share/doc/libtirpc3/changelog.gz
 /usr/share/doc/libtirpc3/copyright

@@ -1,4 +1,5 @@
 libsndfile.so.1 libsndfile1 (>= 1.0.20)
+* Build-Depends-Package: libsndfile1-dev
  libsndfile.so.1.0@libsndfile.so.1.0 1.0.20
  sf_close@libsndfile.so.1.0 1.0.20
  sf_command@libsndfile.so.1.0 1.0.20

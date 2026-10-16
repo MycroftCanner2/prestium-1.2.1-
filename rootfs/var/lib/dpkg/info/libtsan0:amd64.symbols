@@ -78,6 +78,9 @@ libtsan.so.0 libtsan0 #MINVER#
  __asan_backtrace_qsort@Base 4.9
  __asan_backtrace_release_view@Base 4.9
  __asan_backtrace_syminfo@Base 4.9
+ __asan_backtrace_syminfo_to_full_callback@Base 11
+ __asan_backtrace_syminfo_to_full_error_callback@Base 11
+ __asan_backtrace_uncompress_lzma@Base 11
  __asan_backtrace_uncompress_zdebug@Base 8
  __asan_backtrace_vector_finish@Base 4.9
  __asan_backtrace_vector_grow@Base 4.9
@@ -184,6 +187,7 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_capget@Base 5
  __interceptor_capset@Base 5
  __interceptor_cfree@Base 4.9
+ __interceptor_clock_getcpuclockid@Base 11
  __interceptor_clock_getres@Base 4.9
  __interceptor_clock_gettime@Base 4.9
  __interceptor_clock_settime@Base 4.9
@@ -283,6 +287,12 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_getnameinfo@Base 5
  __interceptor_getpass@Base 5
  __interceptor_getpeername@Base 4.9
+ __interceptor_getprotobyname@Base 11
+ __interceptor_getprotobyname_r@Base 11
+ __interceptor_getprotobynumber@Base 11
+ __interceptor_getprotobynumber_r@Base 11
+ __interceptor_getprotoent@Base 11
+ __interceptor_getprotoent_r@Base 11
  __interceptor_getpwent@Base 10
  __interceptor_getpwent_r@Base 10
  __interceptor_getpwnam@Base 10
@@ -358,6 +368,8 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_modfl@Base 4.9
  __interceptor_mprobe@Base 8
  __interceptor_mprotect@Base 9
+ __interceptor_msgrcv@Base 11
+ __interceptor_msgsnd@Base 11
  __interceptor_munlock@Base 4.9
  __interceptor_munlockall@Base 4.9
  __interceptor_munmap@Base 4.9
@@ -450,6 +462,8 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_pthread_timedjoin_np@Base 10
  __interceptor_pthread_tryjoin_np@Base 10
  __interceptor_ptrace@Base 4.9
+ __interceptor_ptsname@Base 11
+ __interceptor_ptsname_r@Base 11
  __interceptor_puts@Base 4.9
  __interceptor_pututxline@Base 10
  __interceptor_pvalloc@Base 4.9
@@ -457,6 +471,8 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_pwrite@Base 4.9
  __interceptor_pwritev64@Base 4.9
  __interceptor_pwritev@Base 4.9
+ __interceptor_qsort@Base 11
+ __interceptor_qsort_r@Base 11
  __interceptor_raise@Base 4.9
  __interceptor_rand_r@Base 5
  __interceptor_random_r@Base 4.9
@@ -510,12 +526,15 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_setvbuf@Base 10
  __interceptor_shmctl@Base 4.9
  __interceptor_sigaction@Base 4.9
+ __interceptor_sigaltstack@Base 11
+ __interceptor_sigandset@Base 11
  __interceptor_sigblock@Base 7
  __interceptor_sigemptyset@Base 4.9
  __interceptor_sigfillset@Base 4.9
  __interceptor_siglongjmp@Base 4.9
  __interceptor_signal@Base 4.9
  __interceptor_signalfd@Base 4.9
+ __interceptor_sigorset@Base 11
  __interceptor_sigpending@Base 4.9
  __interceptor_sigprocmask@Base 4.9
  __interceptor_sigsetjmp@Base 4.9
@@ -578,6 +597,7 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_tsearch@Base 5
  __interceptor_ttyname@Base 10
  __interceptor_ttyname_r@Base 7
+ __interceptor_uname@Base 11
  __interceptor_unlink@Base 4.9
  __interceptor_usleep@Base 4.9
  __interceptor_valloc@Base 4.9
@@ -613,6 +633,7 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_xdr_bool@Base 5
  __interceptor_xdr_bytes@Base 5
  __interceptor_xdr_char@Base 5
+ __interceptor_xdr_destroy@Base 11
  __interceptor_xdr_double@Base 5
  __interceptor_xdr_enum@Base 5
  __interceptor_xdr_float@Base 5
@@ -639,6 +660,7 @@ libtsan.so.0 libtsan0 #MINVER#
  __interceptor_xdr_uint64_t@Base 5
  __interceptor_xdr_uint8_t@Base 5
  __interceptor_xdrmem_create@Base 5
+ __interceptor_xdrrec_create@Base 11
  __interceptor_xdrstdio_create@Base 5
  __isoc99_fprintf@Base 5
  __isoc99_fscanf@Base 4.9
@@ -665,6 +687,7 @@ libtsan.so.0 libtsan0 #MINVER#
  __sancov_lowest_stack@Base 8
  __sanitizer_acquire_crash_state@Base 9
  __sanitizer_cov_8bit_counters_init@Base 8
+ __sanitizer_cov_bool_flag_init@Base 11
  __sanitizer_cov_dump@Base 4.9
  __sanitizer_cov_pcs_init@Base 8
  __sanitizer_cov_reset@Base 8
@@ -969,6 +992,7 @@ libtsan.so.0 libtsan0 #MINVER#
  __sanitizer_syscall_post_impl_shmget@Base 4.9
  __sanitizer_syscall_post_impl_shutdown@Base 4.9
  __sanitizer_syscall_post_impl_sigaction@Base 7
+ __sanitizer_syscall_post_impl_sigaltstack@Base 11
  __sanitizer_syscall_post_impl_signal@Base 4.9
  __sanitizer_syscall_post_impl_signalfd4@Base 4.9
  __sanitizer_syscall_post_impl_signalfd@Base 4.9
@@ -1292,6 +1316,7 @@ libtsan.so.0 libtsan0 #MINVER#
  __sanitizer_syscall_pre_impl_shmget@Base 4.9
  __sanitizer_syscall_pre_impl_shutdown@Base 4.9
  __sanitizer_syscall_pre_impl_sigaction@Base 7
+ __sanitizer_syscall_pre_impl_sigaltstack@Base 11
  __sanitizer_syscall_pre_impl_signal@Base 4.9
  __sanitizer_syscall_pre_impl_signalfd4@Base 4.9
  __sanitizer_syscall_pre_impl_signalfd@Base 4.9
@@ -1566,6 +1591,7 @@ libtsan.so.0 libtsan0 #MINVER#
  capget@Base 5
  capset@Base 5
  cfree@Base 4.9
+ clock_getcpuclockid@Base 11
  clock_getres@Base 4.9
  clock_gettime@Base 4.9
  clock_settime@Base 4.9
@@ -1665,6 +1691,12 @@ libtsan.so.0 libtsan0 #MINVER#
  getnameinfo@Base 5
  getpass@Base 5
  getpeername@Base 4.9
+ getprotobyname@Base 11
+ getprotobyname_r@Base 11
+ getprotobynumber@Base 11
+ getprotobynumber_r@Base 11
+ getprotoent@Base 11
+ getprotoent_r@Base 11
  getpwent@Base 10
  getpwent_r@Base 10
  getpwnam@Base 10
@@ -1740,6 +1772,8 @@ libtsan.so.0 libtsan0 #MINVER#
  modfl@Base 4.9
  mprobe@Base 8
  mprotect@Base 9
+ msgrcv@Base 11
+ msgsnd@Base 11
  munlock@Base 4.9
  munlockall@Base 4.9
  munmap@Base 4.9
@@ -1832,6 +1866,8 @@ libtsan.so.0 libtsan0 #MINVER#
  pthread_timedjoin_np@Base 10
  pthread_tryjoin_np@Base 10
  ptrace@Base 4.9
+ ptsname@Base 11
+ ptsname_r@Base 11
  puts@Base 4.9
  pututxline@Base 10
  pvalloc@Base 4.9
@@ -1839,6 +1875,8 @@ libtsan.so.0 libtsan0 #MINVER#
  pwrite@Base 4.9
  pwritev64@Base 4.9
  pwritev@Base 4.9
+ qsort@Base 11
+ qsort_r@Base 11
  raise@Base 4.9
  rand_r@Base 5
  random_r@Base 4.9
@@ -1892,12 +1930,15 @@ libtsan.so.0 libtsan0 #MINVER#
  setvbuf@Base 10
  shmctl@Base 4.9
  sigaction@Base 4.9
+ sigaltstack@Base 11
+ sigandset@Base 11
  sigblock@Base 7
  sigemptyset@Base 4.9
  sigfillset@Base 4.9
  siglongjmp@Base 4.9
  signal@Base 4.9
  signalfd@Base 4.9
+ sigorset@Base 11
  sigpending@Base 4.9
  sigprocmask@Base 4.9
  sigsetjmp@Base 4.9
@@ -1960,6 +2001,7 @@ libtsan.so.0 libtsan0 #MINVER#
  tsearch@Base 5
  ttyname@Base 10
  ttyname_r@Base 7
+ uname@Base 11
  unlink@Base 4.9
  usleep@Base 4.9
  valloc@Base 4.9
@@ -1995,6 +2037,7 @@ libtsan.so.0 libtsan0 #MINVER#
  xdr_bool@Base 5
  xdr_bytes@Base 5
  xdr_char@Base 5
+ xdr_destroy@Base 11
  xdr_double@Base 5
  xdr_enum@Base 5
  xdr_float@Base 5
@@ -2021,4 +2064,5 @@ libtsan.so.0 libtsan0 #MINVER#
  xdr_uint64_t@Base 5
  xdr_uint8_t@Base 5
  xdrmem_create@Base 5
+ xdrrec_create@Base 11
  xdrstdio_create@Base 5

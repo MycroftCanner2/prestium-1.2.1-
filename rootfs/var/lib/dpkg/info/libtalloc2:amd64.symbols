@@ -27,6 +27,11 @@ libtalloc.so.2 libtalloc2 #MINVER#
  TALLOC_2.2.0@TALLOC_2.2.0 2.2.0
  TALLOC_2.3.0@TALLOC_2.3.0 2.3.0
  TALLOC_2.3.1@TALLOC_2.3.1 2.3.1
+ TALLOC_2.3.2@TALLOC_2.3.2 2.3.2
+ TALLOC_2.3.3@TALLOC_2.3.3 2.3.3
+ TALLOC_2.3.4@TALLOC_2.3.4 2.3.4
+ TALLOC_2.3.5@TALLOC_2.3.5 2.4.0
+ TALLOC_2.4.0@TALLOC_2.4.0 2.4.0
  _talloc@TALLOC_2.0.2 2.0.4~git20101213
  _talloc_array@TALLOC_2.0.2 2.0.4~git20101213
  _talloc_free@TALLOC_2.0.2 2.0.4~git20101213
@@ -42,6 +47,7 @@ libtalloc.so.2 libtalloc2 #MINVER#
  _talloc_zero@TALLOC_2.0.2 2.0.4~git20101213
  _talloc_zero_array@TALLOC_2.0.2 2.0.4~git20101213
  talloc_asprintf@TALLOC_2.0.2 2.0.4~git20101213
+ talloc_asprintf_addbuf@TALLOC_2.3.5 2.4.0
  talloc_asprintf_append@TALLOC_2.0.2 2.0.4~git20101213
  talloc_asprintf_append_buffer@TALLOC_2.0.2 2.0.4~git20101213
  talloc_autofree_context@TALLOC_2.0.2 2.0.4~git20101213

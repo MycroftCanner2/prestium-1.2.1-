@@ -1,8 +1,6 @@
-7beb0f0d5e79a56c8fc34c8673901c37  usr/lib/x86_64-linux-gnu/libtheora.so.0.3.10
-45e67fc3ce8ecaea5b26ab8191f866e2  usr/lib/x86_64-linux-gnu/libtheoradec.so.1.1.4
-d4d4c0dd53ad3353db90bb96807b2d70  usr/lib/x86_64-linux-gnu/libtheoraenc.so.1.1.2
-522b10b2cc94fa18509d55e071b090f8  usr/share/doc/libtheora0/AUTHORS
-a9c4a4b16c0d554a01d2c287c1f76e31  usr/share/doc/libtheora0/README.gz
-35fdd440683a3b9e4e1656052bb1c427  usr/share/doc/libtheora0/changelog.Debian.gz
+72bf07c4873646bf754bd60630fc1938  usr/lib/x86_64-linux-gnu/libtheora.so.0.3.10
+1521390bc594ad4c12fb4735a7b1666a  usr/lib/x86_64-linux-gnu/libtheoradec.so.1.1.4
+d9c3fd42eeb16ee5df9bd7fcf2c3d91e  usr/lib/x86_64-linux-gnu/libtheoraenc.so.1.1.2
+e018ef299692ff56c601c2635bea9507  usr/share/doc/libtheora0/changelog.Debian.gz
 49f24e886943520312f32eff1c35de07  usr/share/doc/libtheora0/changelog.gz
 21337d22f6aa1c2ab2555ee471df7590  usr/share/doc/libtheora0/copyright

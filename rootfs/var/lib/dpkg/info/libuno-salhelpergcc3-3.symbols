@@ -1,5 +1,6 @@
 libuno_salhelpergcc3.so.3 libuno-salhelpergcc3-3 #MINVER#
- GLIBCXX_3.4@GLIBCXX_3.4 1:7.0.4-4+deb11u4
+| libuno-salhelpergcc3-3 #MINVER#, libstdc++6 (>= 4.1.1)
+ GLIBCXX_3.4@GLIBCXX_3.4 3.6 1
  LIBO_UDK_3.6@LIBO_UDK_3.6 3.6.0~beta
  UDK_3.1@UDK_3.1 1.4.0
  UDK_3_0_0@UDK_3_0_0 1.4.0

@@ -1,4 +1,5 @@
-cf8d8bc4ce96523ce345d61d3d6a2756  usr/lib/libreoffice/program/libuno_sal.so.3
-ae6ef6f007f8575e5abf599a5d4247fd  usr/share/bug/libuno-sal3/presubj
-2a492270133b9e574c8aa3310b3572f7  usr/share/doc/libuno-sal3/changelog.Debian.gz
-f2e2355707043e25176789df0d59e18a  usr/share/doc/libuno-sal3/copyright
+417a12d55390176999a02ffbf7a517f3  usr/lib/libreoffice/program/libuno_sal.so.3
+7ab413e7638e0bf31a8ce0bf3b910ba8  usr/share/bug/libuno-sal3/presubj
+bd4c1c1f8e706e2e1fefa9d2f7881f36  usr/share/doc/libuno-sal3/changelog.Debian.gz
+3813907d8d86591fc9b8dd90da5209e0  usr/share/doc/libuno-sal3/copyright
+62dfbf603eae348b402c29620c2ba882  usr/share/lintian/overrides/libuno-sal3

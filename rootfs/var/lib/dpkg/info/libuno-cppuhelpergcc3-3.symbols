@@ -1,7 +1,9 @@
 libuno_cppuhelpergcc3.so.3 libuno-cppuhelpergcc3-3 #MINVER#, uno-libs-private
- GLIBCXX_3.4@GLIBCXX_3.4 1:7.0.4-4+deb11u4
+| libuno-cppuhelpergcc3-3 #MINVER#, uno-libs-private, libstdc++6 (>= 4.1.1)
+ GLIBCXX_3.4@GLIBCXX_3.4 3.6 1
  LIBO_UDK_3.9@LIBO_UDK_3.9 4.0.0~alpha
  LIBO_UDK_5.3@LIBO_UDK_5.3 5.3.0~alpha
+ LIBO_UDK_7.4@LIBO_UDK_7.4 1:7.4.0~alpha
  UDK_3.1@UDK_3.1 1.4.0
  UDK_3.2@UDK_3.2 1.4.0
  UDK_3.3@UDK_3.3 1.4.0
@@ -13,13 +15,16 @@ libuno_cppuhelpergcc3.so.3 libuno-cppuhelpergcc3-3 #MINVER#, uno-libs-private
  UDK_3_0_0@UDK_3_0_0 1.4.0
  _ZN3com3sun4star3uno19WeakReferenceHelper5clearEv@UDK_3.6 1.7.0
  _ZN3com3sun4star3uno19WeakReferenceHelperC1ERKNS2_9ReferenceINS2_10XInterfaceEEE@UDK_3_0_0 1.4.0
+ _ZN3com3sun4star3uno19WeakReferenceHelperC1ERKNS2_9ReferenceINS2_5XWeakEEE@LIBO_UDK_7.4 1:7.4.0~alpha
  _ZN3com3sun4star3uno19WeakReferenceHelperC1ERKS3_@UDK_3_0_0 1.4.0
  _ZN3com3sun4star3uno19WeakReferenceHelperC2ERKNS2_9ReferenceINS2_10XInterfaceEEE@UDK_3_0_0 1.4.0
+ _ZN3com3sun4star3uno19WeakReferenceHelperC2ERKNS2_9ReferenceINS2_5XWeakEEE@LIBO_UDK_7.4 1:7.4.0~alpha
  _ZN3com3sun4star3uno19WeakReferenceHelperC2ERKS3_@UDK_3_0_0 1.4.0
  _ZN3com3sun4star3uno19WeakReferenceHelperD1Ev@UDK_3_0_0 1.4.0
  _ZN3com3sun4star3uno19WeakReferenceHelperD2Ev@UDK_3_0_0 1.4.0
  _ZN3com3sun4star3uno19WeakReferenceHelperaSEOS3_@LIBO_UDK_5.3 5.3.0~alpha
  _ZN3com3sun4star3uno19WeakReferenceHelperaSERKNS2_9ReferenceINS2_10XInterfaceEEE@UDK_3.6 1.7.0
+ _ZN3com3sun4star3uno19WeakReferenceHelperaSERKNS2_9ReferenceINS2_5XWeakEEE@LIBO_UDK_7.4 1:7.4.0~alpha
  _ZN3com3sun4star3uno19WeakReferenceHelperaSERKS3_@UDK_3_0_0 1.4.0
  _ZN4cppu11OWeakObject12queryAdapterEv@UDK_3_0_0 1.4.0
  _ZN4cppu11OWeakObject14queryInterfaceERKN3com3sun4star3uno4TypeE@UDK_3_0_0 1.4.0
@@ -334,7 +339,6 @@ libuno_cppuhelpergcc3.so.3 libuno-cppuhelpergcc3-3 #MINVER#, uno-libs-private
  _ZTIN4cppu19OPropertySetHelper2E@UDK_3_0_0 1.4.0
  _ZTIN4cppu20IPropertyArrayHelperE@UDK_3_0_0 1.4.0
  _ZTIN4cppu20OPropertyArrayHelperE@UDK_3_0_0 1.4.0
- _ZTIN4cppu20PropertySetMixinImpl4ImplE@UDK_3_0_0 1.4.0
  _ZTIN4cppu20PropertySetMixinImplE@UDK_3_0_0 1.4.0
  _ZTIN4cppu27WeakComponentImplHelperBaseE@UDK_3_0_0 1.4.0
  _ZTIN4cppu30WeakAggComponentImplHelperBaseE@UDK_3_0_0 1.4.0

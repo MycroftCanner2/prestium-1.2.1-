@@ -36,6 +36,11 @@ libtdb.so.1 libtdb1 #MINVER#
  TDB_1.4.1@TDB_1.4.1 1.4.1
  TDB_1.4.2@TDB_1.4.2 1.4.2
  TDB_1.4.3@TDB_1.4.3 1.4.3
+ TDB_1.4.4@TDB_1.4.4 1.4.4
+ TDB_1.4.5@TDB_1.4.5 1.4.5
+ TDB_1.4.6@TDB_1.4.6 1.4.6
+ TDB_1.4.7@TDB_1.4.7 1.4.7
+ TDB_1.4.8@TDB_1.4.8 1.4.8
  tdb_add_flags@TDB_1.2.1 1.2.7+git20101214
  tdb_append@TDB_1.2.1 1.2.7+git20101214
  tdb_chainlock@TDB_1.2.1 1.2.7+git20101214
