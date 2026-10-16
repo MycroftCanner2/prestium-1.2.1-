@@ -36,8 +36,12 @@ messagebus:!::
 i2pd:!::user
 user:!::i2pd
 netdev:!::
-ssh:!::
 sudo:!::
 veracrypt_grp:!::user
 systemd-timesync:!::
-nm-openvpn:!::
+sgx:!::
+_ssh:!::
+polkitd:!*::
+debian-tor:!::
+lightdm:!::
+autologin:!::

@@ -22,7 +22,7 @@ fi
 
 do_restorecon () {
   # Restore file security context (SELinux).
-  if which restorecon >/dev/null 2>&1; then
+  if command -v restorecon >/dev/null 2>&1; then
     restorecon "$1"
   fi
 }

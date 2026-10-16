@@ -11,6 +11,13 @@
   systemctl is-active --quiet systemd-resolved.service &&
   exit 0
 
+case "$6" in
+  nm-*-service-*|/org/freedesktop/NetworkManager/PPP/*)
+        # NetworkManager handles it
+        exit 0
+        ;;
+esac
+
 # create the file if it does not exist
 if [ ! -e /etc/resolv.conf ]; then
   : > /etc/resolv.conf

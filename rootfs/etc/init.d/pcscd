@@ -50,7 +50,7 @@ ENV_FILE="none"
 [ -r /etc/environment ] && ENV_FILE="/etc/environment"
 [ -r /etc/default/locale ] && ENV_FILE="/etc/default/locale"
 
-value=$(egrep "^[^#]*LANG=" $ENV_FILE | tail -n1 | cut -d= -f2)
+value=$(grep -E "^[^#]*LANG=" $ENV_FILE | tail -n1 | cut -d= -f2)
 eval LANG=$value
 
 #

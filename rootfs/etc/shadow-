@@ -13,6 +13,8 @@ systemd-resolve:*:19287:0:99999:7:::
 messagebus:*:19287:0:99999:7:::
 i2pd:*:19287:0:99999:7:::
 usbmux:*:19287:0:99999:7:::
-user:$y$j9T$GEhnAgbZssOn7Dkl6UjxS.$AsVz321UUgYpl3UmfbtJ7EJhwslSI0.EipSqf7wJgZ1:19287:0:99999:7:::
+user::19287:0:99999:7:::
 dnsmasq:*:19306:0:99999:7:::
 systemd-timesync:*:19312:0:99999:7:::
+polkitd:!*:20742::::::
+debian-tor:!:20742::::::

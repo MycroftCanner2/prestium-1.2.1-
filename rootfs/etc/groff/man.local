@@ -2,6 +2,18 @@
 .\"
 .\" This file is loaded after an-old.tmac.
 .\" Put any local modifications to an-old.tmac here.
+.\"
+.\" for forward compatibility with a groff 1.23 feature
+.if !d MR \{\
+.  \" Provide a simple implementation of the new `MR` macro to avoid
+.  \" loss of formatted text.
+.  de MR
+.    ie \\n(.$=1 \
+.      I \%\\$1
+.    el \
+.      IR \%\\$1 (\\$2)\\$3
+.  .
+.\}
 .
 .if n \{\
 .  \" Debian: Map \(oq to ' rather than ` in nroff mode for devices other

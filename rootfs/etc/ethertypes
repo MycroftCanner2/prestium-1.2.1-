@@ -43,3 +43,4 @@ PTP		88F7		# Precision Time Protocol
 FCOE		8906		# Fibre Channel over Ethernet
 FIP		8914		# FCoE Initialization Protocol
 ROCE		8915		# RDMA over Converged Ethernet
+LoWPAN		A0ED		# LoWPAN encapsulation
