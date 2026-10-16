@@ -33,8 +33,8 @@
 /usr/share/doc/xterm/xterm.termcap.gz
 /usr/share/doc/xterm/xterm.terminfo.gz
 /usr/share/doc-base
-/usr/share/doc-base/xterm-ctlseqs
-/usr/share/doc-base/xterm-faq
+/usr/share/doc-base/xterm.xterm-ctlseqs
+/usr/share/doc-base/xterm.xterm-faq
 /usr/share/icons
 /usr/share/icons/hicolor
 /usr/share/icons/hicolor/48x48

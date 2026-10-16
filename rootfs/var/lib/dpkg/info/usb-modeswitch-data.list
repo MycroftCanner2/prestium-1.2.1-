@@ -18,8 +18,5 @@
 /usr/share/doc/usb-modeswitch-data/changelog.Debian.gz
 /usr/share/doc/usb-modeswitch-data/changelog.gz
 /usr/share/doc/usb-modeswitch-data/copyright
-/usr/share/lintian
-/usr/share/lintian/overrides
-/usr/share/lintian/overrides/usb-modeswitch-data
 /usr/share/usb_modeswitch
 /usr/share/usb_modeswitch/configPack.tar.gz

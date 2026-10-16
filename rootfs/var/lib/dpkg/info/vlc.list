@@ -23,7 +23,7 @@
 /usr/share/lintian/overrides
 /usr/share/lintian/overrides/vlc
 /usr/share/metainfo
-/usr/share/metainfo/vlc.appdata.xml
+/usr/share/metainfo/org.videolan.vlc.appdata.xml
 /usr/share/solid
 /usr/share/solid/actions
 /usr/share/solid/actions/vlc-openbd.desktop

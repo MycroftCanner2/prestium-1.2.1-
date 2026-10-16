@@ -1,7 +1,7 @@
 859d7e8358661bbf4bc6d7b661b51451  usr/bin/rstart
 e8cd7e1d83f36ee5973315b02ce246d2  usr/bin/rstartd
-a1e137dbae45b03ab8ba87aa1b83821f  usr/bin/smproxy
-b12309f7ad61e79519374bbac0ee9cf8  usr/bin/xsm
+1e40abf109a62d828ea53aa773312471  usr/bin/smproxy
+82f61a659dfc635ee22aafd0e5dab2d4  usr/bin/xsm
 3136f73ea92f9d0713fab87b43e115d7  usr/lib/x86_64-linux-gnu/X11/rstart/commands/@List
 47dd38a3e578e28ba8178717f88d436b  usr/lib/x86_64-linux-gnu/X11/rstart/commands/ListContexts
 990244465726f0f0253167b9bc548d51  usr/lib/x86_64-linux-gnu/X11/rstart/commands/ListGenericCommands
@@ -12,10 +12,10 @@ b12309f7ad61e79519374bbac0ee9cf8  usr/bin/xsm
 462ceaab24460a7650c1c7dd08f7d7f1  usr/lib/x86_64-linux-gnu/X11/rstart/contexts/@List
 6464dd06f101fdd425138f28fb2ccca0  usr/lib/x86_64-linux-gnu/X11/rstart/contexts/default
 8a18b1b7db74a3f31a23cd915502baf2  usr/lib/x86_64-linux-gnu/X11/rstart/contexts/x11r6
-d378a9356e7c5a6eea64ba478e2959c4  usr/lib/x86_64-linux-gnu/X11/rstart/rstartd.real
-7251e21eb6c890b25d4357cb645641f7  usr/share/doc/x11-session-utils/changelog.gz
+bbf2c75ed281e715b876a53aa048e452  usr/lib/x86_64-linux-gnu/X11/rstart/rstartd.real
+49758540f7fbb31783996af969ecad4c  usr/share/doc/x11-session-utils/changelog.gz
 89bf1835a7498d835d20b725f031b909  usr/share/doc/x11-session-utils/copyright
-0beb4549fef6e94273572458c87f7d53  usr/share/man/man1/rstart.1.gz
-238332b5136592440e30ed6a71b7ae30  usr/share/man/man1/rstartd.1.gz
+a581fae8c7713ebc8cb9f64080a0e0dc  usr/share/man/man1/rstart.1.gz
+881632999f9711266579549bbd2dbf2d  usr/share/man/man1/rstartd.1.gz
 510135fad38746049c2af8eab9d67ef8  usr/share/man/man1/smproxy.1.gz
-de4786aa93051c00cf1398be93937b28  usr/share/man/man1/xsm.1.gz
+c0d4ccfac8c6d161e0486b5292392c68  usr/share/man/man1/xsm.1.gz

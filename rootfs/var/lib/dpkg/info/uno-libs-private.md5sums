@@ -1,7 +1,7 @@
-2977bb2b2ab8e3fff0d20199be618f3a  usr/lib/libreoffice/program/libreglo.so
-cfdb1d34fd0ad09a449acd9ec1955142  usr/lib/libreoffice/program/libstorelo.so
-cad23ad3c326a0d17ab8e1aa701b5229  usr/lib/libreoffice/program/libunoidllo.so
-f733001da3626379c083541c54209b4a  usr/lib/libreoffice/program/libxmlreaderlo.so
-ae6ef6f007f8575e5abf599a5d4247fd  usr/share/bug/uno-libs-private/presubj
-2a492270133b9e574c8aa3310b3572f7  usr/share/doc/uno-libs-private/changelog.Debian.gz
-f2e2355707043e25176789df0d59e18a  usr/share/doc/uno-libs-private/copyright
+556cfed773c5ccdce2176c280a71aef6  usr/lib/libreoffice/program/libreglo.so
+9d087af56a43c9ff53ca643536075432  usr/lib/libreoffice/program/libstorelo.so
+109dffba59fc32212eaaf730ce978f07  usr/lib/libreoffice/program/libunoidllo.so
+ace77f4ca751db1970f115406838408d  usr/lib/libreoffice/program/libxmlreaderlo.so
+7ab413e7638e0bf31a8ce0bf3b910ba8  usr/share/bug/uno-libs-private/presubj
+67de84dda3b0751ac5b4b5eb9fc07ad7  usr/share/doc/uno-libs-private/changelog.Debian.gz
+3813907d8d86591fc9b8dd90da5209e0  usr/share/doc/uno-libs-private/copyright

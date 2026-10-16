@@ -28,9 +28,4 @@ case "$1" in
     ;;
 esac
 
-# Automatically added by dh_installdeb/13.3.4
-dpkg-maintscript-helper rm_conffile /etc/init/udev.conf 233-1\~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init/udevmonitor.conf 233-1\~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init/udevtrigger.conf 233-1\~ -- "$@"
-# End automatically added section
 

@@ -1,2 +1,2 @@
-libI810XvMC 1 xserver-xorg-video-intel (>= 2:2.99.917+git20200714)
-libIntelXvMC 1 xserver-xorg-video-intel (>= 2:2.99.917+git20200714)
+libI810XvMC 1 xserver-xorg-video-intel (>= 2:2.99.917+git20210115)
+libIntelXvMC 1 xserver-xorg-video-intel (>= 2:2.99.917+git20210115)

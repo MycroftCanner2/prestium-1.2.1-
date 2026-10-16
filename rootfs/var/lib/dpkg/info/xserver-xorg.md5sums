@@ -33,6 +33,6 @@ c1c2e9756b79b56902b2e7a379cceed7  usr/share/doc/xorg/xsf.css
 cf020c3de804c03f7bf0bf94a6aeaca2  usr/share/doc/xorg/xsf.png
 bd7ef39d6c7e4bee3079708277114a67  usr/share/doc/xorg/xsf.svg
 9d01159520ca06d8da4c3bdd8ed09e7c  usr/share/doc/xserver-xorg/NEWS.Debian.gz
-9a78ce0f7683d17ca6c26c236801d84b  usr/share/doc/xserver-xorg/changelog.gz
+663bcc7c6e15b2a40b7c4c3537125f90  usr/share/doc/xserver-xorg/changelog.gz
 d61715a706a95b7c222b5caebd8ce7f8  usr/share/doc/xserver-xorg/copyright
 1fc41e33a66b77dcf1fb5298e69d2e4d  usr/share/lintian/overrides/xserver-xorg

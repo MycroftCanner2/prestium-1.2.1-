@@ -1,230 +1,707 @@
-0e54ce5f99506869b1e98f76ba4d3b60  usr/bin/veracrypt
-73b6a8335bd9a19c226c46b6aae84a52  usr/bin/veracrypt-uninstall.sh
-8ddfd9e6d7694fb88ff6de67f408a4d2  usr/share/doc/veracrypt/HTML/Authenticity and Integrity.html
-f6b54d1fe6ba705618cbd2e5c5ec835c  usr/share/doc/veracrypt/HTML/Documentation.html
-71df1f228d1f6096eee8f2f706b34623  usr/share/doc/veracrypt/HTML/Ethereum_Logo_19x30.png
-5073d8317e3f53d4e1bd10ee5480e661  usr/share/doc/veracrypt/HTML/flag-eu-small.png
-bc1fc678c9dc5a82512d80c69e66d014  usr/share/doc/veracrypt/HTML/Streebog.html
-80750e92a49ad396166187c1003a078b  usr/share/doc/veracrypt/HTML/AES.html
-816a34505deac7ee98ed37716a496d30  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_005.jpg
-aae2666f7512e48280f2d140889f000c  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_003.jpg
-a4204233aa6c98281f326c08dd2cf41e  usr/share/doc/veracrypt/HTML/Home_VeraCrypt_Default_Mount_Parameters.png
-27761f0209c0f7e8675fbacbec3a7a78  usr/share/doc/veracrypt/HTML/Sharing over Network.html
-3dc08cc3b6efbb44c7c286d0911a9caf  usr/share/doc/veracrypt/HTML/VeraCrypt Background Task.html
-7aa20c6fded2f7234fe4e514e80f6b04  usr/share/doc/veracrypt/HTML/bank_30x30.png
-7fe93a8bb0828223438fd5f8b0e46530  usr/share/doc/veracrypt/HTML/Incompatibilities.html
-cdd682ee0db7377ddbafc02e3580f28b  usr/share/doc/veracrypt/HTML/Parallelization.html
-db7b3093704314fae80a90d141d10dd7  usr/share/doc/veracrypt/HTML/twitter_veracrypt.PNG
-34f282a0306b14e498e47e53f99b6d64  usr/share/doc/veracrypt/HTML/Hibernation File.html
-382eb591ff877480deade16f9abcf879  usr/share/doc/veracrypt/HTML/BC_Logo_30x30.png
-c6ef99beec81ecbcc2f20e619fad2e47  usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_030.jpg
-c2942e6abd74f44b46883d1a069983a4  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_004.jpg
-bc4551789bd8375754812d80c17b314e  usr/share/doc/veracrypt/HTML/Changing Passwords and Keyfiles.html
-f172cb12e2f198e7c2d08514dc72b659  usr/share/doc/veracrypt/HTML/Donation_VC_BTC_Sigwit.png
-efacbccae68dfdc07d52ff02a0a92d8d  usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_BitcoinCash.png
-da56df84bac3b7181d8ac436f2d406b1  usr/share/doc/veracrypt/HTML/Donation_donate_GBP.gif
-17cc914790a97b54de4ffa29402a5535  usr/share/doc/veracrypt/HTML/Encryption Algorithms.html
-818f5a8cc712b0e6280df51d6ac9d8e5  usr/share/doc/veracrypt/HTML/Default Mount Parameters.html
-35a57558874e4d1ee2223025edc07e39  usr/share/doc/veracrypt/HTML/SHA-512.html
-0d88c3c60a9bf1e72f80ba8948adbfe7  usr/share/doc/veracrypt/HTML/Hot Keys.html
-b425313843b4d7e35b86e2bbaf10dbec  usr/share/doc/veracrypt/HTML/Defragmenting.html
-20c02d5f22185c504d1ae39d60edc3e1  usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step1.png
-a56c96581aa831a03b8eb94a797197e4  usr/share/doc/veracrypt/HTML/Memory Dump Files.html
-b334b7fc6cd0718a9c33cc0278ca113b  usr/share/doc/veracrypt/HTML/gf2_mul.gif
-4291719221fd81b81e6549d376c692a4  usr/share/doc/veracrypt/HTML/Reallocated Sectors.html
-034112948aecbde1de5771683918970e  usr/share/doc/veracrypt/HTML/RIPEMD-160.html
-3b74e4271974fc0a8f0c027c1b4c0720  usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Bitcoin_small.png
-f7c5e40fed4194d5cc0daa8d2bc059f7  usr/share/doc/veracrypt/HTML/Removable Medium Volume.html
-fa920b1c7e872f347b8119c5a6457fa8  usr/share/doc/veracrypt/HTML/Hash Algorithms.html
-53fb6db28503f7f09f8a669aad27766a  usr/share/doc/veracrypt/HTML/VeraCrypt128x128.png
-6a05af5be1a5fab23f0baa782deb1905  usr/share/doc/veracrypt/HTML/Wear-Leveling.html
-8e6aa269aead22a4060875d85fe1bf74  usr/share/doc/veracrypt/HTML/Beginner's Tutorial.html
-9c565cba77d95e7fc8365d4888b564de  usr/share/doc/veracrypt/HTML/Header Key Derivation.html
-aad67b334881588e667a125284e39175  usr/share/doc/veracrypt/HTML/TrueCrypt Support.html
-ff29e3687d63e331158b5f3b166d05c9  usr/share/doc/veracrypt/HTML/Journaling File Systems.html
-c2d6b924b358c739549a667f47c27227  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_002.jpg
-40eeae685e4f820de799508bb6f5cbb2  usr/share/doc/veracrypt/HTML/FAQ.html
-fcb9500fc18b88f97d8a1af491c1db48  usr/share/doc/veracrypt/HTML/Encryption Scheme.html
-3fb47c7f7268fbee1eee4335eee7fc36  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_012.jpg
-791f9671ed9fe92209de30271b4d8109  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_020.jpg
-51d9484bbdbd95b3e7e5da34d0897773  usr/share/doc/veracrypt/HTML/Whirlpool.html
-5c60d327c0ebfaf311e8cf541cbd9700  usr/share/doc/veracrypt/HTML/Legal Information.html
-abac823a6af09308765971f0e3d2f8a1  usr/share/doc/veracrypt/HTML/Donation_Bank.html
-64115750df0f6874a3c225b60100ebce  usr/share/doc/veracrypt/HTML/Security Requirements for Hidden Volumes.html
-2ab2f841eb6f7e48b5ac1aad9ca79761  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_022.jpg
-7f84b0cc9ce5a5bcdfd88345925757de  usr/share/doc/veracrypt/HTML/Kuznyechik.html
-36b61bd0117296baaba8e7bb905add42  usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_031.jpg
-86473022eb69e2fea0926613c81935d9  usr/share/doc/veracrypt/HTML/SHA-256.html
-ee0bfaca8f3fc1d7e90e6737324df09c  usr/share/doc/veracrypt/HTML/Mounting VeraCrypt Volumes.html
-05e1da70d5798b5fee49fff4fb5d0af3  usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step2.png
-c6ef6373594ad9639b2bb6aa589a0c20  usr/share/doc/veracrypt/HTML/Multi-User Environment.html
-eb39d82827687e4be946bc463383471c  usr/share/doc/veracrypt/HTML/Hardware Acceleration.html
-9784e11869e104925f6e83532104b9e2  usr/share/doc/veracrypt/HTML/Preface.html
-caff02b66592fdf38c466566928972b1  usr/share/doc/veracrypt/HTML/Release Notes.html
-fa60c9ed1277f03f1e34f12a9e272828  usr/share/doc/veracrypt/HTML/Unencrypted Data in RAM.html
-5a8dedf5c1dd6b29c0cade9fdfb2b567  usr/share/doc/veracrypt/HTML/Introduction.html
-6c0ebd265d9fdd87d20ea5674d545f12  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_014.jpg
-d1e0360b4b0d389662a25d967a5833cf  usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_027.jpg
-4d20bc48b00da808cb0d43f874096cfc  usr/share/doc/veracrypt/HTML/LTC_Logo_30x30.png
-77034c569008fb8197c307fd8a475b66  usr/share/doc/veracrypt/HTML/VeraCrypt System Files.html
-9b0ae1ea4b8b0c14ce1d3d59ca9f3ed4  usr/share/doc/veracrypt/HTML/Donation_donate_YEN.gif
-1cab807266f2742bd0a5af2ad6b7b79b  usr/share/doc/veracrypt/HTML/Technical Details.html
-4b6ffc902f5fcea656d58ea236977d34  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_018.jpg
-280810637e342d622a73a25220e18b04  usr/share/doc/veracrypt/HTML/Donation.html
-ef6c0dc4ea3eb06fa3d67f69f113f5dd  usr/share/doc/veracrypt/HTML/Converting TrueCrypt volumes and partitions.html
-5cc8e32a500eeb2073408894405cb372  usr/share/doc/veracrypt/HTML/Authors.html
-433223df8c53be6204803d2204a64d47  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_024.gif
-e363985f0056b2aa9461868e40d294b7  usr/share/doc/veracrypt/HTML/Malware.html
-8c37acf89573a4167bbae6dbadfd324c  usr/share/doc/veracrypt/HTML/Troubleshooting.html
-12bbe4e8956b0ec91fcc13d6aa096d92  usr/share/doc/veracrypt/HTML/Favorite Volumes.html
-cec0fd2671fe0ce247d7dae14db92439  usr/share/doc/veracrypt/HTML/flattr-badge-large.png
-9229e9dea66a79b9a28b98a8282f2b22  usr/share/doc/veracrypt/HTML/Disclaimers.html
-0a68c439dcd03fc9e854b2a183d1f0af  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_010.jpg
-445794882aa890c1512a1b825ef96ebd  usr/share/doc/veracrypt/HTML/liberapay_donate.svg
-f096765ee3f5f834acbce15b184132d7  usr/share/doc/veracrypt/HTML/Supported Systems for System Encryption.html
-321cb827429affe993558897f4ff952a  usr/share/doc/veracrypt/HTML/Keyfiles.html
-2d30b169b17235c57e3aba7cb84a3cd3  usr/share/doc/veracrypt/HTML/Using VeraCrypt Without Administrator Privileges.html
-d430f8bb8049d950c03c163f0c4d9846  usr/share/doc/veracrypt/HTML/flag-us-small.png
-9b0660b22c9355bd9444db92e7e5fbf9  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_021.jpg
-e2d4c319a27d8e4dd54f55bb6602aaaa  usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_028.jpg
-0b54c9740e92f1cf190afa74e9265296  usr/share/doc/veracrypt/HTML/Trim Operation.html
-c0510e11abaeadba1839431deeae8bec  usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step2.png
-8651b5b6fc805a561171683dc2b39e61  usr/share/doc/veracrypt/HTML/Program Menu.html
-840ea968070ddc9d1cdda9f980befe3e  usr/share/doc/veracrypt/HTML/Choosing Passwords and Keyfiles.html
-2a291ce36ca873b3434ae3d9c1210847  usr/share/doc/veracrypt/HTML/flag-nz-small.png
-751ad977d57d3c07f9c63963f139040a  usr/share/doc/veracrypt/HTML/Removing Encryption.html
-5fcaffa50f0d6b956ee62573eb7c6ee1  usr/share/doc/veracrypt/HTML/VeraCrypt License.html
-72979f433bc5e1d12c0e2193f767fc8e  usr/share/doc/veracrypt/HTML/Contact.html
-fccd26cf995aee2217b739b8baa0b58e  usr/share/doc/veracrypt/HTML/Twofish.html
-2dec7c1dbecc39f7e4ad6f385f32f329  usr/share/doc/veracrypt/HTML/Modes of Operation.html
-56ac114d8b0669f5e03c6f5e12441937  usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Litecoin.png
-f9afbd45b1c0b68fdb1237a13002d9d0  usr/share/doc/veracrypt/HTML/styles.css
-75a5b656b6f1e2daa27c347061c3a809  usr/share/doc/veracrypt/HTML/Uninstalling VeraCrypt.html
-1fa27b8b8134ee35cde7d468e1e3bf37  usr/share/doc/veracrypt/HTML/BCH_Logo_48x30.png
-8f8acda7106e7a10e37557b63b4d8d39  usr/share/doc/veracrypt/HTML/Portable Mode.html
-dcb496eeb673c3bf10308eed51308a31  usr/share/doc/veracrypt/HTML/Hidden Operating System.html
-3807028a99c3f747d14554e830b1a565  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_015.jpg
-f4893f24aa54f72ed0ada5c4a22aa6d0  usr/share/doc/veracrypt/HTML/flag-au.png
-36e29f8db45aea14b8c9ff6f52a394df  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_013.jpg
-04bf53d3fa1382424ce7bd7c594430db  usr/share/doc/veracrypt/HTML/Home_utilities-file-archiver-3.png
-9ec0669e64a6a8ccbc7b338eb2e6297f  usr/share/doc/veracrypt/HTML/Donation_donate_Dollars.gif
-ddf096b0dc136d0ece333d9685b7c34b  usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM).html
-3c274cae00f1ed180eac6c9487dc0083  usr/share/doc/veracrypt/HTML/Miscellaneous.html
-3776f8e04473d0fa5d5b9409dbd7fa20  usr/share/doc/veracrypt/HTML/Paging File.html
-e73b45bc4acff52739fbfd087dda4acf  usr/share/doc/veracrypt/HTML/paypal_30x30.png
-ffc9886b83a42b9edbac310220004657  usr/share/doc/veracrypt/HTML/Main Program Window.html
-cc512af4980bd98a7f8c56e3d6649716  usr/share/doc/veracrypt/HTML/flag-gb-small.png
-7df464b6157b31ab420227f3b6481327  usr/share/doc/veracrypt/HTML/Random Number Generator.html
-1d66d1833f62cd18dd3c4402b7f22626  usr/share/doc/veracrypt/HTML/Serpent.html
-eea5da91feeff8f80e193889c675a989  usr/share/doc/veracrypt/HTML/Plausible Deniability.html
-b1843ce117e97f8f39c6f95eb349bd70  usr/share/doc/veracrypt/HTML/Donation_donate_Euros.gif
-b4081793457cce2ca13a7fa4766fecb0  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_019.jpg
-d781372d531de6a1b4d9d1ae7a8aa003  usr/share/doc/veracrypt/HTML/Acknowledgements.html
-750b15c8d6868930e0641e30c8496fc5  usr/share/doc/veracrypt/HTML/flag-eu.png
-bf6925a5047a99edbb95d8bc6e7eeb37  usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Monero.png
-86a8a9da62efa27bc1447f26e21d3e37  usr/share/doc/veracrypt/HTML/System Favorite Volumes.html
-343779088f21a059a5e85b146f8c2ab1  usr/share/doc/veracrypt/HTML/arrow_right.gif
-f0eb4a08ef7cb23e9e8dff5750ad2ee2  usr/share/doc/veracrypt/HTML/TrueCrypt Support_truecrypt_mode_gui.jpg
-f06c63c12966875a0b4079fa08e9a5ff  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_034.png
-ea8d8c91bcaaaa71e77e8947c1c7932d  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_017.jpg
-c62e19cf88ec29e4ee58e6825db60c6d  usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes_Image_029.jpg
-1d8e8245456712086ab44fbd695f223d  usr/share/doc/veracrypt/HTML/Supported Operating Systems.html
-21452e03bc8e5faaa6203f0afc83760a  usr/share/doc/veracrypt/HTML/VeraCrypt Hidden Operating System.html
-39751a4b52d9719872f8555c17c2817f  usr/share/doc/veracrypt/HTML/Keyfiles in VeraCrypt_Image_040.gif
-66b58a4ce045dec222ce76f24df86406  usr/share/doc/veracrypt/HTML/Default Mount Parameters_VeraCrypt_password_using_default_parameters.png
-fae081bdb9bfb199632a60dfe975088f  usr/share/doc/veracrypt/HTML/Issues and Limitations.html
-3363c1c82d91563ad2c98908e5cdabda  usr/share/doc/veracrypt/HTML/Security Requirements and Precautions.html
-6114b08b1a383a3007c64ed4c1ed983e  usr/share/doc/veracrypt/HTML/VeraCrypt Rescue Disk.html
-b623ca950020153b3c99b72d3ed0231e  usr/share/doc/veracrypt/HTML/Source Code.html
-16e824749c58a441db79fdd5b61f9d65  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_023.gif
-f367986e1dbbf8f3630762407e356061  usr/share/doc/veracrypt/HTML/Home_reddit.png
-b49ae0fa4e1c11e0608ee2c695a72f7f  usr/share/doc/veracrypt/HTML/flag-us.png
-05a2d4df9cb07099ca5f6fbdf8396fab  usr/share/doc/veracrypt/HTML/Contributed Resources.html
-0b9fc24218227f8031e49299bc2f307d  usr/share/doc/veracrypt/HTML/VeraCrypt Volume Format Specification.html
-d568d63f72be226858de10fdfe6a9417  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_001.jpg
-c50c54d421f28a505c82eacf3d1dfe48  usr/share/doc/veracrypt/HTML/Donation_VeraCrypt_Ethereum.png
-b4927e2536ebb15941e8ff20dca03d61  usr/share/doc/veracrypt/HTML/Protection of Hidden Volumes.html
-76caa22869435d8a9db655323cb269eb  usr/share/doc/veracrypt/HTML/Notation.html
-a34dcb7feef9e386959802ce1d859e7b  usr/share/doc/veracrypt/HTML/How to Back Up Securely.html
-fe9b52097939bca87f336448c3a8adf0  usr/share/doc/veracrypt/HTML/Data Leaks.html
-4c4b01e5065b4a893169386be1c2ff0d  usr/share/doc/veracrypt/HTML/Volume Clones.html
-806b1be1ef6d1ec1602612b90f3ec789  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_011.jpg
-1136f153f898077d559b579ab1be7248  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_016.jpg
-d8af1f7993f8a1ed04a18164a5aee9cb  usr/share/doc/veracrypt/HTML/Home_VeraCrypt_menu_Default_Mount_Parameters.png
-80231b5c2c4f5440d138b2b66be627c8  usr/share/doc/veracrypt/HTML/System Encryption.html
-aefe3ead74458aaa7055fa9ec3a25b32  usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step1.png
-d03f4110ab917009b909c0d11317aae7  usr/share/doc/veracrypt/HTML/Pipelining.html
-eaa70ba7d4abaf7b2c424223f10ae185  usr/share/doc/veracrypt/HTML/Security Tokens & Smart Cards.html
-6513ab6286ec8070727d14cf47d72b63  usr/share/doc/veracrypt/HTML/Language Packs.html
-be53c198e53901058c99ad3185acbd9b  usr/share/doc/veracrypt/HTML/flag-au-small.png
-47fa7d94bc94e3f291424d0e866fa2c0  usr/share/doc/veracrypt/HTML/Physical Security.html
-6ff12e8ab1a5e12f65c2ad46c187e5e3  usr/share/doc/veracrypt/HTML/Camellia.html
-45e015fd3b450ac80fc3e65b6470dc77  usr/share/doc/veracrypt/HTML/VeraCrypt Volume.html
-12469dee52dc39b04ae479b4130933dc  usr/share/doc/veracrypt/HTML/Standard Compliance.html
-9092f9954dfe3c910fb0b9c5a09b4254  usr/share/doc/veracrypt/HTML/Donation_donate_PLN.gif
-d15e571858a452397f58f165fd3c59c6  usr/share/doc/veracrypt/HTML/Security Model.html
-cc05494e24c32d1dd225c860799e2b4a  usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step2.png
-14847ad6efc3ea829f5423208325f628  usr/share/doc/veracrypt/HTML/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step1.png
-ee4e3bfa2bd960e68b04762e32adfefd  usr/share/doc/veracrypt/HTML/Home_facebook_veracrypt.png
-8fbdd5c696d5ce6def45c9c8dcc79ab5  usr/share/doc/veracrypt/HTML/Donation_donate_CHF.gif
-b54ecf5a67245ec214ac4cec2d88d4e5  usr/share/doc/veracrypt/HTML/Hidden Volume.html
-8b2bbbc04f289c2ddcb1514d7f8ee3c1  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_007.jpg
-0e5bf5c25178c3aabf76228bfc28393d  usr/share/doc/veracrypt/HTML/References.html
-c6458fa4e70f28f343a8afa770aa92cf  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_008.jpg
-6af1d16ff6e3e380016c8fedfa4d35bb  usr/share/doc/veracrypt/HTML/Donation_donate.gif
-77ad49c988d0287c6efb47c0973cd809  usr/share/doc/veracrypt/HTML/Beginner's Tutorial_Image_009.jpg
-504653dbf692329748b223bdaa28c3f7  usr/share/doc/veracrypt/HTML/flag-nz.png
-705cba9142b1d746428b1f6e0c405da1  usr/share/doc/veracrypt/HTML/Command Line Usage.html
-57e0aafb088ff289c51c2c529b246aa3  usr/share/doc/veracrypt/HTML/Keyfiles in VeraCrypt.html
-5f09d337bd618628a2f0ca4c81228d23  usr/share/doc/veracrypt/HTML/Converting TrueCrypt volumes and partitions_truecrypt_convertion.jpg
-5486bd0ef3d46b226d1a5abfaecca3fe  usr/share/doc/veracrypt/HTML/flag-gb.png
-a9371c6636366059ac84ae1fbc51d445  usr/share/doc/veracrypt/HTML/Cascades.html
-1254b588f99fe107c7349f041fef162d  usr/share/doc/veracrypt/HTML/Additional Security Requirements and Precautions.html
-7878a48033a4b570e0179679bab969cd  usr/share/doc/veracrypt/HTML/Digital Signatures.html
-98ddb817cfcfa92fabd0be3b4790dfe6  usr/share/doc/veracrypt/HTML/Monero_Logo_30x30.png
-76ef2c3349c98ee16153b9cd62d50237  usr/share/doc/veracrypt/HTML/Creating New Volumes.html
-bbe78052d3baa61d65d3b23e356fee7d  usr/share/doc/veracrypt/License.txt
-256186f6963ce69b5034e24944ea9b79  usr/share/veracrypt/languages/Language.de.xml
-e887e9ebeecb4f7a2f5e077002e9867e  usr/share/veracrypt/languages/Language.ca.xml
-d565eddafe9e6e0879772a893a34fcf5  usr/share/veracrypt/languages/Language.fi.xml
-f78bbfa1bbbaf8fd5ff1a688f2dbaf7b  usr/share/veracrypt/languages/Language.id.xml
-1f3f93992e5ed76eb302034f83a73a8b  usr/share/veracrypt/languages/Language.fa.xml
-137ddba7aa7d4fc45ba0b57452b46e40  usr/share/veracrypt/languages/Language.nn.xml
-0cdcbe633acbb42f9279014a3d564493  usr/share/veracrypt/languages/Language.bg.xml
-d9bd5e4ab9a3b329603688a124508bc1  usr/share/veracrypt/languages/Language.pl.xml
-56e6545f2c368aaf8ef56876bcaa324c  usr/share/veracrypt/languages/Language.uk.xml
-991a628ebf98797cd5b321d81ae4b289  usr/share/veracrypt/languages/Language.es.xml
-bcc88099914ff54ab8c31cb9516b8d82  usr/share/veracrypt/languages/Language.sl.xml
-996caa0fe590f356193eb208213143eb  usr/share/veracrypt/languages/Language.vi.xml
-36b2ac3b8cc46116da1f8a1242983663  usr/share/veracrypt/languages/Language.lv.xml
-50db91b347e44c2f8166beac4542d9f3  usr/share/veracrypt/languages/Language.sv.xml
-b69763ab68609b554e957dd19965df47  usr/share/veracrypt/languages/Language.sk.xml
-bf755f050095365ad082231d6104d14a  usr/share/veracrypt/languages/Language.uz.xml
-9e1f5cd290fb3660f4bead360431fb0a  usr/share/veracrypt/languages/Language.ru.xml
-44c8cb0bf780896fbb6d1660814a67cc  usr/share/veracrypt/languages/Language.he.xml
-a9fa3d0a40954c324bea69da8e27fed6  usr/share/veracrypt/languages/Language.hu.xml
-3d88e291561e8a812c5cda0432039341  usr/share/veracrypt/languages/Language.my.xml
-8f5675f22acef1c6f81c78739f57ae9e  usr/share/veracrypt/languages/Language.zh-cn.xml
-ea1caa335fb497e54888d557acf4bfab  usr/share/veracrypt/languages/Language.cs.xml
-c822317fdf0f5653b9660ec73dd58030  usr/share/veracrypt/languages/Language.eu.xml
-fdc7af43becb7e30358e767cde564c4c  usr/share/veracrypt/languages/Language.be.xml
-a157c5c1c28b0d5d15c1ae9d3bc96223  usr/share/veracrypt/languages/Language.ar.xml
-0c7905cb41581c3261414d7fe75f95bd  usr/share/veracrypt/languages/Language.et.xml
-306d6d2ef4110d16938409736512b7d5  usr/share/veracrypt/languages/Language.nl.xml
-a3624e7ccd70552b7e15b6a93799fd6e  usr/share/veracrypt/languages/Language.zh-tw.xml
-efba92a15752cbef1c5562ab0183a1a4  usr/share/veracrypt/languages/Language.pt-br.xml
-e4cad5da52f15bbb5a6f80a6720aa57c  usr/share/veracrypt/languages/Language.ko.xml
-088a5c554350fc37b4c1edf08e585c2d  usr/share/veracrypt/languages/Language.zh-hk.xml
-548a72de2d5d2a9e821bc5f203bdf5bd  usr/share/veracrypt/languages/Language.fr.xml
-91e8372f7f138c979081bb45145ca5bc  usr/share/veracrypt/languages/Language.el.xml
-5b48e802e03b252ca23c3cf076a58d0b  usr/share/veracrypt/languages/Language.ka.xml
-e2394661536e3e5dbf8af6ff1aed68fe  usr/share/veracrypt/languages/Language.it.xml
-47d53e8b0404fa0b5ed0d474ad186bff  usr/share/veracrypt/languages/Language.ro.xml
-024412974dac70bd3afc656148539088  usr/share/veracrypt/languages/Language.tr.xml
-3833ded7600815a3838578addf8d8185  usr/share/veracrypt/languages/Language.th.xml
-c1eef2fc7cbfca3e2468fb31915f06ea  usr/share/veracrypt/languages/Language.da.xml
-26da3907287d971bf9fce4c2c47dda5a  usr/share/veracrypt/languages/Language.ja.xml
-72ba651c583c266e27e1e914cd3c1ec4  usr/share/pixmaps/veracrypt.xpm
-41af27b0b3e489026c01b7c4358fbb11  usr/share/mime/packages/veracrypt.xml
+e3201d88657ad956e607654a53bd6e46  usr/bin/veracrypt
+88442f565dd462e1123efcf6a59770d9  usr/bin/veracrypt-uninstall.sh
+555b18400f772de46fe674cc3c18db6a  usr/sbin/mount.veracrypt
 fade11527711851975d0fc1010baf1bf  usr/share/applications/veracrypt.desktop
-5491fc25852e752d13fd8e800f620e50  usr/sbin/mount.veracrypt
+c366f9b2a0802d0fc13af52bf33e1368  usr/share/doc/veracrypt/HTML/en/AES.html
+e6f07a225a0ab38c9099254451ee7cea  usr/share/doc/veracrypt/HTML/en/Acknowledgements.html
+afd0d1fc9367830f2a98756d95b61e81  usr/share/doc/veracrypt/HTML/en/Additional Security Requirements and Precautions.html
+a75b91e56d6fc986c419e975cf2ec863  usr/share/doc/veracrypt/HTML/en/Argon2id.html
+a3bde49a74ed995ebd3fc6120b1e5667  usr/share/doc/veracrypt/HTML/en/Authenticity and Integrity.html
+4c137a00c798445783fdab4b1590c945  usr/share/doc/veracrypt/HTML/en/Authors.html
+54869a3b2508edd0c23b9d42733d1ef5  usr/share/doc/veracrypt/HTML/en/Avoid Third-Party File Extensions.html
+a97c16af58802d167251655ef14546c8  usr/share/doc/veracrypt/HTML/en/BCH_Logo_30x30.png
+382eb591ff877480deade16f9abcf879  usr/share/doc/veracrypt/HTML/en/BC_Logo_30x30.png
+45e87a17a2397a62a5a1fefaaafabc39  usr/share/doc/veracrypt/HTML/en/BLAKE2s-256.html
+1176027a51e3514a5305e6cda16c38f5  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial.html
+d568d63f72be226858de10fdfe6a9417  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_001.jpg
+c2d6b924b358c739549a667f47c27227  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_002.jpg
+aae2666f7512e48280f2d140889f000c  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_003.jpg
+c2942e6abd74f44b46883d1a069983a4  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_004.jpg
+816a34505deac7ee98ed37716a496d30  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_005.jpg
+8b2bbbc04f289c2ddcb1514d7f8ee3c1  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_007.jpg
+c6458fa4e70f28f343a8afa770aa92cf  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_008.jpg
+77ad49c988d0287c6efb47c0973cd809  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_009.jpg
+0a68c439dcd03fc9e854b2a183d1f0af  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_010.jpg
+806b1be1ef6d1ec1602612b90f3ec789  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_011.jpg
+3fb47c7f7268fbee1eee4335eee7fc36  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_012.jpg
+36e29f8db45aea14b8c9ff6f52a394df  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_013.jpg
+6c0ebd265d9fdd87d20ea5674d545f12  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_014.jpg
+3807028a99c3f747d14554e830b1a565  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_015.jpg
+1136f153f898077d559b579ab1be7248  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_016.jpg
+ea8d8c91bcaaaa71e77e8947c1c7932d  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_017.jpg
+4b6ffc902f5fcea656d58ea236977d34  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_018.jpg
+b4081793457cce2ca13a7fa4766fecb0  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_019.jpg
+791f9671ed9fe92209de30271b4d8109  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_020.jpg
+9b0660b22c9355bd9444db92e7e5fbf9  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_021.jpg
+2ab2f841eb6f7e48b5ac1aad9ca79761  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_022.jpg
+16e824749c58a441db79fdd5b61f9d65  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_023.gif
+433223df8c53be6204803d2204a64d47  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_024.gif
+f06c63c12966875a0b4079fa08e9a5ff  usr/share/doc/veracrypt/HTML/en/Beginner's Tutorial_Image_034.png
+62f1a0b28398ce3b05d50954f4af3025  usr/share/doc/veracrypt/HTML/en/Camellia.html
+d9e05db098b78cb564e3292b40d8fec5  usr/share/doc/veracrypt/HTML/en/Cascades.html
+8684c28147f576599a78e8837d43e7c5  usr/share/doc/veracrypt/HTML/en/Changing Passwords and Keyfiles.html
+caf4134e0cdbaeef5d6c0e60430bc641  usr/share/doc/veracrypt/HTML/en/Choosing Passwords and Keyfiles.html
+cae269e6f945824de0a320c758017c10  usr/share/doc/veracrypt/HTML/en/Command Line Usage for Unix.html
+775ac7125c973e939dff011fe528fb47  usr/share/doc/veracrypt/HTML/en/Command Line Usage for Windows.html
+8f102037d1843e67f2f210d004fdc5bd  usr/share/doc/veracrypt/HTML/en/Command Line Usage.html
+26fd56610c21b7d050c076b2e740f0e6  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineLinux.html
+511899347097b0d7bc3178c06ba8ca3d  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin.html
+5b9f9387b3be214f1948e43638063055  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/AddNewSystemVar.jpg
+a9f9c537a676c8ce12557d7dd1ed7f71  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/CertVerifyFails.jpg
+6cd0aad1c9459e24b427d3e8590bbafa  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/CertificateCannotBeVerified.jpg
+61fc225d5549645aba7b9bcb5569e853  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/DistributionPackageDamaged.jpg
+8b4c5b05f5df427d7c84990e954bd25a  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/DownloadVS2010.jpg
+5d0e876cc7283cca9ed681d651911415  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/DownloadVS2019.jpg
+fc0f646743fb343bf6c2302f8dc67223  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/DownloadVSBuildTools.jpg
+61aa25b21ca260a42c9a8e65c810e5c3  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/NasmCommandLine.jpg
+9af8c1bc47c393813e273f7ee845b575  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/RegeditPermissions-1.jpg
+fdf6ca9017dd5520c5dcd8b2a76f2853  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/RegeditPermissions-2.jpg
+5e0c25cf6d8f6d19813458341518090a  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/RegeditPermissions-3.jpg
+c37630545752ec6b9a30cba4ec1503e4  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/RegeditPermissions-4.jpg
+57f35ab58b2e90bd251d8930cca3e5ad  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/SelectAdvancedSystemSettings.jpg
+8346343c6055bf7537a31b6320588d92  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/SelectEnvironmentVariables.jpg
+83f9a001b7a4285a522b5598d54b9652  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/SelectPathVariable.jpg
+c7dd31e30154c88bca5c5d505210f00c  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/SelectThisPC.jpg
+2eb2494fbc34d4cbf7b830cb6befa581  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/VS2010BuildSolution.jpg
+4a3e8c50c5852583189fc9add23a673a  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/VS2010Win32Config.jpg
+d79941d387c8588c7c8447f19813e9e4  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/VS2010X64Config.jpg
+64940df54abc4584ab0ad2e31dbec93d  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/VS2019ARM64Config.jpg
+88c70c5d4d8c9a325df77d4995e44700  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/VS2019BuildSolution.jpg
+8a8c4360a97ec40c0bac8311e45c62d4  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/YasmCommandLine.jpg
+885bd871064e602a90fc155663475a8a  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/gzipCommandLine.jpg
+38e44d4eefa87a9241e51f0fc123986d  usr/share/doc/veracrypt/HTML/en/CompilingGuidelineWin/upxCommandLine.jpg
+2d884d7968e3c948fecda00a0d8ed2ff  usr/share/doc/veracrypt/HTML/en/CompilingGuidelines.html
+018645a1448c3ecab4af85e5c4e9715a  usr/share/doc/veracrypt/HTML/en/Contact.html
+ff6ad6b85cc7c149181fa5878d820883  usr/share/doc/veracrypt/HTML/en/Contributed Resources.html
+57473ce4efe86612046eb8c56f21a4f0  usr/share/doc/veracrypt/HTML/en/Conversion_Guide_VeraCrypt_1.26_and_Later.html
+50a699a2d584fbecd176f6e1e4767756  usr/share/doc/veracrypt/HTML/en/Converting TrueCrypt volumes and partitions.html
+5f09d337bd618628a2f0ca4c81228d23  usr/share/doc/veracrypt/HTML/en/Converting TrueCrypt volumes and partitions_truecrypt_convertion.jpg
+02be51032e3fbedccf259aff22ea3667  usr/share/doc/veracrypt/HTML/en/Creating New Volumes.html
+ac856508c992087f83cf12f764d95300  usr/share/doc/veracrypt/HTML/en/Data Leaks.html
+992d2cf9b7434737975b8040078f4f57  usr/share/doc/veracrypt/HTML/en/Default Mount Parameters.html
+66b58a4ce045dec222ce76f24df86406  usr/share/doc/veracrypt/HTML/en/Default Mount Parameters_VeraCrypt_password_using_default_parameters.png
+d92f0fb0af59c0335703a638c72e3b68  usr/share/doc/veracrypt/HTML/en/Defragmenting.html
+a092bb3ee8e7a6579fc67478aac8b604  usr/share/doc/veracrypt/HTML/en/Digital Signatures.html
+07e783aa8edabe076b062ccd8e8b574f  usr/share/doc/veracrypt/HTML/en/Disclaimers.html
+73985815cdc8367ddb8bef568006564c  usr/share/doc/veracrypt/HTML/en/Documentation.html
+d44f7be0a3b1b1ef43ed39c5227d5e4e  usr/share/doc/veracrypt/HTML/en/Donation.html
+7b07036657dca7ce7997793977f23b3a  usr/share/doc/veracrypt/HTML/en/Donation_VC_BTC_Sigwit.png
+b2dc5788bf28be9c17fd2035df786ee1  usr/share/doc/veracrypt/HTML/en/Donation_VeraCrypt_Bitcoin_small.png
+8bc36bb1d3a6b5229d48c32e6f938b87  usr/share/doc/veracrypt/HTML/en/Donation_VeraCrypt_Ethereum.png
+6af1d16ff6e3e380016c8fedfa4d35bb  usr/share/doc/veracrypt/HTML/en/Donation_donate.gif
+8fbdd5c696d5ce6def45c9c8dcc79ab5  usr/share/doc/veracrypt/HTML/en/Donation_donate_CHF.gif
+9ec0669e64a6a8ccbc7b338eb2e6297f  usr/share/doc/veracrypt/HTML/en/Donation_donate_Dollars.gif
+b1843ce117e97f8f39c6f95eb349bd70  usr/share/doc/veracrypt/HTML/en/Donation_donate_Euros.gif
+da56df84bac3b7181d8ac436f2d406b1  usr/share/doc/veracrypt/HTML/en/Donation_donate_GBP.gif
+9092f9954dfe3c910fb0b9c5a09b4254  usr/share/doc/veracrypt/HTML/en/Donation_donate_PLN.gif
+9b0ae1ea4b8b0c14ce1d3d59ca9f3ed4  usr/share/doc/veracrypt/HTML/en/Donation_donate_YEN.gif
+2ade8d340af4526f45ba4b63eb72ae2e  usr/share/doc/veracrypt/HTML/en/EMV Smart Cards.html
+d2d39383ccb78ae6cb09360089559c61  usr/share/doc/veracrypt/HTML/en/Encryption Algorithms.html
+be08383c9a6804e647901ade29fd846f  usr/share/doc/veracrypt/HTML/en/Encryption Scheme.html
+71df1f228d1f6096eee8f2f706b34623  usr/share/doc/veracrypt/HTML/en/Ethereum_Logo_19x30.png
+bcdca6ec9eaf822330484a6765c08ba3  usr/share/doc/veracrypt/HTML/en/FAQ.html
+7400c0644f3901d8d3b2cecf587adce4  usr/share/doc/veracrypt/HTML/en/Favorite Volumes.html
+90d3a35832b50e7af77fd1e3cb76999a  usr/share/doc/veracrypt/HTML/en/Hardware Acceleration.html
+dfbb3b44113019d7b18e0a5339168e5d  usr/share/doc/veracrypt/HTML/en/Hash Algorithms.html
+177033eb05b3867b0cd2ae2644523f41  usr/share/doc/veracrypt/HTML/en/Header Key Derivation.html
+7e2fa3bbe6be3ebc2f10255e3bafffb5  usr/share/doc/veracrypt/HTML/en/Hibernation File.html
+40cd8915d99350cc914ab50773873b4d  usr/share/doc/veracrypt/HTML/en/Hidden Operating System.html
+d11abf1b5d7a5c14a13a451cf3d73df8  usr/share/doc/veracrypt/HTML/en/Hidden Volume.html
+a4204233aa6c98281f326c08dd2cf41e  usr/share/doc/veracrypt/HTML/en/Home_VeraCrypt_Default_Mount_Parameters.png
+d8af1f7993f8a1ed04a18164a5aee9cb  usr/share/doc/veracrypt/HTML/en/Home_VeraCrypt_menu_Default_Mount_Parameters.png
+ee4e3bfa2bd960e68b04762e32adfefd  usr/share/doc/veracrypt/HTML/en/Home_facebook_veracrypt.png
+f367986e1dbbf8f3630762407e356061  usr/share/doc/veracrypt/HTML/en/Home_reddit.png
+04bf53d3fa1382424ce7bd7c594430db  usr/share/doc/veracrypt/HTML/en/Home_utilities-file-archiver-3.png
+7866dc356f496ecec3f36487a97f1d38  usr/share/doc/veracrypt/HTML/en/Hot Keys.html
+4b5d3d509b53dc01929ed7dbb772bbfe  usr/share/doc/veracrypt/HTML/en/How to Back Up Securely.html
+7093a1dbd13438049310a4f97883afcc  usr/share/doc/veracrypt/HTML/en/Incompatibilities.html
+5d52d3716cd3075304a43d82d576ca3d  usr/share/doc/veracrypt/HTML/en/Introduction.html
+511597f671459c73f92dc94934032b59  usr/share/doc/veracrypt/HTML/en/Issues and Limitations.html
+c4c03a0bf6c9d493fd91979929eaa279  usr/share/doc/veracrypt/HTML/en/Journaling File Systems.html
+f6d9f66fc1024cb6fb0c41e47cfb6ac2  usr/share/doc/veracrypt/HTML/en/Key Derivation Algorithms.html
+61f0a183548f6b55ab0576f334388abe  usr/share/doc/veracrypt/HTML/en/Keyfiles in VeraCrypt.html
+39751a4b52d9719872f8555c17c2817f  usr/share/doc/veracrypt/HTML/en/Keyfiles in VeraCrypt_Image_040.gif
+4cf44a28e26221e52911c50b9d2a484a  usr/share/doc/veracrypt/HTML/en/Keyfiles.html
+2ba9b7f5b0cf7f5c79e47def33e33b44  usr/share/doc/veracrypt/HTML/en/Kuznyechik.html
+f9ce9897df9a9b2ac830065f6c7634f9  usr/share/doc/veracrypt/HTML/en/LTC_Logo_30x30.png
+4b7ee7ef973d7b7cf6b480eb40e39639  usr/share/doc/veracrypt/HTML/en/Language Packs.html
+5d9d4ba4caf39b5482c858058fd1cd37  usr/share/doc/veracrypt/HTML/en/Legal Information.html
+23ee22ada30d490c54482fa81a7b1c01  usr/share/doc/veracrypt/HTML/en/Main Program Window.html
+c7a512053529f1f6b659d48a8df089d0  usr/share/doc/veracrypt/HTML/en/Malware.html
+9cedc61a021e0d81bb3b7e541bbd154e  usr/share/doc/veracrypt/HTML/en/Memory Dump Files.html
+b45b0bf6c8cd1702f5424a738f016518  usr/share/doc/veracrypt/HTML/en/Miscellaneous.html
+362075558f84be1fd2e352d536d6c7b4  usr/share/doc/veracrypt/HTML/en/Modes of Operation.html
+98ddb817cfcfa92fabd0be3b4790dfe6  usr/share/doc/veracrypt/HTML/en/Monero_Logo_30x30.png
+47d61caf2f131ba90d50943dfc08306c  usr/share/doc/veracrypt/HTML/en/Mounting VeraCrypt Volumes.html
+f783091b7cca1432ca6294d28ebbda70  usr/share/doc/veracrypt/HTML/en/Multi-User Environment.html
+bc9afce489f6c403bf5b97b3173c6800  usr/share/doc/veracrypt/HTML/en/Normal Unmount vs Force Unmount.html
+da4419d527813d8a1e91d4ddd476153b  usr/share/doc/veracrypt/HTML/en/Notation.html
+5796d5e711950f195fe01ca10b89c275  usr/share/doc/veracrypt/HTML/en/Paging File.html
+27a6fbc453ecaeb5b9b0b5b974ce5627  usr/share/doc/veracrypt/HTML/en/Parallelization.html
+91720a962ba3bcd754b1d84c9e40b49c  usr/share/doc/veracrypt/HTML/en/Personal Iterations Multiplier (PIM).html
+20c02d5f22185c504d1ae39d60edc3e1  usr/share/doc/veracrypt/HTML/en/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step1.png
+c0510e11abaeadba1839431deeae8bec  usr/share/doc/veracrypt/HTML/en/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step2.png
+aefe3ead74458aaa7055fa9ec3a25b32  usr/share/doc/veracrypt/HTML/en/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step1.png
+cc05494e24c32d1dd225c860799e2b4a  usr/share/doc/veracrypt/HTML/en/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step2.png
+14847ad6efc3ea829f5423208325f628  usr/share/doc/veracrypt/HTML/en/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step1.png
+05e1da70d5798b5fee49fff4fb5d0af3  usr/share/doc/veracrypt/HTML/en/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step2.png
+d209c984336b1d6e8c60bdb14f8d7aed  usr/share/doc/veracrypt/HTML/en/Physical Security.html
+2f43d4c2d996621dcb1e4c64feb53c58  usr/share/doc/veracrypt/HTML/en/Pipelining.html
+90e88ad57886417f7f81a1f5264736da  usr/share/doc/veracrypt/HTML/en/Plausible Deniability.html
+3c4a8dc2ae765fdbaf7892f26da9b0a1  usr/share/doc/veracrypt/HTML/en/Portable Mode.html
+34c5090562243381a82e4ebe4515c9fc  usr/share/doc/veracrypt/HTML/en/Preface.html
+b21478e2e0e529115ac582d041b42562  usr/share/doc/veracrypt/HTML/en/Program Menu.html
+db1f67c8dbc7b78160f95079271541db  usr/share/doc/veracrypt/HTML/en/Protection of Hidden Volumes.html
+d1e0360b4b0d389662a25d967a5833cf  usr/share/doc/veracrypt/HTML/en/Protection of Hidden Volumes_Image_027.jpg
+e2d4c319a27d8e4dd54f55bb6602aaaa  usr/share/doc/veracrypt/HTML/en/Protection of Hidden Volumes_Image_028.jpg
+c62e19cf88ec29e4ee58e6825db60c6d  usr/share/doc/veracrypt/HTML/en/Protection of Hidden Volumes_Image_029.jpg
+c6ef99beec81ecbcc2f20e619fad2e47  usr/share/doc/veracrypt/HTML/en/Protection of Hidden Volumes_Image_030.jpg
+36b61bd0117296baaba8e7bb905add42  usr/share/doc/veracrypt/HTML/en/Protection of Hidden Volumes_Image_031.jpg
+57a6d40c508bc3dab9cfb3eb3c9652f7  usr/share/doc/veracrypt/HTML/en/Random Number Generator.html
+b618f2d4f82e94271cf4fc33bb43d4a7  usr/share/doc/veracrypt/HTML/en/Reallocated Sectors.html
+b113ae363f0da9dec8ae73dffd6fdfed  usr/share/doc/veracrypt/HTML/en/References.html
+98cf5a200d4d550e08f195aa6c72519f  usr/share/doc/veracrypt/HTML/en/Release Notes.html
+6e1398d6ce3d4d6cb8df868b90de8378  usr/share/doc/veracrypt/HTML/en/Removable Medium Volume.html
+77ae11213edac3c58a736e833bb54f8e  usr/share/doc/veracrypt/HTML/en/Removing Encryption.html
+3e3df394d5232057457d06864ff2894f  usr/share/doc/veracrypt/HTML/en/SHA-256.html
+d974214c20451f9badb694fdb8fca50c  usr/share/doc/veracrypt/HTML/en/SHA-512.html
+d460ecd56a3e11ccf53fec977934d5bb  usr/share/doc/veracrypt/HTML/en/SM4.html
+ac473ec6dcf1ed653cc5ee791b00b98b  usr/share/doc/veracrypt/HTML/en/Security Model.html
+5ad3789c837f68711ee5c9bc44e01f55  usr/share/doc/veracrypt/HTML/en/Security Requirements and Precautions.html
+3fdea5a9a336455e592db51885a6bb98  usr/share/doc/veracrypt/HTML/en/Security Requirements for Hidden Volumes.html
+9420408adc6236308a8bdf7ec4e82794  usr/share/doc/veracrypt/HTML/en/Security Tokens & Smart Cards.html
+c2fb9a6e30e200460548fcbca508ec9e  usr/share/doc/veracrypt/HTML/en/Serpent.html
+8d14fda58f482d49cd455ec4b998db95  usr/share/doc/veracrypt/HTML/en/Sharing over Network.html
+451fb3534b843487fe237094bc802682  usr/share/doc/veracrypt/HTML/en/Source Code.html
+afd012e9c86c8dc35f1b8e25a6be9a92  usr/share/doc/veracrypt/HTML/en/Standard Compliance.html
+ebf0e8109a2ea8a150090d205860ed3f  usr/share/doc/veracrypt/HTML/en/Streebog.html
+17250b90a57c8dc7b4d4a8f58e532fe9  usr/share/doc/veracrypt/HTML/en/Supported Operating Systems.html
+4d1e327eb7807a3098724f9c042a1ad3  usr/share/doc/veracrypt/HTML/en/Supported Systems for System Encryption.html
+364fc871b5c6cb34ba1f4f2a8a7fcd6d  usr/share/doc/veracrypt/HTML/en/System Encryption.html
+9b8600b5cfb3fd9607adc90656ec19a5  usr/share/doc/veracrypt/HTML/en/System Favorite Volumes.html
+8620a9b3f05922bd8e47d91f705e082c  usr/share/doc/veracrypt/HTML/en/Technical Details.html
+395e17e03975308360e8fc29a5b880ef  usr/share/doc/veracrypt/HTML/en/Trim Operation.html
+9f0c4eab06866004e8205ab54ff992ba  usr/share/doc/veracrypt/HTML/en/Troubleshooting.html
+7eb180a593165912d72c524bedd566a3  usr/share/doc/veracrypt/HTML/en/TrueCrypt Support.html
+f0eb4a08ef7cb23e9e8dff5750ad2ee2  usr/share/doc/veracrypt/HTML/en/TrueCrypt Support_truecrypt_mode_gui.jpg
+2067fbb325baa8d50fdeb5675f0c1e79  usr/share/doc/veracrypt/HTML/en/Twofish.html
+4755939e8149d2d019f026bbb602a728  usr/share/doc/veracrypt/HTML/en/Unencrypted Data in RAM.html
+9c5cd806ff18700e84b5c27a12705662  usr/share/doc/veracrypt/HTML/en/Uninstalling VeraCrypt.html
+9f12d72831a51d20b93b880528787d0e  usr/share/doc/veracrypt/HTML/en/Using VeraCrypt Without Administrator Privileges.html
+965307a3ec605ac4e436d2aff0916e6c  usr/share/doc/veracrypt/HTML/en/VeraCrypt Background Task.html
+7a403c79664681e134501544e2dc379f  usr/share/doc/veracrypt/HTML/en/VeraCrypt Hidden Operating System.html
+284acb05203ab2d74517576be0e9dc2e  usr/share/doc/veracrypt/HTML/en/VeraCrypt License.html
+584ca4c0f81b375a2247238778909d9c  usr/share/doc/veracrypt/HTML/en/VeraCrypt Memory Protection.html
+915580e362509753fe1d386f8794f149  usr/share/doc/veracrypt/HTML/en/VeraCrypt RAM Encryption.html
+722ed612d9333d69352fb90fcaf15a14  usr/share/doc/veracrypt/HTML/en/VeraCrypt Rescue Disk.html
+4174a0e586b96945a15657915b050592  usr/share/doc/veracrypt/HTML/en/VeraCrypt System Files.html
+a11c7cfc5b8f06b063e29f68812a5c1a  usr/share/doc/veracrypt/HTML/en/VeraCrypt Volume Format Specification.html
+d41f07c8fbe16aae103ffe697854609c  usr/share/doc/veracrypt/HTML/en/VeraCrypt Volume.html
+53fb6db28503f7f09f8a669aad27766a  usr/share/doc/veracrypt/HTML/en/VeraCrypt128x128.png
+f33727d0722a8e2af7c044d312476f33  usr/share/doc/veracrypt/HTML/en/Volume Clones.html
+4debd1597da28b0b25cd4472c2f45ee6  usr/share/doc/veracrypt/HTML/en/Wear-Leveling.html
+c59a87212d6eccc4af4f9f1acf33befa  usr/share/doc/veracrypt/HTML/en/Whirlpool.html
+343779088f21a059a5e85b146f8c2ab1  usr/share/doc/veracrypt/HTML/en/arrow_right.gif
+5480979b88e7e65fe919721d1f864f07  usr/share/doc/veracrypt/HTML/en/donation.js
+be53c198e53901058c99ad3185acbd9b  usr/share/doc/veracrypt/HTML/en/flag-au-small.png
+f4893f24aa54f72ed0ada5c4a22aa6d0  usr/share/doc/veracrypt/HTML/en/flag-au.png
+5073d8317e3f53d4e1bd10ee5480e661  usr/share/doc/veracrypt/HTML/en/flag-eu-small.png
+750b15c8d6868930e0641e30c8496fc5  usr/share/doc/veracrypt/HTML/en/flag-eu.png
+cc512af4980bd98a7f8c56e3d6649716  usr/share/doc/veracrypt/HTML/en/flag-gb-small.png
+5486bd0ef3d46b226d1a5abfaecca3fe  usr/share/doc/veracrypt/HTML/en/flag-gb.png
+2a291ce36ca873b3434ae3d9c1210847  usr/share/doc/veracrypt/HTML/en/flag-nz-small.png
+504653dbf692329748b223bdaa28c3f7  usr/share/doc/veracrypt/HTML/en/flag-nz.png
+d430f8bb8049d950c03c163f0c4d9846  usr/share/doc/veracrypt/HTML/en/flag-us-small.png
+b49ae0fa4e1c11e0608ee2c695a72f7f  usr/share/doc/veracrypt/HTML/en/flag-us.png
+cec0fd2671fe0ce247d7dae14db92439  usr/share/doc/veracrypt/HTML/en/flattr-badge-large.png
+b334b7fc6cd0718a9c33cc0278ca113b  usr/share/doc/veracrypt/HTML/en/gf2_mul.gif
+445794882aa890c1512a1b825ef96ebd  usr/share/doc/veracrypt/HTML/en/liberapay_donate.svg
+fc8b927e3d42f167a9f25097470d3e6b  usr/share/doc/veracrypt/HTML/en/mastodon_veracrypt.PNG
+e73b45bc4acff52739fbfd087dda4acf  usr/share/doc/veracrypt/HTML/en/paypal_30x30.png
+764938ce5eb4469231143c5e7e359ea1  usr/share/doc/veracrypt/HTML/en/pbkdf2.html
+07800bba47266f90fa2cd9d78d7eceab  usr/share/doc/veracrypt/HTML/en/styles.css
+db7b3093704314fae80a90d141d10dd7  usr/share/doc/veracrypt/HTML/en/twitter_veracrypt.PNG
+41eeacc643c662dd7b8eb9f80238e246  usr/share/doc/veracrypt/HTML/ru/AES.html
+689cbc933fa7f8099f4ba45de4c78975  usr/share/doc/veracrypt/HTML/ru/Acknowledgements.html
+1e365a30e457a7fa3a2266c4870e3a67  usr/share/doc/veracrypt/HTML/ru/Additional Security Requirements and Precautions.html
+47ac06f0cbffc19a387cb4d28d94709c  usr/share/doc/veracrypt/HTML/ru/Authenticity and Integrity.html
+e8b62cdf0e7358fffd1d184c7dfebbc4  usr/share/doc/veracrypt/HTML/ru/Authors.html
+300130250c705ec4ba81b546e0413959  usr/share/doc/veracrypt/HTML/ru/Avoid Third-Party File Extensions.html
+a97c16af58802d167251655ef14546c8  usr/share/doc/veracrypt/HTML/ru/BCH_Logo_30x30.png
+382eb591ff877480deade16f9abcf879  usr/share/doc/veracrypt/HTML/ru/BC_Logo_30x30.png
+f728248ae1032f0debf217b7a5cedaa1  usr/share/doc/veracrypt/HTML/ru/BLAKE2s-256.html
+2869133091134a0e98f58e3a6f3e596e  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial.html
+059f098f4d26ac867df1c6402eb9890f  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_001.png
+8a045ba281f97870ebc5402aacac7a57  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_002.png
+09edfcd54a031810f69e96b27b527e60  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_003.png
+d22fd1cfc8a018a536cdfa8314f9ff03  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_004.png
+698aff7074c51a3bc09fe867a0096da0  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_005.png
+39beead6d945a70c71f79131190df004  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_007.png
+58ea59f7f4c428175ac6883aed0acebb  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_008.png
+b63b43d5570f2f43601febaf37085f71  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_009.png
+98d0505fc7a3b55c0d2e86503bc8b9d3  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_010.png
+6fc9209c2c01f59e477e6dae350a4d57  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_011.png
+197de36dd7cafc0adfd94f9f2de9484e  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_012.png
+cde96af4cc782bfca14c09d70018b646  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_013.png
+640622869e98e5289a98ad90cd7ffda5  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_014.png
+70303ae2f25e5957ba4b6d944dfad237  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_015.png
+88f9472b7751fddb2a386f06f1111f6b  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_016.png
+269a33208955630d58c80d14f957cfbb  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_017.png
+5c0165886687477a7940f7c0c6806484  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_018.png
+d66a391be1b159b68d7a3b1ef8b1db90  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_019.png
+c672d28843cfbc5b0da1d7117945c80c  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_020.png
+0f11f2e1d16d7572d3df7400765fb437  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_021.png
+4944ac41e63dd1e7b4a35b806e166a0d  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_022.png
+ea12eac073d1eb723565386460f4d1f6  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_023.png
+45c7992afbd98eafeaf84a27b5a4a2f5  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_024.png
+119546770b60991f0d67f62afc747b0c  usr/share/doc/veracrypt/HTML/ru/Beginner's Tutorial_Image_034.png
+f51dc0caa89d1b4f69219fab66c37c78  usr/share/doc/veracrypt/HTML/ru/Camellia.html
+ab12fb65ff13b3d6ee3113ec0600669b  usr/share/doc/veracrypt/HTML/ru/Cascades.html
+e21065a6a2e01e23ea71f8ce1e34b8a8  usr/share/doc/veracrypt/HTML/ru/Changing Passwords and Keyfiles.html
+f144cf81e4c70a44fc81c0a3b69faeb8  usr/share/doc/veracrypt/HTML/ru/Choosing Passwords and Keyfiles.html
+fbd33c5dc779b78be3465f0c9f7e857e  usr/share/doc/veracrypt/HTML/ru/Command Line Usage.html
+fd54eb229501559ebf5f2321bb45140c  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineLinux.html
+98c110563c2f857050d7f810cf3ea2ad  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin.html
+5b9f9387b3be214f1948e43638063055  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/AddNewSystemVar.jpg
+a9f9c537a676c8ce12557d7dd1ed7f71  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/CertVerifyFails.jpg
+6cd0aad1c9459e24b427d3e8590bbafa  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/CertificateCannotBeVerified.jpg
+61fc225d5549645aba7b9bcb5569e853  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/DistributionPackageDamaged.jpg
+8b4c5b05f5df427d7c84990e954bd25a  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/DownloadVS2010.jpg
+5d0e876cc7283cca9ed681d651911415  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/DownloadVS2019.jpg
+fc0f646743fb343bf6c2302f8dc67223  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/DownloadVSBuildTools.jpg
+61aa25b21ca260a42c9a8e65c810e5c3  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/NasmCommandLine.jpg
+9af8c1bc47c393813e273f7ee845b575  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/RegeditPermissions-1.jpg
+fdf6ca9017dd5520c5dcd8b2a76f2853  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/RegeditPermissions-2.jpg
+5e0c25cf6d8f6d19813458341518090a  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/RegeditPermissions-3.jpg
+c37630545752ec6b9a30cba4ec1503e4  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/RegeditPermissions-4.jpg
+57f35ab58b2e90bd251d8930cca3e5ad  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/SelectAdvancedSystemSettings.jpg
+8346343c6055bf7537a31b6320588d92  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/SelectEnvironmentVariables.jpg
+83f9a001b7a4285a522b5598d54b9652  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/SelectPathVariable.jpg
+c7dd31e30154c88bca5c5d505210f00c  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/SelectThisPC.jpg
+2eb2494fbc34d4cbf7b830cb6befa581  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/VS2010BuildSolution.jpg
+4a3e8c50c5852583189fc9add23a673a  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/VS2010Win32Config.jpg
+d79941d387c8588c7c8447f19813e9e4  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/VS2010X64Config.jpg
+64940df54abc4584ab0ad2e31dbec93d  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/VS2019ARM64Config.jpg
+88c70c5d4d8c9a325df77d4995e44700  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/VS2019BuildSolution.jpg
+8a8c4360a97ec40c0bac8311e45c62d4  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/YasmCommandLine.jpg
+885bd871064e602a90fc155663475a8a  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/gzipCommandLine.jpg
+38e44d4eefa87a9241e51f0fc123986d  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelineWin/upxCommandLine.jpg
+2ee1df92a332f00aeb9a3b789e111386  usr/share/doc/veracrypt/HTML/ru/CompilingGuidelines.html
+d7c527b461cd530e7c33ed8f7298b69e  usr/share/doc/veracrypt/HTML/ru/Contact.html
+70713d40e8a6f32c41262194eff42df7  usr/share/doc/veracrypt/HTML/ru/Contributed Resources.html
+18b15b0e5ce1bbe29acaada6ad87b6cc  usr/share/doc/veracrypt/HTML/ru/Conversion_Guide_VeraCrypt_1.26_and_Later.html
+bf8bf3433dfc1b2dabbfaf10076e4e7e  usr/share/doc/veracrypt/HTML/ru/Converting TrueCrypt volumes and partitions.html
+c0df2c45a7d38f34adfb1471a95f57cb  usr/share/doc/veracrypt/HTML/ru/Converting TrueCrypt volumes and partitions_truecrypt_convertion.png
+07ea7dacd364276af77e49fbe6b44a80  usr/share/doc/veracrypt/HTML/ru/Creating New Volumes.html
+eb2f01c2ed2b401540c9cd946ef40b3d  usr/share/doc/veracrypt/HTML/ru/Data Leaks.html
+bbcf89cec93ace98147a9f4f9f224807  usr/share/doc/veracrypt/HTML/ru/Default Mount Parameters.html
+25584932f4244420b552b5e60c18c6f7  usr/share/doc/veracrypt/HTML/ru/Default Mount Parameters_VeraCrypt_password_using_default_parameters.png
+c446a8254ee509e25072f3040bfcc2a2  usr/share/doc/veracrypt/HTML/ru/Defragmenting.html
+47bda8777847dcb61e5c9815ee5c36d6  usr/share/doc/veracrypt/HTML/ru/Digital Signatures.html
+4af1307afc00bfabaa0862291c362e3c  usr/share/doc/veracrypt/HTML/ru/Disclaimers.html
+821f8d38416ed613ae50c143edef8c8a  usr/share/doc/veracrypt/HTML/ru/Documentation.html
+1af17d7181d9dba1439d3145ce4feab1  usr/share/doc/veracrypt/HTML/ru/Donation.html
+7b07036657dca7ce7997793977f23b3a  usr/share/doc/veracrypt/HTML/ru/Donation_VC_BTC_Sigwit.png
+b2dc5788bf28be9c17fd2035df786ee1  usr/share/doc/veracrypt/HTML/ru/Donation_VeraCrypt_Bitcoin_small.png
+8bc36bb1d3a6b5229d48c32e6f938b87  usr/share/doc/veracrypt/HTML/ru/Donation_VeraCrypt_Ethereum.png
+6af1d16ff6e3e380016c8fedfa4d35bb  usr/share/doc/veracrypt/HTML/ru/Donation_donate.gif
+8fbdd5c696d5ce6def45c9c8dcc79ab5  usr/share/doc/veracrypt/HTML/ru/Donation_donate_CHF.gif
+9ec0669e64a6a8ccbc7b338eb2e6297f  usr/share/doc/veracrypt/HTML/ru/Donation_donate_Dollars.gif
+b1843ce117e97f8f39c6f95eb349bd70  usr/share/doc/veracrypt/HTML/ru/Donation_donate_Euros.gif
+da56df84bac3b7181d8ac436f2d406b1  usr/share/doc/veracrypt/HTML/ru/Donation_donate_GBP.gif
+9092f9954dfe3c910fb0b9c5a09b4254  usr/share/doc/veracrypt/HTML/ru/Donation_donate_PLN.gif
+9b0ae1ea4b8b0c14ce1d3d59ca9f3ed4  usr/share/doc/veracrypt/HTML/ru/Donation_donate_YEN.gif
+531947bb43a133ca158cfc04521ad227  usr/share/doc/veracrypt/HTML/ru/EMV Smart Cards.html
+9672f62efdcfbad2e913cd343997a415  usr/share/doc/veracrypt/HTML/ru/Encryption Algorithms.html
+bb8f51c686996931a0e7c70ce3e07c38  usr/share/doc/veracrypt/HTML/ru/Encryption Scheme.html
+71df1f228d1f6096eee8f2f706b34623  usr/share/doc/veracrypt/HTML/ru/Ethereum_Logo_19x30.png
+a7412c0d0ac55b420d0effcfc7a8cbc3  usr/share/doc/veracrypt/HTML/ru/FAQ.html
+16e59552aa0e34ddc3fdcd7a77f3dd80  usr/share/doc/veracrypt/HTML/ru/Favorite Volumes.html
+91ef0eb7c13bc97a130e9fa32cb367ba  usr/share/doc/veracrypt/HTML/ru/Hardware Acceleration.html
+fe455bb8c643b05880f7c468b3dc7167  usr/share/doc/veracrypt/HTML/ru/Hash Algorithms.html
+503ee77fadac01178baa689a38708dd1  usr/share/doc/veracrypt/HTML/ru/Header Key Derivation.html
+ca7c8fd19fbdf4c9d7cd37daa88467f1  usr/share/doc/veracrypt/HTML/ru/Hibernation File.html
+293b82fd07ddbfd86f253a1e3a5506e8  usr/share/doc/veracrypt/HTML/ru/Hidden Operating System.html
+ef1b147df50c42c69c883d63b72fc2f8  usr/share/doc/veracrypt/HTML/ru/Hidden Volume.html
+553daf7341b26c18da693ac56ee96a82  usr/share/doc/veracrypt/HTML/ru/Home_VeraCrypt_Default_Mount_Parameters.png
+25928bfc6f8d46492ca521ab0b776dfc  usr/share/doc/veracrypt/HTML/ru/Home_VeraCrypt_menu_Default_Mount_Parameters.png
+ee4e3bfa2bd960e68b04762e32adfefd  usr/share/doc/veracrypt/HTML/ru/Home_facebook_veracrypt.png
+f367986e1dbbf8f3630762407e356061  usr/share/doc/veracrypt/HTML/ru/Home_reddit.png
+04bf53d3fa1382424ce7bd7c594430db  usr/share/doc/veracrypt/HTML/ru/Home_utilities-file-archiver-3.png
+1124d5deae6f2b87870075c52db877cc  usr/share/doc/veracrypt/HTML/ru/Hot Keys.html
+f867a30eeab1d5531de2668eb3869c7c  usr/share/doc/veracrypt/HTML/ru/How to Back Up Securely.html
+e592bc8e71cf229fe839e3a05269962b  usr/share/doc/veracrypt/HTML/ru/Incompatibilities.html
+ac5aa3de3240d8798474d7ed7c41f04a  usr/share/doc/veracrypt/HTML/ru/Introduction.html
+5a3130d2de5947861d7cd088b87eedd7  usr/share/doc/veracrypt/HTML/ru/Issues and Limitations.html
+e534bc24d067f89c1e1b09ca4683a4ae  usr/share/doc/veracrypt/HTML/ru/Journaling File Systems.html
+9e218e88bc368c898d189ce9657c5e8f  usr/share/doc/veracrypt/HTML/ru/Keyfiles in VeraCrypt.html
+5132f314c690c54b2e6d54871d304730  usr/share/doc/veracrypt/HTML/ru/Keyfiles in VeraCrypt_Image_040.png
+56538761a86fac65a5467556eb22cad6  usr/share/doc/veracrypt/HTML/ru/Keyfiles.html
+7346135f5f22f8912c95062488519313  usr/share/doc/veracrypt/HTML/ru/Kuznyechik.html
+f9ce9897df9a9b2ac830065f6c7634f9  usr/share/doc/veracrypt/HTML/ru/LTC_Logo_30x30.png
+29068b06fb406a8448bb69605cbdc17f  usr/share/doc/veracrypt/HTML/ru/Language Packs.html
+51b919123c36a70221db43252db5de09  usr/share/doc/veracrypt/HTML/ru/Legal Information.html
+6fc3037d1f8df4232cc29e38f43bb7f7  usr/share/doc/veracrypt/HTML/ru/Main Program Window.html
+5a37ba0ae4c05f684b8551921497c405  usr/share/doc/veracrypt/HTML/ru/Malware.html
+2d4665b27151d3c14137a2fbae574f6b  usr/share/doc/veracrypt/HTML/ru/Memory Dump Files.html
+d0669c514d5edd117808bbac1ec700a0  usr/share/doc/veracrypt/HTML/ru/Miscellaneous.html
+14938e5bbd4e184eab1a7a2d762212ca  usr/share/doc/veracrypt/HTML/ru/Modes of Operation.html
+98ddb817cfcfa92fabd0be3b4790dfe6  usr/share/doc/veracrypt/HTML/ru/Monero_Logo_30x30.png
+a6c9ba6d7f33877d3ddd4f610bde2fc3  usr/share/doc/veracrypt/HTML/ru/Mounting VeraCrypt Volumes.html
+b987bf5568ca4255562b07e102e547a0  usr/share/doc/veracrypt/HTML/ru/Multi-User Environment.html
+2e17206cf4f1f876c8d9004141366911  usr/share/doc/veracrypt/HTML/ru/Normal Unmount vs Force Unmount.html
+072b4eeee2aed2b62379f452d56e1029  usr/share/doc/veracrypt/HTML/ru/Notation.html
+8f5be9f8c2599e4552595ad30021806f  usr/share/doc/veracrypt/HTML/ru/Paging File.html
+8d8dab89b0a224ad6ed48a2884d6ae69  usr/share/doc/veracrypt/HTML/ru/Parallelization.html
+386419afcc0c4361dca931dc64ccd6d8  usr/share/doc/veracrypt/HTML/ru/Personal Iterations Multiplier (PIM).html
+651f66173c30ef107b728a1764d234f7  usr/share/doc/veracrypt/HTML/ru/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step1.png
+0ec2e412f93dd9d93d4db642456929b1  usr/share/doc/veracrypt/HTML/ru/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step2.png
+a509bf551dda1a276d7c6255d1f2331a  usr/share/doc/veracrypt/HTML/ru/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step1.png
+59fc18a66dc6fb0e880d02cf4e43e38b  usr/share/doc/veracrypt/HTML/ru/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step2.png
+3abe1a7841c842189a463608150a5049  usr/share/doc/veracrypt/HTML/ru/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step1.png
+2ca2b410395711980b57a5ef93d48bbb  usr/share/doc/veracrypt/HTML/ru/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step2.png
+a845f99f187bda6f9d45adf850cfd281  usr/share/doc/veracrypt/HTML/ru/Physical Security.html
+5b1a42e1c54abeb1023e02ee54b19625  usr/share/doc/veracrypt/HTML/ru/Pipelining.html
+4fa22f1cad0902b9b52a6ed2f9324505  usr/share/doc/veracrypt/HTML/ru/Plausible Deniability.html
+0313e2fc29498aee715d3c713a11ede5  usr/share/doc/veracrypt/HTML/ru/Portable Mode.html
+3ef2c4688d430de5d342d3a9ee047cb2  usr/share/doc/veracrypt/HTML/ru/Preface.html
+f960ef991409889fdb907b75d8e0f7e2  usr/share/doc/veracrypt/HTML/ru/Program Menu.html
+6d2a301d1e67b40cc8585aaaef7149c1  usr/share/doc/veracrypt/HTML/ru/Protection of Hidden Volumes.html
+5086c87a6ad6df05fe60ede5bab74290  usr/share/doc/veracrypt/HTML/ru/Protection of Hidden Volumes_Image_027.png
+bfa31f79795a7889df73569dfc69d939  usr/share/doc/veracrypt/HTML/ru/Protection of Hidden Volumes_Image_028.png
+db0f8e52115df24b8d5cde9b83752710  usr/share/doc/veracrypt/HTML/ru/Protection of Hidden Volumes_Image_029.png
+f3bd33b9e6fecf96b248378472fe9808  usr/share/doc/veracrypt/HTML/ru/Protection of Hidden Volumes_Image_030.png
+f36bae2507f5c901ef5a1e6f8685df91  usr/share/doc/veracrypt/HTML/ru/Protection of Hidden Volumes_Image_031.png
+fb3b7190f30c6061c3ab76752c50e42a  usr/share/doc/veracrypt/HTML/ru/Random Number Generator.html
+871b6ea1867e0211c9b130d0a1084de1  usr/share/doc/veracrypt/HTML/ru/Reallocated Sectors.html
+6c818400a61bba2db6f83f8529914f31  usr/share/doc/veracrypt/HTML/ru/References.html
+b79d9af9faa8045627eb0571c4e06502  usr/share/doc/veracrypt/HTML/ru/Release Notes.html
+10e7c9dc743c2a6eb7b9728315194a90  usr/share/doc/veracrypt/HTML/ru/Removable Medium Volume.html
+e0e451bc6b5ac2ec52f0901fa9e91f32  usr/share/doc/veracrypt/HTML/ru/Removing Encryption.html
+91e9e7b74d8ceffe3d63d8627171082d  usr/share/doc/veracrypt/HTML/ru/SHA-256.html
+20b3203c99cd0f9ec769d4efab113d9a  usr/share/doc/veracrypt/HTML/ru/SHA-512.html
+b0dcf1f8c2af7b51de671ad14f1b6e40  usr/share/doc/veracrypt/HTML/ru/SM4.html
+12cadf9419cb53f57cb5b80ba86850a9  usr/share/doc/veracrypt/HTML/ru/Security Model.html
+1f403bcf4b96833b6058d8fe1010f036  usr/share/doc/veracrypt/HTML/ru/Security Requirements and Precautions.html
+a6c22237f72cf7741aa5244e0fe9f4b8  usr/share/doc/veracrypt/HTML/ru/Security Requirements for Hidden Volumes.html
+9e8000fa1be8360d7a9e4dda69d3f861  usr/share/doc/veracrypt/HTML/ru/Security Tokens & Smart Cards.html
+67524fe2f383c220284ea726076dbe7f  usr/share/doc/veracrypt/HTML/ru/Serpent.html
+e9ed2cae061c528bcbb422d349b125b9  usr/share/doc/veracrypt/HTML/ru/Sharing over Network.html
+c319e4d33aa25219ec24b5a4bac06d42  usr/share/doc/veracrypt/HTML/ru/Source Code.html
+a05193c5447a1a15b1a293716cfeb3b4  usr/share/doc/veracrypt/HTML/ru/Standard Compliance.html
+c1523390ed34f9f1e094c37824c2c7a5  usr/share/doc/veracrypt/HTML/ru/Streebog.html
+5c9ff2fc7d6fd5af917833e7be927bf7  usr/share/doc/veracrypt/HTML/ru/Supported Operating Systems.html
+37b9d63665c02192a490f695636c102b  usr/share/doc/veracrypt/HTML/ru/Supported Systems for System Encryption.html
+f1ae213c60955dc43c110dd2107c9155  usr/share/doc/veracrypt/HTML/ru/System Encryption.html
+3b1abe48a8c3a9e06ac022c20cb63dcb  usr/share/doc/veracrypt/HTML/ru/System Favorite Volumes.html
+79f2cf24822747529e1f68a34d19e6af  usr/share/doc/veracrypt/HTML/ru/Technical Details.html
+9d797fa60037e7ab48b8b2800c04d16a  usr/share/doc/veracrypt/HTML/ru/Trim Operation.html
+813db60fa51b72c84df4e306598a789f  usr/share/doc/veracrypt/HTML/ru/Troubleshooting.html
+43e67ba9c9eb4dd40319746ec40c2361  usr/share/doc/veracrypt/HTML/ru/TrueCrypt Support.html
+87a367c03edd493b558a6ce6ebfaad5e  usr/share/doc/veracrypt/HTML/ru/TrueCrypt Support_truecrypt_mode_gui.png
+120648a498c2aa7bc772c29286c8df0b  usr/share/doc/veracrypt/HTML/ru/Twofish.html
+4ea9b5137a3d6fe02504e148325d3862  usr/share/doc/veracrypt/HTML/ru/Unencrypted Data in RAM.html
+5aca3374d51010df974eb46028ec7a0b  usr/share/doc/veracrypt/HTML/ru/Uninstalling VeraCrypt.html
+ee4336650cb80d37cd19387be4fd8846  usr/share/doc/veracrypt/HTML/ru/Using VeraCrypt Without Administrator Privileges.html
+f9145a56cc110581c220a82838727bab  usr/share/doc/veracrypt/HTML/ru/VeraCrypt Background Task.html
+5dcd3e1f85898e78bea2631b038c56c3  usr/share/doc/veracrypt/HTML/ru/VeraCrypt Hidden Operating System.html
+db42edc80fddba88f6bac671eaec4d7c  usr/share/doc/veracrypt/HTML/ru/VeraCrypt License.html
+0608e25c228e8fadbae5f6d41ec43d1a  usr/share/doc/veracrypt/HTML/ru/VeraCrypt Memory Protection.html
+5373abbc4d8826858807a7b7e27e00a5  usr/share/doc/veracrypt/HTML/ru/VeraCrypt RAM Encryption.html
+66c709b3c4997f94dc6a762928c45410  usr/share/doc/veracrypt/HTML/ru/VeraCrypt Rescue Disk.html
+797ecc7dbaf74262f034bc30f4148a7a  usr/share/doc/veracrypt/HTML/ru/VeraCrypt System Files.html
+cef3426baae9fc8831cf2fb46dbcaf1b  usr/share/doc/veracrypt/HTML/ru/VeraCrypt Volume Format Specification.html
+eff6e2823500ebf868950f451fe2458e  usr/share/doc/veracrypt/HTML/ru/VeraCrypt Volume.html
+53fb6db28503f7f09f8a669aad27766a  usr/share/doc/veracrypt/HTML/ru/VeraCrypt128x128.png
+31ebc940cdecd79d3f3ca77cff15c9ce  usr/share/doc/veracrypt/HTML/ru/Volume Clones.html
+58bf889973fd1a7cfe661999289ae919  usr/share/doc/veracrypt/HTML/ru/Wear-Leveling.html
+2f3c55427275280911d94644bbf39ec2  usr/share/doc/veracrypt/HTML/ru/Whirlpool.html
+343779088f21a059a5e85b146f8c2ab1  usr/share/doc/veracrypt/HTML/ru/arrow_right.gif
+5480979b88e7e65fe919721d1f864f07  usr/share/doc/veracrypt/HTML/ru/donation.js
+be53c198e53901058c99ad3185acbd9b  usr/share/doc/veracrypt/HTML/ru/flag-au-small.png
+f4893f24aa54f72ed0ada5c4a22aa6d0  usr/share/doc/veracrypt/HTML/ru/flag-au.png
+5073d8317e3f53d4e1bd10ee5480e661  usr/share/doc/veracrypt/HTML/ru/flag-eu-small.png
+750b15c8d6868930e0641e30c8496fc5  usr/share/doc/veracrypt/HTML/ru/flag-eu.png
+cc512af4980bd98a7f8c56e3d6649716  usr/share/doc/veracrypt/HTML/ru/flag-gb-small.png
+5486bd0ef3d46b226d1a5abfaecca3fe  usr/share/doc/veracrypt/HTML/ru/flag-gb.png
+2a291ce36ca873b3434ae3d9c1210847  usr/share/doc/veracrypt/HTML/ru/flag-nz-small.png
+504653dbf692329748b223bdaa28c3f7  usr/share/doc/veracrypt/HTML/ru/flag-nz.png
+d430f8bb8049d950c03c163f0c4d9846  usr/share/doc/veracrypt/HTML/ru/flag-us-small.png
+b49ae0fa4e1c11e0608ee2c695a72f7f  usr/share/doc/veracrypt/HTML/ru/flag-us.png
+cec0fd2671fe0ce247d7dae14db92439  usr/share/doc/veracrypt/HTML/ru/flattr-badge-large.png
+b334b7fc6cd0718a9c33cc0278ca113b  usr/share/doc/veracrypt/HTML/ru/gf2_mul.gif
+445794882aa890c1512a1b825ef96ebd  usr/share/doc/veracrypt/HTML/ru/liberapay_donate.svg
+fc8b927e3d42f167a9f25097470d3e6b  usr/share/doc/veracrypt/HTML/ru/mastodon_veracrypt.PNG
+e73b45bc4acff52739fbfd087dda4acf  usr/share/doc/veracrypt/HTML/ru/paypal_30x30.png
+07800bba47266f90fa2cd9d78d7eceab  usr/share/doc/veracrypt/HTML/ru/styles.css
+db7b3093704314fae80a90d141d10dd7  usr/share/doc/veracrypt/HTML/ru/twitter_veracrypt.PNG
+b75f44eaa3bfc08a685c86377d4417d7  usr/share/doc/veracrypt/HTML/zh-cn/AES.html
+f236fdc19b40eb4cf2b91d49d0858d3b  usr/share/doc/veracrypt/HTML/zh-cn/Acknowledgements.html
+c3e4219536b62c187f115629e5d12bd4  usr/share/doc/veracrypt/HTML/zh-cn/Additional Security Requirements and Precautions.html
+ee6beef3e168d118613bfd56cc30cbac  usr/share/doc/veracrypt/HTML/zh-cn/Authenticity and Integrity.html
+d80c0da8d44659d389e35a44072a1b60  usr/share/doc/veracrypt/HTML/zh-cn/Authors.html
+2c5d9676ff25e723602e8ce01a1f6034  usr/share/doc/veracrypt/HTML/zh-cn/Avoid Third-Party File Extensions.html
+a97c16af58802d167251655ef14546c8  usr/share/doc/veracrypt/HTML/zh-cn/BCH_Logo_30x30.png
+382eb591ff877480deade16f9abcf879  usr/share/doc/veracrypt/HTML/zh-cn/BC_Logo_30x30.png
+210498e540d3568300d91f461c37fe47  usr/share/doc/veracrypt/HTML/zh-cn/BLAKE2s-256.html
+c57b77171269393961a526a3892e8a16  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial.html
+37e1877358000a91e0defb0be53b0520  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_001.jpg
+b969cc97a2956c9e64a16acdcb167ae2  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_002.jpg
+76017c986b38c45e1ec894ded04d1566  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_003.jpg
+3d179a17676e06173ebc18eb82996f2c  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_004.jpg
+37184a80338405d270cb8467eee732c5  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_005.jpg
+ad70983853ba06b9b75a36ae2656474b  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_007.jpg
+dbc4a88a14832baf54461acb5d15dc4f  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_008.jpg
+2911a5fa58d3cba9764cd52b11e9fb92  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_009.jpg
+cb0d3fd90767964514699015adf23872  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_010.jpg
+87bdd2e303af8d1653b3682022a62541  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_011.jpg
+388b93ce54a88ad34de4001b61ffec8f  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_012.jpg
+7b16d5a8baacef91acae3959ef926cfd  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_013.jpg
+4960ce4005e0025c2553515cbb1517b3  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_014.jpg
+8fbf4898b7a55009ec68808ef2e2a1c4  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_015.jpg
+908007055e8d0cdf855871848842ec08  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_016.jpg
+6aefa0663a7fce79e1df91a2903cbb72  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_017.jpg
+f411d8edecdbbb6eb8d282506314efa6  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_018.jpg
+7b87185309723546ca61d9e1264ed8b6  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_019.jpg
+0110742078d25f1cf9b0faf046d7f342  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_020.jpg
+99a2ac8e96ce92fc2adb18882690d760  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_021.jpg
+10344109af26a8ed436d3d86f758ba64  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_022.jpg
+16e824749c58a441db79fdd5b61f9d65  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_023.gif
+499d3910400a525c8a70f5e9068d86ca  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_024.gif
+80836e23b9f7f2968c091be4c7b71236  usr/share/doc/veracrypt/HTML/zh-cn/Beginner's Tutorial_Image_034.png
+b698a55ac434c6ab842f31bee25c7fb6  usr/share/doc/veracrypt/HTML/zh-cn/Camellia.html
+1a5c4e914884e6ee8dc47d1244fede25  usr/share/doc/veracrypt/HTML/zh-cn/Cascades.html
+573f35379ca1c789a3c2770782666ca3  usr/share/doc/veracrypt/HTML/zh-cn/Changing Passwords and Keyfiles.html
+5b7bb87cc25cb74674f51a2704bcbc02  usr/share/doc/veracrypt/HTML/zh-cn/Choosing Passwords and Keyfiles.html
+21f20b9a354db524a265d7722aaa4ebc  usr/share/doc/veracrypt/HTML/zh-cn/Command Line Usage.html
+66c17573f3253f1df3ba61c659dcb2ab  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineLinux.html
+005ad93e87e9a53ed3c272362fbc46ea  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin.html
+5b9f9387b3be214f1948e43638063055  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/AddNewSystemVar.jpg
+a9f9c537a676c8ce12557d7dd1ed7f71  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/CertVerifyFails.jpg
+6cd0aad1c9459e24b427d3e8590bbafa  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/CertificateCannotBeVerified.jpg
+61fc225d5549645aba7b9bcb5569e853  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/DistributionPackageDamaged.jpg
+8b4c5b05f5df427d7c84990e954bd25a  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/DownloadVS2010.jpg
+5d0e876cc7283cca9ed681d651911415  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/DownloadVS2019.jpg
+fc0f646743fb343bf6c2302f8dc67223  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/DownloadVSBuildTools.jpg
+61aa25b21ca260a42c9a8e65c810e5c3  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/NasmCommandLine.jpg
+9af8c1bc47c393813e273f7ee845b575  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/RegeditPermissions-1.jpg
+fdf6ca9017dd5520c5dcd8b2a76f2853  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/RegeditPermissions-2.jpg
+5e0c25cf6d8f6d19813458341518090a  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/RegeditPermissions-3.jpg
+c37630545752ec6b9a30cba4ec1503e4  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/RegeditPermissions-4.jpg
+57f35ab58b2e90bd251d8930cca3e5ad  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/SelectAdvancedSystemSettings.jpg
+8346343c6055bf7537a31b6320588d92  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/SelectEnvironmentVariables.jpg
+83f9a001b7a4285a522b5598d54b9652  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/SelectPathVariable.jpg
+c7dd31e30154c88bca5c5d505210f00c  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/SelectThisPC.jpg
+2eb2494fbc34d4cbf7b830cb6befa581  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/VS2010BuildSolution.jpg
+4a3e8c50c5852583189fc9add23a673a  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/VS2010Win32Config.jpg
+d79941d387c8588c7c8447f19813e9e4  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/VS2010X64Config.jpg
+64940df54abc4584ab0ad2e31dbec93d  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/VS2019ARM64Config.jpg
+88c70c5d4d8c9a325df77d4995e44700  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/VS2019BuildSolution.jpg
+8a8c4360a97ec40c0bac8311e45c62d4  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/YasmCommandLine.jpg
+885bd871064e602a90fc155663475a8a  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/gzipCommandLine.jpg
+38e44d4eefa87a9241e51f0fc123986d  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelineWin/upxCommandLine.jpg
+ff7872014391271afed8726ec8f4ad60  usr/share/doc/veracrypt/HTML/zh-cn/CompilingGuidelines.html
+c3ad47579bd697bd41399f1143ecf0e7  usr/share/doc/veracrypt/HTML/zh-cn/Contact.html
+c0d20d5bc7dfc249ad219cc781d98ed9  usr/share/doc/veracrypt/HTML/zh-cn/Contributed Resources.html
+81b2471710ba566e8865a72f288247af  usr/share/doc/veracrypt/HTML/zh-cn/Conversion_Guide_VeraCrypt_1.26_and_Later.html
+dcd9037e35ccedbfcdbf3a6a7ae8822e  usr/share/doc/veracrypt/HTML/zh-cn/Converting TrueCrypt volumes and partitions.html
+020309b58fd404fb5d23a292515cb90f  usr/share/doc/veracrypt/HTML/zh-cn/Converting TrueCrypt volumes and partitions_truecrypt_convertion.jpg
+966e65286e80ac757fe6d3ac6ccbd78e  usr/share/doc/veracrypt/HTML/zh-cn/Creating New Volumes.html
+67bbf5953bc3f0d8122b1e4b175b7f1e  usr/share/doc/veracrypt/HTML/zh-cn/Data Leaks.html
+7377bea15072837cb942ad57b508dd89  usr/share/doc/veracrypt/HTML/zh-cn/Default Mount Parameters.html
+87f02609db928e7ccff01833b54df307  usr/share/doc/veracrypt/HTML/zh-cn/Default Mount Parameters_VeraCrypt_password_using_default_parameters.png
+51ea9aaa8ab0f6bd5f5156cd502cc72a  usr/share/doc/veracrypt/HTML/zh-cn/Defragmenting.html
+3ea5c1142db3bfc301fbe653ee953206  usr/share/doc/veracrypt/HTML/zh-cn/Digital Signatures.html
+35178d7238196972914efa946a849f75  usr/share/doc/veracrypt/HTML/zh-cn/Disclaimers.html
+909486d62c6bc929d79598dc61350cae  usr/share/doc/veracrypt/HTML/zh-cn/Documentation.html
+d7c81b4ea3b89eed55926da3b39a0066  usr/share/doc/veracrypt/HTML/zh-cn/Donation.html
+7b07036657dca7ce7997793977f23b3a  usr/share/doc/veracrypt/HTML/zh-cn/Donation_VC_BTC_Sigwit.png
+b2dc5788bf28be9c17fd2035df786ee1  usr/share/doc/veracrypt/HTML/zh-cn/Donation_VeraCrypt_Bitcoin_small.png
+8bc36bb1d3a6b5229d48c32e6f938b87  usr/share/doc/veracrypt/HTML/zh-cn/Donation_VeraCrypt_Ethereum.png
+6af1d16ff6e3e380016c8fedfa4d35bb  usr/share/doc/veracrypt/HTML/zh-cn/Donation_donate.gif
+8fbdd5c696d5ce6def45c9c8dcc79ab5  usr/share/doc/veracrypt/HTML/zh-cn/Donation_donate_CHF.gif
+9ec0669e64a6a8ccbc7b338eb2e6297f  usr/share/doc/veracrypt/HTML/zh-cn/Donation_donate_Dollars.gif
+b1843ce117e97f8f39c6f95eb349bd70  usr/share/doc/veracrypt/HTML/zh-cn/Donation_donate_Euros.gif
+da56df84bac3b7181d8ac436f2d406b1  usr/share/doc/veracrypt/HTML/zh-cn/Donation_donate_GBP.gif
+9092f9954dfe3c910fb0b9c5a09b4254  usr/share/doc/veracrypt/HTML/zh-cn/Donation_donate_PLN.gif
+9b0ae1ea4b8b0c14ce1d3d59ca9f3ed4  usr/share/doc/veracrypt/HTML/zh-cn/Donation_donate_YEN.gif
+dcfb873ef68b7d677d7348525ccbb245  usr/share/doc/veracrypt/HTML/zh-cn/EMV Smart Cards.html
+6a5951248760e8c1d7a932d1f8225e14  usr/share/doc/veracrypt/HTML/zh-cn/Encryption Algorithms.html
+2e0d0c47e3b49824185ca76ab8022fa9  usr/share/doc/veracrypt/HTML/zh-cn/Encryption Scheme.html
+71df1f228d1f6096eee8f2f706b34623  usr/share/doc/veracrypt/HTML/zh-cn/Ethereum_Logo_19x30.png
+b48b7705143d11469efb97fd1bba1485  usr/share/doc/veracrypt/HTML/zh-cn/FAQ.html
+95114e05f7b7fdec931b049ea72becc2  usr/share/doc/veracrypt/HTML/zh-cn/Favorite Volumes.html
+e6c2e40a65719d4731e912990b3b3c13  usr/share/doc/veracrypt/HTML/zh-cn/Hardware Acceleration.html
+187fe94abaf99299290257c1c9e39a94  usr/share/doc/veracrypt/HTML/zh-cn/Hash Algorithms.html
+30fdd7c1dc50e021a60337c1440dd1f0  usr/share/doc/veracrypt/HTML/zh-cn/Header Key Derivation.html
+bc2bbdc0757a6e52454f0b88043b3ea8  usr/share/doc/veracrypt/HTML/zh-cn/Hibernation File.html
+a086f3199ff2d4ce172891cc18829e52  usr/share/doc/veracrypt/HTML/zh-cn/Hidden Operating System.html
+7f246a18c5f9405ff73c02ef78bf1e53  usr/share/doc/veracrypt/HTML/zh-cn/Hidden Volume.html
+7331d16526e72faadd3eca164e67cb66  usr/share/doc/veracrypt/HTML/zh-cn/Home_VeraCrypt_Default_Mount_Parameters.png
+776fdfbfbfb70b1061199019417c5202  usr/share/doc/veracrypt/HTML/zh-cn/Home_VeraCrypt_menu_Default_Mount_Parameters.png
+ee4e3bfa2bd960e68b04762e32adfefd  usr/share/doc/veracrypt/HTML/zh-cn/Home_facebook_veracrypt.png
+f367986e1dbbf8f3630762407e356061  usr/share/doc/veracrypt/HTML/zh-cn/Home_reddit.png
+04bf53d3fa1382424ce7bd7c594430db  usr/share/doc/veracrypt/HTML/zh-cn/Home_utilities-file-archiver-3.png
+711ad388747427435553e6cc6ca26569  usr/share/doc/veracrypt/HTML/zh-cn/Hot Keys.html
+37f5900b369448feedf5dcf2b7653cdf  usr/share/doc/veracrypt/HTML/zh-cn/How to Back Up Securely.html
+16adc7e0a8dac228d13982e6ac68c08e  usr/share/doc/veracrypt/HTML/zh-cn/Incompatibilities.html
+69040fcb722edf3686ee75e7366416ea  usr/share/doc/veracrypt/HTML/zh-cn/Introduction.html
+500b53016487cea61a04bcc25417f6ae  usr/share/doc/veracrypt/HTML/zh-cn/Issues and Limitations.html
+5f91bc6bc7fffa06a681bf47f07e8a58  usr/share/doc/veracrypt/HTML/zh-cn/Journaling File Systems.html
+0ada62f3d14f73a7400ef452ca0982ef  usr/share/doc/veracrypt/HTML/zh-cn/Keyfiles in VeraCrypt.html
+e67a2afead176ffaf66f28f8d875ab7f  usr/share/doc/veracrypt/HTML/zh-cn/Keyfiles in VeraCrypt_Image_040.gif
+88bcf1a53083d72dd2fc8e5a4787454d  usr/share/doc/veracrypt/HTML/zh-cn/Keyfiles.html
+4f87bbdb3eb1fc2d82deddeb825a0c8d  usr/share/doc/veracrypt/HTML/zh-cn/Kuznyechik.html
+f9ce9897df9a9b2ac830065f6c7634f9  usr/share/doc/veracrypt/HTML/zh-cn/LTC_Logo_30x30.png
+a6df957310660b363271d34d281e1848  usr/share/doc/veracrypt/HTML/zh-cn/Language Packs.html
+fb33d0d3543c48c8943a29b4e20eab03  usr/share/doc/veracrypt/HTML/zh-cn/Legal Information.html
+31486fd22166820791ca72fe4a895d03  usr/share/doc/veracrypt/HTML/zh-cn/Main Program Window.html
+5146a16ca3709d7ed62065a699988b69  usr/share/doc/veracrypt/HTML/zh-cn/Malware.html
+f16c20d91b53bb39af983d07adb5dd34  usr/share/doc/veracrypt/HTML/zh-cn/Memory Dump Files.html
+c59d0e19fbc9f91d42e74def5b0598b6  usr/share/doc/veracrypt/HTML/zh-cn/Miscellaneous.html
+1ffba92229f20443269a63baca56a549  usr/share/doc/veracrypt/HTML/zh-cn/Modes of Operation.html
+98ddb817cfcfa92fabd0be3b4790dfe6  usr/share/doc/veracrypt/HTML/zh-cn/Monero_Logo_30x30.png
+70ba72c7894511c4ac2cb16c9af6d9a4  usr/share/doc/veracrypt/HTML/zh-cn/Mounting VeraCrypt Volumes.html
+f0732be3b95a094277dc58242d4cd32b  usr/share/doc/veracrypt/HTML/zh-cn/Multi-User Environment.html
+877fc611eba7ef6d185cd24752ab63a7  usr/share/doc/veracrypt/HTML/zh-cn/Normal Unmount vs Force Unmount.html
+ad2f3e21899309f7c2977979902c2861  usr/share/doc/veracrypt/HTML/zh-cn/Notation.html
+263ed4073483bd1522ac7f4d43649595  usr/share/doc/veracrypt/HTML/zh-cn/Paging File.html
+c2aa2d5fad04354c65e1f67ad78fd1ab  usr/share/doc/veracrypt/HTML/zh-cn/Parallelization.html
+a68332a8d304409b85a7d99749807029  usr/share/doc/veracrypt/HTML/zh-cn/Personal Iterations Multiplier (PIM).html
+07edbdae49c98f964f95487ca09b3221  usr/share/doc/veracrypt/HTML/zh-cn/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step1.png
+7adf7d78c20900291ce21efe7385d82c  usr/share/doc/veracrypt/HTML/zh-cn/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_Step2.png
+b12d6d47d1b931a909f34e643ece26fc  usr/share/doc/veracrypt/HTML/zh-cn/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step1.png
+1ef27c3b88757fd4289b9bfb1afe127e  usr/share/doc/veracrypt/HTML/zh-cn/Personal Iterations Multiplier (PIM)_VeraCrypt_ChangePIM_System_Step2.png
+9c7b21b82dde51a300a00b15e5084adf  usr/share/doc/veracrypt/HTML/zh-cn/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step1.png
+9a93d4ee0a1bed8266912f7824320fb4  usr/share/doc/veracrypt/HTML/zh-cn/Personal Iterations Multiplier (PIM)_VeraCrypt_UsePIM_Step2.png
+c7d2f2e29c2b3196cab8deb739adc673  usr/share/doc/veracrypt/HTML/zh-cn/Physical Security.html
+32772e3f49732f1577df4c6df3a9ff5e  usr/share/doc/veracrypt/HTML/zh-cn/Pipelining.html
+cc4fc9ce5fd88287f028e6f57232200d  usr/share/doc/veracrypt/HTML/zh-cn/Plausible Deniability.html
+2d946a12aa9abf65be6b98d1d92b323b  usr/share/doc/veracrypt/HTML/zh-cn/Portable Mode.html
+e0671cf5abb1845d0031f5d0c3d60751  usr/share/doc/veracrypt/HTML/zh-cn/Preface.html
+783f5c3ad7bff0c81e957babfc989052  usr/share/doc/veracrypt/HTML/zh-cn/Program Menu.html
+1660e511531b892244b165e136447cd2  usr/share/doc/veracrypt/HTML/zh-cn/Protection of Hidden Volumes.html
+1b28afebc58b94c59fd81ec9d0e108b1  usr/share/doc/veracrypt/HTML/zh-cn/Protection of Hidden Volumes_Image_027.jpg
+f98c62a2c7fe45069a1a1263a18c8b90  usr/share/doc/veracrypt/HTML/zh-cn/Protection of Hidden Volumes_Image_028.jpg
+d747a124c7e9de5a6e87ebff2c512d5a  usr/share/doc/veracrypt/HTML/zh-cn/Protection of Hidden Volumes_Image_029.jpg
+81858b665271bb64c24670d995d5154e  usr/share/doc/veracrypt/HTML/zh-cn/Protection of Hidden Volumes_Image_030.jpg
+274e9ee9fe0998ed1dd822d16c2b4f0d  usr/share/doc/veracrypt/HTML/zh-cn/Protection of Hidden Volumes_Image_031.jpg
+1ecc46e24e41526d46f4f4711651f852  usr/share/doc/veracrypt/HTML/zh-cn/Random Number Generator.html
+1478eba87721842cf158996abb4335eb  usr/share/doc/veracrypt/HTML/zh-cn/Reallocated Sectors.html
+1aa1e2ce14219ef82c77e70ff076c19b  usr/share/doc/veracrypt/HTML/zh-cn/References.html
+0a580d395c7a40a16b69d4bb24a287d6  usr/share/doc/veracrypt/HTML/zh-cn/Release Notes.html
+482bc580f772069a2f3aa182a8412b6e  usr/share/doc/veracrypt/HTML/zh-cn/Removable Medium Volume.html
+df7b4109fde49536fabfd6e873b7f5f8  usr/share/doc/veracrypt/HTML/zh-cn/Removing Encryption.html
+cdf21ee2bec4b20169ad08ac2df03460  usr/share/doc/veracrypt/HTML/zh-cn/SHA-256.html
+546280a92d2b643e0fdf32f490bddb7f  usr/share/doc/veracrypt/HTML/zh-cn/SHA-512.html
+0b5601f56c5b7c742924c708526ac8df  usr/share/doc/veracrypt/HTML/zh-cn/SM4.html
+9291aa1bc7f89a42b6cdcfecb9af89da  usr/share/doc/veracrypt/HTML/zh-cn/Security Model.html
+f28796e5c4d577f145c752033c3f36a9  usr/share/doc/veracrypt/HTML/zh-cn/Security Requirements and Precautions.html
+3837afb79dbc954579dbf6f66bebbc5c  usr/share/doc/veracrypt/HTML/zh-cn/Security Requirements for Hidden Volumes.html
+02ceac817c9955183bab2c83b004e7a5  usr/share/doc/veracrypt/HTML/zh-cn/Security Tokens & Smart Cards.html
+2ad87c113294d8ed116cf5e00f832a3b  usr/share/doc/veracrypt/HTML/zh-cn/Serpent.html
+7c98af50e2d6556091135834033d4037  usr/share/doc/veracrypt/HTML/zh-cn/Sharing over Network.html
+b0540ee2c0d8df3b21ed6cc8331fa6de  usr/share/doc/veracrypt/HTML/zh-cn/Source Code.html
+5b25888ae84a4f06d7856dd6efda721b  usr/share/doc/veracrypt/HTML/zh-cn/Standard Compliance.html
+25415cef663aaa13eae29dae836a52d8  usr/share/doc/veracrypt/HTML/zh-cn/Streebog.html
+5af2d3836d9af0ba87efbbf94d6059e2  usr/share/doc/veracrypt/HTML/zh-cn/Supported Operating Systems.html
+69072ec200a3f9770951871cf3d5d6ae  usr/share/doc/veracrypt/HTML/zh-cn/Supported Systems for System Encryption.html
+93218db65417fb4194486c1aed70a98a  usr/share/doc/veracrypt/HTML/zh-cn/System Encryption.html
+2b88c1b923be300a97ef8346c6400d3b  usr/share/doc/veracrypt/HTML/zh-cn/System Favorite Volumes.html
+527dc69ceb701bf133295c7bba3bb1bc  usr/share/doc/veracrypt/HTML/zh-cn/Technical Details.html
+4f2f524633eceb1c1bc7da8aaf867503  usr/share/doc/veracrypt/HTML/zh-cn/Trim Operation.html
+83668d8308c7727b9de2aef971e71363  usr/share/doc/veracrypt/HTML/zh-cn/Troubleshooting.html
+c708a33d1ef16ad7b87b8889e1caaba7  usr/share/doc/veracrypt/HTML/zh-cn/TrueCrypt Support.html
+841ddf4a1a8ba608c3e62d8b3522a5d7  usr/share/doc/veracrypt/HTML/zh-cn/TrueCrypt Support_truecrypt_mode_gui.jpg
+658ade831ebbf78bb5a19962686cd098  usr/share/doc/veracrypt/HTML/zh-cn/Twofish.html
+c656fcfb11a5927d2df129b061e2ae0c  usr/share/doc/veracrypt/HTML/zh-cn/Unencrypted Data in RAM.html
+eb0a5bda344bab733311846cbc42facb  usr/share/doc/veracrypt/HTML/zh-cn/Uninstalling VeraCrypt.html
+1c190223dd28f58407c2b26ef9984b87  usr/share/doc/veracrypt/HTML/zh-cn/Using VeraCrypt Without Administrator Privileges.html
+bf736be704eef73c55b8f454c3bf5509  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt Background Task.html
+5a1ec088f647d9a113f0a36dd9bcfd23  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt Hidden Operating System.html
+ef99908e03fcf94b42bc2ee71c834fad  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt License.html
+4be10f2f769afccfe31b2019f70f18b4  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt Memory Protection.html
+b4081fa1339d38e833b6b1839adad327  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt RAM Encryption.html
+4a84c052756d11219fc8615c208db77b  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt Rescue Disk.html
+d07951918308448993b82136125b5231  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt System Files.html
+e130c11464ff7403c706f38ad9426363  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt Volume Format Specification.html
+cde69b6a4e30b294f663097d49dd7f8e  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt Volume.html
+53fb6db28503f7f09f8a669aad27766a  usr/share/doc/veracrypt/HTML/zh-cn/VeraCrypt128x128.png
+a07f004f1334afe699926d42322b9b81  usr/share/doc/veracrypt/HTML/zh-cn/Volume Clones.html
+c551223737bb20b10824b0bdb9c517b8  usr/share/doc/veracrypt/HTML/zh-cn/Wear-Leveling.html
+07e59f87a480f205ac1d46b04973119a  usr/share/doc/veracrypt/HTML/zh-cn/Whirlpool.html
+343779088f21a059a5e85b146f8c2ab1  usr/share/doc/veracrypt/HTML/zh-cn/arrow_right.gif
+5480979b88e7e65fe919721d1f864f07  usr/share/doc/veracrypt/HTML/zh-cn/donation.js
+be53c198e53901058c99ad3185acbd9b  usr/share/doc/veracrypt/HTML/zh-cn/flag-au-small.png
+f4893f24aa54f72ed0ada5c4a22aa6d0  usr/share/doc/veracrypt/HTML/zh-cn/flag-au.png
+5073d8317e3f53d4e1bd10ee5480e661  usr/share/doc/veracrypt/HTML/zh-cn/flag-eu-small.png
+750b15c8d6868930e0641e30c8496fc5  usr/share/doc/veracrypt/HTML/zh-cn/flag-eu.png
+cc512af4980bd98a7f8c56e3d6649716  usr/share/doc/veracrypt/HTML/zh-cn/flag-gb-small.png
+5486bd0ef3d46b226d1a5abfaecca3fe  usr/share/doc/veracrypt/HTML/zh-cn/flag-gb.png
+2a291ce36ca873b3434ae3d9c1210847  usr/share/doc/veracrypt/HTML/zh-cn/flag-nz-small.png
+504653dbf692329748b223bdaa28c3f7  usr/share/doc/veracrypt/HTML/zh-cn/flag-nz.png
+d430f8bb8049d950c03c163f0c4d9846  usr/share/doc/veracrypt/HTML/zh-cn/flag-us-small.png
+b49ae0fa4e1c11e0608ee2c695a72f7f  usr/share/doc/veracrypt/HTML/zh-cn/flag-us.png
+cec0fd2671fe0ce247d7dae14db92439  usr/share/doc/veracrypt/HTML/zh-cn/flattr-badge-large.png
+b334b7fc6cd0718a9c33cc0278ca113b  usr/share/doc/veracrypt/HTML/zh-cn/gf2_mul.gif
+445794882aa890c1512a1b825ef96ebd  usr/share/doc/veracrypt/HTML/zh-cn/liberapay_donate.svg
+fc8b927e3d42f167a9f25097470d3e6b  usr/share/doc/veracrypt/HTML/zh-cn/mastodon_veracrypt.PNG
+e73b45bc4acff52739fbfd087dda4acf  usr/share/doc/veracrypt/HTML/zh-cn/paypal_30x30.png
+07800bba47266f90fa2cd9d78d7eceab  usr/share/doc/veracrypt/HTML/zh-cn/styles.css
+db7b3093704314fae80a90d141d10dd7  usr/share/doc/veracrypt/HTML/zh-cn/twitter_veracrypt.PNG
+9ae0ec26ab890e0451acedc7f1317e0c  usr/share/doc/veracrypt/License.txt
+8fc103f1c2f191fe05948ea950ac0902  usr/share/icons/hicolor/1024x1024/apps/veracrypt.png
+c325021f3318bdf272a02e9180e4be95  usr/share/icons/hicolor/16x16/apps/veracrypt.png
+20ac9abd21a5a2495972ed40988278c9  usr/share/icons/hicolor/22x22/apps/veracrypt.png
+ea3ce3f3edcbc99e612e5cdfa4bc9848  usr/share/icons/hicolor/24x24/apps/veracrypt.png
+a897cc9e39e04d8aa18f14dc73144bc4  usr/share/icons/hicolor/256x256/apps/veracrypt.png
+5e98c6abe150537eb3df9d14e82308e2  usr/share/icons/hicolor/32x32/apps/veracrypt.png
+3c063070f21dbe98a57386a65bc04b60  usr/share/icons/hicolor/48x48/apps/veracrypt.png
+c751de9f56b68fcccd5e7dee4fea3981  usr/share/icons/hicolor/512x512/apps/veracrypt.png
+9a1255dbae20897088488eb992bbfdde  usr/share/icons/hicolor/64x64/apps/veracrypt.png
+483ff4e690a962b8c77dd6b8efa8ea07  usr/share/icons/hicolor/scalable/apps/veracrypt.svg
+baddb18a14bb09156c232a95a5ea5e22  usr/share/icons/hicolor/symbolic/apps/veracrypt-symbolic.svg
+41af27b0b3e489026c01b7c4358fbb11  usr/share/mime/packages/veracrypt.xml
+a97fcb876f248353e92c02631981e880  usr/share/pixmaps/veracrypt.xpm
+d8678fa2e7d7a368f32f3c4a99b39cad  usr/share/veracrypt/languages/Language.ar.xml
+09b9d5660cf39ec7bffd27105aa97313  usr/share/veracrypt/languages/Language.be.xml
+a5f17f43d91e3f44cbfcbc0bd5305c3e  usr/share/veracrypt/languages/Language.bg.xml
+66d88c5526086b75e8e97df17c7c1798  usr/share/veracrypt/languages/Language.ca.xml
+5e703209e2efa5f271159c8395a67337  usr/share/veracrypt/languages/Language.co.xml
+ddae496bffa7c06e08d8cfb35e37a966  usr/share/veracrypt/languages/Language.cs.xml
+268d25e3c7622ee37b21bacbd9ef7ac1  usr/share/veracrypt/languages/Language.da.xml
+8596c4cc971061e86186afe8f50a97a7  usr/share/veracrypt/languages/Language.de.xml
+0948bc54a5b9fea88ee1badbdeea56a8  usr/share/veracrypt/languages/Language.el.xml
+5e3ae554ef408d1160a5180e73de039e  usr/share/veracrypt/languages/Language.es.xml
+e21f013e678d816b728f3785b6f01f4e  usr/share/veracrypt/languages/Language.et.xml
+246a0dab5b19009be13b4da2247cb6c2  usr/share/veracrypt/languages/Language.eu.xml
+6d7feffee53cc279288ad77061bf90ff  usr/share/veracrypt/languages/Language.fa.xml
+96a6ca2ac1611bc94f0dbdef6e82a9b5  usr/share/veracrypt/languages/Language.fi.xml
+21cbcb845059f613b336ed338e12c1da  usr/share/veracrypt/languages/Language.fr.xml
+64aeb668ba426030107562d3ed8e1e95  usr/share/veracrypt/languages/Language.he.xml
+ece6ce04a067941ba44be40ba524802a  usr/share/veracrypt/languages/Language.hu.xml
+edf8fa6dd8410aff718f4fac77e939d5  usr/share/veracrypt/languages/Language.id.xml
+ab77ce749b7c6be763033792b537508a  usr/share/veracrypt/languages/Language.it.xml
+08e39fb6daefa3f7cea1231998f9890c  usr/share/veracrypt/languages/Language.ja.xml
+812988421e8969f60100b290c6558b5e  usr/share/veracrypt/languages/Language.ka.xml
+3151519d0906613a1bb5ca669ba38657  usr/share/veracrypt/languages/Language.ko.xml
+826f7720f8c2d76b66dca4b217c2871e  usr/share/veracrypt/languages/Language.lv.xml
+13f1bbaaedd0e8fd7fb95ced7d5a08c9  usr/share/veracrypt/languages/Language.my.xml
+3e5071527d1bcbf379c6fc40a36cc753  usr/share/veracrypt/languages/Language.nb.xml
+8a06f4871e3051ac415c0a419aaf3424  usr/share/veracrypt/languages/Language.nl.xml
+f40a8eb3ef300d4628017cc594b317b6  usr/share/veracrypt/languages/Language.nn.xml
+a94c22065ffd1d3058cfc8ce9227243a  usr/share/veracrypt/languages/Language.pl.xml
+fc65f6227dd14dcb4950062c87a9a82e  usr/share/veracrypt/languages/Language.pt-br.xml
+7a68917b18fe1affaa1e3ee60489ec57  usr/share/veracrypt/languages/Language.ro.xml
+3217af8f2b7fd483a767dae6dede3c79  usr/share/veracrypt/languages/Language.ru.xml
+849e96fbf5f9e710551ccfac357cd98d  usr/share/veracrypt/languages/Language.sk.xml
+eaebe42046664cfbdda3ddbbf6c6a40b  usr/share/veracrypt/languages/Language.sl.xml
+3281a392128e4c6918ee8a2968af9e10  usr/share/veracrypt/languages/Language.sv.xml
+fe1284cbeea865edbab0a9ca79d48fc8  usr/share/veracrypt/languages/Language.th.xml
+f2b3d9d1eb18ee4e0336b14421c6d99f  usr/share/veracrypt/languages/Language.tr.xml
+8356c7198e0e4c38ee5c2644d24f1010  usr/share/veracrypt/languages/Language.uk.xml
+c298b76ab40120ed0383f2be372f9eef  usr/share/veracrypt/languages/Language.uz.xml
+b58469e3071198650e1415b3509bb440  usr/share/veracrypt/languages/Language.vi.xml
+aac4c87a394329678ae03a78c2e51179  usr/share/veracrypt/languages/Language.zh-cn.xml
+79c42c79f3b0d0a94ff867babe7f1f1e  usr/share/veracrypt/languages/Language.zh-hk.xml
+3e11215a8bd6f5d8e57a004b552f32da  usr/share/veracrypt/languages/Language.zh-tw.xml

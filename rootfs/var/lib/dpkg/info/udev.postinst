@@ -38,10 +38,7 @@ enable_udev() {
 }
 
 upgrade_fixes() {
-  # new Default-Stop (see #791944)
-  if dpkg --compare-versions "$2" lt-nl "239-8"; then
-    update-rc.d -f udev remove
-  fi
+  :
 }
 
 update_hwdb() {
@@ -53,8 +50,9 @@ case "$1" in
     # update/create hwdb before we (re)start udev
     update_hwdb
 
-    # Add new system group used by udev rules
+    # Add new system groups used by udev rules
     addgroup --quiet --system input
+    addgroup --quiet --system sgx
 
     # Make /dev/kvm accessible to kvm group
     addgroup --quiet --system kvm
@@ -85,21 +83,14 @@ case "$1" in
     ;;
 esac
 
-# Automatically added by dh_installtmpfiles/13.3.4
+# Automatically added by dh_installtmpfiles/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	# In case this system is running systemd, we need to ensure that all
-	# necessary tmpfiles (if any) are created before starting.
-	if [ -d /run/systemd/system ] ; then
-		systemd-tmpfiles --create static-nodes-permissions.conf >/dev/null || true
+	if [ -x "$(command -v systemd-tmpfiles)" ]; then
+		systemd-tmpfiles ${DPKG_ROOT:+--root="$DPKG_ROOT"} --create static-nodes-permissions.conf >/dev/null || true
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installdeb/13.3.4
-dpkg-maintscript-helper rm_conffile /etc/init/udev.conf 233-1\~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init/udevmonitor.conf 233-1\~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init/udevtrigger.conf 233-1\~ -- "$@"
-# End automatically added section
-# Automatically added by dh_installinit/13.3.4
+# Automatically added by dh_installinit/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	if [ -x "/etc/init.d/udev" ]; then
 		update-rc.d udev defaults >/dev/null || exit 1

@@ -4,6 +4,10 @@
 /lib/init
 /lib/init/init-d-script
 /lib/init/vars.sh
+/lib/lsb
+/lib/lsb/init-functions
+/lib/lsb/init-functions.d
+/lib/lsb/init-functions.d/00-verbose
 /sbin
 /sbin/fstab-decode
 /sbin/killall5

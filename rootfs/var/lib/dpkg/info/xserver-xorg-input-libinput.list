@@ -13,6 +13,7 @@
 /usr/share/bug/xserver-xorg-input-libinput
 /usr/share/doc
 /usr/share/doc/xserver-xorg-input-libinput
+/usr/share/doc/xserver-xorg-input-libinput/changelog.Debian.amd64.gz
 /usr/share/doc/xserver-xorg-input-libinput/changelog.Debian.gz
 /usr/share/doc/xserver-xorg-input-libinput/changelog.gz
 /usr/share/doc/xserver-xorg-input-libinput/copyright

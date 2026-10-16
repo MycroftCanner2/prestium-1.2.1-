@@ -215,6 +215,7 @@
 /usr/lib/x86_64-linux-gnu/vlc/plugins/demux/libdemuxdump_plugin.so
 /usr/lib/x86_64-linux-gnu/vlc/plugins/demux/libdiracsys_plugin.so
 /usr/lib/x86_64-linux-gnu/vlc/plugins/demux/libdirectory_demux_plugin.so
+/usr/lib/x86_64-linux-gnu/vlc/plugins/demux/libdmxmus_plugin.so
 /usr/lib/x86_64-linux-gnu/vlc/plugins/demux/libes_plugin.so
 /usr/lib/x86_64-linux-gnu/vlc/plugins/demux/libflacsys_plugin.so
 /usr/lib/x86_64-linux-gnu/vlc/plugins/demux/libh26x_plugin.so
@@ -436,8 +437,5 @@
 /usr/share/doc/vlc-plugin-base/changelog.Debian.gz
 /usr/share/doc/vlc-plugin-base/changelog.gz
 /usr/share/doc/vlc-plugin-base/copyright
-/usr/share/lintian
-/usr/share/lintian/overrides
-/usr/share/lintian/overrides/vlc-plugin-base
 /usr/lib/x86_64-linux-gnu/vlc/libvlc_pulse.so
 /usr/lib/x86_64-linux-gnu/vlc/libvlc_pulse.so.0

@@ -1,0 +1,79 @@
+/.
+/usr
+/usr/bin
+/usr/bin/volumeicon
+/usr/share
+/usr/share/doc
+/usr/share/doc/volumeicon-alsa
+/usr/share/doc/volumeicon-alsa/changelog.Debian.amd64.gz
+/usr/share/doc/volumeicon-alsa/changelog.Debian.gz
+/usr/share/doc/volumeicon-alsa/changelog.gz
+/usr/share/doc/volumeicon-alsa/copyright
+/usr/share/locale
+/usr/share/locale/bs
+/usr/share/locale/bs/LC_MESSAGES
+/usr/share/locale/bs/LC_MESSAGES/volumeicon.mo
+/usr/share/locale/de
+/usr/share/locale/de/LC_MESSAGES
+/usr/share/locale/de/LC_MESSAGES/volumeicon.mo
+/usr/share/locale/fr
+/usr/share/locale/fr/LC_MESSAGES
+/usr/share/locale/fr/LC_MESSAGES/volumeicon.mo
+/usr/share/locale/hr
+/usr/share/locale/hr/LC_MESSAGES
+/usr/share/locale/hr/LC_MESSAGES/volumeicon.mo
+/usr/share/locale/pl
+/usr/share/locale/pl/LC_MESSAGES
+/usr/share/locale/pl/LC_MESSAGES/volumeicon.mo
+/usr/share/locale/ru
+/usr/share/locale/ru/LC_MESSAGES
+/usr/share/locale/ru/LC_MESSAGES/volumeicon.mo
+/usr/share/locale/sr
+/usr/share/locale/sr/LC_MESSAGES
+/usr/share/locale/sr/LC_MESSAGES/volumeicon.mo
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/volumeicon.1.gz
+/usr/share/man/man5
+/usr/share/man/man5/volumeicon.5.gz
+/usr/share/volumeicon
+/usr/share/volumeicon/gui
+/usr/share/volumeicon/gui/appicon.svg
+/usr/share/volumeicon/gui/preferences.ui
+/usr/share/volumeicon/icons
+/usr/share/volumeicon/icons/Black Gnome
+/usr/share/volumeicon/icons/Black Gnome/1.png
+/usr/share/volumeicon/icons/Black Gnome/2.png
+/usr/share/volumeicon/icons/Black Gnome/3.png
+/usr/share/volumeicon/icons/Black Gnome/4.png
+/usr/share/volumeicon/icons/Black Gnome/5.png
+/usr/share/volumeicon/icons/Black Gnome/6.png
+/usr/share/volumeicon/icons/Black Gnome/7.png
+/usr/share/volumeicon/icons/Black Gnome/8.png
+/usr/share/volumeicon/icons/Blue Bar
+/usr/share/volumeicon/icons/Blue Bar/1.png
+/usr/share/volumeicon/icons/Blue Bar/2.png
+/usr/share/volumeicon/icons/Blue Bar/3.png
+/usr/share/volumeicon/icons/Blue Bar/4.png
+/usr/share/volumeicon/icons/Blue Bar/5.png
+/usr/share/volumeicon/icons/Blue Bar/6.png
+/usr/share/volumeicon/icons/Blue Bar/7.png
+/usr/share/volumeicon/icons/Blue Bar/8.png
+/usr/share/volumeicon/icons/White Gnome
+/usr/share/volumeicon/icons/White Gnome/1.png
+/usr/share/volumeicon/icons/White Gnome/2.png
+/usr/share/volumeicon/icons/White Gnome/3.png
+/usr/share/volumeicon/icons/White Gnome/4.png
+/usr/share/volumeicon/icons/White Gnome/5.png
+/usr/share/volumeicon/icons/White Gnome/6.png
+/usr/share/volumeicon/icons/White Gnome/7.png
+/usr/share/volumeicon/icons/White Gnome/8.png
+/usr/share/volumeicon/icons/tango
+/usr/share/volumeicon/icons/tango/1.png
+/usr/share/volumeicon/icons/tango/2.png
+/usr/share/volumeicon/icons/tango/3.png
+/usr/share/volumeicon/icons/tango/4.png
+/usr/share/volumeicon/icons/tango/5.png
+/usr/share/volumeicon/icons/tango/6.png
+/usr/share/volumeicon/icons/tango/7.png
+/usr/share/volumeicon/icons/tango/8.png

@@ -202,6 +202,11 @@
           <value xml:lang="en-US">Writer Layout XML</value>
         </prop>
       </node>
+      <node oor:name="writer_indexing_export">
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">Writer Indexing Export XML</value>
+        </prop>
+      </node>
       <node oor:name="BroadBand eBook">
         <prop oor:name="UIName">
           <value xml:lang="en-US">BroadBand eBook</value>
@@ -279,12 +284,17 @@
       </node>
       <node oor:name="writer_web_png_Export">
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
       </node>
       <node oor:name="writer_web_jpg_Export">
         <prop oor:name="UIName">
           <value xml:lang="en-US">JPEG - Joint Photographic Experts Group</value>
+        </prop>
+      </node>
+      <node oor:name="writer_web_webp_Export">
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
         </prop>
       </node>
       <node oor:name="writerweb8_writer_template">
@@ -854,7 +864,7 @@
       </node>
       <node oor:name="PNG - Portable Network Graphic">
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
       </node>
       <node oor:name="PPM - Portable Pixelmap">
@@ -895,6 +905,11 @@
       <node oor:name="TIF - Tag Image File">
         <prop oor:name="UIName">
           <value xml:lang="en-US">TIFF - Tagged Image File Format</value>
+        </prop>
+      </node>
+      <node oor:name="WEBP - WebP">
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
         </prop>
       </node>
       <node oor:name="WMF - MS Windows Metafile">
@@ -959,7 +974,7 @@
       </node>
       <node oor:name="draw_png_Export">
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
       </node>
       <node oor:name="draw_svg_Export">
@@ -970,6 +985,11 @@
       <node oor:name="draw_tif_Export">
         <prop oor:name="UIName">
           <value xml:lang="en-US">TIFF - Tagged Image File Format</value>
+        </prop>
+      </node>
+      <node oor:name="draw_webp_Export">
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
         </prop>
       </node>
       <node oor:name="draw_wmf_Export">
@@ -1014,7 +1034,7 @@
       </node>
       <node oor:name="impress_png_Export">
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
       </node>
       <node oor:name="impress_svg_Export">
@@ -1025,6 +1045,11 @@
       <node oor:name="impress_tif_Export">
         <prop oor:name="UIName">
           <value xml:lang="en-US">TIFF - Tagged Image File Format</value>
+        </prop>
+      </node>
+      <node oor:name="impress_webp_Export">
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
         </prop>
       </node>
       <node oor:name="impress_wmf_Export">
@@ -1039,12 +1064,17 @@
       </node>
       <node oor:name="writer_png_Export">
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
       </node>
       <node oor:name="writer_svg_Export">
         <prop oor:name="UIName">
           <value xml:lang="en-US">SVG - Scalable Vector Graphics</value>
+        </prop>
+      </node>
+      <node oor:name="writer_webp_Export">
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
         </prop>
       </node>
       <node oor:name="calc_jpg_Export">
@@ -1054,12 +1084,17 @@
       </node>
       <node oor:name="calc_png_Export">
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
       </node>
       <node oor:name="calc_svg_Export">
         <prop oor:name="UIName">
           <value xml:lang="en-US">SVG - Scalable Vector Graphics</value>
+        </prop>
+      </node>
+      <node oor:name="calc_webp_Export">
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
         </prop>
       </node>
       <node oor:name="ADO Rowset XML">

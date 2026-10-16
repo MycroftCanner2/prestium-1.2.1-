@@ -1,9 +1,3 @@
-libreoffice-common 	 /etc/libreoffice/registry/main.xcd
-libreoffice-common 	 /etc/libreoffice/registry/pdfimport.xcd
-libreoffice-common 	 /etc/libreoffice/registry/xsltfilter.xcd
-libreoffice-common 	 /etc/libreoffice/registry/lingucomponent.xcd
-libreoffice-common 	 /etc/libreoffice/registry/Langpack-en-US.xcd
-libreoffice-common 	 /etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd
 libreoffice-math 	 /etc/libreoffice/registry/math.xcd
 libreoffice-draw 	 /etc/libreoffice/registry/draw.xcd
 libreoffice-draw 	 /etc/libreoffice/registry/graphicfilter.xcd
@@ -13,3 +7,9 @@ python3-uno 	 /etc/libreoffice/registry/pyuno.xcd
 libreoffice-calc 	 /etc/libreoffice/registry/calc.xcd
 libreoffice-base 	 /etc/libreoffice/registry/base.xcd
 libreoffice-writer 	 /etc/libreoffice/registry/writer.xcd
+libreoffice-common 	 /etc/libreoffice/registry/main.xcd
+libreoffice-common 	 /etc/libreoffice/registry/pdfimport.xcd
+libreoffice-common 	 /etc/libreoffice/registry/xsltfilter.xcd
+libreoffice-common 	 /etc/libreoffice/registry/lingucomponent.xcd
+libreoffice-common 	 /etc/libreoffice/registry/Langpack-en-US.xcd
+libreoffice-common 	 /etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd

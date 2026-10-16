@@ -1,9 +1,9 @@
-d4a00f4b5f13b488b3545017e09ce3d1  usr/bin/lcf
-2bc399c7fdcd390e1c5fe838366bfce9  usr/bin/ucf
+20345de8ca19c1e0b3d21af2f054ca60  usr/bin/lcf
+40ef1880008f1869f379d7c7130e0a72  usr/bin/ucf
 e664e50d61a9f85ee48c46e6b3fabc24  usr/bin/ucfq
-0933e89f2500df6bf7783eadfbbf2fbd  usr/bin/ucfr
-9ff9e32b593d45c13c35f3063b531ebe  usr/share/doc/ucf/changelog.gz
-879b4619d89a42f23426cb05c84407ff  usr/share/doc/ucf/copyright
+2c61aaa21072046cce0efbb9e7ea4a1b  usr/bin/ucfr
+c6613cfe6311a88d2d452374a5c1a607  usr/share/doc/ucf/changelog.gz
+f770707f4c037f4834e25365806b60c2  usr/share/doc/ucf/copyright
 4c736748ad72ab553d5e4c33f15510bd  usr/share/doc/ucf/examples/postinst
 50cb8edc26fbd44dbced9682bb79413e  usr/share/doc/ucf/examples/postrm
 dc80f28e2560e39666c8da3d5c71717b  usr/share/doc/ucf/examples/ucf_helper_functions/00README
@@ -32,7 +32,7 @@ b9e6e3fff794cda7b3e58f873d0211b6  usr/share/doc/ucf/examples/ucf_helper_function
 5eb144095eecb4b1516aa6f35bdfedf9  usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_19
 0476a756e873c5cc02376473578a1f9a  usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_20
 00ad9ea9a5c0ef996a004148c73370af  usr/share/doc/ucf/examples/ucf_helper_functions/testsuite
-0646b7f32d6d4859765733f7aa90ded7  usr/share/lintian/overrides/ucf
+f9d7d3cd6accc33fe83dc3c2bcc1f73e  usr/share/lintian/overrides/ucf
 c1ab84d7198538a23510929b4df61663  usr/share/man/man1/lcf.1.gz
 4a675fd0906d92671ecac9b8b29cfe8c  usr/share/man/man1/ucf.1.gz
 5839c115ab2409be126ced480d0cd2a3  usr/share/man/man1/ucfq.1.gz

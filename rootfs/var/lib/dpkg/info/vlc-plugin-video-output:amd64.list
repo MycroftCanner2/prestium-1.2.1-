@@ -44,9 +44,6 @@
 /usr/share/doc/vlc-plugin-video-output/changelog.Debian.gz
 /usr/share/doc/vlc-plugin-video-output/changelog.gz
 /usr/share/doc/vlc-plugin-video-output/copyright
-/usr/share/lintian
-/usr/share/lintian/overrides
-/usr/share/lintian/overrides/vlc-plugin-video-output
 /usr/lib/x86_64-linux-gnu/vlc/libvlc_vdpau.so
 /usr/lib/x86_64-linux-gnu/vlc/libvlc_vdpau.so.0
 /usr/lib/x86_64-linux-gnu/vlc/libvlc_xcb_events.so

@@ -16,6 +16,7 @@ if [ "$1" = "configure" ]; then
 	done
     fi
 
+    # Alternative paths should *not* be moved under /usr/lib
     update-alternatives --install \
 	/lib/firmware/regulatory.db regulatory.db /lib/firmware/regulatory.db-debian 100 \
 	--slave /lib/firmware/regulatory.db.p7s regulatory.db.p7s /lib/firmware/regulatory.db.p7s-debian

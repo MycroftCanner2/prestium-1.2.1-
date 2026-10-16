@@ -12,6 +12,7 @@
 /usr/share/bug/xserver-xorg-video-vmware
 /usr/share/doc
 /usr/share/doc/xserver-xorg-video-vmware
+/usr/share/doc/xserver-xorg-video-vmware/changelog.Debian.amd64.gz
 /usr/share/doc/xserver-xorg-video-vmware/changelog.Debian.gz
 /usr/share/doc/xserver-xorg-video-vmware/changelog.gz
 /usr/share/doc/xserver-xorg-video-vmware/copyright

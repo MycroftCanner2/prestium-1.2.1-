@@ -25,6 +25,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/x11-xserver-utils
+/usr/share/doc/x11-xserver-utils/changelog.amd64.gz
 /usr/share/doc/x11-xserver-utils/changelog.gz
 /usr/share/doc/x11-xserver-utils/copyright
 /usr/share/man

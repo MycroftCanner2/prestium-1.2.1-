@@ -1,8 +1,8 @@
 d7383ffde9bf16d8032f6849f0249e81  usr/bin/qvlc
-0d48cb269bb78be9470dca5c7762715b  usr/lib/x86_64-linux-gnu/vlc/plugins/gui/libqt_plugin.so
+c33a3a2b0ef67feca9a8ded89354ea1a  usr/lib/x86_64-linux-gnu/vlc/plugins/gui/libqt_plugin.so
 143dd060cd683f7da6fa97b4de08f0bc  usr/share/bug/vlc-plugin-qt/control
 db5a9ef7d588ac8bafe061d1968be5cd  usr/share/bug/vlc-plugin-qt/presubj
-9cfaa7a95316e4fd1b422d10a6ed3bd6  usr/share/doc/vlc-plugin-qt/changelog.Debian.gz
-21232418116b72822d3ba32759b9e291  usr/share/doc/vlc-plugin-qt/changelog.gz
-3e9b1692d84e75e0c5adba245f8b8331  usr/share/doc/vlc-plugin-qt/copyright
+cd32c18c575a97dce523abfd884945e6  usr/share/doc/vlc-plugin-qt/changelog.Debian.gz
+d0f6aa630ac462c7dfd9b25f6a31d3bb  usr/share/doc/vlc-plugin-qt/changelog.gz
+2cf769622e05d506a35a12f5cbc6c24b  usr/share/doc/vlc-plugin-qt/copyright
 93f57670d5c72e92501c2972f1ba3c5c  usr/share/lintian/overrides/vlc-plugin-qt

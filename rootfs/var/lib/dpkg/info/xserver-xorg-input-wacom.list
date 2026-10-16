@@ -31,8 +31,8 @@
 /usr/share/X11/xorg.conf.d/70-wacom.conf
 /usr/share/doc
 /usr/share/doc/xserver-xorg-input-wacom
-/usr/share/doc/xserver-xorg-input-wacom/changelog.Debian.amd64.gz
 /usr/share/doc/xserver-xorg-input-wacom/changelog.Debian.gz
+/usr/share/doc/xserver-xorg-input-wacom/changelog.gz
 /usr/share/doc/xserver-xorg-input-wacom/copyright
 /usr/share/man
 /usr/share/man/man1

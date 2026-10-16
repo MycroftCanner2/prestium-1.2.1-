@@ -289,7 +289,7 @@
           <value/>
         </prop>
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
         <prop oor:name="FileFormatVersion">
           <value>0</value>
@@ -484,6 +484,29 @@
         </prop>
         <prop oor:name="Type">
           <value>tif_Tag_Image_File</value>
+        </prop>
+        <prop oor:name="TemplateName"/>
+        <prop oor:name="DocumentService">
+          <value>com.sun.star.drawing.DrawingDocument</value>
+        </prop>
+      </node>
+      <node oor:name="WEBP - WebP" oor:op="replace">
+        <prop oor:name="Flags">
+          <value>IMPORT ALIEN</value>
+        </prop>
+        <prop oor:name="UIComponent"/>
+        <prop oor:name="FilterService"/>
+        <prop oor:name="UserData">
+          <value/>
+        </prop>
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
+        </prop>
+        <prop oor:name="FileFormatVersion">
+          <value>0</value>
+        </prop>
+        <prop oor:name="Type">
+          <value>webp_WebP</value>
         </prop>
         <prop oor:name="TemplateName"/>
         <prop oor:name="DocumentService">
@@ -790,7 +813,7 @@
           <value/>
         </prop>
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
         <prop oor:name="FileFormatVersion">
           <value>0</value>
@@ -845,6 +868,31 @@
         </prop>
         <prop oor:name="Type">
           <value>tif_Tag_Image_File</value>
+        </prop>
+        <prop oor:name="TemplateName"/>
+        <prop oor:name="DocumentService">
+          <value>com.sun.star.drawing.DrawingDocument</value>
+        </prop>
+      </node>
+      <node oor:name="draw_webp_Export" oor:op="replace">
+        <prop oor:name="Flags">
+          <value>EXPORT ALIEN SUPPORTSSELECTION</value>
+        </prop>
+        <prop oor:name="UIComponent">
+          <value>com.sun.star.svtools.SvFilterOptionsDialog</value>
+        </prop>
+        <prop oor:name="FilterService"/>
+        <prop oor:name="UserData">
+          <value/>
+        </prop>
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
+        </prop>
+        <prop oor:name="FileFormatVersion">
+          <value>0</value>
+        </prop>
+        <prop oor:name="Type">
+          <value>webp_WebP</value>
         </prop>
         <prop oor:name="TemplateName"/>
         <prop oor:name="DocumentService">
@@ -930,7 +978,7 @@
         </prop>
         <prop oor:name="URLPattern"/>
         <prop oor:name="Extensions">
-          <value>emf</value>
+          <value>emf emz</value>
         </prop>
         <prop oor:name="MediaType">
           <value>image/x-emf</value>
@@ -1426,13 +1474,35 @@
         </prop>
         <prop oor:name="ClipboardFormat"/>
       </node>
+      <node oor:name="webp_WebP" oor:op="replace">
+        <prop oor:name="DetectService">
+          <value>com.sun.star.comp.draw.FormatDetector</value>
+        </prop>
+        <prop oor:name="URLPattern"/>
+        <prop oor:name="Extensions">
+          <value>webp</value>
+        </prop>
+        <prop oor:name="MediaType">
+          <value>image/webp</value>
+        </prop>
+        <prop oor:name="Preferred">
+          <value>false</value>
+        </prop>
+        <prop oor:name="PreferredFilter">
+          <value>WEBP - WebP</value>
+        </prop>
+        <prop oor:name="UIName">
+          <value>WEBP - WebP Image</value>
+        </prop>
+        <prop oor:name="ClipboardFormat"/>
+      </node>
       <node oor:name="wmf_MS_Windows_Metafile" oor:op="replace">
         <prop oor:name="DetectService">
           <value>com.sun.star.comp.draw.FormatDetector</value>
         </prop>
         <prop oor:name="URLPattern"/>
         <prop oor:name="Extensions">
-          <value>wmf</value>
+          <value>wmf wmz</value>
         </prop>
         <prop oor:name="MediaType">
           <value>image/x-wmf</value>
@@ -1681,7 +1751,7 @@
           <value/>
         </prop>
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
         <prop oor:name="FileFormatVersion">
           <value>0</value>
@@ -1736,6 +1806,31 @@
         </prop>
         <prop oor:name="Type">
           <value>tif_Tag_Image_File</value>
+        </prop>
+        <prop oor:name="TemplateName"/>
+        <prop oor:name="DocumentService">
+          <value>com.sun.star.presentation.PresentationDocument</value>
+        </prop>
+      </node>
+      <node oor:name="impress_webp_Export" oor:op="replace">
+        <prop oor:name="Flags">
+          <value>EXPORT ALIEN SUPPORTSSELECTION</value>
+        </prop>
+        <prop oor:name="UIComponent">
+          <value>com.sun.star.svtools.SvFilterOptionsDialog</value>
+        </prop>
+        <prop oor:name="FilterService"/>
+        <prop oor:name="UserData">
+          <value/>
+        </prop>
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
+        </prop>
+        <prop oor:name="FileFormatVersion">
+          <value>0</value>
+        </prop>
+        <prop oor:name="Type">
+          <value>webp_WebP</value>
         </prop>
         <prop oor:name="TemplateName"/>
         <prop oor:name="DocumentService">
@@ -1799,7 +1894,7 @@
         </prop>
         <prop oor:name="URLPattern"/>
         <prop oor:name="Extensions">
-          <value>emf</value>
+          <value>emf emz</value>
         </prop>
         <prop oor:name="MediaType">
           <value>image/x-emf</value>
@@ -2169,7 +2264,7 @@
         </prop>
         <prop oor:name="URLPattern"/>
         <prop oor:name="Extensions">
-          <value>wmf</value>
+          <value>wmf wmz</value>
         </prop>
         <prop oor:name="MediaType">
           <value>image/x-wmf</value>
@@ -2182,6 +2277,28 @@
         </prop>
         <prop oor:name="UIName">
           <value>WMF - Windows Metafile</value>
+        </prop>
+        <prop oor:name="ClipboardFormat"/>
+      </node>
+      <node oor:name="webp_WebP" oor:op="replace">
+        <prop oor:name="DetectService">
+          <value>com.sun.star.comp.draw.FormatDetector</value>
+        </prop>
+        <prop oor:name="URLPattern"/>
+        <prop oor:name="Extensions">
+          <value>webp</value>
+        </prop>
+        <prop oor:name="MediaType">
+          <value>image/webp</value>
+        </prop>
+        <prop oor:name="Preferred">
+          <value>false</value>
+        </prop>
+        <prop oor:name="PreferredFilter">
+          <value>WEBP - WebP</value>
+        </prop>
+        <prop oor:name="UIName">
+          <value>WEBP - WebP Image</value>
         </prop>
         <prop oor:name="ClipboardFormat"/>
       </node>
@@ -2252,7 +2369,7 @@
           <value/>
         </prop>
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
         <prop oor:name="FileFormatVersion">
           <value>0</value>
@@ -2284,6 +2401,33 @@
         </prop>
         <prop oor:name="Type">
           <value>svg_Scalable_Vector_Graphics</value>
+        </prop>
+        <prop oor:name="TemplateName"/>
+        <prop oor:name="DocumentService">
+          <value>com.sun.star.sheet.SpreadsheetDocument</value>
+        </prop>
+      </node>
+      <node oor:name="calc_webp_Export" oor:op="replace">
+        <prop oor:name="Flags">
+          <value>EXPORT ALIEN 3RDPARTYFILTER SUPPORTSSELECTION</value>
+        </prop>
+        <prop oor:name="UIComponent">
+          <value>com.sun.star.svtools.SvFilterOptionsDialog</value>
+        </prop>
+        <prop oor:name="FilterService">
+          <value>com.sun.star.comp.GraphicExportFilter</value>
+        </prop>
+        <prop oor:name="UserData">
+          <value/>
+        </prop>
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
+        </prop>
+        <prop oor:name="FileFormatVersion">
+          <value>0</value>
+        </prop>
+        <prop oor:name="Type">
+          <value>webp_WebP</value>
         </prop>
         <prop oor:name="TemplateName"/>
         <prop oor:name="DocumentService">
@@ -2383,7 +2527,7 @@
           <value/>
         </prop>
         <prop oor:name="UIName">
-          <value xml:lang="en-US">PNG - Portable Network Graphic</value>
+          <value xml:lang="en-US">PNG - Portable Network Graphics</value>
         </prop>
         <prop oor:name="FileFormatVersion">
           <value>0</value>
@@ -2415,6 +2559,33 @@
         </prop>
         <prop oor:name="Type">
           <value>svg_Scalable_Vector_Graphics</value>
+        </prop>
+        <prop oor:name="TemplateName"/>
+        <prop oor:name="DocumentService">
+          <value>com.sun.star.text.TextDocument</value>
+        </prop>
+      </node>
+      <node oor:name="writer_webp_Export" oor:op="replace">
+        <prop oor:name="Flags">
+          <value>EXPORT ALIEN 3RDPARTYFILTER</value>
+        </prop>
+        <prop oor:name="UIComponent">
+          <value>com.sun.star.svtools.SvFilterOptionsDialog</value>
+        </prop>
+        <prop oor:name="FilterService">
+          <value>com.sun.star.comp.GraphicExportFilter</value>
+        </prop>
+        <prop oor:name="UserData">
+          <value/>
+        </prop>
+        <prop oor:name="UIName">
+          <value xml:lang="en-US">WEBP - WebP Image</value>
+        </prop>
+        <prop oor:name="FileFormatVersion">
+          <value>0</value>
+        </prop>
+        <prop oor:name="Type">
+          <value>webp_WebP</value>
         </prop>
         <prop oor:name="TemplateName"/>
         <prop oor:name="DocumentService">

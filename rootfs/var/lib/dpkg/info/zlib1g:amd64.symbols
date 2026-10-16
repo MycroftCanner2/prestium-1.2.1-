@@ -2,6 +2,7 @@ libz.so.1 zlib1g #MINVER#
  ZLIB_1.2.0.2@ZLIB_1.2.0.2 1:1.2.0.2
  ZLIB_1.2.0.8@ZLIB_1.2.0.8 1:1.2.0.8
  ZLIB_1.2.0@ZLIB_1.2.0 1:1.2.0
+ ZLIB_1.2.12@ZLIB_1.2.12 1:1.2.13.dfsg
  ZLIB_1.2.2.3@ZLIB_1.2.2.3 1:1.2.2.3
  ZLIB_1.2.2.4@ZLIB_1.2.2.4 1:1.2.2.4
  ZLIB_1.2.2@ZLIB_1.2.2 1:1.2.2
@@ -11,7 +12,7 @@ libz.so.1 zlib1g #MINVER#
  ZLIB_1.2.5.1@ZLIB_1.2.5.1 1:1.2.6
  ZLIB_1.2.5.2@ZLIB_1.2.5.2 1:1.2.6
  ZLIB_1.2.7.1@ZLIB_1.2.7.1 1:1.2.8
- ZLIB_1.2.9@ZLIB_1.2.9 1:1.2.11.dfsg-1
+ ZLIB_1.2.9@ZLIB_1.2.9 1:1.2.11.dfsg
  adler32@Base 1:1.1.4
  adler32_combine64@ZLIB_1.2.3.3 1:1.2.3.3
  adler32_combine@ZLIB_1.2.2 1:1.2.2
@@ -22,6 +23,9 @@ libz.so.1 zlib1g #MINVER#
  crc32@Base 1:1.1.4
  crc32_combine64@ZLIB_1.2.3.3 1:1.2.3.3
  crc32_combine@ZLIB_1.2.2 1:1.2.2
+ crc32_combine_gen64@ZLIB_1.2.12 1:1.2.13.dfsg
+ crc32_combine_gen@ZLIB_1.2.12 1:1.2.13.dfsg
+ crc32_combine_op@ZLIB_1.2.12 1:1.2.13.dfsg
  crc32_z@ZLIB_1.2.9 1:1.2.11.dfsg
  deflate@Base 1:1.1.4
  deflateBound@ZLIB_1.2.0 1:1.2.0
