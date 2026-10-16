@@ -6,4 +6,4 @@
 // browser/app/Makefile.in, bug 756325, and bug 1431342 for details. Do not add
 // other prefs to this file.
 
-pref("app.update.channel", "default");
+pref("app.update.channel", "release");
