@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="fo">Excel 2007 rokniark</comment>
-  <comment xml:lang="fur">sfuei di calcul Excel 2007</comment>
+  <comment xml:lang="zh_TW">Excel 2007 試算表</comment>
+  <comment xml:lang="zh_CN">Excel 2007 电子表格</comment>
+  <comment xml:lang="pt_BR">Planilha do Excel 2007</comment>
   <comment xml:lang="ia">Folio de calculo Excel 2007</comment>
+  <comment xml:lang="fur">sfuei di calcul Excel 2007</comment>
+  <comment xml:lang="fo">Excel 2007 rokniark</comment>
+  <comment xml:lang="en_GB">Excel 2007 spreadsheet</comment>
   <glob pattern="*.xlsx"/>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-spreadsheet"/>
   <comment>Microsoft Excel Worksheet</comment>
   <comment xml:lang="af">Microsoft Excel-werkvel</comment>
   <comment xml:lang="am">Microsoft Excel Worksheet</comment>
-  <comment xml:lang="ar">ورقة عمل ميكروسوفت إكسل</comment>
+  <comment xml:lang="ar">ورقة عمل ميكروسوفت أكسل</comment>
   <comment xml:lang="as">Microsoft Excel ৱৰ্কশ্বীট</comment>
-  <comment xml:lang="ast">Fueya de cálculu de Microsoft Excel</comment>
+  <comment xml:lang="ast">Fueya de cálculu d'Excel de Microsoft</comment>
   <comment xml:lang="be">Разліковы аркуш Microsoft Excel</comment>
   <comment xml:lang="bg">Microsoft Excel - лист</comment>
   <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট</comment>
@@ -79,7 +83,7 @@
   <comment xml:lang="si">Microsoft Excel පැතුරුම්පත</comment>
   <comment xml:lang="sk">Pracovný zošit Microsoft Excel</comment>
   <comment xml:lang="sl">Delovni list programa Microsoft Excel</comment>
-  <comment xml:lang="sr">Microsoft Excel Worksheet</comment>
+  <comment xml:lang="sr">Microsoft Excel радни лист</comment>
   <comment xml:lang="sr-Latn">Microsoft Excel Worksheet</comment>
   <comment xml:lang="ss">Liphephamsebenti leMicrosoft Excel</comment>
   <comment xml:lang="st">Leqephe la ho Sebeletsa la Microsoft Excel</comment>

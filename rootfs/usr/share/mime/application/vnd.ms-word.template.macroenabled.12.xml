@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.ms-word.template.macroEnabled.12">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="fur">model di document Word</comment>
+  <comment xml:lang="zh_TW">Word 文件範本</comment>
+  <comment xml:lang="zh_CN">Word 文档模板</comment>
+  <comment xml:lang="pt_BR">Modelo de documento do Word</comment>
   <comment xml:lang="ia">Patrono de documento Word</comment>
+  <comment xml:lang="fur">model di document Word</comment>
+  <comment xml:lang="en_GB">Word document template</comment>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.dotm"/>
   <sub-class-of type="application/vnd.openxmlformats-officedocument.wordprocessingml.template"/>
@@ -11,7 +15,7 @@
   <comment xml:lang="am">Microsoft Word Document Template</comment>
   <comment xml:lang="ar">قالب مستند ميكروسوفت وورد</comment>
   <comment xml:lang="as">Microsoft Word টেমপ্লেইট</comment>
-  <comment xml:lang="ast">Plantía de documentu de Microsoft Word</comment>
+  <comment xml:lang="ast">Plantía pa documentu de Word de Microsoft</comment>
   <comment xml:lang="be">Шаблон дакумента Microsoft Word</comment>
   <comment xml:lang="bg">Microsoft Word – шаблон за документ</comment>
   <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথির ফর্মা</comment>
@@ -43,10 +47,10 @@
   <comment xml:lang="hi">माइक्रोसॉफ़्ट वर्ड डॉक्यूमेंट नमूना ख़ाका</comment>
   <comment xml:lang="hr">Predložak Microsoft Word dokumenta</comment>
   <comment xml:lang="hu">Microsoft Word-dokumentumsablon</comment>
-  <comment xml:lang="id">Palet Dokumen Microsoft Word</comment>
+  <comment xml:lang="id">Templat Dokumen Microsoft Word</comment>
   <comment xml:lang="is">Microsoft Word sniðmát fyrir textaskjal</comment>
   <comment xml:lang="it">Modello di documento di Microsoft Word</comment>
-  <comment xml:lang="ja">Microsoft Word ドキュメントテンプレート</comment>
+  <comment xml:lang="ja">Microsoft Word ドキュメント テンプレート</comment>
   <comment xml:lang="ka">Microsoft Word 95 შაბლონი</comment>
   <comment xml:lang="kk">Microsoft Word құжат үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​ឯកសារ Microsoft Word</comment>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.openofficeorg.extension">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Pašyreńnie OpenOffice.org</comment>
-  <comment xml:lang="fo">OpenOffice.org víðkan</comment>
-  <comment xml:lang="fur">estension OpenOffice.org</comment>
-  <comment xml:lang="ia">Extension OpenOffice.org</comment>
+  <comment xml:lang="zh_TW">OpenOffice.org 擴充套件</comment>
+  <comment xml:lang="zh_CN">OpenOffice.org 扩展</comment>
   <comment xml:lang="sq">Shtojcë për OpenOffice.org</comment>
+  <comment xml:lang="pt_BR">Extensão do OpenOffice</comment>
+  <comment xml:lang="ia">Extension OpenOffice.org</comment>
+  <comment xml:lang="fur">estension OpenOffice.org</comment>
+  <comment xml:lang="fo">OpenOffice.org víðkan</comment>
+  <comment xml:lang="en_GB">OpenOffice.org extension</comment>
+  <comment xml:lang="be@latin">Pašyreńnie OpenOffice.org</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.oxt"/>
@@ -25,7 +29,7 @@
   <comment xml:lang="cs">Rozšíření LibreOffice</comment>
   <comment xml:lang="cy">Estyniad LibreOffice</comment>
   <comment xml:lang="da">LibreOffice-udvidelse</comment>
-  <comment xml:lang="de">LibreOffice Extension</comment>
+  <comment xml:lang="de">LibreOffice-Erweiterung</comment>
   <comment xml:lang="dz">LibreOffice རྒྱ་བསྐྱེད།</comment>
   <comment xml:lang="el">Επέκταση LibreOffice</comment>
   <comment xml:lang="en-GB">LibreOffice Extension</comment>
@@ -68,7 +72,7 @@
   <comment xml:lang="nn">LibreOffice-utviding</comment>
   <comment xml:lang="nr">LibreOffice Extension</comment>
   <comment xml:lang="nso">Koketšo ya LibreOffice</comment>
-  <comment xml:lang="oc">LibreOffice Extension</comment>
+  <comment xml:lang="oc">Extension LibreOffice</comment>
   <comment xml:lang="om">Dheertoo LibreOffice</comment>
   <comment xml:lang="or">LibreOffice ଅନୁଲଗ୍ନ</comment>
   <comment xml:lang="pa-IN">LibreOffice ਐਕਸਟੇਸ਼ਨ</comment>
@@ -76,7 +80,7 @@
   <comment xml:lang="pt">Extensão do LibreOffice</comment>
   <comment xml:lang="pt-BR">Extensão do LibreOffice</comment>
   <comment xml:lang="ro">Extensie LibreOffice</comment>
-  <comment xml:lang="ru">Расширение LibreOffice</comment>
+  <comment xml:lang="ru">LibreOffice - Расширение</comment>
   <comment xml:lang="rw">Umugereka wa LibreOffice</comment>
   <comment xml:lang="si">LibreOffice දිගුව</comment>
   <comment xml:lang="sk">LibreOffice Rozšírenie</comment>

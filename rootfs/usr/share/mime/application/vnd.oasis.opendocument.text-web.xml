@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.text-web">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Šablon OTH</comment>
-  <comment xml:lang="fo">OTH formur</comment>
-  <comment xml:lang="fur">model OTH</comment>
-  <comment xml:lang="ia">Patrono OTH</comment>
+  <comment xml:lang="zh_TW">OTH 範本</comment>
+  <comment xml:lang="zh_CN">OTH 模板</comment>
   <comment xml:lang="sq">Model OTH</comment>
+  <comment xml:lang="pt_BR">Modelo OTH</comment>
+  <comment xml:lang="ia">Patrono OTH</comment>
+  <comment xml:lang="fur">model OTH</comment>
+  <comment xml:lang="fo">OTH formur</comment>
+  <comment xml:lang="en_GB">OTH template</comment>
+  <comment xml:lang="be@latin">Šablon OTH</comment>
   <acronym>OTH</acronym>
   <expanded-acronym>OpenDocument HTML</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -16,7 +20,7 @@
   <comment xml:lang="am">HTML Document Template</comment>
   <comment xml:lang="ar">قالب مستند HTML</comment>
   <comment xml:lang="as">HTML দস্তাবেজ টেমপ্লেইট</comment>
-  <comment xml:lang="ast">Plantía de documentu HTML</comment>
+  <comment xml:lang="ast">Plantía pa documentu HTML</comment>
   <comment xml:lang="be">Шаблон дакументу HTML</comment>
   <comment xml:lang="bg">Шаблон за документ на HTML</comment>
   <comment xml:lang="bn">HTML নথি ফর্মা </comment>
@@ -48,10 +52,10 @@
   <comment xml:lang="hi">HTML दस्तावेज़ नमूना</comment>
   <comment xml:lang="hr">Predložak HTML dokumenta</comment>
   <comment xml:lang="hu">HTML-dokumentumsablon</comment>
-  <comment xml:lang="id">Palet Dokumen HTML</comment>
+  <comment xml:lang="id">Templat Dokumen HTML</comment>
   <comment xml:lang="is">HTML sniðmát fyrir vefsíðu</comment>
   <comment xml:lang="it">HTML - Modello di documento</comment>
-  <comment xml:lang="ja">HTML ドキュメントテンプレート</comment>
+  <comment xml:lang="ja">HTML ドキュメント テンプレート</comment>
   <comment xml:lang="ka">HTML დოკუმენტის შაბლონი</comment>
   <comment xml:lang="kk">HTML құжатының үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​ឯកសារ​ HTML</comment>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.draw">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Rysunak OpenOffice Draw</comment>
-  <comment xml:lang="fo">OpenOffice Draw tekning</comment>
-  <comment xml:lang="fur">dissen OpenOffice Draw</comment>
-  <comment xml:lang="ia">Designo OpenOffice Draw</comment>
+  <comment xml:lang="zh_TW">OpenOffice Draw 繪圖</comment>
+  <comment xml:lang="zh_CN">OpenOffice Draw 绘图</comment>
   <comment xml:lang="sq">Vizatim OpenOffice Draw</comment>
+  <comment xml:lang="pt_BR">Desenho do OpenOffice Draw</comment>
+  <comment xml:lang="ia">Designo OpenOffice Draw</comment>
+  <comment xml:lang="fur">dissen OpenOffice Draw</comment>
+  <comment xml:lang="fo">OpenOffice Draw tekning</comment>
+  <comment xml:lang="en_GB">OpenOffice Draw drawing</comment>
+  <comment xml:lang="be@latin">Rysunak OpenOffice Draw</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="image-x-generic"/>
   <glob pattern="*.sxd"/>
@@ -75,13 +79,13 @@
   <comment xml:lang="pl">Rysunek OpenOffice.org 1.0</comment>
   <comment xml:lang="pt">Desenho do OpenOffice.org 1.0</comment>
   <comment xml:lang="pt-BR">Desenho do OpenOffice.org 1.0</comment>
-  <comment xml:lang="ro">OpenOffice.org 1.0 desen</comment>
+  <comment xml:lang="ro">Desen OpenOffice.org 1.0</comment>
   <comment xml:lang="ru">Рисунок OpenOffice.org 1.0</comment>
   <comment xml:lang="rw">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="si">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="sk">Kresba OpenOffice.org 1.0</comment>
   <comment xml:lang="sl">Risba OpenOffice.org 1.0</comment>
-  <comment xml:lang="sr">OpenOffice.org 1.0 Drawing</comment>
+  <comment xml:lang="sr">OpenOffice.org 1.0 цртеж</comment>
   <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="ss">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="st">OpenOffice.org 1.0 Drawing</comment>

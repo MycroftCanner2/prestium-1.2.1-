@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.formula">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Formuła ODF</comment>
-  <comment xml:lang="fo">ODF frymil</comment>
-  <comment xml:lang="fur">formule ODF</comment>
-  <comment xml:lang="ia">Formula ODF</comment>
+  <comment xml:lang="zh_TW">ODF 公式</comment>
+  <comment xml:lang="zh_CN">ODF 公式</comment>
   <comment xml:lang="sq">Formulë ODF</comment>
+  <comment xml:lang="pt_BR">Fórmula ODF</comment>
+  <comment xml:lang="ia">Formula ODF</comment>
+  <comment xml:lang="fur">formule ODF</comment>
+  <comment xml:lang="fo">ODF frymil</comment>
+  <comment xml:lang="en_GB">ODF formula</comment>
+  <comment xml:lang="be@latin">Formuła ODF</comment>
   <acronym>ODF</acronym>
   <expanded-acronym>OpenDocument Formula</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Formula</comment>
   <comment xml:lang="en-ZA">OpenDocument Formula</comment>
   <comment xml:lang="eo">Formulo de OpenDocument</comment>
-  <comment xml:lang="es">Fórmula de OpenDocument</comment>
+  <comment xml:lang="es">Fórmula OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-valem</comment>
   <comment xml:lang="eu">OpenDocument formula</comment>
   <comment xml:lang="fa">فرمول نوشتارباز</comment>

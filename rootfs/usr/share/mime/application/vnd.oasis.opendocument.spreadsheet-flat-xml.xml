@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.spreadsheet-flat-xml">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="fo">ODS rokniark (Flat XML)</comment>
-  <comment xml:lang="fur">sfuei di calcul ODS (XML sempliç)</comment>
+  <comment xml:lang="zh_TW">ODS 試算表 (Flat XML)</comment>
+  <comment xml:lang="zh_CN">ODS 电子表格 (Flat XML)</comment>
+  <comment xml:lang="pt_BR">Planilha ODS (Flat XML)</comment>
   <comment xml:lang="ia">Folio de calculo ODS (XML platte)</comment>
+  <comment xml:lang="fur">sfuei di calcul ODS (XML sempliç)</comment>
+  <comment xml:lang="fo">ODS rokniark (Flat XML)</comment>
+  <comment xml:lang="en_GB">ODS spreadsheet (Flat XML)</comment>
   <acronym>FODS</acronym>
   <expanded-acronym>OpenDocument Spreadsheet (Flat XML)</expanded-acronym>
   <sub-class-of type="application/xml"/>
@@ -12,9 +16,9 @@
   <comment>OpenDocument Spreadsheet (Flat XML)</comment>
   <comment xml:lang="af">OpenDocument-sigblad (plat XML)</comment>
   <comment xml:lang="am">OpenDocument Spreadsheet (Flat XML)</comment>
-  <comment xml:lang="ar">جدول أوبن‌دكيومنت ممتد (XML سطحي)</comment>
+  <comment xml:lang="ar">جدول أوبن‌دكيومنت ممتد (أكس أم أل بسيط)</comment>
   <comment xml:lang="as">OpenDocument স্প্ৰেডশ্বীট (Flat XML)</comment>
-  <comment xml:lang="ast">Fueya de cálculu d'OpenDocument (XML planu)</comment>
+  <comment xml:lang="ast">Fueya de cálculu OpenDocument (XML planu)</comment>
   <comment xml:lang="be">Разліковы аркуш OpenDocument (просты XML)</comment>
   <comment xml:lang="bg">OpenDocument – електронна таблица (плосък XML)</comment>
   <comment xml:lang="bn">OpenDocument Spreadsheet (Flat XML)</comment>
@@ -31,10 +35,10 @@
   <comment xml:lang="en-GB">OpenDocument Spreadsheet (Flat XML)</comment>
   <comment xml:lang="en-ZA">OpenDocument Spreadsheet (Flat XML)</comment>
   <comment xml:lang="eo">Kalkultabelo de OpenDocument (plata XML)</comment>
-  <comment xml:lang="es">Hoja de cálculo de OpenDocument (XML plano)</comment>
+  <comment xml:lang="es">Hoja de cálculo OpenDocument (XML plano)</comment>
   <comment xml:lang="et">OpenDocument-arvutustabel (lame XML)</comment>
   <comment xml:lang="eu">OpenDocument kalkulu-orria (XML laua)</comment>
-  <comment xml:lang="fa">OpenDocument Spreadsheet (Flat XML)</comment>
+  <comment xml:lang="fa">صفحه گسترده نوشتارباز (XML صرف)</comment>
   <comment xml:lang="fi">OpenDocument-laskentataulukko (Flat XML)</comment>
   <comment xml:lang="fr">Classeur OpenDocument (XML plat)</comment>
   <comment xml:lang="ga">Scarbhileog OpenDocument (XML Maol)</comment>
@@ -46,7 +50,7 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट स्प्रेडशीट (फ्लैट XML)</comment>
   <comment xml:lang="hr">OpenDocument proračunska tablica (običan XML)</comment>
   <comment xml:lang="hu">OpenDocument-munkafüzet (Flat XML)</comment>
-  <comment xml:lang="id">Lembar Kerja OpenDocument (XML Flat)</comment>
+  <comment xml:lang="id">Lembar Sebar OpenDocument (XML Flat)</comment>
   <comment xml:lang="is">OpenDocument töflureiknir (flatt XML)</comment>
   <comment xml:lang="it">Foglio elettronico OpenDocument (XML semplice)</comment>
   <comment xml:lang="ja">OpenDocument 表計算 (Flat XML)</comment>
@@ -92,7 +96,7 @@
   <comment xml:lang="tg">OpenDocument Spreadsheet (Flat XML)</comment>
   <comment xml:lang="th">ตารางคำนวณของ OpenDocument (Flat XML)</comment>
   <comment xml:lang="tn">OpenDocument Spreadsheet (Flat XML)</comment>
-  <comment xml:lang="tr">OpenDocument Çalışma Sayfası (Düz XML)</comment>
+  <comment xml:lang="tr">OpenDocument Hesap Tablosu (Düz XML)</comment>
   <comment xml:lang="ts">OpenDocument Spreadsheet (Flat XML)</comment>
   <comment xml:lang="ug">OpenDocument ئېلېكترونلۇق جەدۋەل (ساپ XML)</comment>
   <comment xml:lang="uk">Електронна таблиця OpenDocument (плоский XML)</comment>

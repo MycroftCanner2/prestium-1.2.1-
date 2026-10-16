@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.spreadsheet">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Raźlikovy arkuš ODS</comment>
-  <comment xml:lang="fo">ODS rokniark</comment>
-  <comment xml:lang="fur">sfuei di calcul ODS</comment>
-  <comment xml:lang="ia">Folio de calculo ODS</comment>
+  <comment xml:lang="zh_TW">ODS 試算表</comment>
+  <comment xml:lang="zh_CN">ODS 电子表格</comment>
   <comment xml:lang="sq">Fletë llogaritjesh ODS</comment>
+  <comment xml:lang="pt_BR">Planilha ODS</comment>
+  <comment xml:lang="ia">Folio de calculo ODS</comment>
+  <comment xml:lang="fur">sfuei di calcul ODS</comment>
+  <comment xml:lang="fo">ODS rokniark</comment>
+  <comment xml:lang="en_GB">ODS spreadsheet</comment>
+  <comment xml:lang="be@latin">Raźlikovy arkuš ODS</comment>
   <acronym>ODS</acronym>
   <expanded-acronym>OpenDocument Spreadsheet</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -16,7 +20,7 @@
   <comment xml:lang="am">OpenDocument Spreadsheet</comment>
   <comment xml:lang="ar">جدول OpenDocument مُمتد</comment>
   <comment xml:lang="as">OpenDocument স্প্ৰেডশ্বীট</comment>
-  <comment xml:lang="ast">Fueya de cálculu d'OpenDocument</comment>
+  <comment xml:lang="ast">Fueya de cálculu OpenDocument</comment>
   <comment xml:lang="be">Разліковы аркуш OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – електронна таблица</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট স্প্রেডশীট</comment>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Spreadsheet</comment>
   <comment xml:lang="en-ZA">OpenDocument Spreadsheet</comment>
   <comment xml:lang="eo">Kalkultabelo de OpenDocument</comment>
-  <comment xml:lang="es">Hoja de cálculo de OpenDocument</comment>
+  <comment xml:lang="es">Hoja de cálculo OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-arvutustabel</comment>
   <comment xml:lang="eu">OpenDocument kalkulu-orria</comment>
   <comment xml:lang="fa">صفحه‌گستردهٔ نوشتارباز</comment>
@@ -48,7 +52,7 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट स्प्रेडशीट</comment>
   <comment xml:lang="hr">OpenDocument proračunska tablica</comment>
   <comment xml:lang="hu">OpenDocument-munkafüzet</comment>
-  <comment xml:lang="id">Lembar Kerja OpenDocument</comment>
+  <comment xml:lang="id">Lembar Sebar OpenDocument</comment>
   <comment xml:lang="is">OpenDocument töflureikniskjal</comment>
   <comment xml:lang="it">Foglio elettronico OpenDocument</comment>
   <comment xml:lang="ja">OpenDocument 表計算</comment>

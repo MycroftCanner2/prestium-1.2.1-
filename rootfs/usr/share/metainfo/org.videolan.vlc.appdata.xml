@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2016-2017 Jean-Baptiste Kempf CC-0 -->
-<component type="desktop">
+<component type="desktop-application">
   <id>org.videolan.vlc</id>
   <launchable type="desktop-id">vlc.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
@@ -8,13 +8,16 @@
   <name xml:lang="zh_TW">VLC</name>
   <name xml:lang="zh_CN">VLC</name>
   <name xml:lang="wa">VLC</name>
+  <name xml:lang="vi">VLC</name>
   <name xml:lang="uz">VLC</name>
   <name xml:lang="uk">VLC</name>
   <name xml:lang="ug">VLC</name>
+  <name xml:lang="tt">VLC</name>
   <name xml:lang="tr">VLC</name>
   <name xml:lang="th">VLC</name>
   <name xml:lang="te">VLC</name>
   <name xml:lang="ta">VLC</name>
+  <name xml:lang="sw">VLC</name>
   <name xml:lang="sv">VLC</name>
   <name xml:lang="sr">VLC</name>
   <name xml:lang="sl">VLC</name>
@@ -48,6 +51,7 @@
   <name xml:lang="ja">VLC</name>
   <name xml:lang="it">VLC</name>
   <name xml:lang="is">VLC</name>
+  <name xml:lang="ie">VLC</name>
   <name xml:lang="id">VLC</name>
   <name xml:lang="hy">VLC</name>
   <name xml:lang="hu">VLC</name>
@@ -61,11 +65,12 @@
   <name xml:lang="fy">VLC</name>
   <name xml:lang="fr">VLC</name>
   <name xml:lang="fi">VLC</name>
-  <name xml:lang="fa">VLC</name>
+  <name xml:lang="fa">وی‌ال‌سی</name>
   <name xml:lang="eu">VLC</name>
   <name xml:lang="et">VLC</name>
   <name xml:lang="es_MX">VLC</name>
   <name xml:lang="es">VLC</name>
+  <name xml:lang="eo">VLC</name>
   <name xml:lang="el">VLC</name>
   <name xml:lang="de">VLC</name>
   <name xml:lang="da">VLC</name>
@@ -81,7 +86,7 @@
   <name xml:lang="bn_IN">VLC</name>
   <name xml:lang="be">VLC</name>
   <name xml:lang="ast">VLC</name>
-  <name xml:lang="as_IN">VLC</name>
+  <name xml:lang="as">VLC</name>
   <name xml:lang="ar">VLC</name>
   <name xml:lang="an">VLC</name>
   <name xml:lang="am_ET">ቪኤልሲ</name>
@@ -98,7 +103,7 @@
   <url type="bugtracker">https://trac.videolan.org/vlc/</url>
   <url type="donation">https://www.videolan.org/contribute.html</url>
   <releases>
-    <release version="3.0.18"/>
+    <release version="3.0.23"/>
   </releases>
   <provides>
     <library>libvlc.so.5</library>
@@ -111,11 +116,12 @@
     <screenshot type="default">
       <image>http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-poney.jpg</image>
     </screenshot>
-    <screenshot type="default">
+    <screenshot>
       <image>http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-gnome3-open.jpg</image>
     </screenshot>
-    <screenshot type="default">
+    <screenshot>
       <image>http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-gnome3-debian.jpg</image>
     </screenshot>
   </screenshots>
+  <content_rating type="oars-1.1"/>
 </component>

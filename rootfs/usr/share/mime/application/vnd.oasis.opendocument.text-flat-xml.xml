@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.text-flat-xml">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="fo">ODT skjal (Flat XML)</comment>
-  <comment xml:lang="fur">document ODT (XML sempliç)</comment>
+  <comment xml:lang="zh_TW">ODT 文件 (Flat XML)</comment>
+  <comment xml:lang="zh_CN">ODT 文档（Flat XML）</comment>
+  <comment xml:lang="pt_BR">Documento ODT (Flat XML)</comment>
   <comment xml:lang="ia">Documento ODT (XML platte)</comment>
+  <comment xml:lang="fur">document ODT (XML sempliç)</comment>
+  <comment xml:lang="fo">ODT skjal (Flat XML)</comment>
+  <comment xml:lang="en_GB">ODT document (Flat XML)</comment>
   <acronym>FODT</acronym>
   <expanded-acronym>OpenDocument Text (Flat XML)</expanded-acronym>
   <sub-class-of type="application/xml"/>
@@ -12,9 +16,9 @@
   <comment>OpenDocument Text (Flat XML)</comment>
   <comment xml:lang="af">OpenDocument-teks (plat XML)</comment>
   <comment xml:lang="am">OpenDocument Text (Flat XML)</comment>
-  <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
+  <comment xml:lang="ar">نص أوبن‌دكيومنت (أكس أم أل بسيط)</comment>
   <comment xml:lang="as">OpenDocument লিখনী (Flat XML)</comment>
-  <comment xml:lang="ast">Testu d'OpenDocument (XML planu)</comment>
+  <comment xml:lang="ast">Testu OpenDocument (XML planu)</comment>
   <comment xml:lang="be">Тэкст OpenDocument (просты XML)</comment>
   <comment xml:lang="bg">OpenDocument - текст (плосък XML)</comment>
   <comment xml:lang="bn">OpenDocument Text (Flat XML)</comment>
@@ -31,10 +35,10 @@
   <comment xml:lang="en-GB">OpenDocument Text (Flat XML)</comment>
   <comment xml:lang="en-ZA">OpenDocument Text (Flat XML)</comment>
   <comment xml:lang="eo">OpenDocument-teksto (plata XML)</comment>
-  <comment xml:lang="es">Texto de OpenDocument (XML plano)</comment>
+  <comment xml:lang="es">Texto OpenDocument (XML plano)</comment>
   <comment xml:lang="et">OpenDocument-tekst (lame XML)</comment>
   <comment xml:lang="eu">OpenDocument testua (XML laua)</comment>
-  <comment xml:lang="fa">OpenDocument Text (Flat XML)</comment>
+  <comment xml:lang="fa">متن نوشتارباز (XML صرف)</comment>
   <comment xml:lang="fi">OpenDocument-teksti (Flat XML)</comment>
   <comment xml:lang="fr">Texte OpenDocument (XML plat)</comment>
   <comment xml:lang="ga">Téacs OpenDocument (XML Maol)</comment>

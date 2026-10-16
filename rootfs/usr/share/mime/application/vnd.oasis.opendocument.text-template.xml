@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.text-template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Šablon ODT</comment>
-  <comment xml:lang="fo">ODT formur</comment>
-  <comment xml:lang="fur">model ODT</comment>
-  <comment xml:lang="ia">Patrono ODT</comment>
+  <comment xml:lang="zh_TW">ODT 範本</comment>
+  <comment xml:lang="zh_CN">ODT 模板</comment>
   <comment xml:lang="sq">Model ODT</comment>
+  <comment xml:lang="pt_BR">Modelo ODT</comment>
+  <comment xml:lang="ia">Patrono ODT</comment>
+  <comment xml:lang="fur">model ODT</comment>
+  <comment xml:lang="fo">ODT formur</comment>
+  <comment xml:lang="en_GB">ODT template</comment>
+  <comment xml:lang="be@latin">Šablon ODT</comment>
   <acronym>ODT</acronym>
   <expanded-acronym>OpenDocument Text</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -16,7 +20,7 @@
   <comment xml:lang="am">የ ጽሁፍ ሰነድ ቴምፕሌት መክፈቻ</comment>
   <comment xml:lang="ar">قالب نص OpenDocument</comment>
   <comment xml:lang="as">OpenDocument লিখনী টেমপ্লেইট</comment>
-  <comment xml:lang="ast">Plantía pa testu d'Open Office</comment>
+  <comment xml:lang="ast">Plantía pa testu OpenDocument</comment>
   <comment xml:lang="be">Шаблон тэксту OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – шаблон за текст</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট টেক্সট ফর্মা</comment>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Text Template</comment>
   <comment xml:lang="en-ZA">OpenDocument Text Template</comment>
   <comment xml:lang="eo">Teksta ŝablono de OpenDocument</comment>
-  <comment xml:lang="es">Plantilla de texto de OpenDocument</comment>
+  <comment xml:lang="es">Plantilla de texto OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-tekstimall</comment>
   <comment xml:lang="eu">OpenDocument testu-txantiloia</comment>
   <comment xml:lang="fa">قالب متن نوشتارباز</comment>
@@ -48,10 +52,10 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट पाठ नमूना</comment>
   <comment xml:lang="hr">OpenDocument predložak teksta</comment>
   <comment xml:lang="hu">OpenDocument-szövegsablon</comment>
-  <comment xml:lang="id">Palet Teks OpenDocument</comment>
+  <comment xml:lang="id">Templat Teks OpenDocument</comment>
   <comment xml:lang="is">OpenDocument sniðmát fyrir textaskjal</comment>
   <comment xml:lang="it">Modello di testo OpenDocument</comment>
-  <comment xml:lang="ja">OpenDocument テキストテンプレート</comment>
+  <comment xml:lang="ja">OpenDocument テキスト テンプレート</comment>
   <comment xml:lang="ka">LibreOffice ტექსტური შაბლონი</comment>
   <comment xml:lang="kk">OpenDocument мәтіндік құжаттың үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​អត្ថបទ OpenDocument</comment>

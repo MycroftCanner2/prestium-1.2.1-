@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.graphics-template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Šablon ODG</comment>
-  <comment xml:lang="fo">ODG formur</comment>
-  <comment xml:lang="fur">model ODG</comment>
-  <comment xml:lang="ia">Patrono ODG</comment>
+  <comment xml:lang="zh_TW">ODG 範本</comment>
+  <comment xml:lang="zh_CN">ODG 模板</comment>
   <comment xml:lang="sq">Model ODG</comment>
+  <comment xml:lang="pt_BR">Modelo ODG</comment>
+  <comment xml:lang="ia">Patrono ODG</comment>
+  <comment xml:lang="fur">model ODG</comment>
+  <comment xml:lang="fo">ODG formur</comment>
+  <comment xml:lang="en_GB">ODG template</comment>
+  <comment xml:lang="be@latin">Šablon ODG</comment>
   <acronym>ODG</acronym>
   <expanded-acronym>OpenDocument Drawing</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Drawing Template</comment>
   <comment xml:lang="en-ZA">OpenDocument Drawing Template</comment>
   <comment xml:lang="eo">Desegnaĵa ŝablono de OpenDocument</comment>
-  <comment xml:lang="es">Plantilla de dibujo de OpenDocument</comment>
+  <comment xml:lang="es">Plantilla de dibujo OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-joonistuse mall</comment>
   <comment xml:lang="eu">OpenDocument marrazki-txantiloia</comment>
   <comment xml:lang="fa">قالب نقاشی نوشتارباز</comment>
@@ -48,10 +52,10 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट रेखाचित्र नमूना</comment>
   <comment xml:lang="hr">OpenDocument predložak crteža</comment>
   <comment xml:lang="hu">OpenDocument-rajzsablon</comment>
-  <comment xml:lang="id">Palet Gambar OpenDocument</comment>
+  <comment xml:lang="id">Templat Gambar OpenDocument</comment>
   <comment xml:lang="is">OpenDocument sniðmát fyrir teikningu</comment>
   <comment xml:lang="it">Modello di disegno OpenDocument</comment>
-  <comment xml:lang="ja">OpenDocument 図形描画テンプレート</comment>
+  <comment xml:lang="ja">OpenDocument 図形描画 テンプレート</comment>
   <comment xml:lang="ka">OpenDocument  ნახატის შაბლონი</comment>
   <comment xml:lang="kk">OpenDocument суреттің үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​គំនូរ OpenDocument</comment>

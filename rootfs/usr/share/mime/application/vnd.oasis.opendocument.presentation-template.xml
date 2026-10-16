@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.presentation-template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Šablon ODP</comment>
-  <comment xml:lang="fo">ODP formur</comment>
-  <comment xml:lang="fur">model ODP</comment>
-  <comment xml:lang="ia">Patrono ODP</comment>
+  <comment xml:lang="zh_TW">ODP 範本</comment>
+  <comment xml:lang="zh_CN">ODP 模板</comment>
   <comment xml:lang="sq">Model ODP</comment>
+  <comment xml:lang="pt_BR">Modelo ODP</comment>
+  <comment xml:lang="ia">Patrono ODP</comment>
+  <comment xml:lang="fur">model ODP</comment>
+  <comment xml:lang="fo">ODP formur</comment>
+  <comment xml:lang="en_GB">ODP template</comment>
+  <comment xml:lang="be@latin">Šablon ODP</comment>
   <acronym>ODP</acronym>
   <expanded-acronym>OpenDocument Presentation</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -16,7 +20,7 @@
   <comment xml:lang="am">OpenDocument የ ማቅረቢያ ቴምፕሌት</comment>
   <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
   <comment xml:lang="as">OpenDocument পৰিৱেশন টেমপ্লেইট</comment>
-  <comment xml:lang="ast">Plantía de presentación d'OpenDocument</comment>
+  <comment xml:lang="ast">Plantía pa presentación OpenDocument</comment>
   <comment xml:lang="be">Шаблон прэзентацыі OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – шаблон за презентация</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট উপস্থাপনা ফর্মা</comment>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Presentation Template</comment>
   <comment xml:lang="en-ZA">OpenDocument Presentation Template</comment>
   <comment xml:lang="eo">Prezentaĵa ŝablono de OpenDocument</comment>
-  <comment xml:lang="es">Plantilla de presentación de OpenDocument</comment>
+  <comment xml:lang="es">Plantilla de presentación OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-esitluse mall</comment>
   <comment xml:lang="eu">OpenDocument aurkezpen-txantiloia</comment>
   <comment xml:lang="fa">قالب ارائهٔ نوشتارباز</comment>
@@ -48,10 +52,10 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट प्रस्तुति नमूना</comment>
   <comment xml:lang="hr">OpenDocument predložak prezentacije</comment>
   <comment xml:lang="hu">OpenDocument-bemutatósablon</comment>
-  <comment xml:lang="id">Palet Presentasi OpenDocument</comment>
+  <comment xml:lang="id">Templat Presentasi OpenDocument</comment>
   <comment xml:lang="is">OpenDocument sniðmát fyrir glærukynningu</comment>
   <comment xml:lang="it">Modello di presentazione OpenDocument</comment>
-  <comment xml:lang="ja">OpenDocument プレゼンテーションテンプレート</comment>
+  <comment xml:lang="ja">OpenDocument プレゼンテーション テンプレート</comment>
   <comment xml:lang="ka">OpenDocument პრეზენტაციის შაბლონი</comment>
   <comment xml:lang="kk">OpenDocument презентация үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​ការ​បង្ហាញ​ OpenDocument</comment>

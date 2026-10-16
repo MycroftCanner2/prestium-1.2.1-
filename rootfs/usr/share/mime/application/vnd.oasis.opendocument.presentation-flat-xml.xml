@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.presentation-flat-xml">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="fo">ODP framløga (Flat XML)</comment>
-  <comment xml:lang="fur">presentazion ODP (XML sempliç)</comment>
+  <comment xml:lang="zh_TW">ODP 範本 (Flat XML)</comment>
+  <comment xml:lang="zh_CN">ODP 演示文稿（Flat XML）</comment>
+  <comment xml:lang="pt_BR">Apresentação ODP (Flat XML)</comment>
   <comment xml:lang="ia">Presentation ODP (XML platte)</comment>
+  <comment xml:lang="fur">presentazion ODP (XML sempliç)</comment>
+  <comment xml:lang="fo">ODP framløga (Flat XML)</comment>
+  <comment xml:lang="en_GB">ODP presentation (Flat XML)</comment>
   <acronym>FODP</acronym>
   <expanded-acronym>OpenDocument Presentation (Flat XML)</expanded-acronym>
   <sub-class-of type="application/xml"/>
@@ -12,9 +16,9 @@
   <comment>OpenDocument Presentation (Flat XML)</comment>
   <comment xml:lang="af">OpenDocument-voorlegging (plat XML)</comment>
   <comment xml:lang="am">OpenDocument Presentation (Flat XML)</comment>
-  <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
+  <comment xml:lang="ar">عرض أوبن‌دكيومنت تقديمي (أكس أم أل بسيط)</comment>
   <comment xml:lang="as">OpenDocument পৰিৱেশন (Flat XML)</comment>
-  <comment xml:lang="ast">Presentación d'OpenDocument (XML planu)</comment>
+  <comment xml:lang="ast">Presentación OpenDocument (XML planu)</comment>
   <comment xml:lang="be">Прэзентацыя OpenDocument (просты XML)</comment>
   <comment xml:lang="bg">OpenDocument – презентация (плосък XML)</comment>
   <comment xml:lang="bn">OpenDocument Presentation (Flat XML)</comment>
@@ -31,10 +35,10 @@
   <comment xml:lang="en-GB">OpenDocument Presentation (Flat XML)</comment>
   <comment xml:lang="en-ZA">OpenDocument Presentation (Flat XML)</comment>
   <comment xml:lang="eo">Prezentaĵa ŝablono de OpenDocument (plata XML)</comment>
-  <comment xml:lang="es">Presentación de OpenDocument (XML plano)</comment>
+  <comment xml:lang="es">Presentación OpenDocument (XML plano)</comment>
   <comment xml:lang="et">OpenDocument-esitlus (lame XML)</comment>
   <comment xml:lang="eu">OpenDocument aurkezpena (XML laua)</comment>
-  <comment xml:lang="fa">OpenDocument Presentation (Flat XML)</comment>
+  <comment xml:lang="fa">قالب ارائهٔ نوشتارباز (XML صرف)</comment>
   <comment xml:lang="fi">OpenDocument-esitys (Flat XML)</comment>
   <comment xml:lang="fr">Présentation OpenDocument (XML plat)</comment>
   <comment xml:lang="ga">Láithreoireacht OpenDocument (XML Maol)</comment>

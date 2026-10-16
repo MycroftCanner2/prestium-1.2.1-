@@ -6,7 +6,7 @@
   <comment xml:lang="am">OpenDocument የ ዋናው ሰነድ ቴምፕሌት</comment>
   <comment xml:lang="ar">قالب مستند أوبن‌دكيومنت رئيس</comment>
   <comment xml:lang="as">OpenDocument Master Document Template</comment>
-  <comment xml:lang="ast">Documentu maestru d'OpenDocument</comment>
+  <comment xml:lang="ast">Plantía pa documentu principal OpenDocument</comment>
   <comment xml:lang="be">Шаблон майстар-дакумента OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – шаблон за главен документ</comment>
   <comment xml:lang="bn">OpenDocument Master Document Template</comment>
@@ -23,10 +23,10 @@
   <comment xml:lang="en-GB">OpenDocument Master Document Template</comment>
   <comment xml:lang="en-ZA">OpenDocument Master Document Template</comment>
   <comment xml:lang="eo">Ĉefa dokumento de OpenDocument</comment>
-  <comment xml:lang="es">Plantilla de patrón de documento de OpenDocument</comment>
+  <comment xml:lang="es">Plantilla de patrón de documento OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-põhidokumendi mall</comment>
   <comment xml:lang="eu">OpenDocument dokumentu maisuaren txantiloia</comment>
-  <comment xml:lang="fa">OpenDocument Master Document Template</comment>
+  <comment xml:lang="fa">الگوی نوشتار اصلی نوشتارباز</comment>
   <comment xml:lang="fi">OpenDocument-perusasiakirjamalli</comment>
   <comment xml:lang="fr">Modèle document maître OpenDocument</comment>
   <comment xml:lang="ga">Teimpléad Máistircháipéise OpenDocument</comment>
@@ -41,7 +41,7 @@
   <comment xml:lang="id">Templat Dokumen Induk OpenDocument</comment>
   <comment xml:lang="is">OpenDocument sniðmát fyrir stýriskjal</comment>
   <comment xml:lang="it">Modello di documento master OpenDocument</comment>
-  <comment xml:lang="ja">OpenDocument マスタードキュメントテンプレート</comment>
+  <comment xml:lang="ja">OpenDocument マスタードキュメント テンプレート</comment>
   <comment xml:lang="ka">OpenDocument Master Document Template</comment>
   <comment xml:lang="kk">OpenDocument құрамдас құжат үлгісі</comment>
   <comment xml:lang="km">OpenDocument Master Document Template</comment>
@@ -65,7 +65,7 @@
   <comment xml:lang="or">OpenDocument  ମାଷ୍ଟର  ଦଲିଲ ନମୁନା</comment>
   <comment xml:lang="pa-IN">ਓਪਨ-ਡੌਕੂਮੈਂਟ ਮਾਸਟਰ ਦਸਤਾਵੇਜ਼ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon dokumentu głównego OpenDocument</comment>
-  <comment xml:lang="pt">Modelo global de modelos OpenDocument</comment>
+  <comment xml:lang="pt">Modelo de modelo global de documentos OpenDocument</comment>
   <comment xml:lang="pt-BR">Modelos de documento mestre OpenDocument</comment>
   <comment xml:lang="ro">OpenDocument Master Document - șablon</comment>
   <comment xml:lang="ru">Шаблон составного документа OpenDocument</comment>
@@ -73,7 +73,7 @@
   <comment xml:lang="si">OpenDocument Master Document Template</comment>
   <comment xml:lang="sk">Šablóna dokumentu ODF Master</comment>
   <comment xml:lang="sl">Predloga glavnega dokumenta OpenDocument</comment>
-  <comment xml:lang="sr">OpenDocument Master Document Template</comment>
+  <comment xml:lang="sr">OpenDocument шаблон главног документа</comment>
   <comment xml:lang="sr-Latn">OpenDocument Master Document Template</comment>
   <comment xml:lang="ss">OpenDocument Master Document Template</comment>
   <comment xml:lang="st">OpenDocument Master Document Template</comment>

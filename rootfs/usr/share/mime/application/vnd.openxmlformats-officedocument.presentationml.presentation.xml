@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="fo">PowerPoint 2007 framløga</comment>
-  <comment xml:lang="fur">presentazion PowerPoint 2007</comment>
+  <comment xml:lang="zh_TW">PowerPoint 2007 簡報</comment>
+  <comment xml:lang="zh_CN">PowerPoint 2007 演示文稿</comment>
+  <comment xml:lang="pt_BR">Apresentação do PowerPoint 2007</comment>
   <comment xml:lang="ia">Presentation PowerPoint 2007</comment>
+  <comment xml:lang="fur">presentazion PowerPoint 2007</comment>
+  <comment xml:lang="fo">PowerPoint 2007 framløga</comment>
+  <comment xml:lang="en_GB">PowerPoint 2007 presentation</comment>
   <glob pattern="*.pptx"/>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-presentation"/>
@@ -12,7 +16,7 @@
   <comment xml:lang="am">Microsoft PowerPoint Presentation</comment>
   <comment xml:lang="ar">عرض ميكروسوفت باوربوينت تقديمي</comment>
   <comment xml:lang="as">Microsoft PowerPoint পৰিৱেশন</comment>
-  <comment xml:lang="ast">Presentación de Microsoft PowerPoint</comment>
+  <comment xml:lang="ast">Presentación de PowerPoint de Microsoft</comment>
   <comment xml:lang="be">Прэзентацыя Microsoft PowerPoint</comment>
   <comment xml:lang="bg">Microsoft PowerPoint – презентация</comment>
   <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা</comment>
@@ -79,7 +83,7 @@
   <comment xml:lang="si">Microsoft PowerPoint ඉදිරිපත් කිරීම</comment>
   <comment xml:lang="sk">Prezentácia Microsoft PowerPoint</comment>
   <comment xml:lang="sl">Predstavitev programa Microsoft PowerPoint</comment>
-  <comment xml:lang="sr">Microsoft PowerPoint Presentation</comment>
+  <comment xml:lang="sr">Microsoft PowerPoint презентација</comment>
   <comment xml:lang="sr-Latn">Microsoft PowerPoint Presentation</comment>
   <comment xml:lang="ss">Setfulo seMicrosoft PowerPoint</comment>
   <comment xml:lang="st">Nehelano ya Microsoft PowerPoint</comment>

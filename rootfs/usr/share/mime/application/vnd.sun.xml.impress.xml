@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.impress">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="az">OpenOffice Impress sənədi</comment>
-  <comment xml:lang="be-Latn">Prezentacyja OpenOffice Impress</comment>
-  <comment xml:lang="fo">OpenOffice Impress framløga</comment>
-  <comment xml:lang="fur">presentazion OpenOffice Impress</comment>
-  <comment xml:lang="ia">Presentation OpenOffice Impress</comment>
+  <comment xml:lang="zh_TW">OpenOffice Impress 簡報</comment>
+  <comment xml:lang="zh_CN">OpenOffice Impress 演示文稿</comment>
   <comment xml:lang="sq">Prezantim OpenOffice Impress</comment>
+  <comment xml:lang="pt_BR">Apresentação do OpenOffice Impress</comment>
+  <comment xml:lang="ia">Presentation OpenOffice Impress</comment>
+  <comment xml:lang="fur">presentazion OpenOffice Impress</comment>
+  <comment xml:lang="fo">OpenOffice Impress framløga</comment>
+  <comment xml:lang="en_GB">OpenOffice Impress presentation</comment>
+  <comment xml:lang="be@latin">Prezentacyja OpenOffice Impress</comment>
+  <comment xml:lang="az">OpenOffice Impress sənədi</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-presentation"/>
   <glob pattern="*.sxi"/>
@@ -82,7 +86,7 @@
   <comment xml:lang="si">OpenOffice.org 1.0 Presentation</comment>
   <comment xml:lang="sk">Prezentácia OpenOffice.org 1.0</comment>
   <comment xml:lang="sl">Predstavitev OpenOffice.org 1.0</comment>
-  <comment xml:lang="sr">OpenOffice.org 1.0 Presentation</comment>
+  <comment xml:lang="sr">OpenOffice.org 1.0 презентација</comment>
   <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Presentation</comment>
   <comment xml:lang="ss">OpenOffice.org 1.0 Presentation</comment>
   <comment xml:lang="st">OpenOffice.org 1.0 Presentation</comment>

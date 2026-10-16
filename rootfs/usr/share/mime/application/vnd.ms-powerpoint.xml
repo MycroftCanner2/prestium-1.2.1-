@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.ms-powerpoint">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Prezentacyja PowerPoint</comment>
-  <comment xml:lang="fo">PowerPoint framløga</comment>
-  <comment xml:lang="fur">presentazion PowerPoint</comment>
-  <comment xml:lang="ia">Presentation PowerPoint</comment>
+  <comment xml:lang="zh_TW">PowerPoint 簡報</comment>
+  <comment xml:lang="zh_CN">PowerPoint 演示文稿</comment>
   <comment xml:lang="sq">Prezantim PowerPoint</comment>
+  <comment xml:lang="pt_BR">Apresentação do PowerPoint</comment>
+  <comment xml:lang="ia">Presentation PowerPoint</comment>
+  <comment xml:lang="fur">presentazion PowerPoint</comment>
+  <comment xml:lang="fo">PowerPoint framløga</comment>
+  <comment xml:lang="en_GB">PowerPoint presentation</comment>
+  <comment xml:lang="be@latin">Prezentacyja PowerPoint</comment>
   <generic-icon name="x-office-presentation"/>
   <glob pattern="*.ppz"/>
   <glob pattern="*.ppt"/>
@@ -19,7 +23,7 @@
   <comment xml:lang="am">Microsoft PowerPoint Presentation</comment>
   <comment xml:lang="ar">عرض ميكروسوفت باوربوينت تقديمي</comment>
   <comment xml:lang="as">Microsoft PowerPoint পৰিৱেশন</comment>
-  <comment xml:lang="ast">Presentación de Microsoft PowerPoint</comment>
+  <comment xml:lang="ast">Presentación de PowerPoint de Microsoft</comment>
   <comment xml:lang="be">Прэзентацыя Microsoft PowerPoint</comment>
   <comment xml:lang="bg">Microsoft PowerPoint – презентация</comment>
   <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা</comment>

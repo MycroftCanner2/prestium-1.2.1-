@@ -21,6 +21,7 @@ http://www.w3.org/2001/SMIL20/Language smil application/smil+xml
 http://www.w3.org/2002/07/owl# Ontology application/owl+xml
 http://www.w3.org/2005/Atom feed application/atom+xml
 http://www.w3.org/2005/SMIL21/Language smil application/smil+xml
+http://www.w3.org/2005/sparql-results# sparql application/sparql-results+xml
 http://www.w3.org/ns/SMIL smil application/smil+xml
 http://xspf.org/ns/0/ playlist application/xspf+xml
 urn:ietf:params:xml:ns:metalink metalink application/metalink4+xml

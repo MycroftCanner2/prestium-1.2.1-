@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.impress.template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Šablon OpenOffice Impress</comment>
-  <comment xml:lang="fo">OpenOffice Impress formur</comment>
-  <comment xml:lang="fur">model OpenOffice Impress</comment>
-  <comment xml:lang="ia">Patrono OpenOffice Impress</comment>
+  <comment xml:lang="zh_TW">OpenOffice Impress 範本</comment>
+  <comment xml:lang="zh_CN">OpenOffice Impress 模板</comment>
   <comment xml:lang="sq">Model OpenOffice Impress</comment>
+  <comment xml:lang="pt_BR">Modelo do OpenOffice Impress</comment>
+  <comment xml:lang="ia">Patrono OpenOffice Impress</comment>
+  <comment xml:lang="fur">model OpenOffice Impress</comment>
+  <comment xml:lang="fo">OpenOffice Impress formur</comment>
+  <comment xml:lang="en_GB">OpenOffice Impress template</comment>
+  <comment xml:lang="be@latin">Šablon OpenOffice Impress</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-presentation"/>
   <glob pattern="*.sti"/>
@@ -46,10 +50,10 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Presentation Template</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 predložak prezentacije</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 bemutatósablon</comment>
-  <comment xml:lang="id">Palet Presentasi OpenOffice.org 1.0</comment>
+  <comment xml:lang="id">Templat Presentasi OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 sniðmát fyrir glærukynningu</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Modello di presentazione</comment>
-  <comment xml:lang="ja">OpenOffice.org 1.0 プレゼンテーションテンプレート</comment>
+  <comment xml:lang="ja">OpenOffice.org 1.0 プレゼンテーション テンプレート</comment>
   <comment xml:lang="ka">OpenOffice.org 1.0 Presentation Template</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 презентация үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​បទ​បង្ហាញ OpenOffice.org 1.0</comment>
@@ -81,7 +85,7 @@
   <comment xml:lang="si">OpenOffice.org 1.0 Presentation Template</comment>
   <comment xml:lang="sk">Šablóna prezentácie OpenOffice.org 1.0</comment>
   <comment xml:lang="sl">Predloga predstavitve OpenOffice.org 1.0</comment>
-  <comment xml:lang="sr">OpenOffice.org 1.0 Presentation Template</comment>
+  <comment xml:lang="sr">OpenOffice.org 1.0 шаблон презентације</comment>
   <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Presentation Template</comment>
   <comment xml:lang="ss">OpenOffice.org 1.0 Presentation Template</comment>
   <comment xml:lang="st">OpenOffice.org 1.0 Presentation Template</comment>

@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.writer.template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="az">OpenOffice Writer şablonu</comment>
-  <comment xml:lang="be-Latn">Šablon OpenOffice Writer</comment>
-  <comment xml:lang="fo">OpenOffice Writer formur</comment>
-  <comment xml:lang="fur">model OpenOffice Writer</comment>
-  <comment xml:lang="ia">Patrono OpenOffice Writer</comment>
-  <comment xml:lang="ms">Templat OpenOffice Writer</comment>
+  <comment xml:lang="zh_TW">OpenOffice Writer 範本</comment>
+  <comment xml:lang="zh_CN">OpenOffice Writer 模板</comment>
   <comment xml:lang="sq">Model OpenOffice Writer</comment>
+  <comment xml:lang="pt_BR">Modelo do OpenOffice Writer</comment>
+  <comment xml:lang="ms">Templat OpenOffice Writer</comment>
+  <comment xml:lang="ia">Patrono OpenOffice Writer</comment>
+  <comment xml:lang="fur">model OpenOffice Writer</comment>
+  <comment xml:lang="fo">OpenOffice Writer formur</comment>
+  <comment xml:lang="en_GB">OpenOffice Writer template</comment>
+  <comment xml:lang="be@latin">Šablon OpenOffice Writer</comment>
+  <comment xml:lang="az">OpenOffice Writer şablonu</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.stw"/>
@@ -48,10 +52,10 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Text Document Template</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 predložak tekst dokumenta</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 szövegesdokumentum-sablon</comment>
-  <comment xml:lang="id">Palet Dokumen Teks OpenOffice.org 1.0</comment>
+  <comment xml:lang="id">Templat Dokumen Teks OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 sniðmát fyrir textaskjal</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Modello di documento di testo</comment>
-  <comment xml:lang="ja">OpenOffice.org 1.0 文書ドキュメントテンプレート</comment>
+  <comment xml:lang="ja">OpenOffice.org 1.0 文書ドキュメント テンプレート</comment>
   <comment xml:lang="ka">OpenOffice.org 1.0 Text Document Template</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 мәтіндік құжат үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​ឯកសារ​អត្ថបទ OpenOffice.org 1.0</comment>
@@ -73,7 +77,7 @@
   <comment xml:lang="oc">Modèl de document tèxte OpenOffice.org 1.0</comment>
   <comment xml:lang="om">OpenOffice.org 1.0 Text Document Template</comment>
   <comment xml:lang="or">OpenOffice.org 1.0 ଟେକ୍ସଟ ଡକୁମେଣ୍ଟ ଟେମ୍ପଲେଟ</comment>
-  <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਟੈਕਸਟ ਦਸਤਾਵੇਜ਼ ਟੈਂਪਲੇਟ</comment>
+  <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਲਿਖਤ ਦਸਤਾਵੇਜ਼ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon dokumentu tekstowego OpenOffice.org 1.0</comment>
   <comment xml:lang="pt">Modelo de documento de texto do OpenOffice.org 1.0</comment>
   <comment xml:lang="pt-BR">Modelo de documento de texto do OpenOffice.org 1.0</comment>
@@ -83,7 +87,7 @@
   <comment xml:lang="si">OpenOffice.org 1.0 Text Document Template</comment>
   <comment xml:lang="sk">Šablóna textového dokumentu OpenOffice.org 1.0</comment>
   <comment xml:lang="sl">Predloga besedilnega dokumenta OpenOffice.org 1.0</comment>
-  <comment xml:lang="sr">OpenOffice.org 1.0 Text Document Template</comment>
+  <comment xml:lang="sr">OpenOffice.org 1.0 шаблон текстуалног документа</comment>
   <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Text Document Template</comment>
   <comment xml:lang="ss">OpenOffice.org 1.0 Text Document Template</comment>
   <comment xml:lang="st">OpenOffice.org 1.0 Text Document Template</comment>

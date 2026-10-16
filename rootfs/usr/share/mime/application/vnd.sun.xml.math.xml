@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.math">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Formuła OpenOffice Math</comment>
-  <comment xml:lang="fo">OpenOffice Math frymil</comment>
-  <comment xml:lang="fur">formule OpenOffice Math</comment>
-  <comment xml:lang="ia">Formula OpenOffice Math</comment>
+  <comment xml:lang="zh_TW">OpenOffice Math 公式</comment>
+  <comment xml:lang="zh_CN">OpenOffice Math 公式</comment>
   <comment xml:lang="sq">Formulë OpenOffice Math</comment>
+  <comment xml:lang="pt_BR">Fórmula do OpenOffice Math</comment>
+  <comment xml:lang="ia">Formula OpenOffice Math</comment>
+  <comment xml:lang="fur">formule OpenOffice Math</comment>
+  <comment xml:lang="fo">OpenOffice Math frymil</comment>
+  <comment xml:lang="en_GB">OpenOffice Math formula</comment>
+  <comment xml:lang="be@latin">Formuła OpenOffice Math</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.sxm"/>
@@ -81,7 +85,7 @@
   <comment xml:lang="si">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="sk">Vzorec OpenOffice.org 1.0</comment>
   <comment xml:lang="sl">Formula OpenOffice.org 1.0</comment>
-  <comment xml:lang="sr">OpenOffice.org 1.0 Formula</comment>
+  <comment xml:lang="sr">OpenOffice.org 1.0 формула</comment>
   <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="ss">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="st">OpenOffice.org 1.0 Formula</comment>

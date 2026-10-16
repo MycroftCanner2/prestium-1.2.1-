@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.graphics">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Rysunak ODG</comment>
-  <comment xml:lang="fo">ODG tekning</comment>
-  <comment xml:lang="fur">dissen ODG</comment>
-  <comment xml:lang="ia">Designo ODG</comment>
+  <comment xml:lang="zh_TW">ODG 繪圖</comment>
+  <comment xml:lang="zh_CN">ODG 绘图</comment>
   <comment xml:lang="sq">Vizatim ODG</comment>
+  <comment xml:lang="pt_BR">Desenho ODG</comment>
+  <comment xml:lang="ia">Designo ODG</comment>
+  <comment xml:lang="fur">dissen ODG</comment>
+  <comment xml:lang="fo">ODG tekning</comment>
+  <comment xml:lang="en_GB">ODG drawing</comment>
+  <comment xml:lang="be@latin">Rysunak ODG</comment>
   <acronym>ODG</acronym>
   <expanded-acronym>OpenDocument Drawing</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Drawing</comment>
   <comment xml:lang="en-ZA">OpenDocument Drawing</comment>
   <comment xml:lang="eo">Desegnaĵo de OpenDocument</comment>
-  <comment xml:lang="es">Dibujo de OpenDocument</comment>
+  <comment xml:lang="es">Dibujo OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-joonistus</comment>
   <comment xml:lang="eu">OpenDocument marrazkia</comment>
   <comment xml:lang="fa">نقاشی نوشتارباز</comment>

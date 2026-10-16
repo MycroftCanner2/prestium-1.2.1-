@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.graphics-flat-xml">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="fo">ODG tekning (Flat XML)</comment>
-  <comment xml:lang="fur">dissen ODG (XML sempliç)</comment>
+  <comment xml:lang="zh_TW">ODG 繪圖 (Flat XML)</comment>
+  <comment xml:lang="zh_CN">ODG 绘图（Flat XML）</comment>
+  <comment xml:lang="pt_BR">Desenho ODG (Flat XML)</comment>
   <comment xml:lang="ia">Designo ODG (XML platte)</comment>
+  <comment xml:lang="fur">dissen ODG (XML sempliç)</comment>
+  <comment xml:lang="fo">ODG tekning (Flat XML)</comment>
+  <comment xml:lang="en_GB">ODG drawing (Flat XML)</comment>
   <acronym>FODG</acronym>
   <expanded-acronym>OpenDocument Drawing (Flat XML)</expanded-acronym>
   <sub-class-of type="application/xml"/>
@@ -12,7 +16,7 @@
   <comment>OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="af">OpenDocument-tekening (plat XML)</comment>
   <comment xml:lang="am">OpenDocument Drawing (Flat XML)</comment>
-  <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
+  <comment xml:lang="ar">رسمة أوبن‌دكيومنت (أكس أم أل بسيط)</comment>
   <comment xml:lang="as">OpenDocument অঙ্কণ (Flat XML)</comment>
   <comment xml:lang="ast">Dibuxu d'OpenDocument (XML planu)</comment>
   <comment xml:lang="be">Рысунак OpenDocument (просты XML)</comment>
@@ -31,10 +35,10 @@
   <comment xml:lang="en-GB">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="en-ZA">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="eo">OpenDocument-desegnaĵo (plata XML)</comment>
-  <comment xml:lang="es">Dibujo de OpenDocument (XML plano)</comment>
+  <comment xml:lang="es">Dibujo OpenDocument (XML plano)</comment>
   <comment xml:lang="et">OpenDocument-joonistus (lame XML)</comment>
   <comment xml:lang="eu">OpenDocument marrazkia (XML laua)</comment>
-  <comment xml:lang="fa">OpenDocument Drawing (Flat XML)</comment>
+  <comment xml:lang="fa">طراحی نوشتارباز (XML صرف)</comment>
   <comment xml:lang="fi">OpenDocument-piirros (Flat XML)</comment>
   <comment xml:lang="fr">Dessin OpenDocument (XML plat)</comment>
   <comment xml:lang="ga">Líníocht OpenDocument (XML Maol)</comment>

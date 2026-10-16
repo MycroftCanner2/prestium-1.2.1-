@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.presentation">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Prezentacyja ODP</comment>
-  <comment xml:lang="fo">ODP framløga</comment>
-  <comment xml:lang="fur">presentazion ODP</comment>
-  <comment xml:lang="ia">Presentation ODP</comment>
+  <comment xml:lang="zh_TW">ODP 簡報</comment>
+  <comment xml:lang="zh_CN">ODP 演示文稿</comment>
   <comment xml:lang="sq">Prezantim ODP</comment>
+  <comment xml:lang="pt_BR">Apresentação ODP</comment>
+  <comment xml:lang="ia">Presentation ODP</comment>
+  <comment xml:lang="fur">presentazion ODP</comment>
+  <comment xml:lang="fo">ODP framløga</comment>
+  <comment xml:lang="en_GB">ODP presentation</comment>
+  <comment xml:lang="be@latin">Prezentacyja ODP</comment>
   <acronym>ODP</acronym>
   <expanded-acronym>OpenDocument Presentation</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Presentation</comment>
   <comment xml:lang="en-ZA">OpenDocument Presentation</comment>
   <comment xml:lang="eo">Prezentaĵo de OpenDocument</comment>
-  <comment xml:lang="es">Presentación de OpenDocument</comment>
+  <comment xml:lang="es">Presentación OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-esitlus</comment>
   <comment xml:lang="eu">OpenDocument aurkezpena</comment>
   <comment xml:lang="fa">ارائهٔ نوشتارباز</comment>

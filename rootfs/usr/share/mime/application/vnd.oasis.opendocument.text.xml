@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.text">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="be-Latn">Dakument ODT</comment>
-  <comment xml:lang="fo">ODT skjal</comment>
-  <comment xml:lang="fur">document ODT</comment>
-  <comment xml:lang="ia">Documento ODT</comment>
+  <comment xml:lang="zh_TW">ODT 文件</comment>
+  <comment xml:lang="zh_CN">ODT 文档</comment>
   <comment xml:lang="sq">Dokument ODT</comment>
+  <comment xml:lang="pt_BR">Documento ODT</comment>
+  <comment xml:lang="ia">Documento ODT</comment>
+  <comment xml:lang="fur">document ODT</comment>
+  <comment xml:lang="fo">ODT skjal</comment>
+  <comment xml:lang="en_GB">ODT document</comment>
+  <comment xml:lang="be@latin">Dakument ODT</comment>
   <acronym>ODT</acronym>
   <expanded-acronym>OpenDocument Text</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -16,7 +20,7 @@
   <comment xml:lang="am">የጽሁፍ ሰነድ መክፈቻ</comment>
   <comment xml:lang="ar">نص OpenDocument</comment>
   <comment xml:lang="as">OpenDocument লিখনী</comment>
-  <comment xml:lang="ast">Testu d'Open Office</comment>
+  <comment xml:lang="ast">Testu OpenDocument</comment>
   <comment xml:lang="be">Тэкст OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument - текст</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট টেক্সট</comment>
@@ -33,7 +37,7 @@
   <comment xml:lang="en-GB">OpenDocument Text</comment>
   <comment xml:lang="en-ZA">OpenDocument Text</comment>
   <comment xml:lang="eo">Teksto de OpenDocument</comment>
-  <comment xml:lang="es">Texto de OpenDocument</comment>
+  <comment xml:lang="es">Texto OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-tekst</comment>
   <comment xml:lang="eu">OpenDocument testua</comment>
   <comment xml:lang="fa">متن نوشتارباز</comment>
