@@ -1,66 +1,136 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: zvbi
-Upstream-Contact: Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
-Source: http://zapping.sf.net
+Upstream-Contact: Ileana Dumitrescu <ileanadumitrescu95@gmail.com>
+Source: http://github.com/zapping-vbi/zvbi
 
 Files: *
-Copyright: ?         ? <timecop@japan.co.jp>
-           1995-1997 Martin Buck <martin-2.buck@student.uni-ulm.de>
-           1998-1999 Edgar Toernig <froese@gmx.de>
-           1999      Paul Ortyl <ortylp@from.pl>
-           2000-2013 Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
-           2002      Dave Chapman
-           2002      Gerd Knorr
-           2002-2004 Tom Zoerner <tomzo@nefkom.net>
-           2003      James Mastros
+Copyright: 2000-2013 Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
+License: GPL-2+
+
+Files: contrib/dvbsubs.c
+Copyright: 2002 Dave Chapman
+           2009 Michael H. Schimek
+License: GPL-2+
+
+Files: contrib/dvbsubs.h
+Copyright: 2002 Dave Chapman
+License: GPL-2+
+
+Files: contrib/ntsc-cc.c
+Copyright: 2003-2007 Mike Baker <mbm@linux.com>
+           2003-2007 Timecop <timecop@japan.co.jp>
            2003-2007 Mark K. Kim <dev@cbreak.org>
-           2003-2007 Mike Baker <mbm@linux.com>
+           2005-2007 Michael H. Schimek <mschimek@users.sf.net>
+License: GPL-2+
+
+Files: README.md
+Copyright: 2000-2013 Michael H. Schimek <mschimek@users.sf.net>
+           2022-2023 Ileana Dumitrescu <ileanadumitrescu95@gmail.com>
+License: GPL-2+
+
+Files: contrib/x11font.c
+Copyright: 2002 Gerd Knorr
+License: GPL-2+
+
+Files: daemon/zvbi-chains.1
+       daemon/chains.c
+       daemon/proxyd.c
+       test/proxy-test.c
+Copyright: 2003-2004 Tom Zoerner
 License: GPL-2+
 
 Files: examples/*
 Copyright: 2005-2009 Michael H. Schimek <mschimek@users.sf.net>
 License: BSD-2-Clause
 
-Files: po/*
+Files: po/de.po
+Copyright: 2000-2002 Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
+License: GPL-2+
+
+Files: po/es.po
 Copyright: 2000      Joseba García Etxebarria <josebag@mixmail.com>
-           2000      Paweł Sakowski <pawel@sakowski.eu.org>
            2000-2001 Iñaki García Etxebarria <garetxe@users.sf.net>
-           2000-2002 Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
+License: GPL-2+
+
+Files: po/pl.po
+Copyright: 2000 Paweł Sakowski <pawel@sakowski.eu.org>
+License: GPL-2+
+
+Files: po/sv.po
+Copyright: 2001 Henrik Isacsson <snout@ctrl-c.liu.se>
 License: GPL-2+
 
 Files: src/*
-Copyright: 1998      Manish Singh <yosh@gimp.org>
-           1999-2008 Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
-           2000      Stefan Westerfeld <stefan@space.twc.de>
-           2000-2003 Iñaki G. Etxebarria <garetxe@users.sf.net>
-           2003-2004 Tom Zoerner <tomzo@nefkom.net>
+Copyright: 1999-2008 Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
+License: LGPL-2+
+
+Files: src/chains.c
+Copyright: 1998 Manish Singh <yosh@gimp.org>
+           2000 Stefan Westerfeld <stefan@space.twc.de>
+           2004 Tom Zoerner
 License: LGPL-2+
 
 Files: src/dvb/dmx.h
-       src/dvb/frontend.h
+Copyright: 2000 Marcus Metzler <marcus@convergence.de>
+           2000 Ralph  Metzler <ralph@convergence.de>
+License: LGPL-2.1+
+
+Files: src/dvb/frontend.h
 Copyright: 2000 Andre Draszik <ad@convergence.de>
            2000 Holger Waechtler <holger@convergence.de>
            2000 Marcus Metzler <marcus@convergence.de>
            2000 Ralph  Metzler <ralph@convergence.de>
 License: LGPL-2.1+
 
+Files: src/exp-vtx.c
+Copyright: 1998-1999 Edgar Toernig <froese@gmx.de>
+           1999 Paul Ortyl <ortylp@from.pl>
+           1995-1997 Martin Buck <martin-2.buck@student.uni-ulm.de>
+License: LGPL-2+
+
+Files: src/io.* src/io-v4l2k.c src/io-v4l.c
+Copyright: 1999-2005 Michael H. Schimek
+           2003-2004  Tom Zoerner
+License: LGPL-2+
+
+Files: src/libzvbi.h src/misc.h src/search.h
+Copyright: 2000-2007 Michael H. Schimek
+           2000-2003 Iñaki García Etxebarria
+License: LGPL-2+
+
 Files: src/packet-830.c
        src/packet-830.h
        src/pdc.c
        src/pdc.h
-Copyright: 2000-2005 Michael H. Schimek <mschimek@users.sf.net>
+Copyright: 2000-2004 Michael H. Schimek <mschimek@users.sf.net>
 License: GPL-2
 
-Files: src/ure.c
-       src/ure.h
+Files: src/proxy-*
+Copyright: 2003-2004 Tom Zoerner
+License: LGPL-2+
+
+Files: src/ure.c src/ure.h
 Copyright: 1997-1999 Computing Research Labs, New Mexico State University
-           ?         Iñaki García Etxebarrria <garetxe@users.sf.net>
-           ?         Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
+                     Iñaki García Etxebarrria <garetxe@users.sf.net>
+                     Michael H. Schimek <mschimek@gmx.at, mschimek@users.sf.net>
 License: MIT
 
+Files: src/vbi.c src/vbi.h
+Copyright: 2000-2008 Michael H. Schimek
+           2000-2001 Iñaki García Etxebarria
+           2003-2004 Tom Zoerner
+License: LGPL-2+
+
 Files: src/videodev2k.h
-Copyright: 1999-2007 the contributors
+Copyright: 1999-2007 Bill Dirks <bill@thedirks.org>
+                     Justin Schoeman
+                     Hans Verkuil <hverkuil@xs4all.nl>
 License: GPL-2+ or BSD-3-Clause
+
+Files: test/osc.c
+Copyright: 2000-2002, 2004 Michael H. Schimek
+           2003 James Mastros
+License: GPL-2+
 
 Files: debian/*
 Copyright: 2002-2012 Christian Marillat <marillat@debian.org>
@@ -70,9 +140,26 @@ Copyright: 2002-2012 Christian Marillat <marillat@debian.org>
            2015-2020 Joao Eriberto Mota Filho <eriberto@debian.org>
            2016      Breno Leitao <brenohl@br.ibm.com>
            2018      Ondřej Nový <onovy@debian.org>
+           2021-2023 Ileana Dumitrescu <ileanadumitrescu95@gmail.com>
 License: BSD-3-Clause
 
-License: GPL-2 or GPL-2+
+License: GPL-2
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License version 2 as
+ published by the Free Software Foundation.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+ 
+License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation; either version 2 of the License, or

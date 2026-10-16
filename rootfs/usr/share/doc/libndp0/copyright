@@ -1,13 +1,14 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libndp
 Source: https://github.com/jpirko/libndp
 
 Files: *
-Copyright: Copyright 2013 Jiri Pirko <jiri@resnulli.us>
+Copyright: 2013-2015, Jiri Pirko <jiri@resnulli.us>
 License: LGPL-2.1+
 
 Files: debian/*
-Copyright: Copyright 2014 Andrew Ayer <agwa@andrewayer.name>
+Copyright: 2014-2016, Andrew Ayer <agwa@andrewayer.name>
+ 2022, Florian Ernst <florian@debian.org>
 License: LGPL-2.1+
 
 License: LGPL-2.1+

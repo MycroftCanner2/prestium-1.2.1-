@@ -36,6 +36,40 @@ from data supplied by hunspell dictionaries maintainers.")
   "List of registered ispell, aspell or hunspell dicts.
 Will be used to set the dictionaries pop-up menu.")
 
+;; To be used in ispell.el
+(or (boundp 'ispell-base-dicts-override-alist)
+    (defvar ispell-base-dicts-override-alist nil
+      "List of overrides for `ispell-dictionary-alist', with same
+format.  It will be set in `debian-ispell-initialize-dicts-alist'
+function to `debian-ispell-only-dictionary-alist',
+`debian-aspell-only-dictionary-alist' or
+`debian-hunspell-only-dictionary-alist' depending on the
+spellchecker, containing a list of registered ispell, aspell or
+hunspell dicts.
+Will be used to set the dictionaries pop-up menu.
+This alist will not override the auto-detected values (e.g. if a recent
+aspell is used along with Emacs)."))
+
+;; Defined in ispell.el, but needed here to avoid byte-compilation warning.
+(defcustom ispell-local-dictionary nil
+  "If non-nil, the dictionary to be used for Ispell commands in this buffer.
+The value must be a string dictionary name,
+or nil, which means use the global setting in `ispell-dictionary'.
+Dictionary names are defined in `ispell-local-dictionary-alist'
+and `ispell-dictionary-alist'.
+
+Setting `ispell-local-dictionary' to a value has the same effect as
+calling \\[ispell-change-dictionary] with that value.  This variable
+is automatically set when defined in the file with either
+`ispell-dictionary-keyword' or the Local Variable syntax."
+  :type '(choice string
+		 (const :tag "default" nil))
+  :group 'ispell)
+
+;; XEmacs does not have `declare-function'
+(or (featurep 'xemacs)
+    (declare-function ispell-set-spellchecker-params ispell ()))
+
 (defun debian-ispell-add-dictionary-entry (entry &optional name)
   "Obsolete function!!. Entries in ~/.emacs must be adapted to
 modify `ispell-local-dictionary-alist'"
@@ -204,7 +238,7 @@ See dictionaries-common README.emacs")
 To be run at `after-init-hook' or at any time if FORCE is given."
   ;; I know let* is cleaner, but this helps debugging
   (let (really-aspell
-	really hunspell
+	really-hunspell
 	debian-valid-dictionary-list
 	dicts-list)
 
@@ -438,12 +472,8 @@ LANG if any."
 
     ;; Set `ispell-dictionary' if still unbound. This will be done after
     ;; init files load, with real `ispell-program-name'
-    (or (boundp 'ispell-dictionary)
-	(defcustom ispell-dictionary default-dictionary
-	  "Default dictionary to use if `ispell-local-dictionary' is nil."
-	  :type '(choice string
-			 (const :tag "default" nil))
-	  :group 'ispell))
+    (or ispell-dictionary
+	(customize-set-variable 'ispell-dictionary default-dictionary))
 
     ;; The debugging output if required
     (if debian-dict-common-debug
@@ -491,6 +521,13 @@ LANG if any."
          (set-default symbol value)
          (if (featurep 'ispell)
              (ispell-set-spellchecker-params)))
+  :group 'ispell)
+
+
+(defcustom ispell-dictionary nil
+  "Default dictionary to use if `ispell-local-dictionary' is nil."
+  :type '(choice string
+		 (const :tag "default" nil))
   :group 'ispell)
 
 ;;; -----------------------------------------------------------------------

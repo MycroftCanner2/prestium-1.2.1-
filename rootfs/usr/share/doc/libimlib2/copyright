@@ -5,7 +5,7 @@ Files-Excluded:
  data/*
 
 Files: *
-Copyright: Carsten Haitzler <raster@rasterman.com> and contributors
+Copyright: Carsten Haitzler, Kim Woelders and contributors
 License: imlib2-license
 Comment:
  See the AUTHORS file in the source package for a complete list of
@@ -14,7 +14,7 @@ Comment:
 Files: debian/*
 Copyright: 2000-2013, Laurence J. Lane <ljlane@debian.org>
            2013-2016, Alessandro Ghedini <ghedo@debian.org>
-           2017-2021, Markus Koschany <apo@debian.org>
+           2017-2022, Markus Koschany <apo@debian.org>
 License: imlib2-license
 
 License: imlib2-license

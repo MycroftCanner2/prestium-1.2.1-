@@ -16,7 +16,7 @@ Copyright: 1998-1999 Vincent Renardias <vincent@waw.com>
            1999-2000 Fredrik Hallenberg <hallon@debian.org>
            2003-2011 Mike Hommey <glandium@debian.org>
            2012-2016 Aron Xu <aron@debian.org>
-           2017-2018 Mattia Rizzolo <mattia@debian.org>
+           2017-2022 Mattia Rizzolo <mattia@debian.org>
 License: MIT-1
 
 Files: trio.c trio.h triop.h triostr.c triostr.h triodef.h trionan.c trionan.h

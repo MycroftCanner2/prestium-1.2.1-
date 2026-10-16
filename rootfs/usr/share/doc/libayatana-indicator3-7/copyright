@@ -3,22 +3,49 @@ Upstream-Name: libayatana-indicator
 Upstream-Contact: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 Source: https://github.com/AyatanaIndicators/libayatana-indicator
 
-Files: libayatana-indicator/dbus-shared.h
- libayatana-indicator/indicator-desktop-shortcuts.c
- libayatana-indicator/indicator-desktop-shortcuts.h
- libayatana-indicator/indicator-image-helper.c
- libayatana-indicator/indicator-image-helper.h
- libayatana-indicator/indicator-ng.c
- libayatana-indicator/indicator-ng.h
- libayatana-indicator/indicator-object.c
- libayatana-indicator/indicator-object.h
- libayatana-indicator/indicator-service-manager.c
- libayatana-indicator/indicator-service-manager.h
- libayatana-indicator/indicator-service.c
- libayatana-indicator/indicator-service.h
- libayatana-indicator/indicator.h
+Files: .build.yml
+ .travis.yml
+ AUTHORS
+ ChangeLog
+ CMakeLists.txt
+ INSTALL.md
+ NEWS
+ NEWS.Canonical
+ README.md
+ data/CMakeLists.txt
+ data/ayatana-indicator.pc.in
+ data/ayatana-indicator3-no-IDO.pc.in
+ data/ayatana-indicator3.pc.in
+ src/CMakeLists.txt
+ src/indicator-object-enum-types.c.template
+ src/indicator-object-enum-types.h.template
+ src/indicator-object-marshal.list
+ src/indicator-service.xml
+ src/indicator.symbols
+ tests/CMakeLists.txt
+ tests/indicator-test-service.c
+ tests/org.ayatana.indicator.no-such-service
+ tests/org.ayatana.indicator.test
+ tests/org.ayatana.indicator.test.service.in
+ tests/run-xvfb.sh
+ tests/service-manager-connect.service.in
+ tests/service-version-bad.service.in
+ tests/service-version-good.service.in
+ tests/session.conf.in
+ tests/test-indicator-ng.c
+ tests/test-well-formed.desktop
+ tools/80indicator-debugging
+ tools/CMakeLists.txt
+Copyright: 2010-2013, Canonical Ltd.
+  2021, Robert tari
+License: GPL-3
+Comment:
+ Assuming same license and copyright holdership as found
+ in other files in this project.
+
+Files: src/indicator-ng.c
+ src/indicator-service.c
  tests/dummy-indicator-blank.c
- tests/dummy-indicator-entry-func.c
  tests/dummy-indicator-entry-func.h
  tests/dummy-indicator-null.c
  tests/dummy-indicator-signaler.c
@@ -35,62 +62,40 @@ Files: libayatana-indicator/dbus-shared.h
  tests/service-version-multiwatch-manager-impolite.c
  tests/service-version-multiwatch-manager.c
  tests/service-version-multiwatch-service.c
- tests/service-version-values.h
  tests/test-desktop-shortcuts.c
  tests/test-loader.c
  tools/indicator-loader.c
- trim-lcov.py
+Copyright: 2009, Canonical Ltd.
+  2012, Canonical Ltd.
+  2013, Canonical Ltd.
+  2021, Robert Tari
+  2021-2022, Robert Tari
+  2022, Robert Tari
+License: GPL-3
+
+Files: src/dbus-shared.h
+ src/indicator-desktop-shortcuts.c
+ src/indicator-desktop-shortcuts.h
+ src/indicator-image-helper.c
+ src/indicator-image-helper.h
+ src/indicator-ng.h
+ src/indicator-object.c
+ src/indicator-object.h
+ src/indicator-service-manager.c
+ src/indicator-service-manager.h
+ src/indicator-service.h
+ src/indicator.h
+ tests/dummy-indicator-entry-func.c
+ tests/service-version-values.h
 Copyright: 2009, Canonical Ltd.
   2010, Canonical Ltd.
   2012, Canonical Ltd.
   2013, Canonical Ltd.
 License: GPL-3
 
-Files: AUTHORS
- ChangeLog
- Makefile.am
- Makefile.am.coverage
- Makefile.am.marshal
- NEWS
- NEWS.Canonical
- README
- autogen.sh
- configure.ac
- data/Makefile.am
- data/ayatana-indicators.target
- helper/test-loader-build
- helper/test-loader.c
- libayatana-indicator/Makefile.am
- libayatana-indicator/ayatana-indicator-0.4.pc.in.in
- libayatana-indicator/ayatana-indicator3-0.4.pc.in.in
- libayatana-indicator/indicator-object-enum-types.c.template
- libayatana-indicator/indicator-object-enum-types.h.template
- libayatana-indicator/indicator-object-marshal.list
- libayatana-indicator/indicator-service.xml
- m4/gcov.m4
- tests/Makefile.am
- tests/indicator-test-service.c
- tests/org.ayatana.indicator.no-such-service
- tests/org.ayatana.indicator.test
- tests/org.ayatana.indicator.test.service.in
- tests/run-xvfb.sh
- tests/service-manager-connect.service.in
- tests/service-version-bad.service.in
- tests/service-version-good.service.in
- tests/session.conf.in
- tests/test-indicator-ng.c
- tests/test-well-formed.desktop
- tools/80indicator-debugging
- tools/Makefile.am
-Copyright: 2010-2013, Canonical Ltd.
-License: GPL-3
-Comment:
- Assuming same license and copyright holdership as found
- in other files in this project.
-
 Files: debian/*
 Copyright: 2010-2013, Canonical Ltd.
-           2015-2017, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+           2015-2022, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 License: GPL-3
 
 License: GPL-3

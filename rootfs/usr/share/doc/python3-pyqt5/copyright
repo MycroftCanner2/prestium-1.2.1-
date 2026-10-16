@@ -5,7 +5,7 @@ Files-Excluded: examples/webkit/fancybrowser/jquery.min.js
 Upstream-Name: PyQt5
 
 Files: *
-Copyright: 2020, Riverbank Computing Limited
+Copyright: 2023, Riverbank Computing Limited
 License: GPL-3
 
 Files: dbus/*
@@ -52,11 +52,11 @@ License: BSD-3-clause
 Files: qpy/pylupdate/*
 Copyright: 2002-2007, Detlev Offenbach <detlev@die-offenbachs.de>
            2013,      Digia Plc and/or its subsidiary(-ies)
-           2016,      Riverbank Computing Limited
+           2019,      Riverbank Computing Limited
 License: LGPL-2.1 with Digia-1.1 exception or GPL-3
 
 Files: qpy/pylupdate/pylupdate.h
-Copyright: 2020, Riverbank Computing Limited
+Copyright: 2023, Riverbank Computing Limited
 License: GPL-3
 
 Files: qpy/pyrcc/*
@@ -79,7 +79,7 @@ License: GPL-2 or BSD-3-clause
 Files: debian/*
 Copyright: 2006-2010, Thorsten Marek <shlomme@debian.org>
            2011-2018, Scott Kitterman <scott@kitterman.com>
-           2013-2020, Dmitry Shachnev <mitya57@debian.org>
+           2013-2023, Dmitry Shachnev <mitya57@debian.org>
 License: GPL-2+
 
 License: GPL-2

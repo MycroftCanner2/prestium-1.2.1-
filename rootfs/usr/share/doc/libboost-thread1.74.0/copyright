@@ -38,6 +38,8 @@ Files-Excluded:
  */.gitignore
  */.gitattributes
  */.gitmodules
+ */.github
+ */.travis.yml
  */boost-no-inspect
  tools/build/src/engine/debian/*
  libs/outcome/doc/src/themes/boostdoc/*

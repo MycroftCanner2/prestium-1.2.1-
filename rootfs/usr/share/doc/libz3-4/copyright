@@ -3,7 +3,7 @@ Upstream-Name: z3
 Source: https://github.com/Z3Prover/z3
 
 Files: *
-Copyright: 2006-2019 Microsoft Corporation
+Copyright: 2006-2021 Microsoft Corporation
            2006, 2010, 2017-2019 Arie Gurfinkel
            2017-2018 Saint-Petersburg State University
            2017 Matteo Marescotti
@@ -27,7 +27,7 @@ License: Expat
  SOFTWARE.
 
 Files: debian/*
-Copyright: 2016-2019 Fabian Wolff <fabi.wolff@arcor.de>
+Copyright: 2016-2021 Fabian Wolff <fabi.wolff@arcor.de>
            2011 Michael Tautschnig <mt@debian.org>
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify

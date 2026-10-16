@@ -13,11 +13,16 @@ Files-Excluded: CHOLMOD/Doc/IA3_2014_Workshop_Rennich_Stosic_Davis_preprint.pdf
                 CXSparse/MATLAB/ssget/Doc/rb.pdf
                 GraphBLAS/Doc/CSC20_OpenMP_GraphBLAS.pdf
                 GraphBLAS/Doc/Davis_HPEC18.pdf
+                GraphBLAS/Doc/GraphBLAS_API_C_2.0.0.pdf
                 GraphBLAS/Doc/GraphBLAS_API_C_v13.pdf
                 GraphBLAS/Doc/HPEC19.pdf
-                GraphBLAS/Doc/lagraph-grapl19.pdf
-                GraphBLAS/Doc/toms_graphblas.pdf
                 GraphBLAS/Doc/HPEC20_Python_and_MATLAB.pdf
+                GraphBLAS/Doc/lagraph-grapl19.pdf
+                GraphBLAS/Doc/The_GraphBLAS_in_Julia_and_Python_the_PageRank_and_Triangle_Centralities.pdf
+                GraphBLAS/Doc/toms_graphblas.pdf
+                GraphBLAS/Doc/toms_parallel_grb2.pdf
+                GraphBLAS/logo/GRAPHBLAS_branding_guide.pdf
+                GraphBLAS/logo/GRAPHBLAS_logo_kit.pdf
                 KLU/Doc/palamadai_e.pdf
                 MATLAB_Tools/Factorize/Doc/factorize_article.pdf
                 metis-5.1.0/manual/manual.pdf
@@ -28,10 +33,11 @@ Files-Excluded: CHOLMOD/Doc/IA3_2014_Workshop_Rennich_Stosic_Davis_preprint.pdf
                 ssget/Doc/MatrixMarket.pdf
                 ssget/Doc/nep.pdf
                 ssget/Doc/rb.pdf
-Comment: Various PDFs are excluded because their source code is not provided
+Comment: Various PDFs are excluded because their source code is not provided.
+         Some non-free source files from NVIDIA are also excluded.
 
 Files: *
-Copyright: 1990-2020 Timothy A. Davis (http://suitesparse.com)
+Copyright: 1990-2022 Timothy A. Davis (http://suitesparse.com)
            2004-2019 University of Florida
 License: LGPL-2.1+
 
@@ -76,45 +82,36 @@ Copyright: 2009-2020 Timothy A. Davis
 License: BSD-3-clause
 
 Files: GraphBLAS/*
-Copyright: 2017-2020 Timothy A. Davis
+Copyright: 2017-2021 Timothy A. Davis
+           2019-2022 NVIDIA CORPORATION
+           2018-2019 BlazingDB, Inc.
+           2018 Christian Noboa Mardini <christian@blazingdb.com>
 License: Apache-2.0
 
-Files: GraphBLAS/GraphBLAS/demo/dnn_results/LAGraph_dnn.c
-Copyright: 2020 LAGraph Contributors
-License: BSD-2-clause-lagraph
- Redistribution and use in source and binary forms, with or without modification,
- are permitted provided that the following conditions are met:
- .
- 1. Redistributions of source code must retain the above copyright notice, this
- list of conditions and the following disclaimer.
- .
- 2. Redistributions in binary form must reproduce the above copyright notice,
- this list of conditions and the following disclaimer in the documentation and/or
- other materials provided with the distribution.
- .
- ACKNOWLEDGMENTS AND DISCLAIMERS:
- .
- This program includes and/or can make use of certain third party source code,
- object code, documentation and other files ("Third Party Software"). The Third
- Party Software that is used by this program is dependent upon your system
- configuration. By using this program, You agree to comply with any and all
- relevant Third Party Software terms and conditions contained in any such Third
- Party Software or separate license file distributed with such Third Party
- Software. The parties who own the Third Party Software ("Third Party Licensors")
- are intended third party beneficiaries to this License with respect to the terms
- applicable to their Third Party Software. Third Party Software licenses only
- apply to the Third Party Software and not any other portion of this program or
- this program as a whole.
- .
- Created, in part, with funding and support from the United States Government.
- (see Acknowledgments file).
- .
- NO WARRANTY. THIS MATERIAL IS FURNISHED ON AN "AS-IS" BASIS. THE LAGRAPH
- CONTRIBUTORS MAKE NO WARRANTIES OF ANY KIND, EITHER EXPRESSED OR IMPLIED, AS TO
- ANY MATTER INCLUDING, BUT NOT LIMITED TO, WARRANTY OF FITNESS FOR PURPOSE OR
- MERCHANTABILITY, EXCLUSIVITY, OR RESULTS OBTAINED FROM USE OF THE MATERIAL. THE
- CONTRIBUTORS DO NOT MAKE ANY WARRANTY OF ANY KIND WITH RESPECT TO FREEDOM FROM
- PATENT, TRADEMARK, OR COPYRIGHT INFRINGEMENT.
+Files: GraphBLAS/CUDA/GB_cuda_atomics.cuh
+       GraphBLAS/CUDA/jitFactory.hpp
+       GraphBLAS/CUDA/jitify.hpp
+       GraphBLAS/CUDA/local_cub/*
+       GraphBLAS/CUDA/stringify.cpp
+       GraphBLAS/CUDA/templates/GB_jit_atomics.cuh
+Copyright: 2011-2022 NVIDIA CORPORATION
+           2011 Duane Merrill
+           2006-2018 Google Inc.
+License: BSD-3-clause
+
+Files: GraphBLAS/cpu_features/*
+Copyright: 2017-2021 Google LLC
+           2018 IBM
+           2020 Intel Corporation
+License: Apache-2.0
+
+Files: GraphBLAS/cpu_features/ndk_compat/*
+Copyright: 2010 The Android Open Source Project
+License: BSD-2-clause
+
+Files: GraphBLAS/lz4/*
+Copyright: 2011-2017 Yann Collet
+License: BSD-2-clause
 
 Files: GPUQREngine/*
 Copyright: 2013 Timothy A. Davis, Sencer Nuri Yeralan, and Sanjay Ranka
@@ -132,27 +129,6 @@ License: GPL-2+
 Files: MATLAB_Tools/SuiteSparseCollection/dsxy2figxy.m
 Copyright: 2006-2007, The MathWorks, Inc
 License: BSD-2-clause
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are
- met:
- .
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in
-      the documentation and/or other materials provided with the distribution
- .
- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
- LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- POSSIBILITY OF SUCH DAMAGE.
 Comment: http://www.mathworks.com/matlabcentral/fileexchange/30347-sigplot/content/sigplot/sigplot/BasicFunctions/dsxy2figxy.m
 
 Files: Mongoose/*
@@ -168,7 +144,7 @@ Copyright: 2019-2020 Christopher Lourenco, JinHao Chen, Erick Moreno-Centeno, an
 License: LGPL-3+ or GPL-2+
 
 Files: SPQR/*
-Copyright: 2008-2016 Timothy A. Davis
+Copyright: 2008-2020 Timothy A. Davis
            2013 Sencer Nuri Yeralan and Sanjay Ranka
 License: GPL-2+
 
@@ -207,7 +183,7 @@ License: BSD-3-clause
 
 Files: debian/*
 Copyright: 2006-2015 Debian Science Team
-           2013-2020 Sébastien Villemot <sebastien@debian.org>
+           2013-2022 Sébastien Villemot <sebastien@debian.org>
 License: GPL-3+
 
 License: Apache-2.0
@@ -225,6 +201,29 @@ License: Apache-2.0
  On Debian systems, the complete text of the Apache
  License, version 2.0, can be found in the file
  `/usr/share/common-licenses/Apache-2.0'.
+
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+ .
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in
+      the documentation and/or other materials provided with the distribution
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
 
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without

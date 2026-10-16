@@ -2,15 +2,19 @@
 *   General   *
 ***************
 
-FeatherPad is a single-instance application by default; all its windows share the same process, which will terminate only if all windows are closed.
+FeatherPad is a single-instance application by default; all its windows share the same configuration and the same process, which will terminate only if all windows are closed.
 
 However, if FeatherPad is started with the command-line option "--standalone" or "-s", it will have a single window with a separate process, independently of other FeatherPad windows.
 
 Rarely, the standalone mode may be needed. For example, if you want to use FeatherPad as the "git" editor, you will need "featherpad -s" as the editor command because "git" does not work correctly with single-instance editors.
 
-The standalone mode is an exception to the window/tab managing rules that are explained in this document.
+Use the standalone mode with care. If a standalone window is opened alongside other windows, any change in configuration, recent files, etc., that may have been made in those windows, will not be reflected by it, and if it is the last closed window, it will overwrite those changes.
+
+The standalone mode is also an exception to the window/tab managing rules that are explained in this document.
 
 Enter "featherpad --help" in a terminal emulator to see all command-line options.
+
+NOTE: FeatherPad makes use of D-Bus to have a single process. Therefore, in (non-Linux) systems without D-Bus, it is always in the standalone mode, which means that its windows do not know about each other.
 
 *********************
 *   Drag-and-Drop   *
@@ -19,8 +23,6 @@ Enter "featherpad --help" in a terminal emulator to see all command-line options
 Files can be dragged and dropped into FeatherPad windows.
 
 Also, tabs can be dragged from a window and dropped into another window or outside all FeatherPad windows. In the first case, the dropped tab will appear after the previously active tab; in the second case, a new window containing the dropped tab will be created, i.e. the tab will be detached.
-
-NOTE: Tab DND is enabled only under X11 because, at least, Wayland has a serious issue related to DND.
 
 ************
 *   Tabs   *
@@ -40,13 +42,13 @@ There are (customizable) shortcuts for switching tabs in various ways (see the F
 *   File Management   *
 ***********************
 
-If there is a FeatherPad window on the current virtual desktop or viewport, so that more than half of its width as well as its height is visible, files will be opened as new tabs in it; otherwise, a new window will be created. Also, when the window on the current desktop/viewport has a modal dialog, another window is created.
+Under X11, if there is a FeatherPad window on the current virtual desktop or viewport, so that more than half of its width as well as its height is visible, files will be opened as new tabs in it; otherwise, a new window will be created. Also, when the window on the current desktop/viewport has a modal dialog, another window is created.
 
-In this way, FeatherPad is aware of virtual desktops under most Linux desktop environments, although there are exceptions (like non-X11 environments or Enlightenment).
+In this way, FeatherPad is aware of X11 virtual desktops under most Linux desktop environments, although there are exceptions (like Enlightenment).
 
 Files are always opened after the active tab unless it is empty, in which case the first file will be opened in it. If a single file is opened, its tab will be activated but in the case of multiple files, the active tab will not change.
 
-If a file is opened multiple times, its second (third, ... ) instance will be uneditable by default and will have a light yellow or dark red background, depending on whether the default or the dark color scheme is used. To make it editable, click on the newly created 'Edit' button on the toolbar or the 'Edit' menu. After that, these two buttons will disappear again.
+If a file is opened multiple times, its second (third, …) instance will be uneditable by default and will have a light yellow or dark red background, depending on whether the default or the dark color scheme is used. To make it editable, click on the newly created 'Edit' button on the toolbar or the 'Edit' menu. After that, these two buttons will disappear again.
 
 If the opened file is a symbolic link (symlink), the context menu of its tab will have two extra items for copying its target path and opening its target inside the current window.
 
@@ -62,7 +64,7 @@ Sessions can be saved and opened by using the Session Manager dialog. As mention
 
 FeatherPad also has a side-pane mode, which can be enabled either temporarily or with startup. It is most suitable for working with sessions because its file list is alphabetically ordered and can be filtered. Each pane item has a right-click menu, which contains menu-items for various jobs when there is more than one page. Items can also be removed by middle-clicking without being selected.
 
-The side-pane mode does not have features provided by tabs -- for example, tab drag-and-drop is missing from it -- and conversely -- for example, tabs are not sorted and cannot be filtered -- but the side-pane and tab modes can be used interchangeably through the Side-Pane menu-item or its shortcut and also by middle-clicking an empty space inside the tab-bar or side-pane.
+The side-pane mode does not have features provided by tabs — for example, tab drag-and-drop is missing from it — and conversely — for example, tabs are not sorted and cannot be filtered — but the side-pane and tab modes can be used interchangeably by means of the Side-Pane menu-item, its toolbar button or its shortcut and also by middle-clicking an empty space inside the tab-bar or side-pane.
 
 The side-pane can be opened by its shortcut (Ctrl+Alt+P by default). If it is already open but does not have focus, the same shortcut focuses it and, if it has focus, the shortcut closes it.
 
@@ -94,7 +96,7 @@ The colors of syntax highlighting can be customized in "Preferences → Syntax C
 *   Searching and Replacing   *
 *******************************
 
-In FeatherPad, searching and replacing are done by separate widgets for the user to be able to search one string and replace another. Moreover, a separate replacement widget removes the danger of an unintentional replacement.
+In FeatherPad, searching and replacing are done by separate widgets for the user to be able to search one string and replace another. Moreover, a separate replacement widget may prevent an unintentional replacement.
 
 To remove the yellow highlights after finishing a search, you could
 
@@ -103,7 +105,11 @@ To remove the yellow highlights after finishing a search, you could
 * Empty the search entry and press Enter or F3 in it, or
 * Hide the search bar by focusing it (with Ctrl+F) and then, pressing Ctrl+F (again).
 
-Each search entry has a search history that can be shown as a popup list by clicking its arrow or by pressing Ctrl+Up/Down when it has focus. The topmost item shows the most recent searched text. When the entry has focus, up and down arrow keys can be used for selecting history items without showing the popup list.
+Each search entry has a search history that can be shown as a popup list by clicking its arrow or by pressing Ctrl+Up/Down when it has focus. The topmost item shows the most recent searched text. When the entry has focus, Up and Down arrow keys as well as PageUp and PageDown keys can be used for selecting history items without showing the popup list: Up and Down change the selection by one item, while PageUp and PageDown select the topmost (most recent) and bottommost (oldest) items respectively.
+
+FeatherPad can use a shared history for all search entries, whether they are in the same window or in different windows of the same FeatherPad process. By default, each search entry has a separate history but that can be changed by checking "Preferences → Window → Use a shared search history".
+
+The shared search history starts with every session and is forgotten as soon as the session ends (i.e., when all windows are closed — there is no point in remembering the search history indefinitely).
 
 The 'Replace' docked window respects the settings for 'Match Case', 'Whole Word' and 'Regular Expression' on the search bar (in the last case, the matching text should be a regular expression, while the replacing text is always an ordinary string). It can be detached from and reattached to the main window at top or bottom. To remove the green highlights after replacing text, you could either hide/close the 'Replace' docked window or do as in the case of removing yellow search highlights.
 
@@ -137,15 +143,19 @@ The status bar not only shows information about the opened file but can also con
 *   Wheel Scrolling   *
 ***********************
 
-For fast mouse wheel scrolling, put the cursor on the scrollbar. If it is inside the text view, the speed of wheel scrolling will be normal. If, in addition, the Shift key is pressed, the text will scroll one line per wheel turn.
+If the cursor is inside the text view, the speed of (mouse) wheel scrolling will be normal. If, in addition, the Shift key is pressed, the text will scroll one line per wheel turn.
 
 "Inertial" scrolling can be enabled in the Text section of the Preferences dialog. It creates a kind of inertia with wheel scrolling when the cursor is inside the text view.
+
+For fast wheel scrolling, put the cursor on the vertical scrollbar. Then, each step of wheel turn moves the view by one page. If the Shift key is also pressed, the view will be moved by half the page.
+
+Also, see the section Keyboard Shortcuts → Scrolling, below.
 
 ********************
 *   Text Tabbing   *
 ********************
 
-The (selected multi-line) text can be tabbed by the Tab key and untabbed by Shift+Tab.
+A single text line could be tabbed by the Tab key and untabbed by Shift+Tab (which is also called "BackTab") if the cursor is at its start. If multiple lines are (partially) selected, Tab and BackTab will affect all of them, regardless of the cursor position.
 
 If Ctrl+Tab is used, the tabulation will be done by 4 spaces instead of a tab (the number of spaces can be changed in the Preferences dialog). This is sometimes called "soft tab".
 
@@ -193,6 +203,8 @@ To change a customizable shortcut, double click it and press your chosen shortcu
 
 All shortcuts, except for the extra ones below, can be found on menus or as tooltips and many of them can be customized in the Preferences dialog.
 
+NOTE: Text editing shortcuts may be different for non-Linux OS's.
+
 Useful Extra (Hidden) Shortcuts:
 =================================
 
@@ -214,8 +226,10 @@ Ctrl+Alt+E          Exit (kill) the above process immediately
 
 Scrolling:
 ***********
-Shift+Mouse Wheel   Scroll up/down by one wrapped line with mouse wheel
-Ctrl+Up/Down        Scroll up/down by one wrapped line without moving text cursor
+Shift+Mouse Wheel     If cursor is inside view, scroll up/down by one wrapped line;
+                      if cursor is on vertical scrollbar, scroll up/down by half the page
+Ctrl+Up/Down          Scroll up/down by one wrapped line without moving text cursor
+Ctrl+PageUp/PageDown  Scroll up/down by one page without moving text cursor
 
 Moving text cursor:
 ********************
@@ -229,6 +243,7 @@ Up/Down             Go to the same position in the previous/next wrapped line
 Shift+Up/Down       Go to the same position in the previous/next wrapped line while selecting text
 Meta+Up/Down        Go to the same position in the previous/next (real) line
 Meta+Shift+Up/Down  Go to the same position in the previous/next (real) line while selecting text
+PageUp/PageDown     Go to the same position in the previous/next page
 
 Text tabulation:
 *****************
@@ -242,8 +257,19 @@ Text editing:
 **************
 Insert              Toggle overwrite mode
 Backspace           Delete to the left of the text cursor
+Ctrl+Backspace      Delete to the the start of the word
 Delete              Delete to the right of the text cursor (the opposite of Backspace)
+Ctrl+Delete         Delete to the end of the word (the opposite of Ctrl+Backspace)
 Ctrl+K              Delete to the end of the line (when the editor has focus)
 Ctrl+Shift+Up/Down  Move the current line or selected lines upward/downward
 Shift+Enter         Insert newline with the non-letter prefix of the current line
                     (to write code comments or lists easily, for example)
+
+***********************
+*   Multiple Clicks   *
+***********************
+
+Double click          Select a whole word
+Ctrl + Double click   Select between spaces
+Triple click          Select a line without its leading and trailing whitespaces
+Ctrl + Triple click   Select a whole line plus its trailing newline if any

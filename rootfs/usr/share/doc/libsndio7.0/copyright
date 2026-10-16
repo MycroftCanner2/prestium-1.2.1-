@@ -1,9 +1,9 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: sndio
-Source: http://www.sndio.org/
+Source: https://www.sndio.org/
 
 Files: *
-Copyright: 2003-2015 Alexandre Ratchov <alex@caoua.org>
+Copyright: 2003-2020 Alexandre Ratchov <alex@caoua.org>
            2010 Jacob Meuser <jakemsr@sdf.lonestar.org>
 License: ISC
 

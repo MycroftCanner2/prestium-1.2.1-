@@ -10,8 +10,8 @@ Copyright: 2001-2009 Lutz Müller <urc8@rz.uni-karlsruhe.de>
            2004      Joerg Hoh <joerg@devone.org>
            2005-2006 Hubert Figuiere <hub@figuiere.net>
            2002-2007 Hans Ulrich Niedermann <gp@n-dimensional.de>
-           2007-2020 Dan Fandrich <dan@coneharvesters.com>
-           2017-2020 Marcus Meissner <marcus@jet.franken.de>
+           2007-2021 Dan Fandrich <dan@coneharvesters.com>
+           2017-2021 Marcus Meissner <marcus@jet.franken.de>
 License: LGPL-2.1+
 
 Files: libexif.spec.in
@@ -48,7 +48,8 @@ Copyright: 2001-2003 Lutz Müller <lutz@users.sourceforge.net>
            2002 Marcus Meissner <marcus@jet.franken.de>
 License: LGPL-2.1+
 
-Files: libexif/exif-content.h libexif/exif-entry.h
+Files: libexif/exif-content.h
+       libexif/exif-entry.h
 Copyright: 2001 Lutz Müller
            2002 Marcus Meissner <marcus@jet.franken.de>
            2002 Semyon Sosin <sem@best.com>
@@ -81,6 +82,11 @@ Copyright: 2001 Lutz Müller <lutz@users.sourceforge.net>
            2009 Vladimir Petrov <vppetrov@mm-sol.com>
 License: LGPL-2.1+
 
+Files: libexif/exif-gps-ifd.c
+       libexif/exif-gps-ifd.h
+Copyright: 2020 Heiko Lewin <hlewin@gmx.de>
+License: LGPL-2+
+
 Files: libexif/exif-loader.c
 Copyright: 2002 Lutz Müller <lutz@users.sourceforge.net>
            2003 Jens Finke <jens@triq.net>
@@ -105,6 +111,11 @@ Copyright: 2001 Lutz Müller <lutz@users.sourceforge.net>
            2002 Javier Achirica <achirica@ttd.net>
            2002 Marcus Meissner <marcus@jet.franken.de>
 License: LGPL-2.1+
+
+Files: libexif/apple/*.c
+       libexif/apple/*.h
+Copyright: 2018 zhanwang-sky <zhanwang_sky@163.com>
+License: LGPL-2+
 
 Files: libexif/canon/exif-mnote-data-canon.c
        libexif/canon/mnote-canon-entry.c
@@ -160,15 +171,16 @@ Copyright: 2006 Rosetta Contributors
 License: LGPL-2.1+
 
 Files: po/es.po
-Copyright: 2002-2015 Free Software Foundation, Inc.
+Copyright: 2002-2020 Free Software Foundation, Inc.
            2002 Fabian Mandelbaum
-           2014-2015 Antonio Ceballos
+           2014-2015, 2020 Antonio Ceballos
 License: LGPL-2.1+
 
 Files: po/fr.po
 Copyright: 2002 Arnaud Launay
            2016 Free Software Foundation, Inc.
            2016 Frédéric Marchal
+           2020-2021 Stéphane Aulery
 License: LGPL-2.1+
 
 Files: po/it.po
@@ -195,7 +207,7 @@ License: LGPL-2.1+
 
 Files: po/pl.po
 Copyight: 2006-2010 Free Software Foundation, Inc.
-Copyright: 2005-2016 Jakub Bogusz
+Copyright: 2005-2021 Jakub Bogusz
 License: LGPL-2.1+
 
 Files: po/pt.po
@@ -229,6 +241,8 @@ License: LGPL-2.1+
 
 Files: po/sr.po
 Copyright: 2007-2010 Marko Uskokovic
+           2020 Free Software Foundation, Inc.
+           2020-2021 Мирослав Николић
 License: LGPL-2.1+
 
 Files: po/sv.po
@@ -245,12 +259,12 @@ License: LGPL-2.1+
 
 Files: po/uk.po
 Copyright: 2012 Lutz Müller and others
-           2012-2013, 2016, 2018 Yuri Chornoivan
+           2012-2013, 2016, 2018, 2020-2021 Yuri Chornoivan
 License: LGPL-2.1+
 
 Files: po/vi.po
 Copyright: 2006-2010 Clytie Siddall
-           2012, 2015-2016 Trần Ngọc Quân
+           2012, 2015-2016, 2020 Trần Ngọc Quân
            2016 Free Software Foundation, Inc.
 License: LGPL-2.1+
 
@@ -260,11 +274,24 @@ Copyright: 2007 Rosetta Contributors
            2009-2010 Tao Wei <weitao1979@gmail.com>
 License: LGPL-2.1+
 
+Files: test/test-fuzzer-persistent.c
+Copyright: 2002 Lutz Müller
+           2007 Hans Ulrich Niedermann
+License: LGPL-2+
+
+Files: test/test-gps.c
+Copyright: 2020 Heiko Lewin <hlewin@gmx.de>
+License: LGPL-2+
+
+Files: test/test-parse-from-data.c
+Copyright: 2007 Hans Ulrich Niedermann
+License: LGPL-2+
+
 Files: debian/*
 Copyright: 2002-2004 Christophe Barbe <christophe@debian.org>
            2004-2007 Frederic Peters <fpeters@debian.org>
            2009-2014 Emmanuel Bouthenot <kolter@debian.org>
-           2017-2020 Hugh McMaster <hugh.mcmaster@outlook.com>
+           2017-2021 Hugh McMaster <hugh.mcmaster@outlook.com>
 License: GPL-2+
 
 License: BSD-2-Clause
@@ -307,6 +334,24 @@ License: GPL-2+
  .
  On Debian systems, the full text of the GNU General Public License version 2
  can be found in the file `/usr/share/common-licenses/GPL-2'.
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or modify it under
+ the terms of the GNU Library General Public License as published by the Free
+ Software Foundation; either version 2 of the License, or (at your option) any
+ later version.
+ .
+ This library is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU Library General Public License
+ along with this library; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ .
+ On Debian systems, the full text of the GNU Library General Public License
+ version 2 can be found in the file `/usr/share/common-licenses/LGPL-2'.
 
 License: LGPL-2.1+
  This library is free software; you can redistribute it and/or modify it under

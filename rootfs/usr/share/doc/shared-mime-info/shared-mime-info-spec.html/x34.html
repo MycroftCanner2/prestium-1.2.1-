@@ -724,7 +724,7 @@ CLASS="userinput"
 used for categories of similar types (like spreadsheets or archives) that can use a common icon.
 The Icon Naming Specification lists a set of such icon names. If this element is not specified
 then the mimetype is used to generate the generic icon by using the top-level media type (e.g.
-"video" in "video/ogg") and appending "-x-generic" (i.e. "video-x-generic" in the previous example). 
+"video" in "video/ogg") and appending "-x-generic" (i.e. "video-x-generic" in the previous example).
 Only one <KBD
 CLASS="userinput"
 >generic-icon</KBD
@@ -739,7 +739,7 @@ CLASS="userinput"
 > elements have <KBD
 CLASS="userinput"
 >namespaceURI</KBD
-> 
+>
 and <KBD
 CLASS="userinput"
 >localName</KBD
@@ -767,7 +767,7 @@ CLASS="userinput"
 any of which may match, and an optional <KBD
 CLASS="userinput"
 >priority</KBD
-> attribute for all of the 
+> attribute for all of the
 contained rules. The default priority value is 50, and the maximum is 100.
 				</P
 ><P
@@ -1009,7 +1009,7 @@ CLASS="programlisting"
 		</P
 ><P
 >&#13;The glob file is a simple list of lines containing a MIME type and pattern, separated by a colon. It is
-deprecated in favour of the globs2 file which also lists the weight of the glob rule.		
+deprecated in favour of the globs2 file which also lists the weight of the glob rule.
 The lines are ordered by glob weight.
 For example:
 			<PRE
@@ -1348,8 +1348,8 @@ NAME="AEN383"
 		</P
 ><P
 >&#13;The file starts with the magic string "MIME-TreeMagic\0\n". There is no version number in the file.
-Incompatible changes will be handled by creating both the current `treemagic' and a newer `treemagic2' 
-in the new format. Where possible, changes will be made in a compatible fashion. 
+Incompatible changes will be handled by creating both the current `treemagic' and a newer `treemagic2'
+in the new format. Where possible, changes will be made in a compatible fashion.
 		</P
 ><P
 >&#13;The rest of the file is made up of a sequence of small sections. Each section is introduced by giving
@@ -1408,7 +1408,7 @@ CLASS="CALSTABLE"
 >Optional for the optional attributes of <KBD
 CLASS="userinput"
 >treematch</KBD
-> elements. 
+> elements.
 Possible values are "executable", "match-case", "non-empty", or a MIME type</TD
 ></TR
 ></TBODY
@@ -1433,7 +1433,7 @@ NAME="AEN411"
 >&#13;The <TT
 CLASS="filename"
 >mime.cache</TT
-> files contain the same information as the 
+> files contain the same information as the
 <TT
 CLASS="filename"
 >globs2</TT
@@ -1443,14 +1443,14 @@ CLASS="filename"
 >, <TT
 CLASS="filename"
 >subclasses</TT
->, 
+>,
 <TT
 CLASS="filename"
 >aliases</TT
 > and <TT
 CLASS="filename"
 >XMLnamespaces</TT
-> files, in a binary, 
+> files, in a binary,
 mmappable format:
 </P
 ><PRE
@@ -1477,7 +1477,7 @@ AliasListEntry:
 4			CARD32		MIME_TYPE_OFFSET
 
 ParentList:
-4			CARD32		N_ENTRIES 
+4			CARD32		N_ENTRIES
 8*N_ENTRIES		ParentListEntry
 
 ParentListEntry:
@@ -1490,7 +1490,7 @@ Parents:
 
 LiteralList:
 4			CARD32		N_LITERALS
-12*N_LITERALS		LiteralEntry	
+12*N_LITERALS		LiteralEntry
 
 LiteralEntry:
 4			CARD32		LITERAL_OFFSET
@@ -1502,7 +1502,7 @@ LiteralEntry:
 
 GlobList:
 4			CARD32		N_GLOBS
-12*N_GLOBS		GlobEntry	
+12*N_GLOBS		GlobEntry
 
 GlobEntry:
 4			CARD32		GLOB_OFFSET
@@ -1517,11 +1517,11 @@ ReverseSuffixTree:
 
 ReverseSuffixTreeNode:
 4			CARD32		CHARACTER
-4			CARD32		N_CHILDREN			
+4			CARD32		N_CHILDREN
 4			CARD32		FIRST_CHILD_OFFSET
 
 ReverseSuffixTreeLeafNode:
-4			CARD32		0 
+4			CARD32		0
 4			CARD32		MIME_TYPE_OFFSET
 4			CARD32		WEIGHT in lower 8 bits
                                         FLAGS in rest:
@@ -1550,7 +1550,7 @@ Matchlet:
 
 NamespaceList:
 4			CARD32		N_NAMESPACES
-12*N_NAMESPACES		NamespaceEntry	
+12*N_NAMESPACES		NamespaceEntry
 
 NamespaceEntry:
 4			CARD32		NAMESPACE_URI_OFFSET
@@ -1567,9 +1567,9 @@ IconListEntry:
 4			CARD32		ICON_NAME_OFFSET
 </PRE
 ><P
->&#13;Lists in the file are sorted, to enable binary searching. The list of 
-aliases is sorted by alias, the list of literal globs is sorted by the 
-literal. The SuffixTreeNode siblings are sorted by character. 
+>&#13;Lists in the file are sorted, to enable binary searching. The list of
+aliases is sorted by alias, the list of literal globs is sorted by the
+literal. The SuffixTreeNode siblings are sorted by character.
 The list of namespaces is sorted by namespace uri. The list of icons
 is sorted by mimetype.
 </P
@@ -1585,14 +1585,14 @@ beginning of the list of children.
 >&#13;Strings are zero-terminated.
 </P
 ><P
->&#13;All numbers are in network (big-endian) order. This is necessary because the data will be stored in 
+>&#13;All numbers are in network (big-endian) order. This is necessary because the data will be stored in
 arch-independent directories like <TT
 CLASS="filename"
 >/usr/share/mime</TT
 > or even in user's home directories.
 </P
 ><P
->&#13;Cache files have to be written atomically - write to a temporary name, then move over the old file - so 
+>&#13;Cache files have to be written atomically - write to a temporary name, then move over the old file - so
 that clients that have the old cache file open and mmap'ed won't get corrupt data.
 </P
 ></DIV
@@ -1714,7 +1714,7 @@ result in the same mimetype, use that mimetype as the result.
 contents of the file and do magic sniffing on it. If no magic rule matches the data (or if
 the content is not available), use the default type of application/octet-stream for
 binary data, or text/plain for textual data. If there was no glob match, use the magic match
-as the result. 
+as the result.
 				</P
 ><P
 >&#13;Note: Checking the first 128 bytes of the file for ASCII control characters is
@@ -1830,16 +1830,16 @@ NAME="AEN477"
 >2.14. Content types for volumes</A
 ></H2
 ><P
->&#13;Traditional MIME types apply to individual files or bytestreams. It is often useful 
-to apply the same methodologies when classifying the content of mountable volumes or 
-filesystems. The x-content type has been introduced for this purpose. Typical examples 
-are x-content/audio-dvd, x-content/blank-cd or x-content/image-dcf. 
+>&#13;Traditional MIME types apply to individual files or bytestreams. It is often useful
+to apply the same methodologies when classifying the content of mountable volumes or
+filesystems. The x-content type has been introduced for this purpose. Typical examples
+are x-content/audio-dvd, x-content/blank-cd or x-content/image-dcf.
 		</P
 ><P
 >&#13;Matching of content types works with <KBD
 CLASS="userinput"
 >treemagic</KBD
-> elements, which 
+> elements, which
 are analogous to the <KBD
 CLASS="userinput"
 >magic</KBD
@@ -1861,7 +1861,7 @@ NAME="AEN484"
 >2.15. URI scheme handlers</A
 ></H2
 ><P
->&#13;URI scheme handling (such as a movie player handling mms:// URIs, or a Podcast program 
+>&#13;URI scheme handling (such as a movie player handling mms:// URIs, or a Podcast program
 handling feed:// URIs) are handled through applications handling the x-scheme-handler/foo
 mime-type, where foo is the URI scheme in question.
 		</P
@@ -1871,9 +1871,9 @@ such as the ability to change the default handler, the cross-desktop support, an
 easier application launching.
 		</P
 ><P
->&#13;Note that this virtual mime-type is not for listing URI schemes that an application 
-can load files from. For example, a movie player would not list x-scheme-handler/http 
-in its supported mime-types, but it would list x-scheme-handler/rtsp if it supported 
+>&#13;Note that this virtual mime-type is not for listing URI schemes that an application
+can load files from. For example, a movie player would not list x-scheme-handler/http
+in its supported mime-types, but it would list x-scheme-handler/rtsp if it supported
 playing back from RTSP locations.
 		</P
 ></DIV

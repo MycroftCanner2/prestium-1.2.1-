@@ -1,0 +1,70 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: SpeedCrunch
+Upstream-Contact: speedcrunch@googlegroups.com
+Source: https://bitbucket.org/heldercorreia/speedcrunch
+License: GPL-2+
+
+Files: *
+Copyright: 2004-2008 Ariya Hidayat <ariya@kde.org>
+           2005-2006 Johan Thelin <e8johan@gmail.com>
+           2007-2016 Helder Correia <helder.pereira.correia@gmail.com>
+           2007 Petri Damstén <damu@iki.fi>
+           2007-2009 Wolf Lammen <ookami1@gmx.de>
+           2009 Andreas Scherer <andreas_coder@freenet.de>
+           2011 Daniel Schäufele <git@schaeufele.org>
+           2011 Enrico Rós <enrico.ros@gmail.com>
+           2012 Roger Lamb <rlamb1id@gmail.com>
+           2013, 2015-2016 Hadrien Theveneau <theveneau@gmail.com>
+           2013 Larswad
+           2014 Sébastien Szymanski <seb.szymanski@gmail.com>
+           2014-2016 Tey <teyut@free.fr>
+           2015-2016 Pol Welter <polwelter@gmail.com>
+           2016 Felix Krull <f_krull@gmx.de>
+License: GPL-2+
+
+Files: pkg/speedcrunch.appdata.xml pkg/desktop-appdata/speedcrunch.appdata.xml.in
+Copyright: 2016 Felix Krull
+License: CC0-1.0
+
+Files: doc/build_html_embedded/*/_static/jquery-1.11.1.js
+Copyright: 2005, 2014 jQuery Foundation, Inc. and other contributors
+License: GPL-2+
+
+Files: debian/*
+Copyright: 2005 Jean-Remy Falleri <jr.falleri@laposte.net>
+           2005-2006 Jonathan Riddell <jriddell@ubuntu.com>
+           2006 Seth Kinast <seth@ubuntu.com>
+           2007 Martin Pitt <martin.pitt@ubuntu.com>
+           2007 Sarah Hobbs <hobbsee@ubuntu.com>
+           2007-2011 Bart Martens <bartm@knars.be>
+           2016 Felix Krull <f_krull@gmx.de>
+License: GPL-2+
+
+Files: debian/speedcrunch.1.docbook
+Copyright: 2005 Jean-Remy Falleri <jr.falleri@laposte.net>
+License: GPL-2+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: CC0-1.0
+ To the extent possible under law, the person has waived all copyright and
+ related or neighboring rights to these files.
+ .
+ On Debian systems, the CC0 legalcode can be found in
+ "/usr/share/common-licenses/CC0-1.0".
+

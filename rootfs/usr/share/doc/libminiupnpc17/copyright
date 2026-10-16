@@ -4,12 +4,12 @@ Upstream-Contact: Thomas Bernard <miniupnp@free.fr>
 Source: http://miniupnp.free.fr/files/
 
 Files: *
-Copyright: 2005-2020 Thomas Bernard <miniupnp@free.fr>
+Copyright: 2005-2022 Thomas Bernard <miniupnp@free.fr>
 License: BSD-3-clause
 
 Files: debian/*
 Copyright: 2007-2010 Thomas Goirand <zigo@debian.org>
-           2018-2020 Yangfl <mmyangfl@gmail.com>
+           2018-2022 Yangfl <mmyangfl@gmail.com>
 License: BSD-3-clause
 
 License: BSD-3-clause

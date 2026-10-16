@@ -166,7 +166,6 @@ Files:
   third_party/waf/waflib/extras/fc_nag.py
   third_party/waf/waflib/extras/fc_nec.py
   third_party/waf/waflib/extras/fc_open64.py
-  third_party/waf/waflib/extras/fc_open64.py
   third_party/waf/waflib/extras/fc_solstudio.py
   third_party/waf/waflib/extras/fc_xlf.py
 Copyright:

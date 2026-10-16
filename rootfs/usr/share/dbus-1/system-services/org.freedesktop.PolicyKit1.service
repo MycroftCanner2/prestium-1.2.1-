@@ -1,5 +1,5 @@
 [D-BUS Service]
 Name=org.freedesktop.PolicyKit1
-Exec=/usr/libexec/polkitd --no-debug
+Exec=/usr/lib/polkit-1/polkitd --no-debug
 User=root
 SystemdService=polkit.service

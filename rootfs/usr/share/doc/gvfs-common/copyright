@@ -1,5 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://download.gnome.org/sources/gvfs
+Upstream-Name: gvfs
+Upstream-Contact: Ondrej Holy
 
 Files: *
 Copyright:

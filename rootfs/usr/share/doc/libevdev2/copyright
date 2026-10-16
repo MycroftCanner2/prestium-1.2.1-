@@ -4,12 +4,12 @@ Source: https://www.freedesktop.org/wiki/Software/libevdev/
 Files-Excluded: doc/html doc/style/dynsections.js
 
 Files: *
-Copyright: 2013-2014, 2019 Red Hat, Inc.
+Copyright: 2013-2014, 2019, 2021 Red Hat, Inc.
            2013 David Herrmann
 License: MIT
 
 Files: debian/*
-Copyright: 2013-2021 Stephen Kitt <skitt@debian.org>
+Copyright: 2013-2022 Stephen Kitt <skitt@debian.org>
 License: MIT
 
 Files: doc/style/bootstrap.css

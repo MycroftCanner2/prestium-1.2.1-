@@ -4,7 +4,7 @@ Content-type: text/html; charset=UTF-8
 <HTML><HEAD><TITLE>Man page of GDISK</TITLE>
 </HEAD><BODY>
 <H1>GDISK</H1>
-Section: GPT fdisk Manual (8)<BR>Updated: 1.0.6<BR><A HREF="#index">Index</A>
+Section: GPT fdisk Manual (8)<BR>Updated: 1.0.9<BR><A HREF="#index">Index</A>
 <A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -244,7 +244,8 @@ default start sector, or <I></I><B>-200M</B> to specify a point 200MiB
 before the last available sector. Pressing the Enter key with no input
 specifies the default value, which is the start of the largest available
 block for the start sector and the end of the same block for the end
-sector.
+sector. Default start and end points may be adjusted to optimize partition
+alignment.
 <P>
 <DT><B>o</B>
 
@@ -491,6 +492,15 @@ set features for each partition. <B>gdisk</B> supports four attributes:
 aren't translated into anything useful. In practice, most OSes seem to
 ignore these attributes.
 <P>
+<DT><B>b</B>
+
+<DD>
+Swap the byte order for the name of the specified partition. Some
+partitioning tools, including GPT fdisk 1.0.7 and earlier, can write the
+partition name in the wrong byte order on big-endian computers, such as the
+IBM s390 mainframes and PowerPC-based Macs. This feature corrects this
+problem.
+<P>
 <DT><B>c</B>
 
 <DD>
@@ -564,13 +574,18 @@ Change the sector alignment value. Disks with more logical sectors per
 physical sectors (such as modern Advanced Format drives), some RAID
 configurations, and many SSD devices, can suffer performance problems if
 partitions are not aligned properly for their internal data structures. On
-new disks, GPT fdisk attempts to align partitions on 1 MiB boundaries
-(2048-sectors on disks with 512-byte sectors) by default, which optimizes
+new disks, GPT fdisk attempts to align partitions on 1 MiB boundaries (2048
+sectors on disks with 512-byte sectors) by default, which optimizes
 performance for all of these disk types. On pre-partitioned disks, GPT
 fdisk attempts to identify the alignment value used on that disk, but will
 set 8-sector alignment on disks larger than 300 GB even if lesser alignment
-values are detected. In either case, it can be changed by using this
-option.
+values are detected. In either case, it can be changed by using this option.
+The alignment value also affects the default end sector value when creating
+a new partition; it will be aligned to one less than a multiple of the
+alignment value, if possible. This should keep partitions a multiple of the
+alignment value in size. Some disk encryption tools require partitions to be
+sized to some value, typically 4096 bytes, so the default alignment of 1 MiB
+works well for them.
 <P>
 <DT><B>m</B>
 
@@ -785,7 +800,7 @@ Contributors:
 <P>
 * Justin Maggard (<A HREF="mailto:justin.maggard@netgear.com">justin.maggard@netgear.com</A>)
 <P>
-* Dwight Schauer (<A HREF="mailto:dschauer@gmail.com">dschauer@gmail.com</A>)
+* Dwight Schauer (<A HREF="mailto:das@teegra.net">das@teegra.net</A>)
 <P>
 * Florian Zumbiehl (<A HREF="mailto:florz@florz.de">florz@florz.de</A>)
 <P>
@@ -839,6 +854,6 @@ available from Rod Smith.
 This document was created by
 <A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 22:14:27 GMT, January 13, 2021
+Time: 23:17:12 GMT, April 14, 2022
 </BODY>
 </HTML>

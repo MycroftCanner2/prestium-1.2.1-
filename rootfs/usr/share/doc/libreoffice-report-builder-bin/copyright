@@ -63,8 +63,12 @@ Copyright: Copyright (C) 2016 Canonical Ltd.
            Copyright (C) 2017 Software in the Public Interest, Inc.
 License: MPL-2.0
 
+Files: sysui/desktop/appstream-appdata/*.xml
+Copyright: Copyright (c) 2013-2019 LibreOffice contributors and/or their affiliates.
+License: CC0-1.0
+
 Files: icon-themes/breeze*/*
-Copyright: Copyright 2014 Uri Herrera <kaisergreymon99@gmail.com> 
+Copyright: Copyright 2014 Uri Herrera <kaisergreymon99@gmail.com>
            Copyright 2015 Andreas Kainz <kainz.a@gmail.com> and other contributors
 License: GPL-2+
 
@@ -76,9 +80,9 @@ Copyright: Jakub Steiner <jimmac@novell.com>
            Issa Alkurtass <ialkurtass@kacst.edu.sa>
            Norah Abanumay <nabanimy@kacst.edu.sa>
            Copyright 2017-2018 Matthias Freund <matti_lx@mailbox.org>
-License: CC-BY-SA-3.0 
+License: CC-BY-SA-3.0
 
-Files: icon_themes/elementary*/*
+Files: icon-themes/elementary*/*
 Copyright: Copyright 2015 by Simon Steinbeiss <simon@xfce.org>, Pasi Lallinaho <pasi@shimmerproject.org>
 License: GPL-3+
 
@@ -91,33 +95,25 @@ Files: icon-themes/karasa_jaga/*
 Copyright: Copyright (c) 2014 Rizal Muttaqin <sundaralinux@gmail.com>
 License: LGPL-3+
 
-Files: icon_themes/sukapura*/*
+Files: icon-themes/sukapura*/*
 Copyright: Copyright (c) 2019-2020 Rizal Muttaqin <riz_17_oke@yahoo.co.id>
-License: MPL_2.0
-
-Files: helpcontent2/help3xsl/fuse.js
-Copyright: Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
-License: Apache-2.0
-
-Files: helpcontent2/help3xsl/paginathing.js
-Copyright: (C) 2018 Alfred Crosby <https://github.com/alfredcrosby>
-License: Expat
+License: MPL-2.0
 
 Files: helpcontent2/help3xsl/normalize.css
 Copyright: Copyright © Nicolas Gallagher and Jonathan Neal
 License: Expat
 
-Files: helpcontent2/help3xsl/fuzzysort.js
-Copyright: Copyright (c) 2018 Stephen Kamenar
-License: Expat
+Files: helpcontent2/help3xsl/prism.js
+Copyright: Copyright (c) Lea Verou <https://lea.verou.me>
+License: MIT
+
+Files: helpcontent2/help3xsl/prism.css
+Copyright: Copyright (c) Tim  Shedor
+License: MIT
 
 Files: debian/*
 Copyright: Copyright (C) 2002-2009 Software in the Public Interest, Inc.
 License: GPL-2
-
-Files: debian/scripts/get_ttf_version.pl
-Copyright: Copyright (C) 2015 Software in the Public Interest, Inc.
-License: MPL-2.0
 
 Files: debian/templates/debian-presentation.otp
 Copyright: Copyright (C) 2010 Raphaël Hertzog
@@ -127,12 +123,12 @@ Files: debian/templates/debian-presentation-background.xcf
 Copyright: Copyright Alexis Younes "ayo"
 License: GPL-2+
 
-Files: tarballs/*dtoa*
+Files: tarballs/dtoa*
 Copyright: Copyright (c) 1991, 2000, 2001 by Lucent Technologies.
 License: Expat
 
 # https://github.com/google/skia/blob/master/LICENSE
-Files: tarballs/*skia*
+Files: tarballs/skia*
 Copyright: Copyright (c) 2011 Google Inc.
 License: BSD-3-clause
 
@@ -174,7 +170,7 @@ License: LGPL-3
  On Debian systems the full text of the LGPL-3 can be found in
  /usr/share/common-licenses/LGPL-3
 
-Files: tarballs/*pdfium*
+Files: tarballs/pdfium*
 Copyright: // Copyright 2014-2016 PDFium Authors.
            // Original code copyright 2014 Foxit Software Inc.
 License: other
@@ -205,7 +201,6 @@ License: other
  // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Files: debian/patches/add-access2base-doc.diff wizards/source/access2base/access2base.html
-License: other
 Copyright: Copyright (c) Jeremy Ruston 2004-2007
            Copyright (c) UnaMesa Association 2007-2012
 License: other
@@ -233,6 +228,14 @@ License: other
  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
  DAMAGE.
+
+Files: helpcontent2/help3xsl/polyfills.js
+Copyright: Copyright (c) 2016-present, jszhou
+License: MIT
+
+Files: helpcontent2/help3xsl/polyfills.js
+Copyright: Copyright (C) 2015 Larry Davis
+License: BSD-2-clause
 
 License: Expat
   Permission is hereby granted, free of charge, to any person obtaining

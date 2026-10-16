@@ -1,0 +1,23 @@
+Included profiles
+=================
+
+- apt-cacher-ng: taken from the apparmor-profiles repository
+  at MR !51.
+- GStreamer abstraction: taken from the apparmor-profiles repository
+  at MR !54.
+- irssi: taken from the apparmor-profiles repository
+  at commit 9c3809f8035610b8c80742c136d7314e59c57869.
+- Pidgin: taken from the apparmor-profiles repository
+  at commit 9c3809f8035610b8c80742c136d7314e59c57869.
+- Totem: taken from the apparmor-profiles repository
+  at MR !54.
+
+Sources
+=======
+
+apparmor-profiles repository
+----------------------------
+
+https://gitlab.com/apparmor/apparmor-profiles
+
+ -- intrigeri <intrigeri@debian.org>, Sat, 10 Dec 2022 19:38:25 +0100

@@ -556,12 +556,6 @@ Copyright: 2000,                  Daniele Medri <madrid@linux.it>
 License: LGPL-2+
 
 Files: libgphoto2_port/gphoto-m4/gp-byteorder.m4
-       libgphoto2_port/gphoto-m4/gp-stdint.m4
-Copyright: ?, 2001, Dan Fandrich <dan@coneharvesters.com>
-License: public-domain
-
-Files: gphoto-m4/gp-byteorder.m4
-       gphoto-m4/gp-stdint.m4
 Copyright: ?, 2001, Dan Fandrich <dan@coneharvesters.com>
 License: public-domain
 
@@ -569,12 +563,6 @@ Files: packaging/generic/print-camera-list.c
 Copyright: 2002,      Lutz Müller <lutz@users.sourceforge.net>
            2002,2005, Hans Ulrich Niedermann <hun@users.sourceforge.net>
            2005,      Julien BLACHE <jblache@debian.org>
-License: LGPL-2+
-
-Files: packaging/rpm/Makefile.am
-Copyright: 2001, Hans Ulrich Niedermann <gp@n-dimensional.de>
-           2009, marcusmeissner
-Comment: The upstream will fix this in next release. For now following the project.
 License: LGPL-2+
 
 Files: tests/*
@@ -640,6 +628,7 @@ Copyright: 2002-2004, christophe barbe <christophe@debian.org>
            2014,      Laurent Bigonville <bigon@debian.org>
            2014,      Andreas Barth <aba@ayous.org>
            2015-2019, Herbert Parentes Fortes Neto <hpfn@debian.org>
+           2020-2023  Ferenc Wágner <wferi@debian.org>
 License: LGPL-2+
 
 Files: debian/libgphoto2.metainfo.xml

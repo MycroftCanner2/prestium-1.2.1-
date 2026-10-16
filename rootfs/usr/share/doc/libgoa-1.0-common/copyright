@@ -2,13 +2,6 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://download.gnome.org/sources/gnome-online-accounts/
 Upstream-Name: GNOME Online Accounts
 Upstream-Contact: gnomecc-list@gnome.org
-Files-Excluded: m4/ax_check*
-                m4/g*
-                m4/i*
-                m4/l*
-                m4/n*
-                m4/p*
-                m4/v*
 
 Files: *
 Copyright: 2011 Red Hat, Inc.

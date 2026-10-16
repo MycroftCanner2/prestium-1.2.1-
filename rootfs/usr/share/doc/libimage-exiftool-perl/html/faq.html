@@ -46,6 +46,7 @@ ol.index { margin: 0; padding: 0 0 0 2em }
 <li><a href="#Q28">Copying a shifted date/time</a></li>
 <li><a href="#Q29">ARGFILE options</a></li>
 <li><a href="#Q30">Extracting all metadata</a></li>
+<li><a href="#Q31">Rewriting the entire file</a></li>
 </ol>
 </div>
 
@@ -215,6 +216,12 @@ parsing strings when writing date/time tags with ExifTool 10.32 or later if
 POSIX::strptime or Time::Piece is installed (use "<code>exiftool -ver -v</code>"
 to check the installed packages).  The format of the <code>-d</code> argument is
 the same for reading and writing.</blockquote>
+
+<blockquote>The <code>-n</code> option may be used to disable all of the
+date/time reformatting when reading and writing which will allow otherwise
+invalid date/time values to be written (eg. partial EXIF dates).  The
+reformatting may be disabled on a per-tag basis by adding "<code>#</code>"
+to the tag name instead of using <code>-n</code></blockquote>
 
 <blockquote><b>Special feature</b>: A value of "<code>now</code>" may be used to
 represent the current time when writing any date/time tag.  For example:
@@ -825,7 +832,7 @@ then TAB, or in a Windows cmd shell with TAB when cmd.exe is run with the
 <code>/f:off</code> option to disable tab completion.)
 </blockquote>
 
-<blockquote>Other possible export formats include RDF/XML (with the the
+<blockquote>Other possible export formats include RDF/XML (with the
 <code>-X</code> option), or JSON (with the <code>-j</code> option).  These
 methods allow transfer of more complex data sets (including structured
 information with the <code>-struct</code> option), but require that the
@@ -930,11 +937,12 @@ valid.  The numbers represent degrees, (and optionally) minutes and
 seconds with any number of decimal places.</blockquote>
 
 <blockquote>For EXIF GPS coordinates, the reference direction is specified
-separately with the EXIF:GPSLatitudeRef or EXIF:GPSLongitudeRef tag. 
-GPSLatitudeRef may be written with a string ending in "<code>N</code>" or
-"<code>S</code>", or with a signed coordinate value, positive for the northern
-hemisphere or negative for the south.  GPSLongitudeRef accepts similar values,
-but for E (positive) and W (negative).</blockquote>
+separately with the EXIF:GPSLatitudeRef or EXIF:GPSLongitudeRef tag.
+GPSLatitudeRef may be written with a string containing "<code>N</code>",
+"<code>North</code>", "<code>S</code>" or "<code>South</code>", or with a signed
+coordinate value (positive for the northern hemisphere or negative for the
+south).  GPSLongitudeRef accepts similar values, but for E/East (positive) and
+W/West (negative).</blockquote>
 
 <blockquote>For XMP GPS coordinates, the reference direction is specified within
 the XMP:GPSLatitude or XMP:GPSLongitude value, with west longitudes and south
@@ -956,6 +964,26 @@ exiftool -xmp:gpslatitude=-42.5 a.jpg
 Similar styles may be used for longitude.  ExifTool will convert any of these
 coordinate styles to the proper format for the specific tag used.
 </blockquote>
+
+<blockquote>ExifTool 12.22 and later allow combined lat/lon GPSCoordinates
+values to be written to GPSLatitude and GPSLongitude, and the appropriate
+latitude or longitude part will be pulled from the input string.  Version 12.36
+and later make Composite:GPSPosition writable, allowing EXIF GPS coorinates and
+reference directions to be all writable via a single tag:
+
+<pre><span class='blk'># write all 4 EXIF GPS tags (version 12.36 and later)</span>
+exiftool -gpsposition="42 30 0.00 S, 33 15 0.00 W"
+exiftool -gpsposition="-42.5, -33.25"</pre>
+
+Version 12.44 and later make Composite:GPSLatitude/GPSLongitude writable,
+allowing the separate EXIF coordinate and reference direction tags to be written
+together.  (Note that the Composite group must be specified here because these
+tags are otherwise avoided when writing due to possible confusion when
+attempting to write EXIF tags.)
+
+<pre><span class='blk'># write EXIF:GPSLatitude and GPSLatitudeRef together (12.44 and later)</span>
+exiftool -composite:gpslatitude="42 30 0.00 S" a.jpg
+exiftool -composite:gpslatitude="-42.5" a.jpg</pre></blockquote>
 
 <blockquote>When reading, by default ExifTool reports coordinates in the format
 <pre>DDD deg MM' SS.SS"</pre>
@@ -1211,7 +1239,7 @@ specific Windows code page, which may help display some special characters, but
 instead it may be better to switch the console to UTF&#8209;8 (the native
 ExifTool character encoding). This is especially useful if you are using the
 <code>-lang</code> option to translate exiftool output to another language.  To
-change the the Windows console to UTF&#8209;8, follow these steps:
+change the Windows console to UTF&#8209;8, follow these steps:
 
 <ol><li>Run "cmd.exe" to open a Windows console (select "Run..." from the
 Start menu and enter "cmd").</li>
@@ -1728,13 +1756,35 @@ this is performance; extracting these tags will significantly increase
 processing time for some files.  The following command extracts everything
 possible with ExifTool:
 
-<pre>exiftool -ee3 -u -G3:1 -api requestall=3 -api largefilesupport FILE</pre>
+<pre>exiftool -ee3 -U -G3:1 -api requestall=3 -api largefilesupport FILE</pre>
 
 (The <code>-G3:1</code> option is included in the above command only to give an
 indication of where the metadata was stored.)</blockquote>
 
+<a name="Q31"></a>
+<p>31. <b>"Why does ExifTool rewrite the entire file when I am only changing one small thing?"</b></p>
+
+<blockquote>Generally it is possible in theory to edit existing fixed-length tags without having to rewrite an entire file, but ExifTool doesn't do this for 3 reasons:
+
+<ol>
+<li>The algorithm to do this would be completely different than the more general
+and powerful case where you want to be able to add/delete tags and/or write
+values with different lengths.  Plus, implementing this feature would be a lot
+of work, and it would only be useful in certain situations.</li>
+<li>Some file formats (like MP4) allow metadata to be written at the beginning
+or the end of a file.  Writing it at the end of the file could avoid the need to
+rewrite the entire starting section, but metadata is more useful at the start of
+a file because then other programs (especially ones that stream the file over
+the internet) don't have to read through the entire file to find the metadata.
+Also, some software won't read metadata that comes at the end of a file
+(probably for this reason).</li>
+<li>ExifTool is designed to allow files to be read/written via pipes, which are
+not seekable, so in-place editing is not possible with these files and again,
+like 1, two completely different algorithms would be required.</li>
+</ol></blockquote>
+
 <hr>
-<i>Last revised Jan 21, 2021</i>
+<i>Last revised Feb 8, 2023</i>
 <p class='lf'><a href="index.html">&lt;-- Back to ExifTool home page</a></p>
 </body>
 </html>

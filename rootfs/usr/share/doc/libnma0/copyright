@@ -3,7 +3,7 @@ Upstream-Name: libnma
 Source: https://ftp.gnome.org/pub/GNOME/sources/libnma/
 
 Files: *
-Copyright: 2008 - 2011, 2017 - 2019 Red Hat, Inc.
+Copyright: 2008 - 2011, 2017 - 2021 Red Hat, Inc.
            2018 Lubomir Rintel
 License: GPL-2+
 
@@ -19,21 +19,18 @@ Files: shared/nm-default.h
        shared/nm-utils/nm-test-utils.h
        src/tests/bar-code.c
        src/tests/cert-chooser.c
-Copyright: 2011 - 2019 Red Hat, Inc.
+Copyright: 2011 - 2021 Red Hat, Inc.
            1999, 2000 Eazel, Inc.
            2012 Colin Walters <walters@verbum.org>
 License: LGPL-2+
 
 Files: src/nma-cert-chooser-button.*
        src/nma-cert-chooser.*
-       src/nma-cert-chooser-private.h
-       src/nma-file-cert-chooser.c
        src/nma-mobile-providers.*
-       src/nma-pkcs11-cert-chooser.c
        src/nma-pkcs11-cert-chooser-dialog.*
        src/nma-pkcs11-token-login-dialog.*
        src/nma-version.h.in
-Copyright: 2009 - 2012, 2015 - 2018 Red Hat, Inc.
+Copyright: 2009 - 2012, 2015 - 2021 Red Hat, Inc.
            2009 Novell, Inc.
            2012 Lanedo GmbH
 License: LGPL-2.1+

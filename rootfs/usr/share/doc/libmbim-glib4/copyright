@@ -1,21 +1,22 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libmbim
+Upstream-Contact: Aleksander Morgado <aleksander@aleksander.es>
 Source: https://www.freedesktop.org/software/libmbim/
 
 Files: *
-Copyright: 2013 Aleksander Morgado <aleksander@gnu.org>
+Copyright: 2013 Aleksander Morgado <aleksander@aleksander.es>
 License: GPL-2+
 
 Files: build-aux/mbim-codegen/*.py
-Copyright: 2013 Aleksander Morgado <aleksander@gnu.org>
+Copyright: 2013 Aleksander Morgado <aleksander@aleksander.es>
 License: LGPL-2+
 
-Files: libmbim-glib/*
-Copyright: 2013 Aleksander Morgado <aleksander@gnu.org>
+Files: src/libmbim-glib/*
+Copyright: 2013 Aleksander Morgado <aleksander@aleksander.es>
 License: LGPL-2+
 
-Files: libmbim-glib/test/*
-Copyright: 2013 Aleksander Morgado <aleksander@gnu.org>
+Files: src/libmbim-glib/test/*
+Copyright: 2013 Aleksander Morgado <aleksander@aleksander.es>
 License: GPL-2+
 
 Files: docs/reference/libmbim-glib/*

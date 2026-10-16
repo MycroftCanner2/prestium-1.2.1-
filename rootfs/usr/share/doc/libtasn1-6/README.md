@@ -1,8 +1,4 @@
-|Branch|CI system|Status|
-|:----:|:-------:|-----:|
-|Master|Gitlab|[![build status](https://gitlab.com/gnutls/libtasn1/badges/master/pipeline.svg)](https://gitlab.com/gnutls/libtasn1/commits/master)[![coverage report](https://gitlab.com/gnutls/libtasn1/badges/master/coverage.svg)](https://gnutls.gitlab.io/libtasn1/coverage)|
-
-# libtasn1
+# Libtasn1 README -- Introduction information
 
 This is GNU Libtasn1, a small ASN.1 library.
 
@@ -36,11 +32,20 @@ The required software is typically distributed with your operating
 system, and the instructions for installing them differ.  Here are
 some hints:
 
-gNewSense/Debian/Ubuntu:
+Debian/Ubuntu:
 ```
-sudo apt-get install make git-core autoconf automake libtool
-sudo apt-get install texinfo texlive texlive-generic-recommended texlive-extra-utils
-sudo apt-get install help2man gtk-doc-tools valgrind abigail-tools
+sudo apt-get install make git autoconf automake libtool bison
+sudo apt-get install texinfo help2man gtk-doc-tools valgrind abigail-tools
+```
+
+PDF manual - Debian <= stretch:
+```
+sudo apt-get install texlive-generic-recommended texlive texlive-extra-utils
+```
+
+PDF manual - Debian >= buster:
+```
+sudo apt-get install texlive-plain-generic texlive texlive-extra-utils
 ```
 
 The next step is to run autoreconf, ./configure, etc:
@@ -52,7 +57,7 @@ $ ./bootstrap
 Then build the project normally:
 
 ```
-$ make
+$ ./configure
 $ make check
 ```
 
@@ -61,10 +66,16 @@ Happy hacking!
 
 ## Manual
 
-The manual is in the `doc/` directory of the release.  You can also browse
-the manual online at:
+The manual is in the `doc/` directory of the release.
 
- - https://gnutls.gitlab.io/libtasn1/
+You can also browse the manual online at:
+
+ - https://www.gnu.org/software/libtasn1/manual/
+ - https://gnutls.gitlab.io/libtasn1/manual/
+ - https://gnutls.gitlab.io/libtasn1/manual/libtasn1.html
+ - https://gnutls.gitlab.io/libtasn1/manual/libtasn1.pdf
+ - https://gnutls.gitlab.io/libtasn1/reference/
+ - https://gnutls.gitlab.io/libtasn1/reference/libtasn1.pdf
 
 
 ## Code coverage report
@@ -84,8 +95,4 @@ The coverage report is at:
 
 The project homepage at the gnu site is at:
 
-http://www.gnu.org/software/libtasn1/
-
-
-For any copyright year range specified as YYYY-ZZZZ in this package
-note that the range specifies every single year in that closed interval.
+https://www.gnu.org/software/libtasn1/

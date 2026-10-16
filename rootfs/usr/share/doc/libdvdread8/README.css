@@ -10,6 +10,8 @@ distributions including Debian do not distribute libdvdcss.
 
 If it is legal for you to use CSS in your juristiction, you can:
 
+  * apt install libdvd-pkg && dpkg-reconfigure libdvd-pkg
+
   * Manually download and compile the source code from
     <http://www.videolan.org/developers/libdvdcss.html>.
 

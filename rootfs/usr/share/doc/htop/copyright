@@ -6,11 +6,11 @@ Source: https://github.com/htop-dev/htop/releases
 Files: *
 License: GPL-2+
 Copyright: 2004-2019 Hisham Muhammad
-           2020-2021 htop dev team
+           2020-2023 htop dev team
 
 Files: debian/*
 License: GPL-2+
-Copyright: 2016-2021 Daniel Lange
+Copyright: 2016-2023 Daniel Lange
            2018-2021 Graham Inggs
            2008-2016 Eugene V. Lyubimkin
            2004-2008 Bartosz Fenski

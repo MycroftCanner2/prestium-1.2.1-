@@ -5,8 +5,7 @@ Source: http://sf.net/projects/mpg123/files/
 
 Files: *
 Copyright:
-  1995-2020 by the mpg123 project
-  2009-2011 by Malcolm Boczek
+  1995-2021 by the mpg123 project
   2008 Christian Weisgerber <naddy@openbsd.org>
   2006-2007 by Zuxy Meng
   2000-2002 David Olofson
@@ -16,6 +15,7 @@ License: LGPL-2.1
 
 Files: debian/*
 Copyright:
+  2016-2021 Sebastian Ramacher <sramacher@debian.org>
   2012 Miguel A. Colón Vélez <debian.micove@gmail.com>
   2012-2014 Alessio Treglia <alessio@debian.org>
   2002-2010 Daniel Kobras <kobras@debian.org>

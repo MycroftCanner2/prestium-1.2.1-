@@ -737,7 +737,7 @@ License: AGPL-3+
  the GNU AGPL, see <http://www.gnu.org/licenses/>.
 
 Files: debian/*
-Copyright: 2008-2018, Hideki Yamane <henrich@debian.org>
+Copyright: 2008-2021, Hideki Yamane <henrich@debian.org>
 License: GPL-2
 
 Files: debian/SMgoJ

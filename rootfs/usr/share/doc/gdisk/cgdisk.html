@@ -4,7 +4,7 @@ Content-type: text/html; charset=UTF-8
 <HTML><HEAD><TITLE>Man page of CGDISK</TITLE>
 </HEAD><BODY>
 <H1>CGDISK</H1>
-Section: GPT fdisk Manual (8)<BR>Updated: 1.0.6<BR><A HREF="#index">Index</A>
+Section: GPT fdisk Manual (8)<BR>Updated: 1.0.9<BR><A HREF="#index">Index</A>
 <A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -227,8 +227,13 @@ new disks, GPT fdisk attempts to align partitions on 1 MiB boundaries
 performance for all of these disk types. On pre-partitioned disks, GPT
 fdisk attempts to identify the alignment value used on that disk, but will
 set 8-sector alignment on disks larger than 300 GB even if lesser alignment
-values are detected. In either case, it can be changed by using this
-option.
+values are detected. In either case, it can be changed by using this option.
+The alignment value also affects the default end sector value when creating
+a new partition; it will be aligned to one less than a multiple of the
+alignment value, when possible. This should keep partitions a multiple of
+the alignment value in size. Some disk encryption tools require partitions
+to be sized to some value, typically 4096 bytes, so the default alignment of
+1 MiB works well for them.
 <P>
 <DT><B>Backup</B>
 
@@ -437,7 +442,7 @@ Contributors:
 <P>
 * Justin Maggard (<A HREF="mailto:justin.maggard@netgear.com">justin.maggard@netgear.com</A>)
 <P>
-* Dwight Schauer (<A HREF="mailto:dschauer@gmail.com">dschauer@gmail.com</A>)
+* Dwight Schauer (<A HREF="mailto:das@teegra.net">das@teegra.net</A>)
 <P>
 * Florian Zumbiehl (<A HREF="mailto:florz@florz.de">florz@florz.de</A>)
 <P>
@@ -491,6 +496,6 @@ available from Rod Smith.
 This document was created by
 <A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 22:14:27 GMT, January 13, 2021
+Time: 23:17:12 GMT, April 14, 2022
 </BODY>
 </HTML>

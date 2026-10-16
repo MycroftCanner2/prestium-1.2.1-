@@ -4,7 +4,7 @@ Upstream-Contact: gnupg-devel@gnupg.org
 Source: https://gnupg.org/ftp/gcrypt/pinentry/
 
 Files: *
-Copyright: 2002-2015, g10 Code GmbH
+Copyright: 2002-2021, g10 Code GmbH
 License: GPL-2+
 
 Files: fltk/*
@@ -93,7 +93,7 @@ Copyright: 2002 Klarälvdalens Datakonsult AB (KDAB)
 License: GPL-2+
 
 Files: debian/*
-Copyright: 2004-2015 Peter Eisentraut <petere@debian.org>
+Copyright: 2004-2022 Peter Eisentraut <petere@debian.org>
  Marcus Brinkmann
  Michael Brame
  Daniel Kahn Gillmor <dkg@fifthhorseman.net>

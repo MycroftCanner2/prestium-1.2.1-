@@ -27,7 +27,7 @@ License: LGPL-2.1+
  Public License version 2.1 can be found in
  "/usr/share/common-licenses/LGPL-2.1".
 
-Files: build/valgrind/*
+Files: build-aux/valgrind/*
 Copyright: 2000-2013 Julian Seward
 License: bzip2-1.0.5
 

@@ -29,8 +29,9 @@ Copyright: 1999, AT&T Laboratories Cambridge
            2007, Savoir-faire Linux
            2007, Société des arts technologiques
            2008-2015, Tòni Galhard
-           1998-2020, VideoLAN team and VLC authors
+           1998-2022, VideoLAN team and VLC authors
            2002-2004, the xine project
+           2018-2019, Haivision Systems Inc.
 License: GPL-2+
 
 Files: bin/override.c
@@ -919,12 +920,7 @@ Copyright: 2010-2015, Benjamin Drung
            2013-2020, Sebastian Ramacher
 License: GPL-2+
 
-Files: modules/gui/macosx/PXSourceList.h
-       modules/gui/macosx/PXSourceList.m
-       modules/gui/macosx/PXSourceListDataSource.h
-       modules/gui/macosx/PXSourceListDelegate.h
-       modules/gui/macosx/SideBarItem.h
-       modules/gui/macosx/SideBarItem.m
+Files: modules/gui/macosx/PXSourceList/*
 Copyright: 2009-2010 Alex Rozanski
 License: BSD-3-clause
 Comment:
@@ -1160,6 +1156,18 @@ License: BSD-2-clause
   2. Redistributions in binary form must reproduce the above copyright
      notice, this list of conditions and the following disclaimer in the
      documentation and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE INSTITUTE AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE INSTITUTE OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
 
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without

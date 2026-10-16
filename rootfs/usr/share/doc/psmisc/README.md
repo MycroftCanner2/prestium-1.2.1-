@@ -49,9 +49,3 @@ The license has changed to GPL for version 20 onwards with permission
 of the original authors.  People who want to use these programs under
 the previous license will have to look at psmisc 19 or below.
 
-## fuser on network fs
-On network file-systems, fuser can hang because its trying to stat files
-that may go away.  If you use the --with-timeout-stat option during
-the configure step then fuser will fork a process to run stat. This means
-fuser doesn't hang, but it is much slower.
-

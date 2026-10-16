@@ -1,8 +1,6 @@
   * introduce libavcodec-extra/libavfilter-extra flavor
     + build with configure flag --enable-libglslang
       build-depend on glslang-dev
-    + build with configure flag --enable-libsmbclient
-      build-depend on libsmbclient-dev [!hurd-i386 !m68k !sparc64]
     + build with configure flag --enable-vulkan
       build-depend on libvulkan-dev
     + build-depend on libamf-dev
@@ -40,10 +38,6 @@
   * build with configure flag --enable-libxavs
     when XAVS is in Debian
     <http://xavs.sourceforge.net/>
-  * build with configure flag --enable-libzimg
-    when zimg is in Debian
-    closes: bug#864888
-    <https://github.com/buaazp/zimg>
   * build with configure flag --enable-vapoursynth
     when vapoursynth is in Debian
     closes: bug#833942
@@ -52,3 +46,5 @@
     when davs2 is no longer deemed experimental
   * build with configure flag --enable-libxavs2
     when xavs2 is no longer deemed experimental
+  * build with configure flag --enable-liblensfun
+    when a released version of liblensfun is supported again

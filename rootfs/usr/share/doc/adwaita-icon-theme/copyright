@@ -60,6 +60,7 @@ Comment:
 
 Files:
  po/*
+ 41/po/*
 Copyright:
  © 2004 Abdulaziz Al-Arfaj
  © 2003-2006 Abel Cheung
@@ -264,6 +265,7 @@ License: CC-BY-SA-3.0-US or LGPL-3
 
 Files:
  po/tk.po
+ 41/po/tk.po
 Copyright:
  © 2004 Free Software Foundation
  © 2004 Gurban Mühemmet Tewekgeli and Kakilik - Turkmen free software developers community
@@ -283,12 +285,22 @@ Files:
  Adwaita/scalable/ui/pan-up-symbolic.svg
  src/fullcolor/application-x-sharedlib.svg
  src/symbolic/gnome-stencils.svg
+ 41/Adwaita/scalable/status/night-light-symbolic.svg
+ 41/Adwaita/scalable/ui/pan-down-symbolic.svg
+ 41/Adwaita/scalable/ui/pan-end-symbolic-rtl.svg
+ 41/Adwaita/scalable/ui/pan-end-symbolic.svg
+ 41/Adwaita/scalable/ui/pan-start-symbolic-rtl.svg
+ 41/Adwaita/scalable/ui/pan-start-symbolic.svg
+ 41/Adwaita/scalable/ui/pan-up-symbolic.svg
+ 41/src/fullcolor/application-x-sharedlib.svg
+ 41/src/symbolic/gnome-stencils.svg
 Copyright:
  unspecified, possibly © Jakub Steiner
 License: CC-BY-SA-4.0
 
 Files:
  src/fullcolor/accessories-dictionary.svg
+ 41/src/fullcolor/accessories-dictionary.svg
 Copyright:
  © Ulisse Perusin
  © Lapo Calamandrei

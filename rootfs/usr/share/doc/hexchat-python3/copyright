@@ -5,11 +5,12 @@ Source: https://hexchat.github.io
 Files: *
 Copyright: 1998-2010 Peter Zelezny
            2009-2013 Berke Viktor
+           2015-2021 Patrick Griffis
 License: GPL-2+ with OpenSSL exception
 
 Files: debian/*
 Copyright: 2014 Jesse Rhodes <drubo@drubo.net>
-           2016-2021 Mattia Rizzolo <mattia@debian.org>
+           2016-2022 Mattia Rizzolo <mattia@debian.org>
 License: GPL-2+
 
 Files: data/man/hexchat.1.in
@@ -26,11 +27,8 @@ License: Expat
 
 Files: plugins/fishlim/*
 Copyright: 2010 Samuel Lidén Borell <samuel@kodafritt.se>
-License: Expat
-
-Files: plugins/fishlim/plugin_hexchat.c plugins/fishlim/plugin_hexchat.h
-Copyright: 2010-2011 Samuel Lidén Borell <samuel@kodafritt.se>
            2015 <the.cypher@gmail.com>
+           2019-2020 <bakasura@protonmail.ch>
 License: Expat
 
 Files: plugins/lua/*
@@ -85,11 +83,6 @@ Files: src/fe-gtk/sexy-spell-entry.c src/fe-gtk/sexy-spell-entry.h
 Copyright: 2002      Evan Martin
            2004-2006 Christian Hammond
 License: LGPL-2.1+
-
-Files: src/htm/*
-Copyright: 2012 Berke Viktor
-           2012 Patrick Griffs
-License: GPL-2+
 
 License: GPL-2+ with OpenSSL exception
  This package is free software; you can redistribute it and/or modify

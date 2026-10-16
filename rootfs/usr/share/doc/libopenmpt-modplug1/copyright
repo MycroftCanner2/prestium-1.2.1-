@@ -1,11 +1,11 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: libopenmpt
+Upstream-Name: libopenmpt-modplug
 Source: https://lib.openmpt.org/libopenmpt/
 
 Files: *
 Copyright:
  1997-2003, Olivier Lapicque
- 2004-2018, OpenMPT contributors
+ 2004-2020, OpenMPT contributors
 License: BSD-3-clause
 
 Files:
@@ -13,7 +13,6 @@ Files:
  build-aux/compile
  build-aux/depcomp
  build-aux/missing
- build-aux/test-driver
 Copyright: 1996-2013, Free Software Foundation, Inc
 License: GPL-2+ with Autoconf exception
 
@@ -32,7 +31,9 @@ Copyright: 1996-2011, Free Software Foundation, Inc
 License: GPL-2+ with LibTool exception
 
 Files: debian/*
-Copyright: 2016-2018, James Cowgill <jcowgill@debian.org>
+Copyright:
+ 2016-2018, James Cowgill <jcowgill@debian.org>
+ 2021, Sebastian Ramacher
 License: BSD-3-clause
 
 Files:
@@ -46,7 +47,6 @@ License: GPL-3+ with Autoconf Macros exception
 
 Files:
  m4/ax_cxx_compile_stdcxx.m4
- m4/ax_prog_doxygen.m4
  m4/ax_require_defined.m4
 Copyright:
  2008, Benjamin Kosnik <bkoz@redhat.com>

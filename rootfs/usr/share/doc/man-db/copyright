@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: man-db
 Upstream-Contact: Colin Watson <cjwatson@debian.org>
-Source: https://nongnu.org/man-db/
+Source: https://man-db.gitlab.io/man-db/
 
 Files: *
 Copyright: 1990, 1991 John W. Eaton

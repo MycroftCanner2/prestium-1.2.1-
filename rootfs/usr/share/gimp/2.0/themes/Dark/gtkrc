@@ -77,6 +77,8 @@ style "gimp-dark-default-style"
   color["clr8"]  = "#383838"
   color["clr9"]  = "#454545"
   color["clrA"]  = "#303030"
+  color["link_color"]         = "#6fa4dc"
+  color["visited_link_color"] = "#1a74d3"
 
   fg[NORMAL] = @clr1
   fg[PRELIGHT] = @clr2
@@ -134,6 +136,13 @@ style "gimp-dark-default-style"
   GtkComboBoxText::appears-as-list = 0
   GtkComboBox::appears-as-list = 0
 
+  GnomeHRef ::link_color         = @link_color
+  GtkHTML   ::link-color         = @link_color
+  GtkIMHtmlr::hyperlink-color    = @link_color
+  GtkIMHtml ::hyperlink-color    = @link_color
+  GtkWidget ::link-color         = @link_color
+  GtkWidget ::visited-link-color = @visited_link_color
+
   #
   # To adjust to default button spacing:
   #
@@ -141,7 +150,7 @@ style "gimp-dark-default-style"
   # Set focus-line to 1
   #
 
-  GtkButton::focus-line_width = 0
+  GtkButton::focus-line_width = 1
   GtkButton::focus-padding = 0
 
   GtkRange::trough-border = 0
@@ -775,6 +784,36 @@ style "gimp-dark-menu-item"
       image
         {
           function = OPTION
+          state = PRELIGHT
+          shadow = OUT
+          recolorable = TRUE
+          overlay_file = "ui/option1-prelight.png"
+          overlay_stretch = FALSE
+        }
+
+      image
+        {
+          function = OPTION
+          state = PRELIGHT
+          shadow = IN
+          recolorable = TRUE
+          overlay_file = "ui/option2-prelight.png"
+          overlay_stretch = FALSE
+        }
+        
+      image
+        {
+          function = OPTION
+          state = PRELIGHT
+          shadow = ETCHED_IN
+          recolorable = TRUE
+          overlay_file = "ui/option3-prelight.png"
+          overlay_stretch = FALSE
+        }
+
+      image
+        {
+          function = OPTION
           shadow = OUT
           recolorable = TRUE
           overlay_file = "ui/option1.png"
@@ -1310,6 +1349,16 @@ style "gimp-dark-radio-button" = "gimp-dark-default-style"
 {
   engine "pixmap"
     {
+      image
+        {
+          function = BOX
+          state = PRELIGHT
+          recolorable = TRUE
+          file = "ui/gimp-button-prelight-white-border.png"
+          border = { 8, 8, 8, 8}
+          stretch = TRUE
+        }
+
       image
         {
           function = OPTION
@@ -2323,7 +2372,7 @@ class "GimpSpinScale" style "gimp-dark-spin-scale-style"
 style "gimp-dark-treeview" = "gimp-dark-default-style"
 {
   xthickness = 2
-  ythickness = 0
+  ythickness = 2
 
   GtkTreeView::odd_row_color = "#383838"
   GtkTreeView::even_row_color = "#383838"
@@ -2342,6 +2391,13 @@ style "gimp-dark-treeview" = "gimp-dark-default-style"
   engine  "pixmap"
     {
       image
+        {
+          function = SHADOW
+          file = "ui/treeview-item-prelight.png"
+          border = { 1, 1, 1, 1 }
+          stretch = TRUE
+        }
+     image
         {
           function = FLAT_BOX
           state = ACTIVE

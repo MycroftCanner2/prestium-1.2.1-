@@ -1,0 +1,17 @@
+#/bin/bash completion for extrepo
+
+_extrepo() {
+	local cur prev cmd_name
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	prev="${COMP_WORDS[COMP_CWORD-1]}"
+	cmd_name="${COMP_WORDS[1]}"
+
+	opts="--url --offlinedata --mirror"
+	cmds="search update disable enable"
+
+	COMPREPLY=( $(compgen -W "${opts} ${cmds}" -- ${cur}) )
+	return 0
+}
+
+complete -F _extrepo extrepo

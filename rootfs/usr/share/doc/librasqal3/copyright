@@ -1,7 +1,7 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Rasqal RDF Query Library
 Upstream-Contact: Dave Beckett <dave@dajobe.org>
-Source: http://download.librdf.org/source/
+Source: https://download.librdf.org/source/
 
 Files: *
 Copyright: 2000-2014 David Beckett

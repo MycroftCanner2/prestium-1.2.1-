@@ -7,7 +7,7 @@ Copyright: 2017-2020 The Qt Company Ltd.
 License: GPL-3 with Qt-1.0 exception
 
 Files: debian/*
-Copyright: 2013-2017 Dmitry Shachnev <mitya57@debian.org>
+Copyright: 2013-2022 Dmitry Shachnev <mitya57@debian.org>
            2013-2014 Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
 License: LGPL-2.1
 

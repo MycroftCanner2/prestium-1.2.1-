@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libpipeline
 Upstream-Contact: Colin Watson <cjwatson@debian.org>
-Source: https://download.savannah.nongnu.org/releases/libpipeline/
+Source: https://gitlab.com/libpipeline/libpipeline/-/releases
 
 Files: *
 Copyright: 2010-2020, Colin Watson

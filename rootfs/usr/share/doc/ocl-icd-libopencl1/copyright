@@ -3,12 +3,13 @@ Upstream-Name: ocl-icd
 Source: https://github.com/OCL-dev/ocl-icd/tags
 
 Files: *
-Copyright: 2012 Brice Videau <brice.videau@imag.fr>
-           2012 Vincent Danjean <Vincent.Danjean@ens-lyon.org>
+Copyright: 2012-2020 Brice Videau <brice.videau@imag.fr>
+           2012-2020 Vincent Danjean <Vincent.Danjean@ens-lyon.org>
 License: BSD-2-Clause
 
 Files: debian/*
-Copyright: 2012 Vincent Danjean <vdanjean@debian.org>
+Copyright: 2012-2021 Vincent Danjean <vdanjean@debian.org>
+           © 2018-2022 Andreas Beckmann <anbe@debian.org>
 License: BSD-2-Clause
 
 License: BSD-2-Clause

@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: NTFS-3G Advanced
-Upstream-Contact: https://www.tuxera.com/forum/
-Source: http://jp-andre.pagesperso-orange.fr/advanced-ntfs-3g.html#download
+Upstream-Name: ntfs-3g
+Upstream-Contact: https://github.com/tuxera/ntfs-3g/issues
+Source: https://github.com/tuxera/ntfs-3g
 
 Files: *
 Copyright: 2000-2014 ntfs-3g Development Team
@@ -12,7 +12,7 @@ Copyright: 2000-2013 ntfs-3g Development Team
 License: LGPL-2+
 
 Files: debian/*
-Copyright: 2014- Laszlo Boszormenyi (GCS) <gcs@debian.org>,
+Copyright: 2014-     Laszlo Boszormenyi (GCS) <gcs@debian.org>,
  2011-2014 Daniel Baumann <mail@daniel-baumann.ch>,
  2006-2010 Adam Cecile <gandalf@le-vert.net>
 License: GPL-2+

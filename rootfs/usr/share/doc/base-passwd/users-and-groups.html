@@ -46,7 +46,13 @@ NAME="AEN14"
 >David Mandelberg</H3
 ><P
 CLASS="COPYRIGHT"
->Copyright &copy; 2001, 2002, 2003, 2004, 2005, 2007 Joey Hess, Colin Watson, David Mandelberg</P
+>Copyright &copy; 2001, 2002 Joey Hess</P
+><P
+CLASS="COPYRIGHT"
+>Copyright &copy; 2005 David Mandelberg</P
+><P
+CLASS="COPYRIGHT"
+>Copyright &copy; 2001-2022 Colin Watson</P
 ><DIV
 CLASS="LEGALNOTICE"
 ><P
@@ -461,10 +467,14 @@ CLASS="FUNCTION"
 >	    Used by <B
 CLASS="COMMAND"
 >gnats</B
->. This has a statically
+>.  This had a statically
 	    allocated user and group for purely historical reasons (it could
-	    equally well use a dynamic system user and group), but it's
-	    cumbersome to change now.
+	    equally well use a dynamic system user and group).  Since
+	    <B
+CLASS="COMMAND"
+>gnats</B
+> has been removed from Debian, this user
+	    and group are no longer created by default; they had uid/gid 41.
 	  </P
 ></DD
 ><DT
@@ -910,15 +920,24 @@ CLASS="FILENAME"
 	  </P
 ></DD
 ><DT
->ssh</DT
+>_ssh</DT
 ><DD
 ><P
 >	    <B
 CLASS="COMMAND"
 >ssh-agent</B
-> is setgid to ssh in order to
+> is setgid to _ssh in order to
 	    prevent ptrace attacks.
 	  </P
+></DD
+><DT
+>libvirt</DT
+><DD
+><P
+>            Access to the system libvirt daemon is controlled by this
+            group.  Membership in this group gives full daemon access
+            including (but not restricted to) managing virtual machines.
+          </P
 ></DD
 ></DL
 ></DIV

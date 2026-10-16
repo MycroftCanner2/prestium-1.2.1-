@@ -30,7 +30,7 @@ License: BSD-2-clause
 
 Files: debian/*
 Copyright: 2006-2008 Max Kellermann <max@duempel.org>
-           2014-2020 Jörg Frings-Fürst <debian@jff.email>
+           2014-2022 Jörg Frings-Fürst <debian@jff.email>
 License: GPL-2+
 
 License: GPL-2+

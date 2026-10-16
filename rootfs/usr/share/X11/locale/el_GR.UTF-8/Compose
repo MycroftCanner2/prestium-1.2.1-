@@ -19,9 +19,9 @@
 #	- ISO 8859-1
 #	- ISO 8859-7
 #
-# This file consists of four parts. Two of them have been adapted from
-# the iso8859-1/Compose and iso8859-7/Compose files. The other two
-# parts have been created by:
+# This file consists of three parts. Two of them have been adapted
+# from the iso8859-1/Compose and iso8859-7/Compose files. The other
+# (middle) part has been created by:
 #	Vasilis Vasaitis <vvas@hal.csd.auth.gr>
 # based on the idea and initial implementation by:
 #	Alejandros Diamandidis <adia@egnatia.ee.auth.gr>
@@ -1946,12 +1946,4 @@
 <Multi_key> <3> <8>			: "⅜"	U215C # VULGAR FRACTION THREE EIGHTHS
 <Multi_key> <5> <8>			: "⅝"	U215D # VULGAR FRACTION FIVE EIGHTHS
 <Multi_key> <7> <8>			: "⅞"	U215E # VULGAR FRACTION SEVEN EIGHTHS
-#
-# Khmer digraphs
-#
-<U17ff> :   "ាំ"
-<U17fe> :   "ោះ"
-<U17fd> :   "េះ"
-<U17fc> :   "ុំ"
-<U17fb> :   "ុះ"
 # End

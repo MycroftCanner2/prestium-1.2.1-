@@ -1,6 +1,6 @@
 <!--
  *****************************************************************************
- * Copyright 1997-2019,2020 by Thomas E. Dickey                              *
+ * Copyright 1997-2021,2022 by Thomas E. Dickey                              *
  * All Rights Reserved.                                                      *
  *                                                                           *
  * Permission to use, copy, modify, and distribute this software and its     *
@@ -19,15 +19,13 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   *
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            *
  *****************************************************************************
-  $XTermId: xterm.faq.html,v 1.396 2020/08/11 19:56:46 tom Exp $
+  $XTermId: xterm.faq.html,v 1.419 2022/12/15 00:49:26 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-
 <html>
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0">
-
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
   <title>XTerm &ndash; Frequently Asked Questions (FAQ)</title>
   <link rel="author" href="mailto:dickey@invisible-island.net">
   <meta http-equiv="Content-Type" content=
@@ -50,13 +48,12 @@
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
 </head>
-
 <body>
   <hr>
 
   <p><a href="/">http://invisible-island.net/</a><a href=
   "./">xterm/</a><br>
-  Copyright &copy; 1997-2019,2020 by Thomas E. Dickey</p>
+  Copyright &copy; 1997-2021,2022 by Thomas E. Dickey</p>
 
   <hr>
 
@@ -142,10 +139,20 @@
   <p>I've been working on xterm since early 1996 (see my <a href=
   "xterm.log.html">changelog</a> for details).</p>
 
-  <p>But the program is much older than that.</p>
+  <p>But the program is much older than that:</p>
 
-  <h3 id="pre_history-id"><a name="prehistory" id="prehistory">A
-  Prehistory Perspective</a></h3>
+  <ul>
+    <li><a href="#prehistory">A Prehistory Perspective</a></li>
+
+    <li><a href="#some_digging">Looking for more perspective</a></li>
+
+    <li><a href="#my_history">My involvement</a></li>
+
+    <li><a href="#forward_history">Focus of this FAQ</a></li>
+  </ul>
+
+  <h3 id="pre_history-id"><a href="#who_did_it" name="prehistory"
+  id="prehistory">A Prehistory Perspective</a></h3>
 
   <p>A lot of people, cited at the bottom of the manual page wrote
   the original xterm program, maintained by the X Consortium (later
@@ -185,10 +192,6 @@
 
     <p>Then hacked on at the X Consortium by uncounted people.</p>
   </blockquote>
-
-  <p>There is a git repository <a href=
-  "http://cgit.freedesktop.org/~alanc/xc-historical/log/xc/programs/xterm/">
-  here</a> which gives some more of xterm's prehistory.</p>
 
   <p>Email from Doug Mink (October 1999) provides more
   background:</p>
@@ -238,8 +241,165 @@
     still at the Smithsonian Astrophysical Observatory.</p>
   </blockquote>
 
-  <h3 id="my_history-id"><a name="my_history" id="my_history">My
-  Involvement</a></h3>
+  <h3><a href="#who_did_it" name="some_digging" id=
+  "some_digging">Looking for more perspective</a></h3>
+
+  <p>VS100 refers to the VAXstation 100, introduced by DEC in 1984
+  (see <a href=
+  "http://www.bitsavers.org/pdf/dec/vax/vaxstation100/AA-N660A-TE_VAXstation_100_Users_Guide_Jun84.pdf">
+  manual</a>).</p>
+
+  <p>There is a git repository <a href=
+  "http://cgit.freedesktop.org/~alanc/xc-historical/log/xc/programs/xterm/">
+  here</a> which gives some more of xterm's prehistory. But it has
+  no usable data for X10 (see initial revisions in <a href=
+  "https://cgit.freedesktop.org/~alanc/xc-historical/log/?ofs=25700">
+  1985/1986</a>). The X developers did not really start checking in
+  their code until 1987.</p>
+
+  <p>The earliest version of xterm which is available is from
+  X10R3. According to the xc-historical repository, that was
+  <a href=
+  "https://cgit.freedesktop.org/~alanc/xc-historical/commit/?id=49c79082577b5ef39c456c03a047e07d8c702e9f">
+  February 1, 1986</a> (a change to the <tt>rgb.c</tt> file). Even
+  that date is suspect because the X10R3 tarball contains xterm
+  files later than that date:</p>
+
+  <blockquote>
+    <pre class="code-block">
+  17024 May 17 1986    xterm/util.c
+  31545 May 17 1986    xterm/main.c
+   1377 Feb 10 1986    xterm/Makefile
+  10804 Feb  3 1986    man/xterm.1
+    660 Feb  2 1986    xterm/terminfo
+    606 Feb  2 1986    xterm/termcap
+   1178 Feb  2 1986    xterm/tabs.c
+  10525 Feb  2 1986    xterm/screen.c
+   2907 Feb  2 1986    xterm/resize.c
+   6699 Feb  2 1986    xterm/ptyx.h
+   2720 Feb  2 1986    xterm/input.c
+   2959 Feb  2 1986    xterm/esctable.h
+   4482 Feb  2 1986    xterm/cursor.c
+   7661 Feb  2 1986    xterm/chartable.h
+  23543 Feb  2 1986    xterm/charproc.c
+  13990 Feb  2 1986    xterm/button.c
+   1122 Feb  2 1986    xterm/buf.c
+   3932 Feb  2 1986    xterm/ansi.c
+  15662 Feb  2 1986    xterm/Tplot.c
+   2382 Feb  2 1986    xterm/README
+    234 Feb  2 1986    cursors/xterm_mask.cursor
+    234 Feb  2 1986    include/X/cursors/xterm_mask.cursor
+    261 Feb  2 1986    cursors/xterm.cursor
+    261 Feb  2 1986    include/X/cursors/xterm.cursor
+   1335 Dec 21 1985    xterm/icon.ic
+   1350 Dec 21 1985    xterm/icon_mask.ic
+</pre>
+  </blockquote>
+
+  <p>But since the X10R3 tarball contains only 10
+  &ldquo;later&rdquo; files out of 974, the 3-4 xterm files are
+  just some after-the-fact correction whose reason is long
+  lost.</p>
+
+  <p>A posting by Andreas Motl to <a href=
+  "https://web.archive.org/web/20151102155441/http://www.netfrag.org/webnews/article.php?id=1064&amp;group=nfo.links.computing">
+  <em>nfo.links.computing</em></a> in March 2003 recapitulates the
+  content of a page <a href=
+  "https://web.archive.org/web/20030618125926/http://www.robotwisdom.com/linux/desktops.html">
+  <em>Linux desktops (GUIs, widgets, window managers, etc)</em></a>
+  (Jorn Barger, November 2002). That mentions X10 (e.g., &ldquo;X
+  v10&rdquo;):</p>
+
+  <blockquote>
+    <pre class="code-block">
+1985: Sep: X v9 distributed as free [cite] cf Andrew [Gettys]
+1985: X/Open Portability Guide [cite]
+1985: Oct: Amiga 1.0 [info]
+1985: 20Nov: Windows 1.0 ships [tour]
+1985: Dec: Clayton Elwell's Portable User Interface Library project [GooJa]
+
+1985: Dec: X v10r2 [annc]
+
+  "X is a portable network transparent window system for bitmap displays.
+Applications can be run from any machine in a local area network via stream
+connections (currently TCP and Unix domain are supported). X is a fully
+hierarchic window system intended to be very flexible. Manipulation of existing
+windows is done with an external window manager; if you don't like ours, write
+your own. Applications include a terminal emulator (~VT102 and Tek 4010), load
+monitor, clock, imagen previewer, and several window managers among other
+things."
+
+no-date: Windows 2.0 clones Mac interface; withdrawn and tweaked to avoid
+lawsuit? [cite]
+
+1986: Jan: DEC announces VAXstation with X
+1986: Feb: X v10r3 [annc]
+</pre>
+  </blockquote>
+
+  <p>September 1985 might be accurate for X version 9. However, the
+  first line of the xterm manual page from X10R3 says</p>
+
+  <blockquote>
+    <pre class="code-block">
+.TH XTERM 1 "1 January 1985" "X Version 10"
+</pre>
+  </blockquote>
+
+  <p>Jim Gettys might be able to explain that. Several of the files
+  in that version of xterm have copyright dates from 1984, making
+  that the likely beginning of development for xterm. Other parts
+  of the X10R3 source tree have similar clues. For example, Xlib
+  may have begun development in 1984, but since it was unreleased
+  until the end of 1985, the actual date is indeterminate.</p>
+
+  <p>A comment by Jim Fulton on <a href=
+  "https://tech.slashdot.org/comments.pl?sid=7262&amp;cid=830314">slashdot
+  in 2000</a> gives more details on the early versions of X:</p>
+
+  <blockquote>
+    <p class="code-block">There weren't really ten full releases
+    prior to X11R1, however there were 10 incompatible revs of the
+    protocol. Most of the early versions were primarily used within
+    MIT (Athena and LCS) and friendly commercial R&amp;D labs.
+    Here's some of the pre-history based on cryptic notes and
+    blurry memory: X1 - summer 1984 - the first version, based on a
+    substantial rearchitecting of the UNIX port of the W Window
+    System (originally developed for the V Kernel). X3 - fall 1984
+    - used internally at MIT as the initial basis of various
+    plotting packages for coursework. X6 - spring 1985 - first
+    version licensed by MIT to various companies (including
+    Cognition, MASSCOMP, and Digital) for use in commercial
+    products. It cost $100 and if you wanted you could stop off at
+    the (very small) licensing office to pick up your own magtape.
+    X8/X9 - fall 1985 - added color (X8 lasted all of about a week;
+    X9 was quickly released to fix a protocol alignment problem
+    that impacted ports on the IBM PC/RT). Many organizations began
+    developing ports (including a version to the Lexidata 9000
+    display card for VAXen that was used at the Autofact tradeshow
+    in late 1985 to show a prototype of the first 3rd party
+    application: a mechanical engineering design system). X.V10R1 -
+    spring 1986 - first version released by MIT that did not
+    require signing a license agreement. Also the first version to
+    have a DOS Xserver developed. X.V10R[234] - fall 1986 &amp;
+    spring 1987 - an explosion of ports done on a variety of
+    platforms. X.V11R1 - Sep 15, 1987 - major overall done in
+    collaboration with folks from Digital, Sun, IBM, and other
+    companies. Formed the basis of core protocol used today.
+    Companies and organizations releasing X-based products used
+    this release as a starting port for incorporating into their
+    own distributions. X.V11R2 - March 1, 1988 - first version
+    released under the auspices of the newly-formed MIT X
+    Consortium. The MIT X Consortium continued to put out releases
+    of X11 for a number of years. Then in the mid-90s, it was spun
+    off into a separate not-for-profit organization (simple the X
+    Consortium). As has been noted, that eventually folded into
+    various organizations that became X.ORG. The rest is history.
+    :) Jim Fulton</p>
+  </blockquote>
+
+  <h3 id="my_history-id"><a href="#who_did_it" name="my_history"
+  id="my_history">My Involvement</a></h3>
 
   <p>My involvement with <strong>xterm</strong> through XFree86
   began at the <a href="/xterm/xterm.html#history">end of 1995</a>.
@@ -330,8 +490,8 @@
     snapshots</a>, starting from xterm patch #41</li>
   </ul>
 
-  <h3 id="forward_history-id"><a name="forward_history" id=
-  "forward_history">Focus of this FAQ</a></h3>
+  <h3 id="forward_history-id"><a href="#who_did_it" name=
+  "forward_history" id="forward_history">Focus of this FAQ</a></h3>
 
   <p>This FAQ is oriented toward the version of xterm originally
   distributed with XFree86 (more commonly known as modern, or "new
@@ -566,12 +726,9 @@
   one that I maintain:</p>
 
   <ul>
-    <li><a href=
-    "ftp://ftp.invisible-island.net/xterm/xterm.tar.gz">current
-    source (ftp)</a></li>
+    <li><a href="/datafiles/release/xterm.tar.gz">source</a></li>
 
-    <li><a href="/datafiles/release/xterm.tar.gz">current source
-    (http)</a></li>
+    <li><a href="/archives/xterm/">archives</a></li>
   </ul>
 
   <h2 id="other_versions-id"><a name="other_versions" id=
@@ -772,17 +929,31 @@
     control.</li>
   </ol>
 
-  <p>The control sequences document lists a few controls which
-  xterm does not (completely) implement, e.g.,</p>
+  <p>The <a href="ctlseqs/ctlseqs.html">control sequences</a>
+  document lists a few controls which xterm does not (completely)
+  implement, e.g.,</p>
 
   <ul>
-    <li>key-repeat</li>
+    <li><a href=
+    "ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-8.1E68">
+    key-repeat</a></li>
 
-    <li>enabling LEDs other than scroll-lock</li>
+    <li><a href=
+    "ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q.1CB1">
+    enabling LEDs</a> other than scroll-lock</li>
   </ul>
 
-  <p>None of the other terminal emulators implements those
-  either.<br></p>
+  <p>Those are not implemented in xterm because all X applications
+  share the same keyboard (see <a href=
+  "manpage/xterm.html#h2-EMULATIONS">manpage</a>), and <a href=
+  "https://www.x.org/releases/current/doc/man/man1/xset.1.xhtml">xset</a>
+  is the proper tool for changing auto-repeat. The <a href=
+  "https://github.com/ThomasDickey/old-xterm/blob/d448c6d7373c3bc3df4c75e815baa1e645462893/charproc.c#L1048">
+  X10R4</a> xterm did implement key-repeat, but the feature was
+  removed in <a href=
+  "https://github.com/ThomasDickey/old-xterm/blob/6bf1714f13b7811c3e28d186bfc9942d971edd9b/charproc.c#L1048">
+  X11R1</a>. None of the other terminal emulators implements those
+  either.</p>
 
   <table border="1" summary=
   "Comparing against the control sequences document">
@@ -799,101 +970,71 @@
 
     <tr>
       <th>yes</th>
-
       <th>partial</th>
-
       <th>no</th>
-
       <th>program</th>
     </tr>
 
     <tr>
       <td>488</td>
-
       <td>4</td>
-
       <td>6</td>
-
       <td>xterm-new</td>
     </tr>
 
     <tr>
       <td>154</td>
-
       <td>6</td>
-
       <td>338</td>
-
       <td>xterm-r6</td>
     </tr>
 
     <tr>
       <td>188</td>
-
       <td>5</td>
-
       <td>305</td>
-
       <td>vt220</td>
     </tr>
 
     <tr>
       <td>104</td>
-
       <td>0</td>
-
       <td>394</td>
-
       <td>vt102</td>
     </tr>
 
     <tr>
       <td>204</td>
-
       <td>3</td>
-
       <td>291</td>
-
       <td>rxvt</td>
     </tr>
 
     <tr>
       <td>219</td>
-
       <td>3</td>
-
       <td>276</td>
-
       <td>urxvt</td>
     </tr>
 
     <tr>
       <td>191</td>
-
       <td>2</td>
-
       <td>305</td>
-
       <td>putty</td>
     </tr>
 
     <tr>
       <td>170</td>
-
       <td>3</td>
-
       <td>325</td>
-
       <td>konsole</td>
     </tr>
 
     <tr>
       <td>184</td>
-
       <td>6</td>
-
       <td>308</td>
-
       <td>vte</td>
     </tr>
   </table>
@@ -924,101 +1065,71 @@
 
     <tr>
       <th>yes</th>
-
       <th>partial</th>
-
       <th>no</th>
-
       <th>program</th>
     </tr>
 
     <tr>
       <td>488</td>
-
       <td>0</td>
-
       <td>0</td>
-
       <td>xterm-new</td>
     </tr>
 
     <tr>
       <td>154</td>
-
       <td>6</td>
-
       <td>328</td>
-
       <td>xterm-r6</td>
     </tr>
 
     <tr>
       <td>182</td>
-
       <td>2</td>
-
       <td>304</td>
-
       <td>vt220</td>
     </tr>
 
     <tr>
       <td>98</td>
-
       <td>0</td>
-
       <td>390</td>
-
       <td>vt102</td>
     </tr>
 
     <tr>
       <td>204</td>
-
       <td>3</td>
-
       <td>281</td>
-
       <td>rxvt</td>
     </tr>
 
     <tr>
       <td>219</td>
-
       <td>3</td>
-
       <td>266</td>
-
       <td>urxvt</td>
     </tr>
 
     <tr>
       <td>189</td>
-
       <td>2</td>
-
       <td>297</td>
-
       <td>putty</td>
     </tr>
 
     <tr>
       <td>170</td>
-
       <td>3</td>
-
       <td>315</td>
-
       <td>konsole</td>
     </tr>
 
     <tr>
       <td>184</td>
-
       <td>6</td>
-
       <td>298</td>
-
       <td>vte</td>
     </tr>
   </table>
@@ -1042,101 +1153,71 @@
 
     <tr>
       <th>yes</th>
-
       <th>partial</th>
-
       <th>no</th>
-
       <th>program</th>
     </tr>
 
     <tr>
       <td>182</td>
-
       <td>0</td>
-
       <td>6</td>
-
       <td>xterm-new</td>
     </tr>
 
     <tr>
       <td>78</td>
-
       <td>6</td>
-
       <td>104</td>
-
       <td>xterm-r6</td>
     </tr>
 
     <tr>
       <td>188</td>
-
       <td>0</td>
-
       <td>0</td>
-
       <td>vt220</td>
     </tr>
 
     <tr>
       <td>104</td>
-
       <td>0</td>
-
       <td>84</td>
-
       <td>vt102</td>
     </tr>
 
     <tr>
       <td>101</td>
-
       <td>3</td>
-
       <td>84</td>
-
       <td>rxvt</td>
     </tr>
 
     <tr>
       <td>106</td>
-
       <td>3</td>
-
       <td>79</td>
-
       <td>urxvt</td>
     </tr>
 
     <tr>
       <td>107</td>
-
       <td>2</td>
-
       <td>79</td>
-
       <td>putty</td>
     </tr>
 
     <tr>
       <td>100</td>
-
       <td>3</td>
-
       <td>85</td>
-
       <td>konsole</td>
     </tr>
 
     <tr>
       <td>88</td>
-
       <td>6</td>
-
       <td>94</td>
-
       <td>vte</td>
     </tr>
   </table>
@@ -1159,101 +1240,71 @@
 
     <tr>
       <th>yes</th>
-
       <th>partial</th>
-
       <th>no</th>
-
       <th>program</th>
     </tr>
 
     <tr>
       <td>98</td>
-
       <td>0</td>
-
       <td>6</td>
-
       <td>xterm-new</td>
     </tr>
 
     <tr>
       <td>70</td>
-
       <td>6</td>
-
       <td>28</td>
-
       <td>xterm-r6</td>
     </tr>
 
     <tr>
       <td>104</td>
-
       <td>0</td>
-
       <td>0</td>
-
       <td>vt220</td>
     </tr>
 
     <tr>
       <td>104</td>
-
       <td>0</td>
-
       <td>0</td>
-
       <td>vt102</td>
     </tr>
 
     <tr>
       <td>79</td>
-
       <td>2</td>
-
       <td>23</td>
-
       <td>rxvt</td>
     </tr>
 
     <tr>
       <td>81</td>
-
       <td>2</td>
-
       <td>21</td>
-
       <td>urxvt</td>
     </tr>
 
     <tr>
       <td>86</td>
-
       <td>2</td>
-
       <td>16</td>
-
       <td>putty</td>
     </tr>
 
     <tr>
       <td>85</td>
-
       <td>3</td>
-
       <td>16</td>
-
       <td>konsole</td>
     </tr>
 
     <tr>
       <td>60</td>
-
       <td>1</td>
-
       <td>43</td>
-
       <td>vte</td>
     </tr>
   </table>
@@ -1983,9 +2034,9 @@
 
   <p>Finally (for the moment) is a further modification of Robert
   Ess's script by <a href=
-  "http://www-personal.une.edu.au/~oahlefel/">Erik Ahlefeldt</a>,
-  &lt;oahlefel@metz.une.edu.au&gt;. From his readme file, for
-  vmsterm:</p>
+  "https://web.archive.org/web/20110411233005/http://www-personal.une.edu.au/~oahlefel/vmsterm.htm">
+  Erik Ahlefeldt</a>, &lt;oahlefel@metz.une.edu.au&gt;. From his
+  readme file, for vmsterm:</p>
 
   <blockquote>
     <p>This script is for people who wish to connect from a Linux
@@ -2026,7 +2077,6 @@
         VT keyboard, so I map PC F1 thru F12 to VT F1 thru F12
         (except for F1 thru F5 as noted below) and PC Shift F1 thru
         Shift F10 to VT F11 thru F20.
-
         <p>The VT keys F1 thru F5 are local hardware function keys
         so there is nothing to emulate, however some PC to VT
         emulations in the past have mapped PF1 thru PF4 here, so I
@@ -2601,7 +2651,6 @@ current_title=$(xprop -id $WINDOWID | grep WM_NAME | cut -d= -f2)
   <ul>
     <li>
       <a href="#problems_starting">Starting xterm, or not</a>
-
       <ul>
         <li><a href="#no_ptys">Xterm does not run (no available
         pty's)</a></li>
@@ -2623,7 +2672,6 @@ current_title=$(xprop -id $WINDOWID | grep WM_NAME | cut -d= -f2)
 
     <li>
       <a href="#problems_fonts">Font problems</a>
-
       <ul>
         <li><a href="#no_altchar">My terminal doesn't show box
         characters</a></li>
@@ -2649,7 +2697,6 @@ current_title=$(xprop -id $WINDOWID | grep WM_NAME | cut -d= -f2)
 
     <li>
       <a href="#problems_keyboard">Keyboard problems</a>
-
       <ul>
         <li><a href="#xterm_8bits">Why can't I input 8-bit
         characters?</a></li>
@@ -2685,7 +2732,6 @@ current_title=$(xprop -id $WINDOWID | grep WM_NAME | cut -d= -f2)
     <li>
       <a href="#problems_colors">Colors and other graphic
       rendition</a>
-
       <ul>
         <li><a href="#no_color">My terminal doesn't recognize
         color</a></li>
@@ -2721,7 +2767,6 @@ current_title=$(xprop -id $WINDOWID | grep WM_NAME | cut -d= -f2)
 
     <li>
       <a href="#problems_weird">Odd behavior</a>
-
       <ul>
         <li><a href="#xterm_paste">Why can't I select/paste in
         xterm?</a></li>
@@ -2731,6 +2776,9 @@ current_title=$(xprop -id $WINDOWID | grep WM_NAME | cut -d= -f2)
 
         <li><a href="#xterm_tabs">Why can't I select tab-characters
         in xterm?</a></li>
+
+        <li><a href="#xterm_paste_nl">Can bracketed-paste solve my
+        problems?</a></li>
 
         <li><a href="#xterm_resize">FVWM does weird things when I
         try to resize xterm</a></li>
@@ -2793,7 +2841,6 @@ current_title=$(xprop -id $WINDOWID | grep WM_NAME | cut -d= -f2)
 
     <li>newer systems (with Unix98 pty's) have a single entry under
     /dev which has to have the right permissions. For example:
-
       <blockquote>
         <pre class="code-block">
 # ls -l /dev/ptmx
@@ -2890,7 +2937,6 @@ xterm -e foo
     file, or</li>
 
     <li>Running
-
       <blockquote>
         <pre class="code-block">
 stty -a
@@ -3108,10 +3154,9 @@ setenv COLUMNS 80
   "xterm.log.html#xterm_175">patch 175</a> to add an option
   (<code>-k8</code>) and corresponding resource settings to allow
   them to customize their environment. Here is a <a href=
-  "ftp://ftp.invisible-island.net/xterm/koi8-term">sample
-  script</a> and <a href=
-  "ftp://ftp.invisible-island.net/xterm/KOI8Term">resource file</a>
-  which I use for testing this configuration.</p>
+  "/archives/xterm/koi8-term">sample script</a> and <a href=
+  "/archives/xterm/KOI8Term">resource file</a> which I use for
+  testing this configuration.</p>
 
   <h4 id="utf8_fonts-id"><a name="utf8_fonts" id="utf8_fonts">I see
   boxes instead of characters in uxterm</a></h4>
@@ -3634,7 +3679,7 @@ keycode 22 = 0xff08
   "/xterm/xterm.log.html#xterm_271">patch #271</a>), and does not
   have this problem.</p>
 
-  <p>As of February 2014, I am able to verify that AIX and HPUX
+  <p>As of February 2014, I was able to verify that AIX and HPUX
   have updated to modern xterm, e.g.,</p>
 
   <ul>
@@ -3829,7 +3874,6 @@ ESC O F
       VT220-style, rather than the default PC-style. Too accustomed
       to switching modes on the fly, I overlooked a line in my
       .Xdefaults file:
-
       <blockquote class="code-block">
         <!--{{atr2html-->
 
@@ -3894,7 +3938,6 @@ ESC O F
     terminfo <code>kbs</code> from <code>^H</code> to
     <code>^?</code>. As noted, the terminfo I wrote for XFree86
     3.3.x has an error. Setting
-
       <blockquote class="code-block">
         <!--{{atr2html-->
 
@@ -3925,7 +3968,6 @@ ESC O F
 
     <li>Debian unstable is xterm-149. Other than omitting the color
     resources from the app-defaults file, I see that it sets
-
       <blockquote class="code-block">
         <!--{{atr2html-->
 
@@ -4368,7 +4410,7 @@ XFree86 3.1.2a (23 September 1995)
    and background color for text using SGR.  For example, to make the
    foreground red, you do:  "^[[31m".  The values from 30 to 37 set
    foreground, those from 40 to 47 set background.  The default colors
-   are: 
+   are:
         0) black   1) red   2) green  3) yellow  4) blue  5) magenta
         6) cyan    7) white
 
@@ -4393,24 +4435,18 @@ XFree86 3.1.2a (23 September 1995)
     <table border="1" summary="ANSI colors before and now">
       <tr>
         <th>Resource</th>
-
         <th>1992</th>
-
         <th>1995</th>
-
         <th>2016</th>
       </tr>
 
       <tr>
         <td><code>color0</code>
         </td>
-
         <td><code>Black</code>
         </td>
-
         <td><code>black</code>
         </td>
-
         <td><code>black</code>
         </td>
       </tr>
@@ -4418,13 +4454,10 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color1</code>
         </td>
-
         <td><code>Red</code>
         </td>
-
         <td><code>red3</code>
         </td>
-
         <td><code>red3</code>
         </td>
       </tr>
@@ -4432,13 +4465,10 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color2</code>
         </td>
-
         <td><code>Green</code>
         </td>
-
         <td><code>green3</code>
         </td>
-
         <td><code>green3</code>
         </td>
       </tr>
@@ -4446,13 +4476,10 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color3</code>
         </td>
-
         <td><code>Yellow</code>
         </td>
-
         <td><code>yellow3</code>
         </td>
-
         <td><code>yellow3</code>
         </td>
       </tr>
@@ -4460,13 +4487,10 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color4</code>
         </td>
-
         <td><code>Blue</code>
         </td>
-
         <td><code>blue3</code>
         </td>
-
         <td><code>blue2</code>
         </td>
       </tr>
@@ -4474,13 +4498,10 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color5</code>
         </td>
-
         <td><code>Magenta</code>
         </td>
-
         <td><code>magenta3</code>
         </td>
-
         <td><code>magenta3</code>
         </td>
       </tr>
@@ -4488,13 +4509,10 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color6</code>
         </td>
-
         <td><code>Cyan</code>
         </td>
-
         <td><code>cyan3</code>
         </td>
-
         <td><code>cyan3</code>
         </td>
       </tr>
@@ -4502,13 +4520,10 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color7</code>
         </td>
-
         <td><code>White</code>
         </td>
-
         <td><code>gray90</code>
         </td>
-
         <td><code>gray90</code>
         </td>
       </tr>
@@ -4516,12 +4531,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color8</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>gray30</code>
         </td>
-
         <td><code>gray50</code>
         </td>
       </tr>
@@ -4529,12 +4541,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color9</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>red</code>
         </td>
-
         <td><code>red</code>
         </td>
       </tr>
@@ -4542,12 +4551,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color10</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>green</code>
         </td>
-
         <td><code>green</code>
         </td>
       </tr>
@@ -4555,12 +4561,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color11</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>yellow</code>
         </td>
-
         <td><code>yellow</code>
         </td>
       </tr>
@@ -4568,12 +4571,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color12</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>blue</code>
         </td>
-
         <td><code>rgb:5c/5c/ff</code>
         </td>
       </tr>
@@ -4581,12 +4581,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color13</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>magenta</code>
         </td>
-
         <td><code>magenta</code>
         </td>
       </tr>
@@ -4594,12 +4591,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color14</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>cyan</code>
         </td>
-
         <td><code>cyan</code>
         </td>
       </tr>
@@ -4607,12 +4601,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>color15</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>white</code>
         </td>
-
         <td><code>white</code>
         </td>
       </tr>
@@ -4620,12 +4611,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>colorUL</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>yellow</code>
         </td>
-
         <td><code>foreground</code>
         </td>
       </tr>
@@ -4633,12 +4621,9 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>colorBD</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td><code>white</code>
         </td>
-
         <td><code>foreground</code>
         </td>
       </tr>
@@ -4646,11 +4631,8 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>colorRV</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td>&nbsp;</td>
-
         <td><code>foreground</code>
         </td>
       </tr>
@@ -4658,11 +4640,8 @@ XFree86 3.1.2a (23 September 1995)
       <tr>
         <td><code>colorIT</code>
         </td>
-
         <td>&nbsp;</td>
-
         <td>&nbsp;</td>
-
         <td><code>foreground</code>
         </td>
       </tr>
@@ -4758,41 +4737,29 @@ XFree86 3.1.2a (23 September 1995)
   "Allocation of colors for 88/157/256 schemes">
     <tr>
       <th>88</th>
-
       <th>157</th>
-
       <th>256</th>
-
       <th>Usage</th>
     </tr>
 
     <tr>
       <td align="right">16</td>
-
       <td align="right">16</td>
-
       <td align="right">16</td>
-
       <td>ANSI/AIX</td>
     </tr>
 
     <tr>
       <td align="right">64</td>
-
       <td align="right">125</td>
-
       <td align="right">216</td>
-
       <td>cube</td>
     </tr>
 
     <tr>
       <td align="right">8</td>
-
       <td align="right">16</td>
-
       <td align="right">24</td>
-
       <td>grayscale "ramp"</td>
     </tr>
   </table>
@@ -4803,33 +4770,25 @@ XFree86 3.1.2a (23 September 1995)
   "Size of colormap for 88/157/256 schemes">
     <tr>
       <th>Colors</th>
-
       <th>Size</th>
-
       <th>Bits</th>
     </tr>
 
     <tr>
       <td align="right">88</td>
-
       <td align="right">7744</td>
-
       <td align="right">13</td>
     </tr>
 
     <tr>
       <td align="right">157</td>
-
       <td align="right">24649</td>
-
       <td align="right">15</td>
     </tr>
 
     <tr>
       <td align="right">256</td>
-
       <td align="right">65536</td>
-
       <td align="right">16</td>
     </tr>
   </table>
@@ -4980,7 +4939,6 @@ XFree86 3.1.2a (23 September 1995)
 
         <li>Going forward (e.g., xterm patch #357), these terminfo
         building blocks are used in ncurses:
-
           <ul>
             <li><a href=
             "/ncurses/terminfo.src.html#tic-xterm_256color2">xterm+256color<strong>2</strong></a>
@@ -5007,6 +4965,35 @@ XFree86 3.1.2a (23 September 1995)
   <a href=
   "http://unix.stackexchange.com/questions/269077/tput-setaf-color-table-how-to-determine-color-codes">
   this</a> at best badly informed.</p>
+
+  <p>A few non-xterm applications may support the feature,
+  e.g.,</p>
+
+  <ul>
+    <li><a href="/ncurses/terminfo.src.html#tic-putty">PuTTY</a>
+    (Windows)</li>
+
+    <li><a href="/ncurses/terminfo.src.html#tic-iterm2">iTerm2</a>
+    (MacOS)</li>
+
+    <li><a href="/ncurses/terminfo.src.html#tic-teken">teken</a>
+    (FreeBSD)</li>
+  </ul>
+
+  <p>though the results may not be satisfactory. Here are
+  screenshots for 88- and 256-colors which I made in <a href=
+  "https://lists.freebsd.org/pipermail/freebsd-arch/2014-February/015081.html">
+  February 2014</a> while discussing deficiencies of the FreeBSD
+  console emulator:</p>
+
+  <blockquote>
+    <p><a href="/xterm/images/teken-88colors.png"><img width="450"
+    src="images/teken-88colors.png" alt="teken with 88-colors"></a></p>
+
+    <p><a href="/xterm/images/teken-256colors.png"><img width="450"
+    src="images/teken-256colors.png" alt=
+    "teken with 256-colors"></a></p>
+  </blockquote>
 
   <p>XTerm stores the colors for <code>colorUL</code>, etc., at the
   end of the color array used for ANSI, 16-, 88- and 256-colors. An
@@ -5113,73 +5100,55 @@ XFree86 3.1.2a (23 September 1995)
   <table border="1" summary="Bits for XTerm's graphic rendition">
     <tr>
       <th>Mnemonic</th>
-
       <th>Bit</th>
-
       <th>Description</th>
     </tr>
 
     <tr>
       <td>INVERSE</td>
-
       <td>0</td>
-
       <td>show cell reverse-video</td>
     </tr>
 
     <tr>
       <td>UNDERLINE</td>
-
       <td>1</td>
-
       <td>show cell underlined</td>
     </tr>
 
     <tr>
       <td>BOLD</td>
-
       <td>2</td>
-
       <td>show cell as bold</td>
     </tr>
 
     <tr>
       <td>BLINK</td>
-
       <td>3</td>
-
       <td>show cell as blinking</td>
     </tr>
 
     <tr>
       <td>BG_COLOR</td>
-
       <td>4</td>
-
       <td>use background color</td>
     </tr>
 
     <tr>
       <td>FG_COLOR</td>
-
       <td>5</td>
-
       <td>use foreground color</td>
     </tr>
 
     <tr>
       <td>PROTECTED</td>
-
       <td>6</td>
-
       <td>character cannot be erased</td>
     </tr>
 
     <tr>
       <td>CHARDRAWN</td>
-
       <td>7</td>
-
       <td>character has been drawn here on the screen</td>
     </tr>
   </table>
@@ -5665,10 +5634,20 @@ Shift &lt;KeyPress&gt; Insert:insert-selection(SELECT, CUT_BUFFER0) \n\
     &ndash; both by the display and the selection logic.</li>
   </ul>
 
-  <p>As of 2010, a few other terminals do implement this feature.
+  <p>As of 2010, a few other terminals did implement this feature.
   But the reason that it's been low-priority is that it's of very
   limited usefulness when copying between terminal sessions (and
   for that matter, from other clients).</p>
+
+  <h4><a name="xterm_paste_nl" id="xterm_paste_nl">Can
+  bracketed-paste solve my problems?</a></h4>
+
+  <p>That depends. Bracketed-paste only gives an application a
+  <em>clue</em> that the input from the keyboard is being pasted
+  rather than typed. It was intended to help with the
+  <em>autoindent</em> feature in text editors. But not all programs
+  recognize the feature (see <a href="xterm-paste64.html">this
+  page</a> for more information).</p>
 
   <h4 id="xterm_resize-id"><a name="xterm_resize" id=
   "xterm_resize">FVWM does weird things when I try to resize
@@ -5680,7 +5659,6 @@ Shift &lt;KeyPress&gt; Insert:insert-selection(SELECT, CUT_BUFFER0) \n\
   <ul>
     <li>Steven Lang &lt;tiger@ecis.com&gt; reports a problem with
     extra resize events for xterm.
-
       <p>When I change font size often I will get the
       double-refresh, and when that happens the text program gets 2
       resize events.. Running a quick test, I got this: Going to a
@@ -5697,7 +5675,6 @@ Shift &lt;KeyPress&gt; Insert:insert-selection(SELECT, CUT_BUFFER0) \n\
 
     <li>Stephen Marley &lt;stephen@memex.com&gt; reports a problem
     with the active icon (from X11R6.3 xterm):
-
       <p>Using the XFree86 xterm-53 with the active icon feature
       on, I get some problems resizing where the xterm window
       shrinks as small as possible and won't stay at whatever size
@@ -6125,349 +6102,219 @@ configure --disable-imake --disable-narrowproto
   <table border="1" summary="examples of scrolling speed">
     <tr>
       <th rowspan="2" style="width:6em;">Mode</th>
-
       <th rowspan="2" style="width:10em;">Terminal</th>
-
       <th colspan="3">Fedora</th>
-
       <th colspan="3">Ubuntu</th>
     </tr>
 
     <tr>
       <th style="width:4em;">1</th>
-
       <th style="width:4em;">10</th>
-
       <th style="width:4em;">99</th>
-
       <th style="width:4em;">1</th>
-
       <th style="width:4em;">10</th>
-
       <th style="width:4em;">99</th>
     </tr>
 
     <tr>
       <td rowspan="10" align="center">Remote</td>
-
       <td>gnome-terminal</td>
-
       <td>(1)</td>
-
       <td>(1)</td>
-
       <td>(1)</td>
-
       <td>(1)</td>
-
       <td>(1)</td>
-
       <td>(1)</td>
     </tr>
 
     <tr>
       <td>konsole</td>
-
       <td>0.12</td>
-
       <td>2.10</td>
-
       <td>23.2</td>
-
       <td>0.26</td>
-
       <td>2.65</td>
-
       <td>25.7</td>
     </tr>
 
     <tr>
       <td>mlterm</td>
-
       <td>(2)</td>
-
       <td>(2)</td>
-
       <td>(2)</td>
-
       <td>0.30</td>
-
       <td>3.07</td>
-
       <td>30.4</td>
     </tr>
 
     <tr>
       <td>pterm / putty</td>
-
       <td>0.15</td>
-
       <td>1.42</td>
-
       <td>14.6</td>
-
       <td>0.55</td>
-
       <td>5.66</td>
-
       <td>56.2</td>
     </tr>
 
     <tr>
       <td>rxvt (3)</td>
-
       <td>0.25</td>
-
       <td>2.97</td>
-
       <td>29.5</td>
-
       <td>0.23</td>
-
       <td>3.03</td>
-
       <td>29.5</td>
     </tr>
 
     <tr>
       <td>st / stterm (4)</td>
-
       <td>0.07</td>
-
       <td>0.50</td>
-
       <td>4.40</td>
-
       <td>0.15</td>
-
       <td>1.42</td>
-
       <td>14.4</td>
     </tr>
 
     <tr>
       <td>terminology</td>
-
       <td>0.10</td>
-
       <td>1.00</td>
-
       <td>10.1</td>
-
       <td>0.19</td>
-
       <td>2.01</td>
-
       <td>19.0</td>
     </tr>
 
     <tr>
       <td>urxvt</td>
-
       <td>0.05</td>
-
       <td>0.38</td>
-
       <td>3.24</td>
-
       <td>0.17</td>
-
       <td>1.60</td>
-
       <td>15.7</td>
     </tr>
 
     <tr>
       <td>xterm</td>
-
       <td>0.31</td>
-
       <td>3.50</td>
-
       <td>34.8</td>
-
       <td>0.47</td>
-
       <td>4.41</td>
-
       <td>44.1</td>
     </tr>
 
     <tr>
       <td>xterm + fastScroll</td>
-
       <td>0.09</td>
-
       <td>0.82</td>
-
       <td>8.36</td>
-
       <td>0.39</td>
-
       <td>2.43</td>
-
       <td>22.9</td>
     </tr>
 
     <tr>
       <td rowspan="10" align="center">Local</td>
-
       <td>gnome-terminal</td>
-
       <td>0.12</td>
-
       <td>1.16</td>
-
       <td>11.4</td>
-
       <td>0.29</td>
-
       <td>3.14</td>
-
       <td>30.6</td>
     </tr>
 
     <tr>
       <td>konsole</td>
-
       <td>0.11</td>
-
       <td>0.82</td>
-
       <td>7.97</td>
-
       <td>0.22</td>
-
       <td>2.17</td>
-
       <td>20.1</td>
     </tr>
 
     <tr>
       <td>mlterm</td>
-
       <td>(2)</td>
-
       <td>(2)</td>
-
       <td>(2)</td>
-
       <td>1.01</td>
-
       <td>7.59</td>
-
       <td>105.</td>
     </tr>
 
     <tr>
       <td>pterm / putty</td>
-
       <td>0.17</td>
-
       <td>1.52</td>
-
       <td>14.6</td>
-
       <td>(5)</td>
-
       <td>(5)</td>
-
       <td>(5)</td>
     </tr>
 
     <tr>
       <td>rxvt</td>
-
       <td>1.23</td>
-
       <td>11.9</td>
-
       <td>118.</td>
-
       <td>1.75</td>
-
       <td>16.9</td>
-
       <td>166.</td>
     </tr>
 
     <tr>
       <td>st / stterm (4)</td>
-
       <td>0.08</td>
-
       <td>0.61</td>
-
       <td>5.10</td>
-
       <td>0.21</td>
-
       <td>1.63</td>
-
       <td>15.9</td>
     </tr>
 
     <tr>
       <td>terminology</td>
-
       <td>0.09</td>
-
       <td>1.03</td>
-
       <td>10.1</td>
-
       <td>0.43</td>
-
       <td>1.64</td>
-
       <td>16.0</td>
     </tr>
 
     <tr>
       <td>urxvt</td>
-
       <td>0.07</td>
-
       <td>0.53</td>
-
       <td>4.52</td>
-
       <td>0.26</td>
-
       <td>2.41</td>
-
       <td>23.7</td>
     </tr>
 
     <tr>
       <td>xterm</td>
-
       <td>1.77</td>
-
       <td>18.5</td>
-
       <td>178.</td>
-
       <td>2.70</td>
-
       <td>26.5</td>
-
       <td>259.</td>
     </tr>
 
     <tr>
       <td>xterm + fastScroll</td>
-
       <td>0.12</td>
-
       <td>0.96</td>
-
       <td>9.92</td>
-
       <td>0.25</td>
-
       <td>2.36</td>
-
       <td>22.9</td>
     </tr>
   </table>
@@ -6625,12 +6472,12 @@ configure --disable-imake --disable-narrowproto
   <h4><a name="compiz_bugs" id="compiz_bugs">Why is the text in the
   wrong place?</a></h4>
 
-  <p>Are you using Ubuntu? This is a frequently-reported problem
-  for Ubuntu users. With other systems, it can occur (as of
-  September 2012), but is less frequent. But it has been an issue
-  with Ubuntu since 2008.</p>
+  <p>Are you using Ubuntu? This was a frequently-reported problem
+  for Ubuntu users. With other systems, it could occur (as of
+  September 2012), but is less frequent. But it was an issue with
+  Ubuntu since 2008.</p>
 
-  <p>There are several related symptoms, e.g.,</p>
+  <p>There ware several related symptoms, e.g.,</p>
 
   <ul>
     <li>text may be the wrong size</li>
@@ -6717,33 +6564,36 @@ configure --disable-imake --disable-narrowproto
     Ubuntu #1007722 - xterm doesn't display all the information</a></li>
   </ul>
 
-  <p>Since the problem is not in xterm, all I can do is to help
+  <p>Since the problem was not in xterm, all I could do is to help
   forward those bug-reports to whatever package owns
-  <code>compiz</code>. What these have in common is that someone
-  has written code which is tested against only a small subset of
-  the X protocol.</p>
+  <code>compiz</code>. What these had in common is that someone
+  wrote code which was tested against only a small subset of the X
+  protocol.</p>
 
-  <p>Looking for solutions (since compiz is not being fixed), it is
-  possible to disable compiz. The means for doing this vary with
-  time. Aside from pointing to the root cause of the problem, there
-  is little advice that is useful.</p>
+  <p>Looking for solutions (since compiz was not being fixed), it
+  was possible to disable compiz. The means for doing this varied
+  with time. Aside from pointing to the root cause of the problem,
+  there was little advice that was useful.</p>
 
   <ul>
     <li>For instance, <a href=
     "http://force.subcritical.org/xterm_under_compiz/">this
-    comment</a> by Eric Williams suggests that the problem can be
-    worked around by setting xterm's <code>borderWidth</code>
+    comment</a> by Eric Williams suggested that the problem could
+    be worked around by setting xterm's <code>borderWidth</code>
     resource to zero.</li>
 
-    <li>other comments suggest turning off the "desktop effects" or
-    "animation".</li>
+    <li>other comments suggested turning off the "desktop effects"
+    or "animation".</li>
 
     <li>On my machines using the default <em>Ubuntu</em> desktop, I
-    can see misbehavior easily in Ubuntu 12.04 using <a href=
+    could see misbehavior easily in Ubuntu 12.04 using <a href=
     "/vttest/vttest.html">vttest</a>. However, Ubuntu 12.04
-    provides <em>Ubuntu&nbsp;2D</em>, which does not show those
-    problems (and is noticeably faster).</li>
+    provided <em>Ubuntu&nbsp;2D</em>, which did not show those
+    problems (and was noticeably faster).</li>
   </ul>
+
+  <p>Ubuntu dropped <em>compiz</em> in 2017. Its replacement (GNOME
+  shell) has fewer bugs.</p>
 
   <h3 id="my_xdefaults-id"><a name="my_xdefaults" id=
   "my_xdefaults">Sample .Xdefaults Color-Settings for XTerm</a></h3>
@@ -6937,14 +6787,12 @@ configure --disable-imake --disable-narrowproto
     <table border="1" summary="resource files for XTerm">
       <tr>
         <th>Program</th>
-
         <th>Resource</th>
       </tr>
 
       <tr>
         <td><a href="#xterm_man">xterm</a>
         </td>
-
         <td><a href=
         "https://github.com/ThomasDickey/xterm-snapshots/blob/master/XTerm.ad">
         XTerm</a>
@@ -6954,7 +6802,6 @@ configure --disable-imake --disable-narrowproto
       <tr>
         <td><a href="#uxterm_man">uxterm</a>
         </td>
-
         <td><a href=
         "https://github.com/ThomasDickey/xterm-snapshots/blob/master/UXTerm.ad">
         UXTerm</a>
@@ -6964,7 +6811,6 @@ configure --disable-imake --disable-narrowproto
       <tr>
         <td><a href="#koi8rxterm_man">koi8rxterm</a>
         </td>
-
         <td><a href=
         "https://github.com/ThomasDickey/xterm-snapshots/blob/master/KOI8RXTerm.ad">
         KOI8RXTerm</a>
@@ -7036,7 +6882,6 @@ configure --disable-imake --disable-narrowproto
       Actually, any message like this denotes a failure which
       requires studying the xterm source to determine the exact
       problem.
-
       <p>You have either found a bug in xterm, or there is
       something wrong with your computer's configuration, e.g., not
       enough pty's, incorrect permissions, etc.</p>
@@ -7057,7 +6902,6 @@ configure --disable-imake --disable-narrowproto
       umlauts, other types of punctuated characters, East Asian
       characters, etc). Your computer's libraries support this, but
       are missing configuration tables, and xterm is warning you.
-
       <p>If the message bothers you (e.g., if you aren't starting
       xterm from a window manager menu), you can suppress it by
       setting a resource:</p>
@@ -7080,7 +6924,6 @@ configure --disable-imake --disable-narrowproto
       The action "<em>xxx</em>" (for example "scroll-back") is
       specified in a resource file whose translations match widgets
       that do not support them. For example, this
-
       <blockquote class="code-block">
         <!--{{atr2html-->
 
@@ -7149,7 +6992,6 @@ Warning: Actions not found: ignore, scroll-back, scroll-forw
       maps may conflict with xterm. In practice, that is 256 unique
       colors on the screen at a time&mdash;not enough for a fancy
       background or an application such as Netscape.
-
       <p>During resource initialization, xterm attempts to allocate
       an entry from the color map for each color which it might
       use. If there are not enough free slots in the color map, you
@@ -7463,7 +7305,6 @@ Warning: Actions not found: ignore, scroll-back, scroll-forw
       <dd>
         combining the "X Consortium" and "DEC VT220", for example,
         since that was done after the demise of said organization.
-
         <p>It emulates a <em>subset</em> of VT100, lacks support
         for most of the VT220 control sequences (including some
         used for positioning the cursor) that are not recognized by
@@ -7501,7 +7342,7 @@ Warning: Actions not found: ignore, scroll-back, scroll-forw
 
   <p>Revisiting in 2018 &mdash;</p>
 
-  <p>Regarding documentation, the situation is not as good as
+  <p>Regarding documentation, the situation was not as good as
   reported earlier. The problematic documentation was not even part
   of the "official" GNOME Terminal, but was an add-on by a Debian
   developer, adapted from GNOME Terminal's online help. The
@@ -7616,7 +7457,7 @@ There are no docs for the gnome-terminal command line options.
   </blockquote>
 
   <p>The assertion about GNOME-Terminal's support for
-  &ldquo;any&rdquo; persists in its <a href=
+  &ldquo;any&rdquo; persisted in its <a href=
   "https://packages.debian.org/sid/gnome-terminal">package
   description</a> in Debian as of 2018:</p>
 
@@ -8174,7 +8015,6 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
       ANSI Xterm with Motif Scrollbar</a> Usually seen as the
       ansi-xterm-R6-motif-sb patch, I used this as the starting
       point for changes to my #82 patch of xterm in August 1998.
-
       <p>The original patch changes only the scrollbars to Motif,
       leaving the popup menus in Athena widgets. That was not what
       I wanted. My motivation for using Motif is not for
@@ -8203,10 +8043,10 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
   <h3 id="bug_nxterm-id"><a name="bug_nxterm" id=
   "bug_nxterm">NXTERM</a></h3>
 
-  <p>Distributed with Redhat Linux 5.2, it is a repackaging of
-  <a href="#bug_ansi_xterm">xterm-sb_right-ansi</a>, to use the
-  Xaw3d widget set. This is based on the X Consortium X11R6 source,
-  with the same bugs.</p>
+  <p>Distributed with Redhat 5.2, it is a repackaging of <a href=
+  "#bug_ansi_xterm">xterm-sb_right-ansi</a>, to use the Xaw3d
+  widget set. This is based on the X Consortium X11R6 source, with
+  the same bugs.</p>
 
   <ul>
     <li>implements non-bce color model</li>
@@ -8268,261 +8108,183 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
   <table border="1" summary="Comparing XTerm's size">
     <tr>
       <th>program</th>
-
       <th>base size</th>
-
       <th>total size</th>
-
       <th>libraries</th>
     </tr>
 
     <tr>
       <td>aterm</td>
-
       <td>127</td>
-
       <td>10763</td>
-
       <td>45</td>
     </tr>
 
     <tr>
       <td>color_xterm</td>
-
       <td>142</td>
-
       <td>3647</td>
-
       <td>13</td>
     </tr>
 
     <tr>
       <td>Eterm</td>
-
       <td>1</td>
-
       <td>5126</td>
-
       <td>19</td>
     </tr>
 
     <tr>
       <td>fbiterm</td>
-
       <td>6</td>
-
       <td>2424</td>
-
       <td>8</td>
     </tr>
 
     <tr>
       <td>gnome-terminal</td>
-
       <td>292</td>
-
       <td>14587</td>
-
       <td>51</td>
     </tr>
 
     <tr>
       <td>hpterm</td>
-
       <td>146</td>
-
       <td>14386</td>
-
       <td>31</td>
     </tr>
 
     <tr>
       <td>konsole</td>
-
       <td>2</td>
-
       <td>39815</td>
-
       <td>71</td>
     </tr>
 
     <tr>
       <td>kterm</td>
-
       <td>226</td>
-
       <td>4194</td>
-
       <td>17</td>
     </tr>
 
     <tr>
       <td>mlterm</td>
-
       <td>316</td>
-
       <td>6606</td>
-
       <td>27</td>
     </tr>
 
     <tr>
       <td>mrxvt</td>
-
       <td>298</td>
-
       <td>4515</td>
-
       <td>19</td>
     </tr>
 
     <tr>
       <td>multi-aterm</td>
-
       <td>144</td>
-
       <td>2821</td>
-
       <td>7</td>
     </tr>
 
     <tr>
       <td>pterm</td>
-
       <td>405</td>
-
       <td>12817</td>
-
       <td>42</td>
     </tr>
 
     <tr>
       <td>rxvt 2.6.4</td>
-
       <td>108</td>
-
       <td>2725</td>
-
       <td>6</td>
     </tr>
 
     <tr>
       <td>rxvt 2.7.10</td>
-
       <td>152</td>
-
       <td>2829</td>
-
       <td>7</td>
     </tr>
 
     <tr>
       <td>rxvt-unicode</td>
-
       <td>1259</td>
-
       <td>13641</td>
-
       <td>49</td>
     </tr>
 
     <tr>
       <td>terminal.app</td>
-
       <td>211</td>
-
       <td>15274</td>
-
       <td>29</td>
     </tr>
 
     <tr>
       <td>wterm</td>
-
       <td>110</td>
-
       <td>2922</td>
-
       <td>11</td>
     </tr>
 
     <tr>
       <td>xfce4-terminal</td>
-
       <td>148</td>
-
       <td>14059</td>
-
       <td>48</td>
     </tr>
 
     <tr>
       <td>xgterm</td>
-
       <td>953</td>
-
       <td>4602</td>
-
       <td>14</td>
     </tr>
 
     <tr>
       <td>xhpterm</td>
-
       <td>130</td>
-
       <td>2748</td>
-
       <td>6</td>
     </tr>
 
     <tr>
       <td>xiterm</td>
-
       <td>12</td>
-
       <td>3762</td>
-
       <td>16</td>
     </tr>
 
     <tr>
       <td>xterm (everything)</td>
-
       <td>346</td>
-
       <td>5484</td>
-
       <td>24</td>
     </tr>
 
     <tr>
       <td>xterm (minimal)</td>
-
       <td>186</td>
-
       <td>4123</td>
-
       <td>15</td>
     </tr>
 
     <tr>
       <td>xterm-r5</td>
-
       <td>135</td>
-
       <td>4164</td>
-
       <td>11</td>
     </tr>
 
     <tr>
       <td>xterm-r6</td>
-
       <td>140</td>
-
       <td>4169</td>
-
       <td>11</td>
     </tr>
   </table>
@@ -8597,14 +8359,12 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
   <table summary="ldd-size-fedora22" border="1">
     <tr>
       <th>LDD-Size</th>
-
       <th>Program</th>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       3452986</td>
-
       <td>rxvt</td>
     </tr>
 
@@ -8612,14 +8372,12 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
       <td align="right" style="font-family: monospace;">
       <em>6060960</em>
       </td>
-
       <td>st</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       6771039</td>
-
       <td>mrxvt</td>
     </tr>
 
@@ -8627,63 +8385,54 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
       <td align="right" style="font-family: monospace;">
       <em>7785780</em>
       </td>
-
       <td>xterm</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       15060195</td>
-
       <td>urxvt</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       20934874</td>
-
       <td>lxterminal</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       21089908</td>
-
       <td>lilyterm</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       21358156</td>
-
       <td>xfce4-terminal</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       25738679</td>
-
       <td>roxterm</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       31195794</td>
-
       <td>gnome-terminal</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       32780414</td>
-
       <td>terminology</td>
     </tr>
 
     <tr>
       <td align="right" style="font-family: monospace;">
       87813125</td>
-
       <td>konsole</td>
     </tr>
   </table>
@@ -8709,8 +8458,19 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
   other.</p>
 
   <p>That is from reading the source code. However testing under
-  Debian Linux, something is wrong with the resource processing
-  (neither popup menus nor colors work).</p>
+  Debian, something is wrong with the resource processing (neither
+  popup menus nor colors work).</p>
+
+  <p>As of March 2022, Debian's <a href=
+  "https://packages.debian.org/search?keywords=xgterm">xgterm</a>
+  package does not install the terminal description which the IRAF
+  developer provided. That was just an alias for xterm-r5, which
+  still needs some work. If the &ldquo;xgterm&rdquo; terminal
+  description is missing, xgterm falls back to &ldquo;xterm&rdquo;
+  which is not a close match. To address this problem, ncurses
+  provides a workable <a href=
+  "/ncurses/terminfo.src.html#tic-xgterm">xgterm</a> terminal
+  description.</p>
 
   <h3 id="bug_xiterm-id"><a name="bug_xiterm" id=
   "bug_xiterm">XITERM</a> <a href=
@@ -8739,17 +8499,17 @@ larry.mcrcim.mcgill.edu (132.206.1.1) in
 xterm-6.5.1-i18n-0.7.patch.gz
  Imakefile     |   25 +
  RELNOTES-I18N |  104 ++++++
- XTerm.ad      |    1 
+ XTerm.ad      |    1
  button.c      |  155 ++++++++-
  charproc.c    |  979 ++++++++++++++++++++++++++++++++++++++++++++++++++++------
- data.c        |    6 
- data.h        |    4 
- error.h       |    8 
+ data.c        |    6
+ data.h        |    4
+ error.h       |    8
  fontutils.c   |   78 ++++
- fontutils.h   |    8 
- input.c       |   11 
+ fontutils.h   |    8
+ input.c       |   11
  main.c        |   40 +-
- main.h        |    1 
+ main.h        |    1
  misc.c        |   46 ++
  ptyx.h        |  156 ++++++++-
  screen.c      |  513 +++++++++++++++++++++++++++---
@@ -8779,7 +8539,7 @@ X terminal emulators which are hard-wired to specific languages and
 encodings were introduced to support local language requirements, such
 as kterm, hanterm, cxterm, UTF-8 xterm and so on. This  truly
 internationalized terminal emulator supersedes the needs of those
-multiple locale specific terminalemulators. 
+multiple locale specific terminalemulators.
 </pre>
   </blockquote>
 
@@ -8857,9 +8617,8 @@ configure --help
   compiler warnings. For gcc, that is done with the "gcc-stricter"
   script which you can find <a href=
   "/scripts/readme.html">here</a>. The X libraries have a
-  longstanding issue which has been ignored so far (as of
-  mid-2012). To work around this (and get useful warnings), I apply
-  this patch:</p>
+  longstanding issue had been ignored (as of mid-2012). To work
+  around this (and get useful warnings), I applied this patch:</p>
 
   <blockquote>
     <pre class="code-block">
@@ -8897,6 +8656,11 @@ configure --help
   "http://lists.x.org/archives/xorg-devel/2010-May/009052.html">mailing
   list</a>, but as you can see, there was no response.</p>
 
+  <p>Finally, I spent the requisitve time to integrate the
+  change&mdash;and complete the process of transforming the
+  <a href="xtoolkit/"><em>X Toolkit</em></a> documentation from
+  nroff to docbook/xml.</p>
+
   <h2 id="report_bugs-id"><a name="report_bugs" id=
   "report_bugs">How do I report bugs?</a></h2>
 
@@ -8923,7 +8687,6 @@ configure --help
   <ul>
     <li>
       <a href="/xterm/xterm.log.html">XTerm change log</a>
-
       <ul>
         <li><a href="#xterm_man">The XTerm Manual</a></li>
 
@@ -9065,7 +8828,7 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
       <ul>
         <li><a href=
-        "ftp://ftp.invisible-island.net/shuford/">ftp://invisible-island.net/shuford/</a></li>
+        "/archives/shuford/">ftp://invisible-island.net/shuford/</a></li>
 
         <li><a href=
         "https://invisible-mirror.net/archives/shuford/">http://invisible-mirror.net/archives/shuford/</a></li>
@@ -9124,11 +8887,8 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
       <table summary="historical xterm source code">
         <tr>
           <th rowspan="2">Date</th>
-
           <th rowspan="2">Release</th>
-
           <th>Mine</th>
-
           <th>Alan's</th>
         </tr>
 
@@ -9137,12 +8897,10 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
           "https://github.com/ThomasDickey/old-xterm/commits/8c1136d1b2593d44ef5e0c31f9917a8fb336443a/main.c">
           old-xterm</a>
           </th>
-
           <th><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/log/xc/programs/xterm">
           Program</a>
           </th>
-
           <th><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/log/xc/doc/specs/xterm">
           Specs</a>
@@ -9151,182 +8909,142 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <tr>
           <td>2005-12-14</td>
-
           <td><em>X11R6.9.0</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/8c1136d1b2593d44ef5e0c31f9917a8fb336443a">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>2005-01-12</td>
-
           <td><em>X11R6.8.2</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/8f53683fb3286c4b9f7e56b035657c019a8b510c">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>2004-08-20</td>
-
           <td><em>X11R6.8.0</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/244c3c87895b75f50d994c8ed0b0b0b570acb02b">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>2004-04-02</td>
-
           <td><em>X11R6.7</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/72f78591baaef305e639393c8570f33154801342">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>2001-02-09</td>
-
           <td><em>X11R6.6</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/588551b210f997e94d7062068e473b03dd7f7adc">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>2000-08-21</td>
-
           <td><em>X11R6.5.1</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/6171bddbd473ca531a927f98253b617200a2f7de">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1998-02-09</td>
-
           <td><em>X11R6.4</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/09772a9703eeaf63ab990189453f64ea718c7005">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1996-12-09</td>
-
           <td><em>X11R6.3</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/593e9a29ebed6609b07f4133e034b43400e8cc51">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1996-02-02</td>
-
           <td><em>X11R6.1</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/1f18f60614c20fce722891b772017b5647eb9259">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1995-01-30</td>
-
           <td><em>X11R6</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/279c9960fc4d19e249ec7af2fb7c7d9c2987d369">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/tree/xc/programs/xterm?id=9d5f53a3923a1a4bd6fa8afb3d7afdd448767187">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/tree/xc/doc/specs/xterm/ctlseqs.ms?id=68409e15e071bae349d54111b27d9b78c1dd6c5a">
           link</a>
@@ -9335,20 +9053,16 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <tr>
           <td>1993-11-11</td>
-
           <td><em>X11R5</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/5534cf360d381e75057bef3eaf401acad5a6360e">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/tree/xc/programs/xterm?id=8dd835dffa5a2928cec818fb0148c9c2838caa4b">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/tree/xc/doc/specs/xterm/ctlseqs.ms?id=f9475442485638537e74bd44ea38d792eecdbecc">
           link</a>
@@ -9357,20 +9071,16 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <tr>
           <td>1989-12-23</td>
-
           <td><em>X11R4</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/aff055339109b8fe7bf146aecc340a622bae235e">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/tree/xc/programs/xterm?id=ad6566ec83c49abca29536932627a41c9a1004da">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/commit/xc/doc/specs/xterm?id=9b99668bad70ce523d88920d98ae7b686d9c3289">
           link</a>
@@ -9379,94 +9089,74 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <tr>
           <td>1988-10-27</td>
-
           <td><em>X11R3</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/1c2422714c26256ff4c3717d1529cec141f22b49">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/tree/xc/programs/xterm?id=009e20249100057a1ae15f0c1c04f6d964c0dd81">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1988-03-01</td>
-
           <td><em>X11R2</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/aaf6f073d6039955fa7fa56675a5ea10dc9e21b6">
           link</a>
           </td>
-
           <td><a href=
           "https://cgit.freedesktop.org/~alanc/xc-historical/tree/xc/programs/xterm?id=243d9b2d557b95812e51097e98d8f4be79df78d5">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1987-09-15</td>
-
           <td><em>X11R1</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/6bf1714f13b7811c3e28d186bfc9942d971edd9b">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1986-12-25</td>
-
           <td><em>X10R4</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/d448c6d7373c3bc3df4c75e815baa1e645462893">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
 
         <tr>
           <td>1986-05-17</td>
-
           <td><em>X10R3</em>
           </td>
-
           <td><a href=
           "https://github.com/ThomasDickey/old-xterm/tree/28267a54e0b2f5daf75846ba8ee5030a1d177a52">
           link</a>
           </td>
-
           <td><em>n/a</em>
           </td>
-
           <td><em>n/a</em>
           </td>
         </tr>
@@ -9539,7 +9229,7 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
         <li>
           <p>Debian's current package for ncurses uses the
           <code>--with-xterm-kbs</code> configure option which I
-          added in <a href="/ncurses/NEWS.html#20120211">2012</a>.
+          added in <a href="/ncurses/NEWS.html#t20120211">2012</a>.
           Debian also applies patches to many of the terminal
           descriptions, including adding a patched copy of xterm's
           terminfo file to ncurses's terminfo file.</p>
@@ -9557,7 +9247,6 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
           the terminal database's <code>kbs</code> value. Rather
           (referring to the source for 1.9a), it uses the termios
           setting:
-
           <blockquote>
             <!--{{atr2html-->
 
@@ -9596,6 +9285,96 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
           configured" xterm), the actual problem is a design flaw
           in <code>tmux</code> which should have been sent to its
           developers in a bug report.</p>
+        </li>
+      </ul>
+    </li>
+
+    <li id="mis:all-escapes">
+      <p>One of the PuTTY developers has a list named
+      &ldquo;all-escapes&rdquo; which begins</p>
+
+      <blockquote>
+        <pre class="code-block">
+# This file is hoped to document all the escape sequences supported by
+# terminals that are vaguely compliant with ECMA-48 and friends.
+</pre>
+      </blockquote>
+
+      <p>It has been an occasional topic for comment:</p>
+
+      <ul>
+        <li>
+          <a href=
+          "https://comp.os.vms.narkive.com/xY2s5Mns/decterm-special-escape-sequences">
+          DECterm special escape sequences ?</a> (Fri Dec 29
+          08:28:11 2006 on <em>comp.os.vms</em>):
+          <blockquote>
+            <pre class="code-block">
+Michael Unger &lt;spam.to.unger@spamgourmet.com&gt; wrote:
+&gt; On 2006-12-28 06:20, "JF Mezei" wrote:
+&gt;&gt; [...]
+&gt;&gt;
+&gt;&gt; I tried google, and there are so many sites that list one or two espape
+&gt;&gt; sequence that it is nearly impossible to find out whether what I am looking
+&gt;&gt; for exists or not.
+
+&gt; There are quite a lot of escape sequences documented in
+&gt; &lt;<a rel="nofollow" href=
+"http://bjh21.me.uk/all-escapes/all-escapes.txt">http://bjh21.me.uk/all-escapes/all-escapes.txt</a>&gt; ...
+
+...unfortunately, they're just heaped together in one place, without
+a cross-reference (which would show that they're from several types
+of terminals).
+
+For a clue regarding the depth of this file, note the first line
+
+        # $Id: all-escapes.txt,v 1.32 2005/09/14 12:00:06 ben Exp @
+
+and the 1999's pervading the text. It's basically a cut/paste job
+from 1999 with a handful of changes past that point. Compare with
+
+        <a href=
+"/archives/ncurses/terminfo.src.gz">ftp://invisible-island.net/ncurses/terminfo.src.gz</a>
+
+or any of the references cited.
+</pre>
+          </blockquote>
+        </li>
+
+        <li>
+          <a href=
+          "https://unix.stackexchange.com/questions/295871/why-does-cating-an-executable-keep-changing-the-title-of-putty?rq=1">
+          Why does cating an executable keep changing the title of
+          PuTTY?</a> (July 14, 2016 on StackOverflow)
+          <blockquote>
+            <pre class="code-block">
+PuTTY recognizes many (by no means all) of the escape sequences used for xterm,
+Linux console and some less familiar terminals.  One of PuTTY's developers
+compiled a list of all of the ones that might be of interest, about 650 items.
+...
+For whatever reason, they disliked the notion of referring directly to the
+documentation for Linux and xterm, but used secondary sources.
+</pre>
+          </blockquote>
+
+          <p>The comment about secondary sources was prompted by
+          noticing that although xterm and vttest are mentioned
+          more than a hundred times within the document, neither is
+          listed in the header. Also, the references within the
+          document are all from September 1999 (<a href=
+          "xterm.log.html#xterm_116">xterm #116</a>). For DEC
+          terminals as well, this uses secondary sources (perhaps
+          just as well, since including all of the sequences listed
+          in DEC's manuals would make the file much larger). Most
+          of the links listed in the header are dead anyway.</p>
+
+          <p>The file changes infrequently, but has changed within
+          the past year (in 2020). There is an <a rel="nofollow"
+          href=
+          "https://bjh21.me.uk/all-escapes/all-escapes.xhtml">xhtml
+          version</a>, perhaps inspired by <a rel="nofollow" href=
+          "http://rtfm.etla.org/xterm/ctlseq.html">this old
+          page</a> (also from 1999).</p>
         </li>
       </ul>
     </li>
@@ -9684,7 +9463,6 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
         <a href=
         "http://www.opengroup.org/tech/desktop/Press_Releases/xccloses.htm">
           press release</a> from July 1996).
-
           <ul>
             <li>The first release of X11R6 was done <a href=
             "https://www.x.org/releases/X11R6.1/RELNOTES.TXT">early
@@ -9697,7 +9475,6 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <li>The X Consortium xterm only knew about function keys up
         to <strong>F20</strong>.
-
           <ul>
             <li>X11R5 defined only 20 function keys, and xterm used
             only those since May 1991.<br>
@@ -9719,7 +9496,6 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <li>The X Consortium xterm didn't know about using
         <em><code>Shift</code></em> to get F13 through F24.
-
           <ul>
             <li>I introduced a similar feature (using
             <em><code>Control</code></em>) in <a href=
@@ -9743,7 +9519,6 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <li>The X Consortium xterm didn't know about using
         <em><code>Control</code></em> to get F25 through F36.
-
           <ul>
             <li>Even with X11R6, the last function key was
             <em><code>XK_F35</code></em>.</li>
@@ -9759,7 +9534,6 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
         <li>The escape sequences described all date from 2002
         (xterm <a href="/xterm/xterm.log.html#xterm_167">patch
         #167</a>).
-
           <ul>
             <li>Besides function-keys, there are two other groups
             of special keys on the keyboard: cursor and
@@ -9795,7 +9569,6 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
 
         <li>The X Consortium xterm had incomplete support for VT100
         keypad.
-
           <ul>
             <li>I added a resource <code>sunKeyboard</code> to tell
             xterm to look at other keyboards to simulate the
@@ -9835,14 +9608,12 @@ tbl ctlseqs.ms | groff -ms &gt;ctlseqs.ps
     <li>soft (downloadable) fonts</li>
 
     <li>printer interface
-
       <p>Done, except for the corresponding support in the VT52
       emulation. It would be nice to have a dialog to control
       this.</p>
     </li>
 
     <li>allow alternate libraries for popup-menus and dialogs
-
       <p>My configure script currently provides tests for the
       variations of Athena widgets (Xaw3D, neXtaw). I intend to
       make additional changes to support <a href=

@@ -9,7 +9,7 @@ Copyright: 2009 Mike Gemuende <mike@gemuende.de>
            2015 Alan Pater <alan.pater@gmail.com>
            2015 Roman Lebedev <lebedev.ri@gmail.com>
            2016 Emmanuele Bassi <ebassi@gnome.org>
-           2016-2020 Jens Georg <mail@jensge.org>
+           2016-2021 Jens Georg <mail@jensge.org>
            2016 Pablo Castellano <pablo@anche.no>
            2017-2018 Debarshi Ray <debarshir@gnome.org>
            2017 Jason Crain <jason@inspiresomeone.us>
@@ -23,13 +23,18 @@ Copyright: 2009 Mike Gemuende <mike@gemuende.de>
            2020 Thomas Doczkal <thomas@doczkal.eu>
            2020 Thomas Doczkal <thomas@doczkal.de>
            2020 Tom Schoonjans <Tom.Schoonjans@diamond.ac.uk>
+           2021 postscript-dev <postscript-dev@outlook.com>
+           2021 Jehan <jehan@girinstud.io>
+           2021 Olav Vitters <olav@vitters.nl>
+           2021 Matt Turner <mattst88@gmail.com>
+           2021 Peter Kovář <peter.kovar@reflexion.tv>
 License: GPL-2+
 
-Files: test/python/gexiv2.py
+Files: test/python/gexiv2.py.in
 Copyright: 2014 Alexandre Rossi <alexandre.rossi@gmail.com>
 License: LGPL-2.1+
 
-Files: test/python/test_metadata.py
+Files: test/python/test_metadata.py.in
 Copyright: 2013 Robert Bruce Park <r@robru.ca>
 License: GPL-3+
 

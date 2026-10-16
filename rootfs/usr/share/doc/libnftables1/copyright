@@ -18,7 +18,7 @@ Files: py/nftables.py
 Copyright: 2018 Phil Sutter <phil@nwl.cc>
 License: GPL-2
 
-Files: src/libnftables.c include/nftables/nftables.h
+Files: src/libnftables.c include/nftables/libnftables.h
 Copyright: 2017 Eric Leblond <eric@regit.org>
 License: GPL-2
 
@@ -82,11 +82,6 @@ License: GPL-2
 Files: include/linux/netfilter_ipv4.h
 Copyright: 1998 Rusty Russell
 License: GPL-2
-
-Files: src/rbtree.c include/rbtree.h
-Copyright: 1999 Andrea Arcangelli <andrea@suse.de>
-           2002 David Woodhouse <dwmw2@infradead.org>
-License: GPL-2+
 
 Files: files/osf/pf.os
 Copyright: 2000-2003 by Michal Zalewski <lcamtuf@coredump.cx>

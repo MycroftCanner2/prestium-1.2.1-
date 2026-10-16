@@ -10,7 +10,7 @@ License: Expat
 
 Files: debian/*
 Copyright: 2010, Monty Taylor <mordred@inaugust.com>
-           2013-2015, Michael Fladischer <fladi@debian.org>
+           2013-2022, Michael Fladischer <fladi@debian.org>
 License: Expat
 
 Files: librabbitmq/win32/msinttypes/stdint.h

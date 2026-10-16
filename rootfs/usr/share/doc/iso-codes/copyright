@@ -6,7 +6,7 @@ Source: https://salsa.debian.org/iso-codes-team/iso-codes
 Files: *
 Copyright: © 2001-2008 Alastair McKinstry
            © 2004-2016 Christian Perrier
-           © 2005-2021 Dr. Tobias Quathamer
+           © 2005-2023 Dr. Tobias Quathamer
 License: LGPL-2.1+
  This package is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public

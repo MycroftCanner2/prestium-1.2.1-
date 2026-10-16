@@ -139,10 +139,17 @@ Copyright: 2012 Stefan Walter
  2020 Red Hat, Inc.
 License: BSD-3-Clause
 
+Files: fuzz/main.c
+Copyright: 2017 Nikos Mavrogiannopoulos
+License: LGPL-2.1+
+
+Files: fuzz/rpc_fuzzer.c
+Copyright: 2016 Google Inc
+License: Apache-2.0
 
 Files: debian/*
 Copyright: 2011 Chris Coulson <chris.coulson@canonical.com>
-           2011-2020 Andreas Metzler <ametzler@debian.org>
+           2011-2022 Andreas Metzler <ametzler@debian.org>
 License: BSD-3-Clause
 
 
@@ -185,3 +192,11 @@ License: BSD-3-Clause
  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  SUCH DAMAGE.
+
+License: LGPL-2.1+
+ On Debian systems a copy of the LGPL 2.1 license can be found in
+ /usr/share/common-licenses/LGPL-2.1
+
+License: Apache-2.0
+ On Debian systems a copy of the Apache 2.0 license can be found in
+ /usr/share/common-licenses/Apache-2.0

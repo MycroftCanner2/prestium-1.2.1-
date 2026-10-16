@@ -220,7 +220,7 @@ sub dc_guess_langkey_for_link(){
     $guess =~ s/(\-\.)(small|medium|large)$//;
     $guess =~ s/\-english$//;
 
-    $guess = "norwegian->bokma"   if ($guess eq "bokmål");
+    $guess = "norwegian->bokma"   if ($guess =~ m/^bokm.*l$/);
     $guess = "norwegian->nynorsk" if ($guess eq "nynorsk");
     $guess = "ogerman"            if ($guess eq "german");
     $guess = "miscfiles"          if ($guess eq "web2");
@@ -412,5 +412,5 @@ sub dc_set_default_value_for_class (){
 # -----------------------------------------------------------------
 # Local Variables:
 # perl-indent-level: 2
-# coding: iso-8859-1
+# coding: utf-8
 # End:

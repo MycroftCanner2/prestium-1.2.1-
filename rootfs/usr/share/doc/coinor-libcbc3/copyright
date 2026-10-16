@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Cbc
-Source: https://projects.coin-or.org/Cbc
+Source: https://github.com/coin-or/cbc
 Files-Excluded:
  BuildTools/MSVisualStudio
  Cbc/MSVisualStudio

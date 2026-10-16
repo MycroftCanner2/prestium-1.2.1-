@@ -3,14 +3,17 @@ Upstream-Name: samba
 Upstream-Contact: Samba Developers <samba-technical@lists.samba.org>
 Source: http://www.samba.org/
 Files-Excluded:
-  source4/heimdal/lib/wind/rfc*.txt
+  third_party/heimdal/lib/wind/rfc*.txt
+  third_party/heimdal/doc/standardisation
   source4/ldap_server/devdocs
+  docs/manpages/*.?
+  ctdb/doc/*.? ctdb/doc/*.?.html
 
 Files: *
 Copyright: 1992-2012 Andrew Tridgell and the Samba Team
 License: GPL-3.0+
 
-Files: source4/heimdal/*
+Files: third_party/heimdal/*
 Copyright:
  1996-2005 Kungliga Tekniska Högskolan
  (Royal Institute of Technology, Stockholm, Sweden).

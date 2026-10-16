@@ -26,6 +26,10 @@ Compound Binary File format).  Note that ExifTool identifies any
 unrecognized Windows Compound Binary file as a FlashPix (FPX) file.  See
 <a href="http://graphcomp.com/info/specs/livepicture/fpx.pdf">http://graphcomp.com/info/specs/livepicture/fpx.pdf</a> for the FlashPix
 specification.</p>
+
+<p>Note that Microsoft is not consistent with the time zone used for some
+date/time tags, and it may be either UTC or local time depending on the
+software used to create the file.</p>
 <blockquote>
 <table class=frame><tr><td>
 <table class=inner cellspacing=1>
@@ -97,21 +101,33 @@ specification.</p>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
 <tr class=b>
+<td>'BasicFileInfo'</td>
+<td>BasicFileInfo</td>
+<td class=c>no</td>
+<td>&nbsp;</td></tr>
+<tr>
 <td>'Contents'</td>
 <td>Contents</td>
 <td class=c>-</td>
 <td>--&gt; <a href='XMP.html'>XMP Tags</a>
   <br><span class='n s'>(found in FLA files; may contain XMP)</span></td></tr>
-<tr>
+<tr class=b>
 <td>'Current User'</td>
 <td>CurrentUser</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr class=b>
+<tr>
 <td>'ICC Profile 0001'</td>
 <td>ICC_Profile</td>
 <td class=c>-</td>
 <td>--&gt; <a href='ICC_Profile.html'>ICC_Profile Tags</a></td></tr>
+<tr class=b>
+<td>'IeImg'</td>
+<td>EmbeddedImage</td>
+<td class=c>no</td>
+<td><span class=s><span class=n>(embedded images in Scene7 vignette VNT files.  EmbeddedImageRectangle is
+generated for applicable images, and may be associated with the
+corresponding EmbeddedImage via the family 3 group name)</span></span></td></tr>
 <tr>
 <td>'Preview'</td>
 <td>PreviewImage</td>
@@ -1673,7 +1689,7 @@ property tables, even though they are only listed in the SummaryInfo table.</p>
 
 <hr>
 (This document generated automatically by Image::ExifTool::BuildTagLookup)
-<br><i>Last revised Sep 26, 2019</i>
+<br><i>Last revised Feb 23, 2023</i>
 <p class=lf><a href='index.html'>&lt;-- ExifTool Tag Names</a></p>
 </body>
 </html>

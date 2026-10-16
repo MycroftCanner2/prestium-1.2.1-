@@ -23,8 +23,28 @@ License: Expat
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 
-Files: vendor/*
+Files: src/3rdparty/googletest/*
+Copyright: 2008 Google Inc
+License: BSD-3-clause
+
+Files: src/3rdparty/kissfft/*
 Copyright: 2003-2010 Mark Borgerding
+License: BSD-3-clause
+
+Files: src/avresample/avcodec.h
+Copyright: 2001 Fabrice Bellard
+License: LGPL-2.1+
+
+Files: src/avresample/resample2.c
+Copyright: 2004 Michael Nidermayer <michaelni@gmx.at>
+License: LGPL-2.1+
+
+Files: debian/*
+Copyright: 2010-2011 Lukáš Lalinský <lalinsky@gmail.com>
+           2011 Clint Adams <clint@debian.org>
+           2011-2014 Simon Chopin <chopin.simon@gmail.com>
+License: LGPL-2.1+
+
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -48,20 +68,6 @@ License: BSD-3-clause
  ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-Files: src/avresample/avcodec.h
-Copyright: 2001 Fabrice Bellard
-License: LGPL-2.1+
-
-Files: src/avresample/resample2.c
-Copyright: 2004 Michael Nidermayer <michaelni@gmx.at>
-License: LGPL-2.1+
-
-Files: debian/*
-Copyright: 2010-2011 Lukáš Lalinský <lalinsky@gmail.com>
-           2011 Clint Adams <clint@debian.org>
-           2011-2014 Simon Chopin <chopin.simon@gmail.com>
-License: LGPL-2.1+
 
 License: LGPL-2.1+
  This library is free software; you can redistribute it and/or

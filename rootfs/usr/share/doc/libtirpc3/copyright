@@ -1,6 +1,9 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: package
 Source: https://sourceforge.net/projects/libtirpc/
+Comment: The original upstream tarball included a symlink to
+ /usr/share/automake-1.16/INSTALL. This source re-pack removes the symlink
+ and adds the INSTALL file to the package.
 
 Files: *
 Copyright: 2005 Bull S.A
@@ -8,7 +11,7 @@ License: BSD-3-Clause
 
 Files: debian/*
 Copyright: 2009 Steinar H. Gunderson <sesse@debian.org>
-           2019 Josue Ortega <josue@debian.org>
+           2022 Josue Ortega <josue@debian.org>
 License: GPL-2
 
 Files:     src/auth_des.c

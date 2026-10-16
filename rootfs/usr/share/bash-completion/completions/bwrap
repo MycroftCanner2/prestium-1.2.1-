@@ -1,5 +1,5 @@
-#!/bin/bash
-#
+# shellcheck shell=bash
+
 # bash completion file for bubblewrap commands
 #
 
@@ -7,24 +7,30 @@ _bwrap() {
     local cur prev words cword
     _init_completion || return
 
+	# Please keep sorted in LC_ALL=C order
 	local boolean_options="
 		--as-pid-1
+		--assert-userns-disabled
+		--clearenv
+		--disable-userns
 		--help
 		--new-session
+		--unshare-all
 		--unshare-cgroup
 		--unshare-cgroup-try
-		--unshare-user
-		--unshare-user-try
-		--unshare-all
 		--unshare-ipc
 		--unshare-net
 		--unshare-pid
+		--unshare-user
+		--unshare-user-try
 		--unshare-uts
 		--version
 	"
 
+	# Please keep sorted in LC_ALL=C order
 	local options_with_args="
 		$boolean_optons
+		--add-seccomp-fd
 		--args
 		--bind
 		--bind-data
@@ -32,6 +38,7 @@ _bwrap() {
 		--cap-add
 		--cap-drop
 		--chdir
+		--chmod
 		--dev
 		--dev-bind
 		--die-with-parent
@@ -43,11 +50,13 @@ _bwrap() {
 		--hostname
 		--info-fd
 		--lock-file
+		--perms
 		--proc
 		--remount-ro
 		--ro-bind
 		--seccomp
 		--setenv
+		--size
 		--symlink
 		--sync-fd
 		--uid
@@ -55,10 +64,12 @@ _bwrap() {
 		--userns-block-fd
 	"
 
-	if [[ "$cur" == -* ]]; then
-	    COMPREPLY=( $( compgen -W "$boolean_options $options_with_args" -- "$cur" ) )
-	fi
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=( $( compgen -W "$boolean_options $options_with_args" -- "$cur" ) )
+    fi
 
-	return 0
+    return 0
 }
 complete -F _bwrap bwrap
+
+# vim:set ft=bash:

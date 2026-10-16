@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="iso-8859-1"?> <!-- -*-html-helper-*- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>PulseAudio Volume Control 5.0</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+<h1><a name="top">PulseAudio Volume Control 5.0</a></h1>
+
+<ul class="toc">
+    <li><a href="#license">License</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#status">Current Status</a></li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#download">Download</a></li>
+    <li><a href="#bugs">Bug Reports</a></li>
+    <li><a href="#patches">Contributing Code</a></li>
+    <li><a href="#translations">Contributing Translations</a></li>
+</ul>
+
+<h2><a name="license">License</a></h2>
+
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU Public License as published by
+the Free Software Foundation, either version 2 of the License, or (at
+your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.</p>
+
+<h2><a name="news">News</a></h2>
+
+<div class="news-date">Sun Aug 15 2021: </div>
+<p class="news-text">
+<a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-5.0.tar.xz">Version 5.0</a> released.
+Changes:</p>
+<ul>
+<li>Support for switching Bluetooth codecs (new in PulseAudio 15.0).</li>
+<li>Support for locking card profiles (new in PulseAudio 15.0). Locking
+a profile prevents PulseAudio from automatically switching away from that
+profile on plug/unplug events.</li>
+<li>New translations: Asturian, Basque, Belarusian, Galician, Hebrew, Kazakh,
+Norwegian Bokmål, Sinhala, Slovenian</li>
+<li>Updated translations: Catalan, Chinese (Simplified), Chinese (Traditional),
+Croatian, Danish, Dutch, Finnish, French, German, Hungarian, Italian, Japanese,
+Korean, Lithuanian, Norwegian Nynorsk, Polish, Portugese, Portugese (Brazil),
+Slovak, Spanish, Swedish, Turkish, Ukrainian.</li>
+<li>Some bug fixes.</li>
+<li>New dependency: json-glib.</li>
+<li>Minimum gtkmm version bumped to 3.22.</li>
+</ul>
+
+<div class="news-date">Tue Mar 5 2019: </div>
+<p class="news-text">
+<a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-4.0.tar.xz">Version 4.0</a> released.
+Changes:</p>
+<ul>
+<li>There can now be only one pavucontrol window open at a time. Trying to
+start pavucontrol for a second time brings the first window to foreground.</li>
+<li>Added a "Show volume meters" checkbox to the Configuration tab. Disabling
+the volume meters reduces CPU use.</li>
+<li>Improve the use of space (remove useless margins and paddings).</li>
+<li>Use a more appropriate icon for the channel lock button.</li>
+<li>Better channel label layout, prevents volume sliders from getting
+unaligned.</li>
+<li>Maximum latency offset increased from 2 to 5 seconds to accommodate AirPlay
+devices that often have higher latency than 2 seconds (this is not that useful
+on newer PulseAudio versions, though, because the latency is reported much more
+accurately than before).</li>
+<li>New --version command line option.</li>
+<li>New translations: Chinese (Taiwan), Croatian, Korean, Norwegian Nynorsk,
+Lithuanian, Valencian.</li>
+<li>Updated translations: Finnish, French, German, Italian, Japanese, Polish,
+Swedish.</li>
+<li>Dropped support for Gtk+ 2.</li>
+<li>Bumped the minimum supported libpulse version to 5.0.</li>
+<li>Improved compatibility with newer Glade versions.</li>
+</ul>
+
+<div class="news-date">Tue Mar 24
+2015: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.tar.xz">Version
+3.0</a> released; improved error handling; remember device selection visibility; window sizing improvements.</p>
+
+<div class="news-date">Fri Mar 8
+2013: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-2.0.tar.xz">Version
+2.0</a> released.</p>
+
+<div class="news-date">Tue Sep 27
+2011: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-1.0.tar.xz">Version
+1.0</a> released.</p>
+
+<div class="news-date">Thu Sep 15
+2011: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.99.2.tar.gz">Version
+0.99.2</a> (v1 RC2) released; digital receiver UI.</p>
+
+<div class="news-date">Tue Aug 2
+2011: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.99.1.tar.gz">Version
+0.99.1</a> (v1 RC1) released; gtk3 support; source output volume support; key command handling; bugfixes.</p>
+
+<div class="news-date">Wed Oct 14
+2009: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.10.tar.gz">Version
+0.9.10</a> released; minor fixes; translation updates.</p>
+
+<div class="news-date">Thu Sep 10
+2009: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.9.tar.gz">Version
+0.9.9</a> released; allow configuring device ports; various updates.</p>
+
+<div class="news-date">Mon Apr 13
+2009: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.8.tar.gz">Version
+0.9.8</a> released; allow configuring card profiles; various updates.</p>
+
+<div class="news-date">Tue Sep 9
+2008: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.7.tar.gz">Version
+0.9.7</a> released; show volume meter for each stream and device.</p>
+
+<div class="news-date">Fri Mar 28
+2008: </div> <p class="news-text"><a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.6.tar.gz">Version
+0.9.6</a> released; draw radio buttons instead of check boxes when
+moving streams; fix crasher when connecting to a PA server that has no
+default sink/source configured.</p>
+
+<div class="news-date">Tue Oct 30 2007: </div> <p class="news-text"><a
+href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.5.tar.gz">Version 0.9.5</a>
+released; rework UI; add context menu option to kill a playback stream; add context menu option to select the default device; use prettier channel names; filter non-application streams by default; support muting streams</p>
+
+<div class="news-date">Sat Aug 26 2006: </div> <p class="news-text"><a
+href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.4.tar.gz">Version 0.9.4</a>
+released; add the ability to move a stream to another device while it
+is playing; limit the list of sinks/sources shown by their type; other cleanups</p>
+
+<div class="news-date">Mon Jul 24 2006: </div> <p class="news-text"><a
+href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.3.tar.gz">Version 0.9.3</a> released; show client names only if they are set</p>
+
+<div class="news-date">Sat Jul 8 2006: </div> <p class="news-text"><a
+href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.2.tar.gz">Version 0.9.2</a> released; update for <a href="http://pulseaudio.org/">PulseAudio 0.9.2</a></p>
+
+<div class="news-date">Fri Jun 2 2006: </div> <p class="news-text"><a
+href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.1.tar.gz">Version 0.9.1</a> released; add a <tt>.desktop</tt> file; update icons everywhere</p>
+
+<div class="news-date">Sat May 27 2006: </div> <p class="news-text"><a
+href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.9.0.tar.gz">Version 0.9.0</a> released; update for Polypaudio 0.9.0; show client name of playback streams; make volume slider more responsive</p>
+
+<div class="news-date">Fri Apr 21 2006: </div> <p class="news-text"><a
+href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-0.8.tar.gz">Version 0.8</a> released; initial release</p>
+
+<h2><a name="overview">Overview</a></h2>
+
+<p>PulseAudio Volume Control (<tt>pavucontrol</tt>) is a simple GTK
+based volume control tool ("mixer") for the <a
+href="http://pulseaudio.org/">PulseAudio
+sound server</a>. In contrast to classic mixer tools this one allows
+you to control both the volume of hardware devices and of each
+playback stream separately.</p>
+
+<p>Everybody loves <a href="http://freedesktop.org/software/pulseaudio/pavucontrol//screenshot.png">screenshots</a>.</p>
+
+<h2><a name="status">Current Status</a></h2>
+
+<p>Works perfectly.</p>
+
+<h2><a name="documentation">Documentation</a></h2>
+
+<p>There is not much to say. Just run <tt>pavucontrol</tt> and see for yourself.</p>
+
+<h2><a name="requirements">Requirements</a></h2>
+
+<p>Currently, <tt>pavucontrol</tt> is tested on Linux only. It should work on
+most Linux distributions.</p>
+
+<p><tt>pavucontrol</tt> requires <a href="http://www.gtkmm.org"><tt>gtkmm</tt></a> and <tt>glademmm</tt> installed.</p>
+
+<p>Obviously <tt>pavucontrol</tt> requires an installation of <a href="http://pulseaudio.org/">PulseAudio</a>.</p>
+
+<h2><a name="installation">Installation</a></h2>
+
+<p>As this package is made with the GNU autotools you should run
+<tt>./configure</tt> inside the distribution directory for configuring
+the source tree. After that you should run <tt>make</tt> for
+compilation and <tt>make install</tt> (as root) for installation of
+<tt>pavucontrol</tt>.</p>
+
+<h2><a name="download">Download</a></h2>
+
+<p>The newest release is always available from <a href="http://freedesktop.org/software/pulseaudio/pavucontrol/">http://freedesktop.org/software/pulseaudio/pavucontrol/</a></p>
+
+<p>The current release is <a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-5.0.tar.gz">5.0</a></p>
+
+<p>Get <tt>pavucontrol</tt>'s development sources from the git <a href="https://gitlab.freedesktop.org/pulseaudio/pavucontrol.git">repository</a> (<a href="https://gitlab.freedesktop.org/pulseaudio/pavucontrol">GitLab</a>): </p>
+
+<pre>git clone https://gitlab.freedesktop.org/pulseaudio/pavucontrol.git</pre>
+
+<h2><a name="bugs">Bug Reports</a></h2>
+
+<p>Here's the list of open bug reports: <a href="https://gitlab.freedesktop.org/pulseaudio/pavucontrol/issues">https://gitlab.freedesktop.org/pulseaudio/pavucontrol/issues</a></p>
+
+<p>And here you can create a new bug report: <a href="https://gitlab.freedesktop.org/pulseaudio/pavucontrol/issues/new">https://gitlab.freedesktop.org/pulseaudio/pavucontrol/issues/new</a></p>
+
+<h2><a name="patches">Contributing Code</a></h2>
+
+<p>If you have patches for pavucontrol, the primary method for submitting them is by creating a merge request in <a href="https://gitlab.freedesktop.org/pulseaudio/pavucontrol">GitLab</a>.</p>
+
+<h2><a name="translations">Contributing Translations</a></h2>
+
+<p>Translations can be contributed in <a href="https://translate.fedoraproject.org/projects/pulseaudio/pavucontrol/">Fedora's Weblate translation service</a>. Pavucontrol isn't affiliated with Fedora otherwise, but Fedora kindly offered to host the translation service for us.</p>
+
+</body>
+</html>

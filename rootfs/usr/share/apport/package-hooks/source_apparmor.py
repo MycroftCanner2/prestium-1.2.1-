@@ -65,8 +65,8 @@ def add_info(report, ui):
     report['Syslog'] = recent_syslog(dbus_sec_re)
 
     packages = ['apparmor', 'apparmor-utils', 'libapparmor1',
-                'libapparmor-dev', 'libapparmor-perl', 'apparmor-utils',
-                'apparmor-profiles', 'apparmor-easyprof',
+                'libapparmor-dev', 'apparmor-utils',
+                'apparmor-profiles',
                 'python3-apparmor', 'libpam-apparmor',
                 'libapache2-mod-apparmor', 'python3-libapparmor',
                 'auditd', 'libaudit0']
