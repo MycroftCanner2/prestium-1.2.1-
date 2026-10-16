@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VeraCrypt>
-  <localization prog-version= "1.25.9">
+  <localization prog-version="1.26.29">
     <language langid="it" name="Italiano" en-name="Italian" version="1.0.1" translators="Maurizio Ballo, Consiglio Gaetano" />
     <font lang="it" class="normal" size="11" face="default" />
     <font lang="it" class="bold" size="13" face="Arial" />
@@ -72,7 +72,7 @@
     <entry lang="it" key="IDC_WHOLE_SYS_DRIVE">Codifica l'intero disco</entry>
     <entry lang="it" key="IDD_VOL_CREATION_WIZARD_DLG">Creazione guidata volume VeraCrypt</entry>
     <entry lang="it" key="IDT_CLUSTER">Cluster</entry>
-    <entry lang="it" key="IDT_COLLECTING_RANDOM_DATA_NOTE">IMPORTANTE: sposta il mouse il più casualmente possibile entro questa finestra.\nE' preferibile un movimento più lungo perchè aumenta in modo significativo l'effetto delle chiavi di codifica.\nQuindi fai click su 'Avanti' per continuare</entry>
+    <entry lang="it" key="IDT_COLLECTING_RANDOM_DATA_NOTE">IMPORTANTE: sposta il mouse il più casualmente possibile dentro questa finestra.\nE' preferibile muovere il mouse per più tempo, perchè aumenta in modo significativo la sicurezza delle chiavi di codifica.\nQuindi fai click su 'Avanti' per continuare</entry>
     <entry lang="it" key="IDT_CONFIRM">Conferma:</entry>
     <entry lang="it" key="IDT_DONE">Fatto</entry>
     <entry lang="it" key="IDT_DRIVE_LETTER">Lettera unità:</entry>
@@ -122,21 +122,21 @@
     <entry lang="it" key="IDC_ENABLE_HARDWARE_ENCRYPTION">Accelera la codifica/decodifica AES usando le istruzioni AES del processore (se disponibili)</entry>
     <entry lang="it" key="IDC_ENABLE_KEYFILES">Usa file chiave</entry>
     <entry lang="it" key="IDC_ENABLE_NEW_KEYFILES">Usa file chiave</entry>
-    <entry lang="it" key="IDC_EXIT">Chiudi</entry>
+    <entry lang="it" key="IDC_EXIT">Esci</entry>
     <entry lang="it" key="IDC_FAVORITES_HELP_LINK">Guida sui volumi preferiti</entry>
     <entry lang="it" key="IDC_FAVORITE_DISABLE_HOTKEY">Non montare il volume selezionato quando il tasto di scorciatoia 'Monta volumi preferiti' &amp;viene premuto</entry>
     <entry lang="it" key="IDC_FAVORITE_MOUNT_ON_ARRIVAL">Montare il volume selezionato quando la sua periferica ospite viene &amp;connessa</entry>
     <entry lang="it" key="IDC_FAVORITE_MOUNT_ON_LOGON">Montare il volume selezionato dopo il log&amp;on</entry>
     <entry lang="it" key="IDC_FAVORITE_MOUNT_READONLY">Montare il volume selezionato in sola let&amp;tura</entry>
-    <entry lang="it" key="IDC_FAVORITE_MOUNT_REMOVABLE">Montare il volume selezionato come ,media rimo&amp;vibile</entry>
+    <entry lang="it" key="IDC_FAVORITE_MOUNT_REMOVABLE">Montare il volume selezionato come Media rimo&amp;vibile</entry>
     <entry lang="it" key="IDC_FAVORITE_MOVE_DOWN">Muovi &amp;giù</entry>
     <entry lang="it" key="IDC_FAVORITE_MOVE_UP">Muovi &amp;sù</entry>
     <entry lang="it" key="IDC_FAVORITE_OPEN_EXPLORER_WIN_ON_MOUNT">Aprire la &amp;finestra di explorer per il volume selezionato quando viene montato con successo</entry>
     <entry lang="it" key="IDC_FAVORITE_REMOVE">&amp;Rimuovi</entry>
     <entry lang="it" key="IDC_FAVORITE_USE_LABEL_IN_EXPLORER">Usa etichetta preferita come Explorer etichetta disco</entry>
     <entry lang="it" key="IDC_FAV_VOL_OPTIONS_GLOBAL_SETTINGS_BOX">Impostazioni globali</entry>
-    <entry lang="it" key="IDC_HK_DISMOUNT_BALLOON_TOOLTIP">Visualizza messaggio a scomparsa dopo aver correttamente scollegato una hotkey</entry>
-    <entry lang="it" key="IDC_HK_DISMOUNT_PLAY_SOUND">Riproduci un suono di notifica dopo aver scollegato una hotkey correttamente</entry>
+    <entry lang="it" key="IDC_HK_UNMOUNT_BALLOON_TOOLTIP">Visualizza messaggio a scomparsa dopo aver correttamente scollegato una hotkey</entry>
+    <entry lang="it" key="IDC_HK_UNMOUNT_PLAY_SOUND">Riproduci un suono di notifica dopo aver scollegato una hotkey correttamente</entry>
     <entry lang="it" key="IDC_HK_MOD_ALT">Alt</entry>
     <entry lang="it" key="IDC_HK_MOD_CTRL">Ctrl</entry>
     <entry lang="it" key="IDC_HK_MOD_SHIFT">Maiusc</entry>
@@ -156,12 +156,12 @@
     <entry lang="it" key="IDC_PIM_HELP">(Vuoto o 0 per iterazioni di default)</entry>
     <entry lang="it" key="IDC_PREF_BKG_TASK_ENABLE">Attiva</entry>
     <entry lang="it" key="IDC_PREF_CACHE_PASSWORDS">Mantieni le password nella cache</entry>
-    <entry lang="it" key="IDC_PREF_DISMOUNT_INACTIVE">Smontaggio automatico del volume in mancanza di attività successive</entry>
-    <entry lang="it" key="IDC_PREF_DISMOUNT_LOGOFF">L'utente si disconnette</entry>
-    <entry lang="it" key="IDC_PREF_DISMOUNT_SESSION_LOCKED">Sessione utente bloccata</entry>
-    <entry lang="it" key="IDC_PREF_DISMOUNT_POWERSAVING">PC in modo di risparmio energia</entry>
-    <entry lang="it" key="IDC_PREF_DISMOUNT_SCREENSAVER">Il salvaschermo è attivato</entry>
-    <entry lang="it" key="IDC_PREF_FORCE_AUTO_DISMOUNT">Forza lo smontaggio automatico anche se il volume contiene dei file o cartelle aperti</entry>
+    <entry lang="it" key="IDC_PREF_UNMOUNT_INACTIVE">Smontaggio automatico del volume in mancanza di attività successive</entry>
+    <entry lang="it" key="IDC_PREF_UNMOUNT_LOGOFF">L'utente si disconnette</entry>
+    <entry lang="it" key="IDC_PREF_UNMOUNT_SESSION_LOCKED">Sessione utente bloccata</entry>
+    <entry lang="it" key="IDC_PREF_UNMOUNT_POWERSAVING">PC in modo di risparmio energia</entry>
+    <entry lang="it" key="IDC_PREF_UNMOUNT_SCREENSAVER">Il salvaschermo è attivato</entry>
+    <entry lang="it" key="IDC_PREF_FORCE_AUTO_UNMOUNT">Forza lo smontaggio automatico anche se il volume contiene dei file o cartelle aperti</entry>
     <entry lang="it" key="IDC_PREF_LOGON_MOUNT_DEVICES">Monta tutti i volumi VeraCrypt residenti sulle unità</entry>
     <entry lang="it" key="IDC_PREF_LOGON_START">Esegui in background</entry>
     <entry lang="it" key="IDC_PREF_MOUNT_READONLY">Monta i volumi in sola lettura</entry>
@@ -169,7 +169,7 @@
     <entry lang="it" key="IDC_PREF_OPEN_EXPLORER">Apri la finestra di Esplora risorse dopo aver montato un volume correttamente</entry>
     <entry lang="it" key="IDC_PREF_TEMP_CACHE_ON_MULTIPLE_MOUNT">Temporanea password cache durante le operazioni "Monta Volumi Preferiti"</entry>
     <entry lang="it" key="IDC_PREF_USE_DIFF_TRAY_ICON_IF_VOL_MOUNTED">Usa un icona diversa nella barra di sistema se ci sono volumi montati</entry>
-    <entry lang="it" key="IDC_PREF_WIPE_CACHE_ON_AUTODISMOUNT">Azzera le password nella cache allo smontaggio automatico</entry>
+    <entry lang="it" key="IDC_PREF_WIPE_CACHE_ON_AUTOUNMOUNT">Azzera le password nella cache allo smontaggio automatico</entry>
     <entry lang="it" key="IDC_PREF_WIPE_CACHE_ON_EXIT">Azzera le password nella cache in uscita</entry>
     <entry lang="it" key="IDC_PRESERVE_TIMESTAMPS">Non modificare data ed ora dei file contenitori</entry>
     <entry lang="it" key="IDC_RESET_HOTKEYS">Azzera</entry>
@@ -269,14 +269,14 @@
     <entry lang="it" key="IDT_ACCELERATION_OPTIONS">Accelerazione hardware </entry>
     <entry lang="it" key="IDT_ASSIGN_HOTKEY">Assegna tasti rapidi</entry>
     <entry lang="it" key="IDT_AUTORUN">Configurazione di avvio automatico (autorun.inf)</entry>
-    <entry lang="it" key="IDT_AUTO_DISMOUNT">Smontaggio automatico</entry>
-    <entry lang="it" key="IDT_AUTO_DISMOUNT_ON">Smonta tutti quando:</entry>
+    <entry lang="it" key="IDT_AUTO_UNMOUNT">Smontaggio automatico</entry>
+    <entry lang="it" key="IDT_AUTO_UNMOUNT_ON">Smonta tutti quando:</entry>
     <entry lang="it" key="IDT_BOOT_LOADER_SCREEN_OPTIONS">Opzioni schermata di boot per VeraCrypt</entry>
     <entry lang="it" key="IDT_CONFIRM_PASSWORD">Conferma password:</entry>
     <entry lang="it" key="IDT_CURRENT">Corrente</entry>
     <entry lang="it" key="IDT_CUSTOM_BOOT_LOADER_MESSAGE">Visualizza il messaggio utente nello schermo di autenticazione di per-avvio (massimo 24 caratteri):</entry>
     <entry lang="it" key="IDT_DEFAULT_MOUNT_OPTIONS">Opzioni di montaggio predefinite</entry>
-    <entry lang="it" key="IDT_DISMOUNT_ACTION">Opzioni tasti rapidi</entry>
+    <entry lang="it" key="IDT_UNMOUNT_ACTION">Opzioni tasti rapidi</entry>
     <entry lang="it" key="IDT_DRIVER_OPTIONS">Configurazione del driver</entry>
     <entry lang="it" key="IDC_ENABLE_EXTENDED_IOCTL_SUPPORT">Attiva supporto esteso controllo codici dischi</entry>
     <entry lang="it" key="IDT_FAVORITE_LABEL">Etichetta del volume preferito selezionato:</entry>
@@ -291,10 +291,11 @@
     <entry lang="it" key="IDT_NEW_PASSWORD">Password:</entry>
     <entry lang="it" key="IDT_PARALLELIZATION_OPTIONS">Parallelizzazione Thread-Based</entry>
     <entry lang="it" key="IDT_PKCS11_LIB_PATH">PKCS #11 Percorso libreria</entry>
-    <entry lang="it" key="IDT_PKCS5_PRF">PKCS-5 PRF:</entry>
-    <entry lang="it" key="IDT_NEW_PKCS5_PRF">PKCS-5 PRF:</entry>
+    <entry lang="it" key="IDT_KDF">KDF:</entry>
+    <entry lang="it" key="IDT_NEW_KDF">KDF:</entry>
     <entry lang="it" key="IDT_PW_CACHE_OPTIONS">Password nascoste</entry>
     <entry lang="it" key="IDT_SECURITY_OPTIONS">Opzioni sicurezza</entry>
+    <entry lang="it" key="IDT_EMV_OPTIONS">Opzioni EMV</entry>
     <entry lang="it" key="IDT_TASKBAR_ICON">Esecuzione di VeraCrypt in background</entry>
     <entry lang="it" key="IDT_TRAVELER_MOUNT">Volume VeraCrypt da montare (relativo alla radice del Traveler Disk):</entry>
     <entry lang="it" key="IDT_TRAVEL_INSERTION">Sull'inserimento del Traveler Disk:</entry>
@@ -356,14 +357,14 @@
     <entry lang="it" key="IDT_KEYFILE_WARNING">ATTENZIONE: se viene perso un file chiave o se cambiano i bit nei primi 1024 KB, sarà impossibile montare i volumi che usano questo file chiave!</entry>
     <entry lang="it" key="IDT_KEY_UNIT">bits</entry>
     <entry lang="it" key="IDT_NUMBER_KEYFILES">Numero di file chiave:</entry>
-    <entry lang="it" key="IDT_KEYFILES_SIZE">Dimensione del file chiave (in Bytes):</entry>
+    <entry lang="it" key="IDT_KEYFILES_SIZE">Dimensione del file chiave:</entry>
     <entry lang="it" key="IDT_KEYFILES_BASE_NAME">Nome del file chiave di base:</entry>
     <entry lang="it" key="IDT_LANGPACK_AUTHORS">Tradotto da:</entry>
     <entry lang="it" key="IDT_PLAINTEXT">Dimensione testo:</entry>
     <entry lang="it" key="IDT_PLAINTEXT_SIZE_UNIT">bits</entry>
     <entry lang="it" key="IDT_POOL_CONTENTS">Contenuto attuale del pool</entry>
     <entry lang="it" key="IDT_PRF">Miscelazione PRF:</entry>
-    <entry lang="it" key="IDT_RANDOM_POOL_ENRICHMENT_NOTE">IMPORTANTE: Dovete muovere il vostro mouse il più a caso possibile all'interno di questa finestra.\nE'preferibile un movimento lungo.\nQuesto aumenta la sicurezza in maniera significativa.\nQuando fatto questo, fate click su 'Continua'.</entry>
+    <entry lang="it" key="IDT_RANDOM_POOL_ENRICHMENT_NOTE">IMPORTANTE: sposta il mouse il più casualmente possibile dentro questa finestra.\nE' preferibile muovere il mouse per più tempo\nQuesto aumenta la sicurezza in maniera significativa.\nQuindi fai click su 'Continua' per continuare</entry>
     <entry lang="it" key="IDT_SECONDARY_KEY">Chiave secondaria (esadecimale)</entry>
     <entry lang="it" key="IDT_SECURITY_TOKEN">Misura di sicurezza:</entry>
     <entry lang="it" key="IDT_SORT_METHOD">Ordinamento:</entry>
@@ -389,6 +390,7 @@
     <entry lang="it" key="ADMINISTRATOR">Amministratore</entry>
     <entry lang="it" key="ADMIN_PRIVILEGES_DRIVER">Per caricare il driver VeraCrypt è necessario accedere come utente con privilegi di amministratore.</entry>
     <entry lang="it" key="ADMIN_PRIVILEGES_WARN_DEVICES">Per codificare/decodificare/formattare un unità/partizione è necessario accedere come utente con privilegi di amministratore.\n\nQuesta restrizione non si applica ai volumi basati su file.</entry>
+    <entry lang="it" key="ADMIN_PRIVILEGES_WARN_MANAGE_VOLUME">Impossibile attivare la Creazione Veloce: sono richiesti privilegi di amministratore.\nRiavvia il programma come Amministratore per abilitare questa funzione.\n\nVuoi procedere senza Creazione Veloce?</entry>
     <entry lang="it" key="ADMIN_PRIVILEGES_WARN_HIDVOL">Per creare un volume nascosto è necessario accedere come utente con privilegi di amministratore.\n\nContinuare?</entry>
     <entry lang="it" key="ADMIN_PRIVILEGES_WARN_NTFS">Per formattare il volume come NTFS è necessario accedere come utente con privilegi di amministratore.\n\nSenza i privilegi di amministrazione si può formattare il volume come FAT.</entry>
     <entry lang="it" key="AES_HELP">Algoritmo di codifica (Rijndael, pubblicato nel 1998) approvato per la FIPS, che può essere usato dai dipartimenti ed agenzie federali U.S.A. per proteggere le informazioni Top Secret.\nChiave a 256-bit, blocco a 128-bit, 14 passaggi (AES-256).\nModo operativo XTS.</entry>
@@ -421,8 +423,8 @@
     <entry lang="it" key="DEVICE_FREE_PB">La dimensione di %s è %.2f PB</entry>
     <entry lang="it" key="DEVICE_IN_USE_FORMAT">ATTENZIONE: l’unità/partizione è in uso da parte del sistema operativo o da un'applicazione. La sua formattazione potrebbe causare la perdita dei dati e l'instabilità del sistema.\n\nContinuare?</entry>
     <entry lang="it" key="DEVICE_IN_USE_INPLACE_ENC">ATTENZIONE: l’unità è in uso da parte del sistema operativo o da un'applicazione. Dovete chiudere qualsiasi applicazione che sta usando la partizione (compreso i software antivirus).\n\nContinuare?</entry>
-    <entry lang="it" key="FORMAT_CANT_DISMOUNT_FILESYS">ERRORE: l’unità/partizione contiene un file system che non può essere smontato. Il file system potrebbe essere in uso. La formattazione della unità/partizione può causare la perdita dei dati e l'instabilità del sistema.\n\nPer risolvere il problema, si raccomanda di cancellare la partizione e di ricrearla senza formattarla, seguendo le seguenti istruzioni: 1) Fare click destro sull'icona 'Risorse del computer' nel menu Start e selezionare 'Gestione'. Dovrebbe comparire la finestra 'Gestione computer'. 2) Nella finestra 'Gestione computer', selezionare 'Gestione disco'. 3) Fare click destro sulla partizione da codificare e selezionare 'Elimina partizione' o 'Elimina volume' oppure 'Elimina unità logica'. 4) Cliccare 'Sì'. Se Windows chiede il riavvio del computer, eseguirlo. Ripetere i passi 1 e 2 e continuare col passo 5. 5) Fare click destro sullo spazio libero/non allocato e selezionare 'Nuova partizione' o 'Nuovo volume' oppure 'Nuova unità logica'. 6) Dovrebbe comparire la finestra 'Creazione guidata nuova partizione' o 'Creazione guidata nuovo volume'; seguire le istruzioni. Nella pagina intitolata 'Formatta partizione', selezionare 'Non formattare questa partizione' o 'Non formattare questo volume'. Cliccare su 'Avanti' e poi su 'Fine'. 7) Ora il percorso del unità selezionato in VeraCrypt potrebbe essere errato. Uscire dalla creazione guidata del volume VeraCrypt (se ancora in esecuzione) e riavviarla. 8) Provare nuovamente a codificare l’unità/partizione.\n\nSe VeraCrypt non riesce ripetutamente a codificare l’unità/partizione, creare un file contenitore.</entry>
-    <entry lang="it" key="INPLACE_ENC_CANT_LOCK_OR_DISMOUNT_FILESYS">ERRORE: il sistema dei file non può essere chiuso o smontato. Esso può essere in uso dal sistema operativo oppure da applicazioni (per esempio software antivirus). La codifica della partizione potrebbe causare la corruzione dei dati e l’instabilità del sistema.\n\nChiudete qualsiasi applicazione che può essere in uso dal sistema operativo (compresi gli antivirus) e tentate nuovamente. Se questo non vi aiuta, seguire i passi che seguono.</entry>
+    <entry lang="it" key="FORMAT_CANT_UNMOUNT_FILESYS">ERRORE: l’unità/partizione contiene un file system che non può essere smontato. Il file system potrebbe essere in uso. La formattazione della unità/partizione può causare la perdita dei dati e l'instabilità del sistema.\n\nPer risolvere il problema, si raccomanda di cancellare la partizione e di ricrearla senza formattarla, seguendo le seguenti istruzioni: 1) Fare click destro sull'icona 'Risorse del computer' nel menu Start e selezionare 'Gestione'. Dovrebbe comparire la finestra 'Gestione computer'. 2) Nella finestra 'Gestione computer', selezionare 'Gestione disco'. 3) Fare click destro sulla partizione da codificare e selezionare 'Elimina partizione' o 'Elimina volume' oppure 'Elimina unità logica'. 4) Cliccare 'Sì'. Se Windows chiede il riavvio del computer, eseguirlo. Ripetere i passi 1 e 2 e continuare col passo 5. 5) Fare click destro sullo spazio libero/non allocato e selezionare 'Nuova partizione' o 'Nuovo volume' oppure 'Nuova unità logica'. 6) Dovrebbe comparire la finestra 'Creazione guidata nuova partizione' o 'Creazione guidata nuovo volume'; seguire le istruzioni. Nella pagina intitolata 'Formatta partizione', selezionare 'Non formattare questa partizione' o 'Non formattare questo volume'. Cliccare su 'Avanti' e poi su 'Fine'. 7) Ora il percorso del unità selezionato in VeraCrypt potrebbe essere errato. Uscire dalla creazione guidata del volume VeraCrypt (se ancora in esecuzione) e riavviarla. 8) Provare nuovamente a codificare l’unità/partizione.\n\nSe VeraCrypt non riesce ripetutamente a codificare l’unità/partizione, creare un file contenitore.</entry>
+    <entry lang="it" key="INPLACE_ENC_CANT_LOCK_OR_UNMOUNT_FILESYS">ERRORE: il sistema dei file non può essere chiuso o smontato. Esso può essere in uso dal sistema operativo oppure da applicazioni (per esempio software antivirus). La codifica della partizione potrebbe causare la corruzione dei dati e l’instabilità del sistema.\n\nChiudete qualsiasi applicazione che può essere in uso dal sistema operativo (compresi gli antivirus) e tentate nuovamente. Se questo non vi aiuta, seguire i passi che seguono.</entry>
     <entry lang="it" key="DEVICE_IN_USE_INFO">ATTENZIONE: alcune delle unità/partizioni montate sono già in uso!\n\nIgnorare questa condizione può causare risultati indesiderati, compresa l'instabilità del sistema.\n\nE' consigliabile chiudere tutte le applicazioni che potrebbero usare le unità/partizioni.</entry>
     <entry lang="it" key="DEVICE_PARTITIONS_ERR">L’unità selezionata contiene delle partizioni.\n\nLa formattazione del unità potrebbe causare la perdita dei dati e l'instabilità del sistema. Selezionare una partizione o rimuovere tutte le partizioni per consentire a VeraCrypt di formattarle senza rischi.</entry>
     <entry lang="it" key="DEVICE_PARTITIONS_ERR_W_INPLACE_ENC_NOTE">L’unità non di sistema selezionata contiene delle partizioni.\n\nLa codifica di volumi di VeraCrypt ospitati nell’unità può essere creata all’interno delle unità che non contengono nessuna partizione (compresi dischi rigidi e dischi allo stato solido). Un’unità contenente delle partizioni può essere interamente Crittata ‘sul posto’  (usando una singola chiave master) solo se essa è il disco dove Windows è  installato e dal quale esso si avvia.\n\nSe volete codificare la partizione non di sistema selezionata usando una singola chiave master, dovete rimuovere tutte le partizioni nell’ unità prima di consentire a VeraCrypt  di formattarla in sicurezza (la formattazione di una unità contenente delle partizioni può causare l’instabilità del sistema e/o corruzione dei dati). In alternativa, potete codificare singolarmente ogni partizione sul disco (ogni partizione sarà Crittata usando una chiave master differente).\n\nNota: Se volete rimuovere tutte le partizioni da un disco GPT, dovete convertirlo in disco  MBR (usando lo strumento Gestione del computer) allo scopo di rimuovere le partizioni ignote.</entry>
@@ -511,7 +513,7 @@
     <entry lang="it" key="NONSYS_INPLACE_DEC_FINISHED_NO_DRIVE_LETTER_AVAILABLE">Attenzione: Per essere in grado di accedere ai dati decifrati, una lettera del drive deve essere assegnata al volume decifrato. Comunque, nessuna lettera è disponibile al momento.\n\nPer favore liberare una lettera (per esempio, disconnettendo una chiavetta USB  un hard drive esterno, etc.) e poi premi OK.</entry>
     <entry lang="it" key="FORMAT_FINISHED_INFO">Il volume VeraCrypt è stato creato con successo.</entry>
     <entry lang="it" key="FORMAT_FINISHED_TITLE">Volume creato</entry>
-    <entry lang="it" key="FORMAT_HELP">IMPORTANTE:Muovere il vostro mouse il più casualmente possibile entro questa finestra. E' preferibile un movimento più lungo perchè aumenta in modo significativo l'effetto delle chiavi di codifica, quindi fate click su Formatta per creare il volume.</entry>
+    <entry lang="it" key="FORMAT_HELP">IMPORTANTE: sposta il mouse il più casualmente possibile dentro questa finestra.E' preferibile muovere il mouse per più tempo, perchè aumenta in modo significativo la sicurezza delle chiavi di codifica. Quindi fate click su Formatta per creare il volume.</entry>
     <entry lang="it" key="FORMAT_HIDVOL_HOST_HELP">Fate click su Formatta per creare il volume esterno. Per ulteriori informazioni, riferitevi alla documentazione.</entry>
     <entry lang="it" key="FORMAT_HIDVOL_HOST_TITLE">Formattazione del volume esterno</entry>
     <entry lang="it" key="FORMAT_HIDVOL_TITLE">Formattazione del volume nascosto</entry>
@@ -588,7 +590,7 @@
     <entry lang="it" key="HIDDEN_VOLUME_TOO_SMALL_FOR_OS_CLONE">ERRORE: I file da voi copiati nel volume esterno occupa troppo spazio. Pertanto, non c'è spazio sufficiente a disposizione nel volume esterno per il volume nascosto.\n\nDa notare che il volume nascosto deve essere grande come la partizione di sistema (che è quella in è installato cui il sistema operativo attualmente in esecuzione). La ragione è che il sistema operativo nascosto necessita di essere creato copiando il contenuto della partizione di sistema nel volume nascosto.\n\n\nLa procedura di creazione del sistema operativo nascosto non può continuare.</entry>
     <entry lang="it" key="OPENFILES_DRIVER">Il driver non riesce a smontare il volume. Alcuni file che si trovano in esso potrebbero essere ancora aperti.</entry>
     <entry lang="it" key="OPENFILES_LOCK">Impossibile bloccare il volume. Ci sono file ancora aperti in esso, pertanto questo non può essere smontato.</entry>
-    <entry lang="it" key="VOL_LOCK_FAILED_OFFER_FORCED_DISMOUNT">VeraCrypt non può chiudere il  volume perché esso è in uso dal sistema o applicazioni (possono esserci file aperti sul volume).\n\nVolete forzare lo smontaggio del volume?</entry>
+    <entry lang="it" key="VOL_LOCK_FAILED_OFFER_FORCED_UNMOUNT">VeraCrypt non può chiudere il  volume perché esso è in uso dal sistema o applicazioni (possono esserci file aperti sul volume).\n\nVolete forzare lo smontaggio del volume?</entry>
     <entry lang="it" key="OPEN_VOL_TITLE">Selezionare un volume VeraCrypt</entry>
     <entry lang="it" key="OPEN_TITLE">Specificare il percorso e nome del file</entry>
     <entry lang="it" key="SELECT_PKCS11_MODULE">Selezionare la libreria PKCS #11</entry>
@@ -611,7 +613,7 @@
     <entry lang="it" key="FAVORITE_PIM_CHANGED">Questo volume è registrato come Preferito di sistema e il suo PIM è stato modificato.\nVuoi che VeraCrypt aggiorni automaticamente la configurazione del Preferito di sistema (sono richiesti i privilegi di amministratore)?\n\nSi prega di notare che se si risponde no, è necessario aggiornare il Preferito del sistema manualmente.</entry>
     <entry lang="it" key="SYS_PASSWORD_CHANGED_ASK_RESCUE_DISK">IMPORTANTE: Se non avete distrutto il vostro disco di ripristino di VeraCrypt, la vostra partizione/disco di sistema può essere ancora deCrittata usando la vecchia password (tramite l'avvio del disco di ripristino di VeraCrypt e digitando la vecchia password). Dovete creare un nuovo disco di ripristino di VeraCrypt e quindi distruggere il vecchio.\n\nVolete creare un nuovo disco di ripristino di VeraCrypt?</entry>
     <entry lang="it" key="SYS_HKD_ALGO_CHANGED_ASK_RESCUE_DISK">Da notare che il vostro disco di ripristino di VeraCrypt usa ancora l'algoritmo precedente. Se considerate il precedente algoritmo non sicuro, dovete creare un nuovo disco di ripristino di VeraCrypt e distruggere il precedente.\n\nVolete creare un nuovo disco di ripristino di VeraCrypt?</entry>
-    <entry lang="it" key="KEYFILES_NOTE">Qualsiasi tipo di file (ad esempio Mp3, Jpg, Zip, Avi) può essere usato come un file-chiave di VeraCrypt. Si noti che VeraCrypt non modifica mai il contenuto del file-chiave. È possibile selezionare più di un file-chiave (l'ordine non ha importanza). Se si aggiunge una cartella, tutti i file non nascosti trovat in essa saranno usati come file-chiave. Cliccare su 'Aggiungi file chiave' per selezionare un file-chiave memorizzato su di un token di sicurezza o una smart card (o per importarvi il file-chiave).</entry>
+    <entry lang="it" key="KEYFILES_NOTE">Si noti che VeraCrypt non modifica mai il contenuto del file-chiave. È possibile selezionare più di un file-chiave (l'ordine non ha importanza). Se si aggiunge una cartella, tutti i file non nascosti trovat in essa saranno usati come file-chiave. Cliccare su 'Aggiungi file chiave' per selezionare un file-chiave memorizzato su di un token di sicurezza o una smart card (o per importarvi il file-chiave).</entry>
     <entry lang="it" key="KEYFILE_CHANGED">File chiave aggiunti/rimossi con successo.</entry>
     <entry lang="it" key="KEYFILE_EXPORTED">File chiave esportati.</entry>
     <entry lang="it" key="PKCS5_PRF_CHANGED">Algoritmo di derivazione della chiave di testata impostato con successo.</entry>
@@ -727,7 +729,7 @@
     <entry lang="it" key="DLL_FILES">Moduli libreria</entry>
     <entry lang="it" key="FORMAT_NTFS_STOP">La formattazione NTFS non può proseguire.</entry>
     <entry lang="it" key="CANT_MOUNT_VOLUME">Impossibile montare il volume.</entry>
-    <entry lang="it" key="CANT_DISMOUNT_VOLUME">Impossibile smontare il volume.</entry>
+    <entry lang="it" key="CANT_UNMOUNT_VOLUME">Impossibile smontare il volume.</entry>
     <entry lang="it" key="FORMAT_NTFS_FAILED">Windows non può formattare il volume come NTFS.\n\nSelezionare un tipo di file system diverso (se possibile) e provare di nuovo. In alternativa, lasciare il volume non formattato (selezionare 'Nessuno' come file system), uscire dalla procedura guidata, montare il volume e usare uno strumento di sistema o di terze parti per formattarlo (il volume rimarrà criptato).</entry>
     <entry lang="it" key="FORMAT_NTFS_FAILED_ASK_FAT">Windows fallisce nel formattare il volume come NTFS.\n\nVolete invece formattare il volume come FAT?</entry>
     <entry lang="it" key="DEFAULT">Predefinito</entry>
@@ -742,7 +744,7 @@
     <entry lang="it" key="LABEL">Etichetta</entry>
     <entry lang="it" key="CLUSTER_TOO_SMALL">La dimensione del cluster selezionata è troppo piccola per la dimensione di questo volume. Verrà usata una dimensione del cluster maggiore.</entry>
     <entry lang="it" key="CANT_GET_VOLSIZE">ERRORE: impossibile leggere la dimensione del volume!\n\nAssicurarsi che il volume selezionato non sia usato dal sistema o dalle applicazioni.</entry>
-    <entry lang="it" key="HIDDEN_VOL_HOST_SPARSE">I volumi ignoti non devono essere creati all'interno di contenitore dinamici(file sparsi). Per consentire la negabilità plausibile, il volume nascosto deve essere creato in un contenitore non dinamico.</entry>
+    <entry lang="it" key="HIDDEN_VOL_HOST_SPARSE">I volumi ignoti non devono essere creati all'interno di contenitore dinamici(file sparsi). Per consentire la negazione plausibile, il volume nascosto deve essere creato in un contenitore non dinamico.</entry>
     <entry lang="it" key="HIDDEN_VOL_HOST_UNSUPPORTED_FILESYS">La procedura di creazione del volume VeraCrypt può creare un voume nascosto solo all’interno di un volume FAT oppure NTFS.</entry>
     <entry lang="it" key="HIDDEN_VOL_HOST_UNSUPPORTED_FILESYS_WIN2000">In ambiente operativo Windows 2000, la procedura di creazione del volume di VeraCrypt può creare un volume nascosto solamente in un volume FAT.</entry>
     <entry lang="it" key="HIDDEN_VOL_HOST_NTFS">Nota: Il file system FAT è più adeguato per i volumi esterni che il file system NTFS (per esempio, la dimensione massima possibile per il volume nascosto può essere significativamente molto grande se il volume esterno è stato formattato come FAT).</entry>
@@ -769,7 +771,7 @@
     <entry lang="it" key="INPLACE_ENC_GENERIC_ERR_ALT_STEPS">Un errore ha impedito a VeraCrypt di codificare la partizione. Tentate la correzione di qualsiasi problema segnalato precedentemente e quindi ritentare. Se il problema persiste, può esservi di aiuto seguire i passi seguenti.</entry>
     <entry lang="it" key="INPLACE_ENC_GENERIC_ERR_RESUME">Un errore ha impedito a VeraCrypt di riprendere il processo di codifica della partizione.\n\nTentate la correzione di qualsiasi problema segnalato precedentemente e quindi tentare di riprendere nuovamente il processo. Notate che il volume non può essere montato finché esso non viene criptato completamente.</entry>
     <entry lang="it" key="INPLACE_DEC_GENERIC_ERR">Un errore ha impedito a VeraCrypt di decifrare il volume. Per favore prova a sistemare qualsiasi problema riportato in precedenza e prova ancora se possibile.</entry>
-    <entry lang="it" key="CANT_DISMOUNT_OUTER_VOL">ERRORE: impossibile smontare il volume esterno!\n\nIl volume non può essere smontato se contiene file o cartelle usati dalle applicazioni o dal sistema.\n\nChiudere tutti i programmi che potrebbero usare i file o le cartelle sul volume e cliccare su 'Riprova'.</entry>
+    <entry lang="it" key="CANT_UNMOUNT_OUTER_VOL">ERRORE: impossibile smontare il volume esterno!\n\nIl volume non può essere smontato se contiene file o cartelle usati dalle applicazioni o dal sistema.\n\nChiudere tutti i programmi che potrebbero usare i file o le cartelle sul volume e cliccare su 'Riprova'.</entry>
     <entry lang="it" key="CANT_GET_OUTER_VOL_INFO">ERRORE: Non si possono ottenere le informazioni a proposito del volume esterno! La creazione del volume non può proseguire.</entry>
     <entry lang="it" key="CANT_ACCESS_OUTER_VOL">ERRORE: impossibile accedere al volume esterno! La creazione del volume non può proseguire.</entry>
     <entry lang="it" key="CANT_MOUNT_OUTER_VOL">ERRORE: impossibile montare il volume esterno! La creazione del volume non può proseguire.</entry>
@@ -811,7 +813,7 @@
     <entry lang="it" key="SECONDARY_KEY_SIZE_LRW">Dimensione chiave Tweak (Modo LRW )</entry>
     <entry lang="it" key="BITS">bit</entry>
     <entry lang="it" key="BLOCK_SIZE">Dimensione blocco</entry>
-    <entry lang="it" key="PKCS5_PRF">PKCS-5 PRF</entry>
+    <entry lang="it" key="KDF">KDF</entry>
     <entry lang="it" key="PKCS5_ITERATIONS">Numero iterazioni PKCS-5</entry>
     <entry lang="it" key="VOLUME_CREATE_DATE">Volume creato</entry>
     <entry lang="it" key="VOLUME_HEADER_DATE">Ultima modifica intestazione</entry>
@@ -853,7 +855,7 @@
     <entry lang="it" key="TC_INSTALLER_IS_RUNNING">L’installer di VeraCrypt è attualmente in esecuzione in questo sistema ed esegue o prepara l’installazione oppure aggiornamento di VeraCrypt. Prima di procedere, attendere per finire o chiudere esso. Se non potete chiudere l’installer, riavviare i computer prima di procedere.</entry>
     <entry lang="it" key="INSTALL_FAILED">Installazione fallita.</entry>
     <entry lang="it" key="UNINSTALL_FAILED">Disinstallazione fallita.</entry>
-    <entry lang="it" key="DIST_PACKAGE_CORRUPTED">Questo pacchetto di distribuzione è danneggiato. Provare a scaricarlo nuovamente (preferibilmente dal sito ufficiale di VeraCrypt all’indirizzo https://www.veracrypt.fr).</entry>
+    <entry lang="it" key="DIST_PACKAGE_CORRUPTED">Questo pacchetto di distribuzione è danneggiato. Provare a scaricarlo nuovamente (preferibilmente dal sito ufficiale di VeraCrypt all’indirizzo https://veracrypt.jp).</entry>
     <entry lang="it" key="CANNOT_WRITE_FILE_X">Impossibile scrivere il file %s</entry>
     <entry lang="it" key="EXTRACTING_VERB">Estrazione</entry>
     <entry lang="it" key="CANNOT_READ_FROM_PACKAGE">Impossibile leggere i dati dal pacchetto.</entry>
@@ -880,7 +882,7 @@
     <entry lang="it" key="INSTALL_COMPLETED">Installazione completata.</entry>
     <entry lang="it" key="CANT_CREATE_FOLDER">Impossibile creare la cartella '%s'</entry>
     <entry lang="it" key="CLOSE_TC_FIRST">Il driver di VeraCrypt non può essere rimosso.\n\nChiudere tutte le finestre di VeraCrypt. Se non funziona, riavviare Windows e provare di nuovo.</entry>
-    <entry lang="it" key="DISMOUNT_ALL_FIRST">Tutti i volumi devono essere smontati prima di installare o disinstallare VeraCrypt.</entry>
+    <entry lang="it" key="UNMOUNT_ALL_FIRST">Tutti i volumi devono essere smontati prima di installare o disinstallare VeraCrypt.</entry>
     <entry lang="it" key="UNINSTALL_OLD_VERSION_FIRST">Una versione obsoleta di VeraCrypt è attualmente installata in questo sistema. Deve essere disinstallata prima di installare questa nuova versione di VeraCrypt.\n\nNon appena avete chiuso questa finestra di messaggio, sarà lanciata la disinstallazione della vecchia versione. Notate che nessun volume sarà decrittata disinstallando VeraCrypt. Dopo la disinstallazione della vecchia versione di VeraCrypt, rilanciare l'installazione della nuova versione del programma.</entry>
     <entry lang="it" key="REG_INSTALL_FAILED">L'installazione delle chiavi di registro è fallita</entry>
     <entry lang="it" key="DRIVER_INSTALL_FAILED">L'installazione del driver di unità è fallita. Riavviare Windows e provare nuovamente ad installare VeraCrypt.</entry>
@@ -901,7 +903,7 @@
     <entry lang="it" key="MINUTES">minuti</entry>
     <entry lang="it" key="SECONDS">secondi</entry>
     <entry lang="it" key="OPEN">Apri</entry>
-    <entry lang="it" key="DISMOUNT">Smonta</entry>
+    <entry lang="it" key="UNMOUNT">Smonta</entry>
     <entry lang="it" key="SHOW_TC">Visualizza VeraCrypt</entry>
     <entry lang="it" key="HIDE_TC">Nascondi VeraCrypt</entry>
     <entry lang="it" key="TOTAL_DATA_READ">Dati letti dal momento del montaggio</entry>
@@ -938,7 +940,7 @@
     <entry lang="it" key="ENTER_HEADER_BACKUP_PASSWORD">Digitare la password per la testa memorizzata nel file di backup</entry>
     <entry lang="it" key="KEYFILE_CREATED">Il file chiave è stato creato correttamente.</entry>
     <entry lang="it" key="KEYFILE_INCORRECT_NUMBER">Il numero di file chiavi che hai fornito non è valido.</entry>
-    <entry lang="it" key="KEYFILE_INCORRECT_SIZE">La dimensione del file chiave deve essere compresa tra 64 e 1048576 bytes.</entry>
+    <entry lang="it" key="KEYFILE_INCORRECT_SIZE">La dimensione del file chiave deve essere almeno 64 byte.</entry>
     <entry lang="it" key="KEYFILE_EMPTY_BASE_NAME">Per favore inserisci un nome per il/i file chiave per essere generato/i.</entry>
     <entry lang="it" key="KEYFILE_INVALID_BASE_NAME">Il nome del(dei) file chiave di base non è valido</entry>
     <entry lang="it" key="KEYFILE_ALREADY_EXISTS">Il file chiave '%s' esiste già.\nVuoi sovrascriverlo? Il processo di generazione sarà interrotto se rispondi No.</entry>
@@ -973,7 +975,7 @@
     <entry lang="it" key="SYSTEM_FAVORITES_DLG_TITLE">VeraCrypt - Volumi di sistema preferiti</entry>
     <entry lang="it" key="SYS_FAVORITES_HELP_LINK">Cosa sono i volumi di sistema preferiti?</entry>
     <entry lang="it" key="SYS_FAVORITES_REQUIRE_PBA">La partizione/disco di sistema non sembra essere cifrata.\n\nI volumi di sistema preferiti possono essere montati usando solo una password di autenticazione pre-boot authentication. Pertanto, per consentire l'uso dei volumi di sistema preferiti, dovete cifrare prima la partizione/unità di sistema.</entry>
-    <entry lang="it" key="DISMOUNT_FIRST">Smontare il volume prima di procedere.</entry>
+    <entry lang="it" key="UNMOUNT_FIRST">Smontare il volume prima di procedere.</entry>
     <entry lang="it" key="CANNOT_SET_TIMER">ERRORE: Impossibile impostare il timer.</entry>
     <entry lang="it" key="IDPM_CHECK_FILESYS">Verifica del file system</entry>
     <entry lang="it" key="IDPM_REPAIR_FILESYS">Riparazione del file system</entry>
@@ -1007,11 +1009,11 @@
     <entry lang="it" key="NO_SYSENC_PARTITION_SELECTED">Nessuna partizione selezionata. Fate click su ‘Seleziona unità' per selezionare una partizione smontata che richiede normalmente l’autenticazione di pre-boot (per esempio, una partizione collocata su un system drive decriptato oppure un altro sistema operativo che non è in esecuzione, oppure la partizione di sistema deCrittata di un altro sistema opertativo).\n\nNota: La partizione selezionata sarà montata come un volume VeraCrypt regolare senza autenticazione pre-boot. Questo è utilissimo, ad esempio, per le operazioni di backup o di riparazione.</entry>
     <entry lang="it" key="CONFIRM_SAVE_DEFAULT_KEYFILES">ATTENZIONE: Se i file chiave predefiniti sono impostati e attivati, sarà impossibile montare i volumi che non stanno usando questi file. Pertanto, dopo aver attivato i file chiave predefiniti, ricordatevi di deselezionare l’opzione 'Usare file chiave' (sotto un campo di inserimento password)ogni qualvolta montate tali voumi.\n\nSiete sicuri di voler salvare come default i file oppure i percorsi chiave selezionati?</entry>
     <entry lang="it" key="HK_AUTOMOUNT_DEVICES">Montaggio automatico delle unità</entry>
-    <entry lang="it" key="HK_DISMOUNT_ALL">Smonta tutti</entry>
+    <entry lang="it" key="HK_UNMOUNT_ALL">Smonta tutti</entry>
     <entry lang="it" key="HK_WIPE_CACHE">Azzera la cache</entry>
-    <entry lang="it" key="HK_DISMOUNT_ALL_AND_WIPE">Smonta tutte &amp;  Cache ripulite</entry>
-    <entry lang="it" key="HK_FORCE_DISMOUNT_ALL_AND_WIPE">Forza lo smontaggio di tutti i volumi &amp; azzera la cache</entry>
-    <entry lang="it" key="HK_FORCE_DISMOUNT_ALL_AND_WIPE_AND_EXIT">Forza lo smontaggio di tutti i volumi, azzera la cache &amp; esci</entry>
+    <entry lang="it" key="HK_UNMOUNT_ALL_AND_WIPE">Smonta tutte &amp;  Cache ripulite</entry>
+    <entry lang="it" key="HK_FORCE_UNMOUNT_ALL_AND_WIPE">Forza lo smontaggio di tutti i volumi &amp; azzera la cache</entry>
+    <entry lang="it" key="HK_FORCE_UNMOUNT_ALL_AND_WIPE_AND_EXIT">Forza lo smontaggio di tutti i volumi, azzera la cache &amp; esci</entry>
     <entry lang="it" key="HK_MOUNT_FAVORITE_VOLUMES">Monta i volumi preferiti</entry>
     <entry lang="it" key="HK_SHOW_HIDE_MAIN_WINDOW">Visualizza/nascondi la finestra principale di VeraCrypt</entry>
     <entry lang="it" key="PRESS_A_KEY_TO_ASSIGN">(Fare click qui e premere un tasto)</entry>
@@ -1023,14 +1025,14 @@
     <entry lang="it" key="PAGING_FILE_CREATION_PREVENTED">E' stata evitata la creazione di file di paging.\n\nNotare che, a causa di un problema di Windows, i file di paging non possono essere collocati in volumu VeraCrypt non di sistema (compresi i volumi di sistema preferiti). VeraCrypt supporta la creazione di file di paging solo su una partizione/disco di sistema criptato.</entry>
     <entry lang="it" key="SYS_ENC_HIBERNATION_PREVENTED">Un errore oppure un’incompatibilità previene VeraCrypt dalla codifica dei file in sospeso. Pertanto, la sospensione è stata evitata.\n\nNota: Quando un computer va in sospensione (oppure entra in modalità risparmio energetico), il contenuto della sua memoria di sistema viene scritto in un file di memoria in sospenso risiedente nel disco di sistema. VeraCrypt non può evitare che le chiavi di codifica e il contenuto dei file sensitivi aperti nella RAM vengano salvati non Codificati nel file di memoria in sospeso.</entry>
     <entry lang="it" key="HIDDEN_OS_HIBERNATION_PREVENTED">L'ibernazione è stata evitata.\n\nVeraCrypt non supporta l'ibernazione dei sistemi operativi ignoti che usano una partizione extra boot. Da notare che questa partizione di avvio è condivisa da entrambi i sistemi, nascosto e di inganno. Pertanto, allo scopo di prevenite la perdita dei dati ed i problemi mentre si ripristina dalla ibernazione, VeraCrypt ha da prevenire che il sistema nascosto scriva nella partizione di avvio condivisa e dalla ibernazione.</entry>
-    <entry lang="it" key="VOLUME_MOUNTED_AS_DRIVE_LETTER_X_DISMOUNTED">Il volume VeraCrypt montato come %c: è stato smontato.</entry>
-    <entry lang="it" key="MOUNTED_VOLUMES_DISMOUNTED">Il volume VeraCrypt è stato smontato.</entry>
-    <entry lang="it" key="VOLUMES_DISMOUNTED_CACHE_WIPED">Il volume VeraCrypt è stao smontato e la password cancellata.</entry>
-    <entry lang="it" key="SUCCESSFULLY_DISMOUNTED">Smontato correttamente</entry>
+    <entry lang="it" key="VOLUME_MOUNTED_AS_DRIVE_LETTER_X_UNMOUNTED">Il volume VeraCrypt montato come %c: è stato smontato.</entry>
+    <entry lang="it" key="MOUNTED_VOLUMES_UNMOUNTED">Il volume VeraCrypt è stato smontato.</entry>
+    <entry lang="it" key="VOLUMES_UNMOUNTED_CACHE_WIPED">Il volume VeraCrypt è stao smontato e la password cancellata.</entry>
+    <entry lang="it" key="SUCCESSFULLY_UNMOUNTED">Smontato correttamente</entry>
     <entry lang="it" key="CONFIRM_BACKGROUND_TASK_DISABLED">ATTENZIONE: Se l'azione background di VeraCrypt è disattivata, le seguenti funzioni saranno disattivate:\n\n1) Tasti funzione\n2) Smontaggio automatico (cioè dopo disconnessione, rimozione periferica ospite senza avvertimento, time-out, ecc.)\n3) Montaggio automatico di volumi preferiti\n4) Notifiche (cioè, quando viene evitato il danno al volume nascosto)\n5) Icona nella barra di sistema\n\nNota: Potete disconnettere l'azione del background in ogni momento facendo clic con il tasto destro sull'icona di VeraCrypt nella barra di sistema e selezionando 'Esci'.\n\nSiete sicuri di voler disattivare definitivamente l'azione background di VeraCrypt?</entry>
-    <entry lang="it" key="CONFIRM_NO_FORCED_AUTODISMOUNT">ATTENZIONE: disabilitando questa opzione non sarà possibile smontare automaticamente i volumi contenenti file o cartelle aperti.\n\nSi è sicuri di voler disabilitare questa opzione?</entry>
-    <entry lang="it" key="WARN_PREF_AUTO_DISMOUNT">ATTENZIONE: i volumi contenenti file o cartelle aperti NON saranno smontati automaticamente.\n\nPer impedire ciò, abilitare l'opzione seguente: 'Forza smontaggio automatico anche se il volume contiene file o cartelle aperti'</entry>
-    <entry lang="it" key="WARN_PREF_AUTO_DISMOUNT_ON_POWER">ATTENZIONE: Quando la carica della batteria del portatile è bassa, Windows può omettere l'invio dei messaggi appriopriati per eseguire le applicazioni quando il computer è passato in modalità di risparmio energetico. Comunque, VeraCrypt può fallire lo smontaggio automatico dei volumi in questi casi.</entry>
+    <entry lang="it" key="CONFIRM_NO_FORCED_AUTOUNMOUNT">ATTENZIONE: disabilitando questa opzione non sarà possibile smontare automaticamente i volumi contenenti file o cartelle aperti.\n\nSi è sicuri di voler disabilitare questa opzione?</entry>
+    <entry lang="it" key="WARN_PREF_AUTO_UNMOUNT">ATTENZIONE: i volumi contenenti file o cartelle aperti NON saranno smontati automaticamente.\n\nPer impedire ciò, abilitare l'opzione seguente: 'Forza smontaggio automatico anche se il volume contiene file o cartelle aperti'</entry>
+    <entry lang="it" key="WARN_PREF_AUTO_UNMOUNT_ON_POWER">ATTENZIONE: Quando la carica della batteria del portatile è bassa, Windows può omettere l'invio dei messaggi appriopriati per eseguire le applicazioni quando il computer è passato in modalità di risparmio energetico. Comunque, VeraCrypt può fallire lo smontaggio automatico dei volumi in questi casi.</entry>
     <entry lang="it" key="NONSYS_INPLACE_ENC_RESUME_PROMPT">Avete programmato il processo di  codifica di una partizione/volume. Il processo non è stato ancora completato.\n\nVolete avviare (riprendere) il processo ora?</entry>
     <entry lang="it" key="SYSTEM_ENCRYPTION_RESUME_PROMPT">Avete programmato il processo di codifica o decodifica della partizione/disco di sistema. Il processo non è stato ancora completato.\n\nVolete avviare (riprendere) il processo ora?</entry>
     <entry lang="it" key="ASK_NONSYS_INPLACE_ENC_NOTIFICATION_REMOVAL">Volete che vi sia richiesto se volete ripristinare i processi di codifica delle partizioni o volumi non di sistema?</entry>
@@ -1061,7 +1063,7 @@
     <entry lang="it" key="SYS_AUTOMOUNT_DISABLED">Il vostro sistema non è configurato per montare automaticamente i nuovi volumi. Può risultare impossibile effettuare il montaggio di volumi VeraCrypt basati su unità. Il montaggio automatico può essere abilitato eseguendo il seguente comando e riavviando il sistema.\n\nmountvol.exe /E</entry>
     <entry lang="it" key="SYS_ASSIGN_DRIVE_LETTER">Assegnare una lettera all’unità/partizione prima di procedere.\n\nDa notare che questo è richiesto dal sistema operativo.</entry>
     <entry lang="it" key="MOUNT_TC_VOLUME">Montare un volume VeraCrypt</entry>
-    <entry lang="it" key="DISMOUNT_ALL_TC_VOLUMES">Smonta tutti i volumi VeraCrypt</entry>
+    <entry lang="it" key="UNMOUNT_ALL_TC_VOLUMES">Smonta tutti i volumi VeraCrypt</entry>
     <entry lang="it" key="UAC_INIT_ERROR">VeraCrypt non può ottenere i privilegi di amministrazione.</entry>
     <entry lang="it" key="ERR_ACCESS_DENIED">Il sistema operativo ha negato l'accesso.\n\nPossibile causa: per consentire di leggere/scrivere dati da/su alcune cartelle, file e unità il sistema operativo richiede i permessi di lettura/scrittura (o i privilegi di amministratore). Normalmente, un utente senza privilegi di amministratore ha il diritto di creare, leggere e modificare file solo nella propria cartella Documenti.</entry>
     <entry lang="it" key="SECTOR_SIZE_UNSUPPORTED">Errore: il drive usa una dimensione settore non supportata.\n\nNon è possibile ora creare volumi ospitati dalla partizione/periferica nei drivers che usano dei settori più grandi di 4096 byte. Comunque, notate che potete creare dei contenitori in tali driver.</entry>
@@ -1227,7 +1229,7 @@
     <entry lang="it" key="HIDDEN_OS_CREATION_PREINFO_HELP">Nei passi successivi, VeraCrypt creerà il sistema operativo nascosto copiando il contenuto della partizione di sistema nel volume nascosto (i dati in copia saranno Codificati al volo con una chiave di codifica differente da quella usata per il sistema operativo di richiamo).\n\nNotate che il processo sarà eseguito in ambiente di pre-boot(prima dell’avvio di Windows) e può impiegare molto tempo per essere completato; diverse ore o anche diversi giorni (a seconda della dimensione della partizione di sistema e dalle prestazioni del vostro computer).\n\nVoi potrete interrompere il processo, spegnere il vostro computer, avviare il sistema operativo e riavviare il processo. Comunque, se interrompete tale processo, l’intera procedura di copia del sistema dovrà ripartire dall’inizio (perché il contenuto della partizione di sistema non deve cambiare durante la clonazione).</entry>
     <entry lang="it" key="CONFIRM_CANCEL_HIDDEN_OS_CREATION">Volete annullare l’intero processo di creazione del sistema operativo nascosto?\n\nNota: NON potrete ripristinare il processo se lo annullate adesso.</entry>
     <entry lang="it" key="CONFIRM_CANCEL_SYS_ENC_PRETEST">Volete annullare il pre-test per la codifica di sistema?</entry>
-    <entry lang="it" key="BOOT_PRETEST_FAILED_RETRY">La richiesta di codifica di sistema VeraCrypt è fallita. Volete ritentare?\n\nSelezionando 'No', il componente di autenticazione in pre-boot sarà disinstallato.\n\nNota:\n\n- Se il Boot Loader di VeraCrypt non vi richiede di digitare la password prima dell'avvio di Windows, è possibile che il vostro sistema operativo non si it is avvia dall'unità nella quale esso è installato. Questo non è supportato.\n\n- Se usate un algoritmo di cifratura diverso di AES e la richiesta è fallita (ed avete digitato la password), questo è stato causato da un driver designato inadeguatamente. Selezionare 'No', e ritentare la cifratura della partizione/unità di sistema, usando l'algoritmo di codifica AES (che ha dei requisiti di memoria inferiori).\n\n- Per più possibili cause e soluzioni, visitare: https://www.veracrypt.fr/en/Troubleshooting.html</entry>
+    <entry lang="it" key="BOOT_PRETEST_FAILED_RETRY">La richiesta di codifica di sistema VeraCrypt è fallita. Volete ritentare?\n\nSelezionando 'No', il componente di autenticazione in pre-boot sarà disinstallato.\n\nNota:\n\n- Se il Boot Loader di VeraCrypt non vi richiede di digitare la password prima dell'avvio di Windows, è possibile che il vostro sistema operativo non si it is avvia dall'unità nella quale esso è installato. Questo non è supportato.\n\n- Se usate un algoritmo di cifratura diverso di AES e la richiesta è fallita (ed avete digitato la password), questo è stato causato da un driver designato inadeguatamente. Selezionare 'No', e ritentare la cifratura della partizione/unità di sistema, usando l'algoritmo di codifica AES (che ha dei requisiti di memoria inferiori).\n\n- Per più possibili cause e soluzioni, visitare: https://veracrypt.jp/en/Troubleshooting.html</entry>
     <entry lang="it" key="SYS_DRIVE_NOT_ENCRYPTED">La partizione/disco di sistema non sembra essere criptato (né parzialmente né interamente).</entry>
     <entry lang="it" key="SETUP_FAILED_BOOT_DRIVE_ENCRYPTED">La vostra partizione/disco di sistema è criptato (parzialmente o completamente).\n\nDeCodificate la vostra partizione/disco interamente prima di procedere. Per fare questo, selezionate 'Sistema'&gt;'Decodifica definitivamente la partizione/disco di sistema' dal menu della barra strumenti della finestra principale di VeraCrypt.</entry>
     <entry lang="it" key="SETUP_FAILED_BOOT_DRIVE_ENCRYPTED_DOWNGRADE">Quando la partizione/unità di sistema è crittata (parzialmente o totalmente), non potete tornare ad una precedente versione di VeraCrypt (ma potete aggiornare o reinstallare la stessa versione di esso).</entry>
@@ -1304,8 +1306,8 @@
     <entry lang="it" key="LIMITED_THREAD_COUNT_AFFECTS_PERFORMANCE">Notate che il numero dei processi  è attualmente limitato, e questo influenza il comportamento risultante (bassa prestazione).\n\nPer usare la piena potenza dei processori  selezionare “Impostazioni” &gt; “Prestazioni” e disattivare l’opzione corrispondente.</entry>
     <entry lang="it" key="ASK_REMOVE_DEVICE_WRITE_PROTECTION">Volete che VeraCrypt tenti di disattivare la protezione da scrittura della partizione o dell'unità?</entry>
     <entry lang="it" key="CONFIRM_SETTING_DEGRADES_PERFORMANCE">ATTENZIONE: Queste impostazioni possono ridurre le prestazioni.\n\nSiete sicuri di voler usare queste impostazioni?</entry>
-    <entry lang="it" key="HOST_DEVICE_REMOVAL_DISMOUNT_WARN_TITLE">Attenzione: VolumeVeraCrypt auto-smontato</entry>
-    <entry lang="it" key="HOST_DEVICE_REMOVAL_DISMOUNT_WARN">Prima di rimuovere fisicamente o spegnere un dispositivo contenente un volume montato, si dovrebbe sempre smontare il volume prima su VeraCrypt.\n\nUno smontaggio inprovviso e non voluto è generalmete causato da un'intermittenza sul cavo, disco, ecc.</entry>
+    <entry lang="it" key="HOST_DEVICE_REMOVAL_UNMOUNT_WARN_TITLE">Attenzione: VolumeVeraCrypt auto-smontato</entry>
+    <entry lang="it" key="HOST_DEVICE_REMOVAL_UNMOUNT_WARN">Prima di rimuovere fisicamente o spegnere un dispositivo contenente un volume montato, si dovrebbe sempre smontare il volume prima su VeraCrypt.\n\nUno smontaggio inprovviso e non voluto è generalmete causato da un'intermittenza sul cavo, disco, ecc.</entry>
     <entry lang="it" key="UNSUPPORTED_TRUECRYPT_FORMAT">Il volume è stato creato con TrueCrypt %x.%x ma VeraCrypt supporta solamente volumi TrueCrypt creati con la serie TrueCrypt 6.x/7.x</entry>
     <entry lang="it" key="TEST">Prova</entry>
     <entry lang="it" key="KEYFILE">File chiave</entry>
@@ -1451,7 +1453,7 @@
     <entry lang="it" key="IDM_ADD_ALL_VOLUME_TO_FAVORITES">Aggiungi tutti i volumi montati ai Preferiti...</entry>
     <entry lang="it" key="TASKICON_PREF_MENU_ITEMS">Voci menu icona attività</entry>
     <entry lang="it" key="TASKICON_PREF_OPEN_VOL">Apri volumi montati</entry>
-    <entry lang="it" key="TASKICON_PREF_DISMOUNT_VOL">Smonta volumi montati</entry>
+    <entry lang="it" key="TASKICON_PREF_UNMOUNT_VOL">Smonta volumi montati</entry>
     <entry lang="it" key="DISK_FREE">Spazio libero disponibile: {0}</entry>
     <entry lang="it" key="VOLUME_SIZE_HELP">Specifica la dimensione del contenitore da creare.\nNota che la dimensione minima possibile di un volume è 292 KiB.</entry>
     <entry lang="it" key="LINUX_CONFIRM_INNER_VOLUME_CALC">ATTENZIONE: hai selezionato un filesystem diverso da FAT per il volume esterno.\nNota che in questo caso VeraCrypt non può calcolare l'esatta dimensione massima consentita per il volume nascosto e userà solo una stima che può essere sbagliata.\nQuindi, è tua responsabilità usare un valore adeguato per la dimensione del volume nascosto in modo che non si sovrapponga al volume esterno.\n\nVuoi continuare a usare il filesystem selezionato per il volume esterno?</entry>
@@ -1481,14 +1483,14 @@
     <entry lang="it" key="LINUX_DO_NOT_MOUNT">Non montare</entry>
     <entry lang="it" key="LINUX_MOUNT_AT_DIR">Monta nella cartella:</entry>
     <entry lang="it" key="LINUX_SELECT">Se&amp;leziona...</entry>
-    <entry lang="it" key="LINUX_DISMOUNT_ALL_WHEN">Smonta tutti i volumi quando</entry>
+    <entry lang="it" key="LINUX_UNMOUNT_ALL_WHEN">Smonta tutti i volumi quando</entry>
     <entry lang="it" key="LINUX_ENTERING_POWERSAVING">Il sistema va in risparmio energetico</entry>
     <entry lang="it" key="LINUX_LOGIN_ACTION">Azioni da eseguire all'accesso utente</entry>
-    <entry lang="it" key="LINUX_CLOSE_EXPL_ON_DISMOUNT">Chiudi tutte le finestre di Explorer del volume da smontare</entry>
+    <entry lang="it" key="LINUX_CLOSE_EXPL_ON_UNMOUNT">Chiudi tutte le finestre di Explorer del volume da smontare</entry>
     <entry lang="it" key="LINUX_HOTKEYS">Tasti rapidi</entry>
     <entry lang="it" key="LINUX_SYSTEM_HOTKEYS">Tasti scelta rapida di sistema</entry>
     <entry lang="it" key="LINUX_SOUND_NOTIFICATION">Riproduci suono notifica sistema dopo montaggio/smontaggio</entry>
-    <entry lang="it" key="LINUX_CONFIRM_AFTER_DISMOUNT">Visualizza finestra messaggio di conferma dopo smontaggio</entry>
+    <entry lang="it" key="LINUX_CONFIRM_AFTER_UNMOUNT">Visualizza finestra messaggio di conferma dopo smontaggio</entry>
     <entry lang="it" key="LINUX_VC_QUITS">Uscita da VeraCrypt</entry>
     <entry lang="it" key="LINUX_OPEN_FINDER">Apri finestra Finder del volume montato correttamente</entry>
     <entry lang="it" key="LINUX_DISABLE_KERNEL_ONLY_SETTING">Nota che questa impostazione ha effetto solo se l'uso dei servizi di crittografia del kernel è disabilitato.</entry>
@@ -1508,19 +1510,16 @@
     <entry lang="it" key="LINUX_DYNAMIC_NOTICE">Tieni presente che se il sistema operativo non alloca i file dall'inizio dello spazio libero, e quindi la dimensione massima possibile del volume nascosto potrebbe essere molto inferiore alla dimensione dello spazio libero sul volume esterno.\nQuesto non è un bug in VeraCrypt ma una limitazione del sistema operativo.</entry>
     <entry lang="it" key="LINUX_MAX_HIDDEN_SIZE">La dimensione massima del volume nascosto possibile per questo volume è {0}.</entry>
     <entry lang="it" key="LINUX_OPEN_OUTER_VOL">Apri il volume esterno</entry>
-    <entry lang="it" key="LINUX_OUTER_VOL_IS_MOUNTED">Il volume esterno è stato creato e montato correttamente come '{0}'.\nIn questo volume dovresti ora copiare alcuni file dall'aspetto sensibile che in realtà NON vuoi nascondere.\nI file saranno lì per chiunque ti costringa a rivelare la tua password.\nRivelerai solo la password per questo volume esterno, non per quello nascosto.\nI file a cui tieni davvero verranno archiviati nel volume nascosto, che verrà creato in seguito.\nAl termine della copia, fare clic su Avanti. Non smontare il volume.\nNota: dopo aver fatto selezionato 'Avanti', il volume esterno verrà analizzato per determinare la dimensione dell'area ininterrotta di spazio libero la cui estremità è allineata con l'estremità del volume.\nQuest'area ospiterà il volume nascosto, quindi limiterà la sua dimensione massima possibile.\nLa procedura garantisce che nessun dato sul volume esterno venga sovrascritto dal volume nascosto.</entry>
+    <entry lang="it" key="LINUX_OUTER_VOL_IS_MOUNTED">Il volume esterno è stato creato e montato correttamente come '{0}'.\nIn questo volume dovresti ora copiare alcuni file dall'aspetto sensibile che in realtà NON vuoi nascondere.\nI file saranno lì per chiunque ti costringa a rivelare la tua password.\nRivelerai solo la password per questo volume esterno, non per quello nascosto.\nI file a cui tieni davvero verranno archiviati nel volume nascosto, che verrà creato in seguito.\nAl termine della copia, fare clic su Avanti. Non smontare il volume.\nNota: dopo aver selezionato 'Avanti', il volume esterno verrà analizzato per determinare la dimensione dell'area ininterrotta di spazio libero la cui estremità è allineata con l'estremità del volume.\nQuest'area ospiterà il volume nascosto, quindi limiterà la sua dimensione massima possibile.\nLa procedura garantisce che nessun dato sul volume esterno venga sovrascritto dal volume nascosto.</entry>
     <entry lang="it" key="LINUX_ERROR_TRY_ENCRYPT_SYSTEM_DRIVE">Errore: stai tentando di crittografare un'unità di sistema.\n\nVeraCrypt può crittografare un'unità di sistema solo in Windows.</entry>
     <entry lang="it" key="LINUX_ERROR_TRY_ENCRYPT_SYSTEM_PARTITION">Errore: stai tentando di crittografare una partizione di sistema.\n\nVeraCrypt può crittografare le partizioni di sistema solo in Windows.</entry>
     <entry lang="it" key="LINUX_WARNING_FORMAT_DESTROY_FS">ATTENZIONE: la formattazione del dispositivo eliminerà tutti i dati sul filesystem '{0}'.\n\nVuoi continuare?</entry>
     <entry lang="it" key="LINUX_MOUNTET_HINT">Il filesystem del dispositivo selezionato è attualmente montato.\nSmonta '{0}' prima di procedere.</entry>
     <entry lang="it" key="LINUX_HIDDEN_PASS_NO_DIFF">Il volume nascosto non può avere la stessa password, PIM e files di chiavi come volume esterno</entry>
     <entry lang="it" key="LINUX_NOT_FAT_HINT">Tieni presente che il volume non verrà formattato con un filesystem FAT e, pertanto, potrebbe essere necessario installare un driver del filesystem aggiuntivo in piattaforme diverse da {0}, che ti consentiranno di montare il volume.</entry>
-    <entry lang="it" key="LINUX_ERROR_SIZE_HIDDEN_VOL">Errore: il volume nascosto da creare è maggiore di {0} TB ({1} GB).\n\nSoluzioni possibili:\n- Crea un contenitore/partizione più piccolo di {0} TB.\n</entry>
-    <entry lang="it" key="LINUX_MAX_SIZE_HINT">- Per poter creare volumi nascosti ospitati su partizioni/dispositivi fino ad una dimensione di 16 TB usa un'unità con settori da 4096 byte </entry>
-    <entry lang="it" key="LINUX_DOT_LF">.\n</entry>
-    <entry lang="it" key="LINUX_NOT_SUPPORTED">(non supportato dai componenti disponibili su questa piattaforma).\n</entry>
     <entry lang="it" key="LINUX_KERNEL_OLD">Il sistema usa una vecchia versione del kernel Linux.\n\nA causa di un bug nel kernel Linux, il sistema potrebbe smettere di rispondere quando scrivi dati su un volume VeraCrypt.\nQuesto problema può essere risolto aggiornando il kernel alla versione 2.6.24 o successiva.</entry>
-    <entry lang="it" key="LINUX_VOL_DISMOUNTED">Il volume {0} è stato smontato.</entry>
+    <entry lang="it" key="LINUX_VOL_UNMOUNTED">Il volume {0} è stato smontato.</entry>
+    <entry lang="it" key="LINUX_VOL_MOUNTED">Il volume {0} è stato montato.</entry>
     <entry lang="it" key="LINUX_OOM">Memoria esaurita.</entry>
     <entry lang="it" key="LINUX_CANT_GET_ADMIN_PRIV">Impossibile ottenere i privilegi di amministratore</entry>
     <entry lang="it" key="LINUX_COMMAND_GET_ERROR">Il comando {0} ha restituito un errore {1}.</entry>
@@ -1550,7 +1549,7 @@
     <entry lang="it" key="LINUX_EX2MSG_UNSUPPORTEDSECTORSIZE">Errore: l'unità usa una dimensione del settore diversa da 512 byte.\n\nA causa delle limitazioni dei componenti disponibili nella piattaforma, non è possibile creare/usare volumi ospitati in una partizione/dispositivo nell'unità.\n\nPossibili soluzioni:\n- Creare nell'unità un volume (contenitore) ospitato da un file.\n- Usare un'unità con settori da 512 byte.\n- Usare VeraCrypt in un'altra piattaforma.</entry>
     <entry lang="it" key="LINUX_EX2MSG_VOLUMEHOSTINUSE">Il file/dispositivo host è già in uso.</entry>
     <entry lang="it" key="LINUX_EX2MSG_VOLUMESLOTUNAVAILABLE">Slot volume non disponibile.</entry>
-    <entry lang="it" key="LINUX_EX2MSG_HIGHERFUSEVERSIONREQUIRED">VeraCrypt richiede OSXFUSE 2.5 o superiore.</entry>
+    <entry lang="it" key="LINUX_EX2MSG_HIGHERFUSEVERSIONREQUIRED">VeraCrypt richiede macFUSE 2.5 o superiore.</entry>
     <entry lang="it" key="EXCEPTION_OCCURRED">Si è verificata un'eccezione</entry>
     <entry lang="it" key="ENTER_PASSWORD">Inserire password</entry>
     <entry lang="it" key="ENTER_TC_VOL_PASSWORD">Digita la password del volume VeraCrypt</entry>
@@ -1565,8 +1564,126 @@
     <entry lang="it" key="UNKNOWN_OPTION">Opzione sconosciuta</entry>
     <entry lang="it" key="VOLUME_LOCATION">Percorso del volume</entry>
     <entry lang="it" key="VOLUME_HOST_IN_USE">ATTENZIONE: il file/dispositivo host {0} è già in uso!\n\nIgnorarlo può causare risultati indesiderati inclusa l'instabilità del sistema.\nTutte le applicazioni che potrebbero usare il file/dispositivo host devono essere chiuse prima di montare il volume.\n\nVuoi continuare il montaggio?</entry>
-    <entry lang="en" key="CANT_INSTALL_WITH_EXE_OVER_MSI">VeraCrypt was previously installed using an MSI package and so it can't be updated using the standard installer.\n\nPlease use the MSI package to update your VeraCrypt installation.</entry>
-    <entry lang="en" key="IDC_USE_ALL_FREE_SPACE">Use all available free space</entry>
+    <entry lang="it" key="CANT_INSTALL_WITH_EXE_OVER_MSI">VeraCrypt è stato precedentemente installato utilizzando un pacchetto MSI e quindi non può essere aggiornato utilizzando l'installer standard.\n\nSi prega di utilizzare il pacchetto MSI per aggiornare l'installazione di VeraCrypt.</entry>
+    <entry lang="it" key="IDC_USE_ALL_FREE_SPACE">Usa tutto lo spazio libero disponibile</entry>
+    <entry lang="it" key="SYS_ENCRYPTION_UPGRADE_UNSUPPORTED_ALGORITHM">VeraCrypt non può essere aggiornato perché la partizione/unità di sistema è stata crittografata utilizzando un algoritmo non più supportato.\nSi prega di decrittografare il sistema prima di aggiornare VeraCrypt e poi crittografarlo nuovamente.</entry>
+    <entry lang="it" key="LINUX_EX2MSG_TERMINALNOTFOUND">Non è stato trovato un applicativo terminale supportato, è necessario xterm, konsole o gnome-terminal (con dbus-x11).</entry>
+    <entry lang="it" key="IDM_MOUNT_NO_CACHE">Monta senza cache</entry>
+    <entry lang="it" key="EXPANDER_INFO">:: VeraCrypt Expander ::\n\nEspandi un volume VeraCrypt al volo senza riformattare\n\n\nTutti i tipi di volumi (file container, dischi e partizioni) formattati con NTFS sono supportati. L'unica condizione è che deve esserci abbastanza spazio libero sull'unità host o sul dispositivo host del volume VeraCrypt.\n\nNon utilizzare questo software per espandere un volume esterno contenente un volume nascosto, perché ciò distrugge il volume nascosto!\n</entry>
+    <entry lang="it" key="IDC_STEPSEXPAND">1. Seleziona il volume VeraCrypt da espandere\n2. Clicca sul pulsante 'Monta'</entry>
+    <entry lang="it" key="IDT_VOL_NAME">Volume: </entry>
+    <entry lang="it" key="IDT_FILE_SYS">File system: </entry>
+    <entry lang="it" key="IDT_CURRENT_SIZE">Dimensione corrente: </entry>
+    <entry lang="it" key="IDT_NEW_SIZE">Nuova dimensione: </entry>
+    <entry lang="it" key="IDT_NEW_SIZE_BOX_TITLE">Inserisci la nuova dimensione del volume</entry>
+    <entry lang="it" key="IDC_INIT_NEWSPACE">Riempi il nuovo spazio con dati casuali</entry>
+    <entry lang="it" key="IDC_QUICKEXPAND">Espansione Rapida</entry>
+    <entry lang="it" key="IDT_INIT_SPACE">Riempi il nuovo spazio: </entry>
+    <entry lang="it" key="EXPANDER_FREE_SPACE">Disponibile %s di spazio libero sull'unità host</entry>
+    <entry lang="it" key="EXPANDER_HELP_DEVICE">Questo è un volume VeraCrypt basato su dispositivo.\n\nLa nuova dimensione del volume sarà scelta automaticamente come dimensione del dispositivo host.</entry>
+    <entry lang="it" key="EXPANDER_HELP_FILE">Specificare la nuova dimensione del volume VeraCrypt (deve essere almeno %I64u KB maggiore della dimensione corrente).</entry>
+    <entry lang="it" key="QUICK_EXPAND_WARNING">ATTENZIONE: Utilizzare l'Espansione Rapida solo se:\n\n1) Il dispositivo che contiene il file container non contiene dati sensibili e non è necessaria la negazione plausibile.\n2) Il dispositivo che contiene il file container è già stato crittografato completamente e in modo sicuro.\n\nSicuro di voler utilizzare l'Espansione Rapida?</entry>
+    <entry lang="it" key="EXPANDER_STATUS_TEXT">IMPORTANTE: Muovi il mouse in modo casuale all'interno di questa finestra. Più a lungo lo muovi, meglio è. Questo aumenta significativamente la forza crittografica delle chiavi di crittografia. Poi clicca su 'Continua' per espandere il volume.</entry>
+    <entry lang="it" key="EXPANDER_STATUS_TEXT_LEGACY">Clicca su 'Continua' per espandere il volume.</entry>
+    <entry lang="it" key="EXPANDER_FINISH_ERROR">Errore: espansione del volume fallita.</entry>
+    <entry lang="it" key="EXPANDER_FINISH_ABORT">Errore: operazione annullata dall'utente.</entry>
+    <entry lang="it" key="EXPANDER_FINISH_OK">Finito. Volume espanso con successo.</entry>
+    <entry lang="it" key="EXPANDER_CANCEL_WARNING">Avviso: Espansione del volume in corso!\n\nInterrompere ora potrebbe causare un volume danneggiato.\n\nVuoi davvero annullare?</entry>
+    <entry lang="it" key="EXPANDER_STARTING_STATUS">Avvio dell'espansione del volume ...\n</entry>
+    <entry lang="it" key="EXPANDER_HIDDEN_VOLUME_ERROR">Un volume esterno contenente un volume nascosto non può essere espanso, perché ciò distrugge il volume nascosto.\n</entry>
+    <entry lang="it" key="EXPANDER_SYSTEM_VOLUME_ERROR">Un volume di sistema VeraCrypt non può essere espanso.</entry>
+    <entry lang="it" key="EXPANDER_NO_FREE_SPACE">Non c'è abbastanza spazio libero per espandere il volume</entry>
+    <entry lang="it" key="EXPANDER_WARNING_FILE_CONTAINER_JUNK">Avviso: Il file container è più grande dell'area del volume VeraCrypt. I dati successivi a quest'area saranno sovrascritti.\n\nContinuare?</entry>
+    <entry lang="it" key="EXPANDER_WARNING_FAT">Avviso: Il volume VeraCrypt contiene un file system FAT!\n\nSolo il volume VeraCrypt stesso sarà espanso, ma non il file system.\n\nVuoi continuare?</entry>
+    <entry lang="it" key="EXPANDER_WARNING_EXFAT">Avviso: Il volume VeraCrypt contiene un file system exFAT!\n\nSolo il volume VeraCrypt stesso sarà espanso, ma non il file system.\n\nVuoi continuare?</entry>
+    <entry lang="it" key="EXPANDER_WARNING_UNKNOWN_FS">Avviso: Il volume VeraCrypt contiene un file system sconosciuto o nessun file system!\n\nSolo il volume VeraCrypt stesso sarà espanso, il file system rimane invariato.\n\nVuoi continuare?</entry>
+    <entry lang="it" key="EXPANDER_ERROR_VOLUME_SIZE_TOO_SMALL">Nuova dimensione del volume troppo piccola, deve essere almeno %I64u kB maggiore della dimensione corrente.</entry>
+    <entry lang="it" key="EXPANDER_ERROR_VOLUME_SIZE_TOO_LARGE">Nuova dimensione del volume troppo grande, non c'è abbastanza spazio sull'unità host.</entry>
+    <entry lang="it" key="EXPANDER_ERROR_MAX_FILE_SIZE_EXCEEDED">Dimensione massima del file di %I64u MB sull'unità host superata.</entry>
+    <entry lang="it" key="EXPANDER_ERROR_QUICKEXPAND_PRIVILEGES">Errore: Impossibile ottenere i permessi necessari per abilitare l'Espansione Rapida!\nSi prega di deselezionare l'opzione Espansione Rapida e riprovare.</entry>
+    <entry lang="it" key="EXPANDER_ERROR_MAX_VC_VOLUME_SIZE_EXCEEDED">Dimensione massima del volume VeraCrypt di %I64u TB superata!\n</entry>
+    <entry lang="it" key="FULL_FORMAT">Formato Completo</entry>
+    <entry lang="it" key="FAST_CREATE">Creazione Veloce</entry>
+    <entry lang="it" key="WARN_FAST_CREATE">ATTENZIONE: Dovrebbe usare la Creazione Veloce solo nei seguenti casi:\n\n1) Il dispositivo non contiene dati sensibili e non richiede la negazione plausibile.\n2) Il dispositivo è già stato crittografato in modo sicuro e completamente.\n\nSei sicuro di voler usare la Creazione Veloce?</entry>
+    <entry lang="it" key="IDC_ENABLE_EMV_SUPPORT">Abilita Supporto EMV</entry>
+    <entry lang="it" key="COMMAND_APDU_INVALID">Il comando APDU inviato alla carta non è valido.</entry>
+    <entry lang="it" key="EXTENDED_APDU_UNSUPPORTED">I comandi APDU estesi non possono essere utilizzati con il token corrente.</entry>
+    <entry lang="it" key="SCARD_MODULE_INIT_FAILED">Errore durante il caricamento della libreria WinSCard / PCSC.</entry>
+    <entry lang="it" key="EMV_UNKNOWN_CARD_TYPE">La carta nel lettore non è una carta EMV supportata.</entry>
+    <entry lang="it" key="EMV_SELECT_AID_FAILED">L'AID della carta nel lettore non può essere selezionato.</entry>
+    <entry lang="it" key="EMV_ICC_CERT_NOTFOUND">Il Certificato di Chiave Pubblica ICC non è stato trovato nella carta.</entry>
+    <entry lang="it" key="EMV_ISSUER_CERT_NOTFOUND">Il Certificato di Chiave Pubblica dell'Emittente non è stato trovato nella carta.</entry>
+    <entry lang="it" key="EMV_CPLC_NOTFOUND">CPLC non è stato trovato nella carta EMV.</entry>
+    <entry lang="it" key="EMV_PAN_NOTFOUND">Nessun Numero di Conto Primario (PAN) trovato nella carta EMV.</entry>
+    <entry lang="it" key="INVALID_EMV_PATH">Il percorso EMV non è valido.</entry>
+    <entry lang="it" key="EMV_KEYFILE_DATA_NOTFOUND">Impossibile generare un file chiave dai dati della carta EMV.\n\nUno dei seguenti è mancante:\n- Certificato di Chiave Pubblica ICC.\n- Certificato di Chiave Pubblica dell'Emittente.\n- Dati CPLC.</entry>
+    <entry lang="it" key="SCARD_W_REMOVED_CARD">Nessuna carta nel lettore.\n\nAssicurati che la carta sia correttamente inserita.</entry>
+    <entry lang="it" key="FORMAT_EXTERNAL_FAILED">Il comando format.com di Windows non è riuscito a formattare il volume come NTFS/exFAT/ReFS: Errore 0x%.8X.\n\nSi passerà all'uso dell'API FormatEx di Windows.</entry>
+    <entry lang="it" key="FORMATEX_API_FAILED">L'API FormatEx di Windows non è riuscita a formattare il volume come NTFS/exFAT/ReFS.\n\nCodice di errore = %s.</entry>
+    <entry lang="it" key="EXPANDER_WRITING_RANDOM_DATA">Scrittura di dati casuali nel nuovo spazio ...\n</entry>
+    <entry lang="it" key="EXPANDER_WRITING_ENCRYPTED_BACKUP">Scrittura dell'header di backup ricrittografato ...\n</entry>
+    <entry lang="it" key="EXPANDER_WRITING_ENCRYPTED_PRIMARY">Scrittura dell'header primario ricrittografato ...\n</entry>
+    <entry lang="it" key="EXPANDER_WIPING_OLD_HEADER">Cancellazione dell'header di backup vecchio ...\n</entry>
+    <entry lang="it" key="EXPANDER_MOUNTING_VOLUME">Montaggio del volume ...\n</entry>
+    <entry lang="it" key="EXPANDER_UNMOUNTING_VOLUME">Smontaggio del volume ...\n</entry>
+    <entry lang="it" key="EXPANDER_EXTENDING_FILESYSTEM">Estensione del file system ...\n</entry>
+    <entry lang="it" key="PARTIAL_SYSENC_MOUNT_READONLY">Avviso: La partizione di sistema che hai tentato di montare non è stata completamente crittografata. Come misura di sicurezza per prevenire possibili danneggiamenti o modifiche indesiderate, il volume '%s' è stato montato come di sola lettura.</entry>
+    <entry lang="it" key="IDC_LINK_KEYFILES_EXTENSIONS_WARNING">Informazioni importanti sull'uso delle estensioni di file di terze parti</entry>
+    <entry lang="it" key="IDC_DISABLE_MEMORY_PROTECTION">Disabilita la protezione della memoria per la compatibilità con gli strumenti di accessibilità</entry>
+    <entry lang="it" key="DISABLE_MEMORY_PROTECTION_WARNING">ATTENZIONE: Disabilitare la protezione della memoria riduce significativamente la sicurezza. Attiva questa opzione SOLO se fai affidamento su strumenti di accessibilità, come Screen Readers, per interagire con l'interfaccia utente di VeraCrypt.</entry>
+    <entry lang="it" key="LINUX_LANGUAGE">Lingua</entry>
+    <entry lang="it" key="LINUX_SELECT_SYS_DEFAULT_LANG">Seleziona la lingua predefinita del sistema</entry>
+    <entry lang="it" key="LINUX_RESTART_FOR_LANGUAGE_CHANGE">Perché il cambio di lingua abbia effetto, VeraCrypt deve essere riavviato.</entry>
+    <entry lang="it" key="ERR_XTS_MASTERKEY_VULNERABLE">ATTENZIONE: La chiave master del volume è vulnerabile a un attacco che compromette la sicurezza dei dati.\n\nSi consiglia di creare un nuovo volume e trasferirvi i dati.</entry>
+    <entry lang="it" key="ERR_SYSENC_XTS_MASTERKEY_VULNERABLE">ATTENZIONE: La chiave master del sistema crittografato è vulnerabile a un attacco che compromette la sicurezza dei dati.\nSi prega di decrittografare la partizione/unità di sistema e quindi crittografarla nuovamente.</entry>
+    <entry lang="it" key="ERR_XTS_MASTERKEY_VULNERABLE_SHORT">ATTENZIONE: La chiave master del volume ha una vulnerabilità di sicurezza.</entry>
+    <entry lang="it" key="MOUNTPOINT_BLOCKED">ERRORE: Il punto di montaggio del volume è bloccato perché sovrascrive una directory di sistema protetta.\n\nScegli un punto di montaggio diverso.</entry>
+    <entry lang="it" key="MOUNTPOINT_NOTALLOWED">ERRORE: Il punto di montaggio del volume non è consentito perché sovrascrive una directory che fa parte della variabile d'ambiente PATH.\n\nScegli un punto di montaggio diverso.</entry>
+    <entry lang="it" key="INSECURE_MODE">[MODALITÀ NON SICURA]</entry>
+    <entry lang="it" key="IDC_DISABLE_SCREEN_PROTECTION">Disabilita la protezione contro screenshot e registrazione dello schermo</entry>
+    <entry lang="it" key="DISABLE_SCREEN_PROTECTION_WARNING">ATTENZIONE: Disabilitare la protezione dello schermo riduce significativamente la sicurezza. Attiva questa opzione SOLO se hai una necessità specifica di acquisire l’interfaccia di VeraCrypt. Questo potrebbe esporre dati sensibili a strumenti di cattura schermo e a funzionalità di registrazione come Windows 11 Recall.</entry>
+    <entry lang="it" key="MEMORY_COST">Costo di Memoria</entry>
+    <entry lang="it" key="IDT_KDF_ALGO">Algoritmo KDF</entry>
+    <entry lang="it" key="IDD_PREFERENCES_TAB_GENERAL">Generale</entry>
+    <entry lang="it" key="IDD_PREFERENCES_TAB_ACTIONS">Azioni</entry>
+    <entry lang="it" key="IDD_PREFERENCES_TAB_PASSWORD">Password</entry>
+    <entry lang="it" key="IDC_SECURE_DESKTOP_ENABLE_IME">Abilita l'editor del metodo di input (IME) nel Desktop sicuro</entry>
+    <entry lang="it" key="ENABLE_IME_IN_SECURE_DESKTOP_WARNING">ATTENZIONE: Abilita questa opzione SOLO se riscontri problemi durante la selezione di file chiave o token nel Desktop sicuro.</entry>
+    <entry lang="it" key="ERR_KEY_DERIVATION_FAILED">Derivazione della chiave non riuscita. La causa potrebbe essere memoria insufficiente o un'operazione interrotta.</entry>
+    <entry lang="it" key="EFI_MS_BOOT_LOADER_RESTORE_FAILED">La partizione/unità di sistema è già stata decrittografata, ma il percorso del boot loader EFI Microsoft non è stato ripristinato nel Windows Boot Manager. Solo i file di avvio EFI devono essere riparati. Usa l'opzione di riparazione del VeraCrypt Rescue Disk, oppure avvia un supporto di ripristino di Windows ed esegui 'bcdboot W:\\Windows /s S: /f UEFI' dopo aver sostituito W: con la lettera dell'unità del volume Windows e S: con la lettera dell'unità della partizione di sistema EFI. Percorso:</entry>
+    <entry lang="it" key="EFI_FALLBACK_BOOT_LOADER_STILL_VERACRYPT">La partizione/unità di sistema è già stata decrittografata, ma il percorso del boot loader EFI di fallback contiene ancora il VeraCrypt Boot Loader. Solo i file di avvio EFI devono essere riparati. Usa l'opzione di riparazione del VeraCrypt Rescue Disk, oppure avvia un supporto di ripristino di Windows ed esegui 'bcdboot W:\\Windows /s S: /f UEFI' dopo aver sostituito W: con la lettera dell'unità del volume Windows e S: con la lettera dell'unità della partizione di sistema EFI. Percorso:</entry>
+    <entry lang="it" key="IDM_REPAIR_EFI_BOOT_LOADER">Ripara boot loader EFI...</entry>
+    <entry lang="it" key="CONFIRM_REPAIR_EFI_BOOT_LOADER">VeraCrypt ripristinerà i percorsi del boot loader EFI di Windows e rimuoverà le voci e i file di avvio EFI di VeraCrypt.\n\nUsa questa opzione solo dopo che la partizione/unità di sistema è stata completamente decrittografata e Windows può avviarsi senza crittografia di sistema.\n\nVuoi continuare?</entry>
+    <entry lang="it" key="EFI_BOOT_LOADER_FILE_READ_FAILED">Il file del boot loader EFI non può essere letto completamente:</entry>
+    <entry lang="it" key="EFI_BOOT_LOADER_FILE_TOO_LARGE">Il file del boot loader EFI è insolitamente grande e non è stato ispezionato:</entry>
+    <entry lang="it" key="EFI_BOOT_LOADER_NVRAM_CLEANUP_FAILED">La partizione/unità di sistema è già stata decrittografata e i file del boot loader EFI sono stati ripristinati, ma VeraCrypt non è riuscito a rimuovere una o più voci di avvio VeraCrypt dal firmware. I file EFI di VeraCrypt sono stati lasciati al loro posto in modo che eventuali voci firmware rimanenti puntino ancora a un loader esistente. Riprova come Amministratore oppure rimuovi la voce di avvio VeraCrypt dalle impostazioni del firmware dopo aver confermato che Windows Boot Manager si avvia normalmente.</entry>
+    <entry lang="it" key="EFI_BOOT_LOADER_REPAIR_BLOCKED">Il boot loader EFI non può essere riparato mentre la crittografia o decrittografia di sistema è attiva o incompleta. Completa o riprendi il processo di crittografia/decrittografia di sistema in sospeso prima di riprovare.</entry>
+    <entry lang="it" key="EFI_BOOT_LOADER_REPAIR_NOT_APPLICABLE">Questa azione di riparazione è disponibile solo su sistemi avviati in modalità UEFI da una partizione di sistema GPT.</entry>
+    <entry lang="it" key="EFI_BOOT_LOADER_REPAIR_SUCCESS">Il boot loader EFI è stato riparato correttamente.</entry>
+    <entry lang="it" key="PIM_ARGON2_HELP">Il PIM (Moltiplicatore delle Iterazioni Personali) controlla i costi di memoria e di tempo usati dalla derivazione Argon2id della chiave di intestazione come segue:\n      Memoria = min(64 MiB + ((PIM - 1) x 32 MiB), 1024 MiB)\n      Iterazioni = 3 + ((PIM - 1) / 3) per PIM 31 o inferiore, quindi 13 + (PIM - 31)\n\nQuando viene lasciato vuoto o impostato a 0, VeraCrypt userà il PIM Argon2 predefinito (12), che usa 416 MiB di memoria e 6 iterazioni.\n\nQuando la password contiene meno di 20 caratteri, il PIM Argon2 non può essere inferiore a 12 per mantenere un livello minimo di sicurezza.\nQuando la password contiene 20 o più caratteri, il PIM Argon2 può essere impostato a qualsiasi valore.\n\nUn PIM Argon2 maggiore di 12 aumenta l'uso della memoria fino a 1024 MiB e poi aumenta le iterazioni. Questo porterà a un montaggio più lento. Un PIM Argon2 basso (inferiore a 12) porterà a un montaggio più rapido ma può ridurre la sicurezza se la password non è abbastanza forte.</entry>
+    <entry lang="it" key="PIM_ARGON2_LARGE_WARNING">Hai scelto un valore PIM Argon2 maggiore del valore predefinito di VeraCrypt.\nNota che questo può richiedere più memoria e portare a un montaggio molto più lento.</entry>
+    <entry lang="it" key="PIM_ARGON2_SMALL_WARNING">Hai scelto un valore PIM Argon2 inferiore al valore predefinito di VeraCrypt. Nota che se la password non è abbastanza forte, questo potrebbe portare a una sicurezza più debole.\n\nConfermi di usare una password forte?</entry>
+    <entry lang="it" key="PIM_ARGON2_REQUIRE_LONG_PASSWORD">La password deve contenere 20 o più caratteri per usare il PIM Argon2 specificato.\nPassword più brevi possono essere usate solo se il PIM Argon2 è 12 o maggiore.</entry>
+    <entry lang="it" key="LINUX_PREF_MOUNT_NTFS_WITH_KERNEL_DRIVER">Monta volumi NTFS con un driver Linux interno al kernel</entry>
+    <entry lang="it" key="LINUX_PREF_MOUNT_NTFS_WITH_KERNEL_DRIVER_HELP">Solo Linux. Quando questa opzione è abilitata e non è stato fornito alcun tipo di filesystem esplicito, VeraCrypt esamina il dispositivo virtuale decrittografato con 'blkid -p' e monta i filesystem NTFS rilevati con un driver NTFS disponibile nel kernel, evitando helper di montaggio come 'ntfs-3g'. VeraCrypt usa 'ntfs' quando viene identificato positivamente come driver moderno in lettura/scrittura o previsto sul kernel Linux 7.1 o successivo, altrimenti usa 'ntfs3'. Se il rilevamento NTFS fallisce, VeraCrypt usa la normale selezione automatica del filesystem. Se nessun driver NTFS nel kernel supportato è disponibile o caricabile, il montaggio fallisce. Questa opzione facoltativa può evitare blocchi durante sospensione o ibernazione causati da filesystem FUSE in spazio utente bloccati.</entry>
+    <entry lang="it" key="LINUX_KERNEL_NTFS_DRIVER_UNAVAILABLE">Nessun driver NTFS supportato nel kernel è disponibile o caricabile. Per usare il backend NTFS predefinito del sistema, disabilita la preferenza del driver NTFS del kernel o non richiedere esplicitamente NTFS del kernel.</entry>
+    <entry lang="it" key="LINUX_EMERGENCY_UNMOUNT_WARNING">Lo smontaggio normale del volume {0} è fallito. Questo può accadere quando applicazioni hanno ancora file o directory aperti sul volume, oppure quando il dispositivo sottostante è stato scollegato e il montaggio è diventato non valido.\n\nSe il dispositivo è ancora connesso, scegli No, chiudi le applicazioni che usano il volume e prova di nuovo a smontarlo.\n\nSe il dispositivo è stato scollegato o il montaggio non è più valido, VeraCrypt può tentare una pulizia di emergenza distaccando il filesystem in modalità lazy e rimuovendo, o pianificando la rimozione, degli oggetti kernel di VeraCrypt. Le scritture in sospeso potrebbero essere fallite, i dati potrebbero essere persi e la pulizia potrebbe restare in sospeso finché le applicazioni non chiudono i file aperti. Controlla il filesystem con 'fsck' o con lo strumento di riparazione appropriato prima di usarlo di nuovo.\n\nContinuare?</entry>
+    <entry lang="it" key="LINUX_EMERGENCY_UNMOUNTED">La pulizia di emergenza per il volume {0} è stata avviata. Se il volume è stato scollegato, il montaggio non era più valido o c'erano scritture in sospeso, controlla il filesystem con 'fsck' o con lo strumento di riparazione appropriato prima di usarlo di nuovo.</entry>
+    <entry lang="it" key="FORMAT_STAGE_WRITING_DATA">Creazione dei dati del volume. Attendere.</entry>
+    <entry lang="it" key="FORMAT_STAGE_WRITING_BACKUP_HEADER">Finalizzazione della creazione del volume: scrittura dell'header di backup.</entry>
+    <entry lang="it" key="FORMAT_STAGE_FLUSHING_DATA">Finalizzazione della creazione del volume: sincronizzazione dei dati su disco. Questa operazione può richiedere diversi minuti su volumi grandi o supporti lenti/USB.</entry>
+    <entry lang="it" key="FORMAT_STAGE_FINISHED">Finalizzazione della creazione del volume.</entry>
+    <entry lang="it" key="FORMAT_STAGE_ABORTED">La creazione del volume è stata interrotta.</entry>
+    <entry lang="it" key="FORMAT_STAGE_ERROR">Creazione del volume fallita.</entry>
+    <entry lang="it" key="FORMAT_STAGE_PREPARING_TEMP_VOLUME">Finalizzazione della creazione del volume: montaggio del volume temporaneo.</entry>
+    <entry lang="it" key="FORMAT_STAGE_PREPARING_TEMP_DEVICE">Finalizzazione della creazione del volume: preparazione del dispositivo temporaneo.</entry>
+    <entry lang="it" key="FORMAT_STAGE_CREATING_FILESYSTEM">Finalizzazione della creazione del volume: creazione del filesystem usando {0}.</entry>
+    <entry lang="it" key="FORMAT_STAGE_DISMOUNTING_TEMP_VOLUME">Finalizzazione della creazione del volume: smontaggio del volume temporaneo.</entry>
+    <entry lang="it" key="MACOSX_APFS_SYNTHESIZED_DEVICE">Il dispositivo selezionato '{0}' è un contenitore o volume APFS sintetizzato e non può essere usato come host di un volume VeraCrypt raw.\n\nSeleziona invece la partizione{1} dello store fisico APFS.</entry>
+    <entry lang="it" key="MACOSX_DEVICE_SYSTEM_PARTITION">Il dispositivo selezionato '{0}' è una partizione di sistema/supporto macOS e non può essere usato come host di un volume VeraCrypt.</entry>
+    <entry lang="it" key="MACOSX_APFS_SYSTEM_STORE">Lo store fisico APFS selezionato '{0}' contiene il volume di sistema macOS attualmente montato e non può essere usato come host di un volume VeraCrypt.</entry>
+    <entry lang="it" key="MACOSX_DEVICE_NOT_WRITABLE">macOS segnala il dispositivo selezionato '{0}' come di sola lettura. Seleziona una partizione fisica o un disco scrivibile.</entry>
+    <entry lang="it" key="MACOSX_APFS_EROFS_HINT">macOS ha segnalato il dispositivo selezionato come di sola lettura. Se questo è un disco APFS, assicurati di aver selezionato la partizione dello store fisico APFS, non un volume APFS sintetizzato. Usa Utility Disco o 'diskutil list' per identificare la partizione fisica, quindi riprova.</entry>
   </localization>
   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="VeraCrypt">
