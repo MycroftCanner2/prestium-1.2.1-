@@ -1,8 +1,7 @@
-prefix=/usr
-datarootdir=${prefix}/share
-datadir=${datarootdir}
+
+datadir=/usr/share
 xkb_base=/usr/share/X11/xkb
 
 Name: XKeyboardConfig
 Description: X Keyboard configuration data
-Version: 2.29
+Version: 2.35.1

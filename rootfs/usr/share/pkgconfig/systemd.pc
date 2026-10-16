@@ -65,6 +65,8 @@ systemdshutdowndir=${systemd_shutdown_dir}
 tmpfiles_dir=${prefix}/lib/tmpfiles.d
 tmpfilesdir=${tmpfiles_dir}
 
+user_tmpfiles_dir=${prefix}/share/user-tmpfiles.d
+
 sysusers_dir=${prefix}/lib/sysusers.d
 sysusersdir=${sysusers_dir}
 
@@ -97,5 +99,5 @@ containeruidbasemax=${container_uid_base_max}
 
 Name: systemd
 Description: systemd System and Service Manager
-URL: https://www.freedesktop.org/wiki/Software/systemd
-Version: 247
+URL: https://systemd.io/
+Version: 252
