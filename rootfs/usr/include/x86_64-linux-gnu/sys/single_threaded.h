@@ -1,4 +1,5 @@
-/* Copyright (C) 2012-2020 Free Software Foundation, Inc.
+/* Support for single-thread optimizations.
+   Copyright (C) 2020-2022 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -15,6 +16,18 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-#if defined __x86_64__ && defined __ILP32__
-# error "sysctl system call is unsupported in x32 kernel"
-#endif
+#ifndef _SYS_SINGLE_THREADED_H
+#define _SYS_SINGLE_THREADED_H
+
+#include <features.h>
+
+__BEGIN_DECLS
+
+/* If this variable is non-zero, then the current thread is the only
+   thread in the process image.  If it is zero, the process might be
+   multi-threaded.  */
+extern char __libc_single_threaded;
+
+__END_DECLS
+
+#endif /* _SYS_SINGLE_THREADED_H */

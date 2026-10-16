@@ -1,0 +1,44 @@
+#!/bin/bash
+# prestium-tunnel-hops: set the number of hops for i2pd tunnels.
+# Rebuilt for the Prestium 1.6-update branch (original script source is offline).
+# Usage: prestium-tunnel-hops [1-7]   (no argument: pick in a dialog)
+set -e
+CONF=/var/lib/i2pd/tunnels.conf
+MAIN=/var/lib/i2pd/i2pd.conf
+N="$1"
+if [ -z "$N" ]; then
+  if command -v zenity >/dev/null && [ -n "$DISPLAY" ]; then
+    N=$(zenity --list --title="Tunnel hops" --text="Hops per I2P tunnel.\nMore hops = more anonymity, less speed. Default: 3" \
+      --column=Hops 1 2 3 4 5 6 7 --height=330) || exit 0
+  else
+    read -rp "Hops per tunnel (1-7, default 3): " N; N=${N:-3}
+  fi
+fi
+[[ "$N" =~ ^[1-7]$ ]] || { echo "Hops must be 1-7" >&2; exit 1; }
+[ "$(id -u)" -eq 0 ] || exec sudo -n "$0" "$N"
+# Client/server tunnels: replace or add inbound/outbound.length in every section
+python3 - "$CONF" "$N" <<'PY'
+import re,sys
+path,n=sys.argv[1],sys.argv[2]
+out=[];sec=None;seen=set()
+def flush():
+    if sec is not None:
+        for k in ("inbound.length","outbound.length"):
+            if k not in seen: out.append(f"{k} = {n}")
+for line in open(path).read().splitlines():
+    m=re.match(r"\s*\[(.+)\]",line)
+    if m:
+        while out and out[-1].strip()=="" : out.pop()
+        flush(); out.append(""); sec=m.group(1); seen=set(); out.append(line); continue
+    k=re.match(r"\s*(inbound|outbound)\.length\s*=",line)
+    if k and sec is not None:
+        key=k.group(1)+".length"; seen.add(key); out.append(f"{key} = {n}"); continue
+    out.append(line)
+flush()
+open(path,"w").write("\n".join(out).lstrip("\n")+"\n")
+PY
+# Exploratory tunnels in i2pd.conf
+sed -i -E "s/^#?\s*inbound\.length\s*=.*/inbound.length = $N/; s/^#?\s*outbound\.length\s*=.*/outbound.length = $N/" "$MAIN"
+systemctl restart i2pd 2>/dev/null || service i2pd restart
+command -v notify-send >/dev/null && sudo -u "${SUDO_USER:-user}" DISPLAY=:0 notify-send "I2P" "Tunnels now use $N hops; i2pd restarted." 2>/dev/null || true
+echo "Tunnels set to $N hops; i2pd restarted."

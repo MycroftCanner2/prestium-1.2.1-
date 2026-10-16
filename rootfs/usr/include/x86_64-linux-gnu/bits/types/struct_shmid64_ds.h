@@ -1,5 +1,5 @@
-/* Declare sys_errlist and sys_nerr, or don't.  Compatibility (do) version.
-   Copyright (C) 2002-2020 Free Software Foundation, Inc.
+/* Generic implementation of the shared memory struct shmid_ds.
+   Copyright (C) 2020-2022 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -16,17 +16,15 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-#ifndef _STDIO_H
-# error "Never include <bits/sys_errlist.h> directly; use <stdio.h> instead."
+#ifndef _SYS_SHM_H
+# error "Never include <bits/types/struct_shmid_ds.h> directly; use <sys/shm.h> instead."
 #endif
 
-/* sys_errlist and sys_nerr are deprecated.  Use strerror instead.  */
-
-#ifdef  __USE_MISC
-extern int sys_nerr;
-extern const char *const sys_errlist[];
-#endif
-#ifdef  __USE_GNU
-extern int _sys_nerr;
-extern const char *const _sys_errlist[];
+#if __TIMESIZE == 64
+# define __shmid64_ds shmid_ds
+#else
+struct __shmid64_ds
+{
+# include <bits/types/struct_shmid64_ds_helper.h>
+};
 #endif

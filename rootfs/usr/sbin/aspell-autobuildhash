@@ -2,7 +2,7 @@
 #
 #  script for aspell hash autorebuild in Debian systems
 #
-# Copyright 2004-2021 Agustin Martin Domingo <agmartin@debian.org>
+# Copyright 2004-2022 Agustin Martin Domingo <agmartin@debian.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -181,7 +181,6 @@ sub get_aspell_compat {
 # ---------------------------------------------------------------------
 
 use Debian::DictionariesCommon qw(dico_checkroot dico_activate_trigger);
-use Debconf::Client::ConfModule q(:all);
 use Getopt::Long;
 
 # Options processing
@@ -208,7 +207,7 @@ unless ( $triggered or $force ) {
 
 $force++ unless $aspell_compat;
 
-if ( system("which aspell > /dev/null 2>&1" ) == 0 ){
+if ( system("command -v aspell >/dev/null" ) == 0 ){
   foreach my $compat ( <$compatdir/*.compat> ){
     my $lang =  $compat;
     $lang    =~ s/\.compat$//;
