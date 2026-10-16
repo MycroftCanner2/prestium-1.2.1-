@@ -1,0 +1,3 @@
+/etc/apparmor/easyprof.conf
+/etc/apparmor/logprof.conf
+/etc/apparmor/severity.db

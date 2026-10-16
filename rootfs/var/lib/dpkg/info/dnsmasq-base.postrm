@@ -2,10 +2,15 @@
 set -e
 
 if [ purge = "$1" ]; then
-   if [ -x "$(command -v deluser)" ]; then
-     deluser --quiet --system dnsmasq > /dev/null || true
-  else
-     echo >&2 "not removing dnsmasq system account because deluser command was not found"
+  # Handle the rare case "userdel" not being available, see bug #1071142.
+  if [ command -v userdel 1>dev/null 2>&1 ]; then
+    userdel dnsmasq
   fi
   rm -rf /run/dnsmasq
 fi
+
+# Automatically added by dh_installdeb/13.11.4
+dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/dnsmasq.conf 2.89-1.1\~ dnsmasq-base -- "$@"
+# End automatically added section
+
+

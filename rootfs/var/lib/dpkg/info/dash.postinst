@@ -3,8 +3,9 @@ set -e
 
 # $1: dfile, $2: link target, $3: distrib
 replace_with_link() {
-	dfile=$1; ltarget=$2; distrib=$3
-	temp=$dfile.tmp
+	dfile="$1"; ltarget=$2; distrib="$DPKG_ROOT$3"
+	temp="$dfile.tmp"
+	[ -e "$DPKG_ROOT$dfile" ] || [ -L "$DPKG_ROOT$dfile" ] && dfile_exists=yes
 	# Safely create a symlink to $ltarget at $dfile, first
 	# making a backup of $dfile (the file being diverted)
 	# in $distrib (if specified).
@@ -12,12 +13,19 @@ replace_with_link() {
 	# The cp / ln -s / mv dance avoids having to live without
 	# $dfile (think: /bin/sh) for even a moment, so applications
 	# running in parallel can continue without trouble.
-	# See dash.preinst for details.
-	if [ -n "$distrib" ] && [ -e "$dfile" ]; then
-		cp -dp "$dfile" "$distrib"
+	if [ -n "$distrib" ] && [ -e "$DPKG_ROOT$dfile" ]; then
+		cp -dp "$DPKG_ROOT$dfile" "$distrib"
 	fi
-	ln -sf "$ltarget" "$temp"
-	mv -f "$temp" "$dfile"
+	ln -sf "$ltarget" "$DPKG_ROOT$temp"
+	mv -f "$DPKG_ROOT$temp" "$DPKG_ROOT$dfile"
+	# Since man-db stores symlink modification times in its index.db we
+	# need to set a reproducible mtime. We only do that for new symlinks
+	# (if dfile doesn't exist yet) to avoid changing to a lower mtime
+	# which breaks backup tools.
+	targetrealpath="$DPKG_ROOT$(dpkg-realpath "$dfile")"
+	if [ -e "$targetrealpath" ] && [ "$dfile_exists" != "yes" ]; then
+		touch --no-dereference --reference="$targetrealpath" "$DPKG_ROOT$dfile"
+	fi
 }
 
 claim_binsh() {
@@ -47,8 +55,8 @@ claim_binsh() {
 	dpkg-divert --package bash --no-rename --remove $dfile
 	dpkg-divert --package dash --no-rename --divert $distrib --add $dfile
 	# remove the old equivalent of $distrib, if it existed.
-	if [ -n "$truename" ]; then
-	       rm -f "$truename"
+	if [ -n "$DPKG_ROOT$truename" ]; then
+	       rm -f "$DPKG_ROOT$truename"
 	fi
 	replace_with_link $dfile $ltarget $distrib
 }
@@ -104,47 +112,21 @@ initial_binsh_setup() {
 	fi
 }
 
-add_shell() {
-	if ! type add-shell > /dev/null 2>&1; then
-		return
-	fi
-
-	add-shell /bin/dash
-}
-
-debconf=
-if [ -f /usr/share/debconf/confmodule ]; then
-	. /usr/share/debconf/confmodule
-	debconf=yes
-fi
-
 if [ "$1" = configure ] && [ -z "$2" ]; then
 	initial_binsh_setup /bin/sh dash '' /bin/ash
 	initial_binsh_setup /usr/share/man/man1/sh.1.gz dash.1.gz \
 		/usr/share/man/man1/sh.distrib.1.gz \
 		/usr/share/man/man1/ash.1.gz
-	add_shell
-elif [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.4.18; then
-	add_shell
 fi
 
-if [ $debconf ]; then
-	db_get dash/sh
-	if [ "$RET" = true ]; then
-		claim_binsh /bin/sh dash
-		if [ -d /usr/share/man/man1/ ]; then
-			claim_binsh /usr/share/man/man1/sh.1.gz dash.1.gz \
-				/usr/share/man/man1/sh.distrib.1.gz
-		fi
-	else
-		unclaim_binsh /bin/sh dash
-		unclaim_binsh /usr/share/man/man1/sh.1.gz dash.1.gz \
-			/usr/share/man/man1/sh.distrib.1.gz
-	fi
+claim_binsh /bin/sh dash
+if [ -d "$DPKG_ROOT/usr/share/man/man1/" ]; then
+    claim_binsh /usr/share/man/man1/sh.1.gz dash.1.gz \
+        /usr/share/man/man1/sh.distrib.1.gz
 fi
 
-# Automatically added by dh_installmenu/13.3
-if [ "$1" = "configure" ] && [ -x "`which update-menus 2>/dev/null`" ]; then
+# Automatically added by dh_installmenu/13.11.4
+if [ "$1" = "configure" ] && [ -x "`command -v update-menus`" ] && [ -x "$DPKG_ROOT`command -v update-menus`" ]; then
 	update-menus
 fi
 # End automatically added section

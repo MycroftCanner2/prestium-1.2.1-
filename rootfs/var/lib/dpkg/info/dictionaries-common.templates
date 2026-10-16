@@ -134,6 +134,14 @@ Description-pt_BR.UTF-8: Banco de dados debconf possivelmente corrompido
  Nesse caso, rodar "/usr/share/debconf/fix_db.pl" pode ajudar a devolver o banco de dados debconf a um estado consistente.
  .
  Algumas perguntas provavelmente serão feitas depois dessa mensagem para deixar o sistema de dicionários em um estado (provisoriamente) funcional.
+Description-ro.UTF-8: Posibilă corupție a bazei de date «debconf»
+ Configurarea pentru „${question}” lipsește, dar pachetele care furnizează candidați sunt instalate: „${class_packages}”.
+ .
+ Acest lucru se poate datora coruperii bazei de date «debconf». Consultați „/usr/share/doc/dictionaries-common/README.problems” despre „Debconf database corruption” (Coruperea bazei de date Debconf).
+ .
+ În acest caz, rularea scriptului „/usr/share/debconf/fix_db.pl” poate ajuta la punerea bazei de date «debconf» într-o stare consecventă.
+ .
+ Este posibil ca unele întrebări să fie puse după acest mesaj pentru a lăsa sistemul de dicționare într-o stare (provizorie) de funcționare.
 Description-ru.UTF-8: База данных debconf, возможно, повреждена
  Отсутствует значение для параметра «${question}», но установлены пакеты, предоставляющие кандидатов: «${class_packages}».
  .
@@ -325,6 +333,14 @@ Description-pt_BR.UTF-8: Valor de configuração inválido para o dicionário pa
  Para corrigir esse erro, reinstale (ou instale) o pacote que fornece "${value}". Então, se você não quiser mais esse pacote em seu sistema, remova-o, que irá remover também essas configurações. Um menu de escolhas será exibido após essa mensagem para deixar o sistema em um estado funcional até você corrigir o problema.
  .
  Essa mensagem de erro também pode aparecer durante a renomeação do dicionário ou da lista de palavras ispell (por exemplo, wenglish -> wamerican). Nesse caso, essa mensagem é inofensiva e tudo estará corrigido depois que você selecionar seu padrão no(s) menu(s) exibido(s) após essa mensagem.
+Description-ro.UTF-8: Valoare de configurare nevalidă pentru dicționarul implicit
+ A fost găsită o valoare nevalidă pentru o opțiune de configurare pentru „dictionaries-common” (dicționare-comune). „${value}” nu corespunde niciunui pachet instalat în sistem.
+ .
+ Acest lucru este cauzat de obicei de probleme anterioare în timpul instalării pachetului, unde pachetul care furnizează „${value}” a fost selectat pentru instalare, dar în cele din urmă nu a fost instalat din cauza erorilor din alte pachete.
+ .
+ Pentru a remedia această eroare, reinstalați (sau instalați) pachetul care furnizează „${value}”. Apoi, dacă nu doriți acest pachet în sistemul dvs., eliminați-l, ceea ce va șterge de asemenea și această opțiune de configurare. Un meniu de opțiuni va fi afișat după acest mesaj pentru a lăsa sistemul într-o stare de funcționare acceptabilă până când remediați problema.
+ .
+ Acest mesaj de eroare poate apărea de asemenea în timpul redenumirii dicționarului ispell sau a listei de cuvinte (ex. wenglish->wamerican). În acest caz este inofensiv și se va repara totul după ce alegeți opțiunile implicite în meniul/meniurile afișat(e) după acest mesaj.
 Description-ru.UTF-8: Недопустимое значение параметра для словаря по умолчанию
  Обнаружено некорректное значение параметра в dictionaries-common. «${value}» не соответствует ни одному установленному пакету в системе.
  .
@@ -404,7 +420,7 @@ Choices-no.UTF-8: ${echoices}, Manuelt oppsett av symlenker
 Choices-pl.UTF-8: ${echoices}, ręczne ustawienie dowiązań symbolicznych
 Choices-pt.UTF-8: ${echoices}, Configuração manual dos atalhos simbólicos
 Choices-pt_BR.UTF-8: ${echoices}, Configuração manual de ligações simbólicas
-Choices-ro.UTF-8: ${echoices}, Setare manuală de legături simbolice
+Choices-ro.UTF-8: ${echoices}, Configurare manuală de legături simbolice
 Choices-ru.UTF-8: ${echoices}, настройка символьных ссылок вручную
 Choices-sk.UTF-8: ${echoices}, Manuálne nastavenie symbolických odkazov
 Choices-sq.UTF-8: ${echoices}, Rregullimet manuale të lidhjeve simbolike
@@ -575,6 +591,14 @@ Description-pt_BR.UTF-8: Dicionário ispell padrão do sistema:
  Use "Configuração manual de ligações simbólicas" se você mesmo quiser cuidar das ligações simbólicas. Nesse caso, o ispell não terá nenhum ispell-wrapper e nem padrões do Emacs.
  .
  O dicionário ispell padrão pode ser alterado a qualquer momento executando o comando "select-default-ispell".
+Description-ro.UTF-8: Dicționarul de ortografie „ispell” implicit al sistemului:
+ Indicați ce dicționar ar trebui să utilizeze ispell ca implicit la nivelul întregului sistem, atunci când nu este specificat niciun alt dicționar de verificare ortografică.
+ .
+ Această alegere configurează legăturile simbolice „/usr/lib/ispell/default.aff” și „/usr/lib/ispell/default.hash”, precum și valorile implicite la nivel global ale lui ispell-wrapper și ale lui Emacs.
+ .
+ Utilizați „Configurarea manuală de legături simbolice” dacă doriți să gestionați singur legăturile simbolice. În acest caz, nu se va avea nicio valoare globală implicită a dicționarului ispell pentru ispell-wrapper sau Emacs.
+ .
+ Dicționarul implicit ispell poate fi schimbat în orice moment prin rularea comenzii «select-default-ispell».
 Description-ru.UTF-8: Системный словарь ispell по умолчанию:
  Выберите словарь ispell, который будет использован как системный словарь по умолчанию, когда не указано другого словаря.
  .
@@ -662,7 +686,7 @@ Choices-no.UTF-8: ${echoices}, Manuelt oppsett av symlenker
 Choices-pl.UTF-8: ${echoices}, ręczne ustawienie dowiązań symbolicznych
 Choices-pt.UTF-8: ${echoices}, Configuração manual dos atalhos simbólicos
 Choices-pt_BR.UTF-8: ${echoices}, Configuração manual de ligações simbólicas
-Choices-ro.UTF-8: ${echoices}, Setare manuală de legături simbolice
+Choices-ro.UTF-8: ${echoices}, Configurare manuală de legături simbolice
 Choices-ru.UTF-8: ${echoices}, настройка символьных ссылок вручную
 Choices-sk.UTF-8: ${echoices}, Manuálne nastavenie symbolických odkazov
 Choices-sq.UTF-8: ${echoices}, Rregullimet manuale të lidhjeve simbolike
@@ -755,6 +779,10 @@ Description-pt_BR.UTF-8: Lista de palavras padrão do sistema:
  Por favor, indique para qual lista de palavras (wordlist) a ligação simbólica "/usr/share/dict/words" deve apontar. Isso vai fornecer uma lista de palavras de dicionário simples para buscas de palavras e correção ortográfica básicas. Use a "Configuração manual de ligações simbólicas" se você mesmo quiser cuidar dessa ligação simbólica.
  .
  A lista de palavras (wordlist) padrão pode ser alterada a qualquer momento executando o comando "select-default-wordlist".
+Description-ro.UTF-8: Lista de cuvinte implicită a sistemului:
+ Indicați spre ce listă de cuvinte ar trebui să indice legătura simbolică „/usr/share/dict/words”. Aceasta va oferi o listă simplă de cuvinte din dicționar pentru verificarea ortografică de bază și căutări de cuvinte. Utilizați „Configurarea manuală de legături simbolice” dacă doriți să gestionați singur această legătură simbolică.
+ .
+ Lista implicită de cuvinte poate fi schimbată oricând rulând comanda «select-default-wordlist».
 Description-ru.UTF-8: Системный список слов по умолчанию:
  Укажите на какой список слов должна указывать символьная ссылка «/usr/share/dict/words». Данный список словарных слов будет использован для простой проверки орфографии и при поиске слов. Выберите «Настройка символьных ссылок вручную», если хотите самостоятельно настроить эту символьную ссылку.
  .
@@ -854,6 +882,10 @@ Description-pt_BR.UTF-8: Remover ligação simbólica obsoleta /etc/dictionary?
  Esse sistema tem uma ligação simbólica "/etc/dictionary" obsoleta. Ela não tem mais razão de ser, e deve ser removida.
  .
  Você terá a opção de explicitamente selecionar a lista de palavras (wordlist) padrão durante a instalação dos pacotes de listas de palavras. Você poderá mudar sua escolha a qualquer momento executando o comando "select-default-wordlist".
+Description-ro.UTF-8: Eliminați legătura învechită „/etc/dictionary”?
+ Acest sistem are o legătură simbolică învechită „/etc/dictionary”. Această legătură nu mai are sens și ar trebui eliminată.
+ .
+ Vi se va cere să selectați în mod explicit lista de cuvinte implicită în timpul instalării pachetelor de liste de cuvinte. Puteți modifica oricând selecția, rulând comanda «select-default-wordlist».
 Description-ru.UTF-8: Убрать устаревшую ссылку /etc/dictionary?
  В системе обнаружена устаревшая символическая ссылка «/etc/dictionary». Она больше не используется и должна быть удалена.
  .
@@ -1016,6 +1048,14 @@ Description-pt_BR.UTF-8: Problemas na reconstrução de um arquivo de hash ${xxp
  Esse erro foi causado por um pacote que fornece o arquivo "${hashfile}", apesar de poder ter sido disparado durante a instalação de outro pacote. Por favor, envie um relatório de erro (bug report) ao mantenedor do pacote que fornece o arquivo "${hashfile}".
  .
  Até que esse problema seja corrigido, você não será capaz de usar o ${xxpell} com o arquivo "${hashfile}".
+Description-ro.UTF-8: Probleme la reconstruirea fișierului cu tabelul sumelor de control (${hashfile}) pentru ${xxpell}
+ A apărut următoarea eroare:
+ .
+ ${errormsg}
+ .
+ Această eroare a fost cauzată de un pachet care furnizează „${hashfile}”, deși poate fi declanșată de instalarea altui pachet. Trimiteți un mesaj de eroare pentru responsabilul pachetului care oferă „${hashfile}”.
+ .
+ Până când această problemă nu va fi rezolvată, nu veți putea folosi ${xxpell} cu „${hashfile}”.
 Description-ru.UTF-8: Проблемы с пересозданием хэш-файла ${xxpell} (${hashfile})
  Произошла следующая ошибка:
  .
@@ -1130,6 +1170,10 @@ Description-pt_BR.UTF-8: Valores padrão para o dicionário/lista de palavras is
  Executar "dpkg-reconfigure dictionaries-common" não definirá os valores padrão para o dicionário/lista de palavras ispell. Executar "dpkg-reconfigure ispell" não definirá o dicionário ispell padrão.
  .
  Ao invés disso, use os comandos "select-default-ispell" ou "select-default-wordlist" para esse objetivo.
+Description-ro.UTF-8: Valorile implicite pentru dicționarul ispell/lista de cuvinte nu sunt stabilite
+ Rularea comenzii «dpkg-reconfigure dictionaries-common» nu va ajusta valorile implicite pentru dicţionarul/lista de cuvinte ispell. Rularea comenzii «dpkg-reconfigure ispell» nu va ajusta valoarea pentru dicționarul implicit ispell.
+ .
+ În schimb, ar trebui să utilizați comenzile «select-default-ispell» sau «select-default-wordlist» în acest scop.
 Description-ru.UTF-8: Не указан словарь/список слов по умолчанию для ispell
  Командой «dpkg-reconfigure dictionaries-common» нельзя настроить словарь/список слов по умолчанию для ispell. Командой «dpkg-reconfigure ispell» нельзя задать словарь по умолчанию для ispell.
  .

@@ -1,5 +1,5 @@
 # Triggers for dictionaries-common
-interest-noawait /var/lib/dictionaries-common/hunspell
+interest-noawait /usr/share/hunspell
 interest-noawait aspell-autobuildhash
 interest-noawait ispell-autobuildhash
 interest-noawait update-default-ispell

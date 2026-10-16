@@ -39,7 +39,7 @@
 /usr/share/doc
 /usr/share/doc/cryptsetup
 /usr/share/doc/cryptsetup/AUTHORS
-/usr/share/doc/cryptsetup/FAQ.gz
+/usr/share/doc/cryptsetup/FAQ.md.gz
 /usr/share/doc/cryptsetup/Keyring.txt
 /usr/share/doc/cryptsetup/LUKS2-locking.txt
 /usr/share/doc/cryptsetup/NEWS.Debian.gz
@@ -48,9 +48,9 @@
 /usr/share/doc/cryptsetup/README.gnupg
 /usr/share/doc/cryptsetup/README.gnupg-sc
 /usr/share/doc/cryptsetup/README.keyctl
+/usr/share/doc/cryptsetup/README.md.gz
 /usr/share/doc/cryptsetup/README.opensc.gz
 /usr/share/doc/cryptsetup/changelog.Debian.gz
-/usr/share/doc/cryptsetup/changelog.gz
 /usr/share/doc/cryptsetup/copyright
 /usr/share/doc/cryptsetup/examples
 /usr/share/doc/cryptsetup/examples/gen-ssl-key
@@ -101,7 +101,13 @@
 /usr/share/doc/cryptsetup/v2.3.4-ReleaseNotes.gz
 /usr/share/doc/cryptsetup/v2.3.5-ReleaseNotes.gz
 /usr/share/doc/cryptsetup/v2.3.6-ReleaseNotes
-/usr/share/doc/cryptsetup/v2.3.7-ReleaseNotes.gz
+/usr/share/doc/cryptsetup/v2.4.0-ReleaseNotes.gz
+/usr/share/doc/cryptsetup/v2.4.1-ReleaseNotes
+/usr/share/doc/cryptsetup/v2.4.2-ReleaseNotes
+/usr/share/doc/cryptsetup/v2.4.3-ReleaseNotes.gz
+/usr/share/doc/cryptsetup/v2.5.0-ReleaseNotes.gz
+/usr/share/doc/cryptsetup/v2.6.0-ReleaseNotes.gz
+/usr/share/doc/cryptsetup/v2.6.1-ReleaseNotes
 /usr/share/lintian
 /usr/share/lintian/overrides
 /usr/share/lintian/overrides/cryptsetup

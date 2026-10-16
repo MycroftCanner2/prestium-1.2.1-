@@ -144,6 +144,7 @@
 /usr/share/consolefonts/CyrSlav-VGA32x16.psf.gz
 /usr/share/consolefonts/CyrSlav-VGA8.psf.gz
 /usr/share/consolefonts/Ethiopian-Fixed15.psf.gz
+/usr/share/consolefonts/Ethiopian-Fixed16.psf.gz
 /usr/share/consolefonts/Ethiopian-Fixed18.psf.gz
 /usr/share/consolefonts/Ethiopian-Goha12.psf.gz
 /usr/share/consolefonts/Ethiopian-Goha14.psf.gz
@@ -533,4 +534,7 @@
 /usr/share/consoletrans/TIS-620.acm.gz
 /usr/share/consoletrans/VISCII.acm.gz
 /usr/share/doc
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/console-setup-linux
 /usr/share/doc/console-setup-linux

@@ -2,9 +2,9 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libCbc.so.3.10.5
-/usr/lib/x86_64-linux-gnu/libCbcSolver.so.3.10.5
-/usr/lib/x86_64-linux-gnu/libOsiCbc.so.3.10.5
+/usr/lib/x86_64-linux-gnu/libCbc.so.3.10.8
+/usr/lib/x86_64-linux-gnu/libCbcSolver.so.3.10.8
+/usr/lib/x86_64-linux-gnu/libOsiCbc.so.3.10.8
 /usr/share
 /usr/share/doc
 /usr/share/doc/coinor-libcbc3

@@ -1,4 +1,7 @@
 /.
+/lib
+/lib/firmware
+/lib/firmware/skl_hda_dsp_generic-tplg.bin
 /usr
 /usr/share
 /usr/share/alsa

@@ -32,7 +32,7 @@ case "$1" in install|upgrade)
     ;;
 esac
 
-# Automatically added by dh_installemacsen/13.3.3
+# Automatically added by dh_installemacsen/13.11.4
 if ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ) \
 	&& [ -e /var/lib/emacsen-common/state/package/installed/emacsen-common -a -x /usr/lib/emacsen-common/emacs-package-install ]
 then

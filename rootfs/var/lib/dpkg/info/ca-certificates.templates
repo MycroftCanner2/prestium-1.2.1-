@@ -16,6 +16,7 @@ Description-nl.UTF-8: ca-certificates configuratie
 Description-pl.UTF-8: Konfiguracja ca-certificates
 Description-pt.UTF-8: configuração de ca-certificates
 Description-pt_BR.UTF-8: Configuração do ca-certificates
+Description-ro.UTF-8: Configurarea certificatelor autorităților de certificare (ca-certificates)
 Description-ru.UTF-8: Настройка ca-certificates
 Description-sk.UTF-8: Nastavenie ca-certificates
 Description-sv.UTF-8: Inställningar för ca-certificates
@@ -40,6 +41,7 @@ Choices-nl.UTF-8: ja, nee, selectie
 Choices-pl.UTF-8: tak, nie, pytaj
 Choices-pt.UTF-8: sim, não, perguntar
 Choices-pt_BR.UTF-8: sim, não, perguntar
+Choices-ro.UTF-8: da, nu, întreabă
 Choices-ru.UTF-8: да, нет, спрашивать
 Choices-sk.UTF-8: áno, nie, pýtať sa
 Choices-sv.UTF-8: ja, nej, fråga
@@ -151,6 +153,12 @@ Description-pt_BR.UTF-8: Confiar em novos certificados de autoridades certificad
   - sim: novos certificados de CAs serão confiáveis e serão instalados;
   - não: novos certificados de CAs não serão instalados por padrão;
   - perguntar: pergunta a cada novo certificado de CA.
+Description-ro.UTF-8: Aveți încredere în noile certificate de la autoritățile de certificare?
+ Acest pachet poate instala noi certificate CA (Autoritatea de certificare) atunci când se face o actualizare. Poate doriți să verificați astfel de certificate CA noi și să selectați numai certificatele în care aveți încredere.
+ .
+  - da      : noile certificate vor fi acceptate și instalate;
+  - nu      : noile certificate nu vor fi instalate implicit;
+  - întreabă: vi se va solicita aprobarea pentru fiecare nou certificat CA.
 Description-ru.UTF-8: Доверять новым сертификатам удостоверяющих центров?
  При обновлении этот пакет может установить новые сертификаты удостоверяющих центров (CA). Вы можете проверить их и выбрать только те, которым доверяете.
  .
@@ -220,6 +228,8 @@ Description-pt.UTF-8: Novos certificados para activar:
  Durante a actualização, serão adicionados novos certificados. Por favor escolha os que confia.
 Description-pt_BR.UTF-8: Novos certificados a serem ativados:
  Durante as atualizações, novos certificados serão adicionados. Por favor, selecione aqueles nos quais você confia.
+Description-ro.UTF-8: Noi certificate de activat:
+ În timpul acestei actualizări, au fost adăugate noi certificate. Alegeți din listă pe cele în care aveți încredere.
 Description-ru.UTF-8: Новые сертификаты для активации:
  Во время обновления будут добавлены новые сертификаты. Выберите те, которым вы доверяете.
 Description-sk.UTF-8: Nové certifikáty, ktoré majú byť aktivované:
@@ -237,7 +247,7 @@ Choices: ${enable_crts}
 Description: Certificates to activate:
  This package installs common CA (Certificate Authority) certificates in
  /usr/share/ca-certificates.
- . 
+ .
  Please select the certificate authorities you trust so that their
  certificates are installed into /etc/ssl/certs. They will be compiled
  into a single /etc/ssl/certs/ca-certificates.crt file.
@@ -305,6 +315,10 @@ Description-pt_BR.UTF-8: Certificados a serem ativados:
  Este pacote instala certificados de CAs (Autoridades Certificadoras) comuns em /usr/share/ca-certificates.
  .
  Por favor, selecione as autoridades certificadoras que você confia, de modo que seus certificados sejam instalados em /etc/ssl/certs. Eles serão compilados em um único arquivo /etc/ssl/certs/ca-certificates.crt.
+Description-ro.UTF-8: Certificate de activat:
+ Acest pachet instalează certificate comune CA (Autoritatea de Certificare) în „/usr/share/ca-certificates”.
+ .
+ Selectați autoritățile de certificare în care aveți încredere, astfel încât certificatele lor să fie instalate în „/etc/ssl/certs”. Acestea vor fi compilate într-un singur fișier „/etc/ssl/certs/ca-certificates.crt”.
 Description-ru.UTF-8: Сертификаты для активации:
  Этот пакет устанавливает сертификаты удостоверяющих центров (CA) в каталог /usr/share/ca-certificates.
  .

@@ -1,4 +1,6 @@
 /.
+/etc
+/etc/gprofng.rc
 /usr
 /usr/share
 /usr/share/doc
@@ -115,6 +117,9 @@
 /usr/share/locale/ja/LC_MESSAGES/gold.mo
 /usr/share/locale/ja/LC_MESSAGES/gprof.mo
 /usr/share/locale/ja/LC_MESSAGES/ld.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/gprof.mo
 /usr/share/locale/ms
 /usr/share/locale/ms/LC_MESSAGES
 /usr/share/locale/ms/LC_MESSAGES/gprof.mo
@@ -135,6 +140,7 @@
 /usr/share/locale/ro/LC_MESSAGES
 /usr/share/locale/ro/LC_MESSAGES/bfd.mo
 /usr/share/locale/ro/LC_MESSAGES/binutils.mo
+/usr/share/locale/ro/LC_MESSAGES/gold.mo
 /usr/share/locale/ro/LC_MESSAGES/gprof.mo
 /usr/share/locale/ro/LC_MESSAGES/opcodes.mo
 /usr/share/locale/ru
@@ -215,7 +221,13 @@
 /usr/share/man/man1/c++filt.1.gz
 /usr/share/man/man1/dwp.1.gz
 /usr/share/man/man1/elfedit.1.gz
+/usr/share/man/man1/gp-archive.1.gz
+/usr/share/man/man1/gp-collect-app.1.gz
+/usr/share/man/man1/gp-display-html.1.gz
+/usr/share/man/man1/gp-display-src.1.gz
+/usr/share/man/man1/gp-display-text.1.gz
 /usr/share/man/man1/gprof.1.gz
+/usr/share/man/man1/gprofng.1.gz
 /usr/share/man/man1/ld.bfd.1.gz
 /usr/share/man/man1/ld.gold.1.gz
 /usr/share/man/man1/nm.1.gz

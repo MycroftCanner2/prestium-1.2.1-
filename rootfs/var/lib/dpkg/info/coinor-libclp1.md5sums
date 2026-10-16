@@ -1,6 +1,0 @@
-2e7291d66acc03f48fe524ffa7d37ffd  usr/lib/x86_64-linux-gnu/libClp.so.1.14.5
-72b5c5c0233f487c9d5ccc5a11fe1498  usr/lib/x86_64-linux-gnu/libClpSolver.so.1.14.5
-51b7beb95ece8531deaaf4c52ac3e6fe  usr/lib/x86_64-linux-gnu/libOsiClp.so.1.14.5
-c2e9d39d2bb25e01b0c7a11433e96263  usr/share/doc/coinor-libclp1/changelog.Debian.gz
-ae62b62c7d667594544fa82aa539b345  usr/share/doc/coinor-libclp1/copyright
-a49e5014818c6d3b2d89f3f16b0adeea  usr/share/lintian/overrides/coinor-libclp1

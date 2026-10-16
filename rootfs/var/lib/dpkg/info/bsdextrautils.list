@@ -8,7 +8,7 @@
 /usr/bin/hexdump
 /usr/bin/look
 /usr/bin/ul
-/usr/bin/write.ul
+/usr/bin/write
 /usr/share
 /usr/share/bash-completion
 /usr/share/bash-completion/completions
@@ -19,9 +19,9 @@
 /usr/share/bash-completion/completions/hexdump
 /usr/share/bash-completion/completions/look
 /usr/share/bash-completion/completions/ul
+/usr/share/bash-completion/completions/write
 /usr/share/doc
 /usr/share/doc/bsdextrautils
-/usr/share/doc/bsdextrautils/NEWS.Debian.gz
 /usr/share/doc/bsdextrautils/changelog.Debian.gz
 /usr/share/doc/bsdextrautils/changelog.gz
 /usr/share/doc/bsdextrautils/copyright
@@ -37,6 +37,6 @@
 /usr/share/man/man1/hexdump.1.gz
 /usr/share/man/man1/look.1.gz
 /usr/share/man/man1/ul.1.gz
-/usr/share/man/man1/write.ul.1.gz
+/usr/share/man/man1/write.1.gz
 /usr/bin/hd
 /usr/share/man/man1/hd.1.gz

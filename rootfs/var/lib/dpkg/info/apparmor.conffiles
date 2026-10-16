@@ -1,3 +1,6 @@
+/etc/apparmor.d/abi/3.0
+/etc/apparmor.d/abi/kernel-5.4-outoftree-network
+/etc/apparmor.d/abi/kernel-5.4-vanilla
 /etc/apparmor.d/abstractions/X
 /etc/apparmor.d/abstractions/apache2-common
 /etc/apparmor.d/abstractions/apparmor_api/change_profile
@@ -11,6 +14,7 @@
 /etc/apparmor.d/abstractions/base
 /etc/apparmor.d/abstractions/bash
 /etc/apparmor.d/abstractions/consoles
+/etc/apparmor.d/abstractions/crypto
 /etc/apparmor.d/abstractions/cups-client
 /etc/apparmor.d/abstractions/dbus
 /etc/apparmor.d/abstractions/dbus-accessibility
@@ -32,6 +36,7 @@
 /etc/apparmor.d/abstractions/gio-open
 /etc/apparmor.d/abstractions/gnome
 /etc/apparmor.d/abstractions/gnupg
+/etc/apparmor.d/abstractions/gtk
 /etc/apparmor.d/abstractions/gvfs-open
 /etc/apparmor.d/abstractions/hosts_access
 /etc/apparmor.d/abstractions/ibus
@@ -51,6 +56,7 @@
 /etc/apparmor.d/abstractions/mysql
 /etc/apparmor.d/abstractions/nameservice
 /etc/apparmor.d/abstractions/nis
+/etc/apparmor.d/abstractions/nss-systemd
 /etc/apparmor.d/abstractions/nvidia
 /etc/apparmor.d/abstractions/opencl
 /etc/apparmor.d/abstractions/opencl-common
@@ -63,6 +69,7 @@
 /etc/apparmor.d/abstractions/p11-kit
 /etc/apparmor.d/abstractions/perl
 /etc/apparmor.d/abstractions/php
+/etc/apparmor.d/abstractions/php-worker
 /etc/apparmor.d/abstractions/php5
 /etc/apparmor.d/abstractions/postfix-common
 /etc/apparmor.d/abstractions/private-files
@@ -74,12 +81,15 @@
 /etc/apparmor.d/abstractions/recent-documents-write
 /etc/apparmor.d/abstractions/ruby
 /etc/apparmor.d/abstractions/samba
+/etc/apparmor.d/abstractions/samba-rpcd
 /etc/apparmor.d/abstractions/smbpass
+/etc/apparmor.d/abstractions/snap_browsers
 /etc/apparmor.d/abstractions/ssl_certs
 /etc/apparmor.d/abstractions/ssl_keys
 /etc/apparmor.d/abstractions/svn-repositories
 /etc/apparmor.d/abstractions/ubuntu-bittorrent-clients
 /etc/apparmor.d/abstractions/ubuntu-browsers
+/etc/apparmor.d/abstractions/ubuntu-browsers.d/chromium-browser
 /etc/apparmor.d/abstractions/ubuntu-browsers.d/java
 /etc/apparmor.d/abstractions/ubuntu-browsers.d/kde
 /etc/apparmor.d/abstractions/ubuntu-browsers.d/mailto
@@ -122,6 +132,7 @@
 /etc/apparmor.d/tunables/alias
 /etc/apparmor.d/tunables/apparmorfs
 /etc/apparmor.d/tunables/dovecot
+/etc/apparmor.d/tunables/etc
 /etc/apparmor.d/tunables/global
 /etc/apparmor.d/tunables/home
 /etc/apparmor.d/tunables/home.d/site.local

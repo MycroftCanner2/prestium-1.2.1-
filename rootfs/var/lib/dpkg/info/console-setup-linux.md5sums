@@ -1,11 +1,11 @@
 0cc31c1bf9f3b80fe1f588435ad1aba1  lib/console-setup/console-setup.sh
 b59a4b960fffb9471f97c79603fc3faa  lib/console-setup/keyboard-setup.sh
-3ddb6b15e7c7fb82c8b04263bd8aa344  lib/systemd/system/console-setup.service
+769fbcd9ef3094213401557a0f55086c  lib/systemd/system/console-setup.service
 aec254fb39caefd7b265f624fe34be9a  lib/systemd/system/keyboard-setup.service
 4a97484349386a45bd5a0cce377896e9  lib/udev/rules.d/90-console-setup.rules
 3c0105186ad0729a1dee992c67c0ce8d  usr/share/bug/console-setup-linux/control
 23484440b876fa094af19b5240886d86  usr/share/consolefonts/Arabic-Fixed15.psf.gz
-11aaf43f2935745c3f131561443bbad9  usr/share/consolefonts/Arabic-Fixed16.psf.gz
+9d2d645d8fa81e594e67ac57cf775b09  usr/share/consolefonts/Arabic-Fixed16.psf.gz
 e1f98043b827d678c2536d2a39eed2de  usr/share/consolefonts/Arabic-VGA14.psf.gz
 8e1948686e075e40b0d61a814413555c  usr/share/consolefonts/Arabic-VGA16.psf.gz
 cf683f46d7524d49cd74bd658ae375e5  usr/share/consolefonts/Arabic-VGA28x16.psf.gz
@@ -14,12 +14,12 @@ cf683f46d7524d49cd74bd658ae375e5  usr/share/consolefonts/Arabic-VGA28x16.psf.gz
 df69d6af06e88951fee3aa117dd7ff74  usr/share/consolefonts/Armenian-Fixed13.psf.gz
 6fbab0311d6daac14f4143040c1e3f35  usr/share/consolefonts/Armenian-Fixed14.psf.gz
 a542cda2ec5c8fed8d93b00a4064b14d  usr/share/consolefonts/Armenian-Fixed15.psf.gz
-32605303c9a68245c252b4b36e5eba62  usr/share/consolefonts/Armenian-Fixed16.psf.gz
+5f4c96bf96eafd3ca8eb835867fbff20  usr/share/consolefonts/Armenian-Fixed16.psf.gz
 b2af7bb5332c26fad81fc468deb20366  usr/share/consolefonts/Armenian-Fixed18.psf.gz
 6ff755bcfeba689856c61d4807378cc2  usr/share/consolefonts/CyrAsia-Fixed13.psf.gz
 21588811e0f2eb6d1297154b433d5243  usr/share/consolefonts/CyrAsia-Fixed14.psf.gz
 c1f06846e9f8898cc24428395e667625  usr/share/consolefonts/CyrAsia-Fixed15.psf.gz
-1e815fb9196609a7ebbf15281bcafd5e  usr/share/consolefonts/CyrAsia-Fixed16.psf.gz
+43b2fd9c8640b716e6b94fd76f6555ee  usr/share/consolefonts/CyrAsia-Fixed16.psf.gz
 517da2382da08373b7ce73f9da56cf88  usr/share/consolefonts/CyrAsia-Fixed18.psf.gz
 d7b810b14286584aab2ef5d73d33b3e6  usr/share/consolefonts/CyrAsia-Terminus12x6.psf.gz
 88a912e43ecf9d50fb086d5a3b56ee3a  usr/share/consolefonts/CyrAsia-Terminus14.psf.gz
@@ -43,7 +43,7 @@ e7e8bfaceae154e3d01f6057469db365  usr/share/consolefonts/CyrAsia-TerminusBoldVGA
 d03053685465c430c3f6f56445af41d1  usr/share/consolefonts/CyrKoi-Fixed13.psf.gz
 3d60f382095a0ea094b62e696456a84f  usr/share/consolefonts/CyrKoi-Fixed14.psf.gz
 442640d30daca6919cd752fa0a50666a  usr/share/consolefonts/CyrKoi-Fixed15.psf.gz
-283870bd4e0725dfcec4c7b3494316ce  usr/share/consolefonts/CyrKoi-Fixed16.psf.gz
+b704cb1498a8092e699f817032a6f1a5  usr/share/consolefonts/CyrKoi-Fixed16.psf.gz
 2506dd59c1af56b725aab98acfcce1b4  usr/share/consolefonts/CyrKoi-Fixed18.psf.gz
 acc26c2aa136065ad6e4e12b87afa116  usr/share/consolefonts/CyrKoi-Terminus12x6.psf.gz
 a28f1adb165fda9e185ecbcc66c1372a  usr/share/consolefonts/CyrKoi-Terminus14.psf.gz
@@ -72,7 +72,7 @@ a9fa4e79361974f00bea8621e63a68c5  usr/share/consolefonts/CyrKoi-VGA8.psf.gz
 914d00f8944347ef31a2fd9c57672e87  usr/share/consolefonts/CyrSlav-Fixed13.psf.gz
 45d1de58618a5abb67dea98c1cd70b6c  usr/share/consolefonts/CyrSlav-Fixed14.psf.gz
 1431a7729bcaecb4e66de2f173ea54c9  usr/share/consolefonts/CyrSlav-Fixed15.psf.gz
-42550ef674fe544ab911cde3d4eef86b  usr/share/consolefonts/CyrSlav-Fixed16.psf.gz
+dcc458766d3fc3c9014406a71615ecdb  usr/share/consolefonts/CyrSlav-Fixed16.psf.gz
 47d139a54073d43de7143624e4c650df  usr/share/consolefonts/CyrSlav-Fixed18.psf.gz
 a1c926360bfc08710b43e2ef571d072e  usr/share/consolefonts/CyrSlav-Terminus12x6.psf.gz
 81115ead9f512309a1405f022ac08a97  usr/share/consolefonts/CyrSlav-Terminus14.psf.gz
@@ -99,6 +99,7 @@ e8adc64a79c6efbd63c78fd6105f8dfc  usr/share/consolefonts/CyrSlav-VGA28x16.psf.gz
 ff50005d974306a4251f676d62b3c9b5  usr/share/consolefonts/CyrSlav-VGA32x16.psf.gz
 7a2ca8275567a47a1c84dc1ebea22983  usr/share/consolefonts/CyrSlav-VGA8.psf.gz
 536a8d157e913db131f4eca79ff215e3  usr/share/consolefonts/Ethiopian-Fixed15.psf.gz
+ff8885f6d3380121317a74f7269b2c41  usr/share/consolefonts/Ethiopian-Fixed16.psf.gz
 96675c83c5f10bc00d8a30443ad8c511  usr/share/consolefonts/Ethiopian-Fixed18.psf.gz
 072abab6d8562d73f54ce4bdddb51047  usr/share/consolefonts/Ethiopian-Goha12.psf.gz
 01d45e9acc9351bd6a020641995b80e1  usr/share/consolefonts/Ethiopian-Goha14.psf.gz
@@ -109,7 +110,7 @@ f7f3fe0f5b738b053ac316d1dc3f6580  usr/share/consolefonts/Ethiopian-GohaClassic14
 50d3f07d74467dc01620fdd6673f8eef  usr/share/consolefonts/FullCyrAsia-Fixed13.psf.gz
 149b0da377db7a3fe9077089246dd59a  usr/share/consolefonts/FullCyrAsia-Fixed14.psf.gz
 d746f2addbc265fbb4484bba1ce52feb  usr/share/consolefonts/FullCyrAsia-Fixed15.psf.gz
-7337d0adf1db6e71cf0bda51c0494e81  usr/share/consolefonts/FullCyrAsia-Fixed16.psf.gz
+86818671e87efdf6545c13a28f042aa5  usr/share/consolefonts/FullCyrAsia-Fixed16.psf.gz
 cb625cd99b28755029bc70efcf0ff9f6  usr/share/consolefonts/FullCyrAsia-Fixed18.psf.gz
 eabc76ad9c2f7c32a1f86c2ec10968da  usr/share/consolefonts/FullCyrAsia-Terminus12x6.psf.gz
 d7b128787ecda9052a13a28f59fe7985  usr/share/consolefonts/FullCyrAsia-Terminus14.psf.gz
@@ -133,7 +134,7 @@ d4027ffc1069550c3a6a12c6a7c5b611  usr/share/consolefonts/FullCyrAsia-TerminusBol
 24dd1a4c108a623dc060b9685c576d34  usr/share/consolefonts/FullCyrSlav-Fixed13.psf.gz
 fc6b2ac87a483c2379d2545205979efb  usr/share/consolefonts/FullCyrSlav-Fixed14.psf.gz
 e7ecf0dc345ee4b508d86143b5f3ae99  usr/share/consolefonts/FullCyrSlav-Fixed15.psf.gz
-6b224509b127dcf8827fdd840d473f73  usr/share/consolefonts/FullCyrSlav-Fixed16.psf.gz
+0b8d32259e8964b93e183d464c1fdaa6  usr/share/consolefonts/FullCyrSlav-Fixed16.psf.gz
 793446a355dfd0b3f2771942237c69be  usr/share/consolefonts/FullCyrSlav-Fixed18.psf.gz
 201931adb2d9206fdec21d6cbf8c4c17  usr/share/consolefonts/FullCyrSlav-Terminus12x6.psf.gz
 61e6c57a1e8f2611694c4a5e359db138  usr/share/consolefonts/FullCyrSlav-Terminus14.psf.gz
@@ -162,7 +163,7 @@ ab77876ad87e05de6e986ab16f709d3c  usr/share/consolefonts/FullCyrSlav-VGA32x16.ps
 ca4173505fa4d16e21f87f427ae4ea92  usr/share/consolefonts/FullGreek-Fixed13.psf.gz
 346ccfacb1d579c5880afd03e308c8f6  usr/share/consolefonts/FullGreek-Fixed14.psf.gz
 452ea61b0c8f204984c08dc7d3eaab15  usr/share/consolefonts/FullGreek-Fixed15.psf.gz
-1038a767c3a6457f85a2cd1daf4dfc67  usr/share/consolefonts/FullGreek-Fixed16.psf.gz
+74e85a14f16821203962db6f11780c38  usr/share/consolefonts/FullGreek-Fixed16.psf.gz
 98b6a141cdd1b4d3d3e0fd30d1a17cb2  usr/share/consolefonts/FullGreek-Fixed18.psf.gz
 9b8ac1f929ce74de7fb9ea1906e0051d  usr/share/consolefonts/FullGreek-Terminus12x6.psf.gz
 c0317e80e59ebadbf2a3731050d01fb7  usr/share/consolefonts/FullGreek-Terminus14.psf.gz
@@ -191,12 +192,12 @@ e2ad8e7a3b53bc79c08c3f2a64df29ca  usr/share/consolefonts/FullGreek-VGA32x16.psf.
 6666d3aec4a3c995aa7beebf766443de  usr/share/consolefonts/Georgian-Fixed13.psf.gz
 530ca3542d951e45247133106f7e2acc  usr/share/consolefonts/Georgian-Fixed14.psf.gz
 1030f2fa6db6e2f9b3efb7903ba6d258  usr/share/consolefonts/Georgian-Fixed15.psf.gz
-f64ff457ce8d907d85089fc9221ad812  usr/share/consolefonts/Georgian-Fixed16.psf.gz
+1684e4ce237128f915c6094935c7298f  usr/share/consolefonts/Georgian-Fixed16.psf.gz
 e7b58f18e7a625f12fb48ed6efdec106  usr/share/consolefonts/Georgian-Fixed18.psf.gz
 3bc0b870804242b757d2ebc8d77cda41  usr/share/consolefonts/Greek-Fixed13.psf.gz
 46697aad7fd666f1736a1f6f33563d05  usr/share/consolefonts/Greek-Fixed14.psf.gz
 fd75f3166e04e06676d7054d46a6fe61  usr/share/consolefonts/Greek-Fixed15.psf.gz
-937b0935bbcff19d4321595d85869c8f  usr/share/consolefonts/Greek-Fixed16.psf.gz
+03921904610d3b3667333be8281310ac  usr/share/consolefonts/Greek-Fixed16.psf.gz
 a09a83b46be0cb719f36c63666cab20a  usr/share/consolefonts/Greek-Fixed18.psf.gz
 45b6ae1c634bc5261ff27451c028db75  usr/share/consolefonts/Greek-Terminus12x6.psf.gz
 fce6cbf820b23e69a74ec69dea5fe600  usr/share/consolefonts/Greek-Terminus14.psf.gz
@@ -225,7 +226,7 @@ a5bd055b60d5ab816539bc3dd635cea4  usr/share/consolefonts/Greek-VGA32x16.psf.gz
 afbadec6622c6b602ed6ee52ceccfe92  usr/share/consolefonts/Hebrew-Fixed13.psf.gz
 77bf7c220057c2e21f7c57f5f89c3270  usr/share/consolefonts/Hebrew-Fixed14.psf.gz
 bce161302cef91854d65fbea3332c0e3  usr/share/consolefonts/Hebrew-Fixed15.psf.gz
-5e7b525d51e886188eb5bcbee8cd2cf0  usr/share/consolefonts/Hebrew-Fixed16.psf.gz
+e33af40b3aee6c39cb793af37f696a73  usr/share/consolefonts/Hebrew-Fixed16.psf.gz
 23a40550f2af9885ba9536652d80708d  usr/share/consolefonts/Hebrew-Fixed18.psf.gz
 364d65be33c554649fbb6f34f84387b8  usr/share/consolefonts/Hebrew-Terminus12x6.psf.gz
 493c808973147ce5709b04bb930d3722  usr/share/consolefonts/Hebrew-Terminus14.psf.gz
@@ -253,11 +254,11 @@ aebbffdc69250e49603a744e7a86def8  usr/share/consolefonts/Hebrew-VGA16.psf.gz
 204c7da88e0c90446c1a5041e6baad4d  usr/share/consolefonts/Hebrew-VGA8.psf.gz
 db298fe9ef953ef16fdd15ae4d068f1d  usr/share/consolefonts/Lao-Fixed14.psf.gz
 40f4a14ea970286b4da8d4599bf36ec7  usr/share/consolefonts/Lao-Fixed15.psf.gz
-6046bd8e8bb93ca2abb2f54956f8613d  usr/share/consolefonts/Lao-Fixed16.psf.gz
+630b75f6e7a25613495ebee85f9b5c7d  usr/share/consolefonts/Lao-Fixed16.psf.gz
 cc6dd1600c1a33ff345232064e9c72ce  usr/share/consolefonts/Lat15-Fixed13.psf.gz
 cbf88db648db7260d589b076605806c3  usr/share/consolefonts/Lat15-Fixed14.psf.gz
 c621ef355bcd317f5e4a45170e48e3af  usr/share/consolefonts/Lat15-Fixed15.psf.gz
-9c2c998d397226e40d107f376a488b4a  usr/share/consolefonts/Lat15-Fixed16.psf.gz
+19442e544f83ad63d3c644fccca2c110  usr/share/consolefonts/Lat15-Fixed16.psf.gz
 5d527c11726f1dc3354f92b5fac56a18  usr/share/consolefonts/Lat15-Fixed18.psf.gz
 4ae8f2d40e4ab625b60be22a21c165ac  usr/share/consolefonts/Lat15-Terminus12x6.psf.gz
 d17e98a4f841e09e8468d577ac15342c  usr/share/consolefonts/Lat15-Terminus14.psf.gz
@@ -286,7 +287,7 @@ bdfcbcca931e8e34be2caee54ba2d1d4  usr/share/consolefonts/Lat15-VGA8.psf.gz
 830a96b9976b15cc64857f03525d6652  usr/share/consolefonts/Lat2-Fixed13.psf.gz
 6089c2f9a1b6cdccd1e9e5ed6613cf4b  usr/share/consolefonts/Lat2-Fixed14.psf.gz
 d49fb66e88e42eab288e87aa5211a507  usr/share/consolefonts/Lat2-Fixed15.psf.gz
-e22348e71f5ac769a2bd20a38c00aea6  usr/share/consolefonts/Lat2-Fixed16.psf.gz
+25f8502407bee95f3d528c43e00ff058  usr/share/consolefonts/Lat2-Fixed16.psf.gz
 0e77bc70f2bc3b28ce2ffdbce1baad76  usr/share/consolefonts/Lat2-Fixed18.psf.gz
 b3e706316c6e9f9de38b0f8366d94928  usr/share/consolefonts/Lat2-Terminus12x6.psf.gz
 7f6b306ebe2c32fca2bbc5de6f91f597  usr/share/consolefonts/Lat2-Terminus14.psf.gz
@@ -315,7 +316,7 @@ aee72f10cdb43119efd552c7735cc543  usr/share/consolefonts/Lat2-VGA8.psf.gz
 9b7fb011e0c2141e0eb5fed6c919b351  usr/share/consolefonts/Lat38-Fixed13.psf.gz
 3b09373d9fd6bd2518e55397ae22e14a  usr/share/consolefonts/Lat38-Fixed14.psf.gz
 064cebf2c980889eea6fb303c7cbb223  usr/share/consolefonts/Lat38-Fixed15.psf.gz
-cdfb24fef8fd0d3a390db9370c0a7075  usr/share/consolefonts/Lat38-Fixed16.psf.gz
+2bdde485918469e9664d781a728a400b  usr/share/consolefonts/Lat38-Fixed16.psf.gz
 52e047faaa6889bc065d8bad092e75fd  usr/share/consolefonts/Lat38-Fixed18.psf.gz
 61273265c2a89de51b76d744e8d9e364  usr/share/consolefonts/Lat38-Terminus12x6.psf.gz
 cee72293f425940edbeda2ce1e24e8ce  usr/share/consolefonts/Lat38-Terminus14.psf.gz
@@ -344,7 +345,7 @@ d9d70af9a5fbbe304f685c1199a42b93  usr/share/consolefonts/Lat38-VGA8.psf.gz
 54761e768b4fa096cc65350cbf76ce17  usr/share/consolefonts/Lat7-Fixed13.psf.gz
 de44d598dce7ae27c0cfd8eda5e3f6cd  usr/share/consolefonts/Lat7-Fixed14.psf.gz
 debefb6815d3f0c108fc4ab02d850f69  usr/share/consolefonts/Lat7-Fixed15.psf.gz
-71e620568dc136fc7f1b78332d3eb894  usr/share/consolefonts/Lat7-Fixed16.psf.gz
+9d8b3b8be9259926feeb9593f6ed730c  usr/share/consolefonts/Lat7-Fixed16.psf.gz
 ca70e22d519a272a029c8d71eb928d66  usr/share/consolefonts/Lat7-Fixed18.psf.gz
 1c2ba7d78ad5dd750d18c832f153264a  usr/share/consolefonts/Lat7-Terminus12x6.psf.gz
 6805b1568000d1d20f08007d9ca033c0  usr/share/consolefonts/Lat7-Terminus14.psf.gz
@@ -373,10 +374,10 @@ b27ec0dbb48894ca026b390efe7c94bb  usr/share/consolefonts/Lat7-VGA32x16.psf.gz
 74050b613c0f66397f184b7e592e00e4  usr/share/consolefonts/Thai-Fixed13.psf.gz
 8bb1ba9359f6af6d1516495360e06a0e  usr/share/consolefonts/Thai-Fixed14.psf.gz
 07a97c5900f6d0403ef5f2061fc4f352  usr/share/consolefonts/Thai-Fixed15.psf.gz
-005a6575184731191fa5213ec320f698  usr/share/consolefonts/Thai-Fixed16.psf.gz
+5ed331b90cc50cf625822b9967bf5de7  usr/share/consolefonts/Thai-Fixed16.psf.gz
 721a318b540eb05373cef2a884293f4a  usr/share/consolefonts/Thai-Fixed18.psf.gz
 345fd241008ea817b546571f11953ccd  usr/share/consolefonts/Uni1-Fixed15.psf.gz
-20d2bfe431825f205be8decb3a950f40  usr/share/consolefonts/Uni1-Fixed16.psf.gz
+64342f33337166b749e62d381bb27449  usr/share/consolefonts/Uni1-Fixed16.psf.gz
 ed40c9cc5b24362abfc2459a589b1e41  usr/share/consolefonts/Uni1-VGA14.psf.gz
 93aea8d562b26134ec04e64296e27594  usr/share/consolefonts/Uni1-VGA16.psf.gz
 4015065271c8c8c725e82672c4ae5bbe  usr/share/consolefonts/Uni1-VGA28x16.psf.gz
@@ -385,7 +386,7 @@ d622192770d989cd58eef708e8b3c509  usr/share/consolefonts/Uni1-VGA8.psf.gz
 bb1b8b87223b13d2d0d612604c5c12f4  usr/share/consolefonts/Uni2-Fixed13.psf.gz
 56638711c246d5733d3cabe19e595d0a  usr/share/consolefonts/Uni2-Fixed14.psf.gz
 ca86b3a4bfa73d4d2d2ce212305930ae  usr/share/consolefonts/Uni2-Fixed15.psf.gz
-afbb863bbc447e4ef296881e47e44b46  usr/share/consolefonts/Uni2-Fixed16.psf.gz
+81ec48868dbce3f6e18501ed4d20e2b3  usr/share/consolefonts/Uni2-Fixed16.psf.gz
 cae0fd764ef8ab79a23e442056e24f1d  usr/share/consolefonts/Uni2-Fixed18.psf.gz
 6fa94a4b21c310d527d296b81dbc0031  usr/share/consolefonts/Uni2-Terminus12x6.psf.gz
 642fcbe9df90394ac8adbb542187f6f3  usr/share/consolefonts/Uni2-Terminus14.psf.gz
@@ -414,7 +415,7 @@ f77c487913dda6ea1f2d844ada5fb8d9  usr/share/consolefonts/Uni2-VGA28x16.psf.gz
 25d3d0cad4000a16d2da56a2fce81112  usr/share/consolefonts/Uni3-Fixed13.psf.gz
 e92dcac1ee245ff6babd5b2ebf4bb0a9  usr/share/consolefonts/Uni3-Fixed14.psf.gz
 7dd9eb1ef27c68617e779e931b0e4b37  usr/share/consolefonts/Uni3-Fixed15.psf.gz
-d76d1efc90b8ea8b1c48e96701e78f3f  usr/share/consolefonts/Uni3-Fixed16.psf.gz
+17d77377b48de87eef76067f94401b52  usr/share/consolefonts/Uni3-Fixed16.psf.gz
 4c7581c40ed56d16d8c7d760e9e55974  usr/share/consolefonts/Uni3-Fixed18.psf.gz
 94a991c02af5618610eac31225e34558  usr/share/consolefonts/Uni3-Terminus12x6.psf.gz
 e0db71d1d46e723519fe8604ea8a4518  usr/share/consolefonts/Uni3-Terminus14.psf.gz
@@ -438,7 +439,7 @@ f033773a2e429e440c7310b205cd5e7e  usr/share/consolefonts/Uni3-TerminusBoldVGA16.
 ed737fb0ab4a84ea5f616dd433c8973b  usr/share/consolefonts/Vietnamese-Fixed13.psf.gz
 9857515e5038c516e7ca5dfdb417dcc1  usr/share/consolefonts/Vietnamese-Fixed14.psf.gz
 abd4fbf0d0ad9d808a91f8fb83b82046  usr/share/consolefonts/Vietnamese-Fixed15.psf.gz
-fd4f4c255b298ef6893b33835f2f8777  usr/share/consolefonts/Vietnamese-Fixed16.psf.gz
+74b28845e6ccf2fd622f51da57ca3d96  usr/share/consolefonts/Vietnamese-Fixed16.psf.gz
 16c9bbbbb376e836009520509be79cb9  usr/share/consolefonts/Vietnamese-Fixed18.psf.gz
 e953c4bccf11b6463bc3c3b75da870c2  usr/share/consolefonts/Vietnamese-Terminus12x6.psf.gz
 759aebecafc1e84f1c8f84119d3ab508  usr/share/consolefonts/Vietnamese-Terminus14.psf.gz
@@ -486,3 +487,4 @@ ec162803857e697d2c8bb79c593f52ec  usr/share/consoletrans/KOI8-R.acm.gz
 d5ef96869e2b02dd89b62db00b1cca59  usr/share/consoletrans/KOI8-U.acm.gz
 3e5c583003359c728729557183faf543  usr/share/consoletrans/TIS-620.acm.gz
 e10da1a3c7fe7a60998cf5f29670d332  usr/share/consoletrans/VISCII.acm.gz
+507d35f301f6655f3498d699b2fcde3f  usr/share/lintian/overrides/console-setup-linux

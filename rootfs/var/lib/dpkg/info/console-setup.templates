@@ -36,7 +36,7 @@ Description-it.UTF-8: Non modificare il carattere di boot/kernel
 Description-ja.UTF-8: ブート/カーネルフォントを変更しない
 Description-ka.UTF-8: არ შეცვალოთ boot/kernel-ის შრიფტი
 Description-kab.UTF-8: Ur ttbeddil ara tasefsit n usenker/kernel
-Description-kk.UTF-8: boot/kernel қарібін өзгертпеңіз
+Description-kk.UTF-8: boot/kernel қарібін өзгертпеу
 Description-km.UTF-8: កុំ​ផ្លាស់ប្ដូរ​ពុម្ពអក្សរ boot/kernel
 Description-kn.UTF-8: ಬೂಟ್/ಕರ್ನಲಿನ ಫಾಂಟನ್ನು ಬದಲಾಯಿಸಬೇಡಿ
 Description-ko.UTF-8: 부팅/커널 글꼴 바꾸지 않기
@@ -50,7 +50,7 @@ Description-mr.UTF-8: आरंभ/गाभा टंकमुद्रा ब�
 Description-nb.UTF-8: Ikke forandre skriften for boot/kernel-en
 Description-ne.UTF-8: बूट/फन्ट कर्नेल परिवर्त नगर्नुहोस्
 Description-nl.UTF-8: Wijzig het opstart/kernellettertype niet
-Description-nn.UTF-8: Ikkje endra oppstarts-/kjerneskrifta
+Description-nn.UTF-8: Endra ikkje oppstarts-/kjerneskrifta
 Description-no.UTF-8: Ikke forandre skriften for boot/kernel-en
 Description-oc.UTF-8: Modificar pas la poliça iniciala del nucli
 Description-pa.UTF-8: ਬੂਟ/ਕਰਨਲ ਫੋਂਟ ਨਾ ਬਦਲੋ
@@ -74,7 +74,7 @@ Description-tr.UTF-8: Önyükleme/çekirdek yazı tipini değiştirme
 Description-ug.UTF-8: قوزغىتىش/يادرو خەت نۇسخىسىنى ئۆزگەرتمە
 Description-uk.UTF-8: Не змінювати шрифт завантаження/ядра
 Description-vi.UTF-8: Đừng thay đổi phông chữ khởi động/hạt nhân
-Description-zh_CN.UTF-8: 不修改启动/内核字体
+Description-zh_CN.UTF-8: 不修改启动字体或内核字体
 Description-zh_TW.UTF-8: 不要改變 開機/kernel 字型
 
 Template: console-setup/guess_font
@@ -147,7 +147,7 @@ Description-tr.UTF-8: Sistemin uygun bir yazı tipi seçmesine izin ver
 Description-ug.UTF-8: سىستېمىنىڭ مۇۋاپىق خەت نۇسخىسىنى تاللىشىغا يول قوي
 Description-uk.UTF-8: Дозволити системі обрати прийнятний шрифт
 Description-vi.UTF-8: Để hệ thống chọn phông phù hợp
-Description-zh_CN.UTF-8: 系统自动选择适合的字体
+Description-zh_CN.UTF-8: 让系统自动选择适合的字体
 Description-zh_TW.UTF-8: 讓系統選擇適當的字體
 
 Template: console-setup/framebuffer_only
@@ -176,7 +176,7 @@ Description-fr.UTF-8: uniquement tampon vidéo (« framebuffer »)
 Description-ga.UTF-8: framebuffer amháin
 Description-gl.UTF-8: só o «framebuffer»
 Description-gu.UTF-8: માત્ર ફ્રેમબફર
-Description-he.UTF-8: framebuffer בלבד
+Description-he.UTF-8: מכלא חוזי בלבד
 Description-hi.UTF-8: मात्र framebuffer
 Description-hr.UTF-8: samo okvirni međuspremnik
 Description-hu.UTF-8: csak keretpuffer
@@ -197,7 +197,7 @@ Description-ml.UTF-8: ഫ്രേംബഫറില്‍ മാത്രം
 Description-mr.UTF-8: फक्त फ्रेमबफर
 Description-nb.UTF-8: kun framebuffer
 Description-nl.UTF-8: alleen framebuffer
-Description-nn.UTF-8: kun framebuffer
+Description-nn.UTF-8: berre framebuffer
 Description-no.UTF-8: kun framebuffer
 Description-oc.UTF-8: solament tampon vidèo
 Description-pa.UTF-8: ਕੇਵਲ ਫਰੇਮਬਫ਼ਰ ਹੀ
@@ -220,7 +220,7 @@ Description-tr.UTF-8: yalnızca çerçeve tamponu (framebuffer)
 Description-ug.UTF-8: كاندۇك يىغلەكلا
 Description-uk.UTF-8: тільки фреймбуфер
 Description-vi.UTF-8: chỉ framebuffer
-Description-zh_CN.UTF-8: 只有帧缓冲
+Description-zh_CN.UTF-8: 仅限于帧缓冲
 Description-zh_TW.UTF-8: 只使用 Framebuffer
 
 Template: console-setup/codeset47
@@ -231,6 +231,7 @@ Choices-be.UTF-8: . Арабскі, # Армянскі, # Кірылічны - K
 Choices-bg.UTF-8: . арабски, # арменски, # кирилица - KOI8-R и KOI8-U, # кирилица - неславянски езици, . кирилица - неславянски езици (за незрящи), # кирилица - славянски езици (вкл. босненска и сръбска латиница), . кирилица - славянски езици (за незрящи), . етиопски, # грузински, # гръцки, . гръцки (за незрящи), # еврейски, # лао, # Latin1 и Latin5 - западна Европа и тюркски езици, # Latin2 - централна Европа и румънски, # Latin3 и Latin8 - ниянджа; есперанто; ирландски; малтийски; уелски, # Latin7 - литовски; латвийски; маорски; маршалски, . Latin - виетнамски, # тайски, . комбинирана - латиница; славянска кирилица; еврейски; базов арабски, . комбинирана - латиница; славянска кирилица; гръцки, . комбинирана - латиница; славянска и неславянска кирилица, Отгатване на оптималния знаков набор
 Choices-ca.UTF-8: . àrab, # armeni, # ciríl·lic - KOI8-R i KOI8-U, # ciríl·lic - llengües no eslaves, . ciríl·lic - llengües no eslaves (per a usuaris cecs), # ciríl·lic - Llengües eslaves (i també bosnià i serbi llatí), . ciríl·lic - Llengües eslaves (per a usuaris cecs), . etíop, # georgià, # grec, . grec (per a usuaris cecs), # hebreu, # lao, # latin1 i latin5 - llengües d'Europa occidental i turques, # latin2 - Europa central i romanès, # latin3 i latin8 - xixeua; esperanto; irlandès; maltès i gal·lès, # Latin7 - lituà; letó; maori i marsalès, . llatí - vietnamita, # tai, . combinat - llatí; ciríl·lic eslau; hebreu; àrab bàsic, . combinat - llatí; ciríl·lic eslau; grec, . combinat - llatí; ciríl·lic eslau i no eslau, Endevina el joc de caràcters òptim
 Choices-cs.UTF-8: . Arabské, # Arménské, # Azbuka - KOI8-R a KOI8-U, # Azbuka - jiné než slovanské jazyky, . Azbuka - jiné než slovanské jazyky (pro nevidomé uživatele), # Azbuka - slovanské jazyky (také bosenská a srbská latinka), . Azbuka - slovanské jazyky (pro nevidomé uživatele), . Etiopské, # Gruzínské, # Řecké, . Řecké (pro nevidomé uživatele), # Hebrejské, # Laoské, # Latin1 a Latin5 - západoevropské jazyky a turečtina, # Latin2 - střední Evropa a rumunština, # Latin3 a Latin8 - čičeva; esperanto; irština; maltština a velština, # Latin7 - litevština; lotyština; maorština a maršalština, . Latin - vietnamština, # Thajské, . Kombinované - latinka; slovanská azbuka; hebrejština; základní arabština, . Kombinované - latinka; slovanská azbuka; řečtina, . Kombinované - latinka; slovanská i jiná azbuka, Odhadnout nejvhodnější znakovou sadu
+Choices-cy.UTF-8: . Arabeg, # Armeneg, # Syrilig - KOI8-R a KOI8-U, # Syrilig - ieithoedd ddim yn Slafig, . Syrilig - ieithoedd ddim yn Slafig (ar gyfer defnyddwyr dall), # Syrilig - ieithoedd Slafig (hefyd Bosnieg a Serbeg Ladin), . Syrilig - ieithoedd Slafig (ar gyfer defnyddwyr dall), . Ethiopeg, # Georgeg, # Groeg, . Groegaidd (ar gyfer defnyddwyr dall), # Hebraeg, # Laoeg, # Lladin1 a Lladin5 - gorllewin Ewrop a ieithoedd Twrceg, # Lladin2 - canolbarth Ewrop a Romaneg, # Lladin3 a Lladin8 - Chichewa; Esperanto; Gwyddeleg; Malteg a Chymraeg, # Lladin7 - Lithwanweg; Latfieg; Maori a Marshalleg, . Lladin - Fietnameg, # Thai, . Cyfuniad - Lladin; Syrilic Slafeg; Hebraeg; Arabeg syml, . Cyfuniad - Lladin; Syrilic Slafeg; Groeg, . Cyfuniad - Lladin; Syrilic Slafeg a nid Slafeg, Dyfalu y set nodau gorau
 Choices-da.UTF-8: . Arabisk, # Armensk, # Kyrillisk - KOI8-R og KOI8-U, # Kyrillisk - ikke-slaviske sprog, . Kyrillisk - ikke-slaviske sprog (for blinde), # Kyrillisk - slaviske sprog (også bosnisk og serbisk latin), . Kyrillisk - slaviske sprog (for blinde), . Etiopisk, # Georgisk, # Græsk, . Græsk (for blinde), # Hebraisk, # Lao, # Latin1 og Latin5 - vesteuropa og tyrkiske sprog, # Latin2 - centraleuropa og rumænsk, # Latin3 og Latin8 - chinyanja; esperanto; irsk; maltesisk og walisisk, # Latin7 - litauisk; lettisk; maori og marshallesisk, . Latin - vietnamesisk, # Thai, . Kombineret - latin; slavisk kyrillisk; hebraisk; basal arabisk, . Kombineret - latin; slavisk kyrillisk; græsk, . Kombineret - latin; slavisk og ikke-slavisk kyrillisk, Gæt optimalt tegnsæt
 Choices-de.UTF-8: . Arabisch, # Armenisch, # Kyrillisch - KOI8-R und KOI8-U, # Kyrillisch - nicht-slawische Sprachen, . Kyrillisch - nicht-slawische Sprachen (für Blinde), # Kyrillisch - slawisch (auch Bosnisch und Serbisch-Latein), . Kyrillisch - slawische Sprachen (für Blinde), . Äthiopisch, # Georgisch, # Griechisch, . Griechisch (für Blinde), # Hebräisch, # Laotisch, # Latin1 und Latin5 - westeuropäische und türkische Sprachen, # Latin2 - Zentraleuropäisch und Rumänisch, # Latin3 und Latin8 - Chichewa\, Esperanto\, Irisch\, Maltesisch und Walisisch, # Latin7 - Litauisch\, Lettisch\, Maorisch und Marshallesisch, . Latin - Vietnamesisch, # Thailändisch, . Kombiniert - Latein\, slawisches Kyrillisch\, Hebräisch\, einfaches Arabisch, . Kombiniert - Latein\, slawisches Kyrillisch\, Griechisch, . Kombiniert - Latein\, slawisches und nicht-slawisches Kyrillisch, Vermutlich optimaler Zeichensatz
 Choices-el.UTF-8: . Αραβική, # Αρμενική, # Κυριλλική - KOI8-R και KOI8-U, # Κυριλλική - μη-Σλαβικές γλώσσες, . Κυριλλική - μη-Σλαβικές γλώσσες (για τυφλούς χρήστες), # Κυριλλική - Σλαβικές γλώσσες (καθώς και Λατινική Βοσνιακή και Σερβική), . Κυριλλική - Σλαβικές γλώσσες (για τυφλούς χρήστες), . Αιθιοπική, # Γεωργιανή, # Ελληνική, . Ελληνική (για τυφλούς χρήστες), # Εβραϊκή, # Λαοτινή, # Latin1 και Latin5 - Δυτικοευρωπαϊκές και Τουρκικές γλώσσες, # Latin2 - κεντρικής Ευρώπης και Ρουμανική, # Latin3 και Latin8 - Chichewa; Εσπεράντο; Ιρλανδική; Μαλτέζικη και Ουαλική, # Latin7 - Λιθουανική; Λετονική; Μαορί και νήσων Μάρσαλ, . Latin - Βιετναμέζικη, # Ταϊλάνδης, . Συνδυασμένες - Λατινική; Σλαβική Κυριλλική; Εβραϊκή; βασική Αραβική, . Συνδυασμένες - Λατινική; Σλαβική Κυριλλική; Ελληνική, . Συνδυασμένες - Λατινική; Σλαβική και μη-Σλαβική Κυριλλική, Να γίνει εικασία του καλύτερου συνόλου χαρακτήρων
@@ -250,6 +251,7 @@ Choices-id.UTF-8: . Arab, # Armenia, # Cyrillic - KOI8-R dan KOI8-U, # Cyrilic -
 Choices-is.UTF-8: . Arabíska, # Armenska, # Kyrilískt - KOI8-R og KOI8-U, # Kyrilískt - önnur en slavnesk tungumál, . Kyrilískt - önnur en slavnesk tungumál (fyrir blinda), # Kyrilískt - slavnesk tungumál (ásamt bosnísku og serbnesk latína), . Kyrilískt - slavnesk tungumál (fyrir blinda), . Eþíópíska, # Georgíska, # Gríska, . Gríska (fyrir blinda), # Hebreska, # Laó, # Latneskt1 og Latneskt5 - vesturhluti Evrópu og tyrknesk tungumál, # Latneskt2 - mið-Evrópa og rúmenska, # Latneskt3 og Latneskt8 - chichewa; esperanto; írska; maltneska og velska, # Latneskt7 - litháíska; lettneska; maórí og marshalleyska, . Latneskt - víetnamska, # Tælenska, . Samsett - Latneska; Slavneska kýrilíska; hebreska; einfölduð arabíska, . Samsett - Latneskt; slavneskt kýrilískt; gríska, . Samsett - Latneskt; slavneskt og ekki-slavneskt kýrilískt, Giska á hentugasta stafasett
 Choices-it.UTF-8: . Arabo, # Armeno, # Cirillico - KOI8-R e KOI8-U, # Cirillico - lingue non slave, . Cirillico - lingue non slave (per non vedenti), # Cirillico - lingue slave (inclusi latino bosniaco e serbo), . Cirillico - lingue slave (per non vedenti), . Etiope, # Georgiano, # Greco, . Greco (per non vedenti), # Ebraico, # Laotiano, # Latino1 e Latino5 - lingue europee occidentali e turco, # Latino2 - lingue centroeuropee e rumeno, # Latino3 e Latino8 - chichewa\, esperanto\, irlandese\, maltese e gallese, # Latino7 - lituano\, lettone\, maori e marsciallese, . Latino - vietnamita, # Thailandese, . Combinato - latino\, cirillico slavo\, ebreo\, arabo di base, . Combinato - latino\, cirillico slavo\, greco, . Combinato - latino\, cirillico slavo e non slavo, Ipotizzare il carattere ottimale
 Choices-ja.UTF-8: . アラブ語, # アルメニア語, # キリル文字 - KOI8-R および KOI8-U, # キリル - 非スラブ言語, . キリル - 非スラブ言語 (視覚障碍者向け), # キリル - スラブ言語 (ボスニア語およびセルビアラテン語も含む), . キリル - スラブ言語 (視覚障碍者向け), . エティオピア語, # ジョージア語, # ギリシャ語, . ギリシャ語 (視覚障碍者向け), # ヘブライ語, # ラオ語, # ラテン1 と ラテン5 - 西洋言語およびチュルク語, # ラテン2 - 中央ヨーロッパおよびルーマニア語, # ラテン3 および ラテン8 - チチェワ語; エスペラント語; アイルランド語; マルタ語およびウェールズ語, # ラテン7 - リトアニア語; ラトビア語; マオリ語およびマーシャル諸島語, . ラテン語 - ベトナム語, # タイ語, . 組み合わせ - ラテン; スラブキリル; ヘブライ語; 基本アラブ語, . 組み合わせ - ラテン; スラブキリル; ギリシャ語, . 組み合わせ - ラテン; スラブおよび非スラブキリル, 最適な文字セットを指定してください
+Choices-ka.UTF-8: . არაბული, # სომხური, # კირილიური - KOI8-R და KOI8-U, # კირილიცა - არასლავური ენები, . კირილიცა - არასლავური ენები (ბრმა მომხმარებლებისთვის), # კირილიცა - სლავური ენები (ასევე ბოსნიური და სერბული ლათინური), . კირილიცა - სლავური ენები (ბრმა მომხმარებლებისთვის), . ეთიოპიური, # ქართული, # ბერძნული, . ბერძნული (ბრმა მომხმარებლებისთვის), # ებრაული, # ლაო, # Latin1 და Latin5 - დასავლეთ ევროპა და თურქული ენები, # Latin2 - ცენტრალური ევროპა და რუმინული, # Latin3 და Latin8 - ჩიჩევა; ესპერანტო; ირლანდიული; მალტური და უელსური, # Latin7 - ლიტვური; ლატვიური; მაორი; მარშალური, . ლათინური - ვიეტნამური, # ტაილანდური, . კომბინირებული - ლათინური; სლავური კირილიცა; ებრაული; ძირითადი არაბული, . კომბინირებული - ლათინური; სლავური კირილიცა; ბერძნული, . კომბინირებული - ლათინური; სლავური და არასლავური კირილიცა, ოპტიმალური სიმბოლოების სეტის მიხვედრა
 Choices-kab.UTF-8: . Taɛrabt, # Taṛminit, # Tasirilikt - KOI8-R akked KOI8-U, # Tasirilikt - tutlayin ur nelli ara d tislaviyin, . Tasirilikt - tutlayin ur nelli ara d tislaviyin (i yiseqdacen i idreɣlen), # Tasirilikt - tutlayin tislaviyin (rnu daɣen tabusnit akked tasirbit talatinit), . Tasirilikt - tutlayin tislaviyin ( i yiseqdacen i idreɣlen), . Tamharikt, # Tajyuṛjit, # Tagrigit, . Tagrigit (i yiseqdacen yeddreɣlen), # Taɛebrit, # Talawsit, # Latin1 akked Latin5 - tutlayin n Turuft n umalu akked taṭurkit, # Latin2 - Turuft talemmast akked tṛumanit, # Latin3 akked Latin8 - Tacicwat; Taspirantit; Tirlandit; Tamaltit akked tagalit, # Latin7 - Talitwanit; Taliṭunit; Tamawrit akked Tamaṛcalit, . Talaṭinit - Tavyiṭnamit, # Tataylant, . Ixleḍ - Talaṭinit\, Tasilikt Taslavt; Taɛebrit\, Taɛrabt tazadurt, . Ixleḍ - Talaṭinit\, Tasirilikt Taslavt; Tagrigit, . Ixleḍ - Talaṭinit\, Tasirilikt Taslavt neɣ mačči d Taslavt, Sumer tagrumma n yisekkilen ifazen
 Choices-kk.UTF-8: . Араб, # Армян, # Кириллица - KOI8-R мен KOI8-U, # Кириллица - славян емес тілдері, . Кириллица - славян емес тілдері (көзі көрмейтін пайдаланушылар үшін), # Кириллица - Славян тілдері (Босния мен Сербия латын қоса), . Кириллица - славян тілдері (көзі көрмейтін пайдаланушылар үшін), . Эфиопия, # Грузия, # Грек, . Грек (көзі көрмейтін пайдаланушылар үшін), # Иврит, # Лао, # Latin1 мен Latin5 - батыс Еуропа мен Түркі тілдес, # Latin2 - орталық Еуропа мен румын, # Latin3 мен Latin8 - Чичева; эсперанто; ирланд; мальта мен уэльс, # Latin7 - Литва; латвия; маори мен маршалл аралдары, . Latin - Вьетнам, # Тай, . Құрамдас - Латын; славян кириллица; иврит; негізгі араб, . Құрамдас - Латын; славян кириллица; грек, . Құрамдас - Латын; славян мен славян емес кириллица, Ықтимал таңбалар жиынын анықтап көру
 Choices-ko.UTF-8: . 아랍어, # 아르메니아어, # 키릴 문자 - KOI8-R 및 KOI8-U, # 키릴 문자 - 슬라브 언어 아님, . 키릴 문자 - 슬라브 언어 아님 (시각 장애자용), # 키릴 문자 - 슬라브 언어 (보스니아어 및 세르비아어 라틴 표기 포함), . 키릴 문자 - 슬라브 언어 (시각 장애자용), . 에티오피아어, # 그루지아어, # 그리스어, . 그리스어 (시각장애인용), # 히브리어, # 라오어, # 라틴1 및 라틴5 - 서유럽 및 터키어 계열, # 라틴2 - 중유럽 및 루마니아어, # 라틴3 및 라틴8 - 치체와어; 에스페란토; 아일란드; 몰타어; 웨일스어, # 라틴7 - 리투아니아어; 라트비아어; 마오어 및 마샬 제도 언어, . 라틴 - 베트남어, # 타이어, . 결합 - 라틴; 슬라브어 키릴 문자; 히브리어; 기본 아랍어, . 결합 - 라틴; 슬라브어 키릴 문자; 그리스어, . 결합 - 라틴; 슬라브 및 기타 키릴 문자, 최적 문자 세트 추정
@@ -259,6 +261,7 @@ Choices-ml.UTF-8: . അറബി, # അര്‍മേനിയന്‍, # സ�
 Choices-mr.UTF-8: . अरेबिक, # अर्मेनियन, # क्रिलिक - KOI8-R आणि KOI8-U, # क्रिलिक - नॉन-स्लेविक भाषा, . क्रिलिक - नॉन-स्लेविक भाषा (अंध वापरकर्त्यांसाठी), # क्रिलिक - स्लेविक भाषा (बोस्नियन आणि सर्बियन लॅटिन सुद्धा), . क्रिलिक - स्लेविक भाषा (अंध वापरकर्त्यांसाठी), . इथिओपिक, # जॉर्जियन, # ग्रीक, . ग्रीक (अंध वापरकर्त्यांसाठी), # हिब्र्यू, # लाव, # लॅटिन1 आणि लॅटिन5 - वेस्टर्न युरोप व तुर्किक भाषा, # लॅटिन2 - मध्य युरोप व रोमानियन, # लॅटिन3 आणि लॅटिन8 - चिचेवा; एस्परॅंटो; आयरिश; माल्टीज व वेल्श, # लॅटिन7 - लिथुआनियन; लॅटवियन; माओरी व मार्शलीज, . लॅटिन - व्हिएटनामीज, # थाई, . कंबाइन्ड - लॅटिन; स्लाविक क्रिलिक; हिब्र्यू; बेसिक अरेबिक, .कंबाइन्ड - लॅटिन; स्लाविक क्रिलिक; ग्रीक, . कंबाइन्ड - लॅटिन; स्लाविक आणि नॉन स्लाविक क्रिलिक, योग्य चिन्हसंचाचा अंदाज वर्तवा
 Choices-nb.UTF-8: . Arabisk, # Armensk, # Kyrillisk - KOI8-R og KOI8-U, # Kyrillisk - ikke-slaviske språk, . Kyrillisk - ikke-slaviske språk (for blinde brukere), # Kyrillisk - slaviske språk (også bosnisk og serbisk latin), . Kyrillisk - slaviske språk (for blinde brukere), . Etiopisk, # Georgisk, # Gresk, . Gresk (for blinde brukere), # Hebraisk, # Lao, Latin1 og Latin5 - Vest-Europa og tyrkiske språk, # Latin2 - Sentral-Europa og rumensk, # Latin3 og Latin8 - chichewa\, esperanto\, irsk\, maltesisk og walisisk, # Latin7 - litauisk\, latvisk\, maori og marshallesisk, . Latin - vietnamesisk, # Thai, . Kombinert - latin\, slavisk kyrillisk\, hebraisk og grunnleggende arabisk, . Kombinert - latin\, slavisk kyrillisk og gresk, . Kombinert - latin\, slavisk og ikke-slavisk kyrillisk, Gjett optimal tegnsett
 Choices-nl.UTF-8: . Arabisch, # Armeens, # Cyrillisch - KOI8-R en KOI8-U, # Cyrillisch - niet-Slavische talen, . Cyrillisch - niet-Slavische talen (voor blinden), # Cyrillisch - Slavische talen (waaronder Bosnisch en Servisch Latijns), . Cyrillisch - Slavische talen (voor blinden), . Ethiopisch, # Georgisch, # Grieks, . Grieks (voor blinden), # Hebreeuws, # Laoees, # Latin1 en Latin5 - West-Europese en Turkse talen, # Latijns2 - Centraal-Europa en Roemenië , # Latin3 en Latin8 - Chichewa; Esperanto; Iers; Maltees en Welsh, # Latin7 - Litouws; Lets; Maori en Marshallees, . Latijns - Vietnamees, # Thais , . Gecombineerd - Latijns; Slavisch Cyrillisch; Hebreeuws; basis-Arabisch, . Gecombineerd - Latijns; Slavisch Cyrillisch; Grieks, . Gecombineerd - Latijns; Slavisch en niet-Slavisch Cyrillisch, Raad optimale karakterset
+Choices-nn.UTF-8: . Arabisk, # Armensk, # Kyrillisk – KOI8-R og KOI8-U, # Kyrillisk – ikkje-slaviske språk, . Kyrillisk – ikkje-slaviske språk (for blinde brukarar), # Kyrillisk – slaviske språk (også bosnisk og serbisk med det latinske alfabetet), . Kyrillisk – slaviske språk (for blinde brukarar), . Etiopisk, # Georgisk, # Gresk, . Gresk (for blinde brukarar), # Hebraisk, # Laotisk, # Latin1 og Latin5 – Vest-Europa og tyrkiske språk, # Latin2 – Sentral-Europa og rumensk, # Latin3 og Latin8 – chichewa\, esperanto\, irsk\, maltesisk og walisisk, # Latin7 – litauisk\, latvisk\, maori og marshallesisk, . Latin – vietnamesisk, # Thai, . Kombinert – det latinske alfabetet\, det slavisk-kyrilliske\, det hebraiske og det grunnleggjande arabiske, . Kombinert – det latinske alfabetet\, det slavisk-kyrilliske og det greske, . Kombinert – det latinske alfabetet\, det slavisk-kyrilliske og det ikkje-slavisk-kyrilliske, Giss optimalt teiknsett
 Choices-no.UTF-8: . Arabisk, # Armensk, # Kyrillisk - KOI8-R og KOI8-U, # Kyrillisk - ikke-slaviske språk, . Kyrillisk - ikke-slaviske språk (for blinde brukere), # Kyrillisk - slaviske språk (også bosnisk og serbisk latin), . Kyrillisk - slaviske språk (for blinde brukere), . Etiopisk, # Georgisk, # Gresk, . Gresk (for blinde brukere), # Hebraisk, # Lao, Latin1 og Latin5 - Vest-Europa og tyrkiske språk, # Latin2 - Sentral-Europa og rumensk, # Latin3 og Latin8 - chichewa\, esperanto\, irsk\, maltesisk og walisisk, # Latin7 - litauisk\, latvisk\, maori og marshallesisk, . Latin - vietnamesisk, # Thai, . Kombinert - latin\, slavisk kyrillisk\, hebraisk og grunnleggende arabisk, . Kombinert - latin\, slavisk kyrillisk og gresk, . Kombinert - latin\, slavisk og ikke-slavisk kyrillisk, Gjett optimal tegnsett
 Choices-oc.UTF-8: . arabi, # armenian, # cirillic - KOI8-R e KOI8-U, # cirillic : lengas autras qu'eslavas, . cirillic : lengas autras qu'eslavas (pels utilizaires cècs), # cirillic : lengas eslavas (e tanben lo bosniac e lo sèrbe latin), . cirillic : lengas eslavas (pels utilizaires cècs), . etiopian, # georgian, # grèc, . grèc (pels utilizaires cècs), # ebrieu, # lao, # latin1 e latin5 : lengas de l'Euròpa de l'oèst e turc, # latin2 : lengas de l'Euròpa centrala e romanés, # latin3 e latin8 : chichewa\, esperanto\, irlandés\, maltés e galés, # latin7 : lituanian\, leton\, maòri e marshall, . latin : vietnamian, # tai, . combinat : latin\, cirillic eslau\, ebrieu\, arabi de basa, . combinat : latin\, cirillic eslau\, grèc, . combinat : latin\, cirillic eslau e pas eslau, Devinar lo jòc de caractèrs optimal
 Choices-pa.UTF-8: .ਅਰਬੀ, # ਅਰਮੀਨੀਆਈ, # Cyrillic - KOI8-R ਅਤੇ KOI8-U, # Cyrillic - non-Slavic ਭਾਸ਼ਾਵਾਂ, . Cyrillic - ਗ਼ੈਰ-ਸਲਾਵਿਕ ਭਾਸ਼ਾਵਾਂ (ਅੰਨ੍ਹੇ ਵਰਤੋਂਕਾਰਾਂ ਲਈ), # Cyrillic - Slavic languages (also Bosnian ਅਤੇ Serbian Latin), . Cyrillic - ਸਲਾਵਿਕ ਭਾਸ਼ਾਵਾਂ (ਅੰਨ੍ਹੇ ਵਰਤੋਂਕਾਰਾਂ ਲਈ), . ਇਥੋਪਿਕ, # ਜਾਰਜੀਆਈ, # ਗਰੀਕ, . ਗਰੀਕ (ਅੰਨ੍ਹੇ ਵਰਤੋਂਕਾਰਾਂ ਲਈ), # ਹੈਬਰਿਉ, # Lao, # Latin1 and Latin5 - ਪੱਛਮੀ ਯੂਰਪ ਅਤੇ ਤੁਰਕ ਭਾਸ਼ਾਵਾਂ, # Latin2 - ਸੈਂਟਰਲ ਯੂਰਪ ਅਤੇ ਰੋਮਾਨੀਆਈ, # Latin3 ਅਤੇ Latin8 - ਚਿਚੇਵਾ; ਇਸਪੋਰਨਟੋ; ਆਇਰਸ਼; ਮਾਲਟਾਸ ਅਤੇ ਵਾਲਿਸ਼, # Latin7 - ਲਿਥੁਆਨੀਅਨ; ਲਾਟਵੀਅਨ; ਮਾਓਰੀ ਅਤੇ ਮਾਰਸ਼ਲੇਸ, . Latin - Vietnamese, # ਥਾਈ, . ਸੰਯੁਕਤ - ਲੈਟਿਨ; ਸਲਾਵਿਲ ਸਿਰਲਿਕ; ਹੈਬਰਿਊ; ਮੂਲ ਅਰਬੀ, . ਸੰਯੁਕਤ- ਲਾਤੀਨੀ; ਸਲਵਿਕ ਸਿਰਲਿਕ; ਗਰੀਕ, . Combined - Latin; Slavic ਅਤੇ non-Slavic Cyrillic, ਢੁੱਕਵਾਂ ਅੱਖਰ ਸੈੱਟ ਅੰਦਾਜ਼ਾ
@@ -275,7 +278,7 @@ Choices-tg.UTF-8: . Арабӣ, # Арманӣ, # Кириллӣ - KOI8-R ва K
 Choices-th.UTF-8: . อารบิก, # อาร์เมเนีย, # ซีริลลิก - KOI8-R และ KOI8-U, # ซีริลลิก - ภาษาที่ไม่ใช่ตระกูลสลาฟ, . ซีริลลิก - ภาษาที่ไม่ใช่ตระกูลสลาฟ (สำหรับผู้พิการสายตา), # ซีริลลิก - ภาษาตระกูลสลาฟ (รวมถึงบอสเนียและละตินเซอร์เบีย), . ซีริลลิก - ภาษาตระกูลสลาฟ (สำหรับผู้พิการสายตา), . เอธิโอเปีย, # จอร์เจีย, # กรีก, . กรีก (สำหรับผู้พิการสายตา), # ฮีบรู, # ลาว, # ละติน 1 และ ละติน 5 - ยุโรปตะวันตกและภาษาตระกูลเติร์ก, # ละติน 2 - ยุโรปตอนกลางและโรมาเนีย, # ละติน 3 และ ละติน 8 - ชิเชวา; เอสเปรันโต; ไอริช; มอลตา และเวลส์, # ละติน 7 - ลิทัวเนีย; ลัตเวีย; เมารี และมาร์แชลล์, . ละติน - เวียดนาม, # ไทย, . ผสม - ละติน; ซีริลลิกตระกูลสลาฟ; ฮีบรู; อารบิกพื้นฐาน, . ผสม - ละติน; ซีริลลิกตระกูลสลาฟ; กรีก, . ผสม - ละติน; ซีริลลิกตระกูลสลาฟและที่ไม่ใช่สลาฟ, เดาชุดอักขระที่ดีที่สุด
 Choices-tr.UTF-8: . Arapça, # Ermenice, # Kiril - KOI8-R ve KOI8-U, # Kiril - Slav olmayan diller, . Kiril - Slav olmayan diller (görme engelli kullanıcılar için), # Kiril - Slav dilleri (ayrıca Boşnakça ve Latin Sırpça), . Kiril - Slav dilleri (görme engelli kullanıcılar için), . Etiyopyaca, # Gürcü Dili, # Yunanca, . Yunanca (görme engelli kullanıcılar için), # İbranice, # Lao Dili, # Latin1 ve Latin5 - Batı Avrupa dilleri ve Türkî diller, # Latin2 - Orta Avrupa ve Romanya, # Latin3 ve Latin8 - Chichewa dili; Esperanto; İrlanda Dili; Galce ve Malta Dili, # Latin7 - Litvanya Dili; Letonca; Marshallese dili ve Yeni Zelanda Yerli Dili, . Latin - Vietnam Dili, # Tayca, . Birleştirilmiş - Latin; Slav Kirili; İbranice; temel Arapça, . Birleştirilmiş - Latin; Slav Kirili; Yunanca, . Birleştirilmiş - Latin; Slav Kirili ve Slav olmayan Kiril, En uygun karakter setini tahmin et
 Choices-uk.UTF-8: . Арабська, # Вірменська, # Кирилиця - KOI8-R та KOI8-U, # Кирилиця - Не-слов'янські мови, . Кирилиця - Не-слов'янські мови (для незрячих користувачів), # Кирилиця - Слов'янські мови (а також боснійська та сербська латиниця), . Кирилиця - Слов'янські мови (для незрячих користувачів), . Ефіопська, # Грузинська, # Грецька, . Грецька (для незрячих користувачів), # Єврейська, # Лаоська, # Latin1 та Latin5 - західноєвропейські та турецька, # Latin2 - центральноєвропейські та румунська, # Latin3 та Latin8 - чева (Chichewa); есперанто; ірландська; мальтійська та уельська, # Latin7 - литовська; латвійська; маорі та маршальска, . Latin - в'єтнамська, # Тайська, . Комбінована - латиниця; слов'янська кирилиця; єврейська; базова арабська, . Комбінована - латиниця; слов'янська кирилиця; грецька, . Комбінована - латиниця; слов'янська та неслов'янська кирилиця, Можливий оптимальний набір символів
-Choices-vi.UTF-8: . A Rập, # Ác-mê-ni, # Ki-rin: KOI8-R và KOI8-U, # Kirin: ngôn ngữ khác Xla-vợ, . Kirin: ngôn ngữ không phải Xla-vợ (dành cho người mù), # Kirin: ngôn ngữ Xla-vợ (cũng có tiếng Bo-x-nia và Xéc-bi La-tinh), . Kirin: ngôn ngữ Xla-vợ (dành cho người mù), . Ê-ti-ô-pi, # Gi-oa-gi-a, # Hy Lạp, . Hy Lạp (dành cho người mù), # Do Thái, # Lào, # Latin1 and Latin5: các ngôn ngữ vùng Tây Âu và kiểu Thổ Nhĩ Kỳ, # Latin2: vùng Trung Âu và tiếng Rô-ma-ni, # Latin3 and Latin8: tiếng Chi-chi-oua\, Ét-pe-ran-tô\, Ai-len\, Man-tơ và Ouen-s, # Latin7: tiếng Li-tu-a-ni\, Lát-vi-a\, Mao-ri và Ma-sa-ni, . Latin: Tiếng Việt, # Thái, . Tổ hợp: La-tinh; Ki-rin Xla-vợ; Do thái; A Rập cơ bản , . Tổ hợp: La-tinh; Ki-rin Xla-vợ; Hy Lạp, . Tổ hợp: La-tinh; Ki-rin Xla-vợ và khác Xla-vợ, Đoán bảng mã tối ưu
+Choices-vi.UTF-8: . A Rập, # Ác-mê-ni, # Ki-rin: KOI8-R và KOI8-U, # Kirin: ngôn ngữ khác Xla-vợ, . Kirin: ngôn ngữ không phải Xla-vợ (dành cho người mù), # Kirin: ngôn ngữ Xla-vợ (cũng có tiếng Bo-x-nia và Xéc-bi La-tinh), . Kirin: ngôn ngữ Xla-vợ (dành cho người mù), . Ê-ti-ô-pi, # Gi-oa-gi-a, # Hy Lạp, . Hy Lạp (dành cho người mù), # Do Thái, # Lào, # Latin1 and Latin5: các ngôn ngữ vùng Tây Âu và kiểu Thổ Nhĩ Kỳ, # Latin2: vùng Trung Âu và tiếng Rô-ma-ni, # Latin3 and Latin8: tiếng Chi-chi-oua\, Ét-pe-ran-tô\, Ai-len\, Man-tơ và Ouen-s, # Latin7: tiếng Li-tu-a-ni\, Lát-vi-a\, Mao-ri và Ma-sa-ni, . Latin: Tiếng Việt, # Thái, . Tổ hợp: La-tinh; Ki-rin Xla-vợ; Do thái; A Rập cơ bản, . Tổ hợp: La-tinh; Ki-rin Xla-vợ; Hy Lạp, . Tổ hợp: La-tinh; Ki-rin Xla-vợ và khác Xla-vợ, Đoán bảng mã tối ưu
 Choices-zh_CN.UTF-8: . 阿拉伯语, # 亚美尼亚语, # 西里尔语 - KOI8-R 与 KOI8-U, # 西里尔语 - 非斯拉夫语, . 西里尔语 - 非斯拉夫语（用于盲人用户）, # 西里尔语 - 斯拉夫语(以及波斯尼亚和塞尔维亚拉丁语), . 西里尔语 - 斯拉夫语（用于盲人用户）, . 埃塞俄比亚语, # 格鲁吉亚语, # 希腊语, . 希腊语（用于盲人用户）, # 希伯来语, # 老挝语, # 拉丁1与拉丁5 - 西欧和突厥语, # 拉丁2 - 中欧和罗马尼亚语, # 拉丁3与拉丁8 - 切瓦语；世界语；爱尔兰语；马耳他语和威尔士语, # 拉丁7 - 立陶宛语；拉脱维亚语；毛利语和马绍尔语, . 拉丁 - 越南语, # 泰语, . 组合 - 拉丁；斯拉夫西里尔语；希伯来语；基本阿拉伯语, . 组合 - 拉丁；斯拉夫西里尔语；希腊语, . 组合 - 拉丁；斯拉夫和非斯拉夫西里尔语, 猜测最优字符集
 Choices-zh_TW.UTF-8: . 阿拉伯語, # 亞美尼亞語, # 西里爾字母 - KOI8-R 及 KOI8-U, # 西里爾字母 - 非斯拉夫語系, . 西里爾字母 - 非斯拉夫語系（盲人適用）, # 西里爾字母 - 斯拉夫語系（波士尼亞語及賽爾維亞拉丁語）, . 西里爾字母 - 斯拉夫語系（盲人適用）, . 埃塞俄比亞, # 喬治亞, # 希臘語, . 希臘語（盲人適用）, # 希伯來語, # 寮語, # Latin1 及 Latin5 - 西歐及突厥語, # Latin2 - 中歐及羅馬尼亞, # Latin3 及 Latin8 - Chichewa；世界語；愛爾蘭語；馬爾他語及威爾士語, # Latin7 - 立陶宛語；拉脫維亞語；毛利語及 Marshallese, . Latin - 越南語, # 泰語, . 聯合 - 拉丁語；斯拉夫語西里爾字母；希伯來語；基本阿拉伯語, . 聯合 - 拉丁語；斯拉夫語西里爾字母；希臘語, . 聯合 - 拉丁語；斯拉夫語和非斯拉夫語西里爾字母, 猜測最佳的文字編碼
 Description: Character set to support:
@@ -378,7 +381,7 @@ Description-gu.UTF-8: આધાર આપવા માટે અક્ષર ગ
 Description-he.UTF-8: ערכת תווים לתמיכה:
  נא לבחור את ערכת התווים שעל גופן המסוף לתמוך בה.
  .
- אם לא נעשה שימוש ב־framebuffer, האפשרויות המתחילות ב־„.” תצמצמנה את מספר הצבעים הזמינים במסוף.
+ אם לא נעשה שימוש במכלא חוזי, האפשרויות המתחילות ב־„.” תצמצמנה את מספר הצבעים הזמינים במסוף.
 Description-hi.UTF-8: समर्थित अक्षर संघटन:
  कंसोल में एपयोग हेतु समर्थित अक्षर संगठन चुनें.
  .
@@ -564,9 +567,9 @@ Description-vi.UTF-8: Bộ ký tự cần hỗ trợ:
  .
  Nếu bạn không dùng vùng đệm khung, sự chọn bắt đầu với dấu chấm “.” sẽ giảm số các màu sắc sẵn sàng trên bàn giao tiếp.
 Description-zh_CN.UTF-8: 要支持的字符集：
- 请选择终端字体需要支持的字符集。
+ 请选择控制台字体需要支持的字符集。
  .
- 如果您不使用帧缓冲，由“.”开头的选项会减少终端的可用颜色。
+ 如果您不使用帧缓冲，以 "." 开头的选项会减少控制台的可用颜色。
 Description-zh_TW.UTF-8: 要支援的字元集：
  請選擇主控臺字型應當支援的字元集。
  .
@@ -633,7 +636,7 @@ Description-da.UTF-8: Skrifttype til konsollen:
 Description-de.UTF-8: Schriftart für die Konsole:
  »VGA« sieht traditionell aus und hat eine mittlere Abdeckung von internationalen Schriften. »Fixed« hat ein einfaches Aussehen und eine bessere Abdeckung von internationalen Schriften; »Terminus« kann dabei helfen, die Ermüdung der Augen zu reduzieren. Allerdings haben manche Symbole ein ähnliches Aussehen, was ein Problem für Programmierer sein kann.
  .
- Falls Sie von Terminus die fette Variante vorziehen, wählen Sie entweder TerminusBold (falls Sie einen Framebuffer verwenden) oder andernfalls TerminusBoldVGA.
+ Falls Sie die fette Variante von Terminus vorziehen, wählen Sie entweder TerminusBold (falls Sie einen Framebuffer verwenden) oder andernfalls TerminusBoldVGA.
 Description-dz.UTF-8: མ་སྒྲོམ་གྱི་དོན་ལུ་ཡིག་གཟུགས།
  "VGA" ལུ་ སྔར་སྲོལ་གྱི་འབྱུང་སྣང་ཡོདཔ་དང་ རྒྱལ་སྤྱིའི་ཡིག་ཚུགས་ཀྱི་ཁྱབ་ཚད་རན་ཏོག་ཏོ་ཡདོཔ་ཨིན་། "Fixed" ལུ་ འབྱུང་སྣང་འཇམ་སམ་ཡོདཔ་དང་ རྒྱས་སྤྱིའི་ཡིག་ཚུགས་ཀྱི་ཁྱབ་ཚད་ ལེགས་ཤོམ་ཡོདཔ་ཨིན།  "Terminus" གིས་ བརྡ་ཚོན་ལ་ལོ་གཅིག་ལུ་རྣམ་པ་་ཅོག་གཅིགཔ་ཡོདཔ་ལས་ ལས་རིམ་ཚུ་གི་དཀའ་ངལ་སེལ་ནིའི་གྲོགས་རམ་འབད་ཚུགསཔ་འོང་།
  .
@@ -685,7 +688,7 @@ Description-gu.UTF-8: કૉન્સોલ માટે ફોન્ટ:
 Description-he.UTF-8: גופן עבור המסוף:
  ל־„VGA” יש מראה מסורתי וכיסוי בינוני של סוגי כתב בינלאומיים. ל־„Fixed” יש מראה פשטני וכיסוי טוב יותר לשפות בינלאומיות. „Terminus” עשוי להקל על עייפות העיניים, למרות שלחלק מהסימנים עשויים להיות מאפיינים דומים, מה שעשוי להוות בעיה למתכנתים.
  .
- אם עדיף לך להשתמש בגרסה עבה של הגופן Terminus, ניתן לבחור ב־TerminusBold (לשימוש עם framebuffer) או TerminusBoldVGA (לכל מקרה אחר).
+ אם עדיף לך להשתמש בגרסה עבה של הגופן Terminus, ניתן לבחור ב־TerminusBold (לשימוש עם מכלא חוזי) או ב־TerminusBoldVGA (לכל מקרה אחר).
 Description-hi.UTF-8: कंसोल के लिए फ़ॉन्ट:
  "वीजीए" की पारंपरिक उपस्थिति है और इसमें अंतर्राष्ट्रीय लिपियों का मध्यम कवरेज है। "फिक्स्ड" में एक सरलीकृत उपस्थिति है और अंतर्राष्ट्रीय लिपियों का बेहतर कवरेज है। "टर्मिनस" आंखों की थकान को कम करने में मदद कर सकता है, हालांकि कुछ प्रतीकों में एक समान पहलू है जो प्रोग्रामर के लिए एक समस्या हो सकती है।
  .
@@ -714,7 +717,7 @@ Description-ja.UTF-8: コンソールのフォント:
  "VGA" は伝統的な外観で、万国の書体の半分ほどをカバーします。"Fixed" は単純化した表現でさらにより良く書体をカバーします。"Terminus" は眼精疲労を軽減するでしょうが、いくつかの文字が似た外観となり、プログラマには問題となり得ます。
  .
  Terminus フォントの太字バージョンのほうがよいなら、TerminusBold (フレームバッファを利用している場合) か TerminusBoldVGA (それ以外) のどちらかを選んでください。
-Description-ka.UTF-8: კონსოლის შრიფტი
+Description-ka.UTF-8: კონსოლის ფონტი:
  "VGA" ტრადიციული შრიფტია და საერთაშორისო ანბანების მეტნაკლები მხარდაჭერა გააჩნია. "Fixed" იფრო მარტივად გამოიყურება და საერთაშორისო ანბანების მეტი მხარდაჭერა გააჩნია. "Terminus" თვალის დაღლილობას ამცირებს, თუმცა ზოგიერთი სიმბოლო ერთმანეთს ძალიან გავს, რაც დეველოპერებისთვის შეიძლება მოუხერხებელი იყოს.
  .
  თუ Terminus შრიფტის მუქი ვერსია გირჩევნიათ, ამოირჩიეთ ან TerminusBold (თუ framebuffer-ს იყენებთ) ან TerminusBoldVGA (სხვა შემთხვევებში).
@@ -779,7 +782,7 @@ Description-nl.UTF-8: Lettertype voor op de console:
  .
  Als u de vetgedrukte versie van het lettertype Terminus verkiest, selecteer dan TerminusBold als u een framebuffer gebruikt, of anders TerminusBoldVGA.
 Description-nn.UTF-8: Skrift i konsollen:
- «VGA» har ein tradisjonell utsjånad og ei mellom dekning av internasjonale teikn. «Fixed» har ein enkel utsjånad og betre støtte for internasjonale teikn. «Terminus» kan gjera til at du ikkje så fort vert sliten i auga, men nokre teikn kan vera ganske like og såleis skapa problem for utviklarar.
+ «VGA» har ein tradisjonell utsjånad og middels dekning av internasjonale teikn. «Fixed» har ein enkel utsjånad og betre støtte for internasjonale teikn. «Terminus» kan gjera til at du ikkje så fort vert sliten i auga, men nokre teikn kan vera ganske like og såleis skapa problem for utviklarar.
  .
  Viss du føretrekk ein halvfeit versjon av Terminus-skrifta, vel du anten TerminusBold (viss du brukar mellomlagring av bilete) eller TerminusBoldVGA (viss ikkje).
 Description-no.UTF-8: Skrift for konsollet:
@@ -878,9 +881,9 @@ Description-vi.UTF-8: Phông cho bàn giao tiếp:
  .
  Thích phông chữ Terminus in đậm thì hãy chọn TerminusBold nếu dùng vùng đệm khung, không thì chọn TerminusBoldVGA.
 Description-zh_CN.UTF-8: 控制台字体：
- “VGA”是传统外观并有中等国际化脚本覆盖程度。“Fixed”是简化外观并有更好的国际化脚本覆盖程度。“Terminus”可帮助减少视觉疲劳，但有些字符可能会看起来类似，这会给程序员带来一些麻烦。
+ "VGA" 具有传统的外观和中等的国际化脚本覆盖程度。"Fixed" 具有简化的外观和更好的国际化脚本覆盖程度。"Terminus" 可帮助减少视觉疲劳，但有些字符可能会看起来类似，这可能会给程序员带来一些麻烦。
  .
- 如果您希望使用 Terminus 字体的粗体，请选择 TerminusBold (如果您使用帧缓冲)或者 TerminusBoldVGA (其他情况)。
+ 如果您希望使用 Terminus 字体的粗体，请选择 TerminusBold (如果您使用帧缓冲) 或者 TerminusBoldVGA (其他情况)。
 Description-zh_TW.UTF-8: Console 的字型：
  【VGA】看起來較為傳統，同時包含了不少的各國書寫字體。【Fixed】看起來較為簡化，但包含了更多的各國書寫字體。【Terminus】可用來幫助減少眼睛疲勞，但有許多字元看起來比較類似，對於程式設技師而言這可能會帶來困擾。
  .
@@ -954,6 +957,8 @@ Description-it.UTF-8: Dimensione del carattere:
  Selezionare la dimensione del carattere per la consolle. Per riferimento, il carattere usato all'avvio del computer ha una dimensione di 8×16.
 Description-ja.UTF-8: フォントのサイズ:
  コンソール用のフォントのサイズを選んでください。参考のために、コンピュータのブート時に使われるフォントのサイズは 8x16 です。
+Description-ka.UTF-8: შრიფტის ზომა:
+ გთხოვთ ამოირჩიოთ კონსოლის ფონტის ზომა. შედარებისათვის გაითვალისწინეთ, რომ ჩატვირთვისას კომპიუტერი 8x16 ზომის ფონტს იყენებს.
 Description-kab.UTF-8: Tiddi n tsefsit:
  Ma ulac aɣilif, fren teɣzi n tsefsit i tdiwent. I temselɣut, tasefsit yettusqedcen mi akken i yekker uselkim yesɛa teɣzi n 8x16.
 Description-kk.UTF-8: Қаріп өлшемі:
@@ -980,6 +985,8 @@ Description-nb.UTF-8: Skriftstørrelse:
  Velg størrelsen på skriften for konsollet. Som referanse, skriften som brukes når datamaskinen starter opp har størrelse 8x16.
 Description-nl.UTF-8: Lettertype-grootte:
  Selecteer de grootte van het lettertype voor de console. Ter referentie: het lettertype dat wordt gebruikt bij het opstarten heeft grootte 8x16.
+Description-nn.UTF-8: Skriftstorleik:
+ Vel storleik på skrifta i konsollen. Til samanlikning har skrifta som vert brukt i maskinoppstarten storleik 8x16.
 Description-no.UTF-8: Skriftstørrelse:
  Velg størrelsen på skriften for konsollet. Som referanse, skriften som brukes når datamaskinen starter opp har størrelse 8x16.
 Description-oc.UTF-8: Talha de la poliça :
@@ -1037,12 +1044,16 @@ Description: Font size:
  require framebuffer.
 Description-ar.UTF-8: حجم الخط:
  لطفًا اختر حجم الخط للطرفية. بعض أحجام الخطوط تتطلب framebuffer.
+Description-be.UTF-8: Памер шрыфта:
+ Выберыце памер шрыфта для кансолі. Некаторыя памеры шрыфтоў патрабуюць framebuffer.
 Description-bg.UTF-8: Размер на шрифта:
  Изберете размера на шрифта за конзолата. Някои от размерите изискват използването на framebuffer.
 Description-ca.UTF-8: Mida del tipus de lletra:
  Seleccioneu la mida del tipus de lletra per a la consola. Algunes mides de lletra requereixen el «framebuffer».
 Description-cs.UTF-8: Velikost fontu:
  Vyberte prosím velikost fontu pro konzoli. Některé velikosti fontů vyžadují framebuffer.
+Description-da.UTF-8: Skriftstørrelse:
+ Vælg venligst skrifttypens størrelse i konsollen. Nogle skriftstørrelser kræver framebuffer.
 Description-de.UTF-8: Schriftgröße:
  Bitte wählen Sie die Größe der Schriftart für die Konsole. Einige Schriftgrößen benötigen den Framebuffer.
 Description-el.UTF-8: Μέγεθος γραμματοσειράς:
@@ -1062,7 +1073,7 @@ Description-fr.UTF-8: Taille de la police :
 Description-gl.UTF-8: Tamaño de letra:
  Escolla o tamaño de letra para a consola. Alguns tamaños de letra requiren «framebuffer».
 Description-he.UTF-8: גודל גופן:
- נא לבחור בגודל הגופן עבור המסוף.  חלק מגדלי הגופן דורשים framebuffer.
+ נא לבחור בגודל הגופן עבור המסוף.  חלק מגדלי הגופן דורשים מכלא חוזי.
 Description-hi.UTF-8: फॉन्ट का आकार:
  कृपया लिनक्स कंसोल के लिए फॉन्ट आकार चुनें. उदाहरणतः, कुछ फ़ॉन्ट आकारों में फ्रेमबफ़र की आवश्यकता होती है।
 Description-hr.UTF-8: Veličina slova:
@@ -1075,8 +1086,14 @@ Description-it.UTF-8: Dimensione del carattere:
  Selezionare la dimensione del carattere per la consolle. Alcune dimensioni di carattere richiedono framebuffer.
 Description-ja.UTF-8: フォントのサイズ:
  コンソール用のフォントのサイズを選んでください。いくつかのフォントサイズにはフレームバッファが必要です。
+Description-ka.UTF-8: შრიფტის ზომა:
+ გთხოვთ ამოირჩიოთ კონსოლის ფონტი.   ზოგიერთი ფონტის ზომა framebuffer-ს მოითხოვს.
 Description-kab.UTF-8: Tiddi n tsefsit:
  Ma ulac aɣilif, fren teɣzi n tsefsit i tdiwent.  Kra seg tiddiyin n tsefsit srant framebuffer.
+Description-kk.UTF-8: Қаріп өлшемі:
+ Консоль үшін қаріп өлшемін таңдаңыз.  Кейбір қаріптер фреймбуферді талап етеді.
+Description-ko.UTF-8: 글꼴 크기:
+ 콘솔에 사용할 글꼴 크기를 고르십시오. 글꼴 크기에 따라 프레임버퍼가 필요할 수도 있습니다.
 Description-lt.UTF-8: Šrifto dydis:
  Pasirinkite tekstinio terminalo šrifto dydį. Pavyzdžiui, kompiuterio paleidimo metu naudojamas 8x16 dydžio šriftas.
 Description-lv.UTF-8: Fonta izmērs:
@@ -1085,6 +1102,8 @@ Description-nb.UTF-8: Skriftstørrelse:
  Velg størrelsen på skriften for konsollet. Noen skriftstørrelser krever framebuffer.
 Description-nl.UTF-8: Lettertype-grootte:
  Selecteer de grootte van het lettertype voor de console. Sommige lettertypegroottes vereisen framebuffer.
+Description-nn.UTF-8: Skriftstorleik:
+ Vel storleik på skrifta i konsollen. Somme skriftstorleikar krev framebuffer.
 Description-no.UTF-8: Skriftstørrelse:
  Velg størrelsen på skriften for konsollet. Noen skriftstørrelser krever framebuffer.
 Description-oc.UTF-8: Talha de la poliça :
@@ -1109,8 +1128,14 @@ Description-ta.UTF-8: எழுத்துரு அளவு:
  முனையத்துக்கு எழுத்துருவின் அளவை தேர்ந்தெடுக்கவும். சிலவற்றுக்கு ஃப்ரேம்பபர் தேவை இருக்கலாம்.
 Description-th.UTF-8: ขนาดแบบอักษร:
  กรุณาเลือกขนาดของแบบอักษรสำหรับคอนโซล แบบอักษรบางขนาดอาจต้องใช้เฟรมบัฟเฟอร์
+Description-tr.UTF-8: Yazıtipi boyutu
+ Lütfen konsol için yazı tipi boyutunu seçin. Bazı yazı tipi boyutları çerçeve arabelleği gerektirir.
+Description-uk.UTF-8: Розмір шрифту:
+ Будь ласка, виберіть розмір шрифту для консолі. Деякі розміри шрифтів вимагають кадрового буфера.
+Description-vi.UTF-8: Kích cỡ phông:
+ Hãy chọn kích cỡ của phông chữ cho bàn giao tiếp. Một số cỡ phông chữ cần có bộ đệm khung.
 Description-zh_CN.UTF-8: 字体大小：
- 请选择控制台的字体大小。某些字体大小可能需要 framebuffer 功能。
+ 请选择控制台的字体大小。某些字体大小可能需要启用帧缓冲。
 Description-zh_TW.UTF-8: 字型大小：
  請替主控台選擇字體大小。某些字體大小需要使用幀緩衝區(framebuffer)。
 

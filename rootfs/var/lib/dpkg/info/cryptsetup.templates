@@ -77,6 +77,12 @@ Description-pt_BR.UTF-8: Continuar com a remoção do cryptsetup?
  Se esses dispositivos são gerenciados com o cryptsetup, você pode não conseguir bloquear os dispositivos depois da remoção do pacote, embora outras ferramentas possam ser usadas para gerenciar dispositivos dm-crypt. Qualquer desligamento ou reinicialização do sistema bloqueará os dispositivos.
  .
  Não escolha essa opção se você quiser bloquear os dispositivos dm-crypt antes da remoção do pacote.
+Description-ro.UTF-8: Continuați cu eliminarea programului «cryptsetup»?
+ Acest sistem are dispozitive dm-crypt deblocate: ${cryptmap}
+ .
+ Dacă aceste dispozitive sunt gestionate cu «cryptsetup», este posibil să nu puteți bloca dispozitivele după eliminarea pachetului, deși alte instrumente pot fi utilizate pentru gestionarea dispozitivelor dm-crypt. Orice oprire sau repornire a sistemului va bloca dispozitivele.
+ .
+ Nu alegeți această opțiune dacă doriți să blocați dispozitivele dm-crypt înainte de a elimina pachetul.
 Description-ru.UTF-8: Продолжить удаление cryptsetup?
  В системе имеются незаблокированные устройства dm-crypt: ${cryptmap}
  .

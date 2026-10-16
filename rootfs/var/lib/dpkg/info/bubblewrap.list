@@ -25,3 +25,6 @@
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/bwrap.1.gz
+/usr/share/zsh
+/usr/share/zsh/vendor-completions
+/usr/share/zsh/vendor-completions/_bwrap

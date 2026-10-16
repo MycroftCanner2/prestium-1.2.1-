@@ -15,7 +15,6 @@
 /usr/share/doc/cryptsetup-initramfs/NEWS.Debian.gz
 /usr/share/doc/cryptsetup-initramfs/README.initramfs.gz
 /usr/share/doc/cryptsetup-initramfs/changelog.Debian.gz
-/usr/share/doc/cryptsetup-initramfs/changelog.gz
 /usr/share/doc/cryptsetup-initramfs/copyright
 /usr/share/initramfs-tools
 /usr/share/initramfs-tools/conf-hooks.d

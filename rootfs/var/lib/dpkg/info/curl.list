@@ -5,7 +5,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/curl
-/usr/share/doc/curl/NEWS.Debian.gz
 /usr/share/doc/curl/changelog.Debian.gz
 /usr/share/doc/curl/changelog.gz
 /usr/share/doc/curl/copyright

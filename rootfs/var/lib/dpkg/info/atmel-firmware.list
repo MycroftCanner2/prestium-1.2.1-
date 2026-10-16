@@ -32,7 +32,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/atmel-firmware
-/usr/share/doc/atmel-firmware/README.gz
+/usr/share/doc/atmel-firmware/README
 /usr/share/doc/atmel-firmware/changelog.Debian.gz
 /usr/share/doc/atmel-firmware/copyright
 /usr/share/man

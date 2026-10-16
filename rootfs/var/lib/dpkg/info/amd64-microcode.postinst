@@ -19,11 +19,14 @@ set -e
 
 case "$1" in
     configure)
-	# do it like udev and firmware-linux-*
-	if [ -x /usr/sbin/update-initramfs ] && [ -e /etc/initramfs-tools/initramfs.conf ] ; then
-	    update-initramfs -u && {
+	RC=0
+	dpkg-trigger --no-await update-initramfs || RC=$?
+	[ "$RC" -ne 0 ] && [ -e /etc/initramfs-tools/initramfs.conf ] && {
+		RC=0
+		update-initramfs -u || RC=$?
+	}
+	if [ "$RC" -eq 0 ] ; then
 		echo "amd64-microcode: microcode will be updated at next boot" >&2
-	    }
 	else
 	    echo "amd64-microcode: initramfs support missing" >&2
 	fi
