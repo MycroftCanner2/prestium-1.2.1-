@@ -67,13 +67,13 @@
     <comment xml:lang="pl">Rysunek OpenOffice.org 1.0</comment>
     <comment xml:lang="pt">Desenho do OpenOffice.org 1.0</comment>
     <comment xml:lang="pt-BR">Desenho do OpenOffice.org 1.0</comment>
-    <comment xml:lang="ro">OpenOffice.org 1.0 desen</comment>
+    <comment xml:lang="ro">Desen OpenOffice.org 1.0</comment>
     <comment xml:lang="ru">Рисунок OpenOffice.org 1.0</comment>
     <comment xml:lang="rw">OpenOffice.org 1.0 Drawing</comment>
     <comment xml:lang="si">OpenOffice.org 1.0 Drawing</comment>
     <comment xml:lang="sk">Kresba OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Risba OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Drawing</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 цртеж</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Drawing</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Drawing</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Drawing</comment>
@@ -123,7 +123,7 @@
     <comment xml:lang="es">Plantilla de dibujo de OpenOffice.org 1.0</comment>
     <comment xml:lang="et">OpenOffice.org 1.0 joonistuse mall</comment>
     <comment xml:lang="eu">OpenOffice.org 1.0 marrazkiaren txantiloia</comment>
-    <comment xml:lang="fa">OpenOffice.org 1.0 Drawing Template</comment>
+    <comment xml:lang="fa">الگوی طراحی اپن‌افیس.ارگ 1.0</comment>
     <comment xml:lang="fi">OpenOffice.org 1.0 -piirrosmalli</comment>
     <comment xml:lang="fr">Modèle de dessin OpenOffice.org 1.0</comment>
     <comment xml:lang="ga">Teimpléad Líníochta OpenOffice.org 1.0</comment>
@@ -135,10 +135,10 @@
     <comment xml:lang="hi">OpenOffice.org 1.0 Drawing Template</comment>
     <comment xml:lang="hr">OpenOffice.org 1.0 predložak crteža</comment>
     <comment xml:lang="hu">OpenOffice.org 1.0 rajzsablon</comment>
-    <comment xml:lang="id">Palet Gambar OpenOffice.org 1.0</comment>
+    <comment xml:lang="id">Templat Gambar OpenOffice.org 1.0</comment>
     <comment xml:lang="is">OpenOffice.org 1.0 sniðmát fyrir teikningu</comment>
     <comment xml:lang="it">OpenOffice.org 1.0 - Modello di disegno</comment>
-    <comment xml:lang="ja">OpenOffice.org 1.0 図形描画テンプレート</comment>
+    <comment xml:lang="ja">OpenOffice.org 1.0 図形描画 テンプレート</comment>
     <comment xml:lang="ka">OpenOffice.org 1.0 Drawing Template</comment>
     <comment xml:lang="kk">OpenOffice.org 1.0 сурет үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​គំនូរ OpenOffice.org 1.0</comment>
@@ -164,13 +164,13 @@
     <comment xml:lang="pl">Szablon rysunku OpenOffice.org 1.0</comment>
     <comment xml:lang="pt">Modelo de desenho do OpenOffice.org 1.0</comment>
     <comment xml:lang="pt-BR">Modelo de desenho do OpenOffice.org 1.0</comment>
-    <comment xml:lang="ro">OpenOffice.org 1.0 șablon desen</comment>
+    <comment xml:lang="ro">Șablon de desen OpenOffice.org 1.0</comment>
     <comment xml:lang="ru">Шаблон рисунка OpenOffice.org 1.0</comment>
     <comment xml:lang="rw">OpenOffice.org 1.0 Drawing Template</comment>
     <comment xml:lang="si">OpenOffice.org 1.0 Drawing Template</comment>
     <comment xml:lang="sk">Šablóna kresby OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Predloga risbe OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Drawing Template</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 шаблон цртежа</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Drawing Template</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Drawing Template</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Drawing Template</comment>
@@ -211,7 +211,7 @@
     <comment xml:lang="cs">Rozšíření LibreOffice</comment>
     <comment xml:lang="cy">Estyniad LibreOffice</comment>
     <comment xml:lang="da">LibreOffice-udvidelse</comment>
-    <comment xml:lang="de">LibreOffice Extension</comment>
+    <comment xml:lang="de">LibreOffice-Erweiterung</comment>
     <comment xml:lang="dz">LibreOffice རྒྱ་བསྐྱེད།</comment>
     <comment xml:lang="el">Επέκταση LibreOffice</comment>
     <comment xml:lang="en-GB">LibreOffice Extension</comment>
@@ -254,7 +254,7 @@
     <comment xml:lang="nn">LibreOffice-utviding</comment>
     <comment xml:lang="nr">LibreOffice Extension</comment>
     <comment xml:lang="nso">Koketšo ya LibreOffice</comment>
-    <comment xml:lang="oc">LibreOffice Extension</comment>
+    <comment xml:lang="oc">Extension LibreOffice</comment>
     <comment xml:lang="om">Dheertoo LibreOffice</comment>
     <comment xml:lang="or">LibreOffice ଅନୁଲଗ୍ନ</comment>
     <comment xml:lang="pa-IN">LibreOffice ਐਕਸਟੇਸ਼ਨ</comment>
@@ -262,7 +262,7 @@
     <comment xml:lang="pt">Extensão do LibreOffice</comment>
     <comment xml:lang="pt-BR">Extensão do LibreOffice</comment>
     <comment xml:lang="ro">Extensie LibreOffice</comment>
-    <comment xml:lang="ru">Расширение LibreOffice</comment>
+    <comment xml:lang="ru">LibreOffice - Расширение</comment>
     <comment xml:lang="rw">Umugereka wa LibreOffice</comment>
     <comment xml:lang="si">LibreOffice දිගුව</comment>
     <comment xml:lang="sk">LibreOffice Rozšírenie</comment>
@@ -364,7 +364,7 @@
     <comment xml:lang="si">OpenOffice.org 1.0 Formula</comment>
     <comment xml:lang="sk">Vzorec OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Formula OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Formula</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 формула</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Formula</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Formula</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Formula</comment>
@@ -394,7 +394,7 @@
     <comment xml:lang="am">OpenOffice.org 1.0 ዋናው ሰነድ</comment>
     <comment xml:lang="ar">مستند أوبن‌أُفِس.أورغ 1.0 رئيس</comment>
     <comment xml:lang="as">OpenOffice.org 1.0 মূখ্য দস্তাবেজ</comment>
-    <comment xml:lang="ast">Documentu maestru d'OpenOffice.org 1.0</comment>
+    <comment xml:lang="ast">Documentu principal d'OpenOffice.org 1.0</comment>
     <comment xml:lang="be">Майстар-дакумент OpenOffice.org 1.0</comment>
     <comment xml:lang="bg">OpenOffice.org 1.0 – главен документ</comment>
     <comment xml:lang="bn">OpenOffice.org 1.0 Master Document</comment>
@@ -461,7 +461,7 @@
     <comment xml:lang="si">OpenOffice.org 1.0 Master Document</comment>
     <comment xml:lang="sk">Hlavný dokument OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Glavni dokument OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Master Document</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 основни документ</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Master Document</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Master Document</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Master Document</comment>
@@ -475,7 +475,7 @@
     <comment xml:lang="tr">OpenOffice.org 1.0 Ana Belgesi</comment>
     <comment xml:lang="ts">OpenOffice.org 1.0 Master Document</comment>
     <comment xml:lang="ug">OpenOffice.org 1.0 ئاساسىي پۈتۈك</comment>
-    <comment xml:lang="uk">Головний документ OpenOffice.org 1.0</comment>
+    <comment xml:lang="uk">Складений документ OpenOffice.org 1.0</comment>
     <comment xml:lang="uz">OpenOffice.org 1.0 Master Document</comment>
     <comment xml:lang="ve">OpenOffice.org 1.0 Master Document</comment>
     <comment xml:lang="vi">OpenOffice.org 1.0 Master Document</comment>
@@ -489,9 +489,9 @@
     <comment>Microsoft Excel Worksheet</comment>
     <comment xml:lang="af">Microsoft Excel-werkvel</comment>
     <comment xml:lang="am">Microsoft Excel Worksheet</comment>
-    <comment xml:lang="ar">ورقة عمل ميكروسوفت إكسل</comment>
+    <comment xml:lang="ar">ورقة عمل ميكروسوفت أكسل</comment>
     <comment xml:lang="as">Microsoft Excel ৱৰ্কশ্বীট</comment>
-    <comment xml:lang="ast">Fueya de cálculu de Microsoft Excel</comment>
+    <comment xml:lang="ast">Fueya de cálculu d'Excel de Microsoft</comment>
     <comment xml:lang="be">Разліковы аркуш Microsoft Excel</comment>
     <comment xml:lang="bg">Microsoft Excel - лист</comment>
     <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট</comment>
@@ -586,9 +586,9 @@
     <comment>Microsoft Excel Worksheet</comment>
     <comment xml:lang="af">Microsoft Excel-werkvel</comment>
     <comment xml:lang="am">Microsoft Excel Worksheet</comment>
-    <comment xml:lang="ar">ورقة عمل ميكروسوفت إكسل</comment>
+    <comment xml:lang="ar">ورقة عمل ميكروسوفت أكسل</comment>
     <comment xml:lang="as">Microsoft Excel ৱৰ্কশ্বীট</comment>
-    <comment xml:lang="ast">Fueya de cálculu de Microsoft Excel</comment>
+    <comment xml:lang="ast">Fueya de cálculu d'Excel de Microsoft</comment>
     <comment xml:lang="be">Разліковы аркуш Microsoft Excel</comment>
     <comment xml:lang="bg">Microsoft Excel - лист</comment>
     <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট</comment>
@@ -655,7 +655,7 @@
     <comment xml:lang="si">Microsoft Excel පැතුරුම්පත</comment>
     <comment xml:lang="sk">Pracovný zošit Microsoft Excel</comment>
     <comment xml:lang="sl">Delovni list programa Microsoft Excel</comment>
-    <comment xml:lang="sr">Microsoft Excel Worksheet</comment>
+    <comment xml:lang="sr">Microsoft Excel радни лист</comment>
     <comment xml:lang="sr-Latn">Microsoft Excel Worksheet</comment>
     <comment xml:lang="ss">Liphephamsebenti leMicrosoft Excel</comment>
     <comment xml:lang="st">Leqephe la ho Sebeletsa la Microsoft Excel</comment>
@@ -683,9 +683,9 @@
     <comment>Microsoft Excel Worksheet</comment>
     <comment xml:lang="af">Microsoft Excel-werkvel</comment>
     <comment xml:lang="am">Microsoft Excel Worksheet</comment>
-    <comment xml:lang="ar">ورقة عمل ميكروسوفت إكسل</comment>
+    <comment xml:lang="ar">ورقة عمل ميكروسوفت أكسل</comment>
     <comment xml:lang="as">Microsoft Excel ৱৰ্কশ্বীট</comment>
-    <comment xml:lang="ast">Fueya de cálculu de Microsoft Excel</comment>
+    <comment xml:lang="ast">Fueya de cálculu d'Excel de Microsoft</comment>
     <comment xml:lang="be">Разліковы аркуш Microsoft Excel</comment>
     <comment xml:lang="bg">Microsoft Excel - лист</comment>
     <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট</comment>
@@ -752,7 +752,7 @@
     <comment xml:lang="si">Microsoft Excel පැතුරුම්පත</comment>
     <comment xml:lang="sk">Pracovný zošit Microsoft Excel</comment>
     <comment xml:lang="sl">Delovni list programa Microsoft Excel</comment>
-    <comment xml:lang="sr">Microsoft Excel Worksheet</comment>
+    <comment xml:lang="sr">Microsoft Excel радни лист</comment>
     <comment xml:lang="sr-Latn">Microsoft Excel Worksheet</comment>
     <comment xml:lang="ss">Liphephamsebenti leMicrosoft Excel</comment>
     <comment xml:lang="st">Leqephe la ho Sebeletsa la Microsoft Excel</comment>
@@ -780,9 +780,9 @@
     <comment>Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="af">Microsoft Excel-werkvelsjabloon</comment>
     <comment xml:lang="am">Microsoft Excel Worksheet Template</comment>
-    <comment xml:lang="ar">قالب ورقة عمل ميكروسوفت إكسل</comment>
+    <comment xml:lang="ar">قالب ورقة عمل ميكروسوفت أكسل</comment>
     <comment xml:lang="as">Microsoft Excel ৱৰ্কশ্বীট টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía de fueya de cálculu Microsoft Excel</comment>
+    <comment xml:lang="ast">Plantía pa fueya de cálculu d'Excel de Microsoft</comment>
     <comment xml:lang="be">Шаблон разліковага аркуша Microsoft Excel</comment>
     <comment xml:lang="bg">Microsoft Excel – шаблон за лист</comment>
     <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট ফর্মা</comment>
@@ -793,7 +793,7 @@
     <comment xml:lang="cs">Šablona pracovního sešitu Microsoft Excel</comment>
     <comment xml:lang="cy">Templed Dalen Waith Microsoft Excel</comment>
     <comment xml:lang="da">Microsoft Excel-regnearksskabelon</comment>
-    <comment xml:lang="de">Microsoft Excel Arbeitsblattsvorlage</comment>
+    <comment xml:lang="de">Microsoft Excel Arbeitsblattvorlage</comment>
     <comment xml:lang="dz">Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="el">Πρότυπο φύλλου εργασίας του Microsoft Excel</comment>
     <comment xml:lang="en-GB">Microsoft Excel Worksheet Template</comment>
@@ -814,10 +814,10 @@
     <comment xml:lang="hi">माइक्रोसॉफ़्ट एक्सेल वर्कशीट नमूना ख़ाका</comment>
     <comment xml:lang="hr">Predložak za Microsoft Excel radni list</comment>
     <comment xml:lang="hu">Microsoft Excel-munkafüzetsablon</comment>
-    <comment xml:lang="id">Palet Lembar Kerja Microsoft Excel</comment>
+    <comment xml:lang="id">Templat Lembar Kerja Microsoft Excel</comment>
     <comment xml:lang="is">Microsoft Excel sniðmát fyrir töflureikniskjal</comment>
     <comment xml:lang="it">Modello di foglio di calcolo Microsoft Excel</comment>
-    <comment xml:lang="ja">Microsoft Excel ワークシートテンプレート</comment>
+    <comment xml:lang="ja">Microsoft Excel ワークシート テンプレート</comment>
     <comment xml:lang="ka">Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="kk">Microsoft Excel электрондық кесте үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​សន្លឹក​ការងារ Microsoft Excel</comment>
@@ -879,7 +879,7 @@
     <comment xml:lang="am">Microsoft PowerPoint Presentation</comment>
     <comment xml:lang="ar">عرض ميكروسوفت باوربوينت تقديمي</comment>
     <comment xml:lang="as">Microsoft PowerPoint পৰিৱেশন</comment>
-    <comment xml:lang="ast">Presentación de Microsoft PowerPoint</comment>
+    <comment xml:lang="ast">Presentación de PowerPoint de Microsoft</comment>
     <comment xml:lang="be">Прэзентацыя Microsoft PowerPoint</comment>
     <comment xml:lang="bg">Microsoft PowerPoint – презентация</comment>
     <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা</comment>
@@ -976,7 +976,7 @@
     <comment xml:lang="am">Microsoft PowerPoint Presentation</comment>
     <comment xml:lang="ar">عرض ميكروسوفت باوربوينت تقديمي</comment>
     <comment xml:lang="as">Microsoft PowerPoint পৰিৱেশন</comment>
-    <comment xml:lang="ast">Presentación de Microsoft PowerPoint</comment>
+    <comment xml:lang="ast">Presentación de PowerPoint de Microsoft</comment>
     <comment xml:lang="be">Прэзентацыя Microsoft PowerPoint</comment>
     <comment xml:lang="bg">Microsoft PowerPoint – презентация</comment>
     <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা</comment>
@@ -1004,7 +1004,7 @@
     <comment xml:lang="gl">Presentación do PowerPoint da Microsoft</comment>
     <comment xml:lang="gu">Microsoft PowerPoint રજૂઆત</comment>
     <comment xml:lang="gug">Ojechauka Microsoft PowerPoint</comment>
-    <comment xml:lang="he">מצגת פוורפוינט</comment>
+    <comment xml:lang="he">מצגת פאוורפוינט</comment>
     <comment xml:lang="hi">माइक्रोसॉफ़्ट पावर प्वाइंट प्रस्तुति</comment>
     <comment xml:lang="hr">Prezentacija Microsoft PowerPointa</comment>
     <comment xml:lang="hu">Microsoft PowerPoint-bemutató</comment>
@@ -1043,7 +1043,7 @@
     <comment xml:lang="si">Microsoft PowerPoint ඉදිරිපත් කිරීම</comment>
     <comment xml:lang="sk">Prezentácia Microsoft PowerPoint</comment>
     <comment xml:lang="sl">Predstavitev programa Microsoft PowerPoint</comment>
-    <comment xml:lang="sr">Microsoft PowerPoint Presentation</comment>
+    <comment xml:lang="sr">Microsoft PowerPoint презентација</comment>
     <comment xml:lang="sr-Latn">Microsoft PowerPoint Presentation</comment>
     <comment xml:lang="ss">Setfulo seMicrosoft PowerPoint</comment>
     <comment xml:lang="st">Nehelano ya Microsoft PowerPoint</comment>
@@ -1073,7 +1073,7 @@
     <comment xml:lang="am">Microsoft PowerPoint Presentation Template</comment>
     <comment xml:lang="ar">قالب عرض ميكروسوفت باوربوينت تقديمي</comment>
     <comment xml:lang="as">Microsoft PowerPoint পৰিৱেশন</comment>
-    <comment xml:lang="ast">Plantía de presentación de Microsoft PowerPoint</comment>
+    <comment xml:lang="ast">Plantía pa presentación de PowerPoint de Microsoft</comment>
     <comment xml:lang="be">Шаблон прэзентацыі Microsoft PowerPoint</comment>
     <comment xml:lang="bg">Microsoft PowerPoint – шаблон за презентация</comment>
     <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা ফর্মা</comment>
@@ -1101,14 +1101,14 @@
     <comment xml:lang="gl">Modelo de presentación de Microsoft PowerPoint</comment>
     <comment xml:lang="gu">Microsoft PowerPoint રજૂઆત ટેમ્પલેટ</comment>
     <comment xml:lang="gug">Plantilla Ojechauka Microsoft PowerPoint</comment>
-    <comment xml:lang="he">תבנית מצגת פוורפוינט</comment>
+    <comment xml:lang="he">תבנית מצגת פאוורפוינט</comment>
     <comment xml:lang="hi">माइक्रोसॉफ़्ट पावर प्वाइंट प्रस्तुति नमूना ख़ाका</comment>
     <comment xml:lang="hr">Predložak prezentacije Microsoft PowerPointa</comment>
     <comment xml:lang="hu">Microsoft PowerPoint-bemutatósablon</comment>
-    <comment xml:lang="id">Palet Presentasi Microsoft PowerPoint</comment>
+    <comment xml:lang="id">Templat Presentasi Microsoft PowerPoint</comment>
     <comment xml:lang="is">Microsoft PowerPoint sniðmát fyrir glærukynningu</comment>
     <comment xml:lang="it">Modello di presentazione di Microsoft PowerPoint</comment>
-    <comment xml:lang="ja">Microsoft PowerPoint プレゼンテーションテンプレート</comment>
+    <comment xml:lang="ja">Microsoft PowerPoint プレゼンテーション テンプレート</comment>
     <comment xml:lang="ka">Microsoft PowerPoint Presentation Template</comment>
     <comment xml:lang="kk">Microsoft PowerPoint презентация үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​ការ​បង្ហាញ Microsoft PowerPoint</comment>
@@ -1170,7 +1170,7 @@
     <comment xml:lang="am">Microsoft Word Document</comment>
     <comment xml:lang="ar">مستند ميكروسوفت وورد</comment>
     <comment xml:lang="as">Microsoft Word দস্তাবেজ</comment>
-    <comment xml:lang="ast">Documentu de Microsoft Word</comment>
+    <comment xml:lang="ast">Documentu de Word de Microsoft</comment>
     <comment xml:lang="be">Дакумент Microsoft Word</comment>
     <comment xml:lang="bg">Microsoft Word – документ</comment>
     <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথি</comment>
@@ -1267,7 +1267,7 @@
     <comment xml:lang="am">Microsoft Word Document</comment>
     <comment xml:lang="ar">مستند ميكروسوفت وورد</comment>
     <comment xml:lang="as">Microsoft Word দস্তাবেজ</comment>
-    <comment xml:lang="ast">Documentu de Microsoft Word</comment>
+    <comment xml:lang="ast">Documentu de Word de Microsoft</comment>
     <comment xml:lang="be">Дакумент Microsoft Word</comment>
     <comment xml:lang="bg">Microsoft Word – документ</comment>
     <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথি</comment>
@@ -1334,7 +1334,7 @@
     <comment xml:lang="si">Microsoft Word ලේඛනය</comment>
     <comment xml:lang="sk">Dokument Microsoft Word</comment>
     <comment xml:lang="sl">Dokument programa Microsoft Word</comment>
-    <comment xml:lang="sr">Microsoft Word Document</comment>
+    <comment xml:lang="sr">Microsoft Word документ</comment>
     <comment xml:lang="sr-Latn">Microsoft Word Document</comment>
     <comment xml:lang="ss">Idokhumenti yeMicrosoft Word</comment>
     <comment xml:lang="st">Tokomane ya Microsoft Word</comment>
@@ -1364,7 +1364,7 @@
     <comment xml:lang="am">Microsoft Word Document</comment>
     <comment xml:lang="ar">مستند ميكروسوفت وورد</comment>
     <comment xml:lang="as">Microsoft Word দস্তাবেজ</comment>
-    <comment xml:lang="ast">Documentu de Microsoft Word</comment>
+    <comment xml:lang="ast">Documentu de Word de Microsoft</comment>
     <comment xml:lang="be">Дакумент Microsoft Word</comment>
     <comment xml:lang="bg">Microsoft Word – документ</comment>
     <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথি</comment>
@@ -1431,7 +1431,7 @@
     <comment xml:lang="si">Microsoft Word ලේඛනය</comment>
     <comment xml:lang="sk">Dokument Microsoft Word</comment>
     <comment xml:lang="sl">Dokument programa Microsoft Word</comment>
-    <comment xml:lang="sr">Microsoft Word Document</comment>
+    <comment xml:lang="sr">Microsoft Word документ</comment>
     <comment xml:lang="sr-Latn">Microsoft Word Document</comment>
     <comment xml:lang="ss">Idokhumenti yeMicrosoft Word</comment>
     <comment xml:lang="st">Tokomane ya Microsoft Word</comment>
@@ -1461,7 +1461,7 @@
     <comment xml:lang="am">Microsoft Word Document Template</comment>
     <comment xml:lang="ar">قالب مستند ميكروسوفت وورد</comment>
     <comment xml:lang="as">Microsoft Word টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía de documentu de Microsoft Word</comment>
+    <comment xml:lang="ast">Plantía pa documentu de Word de Microsoft</comment>
     <comment xml:lang="be">Шаблон дакумента Microsoft Word</comment>
     <comment xml:lang="bg">Microsoft Word – шаблон за документ</comment>
     <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথির ফর্মা</comment>
@@ -1493,10 +1493,10 @@
     <comment xml:lang="hi">माइक्रोसॉफ़्ट वर्ड डॉक्यूमेंट नमूना ख़ाका</comment>
     <comment xml:lang="hr">Predložak Microsoft Word dokumenta</comment>
     <comment xml:lang="hu">Microsoft Word-dokumentumsablon</comment>
-    <comment xml:lang="id">Palet Dokumen Microsoft Word</comment>
+    <comment xml:lang="id">Templat Dokumen Microsoft Word</comment>
     <comment xml:lang="is">Microsoft Word sniðmát fyrir textaskjal</comment>
     <comment xml:lang="it">Modello di documento di Microsoft Word</comment>
-    <comment xml:lang="ja">Microsoft Word ドキュメントテンプレート</comment>
+    <comment xml:lang="ja">Microsoft Word ドキュメント テンプレート</comment>
     <comment xml:lang="ka">Microsoft Word 95 შაბლონი</comment>
     <comment xml:lang="kk">Microsoft Word құжат үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​ឯកសារ Microsoft Word</comment>
@@ -1558,7 +1558,7 @@
     <comment xml:lang="am">OpenDocument Database</comment>
     <comment xml:lang="ar">قاعدة بيانات OpenDocument</comment>
     <comment xml:lang="as">OpenDocument ডাটাবেইচ</comment>
-    <comment xml:lang="ast">Base de datos en formatu OpenDocument</comment>
+    <comment xml:lang="ast">Base de datos OpenDocument</comment>
     <comment xml:lang="be">База даных OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument - база от данни</comment>
     <comment xml:lang="bn">ওপেন-ডকুমেন্ট ডাটাবেস</comment>
@@ -1575,7 +1575,7 @@
     <comment xml:lang="en-GB">OpenDocument Database</comment>
     <comment xml:lang="en-ZA">OpenDocument Database</comment>
     <comment xml:lang="eo">Datumbazo de OpenDocument</comment>
-    <comment xml:lang="es">Base de datos de OpenDocument</comment>
+    <comment xml:lang="es">Base de datos OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-andmebaas</comment>
     <comment xml:lang="eu">OpenDocument datu-basea</comment>
     <comment xml:lang="fa">پایگاه‌دادهٔ نوشتارباز</comment>
@@ -1679,7 +1679,7 @@
     <comment xml:lang="en-GB">OpenDocument Drawing</comment>
     <comment xml:lang="en-ZA">OpenDocument Drawing</comment>
     <comment xml:lang="eo">Desegnaĵo de OpenDocument</comment>
-    <comment xml:lang="es">Dibujo de OpenDocument</comment>
+    <comment xml:lang="es">Dibujo OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-joonistus</comment>
     <comment xml:lang="eu">OpenDocument marrazkia</comment>
     <comment xml:lang="fa">نقاشی نوشتارباز</comment>
@@ -1764,7 +1764,7 @@
     <comment>OpenDocument Drawing (Flat XML)</comment>
     <comment xml:lang="af">OpenDocument-tekening (plat XML)</comment>
     <comment xml:lang="am">OpenDocument Drawing (Flat XML)</comment>
-    <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
+    <comment xml:lang="ar">رسمة أوبن‌دكيومنت (أكس أم أل بسيط)</comment>
     <comment xml:lang="as">OpenDocument অঙ্কণ (Flat XML)</comment>
     <comment xml:lang="ast">Dibuxu d'OpenDocument (XML planu)</comment>
     <comment xml:lang="be">Рысунак OpenDocument (просты XML)</comment>
@@ -1783,10 +1783,10 @@
     <comment xml:lang="en-GB">OpenDocument Drawing (Flat XML)</comment>
     <comment xml:lang="en-ZA">OpenDocument Drawing (Flat XML)</comment>
     <comment xml:lang="eo">OpenDocument-desegnaĵo (plata XML)</comment>
-    <comment xml:lang="es">Dibujo de OpenDocument (XML plano)</comment>
+    <comment xml:lang="es">Dibujo OpenDocument (XML plano)</comment>
     <comment xml:lang="et">OpenDocument-joonistus (lame XML)</comment>
     <comment xml:lang="eu">OpenDocument marrazkia (XML laua)</comment>
-    <comment xml:lang="fa">OpenDocument Drawing (Flat XML)</comment>
+    <comment xml:lang="fa">طراحی نوشتارباز (XML صرف)</comment>
     <comment xml:lang="fi">OpenDocument-piirros (Flat XML)</comment>
     <comment xml:lang="fr">Dessin OpenDocument (XML plat)</comment>
     <comment xml:lang="ga">Líníocht OpenDocument (XML Maol)</comment>
@@ -1888,7 +1888,7 @@
     <comment xml:lang="en-GB">OpenDocument Drawing Template</comment>
     <comment xml:lang="en-ZA">OpenDocument Drawing Template</comment>
     <comment xml:lang="eo">Desegnaĵa ŝablono de OpenDocument</comment>
-    <comment xml:lang="es">Plantilla de dibujo de OpenDocument</comment>
+    <comment xml:lang="es">Plantilla de dibujo OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-joonistuse mall</comment>
     <comment xml:lang="eu">OpenDocument marrazki-txantiloia</comment>
     <comment xml:lang="fa">قالب نقاشی نوشتارباز</comment>
@@ -1903,10 +1903,10 @@
     <comment xml:lang="hi">ओपनडॉक्यूमेंट रेखाचित्र नमूना</comment>
     <comment xml:lang="hr">OpenDocument predložak crteža</comment>
     <comment xml:lang="hu">OpenDocument-rajzsablon</comment>
-    <comment xml:lang="id">Palet Gambar OpenDocument</comment>
+    <comment xml:lang="id">Templat Gambar OpenDocument</comment>
     <comment xml:lang="is">OpenDocument sniðmát fyrir teikningu</comment>
     <comment xml:lang="it">Modello di disegno OpenDocument</comment>
-    <comment xml:lang="ja">OpenDocument 図形描画テンプレート</comment>
+    <comment xml:lang="ja">OpenDocument 図形描画 テンプレート</comment>
     <comment xml:lang="ka">OpenDocument  ნახატის შაბლონი</comment>
     <comment xml:lang="kk">OpenDocument суреттің үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​គំនូរ OpenDocument</comment>
@@ -1992,7 +1992,7 @@
     <comment xml:lang="en-GB">OpenDocument Formula</comment>
     <comment xml:lang="en-ZA">OpenDocument Formula</comment>
     <comment xml:lang="eo">Formulo de OpenDocument</comment>
-    <comment xml:lang="es">Fórmula de OpenDocument</comment>
+    <comment xml:lang="es">Fórmula OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-valem</comment>
     <comment xml:lang="eu">OpenDocument formula</comment>
     <comment xml:lang="fa">فرمول نوشتارباز</comment>
@@ -2079,7 +2079,7 @@
     <comment xml:lang="am">OpenDocument Master Document</comment>
     <comment xml:lang="ar">مستند OpenDocument رئيسي</comment>
     <comment xml:lang="as">OpenDocument মাস্টাৰ দস্তাবেজ</comment>
-    <comment xml:lang="ast">Documentu maestru d'OpenDocument</comment>
+    <comment xml:lang="ast">Documentu principal OpenDocument</comment>
     <comment xml:lang="be">Майстар-дакумент OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument – главен документ</comment>
     <comment xml:lang="bn">ওপেন-ডকুমেন্ট মাস্টার নথি</comment>
@@ -2096,7 +2096,7 @@
     <comment xml:lang="en-GB">OpenDocument Master Document</comment>
     <comment xml:lang="en-ZA">OpenDocument Master Document</comment>
     <comment xml:lang="eo">Ĉefa dokumento de OpenDocument</comment>
-    <comment xml:lang="es">Patrón de documento de OpenDocument</comment>
+    <comment xml:lang="es">Patrón de documento OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-põhidokument</comment>
     <comment xml:lang="eu">OpenDocument dokumentu maisua</comment>
     <comment xml:lang="fa">نوشتار اصلی نوشتارباز</comment>
@@ -2146,7 +2146,7 @@
     <comment xml:lang="si">විවෘත ලිපි ප්‍රධාන ලිපිය</comment>
     <comment xml:lang="sk">Hlavný dokument OpenDocument</comment>
     <comment xml:lang="sl">Glavni dokument OpenDocument</comment>
-    <comment xml:lang="sr">ОДФ главни документ</comment>
+    <comment xml:lang="sr">OpenDocument основни документ</comment>
     <comment xml:lang="sr-Latn">ODF glavni dokument</comment>
     <comment xml:lang="ss">OpenDocument Imasta yedokhumenti</comment>
     <comment xml:lang="st">Tokomane e Kgolo ya OpenDocument</comment>
@@ -2160,7 +2160,7 @@
     <comment xml:lang="tr">OpenDocument Ana Belge</comment>
     <comment xml:lang="ts">OpenDocument ya Dokumente-nkulu</comment>
     <comment xml:lang="ug">OpenDocument ئاساسىي پۈتۈك</comment>
-    <comment xml:lang="uk">Складовий документ OpenDocument</comment>
+    <comment xml:lang="uk">Складений документ OpenDocument</comment>
     <comment xml:lang="uz">OpenDocument Master hujjati</comment>
     <comment xml:lang="ve">Ḽiṅwalo Ḽihulwane ḽa OpenDocument</comment>
     <comment xml:lang="vi">Tài liệu chủ OpenDocument</comment>
@@ -2183,7 +2183,7 @@
     <comment xml:lang="am">OpenDocument የ ዋናው ሰነድ ቴምፕሌት</comment>
     <comment xml:lang="ar">قالب مستند أوبن‌دكيومنت رئيس</comment>
     <comment xml:lang="as">OpenDocument Master Document Template</comment>
-    <comment xml:lang="ast">Documentu maestru d'OpenDocument</comment>
+    <comment xml:lang="ast">Plantía pa documentu principal OpenDocument</comment>
     <comment xml:lang="be">Шаблон майстар-дакумента OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument – шаблон за главен документ</comment>
     <comment xml:lang="bn">OpenDocument Master Document Template</comment>
@@ -2200,10 +2200,10 @@
     <comment xml:lang="en-GB">OpenDocument Master Document Template</comment>
     <comment xml:lang="en-ZA">OpenDocument Master Document Template</comment>
     <comment xml:lang="eo">Ĉefa dokumento de OpenDocument</comment>
-    <comment xml:lang="es">Plantilla de patrón de documento de OpenDocument</comment>
+    <comment xml:lang="es">Plantilla de patrón de documento OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-põhidokumendi mall</comment>
     <comment xml:lang="eu">OpenDocument dokumentu maisuaren txantiloia</comment>
-    <comment xml:lang="fa">OpenDocument Master Document Template</comment>
+    <comment xml:lang="fa">الگوی نوشتار اصلی نوشتارباز</comment>
     <comment xml:lang="fi">OpenDocument-perusasiakirjamalli</comment>
     <comment xml:lang="fr">Modèle document maître OpenDocument</comment>
     <comment xml:lang="ga">Teimpléad Máistircháipéise OpenDocument</comment>
@@ -2218,7 +2218,7 @@
     <comment xml:lang="id">Templat Dokumen Induk OpenDocument</comment>
     <comment xml:lang="is">OpenDocument sniðmát fyrir stýriskjal</comment>
     <comment xml:lang="it">Modello di documento master OpenDocument</comment>
-    <comment xml:lang="ja">OpenDocument マスタードキュメントテンプレート</comment>
+    <comment xml:lang="ja">OpenDocument マスタードキュメント テンプレート</comment>
     <comment xml:lang="ka">OpenDocument Master Document Template</comment>
     <comment xml:lang="kk">OpenDocument құрамдас құжат үлгісі</comment>
     <comment xml:lang="km">OpenDocument Master Document Template</comment>
@@ -2242,7 +2242,7 @@
     <comment xml:lang="or">OpenDocument  ମାଷ୍ଟର  ଦଲିଲ ନମୁନା</comment>
     <comment xml:lang="pa-IN">ਓਪਨ-ਡੌਕੂਮੈਂਟ ਮਾਸਟਰ ਦਸਤਾਵੇਜ਼ ਟੈਂਪਲੇਟ</comment>
     <comment xml:lang="pl">Szablon dokumentu głównego OpenDocument</comment>
-    <comment xml:lang="pt">Modelo global de modelos OpenDocument</comment>
+    <comment xml:lang="pt">Modelo de modelo global de documentos OpenDocument</comment>
     <comment xml:lang="pt-BR">Modelos de documento mestre OpenDocument</comment>
     <comment xml:lang="ro">OpenDocument Master Document - șablon</comment>
     <comment xml:lang="ru">Шаблон составного документа OpenDocument</comment>
@@ -2250,7 +2250,7 @@
     <comment xml:lang="si">OpenDocument Master Document Template</comment>
     <comment xml:lang="sk">Šablóna dokumentu ODF Master</comment>
     <comment xml:lang="sl">Predloga glavnega dokumenta OpenDocument</comment>
-    <comment xml:lang="sr">OpenDocument Master Document Template</comment>
+    <comment xml:lang="sr">OpenDocument шаблон главног документа</comment>
     <comment xml:lang="sr-Latn">OpenDocument Master Document Template</comment>
     <comment xml:lang="ss">OpenDocument Master Document Template</comment>
     <comment xml:lang="st">OpenDocument Master Document Template</comment>
@@ -2304,7 +2304,7 @@
     <comment xml:lang="en-GB">OpenDocument Presentation</comment>
     <comment xml:lang="en-ZA">OpenDocument Presentation</comment>
     <comment xml:lang="eo">Prezentaĵo de OpenDocument</comment>
-    <comment xml:lang="es">Presentación de OpenDocument</comment>
+    <comment xml:lang="es">Presentación OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-esitlus</comment>
     <comment xml:lang="eu">OpenDocument aurkezpena</comment>
     <comment xml:lang="fa">ارائهٔ نوشتارباز</comment>
@@ -2389,9 +2389,9 @@
     <comment>OpenDocument Presentation (Flat XML)</comment>
     <comment xml:lang="af">OpenDocument-voorlegging (plat XML)</comment>
     <comment xml:lang="am">OpenDocument Presentation (Flat XML)</comment>
-    <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
+    <comment xml:lang="ar">عرض أوبن‌دكيومنت تقديمي (أكس أم أل بسيط)</comment>
     <comment xml:lang="as">OpenDocument পৰিৱেশন (Flat XML)</comment>
-    <comment xml:lang="ast">Presentación d'OpenDocument (XML planu)</comment>
+    <comment xml:lang="ast">Presentación OpenDocument (XML planu)</comment>
     <comment xml:lang="be">Прэзентацыя OpenDocument (просты XML)</comment>
     <comment xml:lang="bg">OpenDocument – презентация (плосък XML)</comment>
     <comment xml:lang="bn">OpenDocument Presentation (Flat XML)</comment>
@@ -2408,10 +2408,10 @@
     <comment xml:lang="en-GB">OpenDocument Presentation (Flat XML)</comment>
     <comment xml:lang="en-ZA">OpenDocument Presentation (Flat XML)</comment>
     <comment xml:lang="eo">Prezentaĵa ŝablono de OpenDocument (plata XML)</comment>
-    <comment xml:lang="es">Presentación de OpenDocument (XML plano)</comment>
+    <comment xml:lang="es">Presentación OpenDocument (XML plano)</comment>
     <comment xml:lang="et">OpenDocument-esitlus (lame XML)</comment>
     <comment xml:lang="eu">OpenDocument aurkezpena (XML laua)</comment>
-    <comment xml:lang="fa">OpenDocument Presentation (Flat XML)</comment>
+    <comment xml:lang="fa">قالب ارائهٔ نوشتارباز (XML صرف)</comment>
     <comment xml:lang="fi">OpenDocument-esitys (Flat XML)</comment>
     <comment xml:lang="fr">Présentation OpenDocument (XML plat)</comment>
     <comment xml:lang="ga">Láithreoireacht OpenDocument (XML Maol)</comment>
@@ -2496,7 +2496,7 @@
     <comment xml:lang="am">OpenDocument የ ማቅረቢያ ቴምፕሌት</comment>
     <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
     <comment xml:lang="as">OpenDocument পৰিৱেশন টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía de presentación d'OpenDocument</comment>
+    <comment xml:lang="ast">Plantía pa presentación OpenDocument</comment>
     <comment xml:lang="be">Шаблон прэзентацыі OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument – шаблон за презентация</comment>
     <comment xml:lang="bn">ওপেন-ডকুমেন্ট উপস্থাপনা ফর্মা</comment>
@@ -2513,7 +2513,7 @@
     <comment xml:lang="en-GB">OpenDocument Presentation Template</comment>
     <comment xml:lang="en-ZA">OpenDocument Presentation Template</comment>
     <comment xml:lang="eo">Prezentaĵa ŝablono de OpenDocument</comment>
-    <comment xml:lang="es">Plantilla de presentación de OpenDocument</comment>
+    <comment xml:lang="es">Plantilla de presentación OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-esitluse mall</comment>
     <comment xml:lang="eu">OpenDocument aurkezpen-txantiloia</comment>
     <comment xml:lang="fa">قالب ارائهٔ نوشتارباز</comment>
@@ -2528,10 +2528,10 @@
     <comment xml:lang="hi">ओपनडॉक्यूमेंट प्रस्तुति नमूना</comment>
     <comment xml:lang="hr">OpenDocument predložak prezentacije</comment>
     <comment xml:lang="hu">OpenDocument-bemutatósablon</comment>
-    <comment xml:lang="id">Palet Presentasi OpenDocument</comment>
+    <comment xml:lang="id">Templat Presentasi OpenDocument</comment>
     <comment xml:lang="is">OpenDocument sniðmát fyrir glærukynningu</comment>
     <comment xml:lang="it">Modello di presentazione OpenDocument</comment>
-    <comment xml:lang="ja">OpenDocument プレゼンテーションテンプレート</comment>
+    <comment xml:lang="ja">OpenDocument プレゼンテーション テンプレート</comment>
     <comment xml:lang="ka">OpenDocument პრეზენტაციის შაბლონი</comment>
     <comment xml:lang="kk">OpenDocument презентация үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​ការ​បង្ហាញ​ OpenDocument</comment>
@@ -2600,7 +2600,7 @@
     <comment xml:lang="am">OpenDocument Spreadsheet</comment>
     <comment xml:lang="ar">جدول OpenDocument مُمتد</comment>
     <comment xml:lang="as">OpenDocument স্প্ৰেডশ্বীট</comment>
-    <comment xml:lang="ast">Fueya de cálculu d'OpenDocument</comment>
+    <comment xml:lang="ast">Fueya de cálculu OpenDocument</comment>
     <comment xml:lang="be">Разліковы аркуш OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument – електронна таблица</comment>
     <comment xml:lang="bn">ওপেন-ডকুমেন্ট স্প্রেডশীট</comment>
@@ -2617,7 +2617,7 @@
     <comment xml:lang="en-GB">OpenDocument Spreadsheet</comment>
     <comment xml:lang="en-ZA">OpenDocument Spreadsheet</comment>
     <comment xml:lang="eo">Kalkultabelo de OpenDocument</comment>
-    <comment xml:lang="es">Hoja de cálculo de OpenDocument</comment>
+    <comment xml:lang="es">Hoja de cálculo OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-arvutustabel</comment>
     <comment xml:lang="eu">OpenDocument kalkulu-orria</comment>
     <comment xml:lang="fa">صفحه‌گستردهٔ نوشتارباز</comment>
@@ -2632,7 +2632,7 @@
     <comment xml:lang="hi">ओपनडॉक्यूमेंट स्प्रेडशीट</comment>
     <comment xml:lang="hr">OpenDocument proračunska tablica</comment>
     <comment xml:lang="hu">OpenDocument-munkafüzet</comment>
-    <comment xml:lang="id">Lembar Kerja OpenDocument</comment>
+    <comment xml:lang="id">Lembar Sebar OpenDocument</comment>
     <comment xml:lang="is">OpenDocument töflureikniskjal</comment>
     <comment xml:lang="it">Foglio elettronico OpenDocument</comment>
     <comment xml:lang="ja">OpenDocument 表計算</comment>
@@ -2702,9 +2702,9 @@
     <comment>OpenDocument Spreadsheet (Flat XML)</comment>
     <comment xml:lang="af">OpenDocument-sigblad (plat XML)</comment>
     <comment xml:lang="am">OpenDocument Spreadsheet (Flat XML)</comment>
-    <comment xml:lang="ar">جدول أوبن‌دكيومنت ممتد (XML سطحي)</comment>
+    <comment xml:lang="ar">جدول أوبن‌دكيومنت ممتد (أكس أم أل بسيط)</comment>
     <comment xml:lang="as">OpenDocument স্প্ৰেডশ্বীট (Flat XML)</comment>
-    <comment xml:lang="ast">Fueya de cálculu d'OpenDocument (XML planu)</comment>
+    <comment xml:lang="ast">Fueya de cálculu OpenDocument (XML planu)</comment>
     <comment xml:lang="be">Разліковы аркуш OpenDocument (просты XML)</comment>
     <comment xml:lang="bg">OpenDocument – електронна таблица (плосък XML)</comment>
     <comment xml:lang="bn">OpenDocument Spreadsheet (Flat XML)</comment>
@@ -2721,10 +2721,10 @@
     <comment xml:lang="en-GB">OpenDocument Spreadsheet (Flat XML)</comment>
     <comment xml:lang="en-ZA">OpenDocument Spreadsheet (Flat XML)</comment>
     <comment xml:lang="eo">Kalkultabelo de OpenDocument (plata XML)</comment>
-    <comment xml:lang="es">Hoja de cálculo de OpenDocument (XML plano)</comment>
+    <comment xml:lang="es">Hoja de cálculo OpenDocument (XML plano)</comment>
     <comment xml:lang="et">OpenDocument-arvutustabel (lame XML)</comment>
     <comment xml:lang="eu">OpenDocument kalkulu-orria (XML laua)</comment>
-    <comment xml:lang="fa">OpenDocument Spreadsheet (Flat XML)</comment>
+    <comment xml:lang="fa">صفحه گسترده نوشتارباز (XML صرف)</comment>
     <comment xml:lang="fi">OpenDocument-laskentataulukko (Flat XML)</comment>
     <comment xml:lang="fr">Classeur OpenDocument (XML plat)</comment>
     <comment xml:lang="ga">Scarbhileog OpenDocument (XML Maol)</comment>
@@ -2736,7 +2736,7 @@
     <comment xml:lang="hi">ओपनडॉक्यूमेंट स्प्रेडशीट (फ्लैट XML)</comment>
     <comment xml:lang="hr">OpenDocument proračunska tablica (običan XML)</comment>
     <comment xml:lang="hu">OpenDocument-munkafüzet (Flat XML)</comment>
-    <comment xml:lang="id">Lembar Kerja OpenDocument (XML Flat)</comment>
+    <comment xml:lang="id">Lembar Sebar OpenDocument (XML Flat)</comment>
     <comment xml:lang="is">OpenDocument töflureiknir (flatt XML)</comment>
     <comment xml:lang="it">Foglio elettronico OpenDocument (XML semplice)</comment>
     <comment xml:lang="ja">OpenDocument 表計算 (Flat XML)</comment>
@@ -2782,7 +2782,7 @@
     <comment xml:lang="tg">OpenDocument Spreadsheet (Flat XML)</comment>
     <comment xml:lang="th">ตารางคำนวณของ OpenDocument (Flat XML)</comment>
     <comment xml:lang="tn">OpenDocument Spreadsheet (Flat XML)</comment>
-    <comment xml:lang="tr">OpenDocument Çalışma Sayfası (Düz XML)</comment>
+    <comment xml:lang="tr">OpenDocument Hesap Tablosu (Düz XML)</comment>
     <comment xml:lang="ts">OpenDocument Spreadsheet (Flat XML)</comment>
     <comment xml:lang="ug">OpenDocument ئېلېكترونلۇق جەدۋەل (ساپ XML)</comment>
     <comment xml:lang="uk">Електронна таблиця OpenDocument (плоский XML)</comment>
@@ -2809,7 +2809,7 @@
     <comment xml:lang="am">OpenDocument የ ሰንጠረዥ ቴምፕሌት</comment>
     <comment xml:lang="ar">قالب جدول OpenDocument مُمتد</comment>
     <comment xml:lang="as">OpenDocument স্প্ৰেডশ্বীট টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía de fueya de cálculu d'OpenDocument</comment>
+    <comment xml:lang="ast">Plantía pa fueya de cálculu OpenDocument</comment>
     <comment xml:lang="be">Шаблон разліковага аркушу OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument – шаблон за електронна таблица</comment>
     <comment xml:lang="bn">ওপেন-ডকুমেন্ট স্প্রেডশীট ফর্মা</comment>
@@ -2826,7 +2826,7 @@
     <comment xml:lang="en-GB">OpenDocument Spreadsheet Template</comment>
     <comment xml:lang="en-ZA">OpenDocument Spreadsheet Template</comment>
     <comment xml:lang="eo">Kalkultabela ŝablono de OpenDocument</comment>
-    <comment xml:lang="es">Plantilla de hoja de cálculo de OpenDocument</comment>
+    <comment xml:lang="es">Plantilla de hoja de cálculo OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-arvutustabeli mall</comment>
     <comment xml:lang="eu">OpenDocument kalkulu-orriaren txantiloia</comment>
     <comment xml:lang="fa">قالب صفحه‌گستردهٔ نوشتارباز</comment>
@@ -2841,10 +2841,10 @@
     <comment xml:lang="hi">ओपनडॉक्यूमेंट स्प्रेडशीट नमूना</comment>
     <comment xml:lang="hr">OpenDocument predložak proračunske tablice</comment>
     <comment xml:lang="hu">OpenDocument-munkafüzetsablon</comment>
-    <comment xml:lang="id">Palet Lembar Kerja OpenDocument</comment>
+    <comment xml:lang="id">Templat Lembar Sebar OpenDocument</comment>
     <comment xml:lang="is">OpenDocument sniðmát fyrir töflureikniskjal</comment>
     <comment xml:lang="it">Modello di foglio elettronico OpenDocument</comment>
-    <comment xml:lang="ja">OpenDocument 表計算テンプレート</comment>
+    <comment xml:lang="ja">OpenDocument 表計算 テンプレート</comment>
     <comment xml:lang="ka">OpenDocument ცხრილის შაბლონი</comment>
     <comment xml:lang="kk">OpenDocument электрондық кесте үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​សៀវភៅ​បញ្ជី OpenDocument</comment>
@@ -2913,7 +2913,7 @@
     <comment xml:lang="am">የጽሁፍ ሰነድ መክፈቻ</comment>
     <comment xml:lang="ar">نص OpenDocument</comment>
     <comment xml:lang="as">OpenDocument লিখনী</comment>
-    <comment xml:lang="ast">Testu d'Open Office</comment>
+    <comment xml:lang="ast">Testu OpenDocument</comment>
     <comment xml:lang="be">Тэкст OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument - текст</comment>
     <comment xml:lang="bn">ওপেন-ডকুমেন্ট টেক্সট</comment>
@@ -2930,7 +2930,7 @@
     <comment xml:lang="en-GB">OpenDocument Text</comment>
     <comment xml:lang="en-ZA">OpenDocument Text</comment>
     <comment xml:lang="eo">Teksto de OpenDocument</comment>
-    <comment xml:lang="es">Texto de OpenDocument</comment>
+    <comment xml:lang="es">Texto OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-tekst</comment>
     <comment xml:lang="eu">OpenDocument testua</comment>
     <comment xml:lang="fa">متن نوشتارباز</comment>
@@ -3015,9 +3015,9 @@
     <comment>OpenDocument Text (Flat XML)</comment>
     <comment xml:lang="af">OpenDocument-teks (plat XML)</comment>
     <comment xml:lang="am">OpenDocument Text (Flat XML)</comment>
-    <comment xml:lang="ar">قالب عرض OpenDocument تقديمي</comment>
+    <comment xml:lang="ar">نص أوبن‌دكيومنت (أكس أم أل بسيط)</comment>
     <comment xml:lang="as">OpenDocument লিখনী (Flat XML)</comment>
-    <comment xml:lang="ast">Testu d'OpenDocument (XML planu)</comment>
+    <comment xml:lang="ast">Testu OpenDocument (XML planu)</comment>
     <comment xml:lang="be">Тэкст OpenDocument (просты XML)</comment>
     <comment xml:lang="bg">OpenDocument - текст (плосък XML)</comment>
     <comment xml:lang="bn">OpenDocument Text (Flat XML)</comment>
@@ -3034,10 +3034,10 @@
     <comment xml:lang="en-GB">OpenDocument Text (Flat XML)</comment>
     <comment xml:lang="en-ZA">OpenDocument Text (Flat XML)</comment>
     <comment xml:lang="eo">OpenDocument-teksto (plata XML)</comment>
-    <comment xml:lang="es">Texto de OpenDocument (XML plano)</comment>
+    <comment xml:lang="es">Texto OpenDocument (XML plano)</comment>
     <comment xml:lang="et">OpenDocument-tekst (lame XML)</comment>
     <comment xml:lang="eu">OpenDocument testua (XML laua)</comment>
-    <comment xml:lang="fa">OpenDocument Text (Flat XML)</comment>
+    <comment xml:lang="fa">متن نوشتارباز (XML صرف)</comment>
     <comment xml:lang="fi">OpenDocument-teksti (Flat XML)</comment>
     <comment xml:lang="fr">Texte OpenDocument (XML plat)</comment>
     <comment xml:lang="ga">Téacs OpenDocument (XML Maol)</comment>
@@ -3122,7 +3122,7 @@
     <comment xml:lang="am">የ ጽሁፍ ሰነድ ቴምፕሌት መክፈቻ</comment>
     <comment xml:lang="ar">قالب نص OpenDocument</comment>
     <comment xml:lang="as">OpenDocument লিখনী টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía pa testu d'Open Office</comment>
+    <comment xml:lang="ast">Plantía pa testu OpenDocument</comment>
     <comment xml:lang="be">Шаблон тэксту OpenDocument</comment>
     <comment xml:lang="bg">OpenDocument – шаблон за текст</comment>
     <comment xml:lang="bn">ওপেন-ডকুমেন্ট টেক্সট ফর্মা</comment>
@@ -3139,7 +3139,7 @@
     <comment xml:lang="en-GB">OpenDocument Text Template</comment>
     <comment xml:lang="en-ZA">OpenDocument Text Template</comment>
     <comment xml:lang="eo">Teksta ŝablono de OpenDocument</comment>
-    <comment xml:lang="es">Plantilla de texto de OpenDocument</comment>
+    <comment xml:lang="es">Plantilla de texto OpenDocument</comment>
     <comment xml:lang="et">OpenDocument-tekstimall</comment>
     <comment xml:lang="eu">OpenDocument testu-txantiloia</comment>
     <comment xml:lang="fa">قالب متن نوشتارباز</comment>
@@ -3154,10 +3154,10 @@
     <comment xml:lang="hi">ओपनडॉक्यूमेंट पाठ नमूना</comment>
     <comment xml:lang="hr">OpenDocument predložak teksta</comment>
     <comment xml:lang="hu">OpenDocument-szövegsablon</comment>
-    <comment xml:lang="id">Palet Teks OpenDocument</comment>
+    <comment xml:lang="id">Templat Teks OpenDocument</comment>
     <comment xml:lang="is">OpenDocument sniðmát fyrir textaskjal</comment>
     <comment xml:lang="it">Modello di testo OpenDocument</comment>
-    <comment xml:lang="ja">OpenDocument テキストテンプレート</comment>
+    <comment xml:lang="ja">OpenDocument テキスト テンプレート</comment>
     <comment xml:lang="ka">LibreOffice ტექსტური შაბლონი</comment>
     <comment xml:lang="kk">OpenDocument мәтіндік құжаттың үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​អត្ថបទ OpenDocument</comment>
@@ -3226,7 +3226,7 @@
     <comment xml:lang="am">HTML Document Template</comment>
     <comment xml:lang="ar">قالب مستند HTML</comment>
     <comment xml:lang="as">HTML দস্তাবেজ টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía de documentu HTML</comment>
+    <comment xml:lang="ast">Plantía pa documentu HTML</comment>
     <comment xml:lang="be">Шаблон дакументу HTML</comment>
     <comment xml:lang="bg">Шаблон за документ на HTML</comment>
     <comment xml:lang="bn">HTML নথি ফর্মা </comment>
@@ -3258,10 +3258,10 @@
     <comment xml:lang="hi">HTML दस्तावेज़ नमूना</comment>
     <comment xml:lang="hr">Predložak HTML dokumenta</comment>
     <comment xml:lang="hu">HTML-dokumentumsablon</comment>
-    <comment xml:lang="id">Palet Dokumen HTML</comment>
+    <comment xml:lang="id">Templat Dokumen HTML</comment>
     <comment xml:lang="is">HTML sniðmát fyrir vefsíðu</comment>
     <comment xml:lang="it">HTML - Modello di documento</comment>
-    <comment xml:lang="ja">HTML ドキュメントテンプレート</comment>
+    <comment xml:lang="ja">HTML ドキュメント テンプレート</comment>
     <comment xml:lang="ka">HTML დოკუმენტის შაბლონი</comment>
     <comment xml:lang="kk">HTML құжатының үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​ឯកសារ​ HTML</comment>
@@ -3330,7 +3330,7 @@
     <comment xml:lang="am">Microsoft PowerPoint Presentation</comment>
     <comment xml:lang="ar">عرض ميكروسوفت باوربوينت تقديمي</comment>
     <comment xml:lang="as">Microsoft PowerPoint পৰিৱেশন</comment>
-    <comment xml:lang="ast">Presentación de Microsoft PowerPoint</comment>
+    <comment xml:lang="ast">Presentación de PowerPoint de Microsoft</comment>
     <comment xml:lang="be">Прэзентацыя Microsoft PowerPoint</comment>
     <comment xml:lang="bg">Microsoft PowerPoint – презентация</comment>
     <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা</comment>
@@ -3397,7 +3397,7 @@
     <comment xml:lang="si">Microsoft PowerPoint ඉදිරිපත් කිරීම</comment>
     <comment xml:lang="sk">Prezentácia Microsoft PowerPoint</comment>
     <comment xml:lang="sl">Predstavitev programa Microsoft PowerPoint</comment>
-    <comment xml:lang="sr">Microsoft PowerPoint Presentation</comment>
+    <comment xml:lang="sr">Microsoft PowerPoint презентација</comment>
     <comment xml:lang="sr-Latn">Microsoft PowerPoint Presentation</comment>
     <comment xml:lang="ss">Setfulo seMicrosoft PowerPoint</comment>
     <comment xml:lang="st">Nehelano ya Microsoft PowerPoint</comment>
@@ -3427,7 +3427,7 @@
     <comment xml:lang="am">Microsoft PowerPoint Presentation Template</comment>
     <comment xml:lang="ar">قالب عرض ميكروسوفت باوربوينت تقديمي</comment>
     <comment xml:lang="as">Microsoft PowerPoint পৰিৱেশন</comment>
-    <comment xml:lang="ast">Plantía de presentación de Microsoft PowerPoint</comment>
+    <comment xml:lang="ast">Plantía pa presentación de PowerPoint de Microsoft</comment>
     <comment xml:lang="be">Шаблон прэзентацыі Microsoft PowerPoint</comment>
     <comment xml:lang="bg">Microsoft PowerPoint – шаблон за презентация</comment>
     <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা ফর্মা</comment>
@@ -3459,10 +3459,10 @@
     <comment xml:lang="hi">माइक्रोसॉफ़्ट पावर प्वाइंट प्रस्तुति नमूना ख़ाका</comment>
     <comment xml:lang="hr">Predložak prezentacije Microsoft PowerPointa</comment>
     <comment xml:lang="hu">Microsoft PowerPoint-bemutatósablon</comment>
-    <comment xml:lang="id">Palet Presentasi Microsoft PowerPoint</comment>
+    <comment xml:lang="id">Templat Presentasi Microsoft PowerPoint</comment>
     <comment xml:lang="is">Microsoft PowerPoint sniðmát fyrir glærukynningu</comment>
     <comment xml:lang="it">Modello di presentazione di Microsoft PowerPoint</comment>
-    <comment xml:lang="ja">Microsoft PowerPoint プレゼンテーションテンプレート</comment>
+    <comment xml:lang="ja">Microsoft PowerPoint プレゼンテーション テンプレート</comment>
     <comment xml:lang="ka">Microsoft PowerPoint Presentation Template</comment>
     <comment xml:lang="kk">Microsoft PowerPoint презентация үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​ការ​បង្ហាញ Microsoft PowerPoint</comment>
@@ -3494,7 +3494,7 @@
     <comment xml:lang="si">Microsoft PowerPoint ඉදිරිපත් කිරීමේ අච්චුව</comment>
     <comment xml:lang="sk">Šablóna prezentácie Microsoft PowerPoint</comment>
     <comment xml:lang="sl">Predloga predstavitve programa Microsoft PowerPoint</comment>
-    <comment xml:lang="sr">Microsoft PowerPoint Presentation Template</comment>
+    <comment xml:lang="sr">Microsoft PowerPoint шаблон презентације</comment>
     <comment xml:lang="sr-Latn">Microsoft PowerPoint Presentation Template</comment>
     <comment xml:lang="ss">Microsoft PowerPoint Presentation Template</comment>
     <comment xml:lang="st">Microsoft PowerPoint Presentation Template</comment>
@@ -3522,9 +3522,9 @@
     <comment>Microsoft Excel Worksheet</comment>
     <comment xml:lang="af">Microsoft Excel-werkvel</comment>
     <comment xml:lang="am">Microsoft Excel Worksheet</comment>
-    <comment xml:lang="ar">ورقة عمل ميكروسوفت إكسل</comment>
+    <comment xml:lang="ar">ورقة عمل ميكروسوفت أكسل</comment>
     <comment xml:lang="as">Microsoft Excel ৱৰ্কশ্বীট</comment>
-    <comment xml:lang="ast">Fueya de cálculu de Microsoft Excel</comment>
+    <comment xml:lang="ast">Fueya de cálculu d'Excel de Microsoft</comment>
     <comment xml:lang="be">Разліковы аркуш Microsoft Excel</comment>
     <comment xml:lang="bg">Microsoft Excel - лист</comment>
     <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট</comment>
@@ -3591,7 +3591,7 @@
     <comment xml:lang="si">Microsoft Excel පැතුරුම්පත</comment>
     <comment xml:lang="sk">Pracovný zošit Microsoft Excel</comment>
     <comment xml:lang="sl">Delovni list programa Microsoft Excel</comment>
-    <comment xml:lang="sr">Microsoft Excel Worksheet</comment>
+    <comment xml:lang="sr">Microsoft Excel радни лист</comment>
     <comment xml:lang="sr-Latn">Microsoft Excel Worksheet</comment>
     <comment xml:lang="ss">Liphephamsebenti leMicrosoft Excel</comment>
     <comment xml:lang="st">Leqephe la ho Sebeletsa la Microsoft Excel</comment>
@@ -3619,9 +3619,9 @@
     <comment>Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="af">Microsoft Excel-werkvelsjabloon</comment>
     <comment xml:lang="am">Microsoft Excel Worksheet Template</comment>
-    <comment xml:lang="ar">قالب ورقة عمل ميكروسوفت إكسل</comment>
+    <comment xml:lang="ar">قالب ورقة عمل ميكروسوفت أكسل</comment>
     <comment xml:lang="as">Microsoft Excel ৱৰ্কশ্বীট টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía de fueya de cálculu Microsoft Excel</comment>
+    <comment xml:lang="ast">Plantía pa fueya de cálculu d'Excel de Microsoft</comment>
     <comment xml:lang="be">Шаблон разліковага аркуша Microsoft Excel</comment>
     <comment xml:lang="bg">Microsoft Excel – шаблон за лист</comment>
     <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট ফর্মা</comment>
@@ -3632,7 +3632,7 @@
     <comment xml:lang="cs">Šablona pracovního sešitu Microsoft Excel</comment>
     <comment xml:lang="cy">Templed Dalen Waith Microsoft Excel</comment>
     <comment xml:lang="da">Microsoft Excel-regnearksskabelon</comment>
-    <comment xml:lang="de">Microsoft Excel Arbeitsblattsvorlage</comment>
+    <comment xml:lang="de">Microsoft Excel Arbeitsblattvorlage</comment>
     <comment xml:lang="dz">Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="el">Πρότυπο φύλλου εργασίας του Microsoft Excel</comment>
     <comment xml:lang="en-GB">Microsoft Excel Worksheet Template</comment>
@@ -3653,10 +3653,10 @@
     <comment xml:lang="hi">माइक्रोसॉफ़्ट एक्सेल वर्कशीट नमूना ख़ाका</comment>
     <comment xml:lang="hr">Predložak za Microsoft Excel radni list</comment>
     <comment xml:lang="hu">Microsoft Excel-munkafüzetsablon</comment>
-    <comment xml:lang="id">Palet Lembar Kerja Microsoft Excel</comment>
+    <comment xml:lang="id">Templat Lembar Kerja Microsoft Excel</comment>
     <comment xml:lang="is">Microsoft Excel sniðmát fyrir töflureikniskjal</comment>
     <comment xml:lang="it">Modello di foglio di calcolo Microsoft Excel</comment>
-    <comment xml:lang="ja">Microsoft Excel ワークシートテンプレート</comment>
+    <comment xml:lang="ja">Microsoft Excel ワークシート テンプレート</comment>
     <comment xml:lang="ka">Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="kk">Microsoft Excel электрондық кесте үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​សន្លឹក​ការងារ Microsoft Excel</comment>
@@ -3688,7 +3688,7 @@
     <comment xml:lang="si">Microsoft Excel පැතුරුම්පත් අච්චුව</comment>
     <comment xml:lang="sk">Šablóna pracovného zošitu Microsoft Excel</comment>
     <comment xml:lang="sl">Predloga delovnega lista programa Microsoft Excel</comment>
-    <comment xml:lang="sr">Microsoft Excel Worksheet Template</comment>
+    <comment xml:lang="sr">Microsoft Excel шаблон радног листа</comment>
     <comment xml:lang="sr-Latn">Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="ss">Microsoft Excel Worksheet Template</comment>
     <comment xml:lang="st">Microsoft Excel Worksheet Template</comment>
@@ -3718,7 +3718,7 @@
     <comment xml:lang="am">Microsoft Word Document</comment>
     <comment xml:lang="ar">مستند ميكروسوفت وورد</comment>
     <comment xml:lang="as">Microsoft Word দস্তাবেজ</comment>
-    <comment xml:lang="ast">Documentu de Microsoft Word</comment>
+    <comment xml:lang="ast">Documentu de Word de Microsoft</comment>
     <comment xml:lang="be">Дакумент Microsoft Word</comment>
     <comment xml:lang="bg">Microsoft Word – документ</comment>
     <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথি</comment>
@@ -3785,7 +3785,7 @@
     <comment xml:lang="si">Microsoft Word ලේඛනය</comment>
     <comment xml:lang="sk">Dokument Microsoft Word</comment>
     <comment xml:lang="sl">Dokument programa Microsoft Word</comment>
-    <comment xml:lang="sr">Microsoft Word Document</comment>
+    <comment xml:lang="sr">Microsoft Word документ</comment>
     <comment xml:lang="sr-Latn">Microsoft Word Document</comment>
     <comment xml:lang="ss">Idokhumenti yeMicrosoft Word</comment>
     <comment xml:lang="st">Tokomane ya Microsoft Word</comment>
@@ -3815,7 +3815,7 @@
     <comment xml:lang="am">Microsoft Word Document Template</comment>
     <comment xml:lang="ar">قالب مستند ميكروسوفت وورد</comment>
     <comment xml:lang="as">Microsoft Word টেমপ্লেইট</comment>
-    <comment xml:lang="ast">Plantía de documentu de Microsoft Word</comment>
+    <comment xml:lang="ast">Plantía pa documentu de Word de Microsoft</comment>
     <comment xml:lang="be">Шаблон дакумента Microsoft Word</comment>
     <comment xml:lang="bg">Microsoft Word – шаблон за документ</comment>
     <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথির ফর্মা</comment>
@@ -3847,10 +3847,10 @@
     <comment xml:lang="hi">माइक्रोसॉफ़्ट वर्ड डॉक्यूमेंट नमूना ख़ाका</comment>
     <comment xml:lang="hr">Predložak Microsoft Word dokumenta</comment>
     <comment xml:lang="hu">Microsoft Word-dokumentumsablon</comment>
-    <comment xml:lang="id">Palet Dokumen Microsoft Word</comment>
+    <comment xml:lang="id">Templat Dokumen Microsoft Word</comment>
     <comment xml:lang="is">Microsoft Word sniðmát fyrir textaskjal</comment>
     <comment xml:lang="it">Modello di documento di Microsoft Word</comment>
-    <comment xml:lang="ja">Microsoft Word ドキュメントテンプレート</comment>
+    <comment xml:lang="ja">Microsoft Word ドキュメント テンプレート</comment>
     <comment xml:lang="ka">Microsoft Word 95 შაბლონი</comment>
     <comment xml:lang="kk">Microsoft Word құжат үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​ឯកសារ Microsoft Word</comment>
@@ -3882,7 +3882,7 @@
     <comment xml:lang="si">Microsoft Word ලේඛනය අච්චුව</comment>
     <comment xml:lang="sk">Šablóna dokumentu Microsoft Word</comment>
     <comment xml:lang="sl">Predloga dokumenta programa Microsoft Word</comment>
-    <comment xml:lang="sr">Microsoft Word Document Template</comment>
+    <comment xml:lang="sr">Microsoft Word шаблон документа</comment>
     <comment xml:lang="sr-Latn">Microsoft Word Document Template</comment>
     <comment xml:lang="ss">Microsoft Word Document Template</comment>
     <comment xml:lang="st">Microsoft Word Document Template</comment>
@@ -3979,7 +3979,7 @@
     <comment xml:lang="si">OpenOffice.org 1.0 Presentation</comment>
     <comment xml:lang="sk">Prezentácia OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Predstavitev OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Presentation</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 презентација</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Presentation</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Presentation</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Presentation</comment>
@@ -4041,10 +4041,10 @@
     <comment xml:lang="hi">OpenOffice.org 1.0 Presentation Template</comment>
     <comment xml:lang="hr">OpenOffice.org 1.0 predložak prezentacije</comment>
     <comment xml:lang="hu">OpenOffice.org 1.0 bemutatósablon</comment>
-    <comment xml:lang="id">Palet Presentasi OpenOffice.org 1.0</comment>
+    <comment xml:lang="id">Templat Presentasi OpenOffice.org 1.0</comment>
     <comment xml:lang="is">OpenOffice.org 1.0 sniðmát fyrir glærukynningu</comment>
     <comment xml:lang="it">OpenOffice.org 1.0 - Modello di presentazione</comment>
-    <comment xml:lang="ja">OpenOffice.org 1.0 プレゼンテーションテンプレート</comment>
+    <comment xml:lang="ja">OpenOffice.org 1.0 プレゼンテーション テンプレート</comment>
     <comment xml:lang="ka">OpenOffice.org 1.0 Presentation Template</comment>
     <comment xml:lang="kk">OpenOffice.org 1.0 презентация үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​បទ​បង្ហាញ OpenOffice.org 1.0</comment>
@@ -4076,7 +4076,7 @@
     <comment xml:lang="si">OpenOffice.org 1.0 Presentation Template</comment>
     <comment xml:lang="sk">Šablóna prezentácie OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Predloga predstavitve OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Presentation Template</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 шаблон презентације</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Presentation Template</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Presentation Template</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Presentation Template</comment>
@@ -4138,7 +4138,7 @@
     <comment xml:lang="hi">OpenOffice.org 1.0 Spreadsheet</comment>
     <comment xml:lang="hr">OpenOffice.org 1.0 proračunska tablica</comment>
     <comment xml:lang="hu">OpenOffice.org 1.0 táblázat</comment>
-    <comment xml:lang="id">Lembar Kerja OpenOffice.org 1.0</comment>
+    <comment xml:lang="id">Lembar Sebar OpenOffice.org 1.0</comment>
     <comment xml:lang="is">OpenOffice.org 1.0 töflureikniskjal</comment>
     <comment xml:lang="it">OpenOffice.org 1.0 - Foglio elettronico</comment>
     <comment xml:lang="ja">OpenOffice.org 1.0 表計算ドキュメント</comment>
@@ -4167,13 +4167,13 @@
     <comment xml:lang="pl">Arkusz kalkulacyjny OpenOffice.org 1.0</comment>
     <comment xml:lang="pt">Folha de cálculo do OpenOffice.org 1.0</comment>
     <comment xml:lang="pt-BR">Planilha do OpenOffice.org 1.0</comment>
-    <comment xml:lang="ro">OpenOffice.org 1.0 foaie de calcul</comment>
+    <comment xml:lang="ro">Foaie de calcul OpenOffice.org 1.0</comment>
     <comment xml:lang="ru">Электронная таблица OpenOffice.org 1.0</comment>
     <comment xml:lang="rw">OpenOffice.org 1.0 Spreadsheet</comment>
     <comment xml:lang="si">OpenOffice.org 1.0 Spreadsheet</comment>
     <comment xml:lang="sk">Tabuľkový dokument OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Preglednica OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Spreadsheet</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 рачунска табела</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Spreadsheet</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Spreadsheet</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Spreadsheet</comment>
@@ -4223,7 +4223,7 @@
     <comment xml:lang="es">Plantilla de hoja de cálculo de OpenOffice.org 1.0</comment>
     <comment xml:lang="et">OpenOffice.org 1.0 arvutustabeli mall</comment>
     <comment xml:lang="eu">OpenOffice.org 1.0 kalkulu-orriaren txantiloia</comment>
-    <comment xml:lang="fa">OpenOffice.org 1.0 Spreadsheet Template</comment>
+    <comment xml:lang="fa">الگوی صفحه‌گسترده اپن‌آفیس.ارگ 1.0</comment>
     <comment xml:lang="fi">OpenOffice.org 1.0 -laskentataulukkomalli</comment>
     <comment xml:lang="fr">Modèle de classeur OpenOffice.org 1.0</comment>
     <comment xml:lang="ga">Teimpléad Scarbhileoige OpenOffice.org 1.0</comment>
@@ -4235,10 +4235,10 @@
     <comment xml:lang="hi">OpenOffice.org 1.0 Spreadsheet Template</comment>
     <comment xml:lang="hr">OpenOffice.org 1.0 predložak proračunske tablice</comment>
     <comment xml:lang="hu">OpenOffice.org 1.0 táblázatsablon</comment>
-    <comment xml:lang="id">Palet Lembar Kerja OpenOffice.org 1.0</comment>
+    <comment xml:lang="id">Templat Lembar Sebar OpenOffice.org 1.0</comment>
     <comment xml:lang="is">OpenOffice.org 1.0 sniðmát fyrir töflureikniskjal</comment>
     <comment xml:lang="it">OpenOffice.org 1.0 - Modello di foglio elettronico</comment>
-    <comment xml:lang="ja">OpenOffice.org 1.0 表計算ドキュメントテンプレート</comment>
+    <comment xml:lang="ja">OpenOffice.org 1.0 表計算ドキュメント テンプレート</comment>
     <comment xml:lang="ka">OpenOffice.org 1.0 Spreadsheet Template</comment>
     <comment xml:lang="kk">OpenOffice.org 1.0 электрондық кесте үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​សៀវភៅ​បញ្ជី OpenOffice.org 1.0</comment>
@@ -4264,13 +4264,13 @@
     <comment xml:lang="pl">Szablon arkusza kalkulacyjnego OpenOffice.org 1.0</comment>
     <comment xml:lang="pt">Modelo de folha de cálculo do OpenOffice.org 1.0</comment>
     <comment xml:lang="pt-BR">Modelo de planilha do OpenOffice.org 1.0</comment>
-    <comment xml:lang="ro">OpenOffice.org 1.0 șablon foaie de calcul</comment>
+    <comment xml:lang="ro">Șablon de foaie de calcul OpenOffice.org 1.0</comment>
     <comment xml:lang="ru">Шаблон электронной таблицы OpenOffice.org 1.0</comment>
     <comment xml:lang="rw">OpenOffice.org 1.0 Spreadsheet Template</comment>
     <comment xml:lang="si">OpenOffice.org 1.0 Spreadsheet Template</comment>
     <comment xml:lang="sk">Šablóna tabuľkového dokumentu OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Predloga preglednice OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Spreadsheet Template</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 шаблон рачунске табеле</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Spreadsheet Template</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Spreadsheet Template</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Spreadsheet Template</comment>
@@ -4308,7 +4308,7 @@
     <comment xml:lang="bs">OpenOffice.org 1.0 Tekst Dokument</comment>
     <comment xml:lang="ca">Document de text de l'OpenOffice.org 1.0</comment>
     <comment xml:lang="ca-valencia">Document de text de l'OpenOffice.org 1.0</comment>
-    <comment xml:lang="cs">Textový dokument OpenOffice.org 1.0 </comment>
+    <comment xml:lang="cs">Textový dokument OpenOffice.org 1.0</comment>
     <comment xml:lang="cy">Dogfen Testun OpenOffice.org 1.0</comment>
     <comment xml:lang="da">OpenOffice.org 1.0-tekstdokument</comment>
     <comment xml:lang="de">OpenOffice.org 1.0 Textdokument</comment>
@@ -4357,7 +4357,7 @@
     <comment xml:lang="oc">Document tèxte OpenOffice.org 1.0</comment>
     <comment xml:lang="om">OpenOffice.org 1.0 Text Document</comment>
     <comment xml:lang="or">OpenOffice.org 1.0 ଟେକ୍ସଟ ଡକୁମେଣ୍ଟ</comment>
-    <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਟੈਕਸਟ ਦਸਤਾਵੇਜ਼</comment>
+    <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਲਿਖਤ ਦਸਤਾਵੇਜ਼</comment>
     <comment xml:lang="pl">Dokument tekstowy OpenOffice.org 1.0</comment>
     <comment xml:lang="pt">Documento de texto do OpenOffice.org 1.0</comment>
     <comment xml:lang="pt-BR">Documento de texto do OpenOffice.org 1.0</comment>
@@ -4367,7 +4367,7 @@
     <comment xml:lang="si">OpenOffice.org 1.0 Text Document</comment>
     <comment xml:lang="sk">Textový dokument OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Dokument z besedilom OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Text Document</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 текстуални документ</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Text Document</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Text Document</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Text Document</comment>
@@ -4429,10 +4429,10 @@
     <comment xml:lang="hi">OpenOffice.org 1.0 Text Document Template</comment>
     <comment xml:lang="hr">OpenOffice.org 1.0 predložak tekst dokumenta</comment>
     <comment xml:lang="hu">OpenOffice.org 1.0 szövegesdokumentum-sablon</comment>
-    <comment xml:lang="id">Palet Dokumen Teks OpenOffice.org 1.0</comment>
+    <comment xml:lang="id">Templat Dokumen Teks OpenOffice.org 1.0</comment>
     <comment xml:lang="is">OpenOffice.org 1.0 sniðmát fyrir textaskjal</comment>
     <comment xml:lang="it">OpenOffice.org 1.0 - Modello di documento di testo</comment>
-    <comment xml:lang="ja">OpenOffice.org 1.0 文書ドキュメントテンプレート</comment>
+    <comment xml:lang="ja">OpenOffice.org 1.0 文書ドキュメント テンプレート</comment>
     <comment xml:lang="ka">OpenOffice.org 1.0 Text Document Template</comment>
     <comment xml:lang="kk">OpenOffice.org 1.0 мәтіндік құжат үлгісі</comment>
     <comment xml:lang="km">ពុម្ព​ឯកសារ​អត្ថបទ OpenOffice.org 1.0</comment>
@@ -4454,7 +4454,7 @@
     <comment xml:lang="oc">Modèl de document tèxte OpenOffice.org 1.0</comment>
     <comment xml:lang="om">OpenOffice.org 1.0 Text Document Template</comment>
     <comment xml:lang="or">OpenOffice.org 1.0 ଟେକ୍ସଟ ଡକୁମେଣ୍ଟ ଟେମ୍ପଲେଟ</comment>
-    <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਟੈਕਸਟ ਦਸਤਾਵੇਜ਼ ਟੈਂਪਲੇਟ</comment>
+    <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਲਿਖਤ ਦਸਤਾਵੇਜ਼ ਟੈਂਪਲੇਟ</comment>
     <comment xml:lang="pl">Szablon dokumentu tekstowego OpenOffice.org 1.0</comment>
     <comment xml:lang="pt">Modelo de documento de texto do OpenOffice.org 1.0</comment>
     <comment xml:lang="pt-BR">Modelo de documento de texto do OpenOffice.org 1.0</comment>
@@ -4464,7 +4464,7 @@
     <comment xml:lang="si">OpenOffice.org 1.0 Text Document Template</comment>
     <comment xml:lang="sk">Šablóna textového dokumentu OpenOffice.org 1.0</comment>
     <comment xml:lang="sl">Predloga besedilnega dokumenta OpenOffice.org 1.0</comment>
-    <comment xml:lang="sr">OpenOffice.org 1.0 Text Document Template</comment>
+    <comment xml:lang="sr">OpenOffice.org 1.0 шаблон текстуалног документа</comment>
     <comment xml:lang="sr-Latn">OpenOffice.org 1.0 Text Document Template</comment>
     <comment xml:lang="ss">OpenOffice.org 1.0 Text Document Template</comment>
     <comment xml:lang="st">OpenOffice.org 1.0 Text Document Template</comment>
