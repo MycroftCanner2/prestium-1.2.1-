@@ -107,10 +107,76 @@ setup_unionfs ()
 
 				mpoint=$(trim_path "${croot}/${imagename}")
 				rootfslist="${mpoint} ${rootfslist}"
+				mount_options=""
+
+				# Setup dm-verity support if a device has it supported
+				hash_device="${image}.verity"
+				if [ -f ${hash_device} ]
+				then
+					log_begin_msg "Start parsing dm-verity options for ${image}"
+					backdev_roothash=$(get_backing_device ${hash_device})
+					verity_mount_options="-o verity.hashdevice=${backdev_roothash}"
+					root_hash=$(get_dm_verity_hash ${imagename} ${DM_VERITY_ROOT_HASH})
+					valid_config="true"
+					case $(mount --version) in
+						*verity*)
+							;;
+						*)
+							valid_config="false"
+							log_warning_msg "mount does not have support for dm-verity. Ignoring mount options"
+							;;
+					esac
+					if [ -n "${root_hash}" ]
+					then
+						verity_mount_options="${verity_mount_options} -o verity.roothash=${root_hash}"
+					# Check if the root hash is saved on disk
+					elif [ -f "${image}.roothash" ]
+					then
+						verity_mount_options="${verity_mount_options} -o verity.roothashfile=${image}.roothash"
+					else
+						valid_config="false"
+						log_warning_msg "'${image}' has a dm-verity hash table, but no root hash was specified ignoring"
+					fi
+
+					fec="${image}.fec"
+					fec_roots="${image}.fec.roots"
+					if [ -f ${fec} ] && [ -f ${fec_roots} ]
+					then
+						backdev_fec=$(get_backing_device ${fec})
+						roots=$(cat ${fec_roots})
+						verity_mount_options="${verity_mount_options} -o verity.fecdevice=${backdev_fec} -o verity.fecroots=${roots}"
+					fi
+
+					signature="${image}.roothash.p7s"
+					if [ -f "${signature}" ]
+					then
+						verity_mount_options="${verity_mount_options} -o verity.roothashsig=${signature}"
+					elif [ "${DM_VERITY_ENFORCE_ROOT_HASH_SIG}" = "true" ]
+					then
+						panic "dm-verity signature checking was enforced but no signature could be found for ${image}!"
+					fi
+
+
+					if [ -n "${DM_VERITY_ONCORRUPTION}" ]
+					then
+						if is_in_space_sep_list "${DM_VERITY_ONCORRUPTION}" "ignore panic restart"
+						then
+							verity_mount_options="${verity_mount_options} -o verity.oncorruption=${DM_VERITY_ONCORRUPTION}"
+						else
+							log_warning_msg "For dm-verity on corruption '${DM_VERITY_ONCORRUPTION}' was specified, but only ignore, panic or restart are supported!"
+							log_warning_msg "Ignoring setting"
+						fi
+					fi
+					if [ "${valid_config}" = "true" ]
+					then
+						mount_options="${mount_options} ${verity_mount_options}"
+					fi
+					log_end_msg "Finshed parsing dm-verity options for ${image}"
+				fi
 
 				mkdir -p "${mpoint}"
 				log_begin_msg "Mounting \"${image}\" on \"${mpoint}\" via \"${backdev}\""
-				mount -t "${fstype}" -o ro,noatime "${backdev}" "${mpoint}" || panic "Can not mount ${backdev} (${image}) on ${mpoint}"
+				mount -t "${fstype}" -o ro,noatime ${mount_options} "${backdev}" "${mpoint}" || panic "Can not mount ${backdev} (${image}) on ${mpoint}"
 				log_end_msg
 			else
 				log_warning_msg "Could not find image '${image}'. Most likely it is listed in a .module file, perhaps by mistake."

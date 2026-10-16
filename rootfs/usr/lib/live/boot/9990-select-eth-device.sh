@@ -93,46 +93,56 @@ Select_eth_device ()
 	fi
 
 	found_eth_dev=""
-	while true
-	do
-		echo -n "Looking for a connected Ethernet interface ..."
+	echo -n "Looking for a connected Ethernet interface."
 
+	for interface in $l_interfaces
+	do
+		# ATTR{carrier} is not set if this is not done
+		echo -n " $interface ?"
+		ipconfig -c none -d $interface -t 1 >/dev/null 2>&1
+		sleep 1
+	done
+
+	echo ''
+
+	for step in 1 2 3 4 5
+	do
 		for interface in $l_interfaces
 		do
-			# ATTR{carrier} is not set if this is not done
-			echo -n " $interface ?"
-			ipconfig -c none -d $interface -t 1 >/dev/null 2>&1
-			sleep 1
-		done
+			# Skip the interface if it's already found.
+			IN_IT=no
+			for DEV in $found_eth_dev ; do
+				if [ "${DEV}" = "$interface" ] ; then
+					IN_IT=yes
+				fi
+			done
 
-		echo ''
-
-		for step in 1 2 3 4 5
-		do
-			for interface in $l_interfaces
-			do
+			if [ "${IN_IT}" = "no" ] ; then
 				ip link set $interface up
 				carrier=$(cat /sys/class/net/$interface/carrier \
 					2>/dev/null)
 				# link detected
-
-				case "${carrier}" in
-					1)
-						echo "Connected $interface found"
-						# inform initrd's init script :
+				if [ "${carrier}" = 1 ] ; then
+					echo "Connected $interface found"
+					# inform initrd's init script :
+					if [ -z "${found_eth_dev}" ] ; then
+						found_eth_dev="$interface"
+					else
 						found_eth_dev="$found_eth_dev $interface"
-						found_eth_dev="$(echo $found_eth_dev | sed -e "s/^[[:space:]]*//g")"
-						;;
-				esac
-			done
-			if [ -n "$found_eth_dev" ]
-			then
-				echo "DEVICE='$found_eth_dev'" >> /conf/param.conf
-				return
-			else
-				# wait a bit
-				sleep 1
+					fi
+				fi
 			fi
 		done
+		# wait a bit
+		sleep 1
 	done
+	if [ -n "$found_eth_dev" ]
+	then
+		echo "Done searching for connected Ethernet interface."
+		echo "Writing DEVICE='$found_eth_dev' in /conf/param.conf."
+		echo "DEVICE='$found_eth_dev'" >> /conf/param.conf
+	else
+		echo "Could not find an interface that is up: giving-up..."
+	fi
+	return
 }
