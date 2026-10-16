@@ -81,6 +81,9 @@
 /usr/share/gvfs/remote-volume-monitors/goa.monitor
 /usr/share/gvfs/remote-volume-monitors/gphoto2.monitor
 /usr/share/gvfs/remote-volume-monitors/mtp.monitor
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/gvfs-backends
 /usr/share/polkit-1
 /usr/share/polkit-1/actions
 /usr/share/polkit-1/actions/org.gtk.vfs.file-operations.policy

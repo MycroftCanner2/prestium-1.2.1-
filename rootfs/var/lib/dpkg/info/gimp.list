@@ -120,6 +120,8 @@
 /usr/lib/gimp/2.0/plug-ins/file-jp2-load/file-jp2-load
 /usr/lib/gimp/2.0/plug-ins/file-jpeg
 /usr/lib/gimp/2.0/plug-ins/file-jpeg/file-jpeg
+/usr/lib/gimp/2.0/plug-ins/file-jpegxl
+/usr/lib/gimp/2.0/plug-ins/file-jpegxl/file-jpegxl
 /usr/lib/gimp/2.0/plug-ins/file-mng
 /usr/lib/gimp/2.0/plug-ins/file-mng/file-mng
 /usr/lib/gimp/2.0/plug-ins/file-pat
@@ -278,7 +280,6 @@
 /usr/share/doc/gimp/Wilber.xcf.gz.README
 /usr/share/doc/gimp/Wilber_Construction_Kit.xcf.gz
 /usr/share/doc/gimp/changelog.Debian.gz
-/usr/share/doc/gimp/changelog.gz
 /usr/share/doc/gimp/copyright
 /usr/share/man
 /usr/share/man/man1

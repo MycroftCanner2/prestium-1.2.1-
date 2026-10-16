@@ -6,7 +6,7 @@ ad45fb33c7e6cdf745e79853533d8334  usr/sbin/ferm
 4fc81febf4e4adfe3504ba7e8228f005  usr/share/doc/ferm/README.Debian
 3b10277b504a4a37ef490ea752ff8782  usr/share/doc/ferm/README.rst
 08624105f35b0173dd7d3b1f6abb611c  usr/share/doc/ferm/TODO
-b2235d6661f37e046f903a5aa4eebea9  usr/share/doc/ferm/changelog.Debian.gz
+225e4a3e2a235fbfe7ddb6b7248483a3  usr/share/doc/ferm/changelog.Debian.gz
 0a8df310bdad7cd093eaf47911ecdad1  usr/share/doc/ferm/copyright
 3149319a8820409775be3e1f1fab50a5  usr/share/doc/ferm/examples/antiddos.ferm
 b9a395edf02e3c180ffc2c90fa4cc56f  usr/share/doc/ferm/examples/arptables.ferm
@@ -19,8 +19,8 @@ d63a45fb6f392554ba4145b27a8b74a8  usr/share/doc/ferm/examples/fileserver.ferm
 da08460a6b51db79d1bb2d8194ea2daf  usr/share/doc/ferm/examples/resolve.ferm
 047296ad75765fb4e877d289c3966725  usr/share/doc/ferm/examples/webserver.ferm
 dd929a25b5bc7edc1ef4b4bbea2f070f  usr/share/doc/ferm/examples/workstation.ferm
-5994451343702fc0e60e0d28fc88772c  usr/share/doc/ferm/ferm.html
+26b61c1c44e28267ed6e9a913bfe04be  usr/share/doc/ferm/ferm.html
 7c3cd4d01359215d97964067a062cd54  usr/share/doc/ferm/ferm.txt.gz
 b09b7400bbad0b03e34146a407d07138  usr/share/lintian/overrides/ferm
-46710f630e2e7ba973a2693f71397262  usr/share/man/man1/ferm.1.gz
-579e0676649493c52f1d5bf06d568673  usr/share/man/man1/import-ferm.1.gz
+4bb3755c82f6e966ef34a4b274320ff9  usr/share/man/man1/ferm.1.gz
+c46a860dd1c7e061f358bf6b1728ccb4  usr/share/man/man1/import-ferm.1.gz

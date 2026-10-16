@@ -43,7 +43,7 @@ case "$1" in
 	    ;;
 esac
 
-# Automatically added by dh_installdeb/13
+# Automatically added by dh_installdeb/13.11.4
 dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-autohint.conf 2.10 -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-no-sub-pixel.conf 2.10 -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-sub-pixel-bgr.conf 2.10 -- "$@"
@@ -76,7 +76,7 @@ dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/80-delicious.conf 2.10
 dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/90-synthetic.conf 2.10 -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/fonts/fonts.dtd 2.10 -- "$@"
 # End automatically added section
-# Automatically added by dh_installdebconf/13
+# Automatically added by dh_installdebconf/13.11.4
 if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
 	. /usr/share/debconf/confmodule
 	db_purge

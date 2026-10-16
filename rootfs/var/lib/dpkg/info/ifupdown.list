@@ -6,9 +6,11 @@
 /etc/init.d/networking
 /etc/network
 /etc/network/if-down.d
+/etc/network/if-down.d/resolved
 /etc/network/if-post-down.d
 /etc/network/if-pre-up.d
 /etc/network/if-up.d
+/etc/network/if-up.d/resolved
 /etc/network/interfaces.d
 /lib
 /lib/ifupdown

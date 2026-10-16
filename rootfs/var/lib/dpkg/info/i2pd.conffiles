@@ -1,4 +1,4 @@
-/etc/apparmor.d/usr.sbin.i2pd
+/etc/apparmor.d/usr.bin.i2pd
 /etc/default/i2pd
 /etc/i2pd/i2pd.conf
 /etc/i2pd/tunnels.conf

@@ -16,4 +16,15 @@ if [ "$1" = "purge" ]; then
 
 fi
 
+# Automatically added by dh_apparmor/3.0.8-3
+if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/sbin.dhclient" ] ; then
+    rm -f "/etc/apparmor.d/disable/sbin.dhclient" || true
+    rm -f "/etc/apparmor.d/force-complain/sbin.dhclient" || true
+    rm -f "/etc/apparmor.d/local/sbin.dhclient" || true
+    rm -f /var/cache/apparmor/*/"sbin.dhclient" || true
+    rmdir /etc/apparmor.d/disable 2>/dev/null || true
+    rmdir /etc/apparmor.d/local   2>/dev/null || true
+    rmdir /etc/apparmor.d         2>/dev/null || true
+fi
+# End automatically added section
 

@@ -1,6 +1,5 @@
-d8ff2b81ce093cd321e8c894661b29df  usr/lib/x86_64-linux-gnu/girepository-1.0/Gdk-3.0.typelib
-cc58564708ea3cf1567aedd0036d4f3b  usr/lib/x86_64-linux-gnu/girepository-1.0/GdkX11-3.0.typelib
-d2d06e2bdd99e9f74a038138b3274fb4  usr/lib/x86_64-linux-gnu/girepository-1.0/Gtk-3.0.typelib
-462252ce98d71b71c9ab7717e9fc4d40  usr/share/doc/gir1.2-gtk-3.0/AUTHORS
-6674b060c7396283d918d9229052917d  usr/share/doc/gir1.2-gtk-3.0/changelog.Debian.gz
-327922a0105d48814544f5f2b97745c9  usr/share/doc/gir1.2-gtk-3.0/copyright
+bf7065d30e88ce200a82aa4b2d5ead32  usr/lib/x86_64-linux-gnu/girepository-1.0/Gdk-3.0.typelib
+42867e6a78149042002facab4ee7f0b6  usr/lib/x86_64-linux-gnu/girepository-1.0/GdkX11-3.0.typelib
+854a5530e3326a164d6a96cb9ee24ae4  usr/lib/x86_64-linux-gnu/girepository-1.0/Gtk-3.0.typelib
+d106ea0d236fc5d07085321647e3dbfb  usr/share/doc/gir1.2-gtk-3.0/changelog.Debian.gz
+f0699c6a032baccef61fdf71d85aa078  usr/share/doc/gir1.2-gtk-3.0/copyright

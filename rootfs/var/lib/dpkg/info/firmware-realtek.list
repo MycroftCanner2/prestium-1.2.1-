@@ -15,6 +15,10 @@
 /lib/firmware/rtl_bt/rtl8723d_config.bin
 /lib/firmware/rtl_bt/rtl8723d_fw.bin
 /lib/firmware/rtl_bt/rtl8761a_fw.bin
+/lib/firmware/rtl_bt/rtl8761b_config.bin
+/lib/firmware/rtl_bt/rtl8761b_fw.bin
+/lib/firmware/rtl_bt/rtl8761bu_config.bin
+/lib/firmware/rtl_bt/rtl8761bu_fw.bin
 /lib/firmware/rtl_bt/rtl8812ae_fw.bin
 /lib/firmware/rtl_bt/rtl8821a_fw.bin
 /lib/firmware/rtl_bt/rtl8821c_config.bin
@@ -27,6 +31,10 @@
 /lib/firmware/rtl_bt/rtl8822cu_fw.bin
 /lib/firmware/rtl_bt/rtl8852au_config.bin
 /lib/firmware/rtl_bt/rtl8852au_fw.bin
+/lib/firmware/rtl_bt/rtl8852bu_config.bin
+/lib/firmware/rtl_bt/rtl8852bu_fw.bin
+/lib/firmware/rtl_bt/rtl8852cu_config.bin
+/lib/firmware/rtl_bt/rtl8852cu_fw.bin
 /lib/firmware/rtl_nic
 /lib/firmware/rtl_nic/rtl8105e-1.fw
 /lib/firmware/rtl_nic/rtl8106e-1.fw
@@ -40,6 +48,9 @@
 /lib/firmware/rtl_nic/rtl8153a-3.fw
 /lib/firmware/rtl_nic/rtl8153a-4.fw
 /lib/firmware/rtl_nic/rtl8153b-2.fw
+/lib/firmware/rtl_nic/rtl8153c-1.fw
+/lib/firmware/rtl_nic/rtl8156a-2.fw
+/lib/firmware/rtl_nic/rtl8156b-2.fw
 /lib/firmware/rtl_nic/rtl8168d-1.fw
 /lib/firmware/rtl_nic/rtl8168d-2.fw
 /lib/firmware/rtl_nic/rtl8168e-1.fw
@@ -67,7 +78,6 @@
 /lib/firmware/rtlwifi/rtl8192cufw_B.bin
 /lib/firmware/rtlwifi/rtl8192cufw_TMSC.bin
 /lib/firmware/rtlwifi/rtl8192defw.bin
-/lib/firmware/rtlwifi/rtl8192eefw.bin
 /lib/firmware/rtlwifi/rtl8192eu_ap_wowlan.bin
 /lib/firmware/rtlwifi/rtl8192eu_nic.bin
 /lib/firmware/rtlwifi/rtl8192eu_wowlan.bin
@@ -78,10 +88,7 @@
 /lib/firmware/rtlwifi/rtl8723aufw_B_NoBT.bin
 /lib/firmware/rtlwifi/rtl8723befw.bin
 /lib/firmware/rtlwifi/rtl8723befw_36.bin
-/lib/firmware/rtlwifi/rtl8723bs_ap_wowlan.bin
 /lib/firmware/rtlwifi/rtl8723bs_bt.bin
-/lib/firmware/rtlwifi/rtl8723bs_nic.bin
-/lib/firmware/rtlwifi/rtl8723bs_wowlan.bin
 /lib/firmware/rtlwifi/rtl8723bu_ap_wowlan.bin
 /lib/firmware/rtlwifi/rtl8723bu_nic.bin
 /lib/firmware/rtlwifi/rtl8723bu_wowlan.bin
@@ -102,6 +109,8 @@
 /lib/firmware/rtw88/rtw8822c_wow_fw.bin
 /lib/firmware/rtw89
 /lib/firmware/rtw89/rtw8852a_fw.bin
+/lib/firmware/rtw89/rtw8852b_fw.bin
+/lib/firmware/rtw89/rtw8852c_fw.bin
 /usr
 /usr/share
 /usr/share/bug
@@ -113,3 +122,9 @@
 /usr/share/doc/firmware-realtek/copyright
 /usr/share/metainfo
 /usr/share/metainfo/firmware-realtek.metainfo.xml
+/lib/firmware/rtl_bt/rtl8723bs_config-OBDA0623.bin
+/lib/firmware/rtl_bt/rtl8821a_config.bin
+/lib/firmware/rtlwifi/rtl8192eefw.bin
+/lib/firmware/rtlwifi/rtl8723bs_ap_wowlan.bin
+/lib/firmware/rtlwifi/rtl8723bs_nic.bin
+/lib/firmware/rtlwifi/rtl8723bs_wowlan.bin

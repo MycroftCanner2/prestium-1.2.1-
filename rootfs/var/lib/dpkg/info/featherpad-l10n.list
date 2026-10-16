@@ -12,6 +12,7 @@
 /usr/share/featherpad/translations
 /usr/share/featherpad/translations/featherpad_ar_DZ.qm
 /usr/share/featherpad/translations/featherpad_bg.qm
+/usr/share/featherpad/translations/featherpad_ca.qm
 /usr/share/featherpad/translations/featherpad_cs.qm
 /usr/share/featherpad/translations/featherpad_cy.qm
 /usr/share/featherpad/translations/featherpad_da.qm
@@ -19,10 +20,13 @@
 /usr/share/featherpad/translations/featherpad_el.qm
 /usr/share/featherpad/translations/featherpad_eo.qm
 /usr/share/featherpad/translations/featherpad_es.qm
+/usr/share/featherpad/translations/featherpad_et.qm
 /usr/share/featherpad/translations/featherpad_fa.qm
 /usr/share/featherpad/translations/featherpad_fi.qm
 /usr/share/featherpad/translations/featherpad_fr.qm
 /usr/share/featherpad/translations/featherpad_he.qm
+/usr/share/featherpad/translations/featherpad_hi.qm
+/usr/share/featherpad/translations/featherpad_hr.qm
 /usr/share/featherpad/translations/featherpad_hu.qm
 /usr/share/featherpad/translations/featherpad_id.qm
 /usr/share/featherpad/translations/featherpad_it.qm
@@ -35,7 +39,10 @@
 /usr/share/featherpad/translations/featherpad_pt.qm
 /usr/share/featherpad/translations/featherpad_pt_BR.qm
 /usr/share/featherpad/translations/featherpad_ru.qm
+/usr/share/featherpad/translations/featherpad_si.qm
 /usr/share/featherpad/translations/featherpad_sk_SK.qm
+/usr/share/featherpad/translations/featherpad_sv.qm
 /usr/share/featherpad/translations/featherpad_tr.qm
+/usr/share/featherpad/translations/featherpad_uk.qm
 /usr/share/featherpad/translations/featherpad_zh_CN.qm
 /usr/share/featherpad/translations/featherpad_zh_TW.qm

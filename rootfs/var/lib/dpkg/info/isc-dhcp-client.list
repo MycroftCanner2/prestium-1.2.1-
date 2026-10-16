@@ -1,5 +1,7 @@
 /.
 /etc
+/etc/apparmor.d
+/etc/apparmor.d/sbin.dhclient
 /etc/dhcp
 /etc/dhcp/debug
 /etc/dhcp/dhclient-enter-hooks.d
@@ -18,6 +20,7 @@
 /usr/share/doc/isc-dhcp-client/changelog.Debian.gz
 /usr/share/doc/isc-dhcp-client/changelog.gz
 /usr/share/doc/isc-dhcp-client/copyright
+/usr/share/doc/isc-dhcp-client/dhclient.conf.example
 /usr/share/man
 /usr/share/man/man5
 /usr/share/man/man5/dhclient.conf.5.gz

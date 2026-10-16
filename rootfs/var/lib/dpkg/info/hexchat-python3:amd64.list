@@ -4,7 +4,7 @@
 /usr/lib/x86_64-linux-gnu
 /usr/lib/x86_64-linux-gnu/hexchat
 /usr/lib/x86_64-linux-gnu/hexchat/plugins
-/usr/lib/x86_64-linux-gnu/hexchat/plugins/python3.so
+/usr/lib/x86_64-linux-gnu/hexchat/plugins/python.so
 /usr/lib/x86_64-linux-gnu/hexchat/python
 /usr/lib/x86_64-linux-gnu/hexchat/python/_hexchat.py
 /usr/lib/x86_64-linux-gnu/hexchat/python/hexchat.py
@@ -12,8 +12,9 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/hexchat-python3
+/usr/share/doc/hexchat-python3/changelog.Debian.amd64.gz
 /usr/share/doc/hexchat-python3/changelog.Debian.gz
 /usr/share/doc/hexchat-python3/changelog.gz
 /usr/share/doc/hexchat-python3/copyright
 /usr/share/metainfo
-/usr/share/metainfo/io.github.Hexchat.Plugin.Python3.metainfo.xml
+/usr/share/metainfo/io.github.Hexchat.Plugin.Python.metainfo.xml

@@ -2,6 +2,7 @@
 /usr
 /usr/sbin
 /usr/sbin/dump.exfat
+/usr/sbin/exfat2img
 /usr/sbin/exfatlabel
 /usr/sbin/fsck.exfat
 /usr/sbin/mkfs.exfat
@@ -15,6 +16,7 @@
 /usr/share/man
 /usr/share/man/man8
 /usr/share/man/man8/dump.exfat.8.gz
+/usr/share/man/man8/exfat2img.8.gz
 /usr/share/man/man8/exfatlabel.8.gz
 /usr/share/man/man8/fsck.exfat.8.gz
 /usr/share/man/man8/mkfs.exfat.8.gz

@@ -1,0 +1,9 @@
+a625f1a11682ab2883a863ef02818f9b  usr/share/doc/gajim-antispam/changelog.Debian.gz
+c64fb58476bf715caba53fc62594a12f  usr/share/doc/gajim-antispam/changelog.gz
+60434983819f5e4907b6906575011579  usr/share/doc/gajim-antispam/copyright
+035a0e21e2135d72200f9c3aaa6c1af7  usr/share/gajim/plugins/anti_spam/__init__.py
+9e9edf6cda9c107e57e6c7b6d31d971c  usr/share/gajim/plugins/anti_spam/anti_spam.png
+9da855d85710ed6912b51cb09d301c76  usr/share/gajim/plugins/anti_spam/anti_spam.py
+e0dffd0598e0d43264daf73e5177d521  usr/share/gajim/plugins/anti_spam/config_dialog.py
+3ee599ba7a08696d6c035491d8529de3  usr/share/gajim/plugins/anti_spam/modules/anti_spam.py
+8aabd472c2b3c2f75d5877705bb238b5  usr/share/gajim/plugins/anti_spam/plugin-manifest.json

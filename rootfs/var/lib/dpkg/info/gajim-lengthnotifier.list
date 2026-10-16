@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/gajim-lengthnotifier
+/usr/share/doc/gajim-lengthnotifier/changelog.Debian.gz
+/usr/share/doc/gajim-lengthnotifier/copyright
+/usr/share/gajim
+/usr/share/gajim/plugins
+/usr/share/gajim/plugins/length_notifier
+/usr/share/gajim/plugins/length_notifier/__init__.py
+/usr/share/gajim/plugins/length_notifier/config_dialog.py
+/usr/share/gajim/plugins/length_notifier/length_notifier.png
+/usr/share/gajim/plugins/length_notifier/length_notifier.py
+/usr/share/gajim/plugins/length_notifier/plugin-manifest.json

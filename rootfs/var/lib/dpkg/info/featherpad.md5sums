@@ -1,8 +1,9 @@
-82513ec6d0a376f1aff3018aaf3e67f5  usr/bin/featherpad
-9ad96690fd6b305d837b93c5803784f8  usr/share/applications/featherpad.desktop
-7642ac86a035c52fe834b3d6257355bc  usr/share/doc/featherpad/changelog.Debian.gz
-a23da0bb92a293ecb57e66559f354d57  usr/share/doc/featherpad/changelog.gz
-f0324c3262b4c8f24a2f0897ede68c99  usr/share/doc/featherpad/copyright
-50816d2ed41f80a543f125678333ae2e  usr/share/featherpad/help
+b10ec7ad34b6bae70fb36f2b4daa94c0  usr/bin/featherpad
+ef51ad77807b3ae8efe970f650cc9f3b  usr/share/applications/featherpad.desktop
+74a988f3c8f34e1fc3b08e786eb46c7e  usr/share/doc/featherpad/changelog.Debian.gz
+524effd9edd6b9a22d1d268919bb4f2e  usr/share/doc/featherpad/changelog.gz
+9957ec4f1aa94d43826822dac3ec610d  usr/share/doc/featherpad/copyright
+16b970e8fc765efd752575c1eb411079  usr/share/featherpad/help
+8580e347713cb555c1f007cb2d972175  usr/share/featherpad/help_ca
 38516485509874fa39d8cb41424f47db  usr/share/icons/hicolor/scalable/apps/featherpad.svg
-fbcf9de6fc7f52fe0f25a0626731b2a2  usr/share/lintian/overrides/featherpad
+b4051b3e3d6a6d83685e471c22caa2e4  usr/share/metainfo/featherpad.metainfo.xml

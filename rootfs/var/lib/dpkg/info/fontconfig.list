@@ -21,10 +21,7 @@
 /usr/share/doc/fontconfig/fontconfig-user.pdf.gz
 /usr/share/doc/fontconfig/fontconfig-user.txt.gz
 /usr/share/doc-base
-/usr/share/doc-base/fontconfig-user
-/usr/share/lintian
-/usr/share/lintian/overrides
-/usr/share/lintian/overrides/fontconfig
+/usr/share/doc-base/fontconfig.fontconfig-user
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/fc-cache.1.gz

@@ -101,11 +101,15 @@ Description-tr.UTF-8: Ekran için yazıtipi ince ayar yöntemi (öntanımlı sis
 Template: fontconfig/hinting_style
 Type: select
 Choices: None, Slight, Medium, Full
+Choices-da.UTF-8: Ingen, Let, Mellem, Fuld
 Choices-de.UTF-8: keine, gering, mittel, voll
+Choices-es.UTF-8: Ninguno, Ligero, Medio, Completo
 Choices-fr.UTF-8: Aucune, Léger, Moyen, Complet
 Choices-nl.UTF-8: Niet optimaliseren, Licht, Gemiddeld, Volledig
 Choices-pt.UTF-8: Nenhum, Ligeiro, Médio, Total
+Choices-pt_BR.UTF-8: Nenhum, Leve, Médio, Completo
 Choices-ru.UTF-8: Без подстройки, Слабое, Среднее, Полное
+Choices-sv.UTF-8: Ingen, Lätt, Mellan, Full
 Choices-C: hintnone, hintslight, hintmedium, hintfull
 Default: hintslight
 Description: Automatic font hinting style:
@@ -119,12 +123,24 @@ Description: Automatic font hinting style:
  default setting.
  .
  To revert to the pre-2.12 behavior, select "Full".
+Description-da.UTF-8: Automatisk hinting-stil for skrifttype:
+ Vælg venligst den foretrukne automatiske hinting-stil for skrifttypen, der skal bruges som systemstandard.
+ .
+ Hinting-stilen er mængden af omformning af skrifttypen gjort for at tilpasse gitteret. »Let« vil gør skrifttypen mere utydelig at tilpasse til gitteret men vil være bedre til at bevare skriftformen, mens »Fuld« vil være en sprøg skrifttype, der justerer sig godt til billedpunktgitteret, men vil miste en større mængde af skriftformen. »Let« er standardindstillingen.
+ .
+ For at gå tilbgae til præ-2.12-opførelsen, vælg »Fuld«.
 Description-de.UTF-8: Einstellung für das automatische Font-Hinting:
  Bitte wählen Sie, inwieweit Font-Hinting standardmäßig angewendet wird.
  .
  Mit der Einstellung für das Font-Hinting geben Sie an, inwieweit die Form der Schrift zur Darstellung im Raster von Bildschirmpunkten verändert wird. »Gering« lässt die Schrift beim Einfügen in das Raster undeutlicher werden, erhält ihre Form aber besser. »Voll« hingegen liefert eine scharfe und gut in das Raster überführte Schrift, ihre Form wird dabei weniger gut erhalten. Voreingestellt ist »gering«.
  .
  Um zum Verhalten vor Version 2.12 zurückzukehren, wählen Sie »voll«.
+Description-es.UTF-8: Optimización automática de los tipos de letra:
+ Seleccione la optimización automática de los tipos de letra que prefiere usar como predeterminada del sistema.
+ .
+ La optimización de los tipos de letra es la cantidad de remodelación realizada para alinearla con la cuadrícula. El estilo «Ligero» hace que la alineación de la fuente sea más imprecisa, pero conserva mejor su forma, mientras que «Completo» dará como resultado un tipo de letra nítida alineada con la cuadrícula de píxeles, pero perderá más su forma. «Ligero» es la opción predeterminada.
+ .
+ Para volver al comportamiento anterior a la versión 2.12, seleccione «Completo».
 Description-fr.UTF-8: Méthode d'optimisation automatique des polices :
  Veuillez choisir la méthode d'optimisation automatique des polices que vous souhaitez utiliser par défaut.
  .
@@ -143,12 +159,24 @@ Description-pt.UTF-8: Estilo de desenho do tipo de letra automático:
  O estilo de desenho do tipo de letra é a parte de redesenhamento efectuado de modo a encaixar na grelha. "Ligeiro" tornará o tipo de letra mais desfocado de modo a encaixar na grelha mas manterá mais fielmente o formato do tipo de letra. O "Total" será um tipo de letra mais contundente que se adapta melhor à grelha do pixel mas perderá uma grande parte do formato do tipo de letra. "Ligeiro" é a configuração predefinida.
  .
  Para reverter para o comportamento pre-2.12, selecione "Total".
+Description-pt_BR.UTF-8: Estilo de ajuste de fonte automático:
+ Por favor, selecione o estilo de ajuste de fonte automático preferido para ser usado como o padrão do sistema.
+ .
+ O estilo de ajuste é o quanto a fonte será remodelada para se alinhar à grade. "Leve" fará o alinhamento da fonte à grade menos preciso, mas será melhor em manter o formato original da fonte, enquanto "Completo" fará o alinhamento à grade mais preciso, mas não manterá tão bem o formato original da fonte. A configuração padrão é "Leve".
+ .
+ Para reverter para o comportamento pre-2.12, selecione "Completo".
 Description-ru.UTF-8: Автоматический стиль хинтования шрифтов:
  Пожалуйста, выберите предпочтительный стиль хинтования шрифтов, который будет использоваться в системе по умолчанию.
  .
  Стиль хинтования определяет то, насколько будет изменяться шрифт для его выравнивания с сеткой. «Слабое» хинтование сделает шрифт более размытым, но лучше сохранит оригинальную форму шрифта, в то время как «Полное» хинтование сделает шрифт чётким, в этом случае шрифт будет хорошо вписываться в пиксельную сетку, но сильнее потеряет свою оригинальную форму. По умолчанию используется «Слабое» хинтование.
  .
  Для возврата к поведению, используемому до версии 2.12, выберите «Полное» хинтование.
+Description-sv.UTF-8: Automatisk justering av skärmrendering av typsnitt:
+ Välj den metod som föredras för justering av skärmrendering av typsnitt att använda som systemstandard.
+ .
+ Skärmjustering av typsnitt är mängden av fonten som omformas för att linjera med rutnätet. "Lätt" gör fonter mer suddig för att linjera med rutnätet men kommer vara bättre på att bibehålla typsnittets form, medan "Full" ger en skarpt typsnitt som linjerar väl med rutnätet men kommer förlora en stärre andel  av typsnittets form. "Lätt" är standard-inställningen.
+ .
+ För att återgå till beteendet före 2.12, välj "Full".
 
 Template: fontconfig/subpixel_rendering
 Type: select

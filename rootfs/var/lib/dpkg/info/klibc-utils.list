@@ -13,6 +13,7 @@
 /usr/lib/klibc/bin/gunzip
 /usr/lib/klibc/bin/gzip
 /usr/lib/klibc/bin/halt
+/usr/lib/klibc/bin/insmod
 /usr/lib/klibc/bin/ipconfig
 /usr/lib/klibc/bin/kill
 /usr/lib/klibc/bin/kinit

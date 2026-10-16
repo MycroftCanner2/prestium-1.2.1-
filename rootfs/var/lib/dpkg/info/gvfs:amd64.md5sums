@@ -1,6 +1,6 @@
-3812c60eb7503f897d613711e2bc3b55  usr/lib/x86_64-linux-gnu/gio/modules/libgioremote-volume-monitor.so
-485b254a806dcd1caf0226d9e1fa0485  usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so
-0abf767c96a2f6737da56be421772028  usr/share/doc/gvfs/NEWS.gz
-28827d8e2ce764b79f4db81c32da72c9  usr/share/doc/gvfs/README.md
-d3fb4d863e32976dad55e99d676406ec  usr/share/doc/gvfs/changelog.Debian.gz
-0ef1726f9fbacd20583f31e5ac758fe5  usr/share/doc/gvfs/copyright
+c988f28840f83dfaec9f2148786588ff  usr/lib/x86_64-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+0ef5be0c4a95b39e825e1620fefb0fd1  usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so
+79627f8e4671879bda9e77e139f482ed  usr/share/doc/gvfs/NEWS.gz
+be38405b84e3b1703bd9b1098c9f3bea  usr/share/doc/gvfs/README.md
+acfc94ccfb02fc71aa6ad745d9d7c42a  usr/share/doc/gvfs/changelog.Debian.gz
+528290130c1c3d81871b26638c2e2583  usr/share/doc/gvfs/copyright

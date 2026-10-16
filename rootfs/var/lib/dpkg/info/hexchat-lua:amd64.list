@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/hexchat
+/usr/lib/x86_64-linux-gnu/hexchat/plugins
+/usr/lib/x86_64-linux-gnu/hexchat/plugins/lua.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/hexchat-lua
+/usr/share/doc/hexchat-lua/changelog.Debian.amd64.gz
+/usr/share/doc/hexchat-lua/changelog.Debian.gz
+/usr/share/doc/hexchat-lua/changelog.gz
+/usr/share/doc/hexchat-lua/copyright
+/usr/share/metainfo
+/usr/share/metainfo/io.github.Hexchat.Plugin.Lua.metainfo.xml

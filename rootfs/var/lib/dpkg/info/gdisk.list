@@ -18,7 +18,7 @@
 /usr/share/doc/gdisk/index.html
 /usr/share/doc/gdisk/sgdisk.html
 /usr/share/doc-base
-/usr/share/doc-base/gdisk
+/usr/share/doc-base/gdisk.gdisk
 /usr/share/lintian
 /usr/share/lintian/overrides
 /usr/share/lintian/overrides/gdisk

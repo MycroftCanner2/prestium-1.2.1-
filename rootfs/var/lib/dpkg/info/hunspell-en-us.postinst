@@ -4,7 +4,7 @@ set -e
 SCRIPT="update-dictcommon-hunspell"
 
 if [ "$1" = "configure" ] ; then
-    if which $SCRIPT > /dev/null 2>&1; then
+    if command -v $SCRIPT >/dev/null; then
 	$SCRIPT  
     else
 	echo "Error: $SCRIPT not present or executable. Missing dependency on dictionaries-common?" >&2

@@ -3,6 +3,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/iso-codes
+/usr/share/doc/iso-codes/CHANGELOG-PRE-4.0.md.gz
 /usr/share/doc/iso-codes/README.md.gz
 /usr/share/doc/iso-codes/TODO
 /usr/share/doc/iso-codes/changelog.Debian.gz
@@ -30,6 +31,7 @@
 /usr/share/locale/ab
 /usr/share/locale/ab/LC_MESSAGES
 /usr/share/locale/ab/LC_MESSAGES/iso_3166-1.mo
+/usr/share/locale/ab/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/ace
 /usr/share/locale/ace/LC_MESSAGES
 /usr/share/locale/ace/LC_MESSAGES/iso_3166-1.mo
@@ -121,6 +123,7 @@
 /usr/share/locale/bn/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/bn/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/bn/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/bn/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/bn_BD
 /usr/share/locale/bn_BD/LC_MESSAGES
 /usr/share/locale/bn_BD/LC_MESSAGES/iso_15924.mo
@@ -189,6 +192,7 @@
 /usr/share/locale/cs/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/cs/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/cs/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/cs/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/csb
 /usr/share/locale/csb/LC_MESSAGES
 /usr/share/locale/csb/LC_MESSAGES/iso_3166-1.mo
@@ -200,9 +204,12 @@
 /usr/share/locale/cy/LC_MESSAGES
 /usr/share/locale/cy/LC_MESSAGES/iso_15924.mo
 /usr/share/locale/cy/LC_MESSAGES/iso_3166-1.mo
+/usr/share/locale/cy/LC_MESSAGES/iso_3166-2.mo
 /usr/share/locale/cy/LC_MESSAGES/iso_3166-3.mo
+/usr/share/locale/cy/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/cy/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/cy/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/cy/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/da
 /usr/share/locale/da/LC_MESSAGES
 /usr/share/locale/da/LC_MESSAGES/iso_15924.mo
@@ -252,8 +259,10 @@
 /usr/share/locale/eo/LC_MESSAGES/iso_3166-1.mo
 /usr/share/locale/eo/LC_MESSAGES/iso_3166-2.mo
 /usr/share/locale/eo/LC_MESSAGES/iso_3166-3.mo
+/usr/share/locale/eo/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/eo/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/eo/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/eo/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/es
 /usr/share/locale/es/LC_MESSAGES
 /usr/share/locale/es/LC_MESSAGES/iso_15924.mo
@@ -306,6 +315,7 @@
 /usr/share/locale/fil/LC_MESSAGES
 /usr/share/locale/fil/LC_MESSAGES/iso_15924.mo
 /usr/share/locale/fil/LC_MESSAGES/iso_3166-1.mo
+/usr/share/locale/fil/LC_MESSAGES/iso_3166-2.mo
 /usr/share/locale/fo
 /usr/share/locale/fo/LC_MESSAGES
 /usr/share/locale/fo/LC_MESSAGES/iso_3166-1.mo
@@ -328,6 +338,7 @@
 /usr/share/locale/fur/LC_MESSAGES/iso_3166-1.mo
 /usr/share/locale/fur/LC_MESSAGES/iso_3166-3.mo
 /usr/share/locale/fur/LC_MESSAGES/iso_639-2.mo
+/usr/share/locale/fur/LC_MESSAGES/iso_639-3.mo
 /usr/share/locale/fur/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/fy
 /usr/share/locale/fy/LC_MESSAGES
@@ -387,6 +398,7 @@
 /usr/share/locale/hi/LC_MESSAGES/iso_3166-3.mo
 /usr/share/locale/hi/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/hi/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/hi/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/hr
 /usr/share/locale/hr/LC_MESSAGES
 /usr/share/locale/hr/LC_MESSAGES/iso_15924.mo
@@ -469,8 +481,14 @@
 /usr/share/locale/jam/LC_MESSAGES/iso_3166-1.mo
 /usr/share/locale/ka
 /usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/iso_15924.mo
 /usr/share/locale/ka/LC_MESSAGES/iso_3166-1.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_3166-2.mo
 /usr/share/locale/ka/LC_MESSAGES/iso_3166-3.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_4217.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_639-2.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/kab
 /usr/share/locale/kab/LC_MESSAGES
 /usr/share/locale/kab/LC_MESSAGES/iso_15924.mo
@@ -494,6 +512,11 @@
 /usr/share/locale/km/LC_MESSAGES
 /usr/share/locale/km/LC_MESSAGES/iso_3166-1.mo
 /usr/share/locale/km/LC_MESSAGES/iso_3166-3.mo
+/usr/share/locale/kmr
+/usr/share/locale/kmr/LC_MESSAGES
+/usr/share/locale/kmr/LC_MESSAGES/iso_3166-1.mo
+/usr/share/locale/kmr/LC_MESSAGES/iso_3166-3.mo
+/usr/share/locale/kmr/LC_MESSAGES/iso_639-3.mo
 /usr/share/locale/kn
 /usr/share/locale/kn/LC_MESSAGES
 /usr/share/locale/kn/LC_MESSAGES/iso_3166-1.mo
@@ -513,10 +536,6 @@
 /usr/share/locale/kok/LC_MESSAGES
 /usr/share/locale/kok/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/kok/LC_MESSAGES/iso_639-3.mo
-/usr/share/locale/ku
-/usr/share/locale/ku/LC_MESSAGES
-/usr/share/locale/ku/LC_MESSAGES/iso_3166-1.mo
-/usr/share/locale/ku/LC_MESSAGES/iso_3166-3.mo
 /usr/share/locale/kv
 /usr/share/locale/kv/LC_MESSAGES
 /usr/share/locale/kv/LC_MESSAGES/iso_3166-1.mo
@@ -675,6 +694,12 @@
 /usr/share/locale/pa/LC_MESSAGES/iso_3166-3.mo
 /usr/share/locale/pa/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/pa/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/pa_PK
+/usr/share/locale/pa_PK/LC_MESSAGES
+/usr/share/locale/pa_PK/LC_MESSAGES/iso_15924.mo
+/usr/share/locale/pa_PK/LC_MESSAGES/iso_3166-2.mo
+/usr/share/locale/pa_PK/LC_MESSAGES/iso_3166-3.mo
+/usr/share/locale/pa_PK/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/pap
 /usr/share/locale/pap/LC_MESSAGES
 /usr/share/locale/pap/LC_MESSAGES/iso_3166-1.mo
@@ -724,6 +749,9 @@
 /usr/share/locale/ro/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/ro/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/ro/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/ro_MD
+/usr/share/locale/ro_MD/LC_MESSAGES
+/usr/share/locale/ro_MD/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/ru
 /usr/share/locale/ru/LC_MESSAGES
 /usr/share/locale/ru/LC_MESSAGES/iso_15924.mo
@@ -733,6 +761,7 @@
 /usr/share/locale/ru/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/ru/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/ru/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/ru/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/rw
 /usr/share/locale/rw/LC_MESSAGES
 /usr/share/locale/rw/LC_MESSAGES/iso_3166-1.mo
@@ -884,6 +913,7 @@
 /usr/share/locale/tr/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/tr/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/tr/LC_MESSAGES/iso_639-3.mo
+/usr/share/locale/tr/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/tt
 /usr/share/locale/tt/LC_MESSAGES
 /usr/share/locale/tt/LC_MESSAGES/iso_3166-1.mo
@@ -901,6 +931,7 @@
 /usr/share/locale/tzm/LC_MESSAGES/iso_15924.mo
 /usr/share/locale/tzm/LC_MESSAGES/iso_3166-1.mo
 /usr/share/locale/tzm/LC_MESSAGES/iso_4217.mo
+/usr/share/locale/tzm/LC_MESSAGES/iso_639-2.mo
 /usr/share/locale/ug
 /usr/share/locale/ug/LC_MESSAGES
 /usr/share/locale/ug/LC_MESSAGES/iso_3166-1.mo
@@ -977,6 +1008,9 @@
 /usr/share/locale/zh_HK/LC_MESSAGES/iso_3166-3.mo
 /usr/share/locale/zh_HK/LC_MESSAGES/iso_4217.mo
 /usr/share/locale/zh_HK/LC_MESSAGES/iso_639-2.mo
+/usr/share/locale/zh_Hans
+/usr/share/locale/zh_Hans/LC_MESSAGES
+/usr/share/locale/zh_Hans/LC_MESSAGES/iso_639-5.mo
 /usr/share/locale/zh_Hant
 /usr/share/locale/zh_Hant/LC_MESSAGES
 /usr/share/locale/zh_Hant/LC_MESSAGES/iso_639-5.mo
@@ -1008,6 +1042,7 @@
 /usr/share/xml/iso-codes/iso_639-3.xml
 /usr/share/xml/iso-codes/iso_639-5.xml
 /usr/share/locale/ab/LC_MESSAGES/iso_3166.mo
+/usr/share/locale/ab/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/ace/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/ach/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/af/LC_MESSAGES/iso_3166.mo
@@ -1048,6 +1083,7 @@
 /usr/share/locale/bn/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/bn/LC_MESSAGES/iso_639.mo
 /usr/share/locale/bn/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/bn/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/bn_BD/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/bn_BD/LC_MESSAGES/iso_639.mo
 /usr/share/locale/bn_BD/LC_MESSAGES/iso_639_5.mo
@@ -1078,11 +1114,14 @@
 /usr/share/locale/cs/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/cs/LC_MESSAGES/iso_639.mo
 /usr/share/locale/cs/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/cs/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/csb/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/cv/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/cy/LC_MESSAGES/iso_3166.mo
+/usr/share/locale/cy/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/cy/LC_MESSAGES/iso_639.mo
 /usr/share/locale/cy/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/cy/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/da/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/da/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/da/LC_MESSAGES/iso_639.mo
@@ -1106,6 +1145,7 @@
 /usr/share/locale/eo/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/eo/LC_MESSAGES/iso_639.mo
 /usr/share/locale/eo/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/eo/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/es/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/es/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/es/LC_MESSAGES/iso_639.mo
@@ -1129,6 +1169,7 @@
 /usr/share/locale/fi/LC_MESSAGES/iso_639.mo
 /usr/share/locale/fi/LC_MESSAGES/iso_639_3.mo
 /usr/share/locale/fil/LC_MESSAGES/iso_3166.mo
+/usr/share/locale/fil/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/fo/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/fr/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/fr/LC_MESSAGES/iso_3166_2.mo
@@ -1138,6 +1179,7 @@
 /usr/share/locale/frp/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/fur/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/fur/LC_MESSAGES/iso_639.mo
+/usr/share/locale/fur/LC_MESSAGES/iso_639_3.mo
 /usr/share/locale/fur/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/fy/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/ga/LC_MESSAGES/iso_3166.mo
@@ -1164,6 +1206,7 @@
 /usr/share/locale/hi/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/hi/LC_MESSAGES/iso_639.mo
 /usr/share/locale/hi/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/hi/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/hr/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/hr/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/hr/LC_MESSAGES/iso_639.mo
@@ -1200,6 +1243,10 @@
 /usr/share/locale/ja/LC_MESSAGES/iso_639_3.mo
 /usr/share/locale/jam/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/ka/LC_MESSAGES/iso_3166.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_3166_2.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_639.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/ka/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/kab/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/kab/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/kab/LC_MESSAGES/iso_639.mo
@@ -1209,6 +1256,8 @@
 /usr/share/locale/kk/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/kl/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/km/LC_MESSAGES/iso_3166.mo
+/usr/share/locale/kmr/LC_MESSAGES/iso_3166.mo
+/usr/share/locale/kmr/LC_MESSAGES/iso_639_3.mo
 /usr/share/locale/kn/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/kn/LC_MESSAGES/iso_639.mo
 /usr/share/locale/kn/LC_MESSAGES/iso_639_3.mo
@@ -1218,7 +1267,6 @@
 /usr/share/locale/ko/LC_MESSAGES/iso_639_3.mo
 /usr/share/locale/kok/LC_MESSAGES/iso_639.mo
 /usr/share/locale/kok/LC_MESSAGES/iso_639_3.mo
-/usr/share/locale/ku/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/kv/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/kw/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/ky/LC_MESSAGES/iso_3166.mo
@@ -1288,6 +1336,8 @@
 /usr/share/locale/pa/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/pa/LC_MESSAGES/iso_639.mo
 /usr/share/locale/pa/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/pa_PK/LC_MESSAGES/iso_3166_2.mo
+/usr/share/locale/pa_PK/LC_MESSAGES/iso_639.mo
 /usr/share/locale/pap/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/pi/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/pl/LC_MESSAGES/iso_3166.mo
@@ -1310,10 +1360,12 @@
 /usr/share/locale/ro/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/ro/LC_MESSAGES/iso_639.mo
 /usr/share/locale/ro/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/ro_MD/LC_MESSAGES/iso_639.mo
 /usr/share/locale/ru/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/ru/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/ru/LC_MESSAGES/iso_639.mo
 /usr/share/locale/ru/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/ru/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/rw/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/rw/LC_MESSAGES/iso_639.mo
 /usr/share/locale/rw/LC_MESSAGES/iso_639_3.mo
@@ -1380,6 +1432,7 @@
 /usr/share/locale/tr/LC_MESSAGES/iso_3166_2.mo
 /usr/share/locale/tr/LC_MESSAGES/iso_639.mo
 /usr/share/locale/tr/LC_MESSAGES/iso_639_3.mo
+/usr/share/locale/tr/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/tt/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/tt/LC_MESSAGES/iso_639.mo
 /usr/share/locale/tt/LC_MESSAGES/iso_639_3.mo
@@ -1387,6 +1440,7 @@
 /usr/share/locale/tt@iqtelif/LC_MESSAGES/iso_639.mo
 /usr/share/locale/tt@iqtelif/LC_MESSAGES/iso_639_3.mo
 /usr/share/locale/tzm/LC_MESSAGES/iso_3166.mo
+/usr/share/locale/tzm/LC_MESSAGES/iso_639.mo
 /usr/share/locale/ug/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/uk/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/uk/LC_MESSAGES/iso_3166_2.mo
@@ -1419,6 +1473,7 @@
 /usr/share/locale/zh_CN/LC_MESSAGES/iso_639_3.mo
 /usr/share/locale/zh_HK/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/zh_HK/LC_MESSAGES/iso_639.mo
+/usr/share/locale/zh_Hans/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/zh_Hant/LC_MESSAGES/iso_639_5.mo
 /usr/share/locale/zh_TW/LC_MESSAGES/iso_3166.mo
 /usr/share/locale/zh_TW/LC_MESSAGES/iso_3166_2.mo

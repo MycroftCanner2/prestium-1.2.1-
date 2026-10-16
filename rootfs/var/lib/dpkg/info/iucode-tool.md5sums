@@ -1,8 +1,8 @@
-61a21834f0be4e0fde7616cb1ea8e546  usr/sbin/iucode_tool
+04931f0ea02fd76322449b886557065f  usr/sbin/iucode_tool
 da45e221a410847a4c656b5bf6ea2bd8  usr/share/doc/iucode-tool/NEWS.gz
 861c142bd3e2775ccc2d554d27d13052  usr/share/doc/iucode-tool/README.gz
 90c92e0f44625e3aef906906bd524bf4  usr/share/doc/iucode-tool/TODO
-89433580ffb5c1390eabfddfe877f9bc  usr/share/doc/iucode-tool/changelog.Debian.gz
+bea53832d08177ed6490aed6d3782dfd  usr/share/doc/iucode-tool/changelog.Debian.gz
 a5f8475a5e89f7f97952eebda8252958  usr/share/doc/iucode-tool/changelog.gz
 c58d041e41cf232b9c2f866f7d51eba2  usr/share/doc/iucode-tool/copyright
 a4482e51ed7264f26b41f5c7057f4e04  usr/share/man/man8/iucode_tool.8.gz

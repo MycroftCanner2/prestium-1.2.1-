@@ -226,6 +226,8 @@ Description-it.UTF-8: Modello di tastiera:
  Selezionare il tipo di tastiera di questa macchina.
 Description-ja.UTF-8: キーボードモデル:
  このマシンのキーボードのモデルを選択してください。
+Description-ka.UTF-8: კლავიატურის მოდელი:
+ აირჩიეთ ამ მანქანის კლავიატურის მოდელი.
 Description-kab.UTF-8: Tamudemt n tfelwit n usenqed:
  Ttxil-k·m fren azegrir n unasiw n tmacint-a.
 Description-kk.UTF-8: Пернетақта моделі:
@@ -254,6 +256,8 @@ Description-nb.UTF-8: Tastaturtype:
  Velg hvilken tastaturtype du vil sette opp på denne maskinen.
 Description-nl.UTF-8: Toetsenbordmodel:
  Selecteer het type toetsenbord van dit systeem.
+Description-nn.UTF-8: Tastaturoppsett:
+ Vel kva tastaturtype denne maskina har.
 Description-no.UTF-8: Tastaturtype:
  Velg hvilken tastaturtype du vil sette opp på denne maskinen.
 Description-oc.UTF-8: Modèl de clavièr :
@@ -299,8 +303,8 @@ Description-ug.UTF-8: ھەرپتاختا تىپى:
 Description-uk.UTF-8: Модель клавіатури:
  Будь ласка, виберіть модель клавіатури для цього комп'ютера.
 Description-vi.UTF-8: Mô hình bàn phím:
- Hãy chọn kiểu bàn phím cần cấu hình cho máy tính này.
-Description-zh_CN.UTF-8: 键盘类型：
+ Hãy chọn kiểu bàn phím cho máy tính này.
+Description-zh_CN.UTF-8: 键盘型号：
  请选择本机器的键盘型号。
 Description-zh_TW.UTF-8: 鍵盤型號:
  請選擇這台機器的鍵盤型號。
@@ -323,7 +327,7 @@ Description-be.UTF-8: Краіна паходжання клавіятуры:
 Description-bg.UTF-8: Произход на клавиатурната подредба:
  Подредбата на клавиатурата варира в различните страни, а в някои страни има разпространени няколко подредби. Изберете страната, от която произлиза клавиатурата на компютъра.
 Description-bn.UTF-8: কীবোর্ডের মূল উৎস দেশ:
- দেশ অনুযায়ী কীবোর্ডের লেআউট পরিবর্তন হয়। কোন কোন দেশের  একাধিক সাধারণ লেআউট থাকে। অনুগ্রহপূর্বক এই কম্পিউটারের কীবোর্ডের জন্য মূল উৎস দেশ নির্বাচন করুন।
+ দেশ অনুযায়ী কীবোর্ডের লেআউট পরিবর্তন হয়। কোন-কোন দেশের একাধিক সাধারণ লেআউট থাকে। অনুগ্রহপূর্বক এই কম্পিউটারের কীবোর্ডের জন্য মূল উৎস দেশ নির্বাচন করুন।
 Description-bo.UTF-8: མཐེབ་གཞོང་ཡོངས་ཁུངས་ཀྱི་རྒྱལ་ཁབ：
  རྒྱལ་ཁབ་སོ་སོའི་མཐེབ་གཞོང་བཀོད་པ་མི་འདྲ་བས་རྒྱལ་ཁབ་འགའ་ཞིག་ལ་རྒྱུན་སྤྱོད་ཀྱི་བཀོད་པ་མང་པོ་ཡོད དེའི་ཆེད་དུ་རྩིས་འཁོར་འདིའི་མཐེབ་གཞོང་ཡོངས་ཁུངས་ཀྱི་རྒྱལ་ཁབ་ཞིག་གདམ་རོགས
 Description-bs.UTF-8: Država za koju je tastatura:
@@ -348,7 +352,7 @@ Description-et.UTF-8: Klaviatuuri päritoluriik:
  Klaviatuuripaigutus erineb riikide kaupa, ning mõnes riigis on levinud mitu paigutust. Palun vali selle arvuti klaviatuuri päritoluriik.
 Description-eu.UTF-8: Teklatuaren jatorrizko herrialdea:
  Teklatuaren diseinua aldatu egiten da herrialdearen arabera, herrialde batzuk diseinu desberdinak erabiltzen dituzte. Hautatu ordenagailuko teklatuaren jatorrizko herrialdea.
-Description-fa.UTF-8: کشور مالک این صفحه کلید:
+Description-fa.UTF-8: کشور خاستگاه صفحه‌کلید:
  طرح بندی صفحه کلید در کشور های مختلف متفاوت است، در بعضی از کشور ها چندین طرح بندی صفحه کلید متداول وجود دارد. لطفا کشور مورد نظر را برای صفحه کلید این سیستم انتحاب کنید.
 Description-fi.UTF-8: Näppäimistön alkuperämaa:
  Näppäimistöjen näppäinasettelu vaihtelee maasta toiseen ja joissain maissa on useita asetteluja yleisesti käytössä. Valitse tämän tietokoneen näppäimistön alkuperämaa.
@@ -395,7 +399,7 @@ Description-lt.UTF-8: Klaviatūros išdėstymo kilmės šalis:
 Description-lv.UTF-8: Tastatūras izcelsmes valsts:
  Tastatūras izkārtojums dažādās valstīs ir dažāds un dažās valstīs ir vairāki bieži lietoti tastatūras izkārtojumi. Izvēlieties šī datora tastatūras izcelsmes valsti.
 Description-mk.UTF-8: Тип/земја на тастатура:
- Распоредот на буквите на тастатурата  варира зависно од земјата, некои земји имаат повеќе заеднички распореди. Ве можам изберете земја за тастатурата на овој компјутер.
+ Распоредот на буквите на тастатурата зависно на државата, со некои држави имајќо повеќе заеднички распореди. Ве молиме изберете држава за тастатурата на овој компјутер.
 Description-ml.UTF-8: കീബോര്‍ഡിന്റെ രാജ്യം:
  കീബോര്‍ഡുകളുടെ വിന്യാസം രാജ്യങ്ങള്‍ക്കനുസരിച്ചു് മാറ്റമുള്ളതാണു്, ചില രാജ്യങ്ങളിള്‍ ഒന്നിലധികം വിന്യാസങ്ങള്‍ സാധാരണമാകാം. ഈ കമ്പ്യൂട്ടറിലെ കീബോര്‍ഡ് തിരഞ്ഞെടുക്കാനായി ഏതു് രാജ്യമാണെന്നു് ദയവായി തിരഞ്ഞെടുക്കുക.
 Description-mr.UTF-8: या कळफलकाचा उगम देश:
@@ -407,7 +411,7 @@ Description-ne.UTF-8: कुञ्जीपाटीको उत्पत्त
 Description-nl.UTF-8: Oorsprong van het toetsenbord:
  De toetsenbordindeling verschilt per land. Sommige landen hebben zelfs meerdere veelgebruikte indelingen. Selecteer het land van oorsprong van het toetsenbord van dit systeem.
 Description-nn.UTF-8: Opphavleg land for dette tastaturet:
- Tastaturutformingen varierer frå land til land, der nokre land har fleire vanlege oppsett. Vel opphavleg land for tastaturet på denne maskinen.
+ Tastaturutforminga varierer frå land til land, der nokre land har fleire vanlege oppsett. Vel opphavleg land for tastaturet på denne maskina.
 Description-no.UTF-8: Opprinnelsesland for dette tastaturet:
  Utformingen av tastatur varierer fra land til land hvor noen land har flere felles utforminger. Velg opprinnelsesland for tastaturet på denne maskinen.
 Description-oc.UTF-8: País d'origina del clavièr :
@@ -474,7 +478,7 @@ Description-be.UTF-8: Раскладка клавіятуры:
  Калі ласка, пазначце раскладку клавіятуры гэтае машыны.
 Description-bg.UTF-8: Клавиатурна подредба:
  Моля, проверете дали е прикачен твърд диск към тази машина.
-Description-bn.UTF-8: কীবোর্ড লেআউট
+Description-bn.UTF-8: কীবোর্ড লেআউট:
  অনুগ্রহপূর্বক এই মেশিনের কীবোর্ডের উপযুক্ত লেআউট নির্বাচন করুন।
 Description-bo.UTF-8: མཐེབ་གཞོང་གི་བཀོད་པ：
  འཕྲུལ་ཆས་འདིའི་མཐེབ་གཞོང་ལ་འཚམས་པའི་བཀོད་པ་ཞིག་འདེམས་རོགས
@@ -500,8 +504,8 @@ Description-et.UTF-8: Klaviatuuripaigutus:
  Vali selle arvuti klaviatuurile vastav paigutus.
 Description-eu.UTF-8: Teklatuaren diseinua:
  Hautatu ordenagailu honen teklatuari dagokion diseinua.
-Description-fa.UTF-8: طرح بندی صفحه کلید:
- لطفا طرح بندیی که با صفحه کلید این سیستم مطابقت دارد را انتخاب کنید.
+Description-fa.UTF-8: چینش صفحه‌کلید:
+ لطفاً چینش مطابق با صفحه‌کلید این دستگاه را برگزینید.
 Description-fi.UTF-8: Näppäinasettelu:
  Valitse koneen näppäimistöä vastaava näppäinasettelu.
 Description-fr.UTF-8: Disposition du clavier :
@@ -607,7 +611,7 @@ Description-uk.UTF-8: Розкладка клавіатури:
 Description-vi.UTF-8: Bố trí bàn phím:
  Hãy chọn bố trí tương ứng với bàn phím cho máy này.
 Description-zh_CN.UTF-8: 键盘布局：
- 请选择匹配这台机器键盘的布局。
+ 请选择与这台机器的键盘相匹配的布局。
 Description-zh_TW.UTF-8: 鍵盤排列方式:
  請選擇一個合乎這台機器的鍵盤所使用的排列方式。
 
@@ -659,7 +663,7 @@ Description-cy.UTF-8: Cadw'r cynllun bysellfwrdd presennol yn y ffeil gyflunio?
  .
  Os gwelwch yn dda, dewiswch os ydych chi eisiau ei gadw. Os ydych yn dewis hwn, ni fydd unrhyw gwestiynau am gynllun y bysellfwrdd yn cael eu gofyn a mi fydd y cyfluniad presennol yn cael ei gadw.
 Description-da.UTF-8: Bevar nuværende tastaturlayout i opsætningsfilen?
- Det nuværende tastaturlayout i opsætningsfilen /etc/default/keyboard er defineret som XKBLAYOUT="${XKBLAYOUT}" og XKBVARIANT="${XKBVARIANT}".
+ Det nuværende tastaturlayout i opsætningsfilen /etc/default/keyboard er defineret som XKBLAYOUT=»${XKBLAYOUT}« og XKBVARIANT=»${XKBVARIANT}«.
  .
  Vælg venligst om du vil beholde den. Hvis du vælger dette, vil der ikke blive stillet nogen spørgsmål om tastaturlayoutet, og den aktuelle opsætning bevares.
 Description-de.UTF-8: Aktuelle Tastaturbelegung in der Konfigurationsdatei beibehalten?
@@ -802,6 +806,10 @@ Description-nl.UTF-8: Wilt u de huidige toetsenbordindeling in het configuratieb
  De huidige toetsenbordindeling in het configuratiebestand /etc/default/keyboard is gedefinieerd als XKBLAYOUT="${XKBLAYOUT}" en XKBVARIANT="${XKBVARIANT}".
  .
  Kiest u alstublieft of u het wilt houden. Als u hiervoor kiest, zullen verder geen vragen over de toetsenbordindeling worden gesteld en zal de huidige configuratie worden behouden.
+Description-nn.UTF-8: Halde på noverande tastaturoppsett i konfigurasjonsfila?
+ Det gjeldande tastaturoppsettet i oppsettfila /etc/default/keyboard er definert som XKBLAYOUT="${XKBLAYOUT}" og XKBVARIANT="${XKBVARIANT}".
+ .
+ Vel om du vil behalda det. Om du vel dette, så vil du ikkje få nokon spørsmål om tastaturoppsettet og den gjeldande innstillinga vert teken vare på.
 Description-no.UTF-8: Behold gjeldende tastaturutforming i konfigurasjonsfilen?
  Den gjeldende tastaturutformingen i konfigurasjonsfilen /etc/default/keyboard er definert som XKBLAYOUT="${XKBLAYOUT}" og XKBVARIANT="${XKBVARIANT}".
  .
@@ -895,9 +903,9 @@ Description-vi.UTF-8: Giữ bố cục bàn phím hiện tại trong tập tin c
  .
  Hãy chọn nếu bạn muốn giữ nó hay không. Bật tùy chọn này thì không hỏi gì về bố trí bàn phím và cấu hình hiện thời được bảo tồn.
 Description-zh_CN.UTF-8: 在配置文件中保留当前键盘布局吗？
- 当前键盘布局在配置文件 /etc/default/keyboard 中定义为了 XKBLAYOUT="${XKBLAYOUT}" 和 XKBVARIANT="${XKBVARIANT}"。
+ 在 /etc/default/keyboard 中，当前键盘布局的定义为 XKBLAYOUT="${XKBLAYOUT}" 和 XKBVARIANT="${XKBVARIANT}"。
  .
- 请选择您是否想保留。如果您选择此选项，将不会再询问有关键盘布局的问题，并且当前配置将会保留。
+ 请选择您是否想保留此设置。如果您选择此选项，将不会再询问有关键盘布局的问题，并且当前配置将会保留。
 Description-zh_TW.UTF-8: 是否保留目前的設定檔中所指定的鍵盤排列方式？
  目前在設定檔 /etc/default/keyboard 中的鍵盤排列方式乃設定為 XKBLAYOUT="${XKBLAYOUT}" 及 XKBVARIANT="${XKBVARIANT}"。
  .
@@ -951,7 +959,7 @@ Description-cy.UTF-8: Cadw cynllun bysellfwrdd presennol (${XKBLAYOUTVARIANT})?
  .
  Os gwelwch yn dda, dewiswch os ydych chi eisiau ei gadw. Os ydych yn dewis hwn, ni fydd unrhyw gwestiynau am gynllun y bysellfwrdd yn cael eu gofyn.
 Description-da.UTF-8: Behold standardtastaturlayout (${XKBLAYOUTVARIANT})?
- Standardværdien for tastaturlayoutet er XKBLAYOUT="${XKBLAYOUT}" og XKBVARIANT="${XKBVARIANT}".  Denne standardværdi er baseret på den nuværende definition af sprog og region, samt indstillingerne i /etc/X11/xorg.conf.
+ Standardværdien for tastaturlayoutet er XKBLAYOUT=»${XKBLAYOUT}« og XKBVARIANT=»${XKBVARIANT}«. Denne standardværdi er baseret på den nuværende definition af sprog og region, samt indstillingerne i /etc/X11/xorg.conf.
  .
  Vælg venligst om du vil beholde den. Hvis du vælger dette, vil der ikke blive stillet nogen spørgsmål om tastaturlayout.
 Description-de.UTF-8: Voreingestellte Tastaturbelegung (${XKBLAYOUTVARIANT}) beibehalten?
@@ -1094,6 +1102,10 @@ Description-nl.UTF-8: Wilt u de standaard toetsenbordindeling (${XKBLAYOUTVARIAN
  De standaardwaarde voor de toetsenbordindeling is XKBLAYOUT="${XKBLAYOUT}" en XKBVARIANT="${XKBVARIANT}". Deze standaardwaarde is gebaseerd op de huidige instelling voor land/regio en de instellingen in /etc/X11/xorg.conf.
  .
  Kiest u of u dit wilt behouden. Als u hiervoor kiest, zullen verder geen vragen over de toetsenbordindeling worden gesteld.
+Description-nn.UTF-8: Hald på standard tastaturoppsett (${XKBLAYOUTVARIANT})?
+ Standardverdien for tastaturutforminga er XKBLAYOUT="${XKBLAYOUT}" og XKBVARIANT="${XKBVARIANT}". Denne standardverdien er basert på gjeldande definert språk/region og innstillingane i /etc/X11/xorg.conf.
+ .
+ Vel om du vil behalda det. Om du vel å behalda, så vil du ikkje få nokon spørsmål om tastaturoppsettet.
 Description-no.UTF-8: Behold standard tastaturutforming (${XKBLAYOUTVARIANT})?
  Standardverdien for tastaturutformingen er XKBLAYOUT="${XKBLAYOUT}" og XKBVARIANT="${XKBVARIANT}". Denne standardverdien er basert på gjeldende definert språk/region og innstillingene i /etc/X11/xorg.conf.
  .
@@ -1187,9 +1199,9 @@ Description-vi.UTF-8: Giữ bố cục bàn phím mặc định (${XKBLAYOUTVARI
  .
  Hãy chọn nếu bạn muốn giữ nó hay không. Bật tùy chọn này thì không hỏi gì về bố trí bàn phím.
 Description-zh_CN.UTF-8: 保留默认键盘布局 (${XKBLAYOUTVARIANT})？
- 键盘布局的默认值是 XKBLAYOUT="${XKBLAYOUT}" 和 XKBVARIANT="${XKBVARIANT}"。此默认值根据当前设置语言和国家，以及 /etc/X11/xorg.conf 中的设置确定。
+ 键盘布局的默认值是 XKBLAYOUT="${XKBLAYOUT}" 和 XKBVARIANT="${XKBVARIANT}"。此默认值是根据当前的语言和区域设置，以及 /etc/X11/xorg.conf 中的设置确定的。
  .
- 请选择是否保留。如果您选择此选项，将不会再询问有关键盘布局的问题。
+ 请选择您是否想保留此设置。如果您选择此选项，将不会再询问有关键盘布局的问题。
 Description-zh_TW.UTF-8: 是否保留預設的鍵盤排列方式（${XKBLAYOUTVARIANT}）？
  鍵盤排列方式的預設值為 XKBLAYOUT="${XKBLAYOUT}" 及 XKBVARIANT="${XKBVARIANT}"。這個預設值乃是取決於目前所設定的語言/地區，及 /etc/X11/xorg.conf 裡的設定。
  .
@@ -1241,7 +1253,7 @@ Description-cy.UTF-8: Cadw'r dewisiadau bysellfwrdd presennol yn y ffeil gyfluni
  .
  Os ydych yn dewis cadw'r dewisiadau hyn, ni fydd cwestiynau am ddewisiadau'r bysellfwrdd yn cael eu gofyn.
 Description-da.UTF-8: Behold nuværende tastaturindstillinger i opsætningsfilen?
- De nuværende tastaturindstillinger i opsætningsfilen /etc/default/keyboard er defineret som XKBOPTIONS="${XKBOPTIONS}".
+ De nuværende tastaturindstillinger i opsætningsfilen /etc/default/keyboard er defineret som XKBOPTIONS=»${XKBOPTIONS}«.
  .
  Hvis du vælger at beholde disse indstillinger, vil der ikke blive stillet nogen spørgsmål om tastaturindstillinger.
 Description-de.UTF-8: Aktuelle Optionen der Tastaturbelegung in der Konfigurationsdatei behalten?
@@ -1384,6 +1396,10 @@ Description-nl.UTF-8: Wilt u de huidige toetsenbordinstellingen in het configura
  De huidige toetsenbordinstellingen in het configuratiebestand /etc/default/keyboard zijn gedefinieerd als XKBOPTIONS="${XKBOPTIONS}".
  .
  Als u deze opties wilt behouden, zullen verder geen vragen over de toetsenbordinstellingen worden gesteld.
+Description-nn.UTF-8: Behalda noverande tastaturval i konfigurasjonsfila?
+ Dei gjeldande tastaturvala i oppsettfila /etc/default/keyboard er definerte som XKBOPTIONS="${XKBOPTIONS}".
+ .
+ Om du vel å behalda desse vala, så vil du ikkje få nokon spørsmål om tastaturvala.
 Description-no.UTF-8: Behold gjeldende tastaturvalg i konfigurasjonsfilen?
  De gjeldende tastaturvalgene i konfigurasjonsfilen /etc/default/keyboard er definert som XKBOPTIONS="${XKBOPTIONS}".
  .
@@ -1476,10 +1492,10 @@ Description-vi.UTF-8: Giữ tùy chọn bàn phím hiện tại trong tập tin 
  Bố cục bàn phím hiện tại trong tập tin cấu hình /etc/default/keyboard được định nghĩa là XKBOPTIONS="${XKBOPTIONS}".
  .
  Nếu bạn muốn giữ các tùy chọn này, sẽ không còn câu hỏi nào về tùy chọn bàn phím.
-Description-zh_CN.UTF-8: 在配置文件保持当前键盘选项？
- 当前键盘选项在 /etc/default/keyboard 定义为了 XKBOPTIONS="${XKBOPTIONS}"。
+Description-zh_CN.UTF-8: 在配置文件中保留当前键盘选项吗？
+ 在 /etc/default/keyboard 中，当前键盘选项的定义为 XKBOPTIONS="${XKBOPTIONS}"。
  .
- 如果您选择保留这些选项，将不会询问有关键盘布局的问题。
+ 如果您选择保留这些选项，将不会再询问有关键盘选项的问题。
 Description-zh_TW.UTF-8: 是否要保留目前設定檔裡的鍵盤設定？
  目前在設定檔 /etc/default/keyboard 中的鍵盤選項乃設定為 XKBOPTIONS="${XKBOPTIONS}"。
  .
@@ -1532,7 +1548,7 @@ Description-cy.UTF-8: Cadw'r dewisiadau bysellfwrdd diofyn (${XKBOPTIONS})?
  .
  Os ydych yn dewis eu gadw, ni fydd cwestiynau am ddewisiadau'r bysellfwrdd yn cael eu gofyn.
 Description-da.UTF-8: Behold standardtastaturindstillinger (${XKBOPTIONS})?
- Standardværdien for indstillingerne af tastaturlayout er XKBOPTIONS="${XKBOPTIONS}".  Den er baseret på den nuværende definition af sprog og region, samt indstillingerne i /etc/X11/xorg.conf.
+ Standardværdien for indstillingerne af tastaturlayout er XKBOPTIONS=»${XKBOPTIONS}«. Den er baseret på den nuværende definition af sprog og region, samt indstillingerne i /etc/X11/xorg.conf.
  .
  Hvis du vælger at beholde den, vil der ikke blive stillet nogen spørgsmål om tastaturindstillinger.
 Description-de.UTF-8: Voreingestellte Optionen der Tastaturbelegung (${XKBOPTIONS}) beibehalten?
@@ -1675,6 +1691,10 @@ Description-nl.UTF-8: Standaard toetsenbordindeling (${XKBOPTIONS}) behouden?
  De standaardwaarde voor de opties van de toetsenbordindeling is XKBOPTIONS="${XKBOPTIONS}". Het is gebaseerd op de huidige instelling voor land/regio en de instellingen in /etc/X11/xorg.conf.
  .
  Als dit wilt behouden, zullen verder geen vragen over de toetsenbordinstellingen worden gesteld.
+Description-nn.UTF-8: Hald på standard tastaturval (${XKBOPTIONS})?
+ Standardverdien for vala for tastaturutforminga er XKBOPTIONS="${XKBOPTIONS}". Den er basert på gjeldande definert språk/region og innstillingane i /etc/X11/xorg.conf.
+ .
+ Om du vel å behalda det, så vil du ikkje få nokon spørsmål om tastaturvala.
 Description-no.UTF-8: Behold standard tastaturvalg (${XKBOPTIONS})?
  Standardverdien for valgene for tastaturutformingen er XKBOPTIONS="${XKBOPTIONS}". Den er basert på gjeldende definert språk/region og innstillingene i /etc/X11/xorg.conf.
  .
@@ -1768,9 +1788,9 @@ Description-vi.UTF-8: Giữ tùy chọn phím mặc định (${XKBOPTIONS})?
  .
  Nếu bạn chọn giữ nó, sẽ không có thêm câu hỏi nào về bố cục bàn phím.
 Description-zh_CN.UTF-8: 保留默认键盘选项 (${XKBOPTIONS})？
- 键盘布局选项的默认值为 XKBOPTIONS="${XKBOPTIONS}"。它基于当前定义的语言/区域以及 /etc/X11/xorg.conf 的设置。
+ 键盘布局选项的默认值为 XKBOPTIONS="${XKBOPTIONS}"。它是基于当前定义的语言和区域，以及 /etc/X11/xorg.conf 中的设置确定的。
  .
- 如果选择保留，将不会询问有关键盘选项的问题。
+ 如果您选择保留，将不会再询问有关键盘选项的问题。
 Description-zh_TW.UTF-8: 是否保留預設鍵盤選項 (${XKBOPTIONS})？
  鍵盤排列方式的預設選項為 XKBOPTIONS="${XKBOPTIONS}"。這個預設值乃是取決於目前所設定的語言/地區，及 /etc/X11/xorg.conf 裡的設定。
  .
@@ -1784,7 +1804,7 @@ Choices-ar.UTF-8: Caps Lock, زر Alt اليمين (AltGr), زر Control الأ�
 Choices-ast.UTF-8: Caps Lock, Alt drecha (AltGr), Control Derecha, Mayúscules Derecha, Tecla Logu Derecha, Tecla Menú, Alt+May, Control+May, Control+Alt, Alt+Caps Lock, Control Izquierda+Left Izquierda, Alt Izquierda, Control Izquierda, May. Izquierda, Tecla Logu Izquierda, Tecla Bloq. Scroll, Non alternar
 Choices-be.UTF-8: Caps Lock, Правы Alt (AltGr), Правы Control, Правы Shift, Правая кнопка Logo, Кнока меню, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, Левы Control+Левы Shift, Левы Alt, Левы Control, Левы Shift, Левая кнопка Logo, Scroll Lock, Без пераключэння.
 Choices-bg.UTF-8: Caps Lock, Десен Alt (AltGr), Десен Control, Десен Shift, Десен клавиш с лого, Клавиш меню, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, Ляв Control+Ляв Shift, Ляв Alt, Ляв Control, Ляв Shift, Ляв клавиш с лого, Scroll Lock, Без превключване
-Choices-bn.UTF-8: ক্যাপস্ লক, ডান Alt  (AltGr), ডান কন্ট্রোল, ডান Shift, ডান লোগো কী, মেনু কী, Alt+Shift, কন্ট্রোল+শিফট্, কন্ট্রোল+অল্ট, Alt+Caps Lock, বাম কন্ট্রোল+বাম শিফট্, বাম Alt, বাম কন্ট্রোল, বাম শিফট্, বাম লোগো কী, স্ক্রল লক কী, টগল করা যাবেনা
+Choices-bn.UTF-8: ক্যাপস্ লক, ডান Alt (AltGr), ডান কন্ট্রোল, ডান Shift, ডান লোগো কী, মেনু কী, Alt+Shift, কন্ট্রোল+শিফট্, কন্ট্রোল+অল্ট, Alt+Caps Lock, বাম কন্ট্রোল+বাম শিফট্, বাম Alt, বাম কন্ট্রোল, বাম শিফট্, বাম লোগো কী, স্ক্রল লক কী, টগল করা যাবেনা
 Choices-bo.UTF-8: ཆེ་བྲིས་ཀྱི་ཟྭ, Alt གཡས (AltGr), Control གཡོན, Shift གཡས, མཚོན་རྟགས་མཐེབ་གཡས, འདེམས་ཐོ་མཐེབ, Alt+Shift, Control+Shift, Control+Alt, Alt+ཆེ་བྲིས་མཐེབ, Control གཡས+ Shift གཡོན, Alt གཡོན, Control གཡོན, Shift གཡོན, མཚོན་རྟགས་མཐེབ་གཡོན, Scroll Lock key, བརྗེ་རེས་མེད་པ
 Choices-bs.UTF-8: Caps Lock, Desni Alt (AltGr), Desni Control taster, Desni Shift taster, Desni Logo taster, Meni taster, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, Lijevi Control+Lijevi Shift, Lijevi Alt, Lijevi Control, Lijevi Shift, Lijevi Logo taster, Scroll Lock taster, Bez prebacivanja
 Choices-ca.UTF-8: Fixació de majúscules, Alt dret (AltGr), Control dret, Majúscules dreta, Tecla de logotip dreta, Tecla de menú dreta, Alt+Majúscules, Control+Majúscules, Control+Alt, Alt+Fixació de majúscules, Control esquerra+Majúscules esquerra, Alt esquerra, Control esquerra, Majúscules esquerra, Tecla de logotip esquerra, Tecla de fixació de desplaçament, Sense commutació
@@ -1798,7 +1818,7 @@ Choices-eo.UTF-8: Majuskla Baskulo, Dekstra Alt (AltGr), Dekstra Control, Dekstr
 Choices-es.UTF-8: Bloqueo de mayúsculas, Alt derecho (AltGr), Control derecho, «Shift» derecho, Tecla derecha de logo, Tecla de menú, Alt+«Shift», Control+«Shift», Control+Alt, Alt+Bloqueo de mayúsculas, Control Izquierdo+«Shift» Izquierdo, Alt izquierdo, Control izquierdo, «Shift» izquierdo, Tecla izquierda de logo, Tecla del bloqueo de desplazamiento, Sin cambiar
 Choices-et.UTF-8: Caps Lock, Parem Alt (AltGr), Parem Control, Parem Shift, Parem logoklahv, Menüüklahv, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, Vasak Control+vasak Shift, Vasak Alt, Vasak Control, Vasak Shift, Vasak logoklahv, Scroll Lock klahv, Ei vahetata
 Choices-eu.UTF-8: Blok Maius, Eskuineko Alt (AltGr), Eskuineko Ktrl, Eskuineko Maius, Eskuineko Logotipoa tekla, Menua tekla, Alt+Maius, Kontrol+Maius, Kontrol+Alt, Alt + Blok Maius, Ezkerreko Ktrl + ezkerreko Maius, Ezkerreko Alt, Ezkerreko Ktrl, Ezkerreko Maius, Ezkerreko Logotipoa tekla, Blok Korr tekla, Txandakatzerik ez
-Choices-fa.UTF-8: Caps Lock, کلید Alt (AltGr) راست, کلید Control راست, کلید Shift راست, کلید Logo راست, کلید MenuQ, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, ٓControl چپ+Shift چپ, کلید Alt چپ, کلید Control چپ, کلید Shift چپ, کلید Logo چپ, کلید اسکرول_لاک, بدون تغییر وضعیت
+Choices-fa.UTF-8: قفل تبدیل, دگرساز راست, مهار راست, تبدیل راست, سوپر راست, کلید فهرست, دگرساز+تبدیل, مهار+تبدیل, مهار+دگرساز, دگرساز+قفل تبدیل, مهار چپ+تبدیل چپ, دگرساز چپ, مهار چپ, تبدیل چپ, سوپر چپ, کلید قفل لغزش, بدون تغییر وضعیت
 Choices-fi.UTF-8: Caps Lock, Oikea Alt (AltGr), Oikea Control, Oikea Vaihto, Oikea Logo-näppäin, Menu-näppäin, Alt+Vaihto, Control+Vaihto, Control+Alt, Alt+Caps Lock, Vasen Control+vasen Vaihto, Vasen Alt, Vasen Control, Vasen Vaihto, Vasen Logo-näppäin, Scroll Lock -näppäin, Ei tapaa vaihtamiseen
 Choices-fr.UTF-8: Verrouillage Majuscule, Touche Alt de droite (AltGr), Touche Ctrl de droite, Majuscule de droite, Touche « logo » de droite, Touche Menu, Alt + Majuscule, Ctrl + Majuscule, Ctrl + Alt, Alt + Verrouillage Majuscule, Ctrl gauche + Majuscule gauche, Touche Alt de gauche, Ctrl de gauche, Majuscule de gauche, Touche « logo » de gauche, Arrêt défil. (Scroll Lock), Pas de basculement
 Choices-ga.UTF-8: Glas Ceannlitreacha, Alt Ar Dheis (AltGr), Ctrl Ar Dheis, Shift Ar Dheis, Eochair lógó ar dheis, Eochair roghchláir, Alt+Shift, Ctrl+Shift, Ctrl+Alt, Alt+Caps Lock, Ctrl Ar Chlé+Shift Ar Chlé, Alt Ar Chlé, Ctrl Ar Chlé, Shift Ar Chlé, Eochair lógó ar chlé, Eochair Scroll Lock, Gan scoránú
@@ -1824,11 +1844,11 @@ Choices-lv.UTF-8: Caps Lock, Labais Alt (AltGr), Labais Ctrl, Labais Shift, Laba
 Choices-mk.UTF-8: Caps Lock, Десен Alt (AltGr), Десен Control, Десен Shift, Десното Лого копче, Мени копче, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, Лев Control+Left Shift, Лев Alt, Лев Control, Лев Shift, Левото лого копче, Scroll Lock копчето, Ништо
 Choices-ml.UTF-8: കാപ്സ് ലോക്ക്, വലത് ആള്‍ട്ട് (AltGr), വലത് കണ്ട്രോള്‍, വലത് ഷിഫ്ട്, വലത് ലോഗോ കീ, മെനു കീ, ആള്‍ട്ട്+ഷിഫ്റ്റ്, കണ്ട്രോള്‍+ഷിഫ്റ്റ്, കണ്ട്രോള്‍+ആള്‍ട്ട്, ആള്‍ട്ട്+കാപ്സ് ലോക്ക്, ഇടതു് കണ്ട്രോള്‍+ഇടതു് ഷിഫ്റ്റ്, ഇടത് ആള്‍ട്ട്, ഇടത് കണ്‍ട്രോള്‍, ഇടത് ഷിഫ്ട്, ഇടത് ലോഗോ കീ, സ്കോള്‍ ലോക്ക് കീ, തമ്മില്‍ മാറേണ്ട
 Choices-mr.UTF-8: Caps Lock, उजवी Alt (AltGr), उजवी Control, उजवी Shift, उजवी लोगो कळ, मेनू कळ, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, डावी Control+डावी Shift, डावी Alt, डावी Control, डावी Shift, डावी लोगो कळ, Scroll Lock कळ, टॉगलिंग नाही
-Choices-nb.UTF-8: Caps Lock, Høgre Alt (Alt Gr), Høyre Ctrl, Høyre Shift, Høyre logotast, Menytast, Alt + Shift, Ctrl + Shift, Ctrl + Alt, Alt + Caps Lock, Venste Ctrl + Venstre Shift, Venstre Alt, Venstre Ctrl, Venstre Shift, Venstre logotast, Scroll Lock tast, Ingen skifting
+Choices-nb.UTF-8: Caps Lock, Høyre Alt (AltGr), Høyre Ctrl, Høyre Shift, Høyre logotast, Menytast, Alt + Shift, Ctrl + Shift, Ctrl + Alt, Alt + Caps Lock, Venste Ctrl + Venstre Shift, Venstre Alt, Venstre Ctrl, Venstre Shift, Venstre logotast, Scroll Lock tast, Ingen skifting
 Choices-ne.UTF-8: Caps Lock, Right Alt, दाहिने Control, दाहिने Shift, दाहिने Logo key, मेनु key, अल्ट + शिफ्ट, कन्ट्रोल + शिफ्ट, कन्ट्रोल + अल्ट, अल्ट + क्याप्स लक, देब्रे कन्ट्रोल + देब्रे शिफ्ट, देब्रे अल्ट, देब्रे कन्ट्रोल, देब्रे शिफ्ट, देब्रे Logo key, स्क्रोल लक key, परिवर्तन निषेध
 Choices-nl.UTF-8: Caps Lock, Alt-Rechts (AltGr), Control-Rechts, Shift-Rechts, Logotoets-Rechts, Menutoets, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, Control-Links+Shift-Links, Alt-Links, Control-Links, Shift-Links, Logotoets-Links, Scroll Lock, Niet schakelen
-Choices-nn.UTF-8: Caps Lock, Høgre Alt (Alt Gr), Høgre Ctrl, Høgre Shift, Høgre logotast, Menytast, Alt + Shift, Ctrl + Shift, Ctrl + Alt, Alt + Caps Lock, Venste Ctrl + Venstre Shift, Venstre Alt, Venstre Ctrl, Venstre Shift, Venstre logotast, Scroll Lock tast, Ingen skifting
-Choices-no.UTF-8: Caps Lock, Høgre Alt (Alt Gr), Høyre Ctrl, Høyre Shift, Høyre logotast, Menytast, Alt + Shift, Ctrl + Shift, Ctrl + Alt, Alt + Caps Lock, Venste Ctrl + Venstre Shift, Venstre Alt, Venstre Ctrl, Venstre Shift, Venstre logotast, Scroll Lock tast, Ingen skifting
+Choices-nn.UTF-8: Caps Lock, Høgre Alt (AltGr), Høgre Ctrl, Høgre Shift, Høgre logotast, Menytast, Alt + Shift, Ctrl + Shift, Ctrl + Alt, Alt + Caps Lock, Venste Ctrl + Venstre Shift, Venstre Alt, Venstre Ctrl, Venstre Shift, Venstre logotast, Scroll Lock tast, Inga skifting
+Choices-no.UTF-8: Caps Lock, Høyre Alt (AltGr), Høyre Ctrl, Høyre Shift, Høyre logotast, Menytast, Alt + Shift, Ctrl + Shift, Ctrl + Alt, Alt + Caps Lock, Venste Ctrl + Venstre Shift, Venstre Alt, Venstre Ctrl, Venstre Shift, Venstre logotast, Scroll Lock tast, Ingen skifting
 Choices-oc.UTF-8: Verrolhatge numeric, Tòca Alt de drecha (AltGr), Ctrl drecha, Maj drecha, Tòca « lògo » de drecha, Tòca menú, Alt+Maj, Ctrl+Maj, Ctrl + Alt, Alt + Verrolhatge Majuscula, Ctrl esquèrra + Majuscula esquèrra, Alt esquèrra, Ctrl esquèrra, Maj esquèrra, Tòca « lògo » d'esquèrra, Arrèst desfil. (Scroll Lock), Pas de basculament
 Choices-pa.UTF-8: ਕੈਪਸ ਲਾਕ, ਸੱਜਾ Alt (AltGr), ਸੱਜਾ ਕੰਟਰੋਲ, ਸੱਜਾ ਸਿਫਟ, ਸੱਜੀ ਲੋਗੋ ਸਵਿੱਚ, ਮੇਨੂ ਸਵਿੱਚ, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps ਲਾਕ, ਖੱਬਾ Control+ਖੱਬਾ Shift, ਖੱਬਾ Alt, ਖੱਬਾ ਕੰਟਰੋਲ, ਖੱਬਾ ਸਿਫਟ, ਖੱਬੀ ਲੋਗੋ ਸਵਿੱਚ, ਸਕਰੋਲ ਲਾਕ ਸਵਿੱਚ, ਟਾਗਲ ਨਹੀਂ ਕਰਨਾ
 Choices-pl.UTF-8: Caps Lock, Prawy Alt (AltGr), Prawy Control, Prawy Shift, Prawy klawisz logo, Klawisz menu, Alt+Shift, Control+Shift, Control+Alt, Alt+Caps Lock, Prawy Control + lewy Shift, Lewy Alt, Lewy Control, Lewy Shift, Lewy klawisz logo, Klawisz Scroll Lock, Bez przełączania
@@ -1898,9 +1918,9 @@ Description-bg.UTF-8: Метод за превключване между реж
 Description-bn.UTF-8: ন্যাশনাল ও ল্যাটিন মুডে টগল্ এর নিয়ম:
  কীবোর্ডর ন্যাশনাল লেআউট ও ল্যাটিন লেআউটের মধ্যে টগল করতে আপনার একটা উপায় পেতে হবে।
  .
- সঙ্গত কারনে ডান অল্ট  বা ক্যাপস্ লক প্রায়ই ব্যবহার হয় (পরের ‌ক্ষেত্রে শিফট্+ক্যাপস্ লক  কম্বিনেশন সাধারণ ক্যাপস্ টগল্ এর জন্য ব্যবহার হয়। অল্ট+শিফট্ ও একটি জনপ্রিয় কম্বিনেশন; তবে এর ফলে  Emacs ও অন্যান্য প্রোগ্রামে যেখানেএদের বিশেষ কাজ নির্দেশিত, সেগুলো হারাবে।
+ ডান Alt বা Caps Lock কীগুলি প্রায়শই এর্গোনোমিক কারণে বেছে নেওয়া হয় (দ্বিতীয় ক্ষেত্রে, সাধারণ ক্যাপ টগলের জন্য Shift+Caps Lock ব্যবহার করুন)। Alt+Shift ও ব্যবহার হয়; তবে এটি Emacs এবং অন্যান্য প্রোগ্রামে, যেখানে এটির অন্য নির্দিষ্ট ব্যবহার আছে সেখানে কাজ করবে না।
  .
- তালিকাভুক্ত সব কী কীবোর্ডে নেই।
+ তালিকায় দেওয়া সমস্ত কীগুলি সব কীবোর্ডে থাকে না ।
 Description-bo.UTF-8: རང་རྒྱལ་ལམ་ལ་ཐིན་གྱི་རྣམ་པའི་བར་བརྗེ་རེས་ཀྱི་ཐབས་ཤེས：
  རང་རྒྱལ་གྱི་བཀོད་པ་དང་ཚད་ལྡན་གྱི་ལ་ཐིན་བཀོད་པའི་བར་མཐེབ་གཞོང་བརྗེ་རེས་བྱེད་སྟངས་ཞིག་ཡོད་དགོས
  .
@@ -1979,12 +1999,12 @@ Description-eu.UTF-8: Latin eta nazio moduen artean txandakatzeko metodoa:
  Arrazoi ergonomikoak direla eta aukeratu ohi dira Eskuineko Alt edo Blok. Maius teklak (azken kasuan, erabili Maius+Blokeatu Maiuskulak tamaina arruntera aldatzeko). Alt+Maius tekla-konbinazioa asko erabili ohi da baita ere; kontuan izan kasu honetan Alt+Maius tekla konbinazioak Emacs edo beste programetan duen erabilera galduko duela.
  .
  Zerrendatutako tekla guztiak ez daude teklatu guztietan.
-Description-fa.UTF-8: روش جابجا شدن بین حالت بومی و لاتین:
- شما نیاز به راهی دارید که بین طرح بندی صفحه کلید بومی و طرح بندی صفحه کلید لاتین جابه‌جا شوید.
+Description-fa.UTF-8: روش تغییر وضعیت بین حالت ملّی و لاتین:
+ نیاز به راهی برای تغییر وضعیت بین چینش ملّی و چینش استاندارد لاتین دارید.
  .
- کلید Alt چپ و Caps Lock معمولا به دلایل ارگونومیک انتخاب می شود. Alt+Shift هم ترکیب متداولی است؛ با وجود این در برخی از نرم افزار ها که این ترکیب ها برای موارد مشخصی استفاده می شود ،خاصیت خود را از دست می دهند.
+ اغلب کلیدهای قفل تبدیل یا دگرساز راست به دلایل ارگونومی گزیده می‌شوند (در مورد نخست برای تغییر وضعیت بزرگی و کوچکی از تبدیل+قفل تبدیل استفاده کنید). دگرساز+تبدیل عم ترکیب محبوبی است؛ با این حال رفتار معمولش را در ای‌مکس و دیگر برنامه‌هایی که از این ترکیب برای نیازهای مشخّصی استفاده می‌کنند از دست می‌دهد.
  .
- تمام کلید های لیست شده بر روی تمام صفحه کلید ها وجود ندارد.
+ تمام کلید های فهرست شده روی تمامی صفحه‌کلیدها وجود ندارد.
 Description-fi.UTF-8: Tapa paikallisen ja Latin-tilan välillä vaihtamiseen:
  Näppäinasettelua halutaan usein vaihtaa paikallisen ja standardin Latin-näppäinasettelun välillä.
  .
@@ -2072,7 +2092,7 @@ Description-kab.UTF-8: Tarrayt i ubeddel gar uskar alatini aɣelnaw:
 Description-kk.UTF-8: Ұлттық пен латын режимдері арасында ауысу тәсілі:
  Сізге пернетақтаның ұлттық пен латын жаймалары арасында ауысу жолы керек болады.
  .
- Оң жақ Alt немесе Caps Lock пернелері жиі ыңғайлылық есебінен қолданылады (соңғы жағдайда, қалыпты Caps ауыстыру үшін Shift+Caps Lock қолданылады). Alt+Shift тіркесі де жиі қолданылады; бірақта, ол тіркесті қолданатын Emacs не басқа қолданбалар оны жоғалтатын болады.
+ Оң жақ Alt немесе Caps Lock пернелері жиі ыңғайлылық есебінен қолданылады (соңғы жағдайда, қалыпты Caps ауыстыру үшін Shift+Caps Lock қолданылады). Alt+Shift тіркесі де жиі қолданылады; бірақта, ол тіркесті қолданатын Emacs немесе басқа қолданбалар оны жоғалтатын болады.
  .
  Тізілген пернелердің барлығы барлық пернетақталарда кездесе бермейді.
 Description-km.UTF-8: វិធីសាស្ត្រ​សម្រាប់​បិទ/បើក​រវាង​របៀប​ភាសា​ជាតិ និង​ឡាតាំង ៖
@@ -2153,10 +2173,10 @@ Description-nl.UTF-8: Methode om te schakelen tussen nationale en Latijnse modus
  Hiervoor worden om ergonomische redenen vaak de toetsen Alt-Rechts of Caps Lock gekozen (gebruik in het laatste geval de combinatie Shift+Caps Lock om de normale Caps Lock te schakelen). Alt+Shift is ook een populaire combinatie, maar dat zal dan wel zijn functie in Emacs en andere programma's waar het een bijzondere functie heeft verliezen.
  .
  Niet alle vermelde toetsen komen voor op alle toetsenborden.
-Description-nn.UTF-8: Metode for å skifte mellom nasjonal- og Latin-modus:
+Description-nn.UTF-8: Metode for å skifte mellom nasjonal- og latin-modus:
  Du treng ein måte å skifte tastaturet mellom nasjonal utforming og standard latinsk utforming.
  .
- Høgre Alt eller Caps Lock blir ofte brukt av ergonomiske grunnar (i det sistnevnte tilfelle, bruk kombinasjonen Shift + Caps Lock for vanleg Caps-oppførsel). Alt+Shift er òg ein vanleg kombinasjon, men den mister den vanlege oppførselen i Emacs og andre program som bruker den av særskilde grunnar.
+ Høgre Alt eller Caps Lock blir ofte brukt av ergonomiske grunnar (i det siste tilfellet bruk kombinasjonen Shift + Caps Lock for vanleg Caps-oppførsel). Alt+Shift er òg ein vanleg kombinasjon, men den mister den vanlege oppførselen i Emacs og andre program som bruker den av særskilde grunnar.
  .
  Ikkje alle oppgitte tastar finst på alle tastatur.
 Description-no.UTF-8: Metode for å skifte mellom nasjonal- og Latin-modus:
@@ -2300,7 +2320,7 @@ Description-vi.UTF-8: Phương pháp bật/tắt giữa chế độ quốc gia v
 Description-zh_CN.UTF-8: 用于在国家与拉丁模式之间切换的方法：
  您需要在国家布局和标准拉丁布局之间切换键盘布局的方法。
  .
- 考虑到人体工程学，常会选用右边的 Alt 或大写锁定键 (在之后的例子中，使用 Shift+大写锁定键的组合来代替普通大写切换)。Alt+Shift 也是很流行的组合；但在 Emacs 和其他将其用于特殊需要的程序中它会失去其通常的功能。
+ 考虑到人体工程学，常会选用右边的 Alt 或大写锁定键 (如选择后者，则会使用 Shift+大写锁定键的组合来进行正常的大小写切换)。Alt+Shift 也是很流行的组合键；但在 Emacs 和其他将其用于特殊用途的程序中它会失去其通常的功能。
  .
  不是所有列出的键在所有键盘上都有。
 Description-zh_TW.UTF-8: 在 national 及 Latin 模式間的切換方式:
@@ -2318,7 +2338,7 @@ Choices-ar.UTF-8: دون تبديل مؤقت, مفتاحي الشعار سويّ
 Choices-ast.UTF-8: Nun camudar temporalmente, Dambes Tecles de Logu, Alt drecha (AltGr), Tecla Logu Derecha, Alt Izquierda, Tecla Logu Izquierda
 Choices-be.UTF-8: Без часовага пераключэння, Дзве Logo кнопкі, Правы Alt (AltGr), Правая кнопка Logo, Левы Alt, Левая кнопка Logo
 Choices-bg.UTF-8: Без временно превключване, И двата клавиша с лого, Десен Alt (AltGr), Десен клавиш с лого, Ляв Alt, Ляв клавиш с лого
-Choices-bn.UTF-8: কোন অস্থায়ী সুইচ নেই, উভয় লোগো কী, ডান Alt  (AltGr), ডান লোগো কী, বাম Alt, বাম লোগো কী
+Choices-bn.UTF-8: কোন অস্থায়ী সুইচ নেই, উভয় লোগো কী, ডান Alt (AltGr), ডান লোগো কী, বাম Alt, বাম লোগো কী
 Choices-bo.UTF-8: གནས་སྐབས་ཀྱི་བརྗེ་རེས་མཐེབ་མེད་པ, མཚོན་རྟགས་མཐེབ་གཉིས་པོ, Alt གཡས (AltGr), མཚོན་རྟགས་མཐེབ་གཡས, Alt གཡོན, མཚོན་རྟགས་མཐེབ་གཡོན
 Choices-bs.UTF-8: Bez privremenog prekidača, Obje Logo tipke, Desni Alt (AltGr), Desni Logo taster, Lijevi Alt, Lijevi Logo taster
 Choices-ca.UTF-8: Sense commutador temporal, Ambdues tecles de logotip, Alt dret (AltGr), Tecla de logotip dreta, Alt esquerra, Tecla de logotip esquerra
@@ -2332,7 +2352,7 @@ Choices-eo.UTF-8: Neniu provizora ŝaltilo, Ambaŭ klavoj Logo, Dekstra Alt (Al
 Choices-es.UTF-8: Sin cambio temporal, Ambas teclas del logo, Alt derecho (AltGr), Tecla derecha de logo, Alt izquierdo, Tecla izquierda de logo
 Choices-et.UTF-8: Ajutist vahetust pole, Mõlemad logoklahvid, Parem Alt (AltGr), Parem logoklahv, Vasak Alt, Vasak logoklahv
 Choices-eu.UTF-8: Aldi baterako aldaketarik ez, Bi logotipo teklak, Eskuineko Alt (AltGr), Eskuineko Logotipoa tekla, Ezkerreko Alt, Ezkerreko Logotipoa tekla
-Choices-fa.UTF-8: موقتا عوض نشود, هر دو کلید Logo, کلید Alt (AltGr) راست, کلید Logo راست, کلید Alt چپ, کلید Logo چپ
+Choices-fa.UTF-8: موقتا عوض نشود, هر دو کلید Logo, دگرساز راست, سوپر راست, دگرساز چپ, سوپر چپ
 Choices-fi.UTF-8: Ei väliaikaista muuntajaa, Molemmat Logo-näppäimet, Oikea Alt (AltGr), Oikea Logo-näppäin, Vasen Alt, Vasen Logo-näppäin
 Choices-fr.UTF-8: Pas de basculement temporaire, Les deux touches « logo », Touche Alt de droite (AltGr), Touche « logo » de droite, Touche Alt de gauche, Touche « logo » de gauche
 Choices-ga.UTF-8: Gan athrú sealadach, An dá eochair lógó, Alt Ar Dheis (AltGr), Eochair lógó ar dheis, Alt Ar Chlé, Eochair lógó ar chlé
@@ -2358,10 +2378,10 @@ Choices-lv.UTF-8: Bez īslaicīgā slēdža, Abi Logo taustiņi, Labais Alt (Alt
 Choices-mk.UTF-8: Без привремена промена, Двете лого копчиња, Десен Alt (AltGr), Десното Лого копче, Лев Alt, Левото лого копче
 Choices-ml.UTF-8: താത്കാലിക സ്വിച്ചില്ല, രണ്ടു് ലോഗോ കീകളും, വലത് ആള്‍ട്ട് (AltGr), വലത് ലോഗോ കീ, ഇടത് ആള്‍ട്ട്, ഇടത് ലോഗോ കീ
 Choices-mr.UTF-8: तात्पुरता स्विच नाही, दोन्ही लोगो कळी, उजवी Alt (AltGr), उजवी लोगो कळ, डावी Alt, डावी लोगो कळ
-Choices-nb.UTF-8: Ingen midlertidig skifting, Begge Logo-tastene, Høgre Alt (Alt Gr), Høyre logotast, Venstre Alt, Venstre logotast
+Choices-nb.UTF-8: Ingen midlertidig skifting, Begge Logo-tastene, Høyre Alt (AltGr), Høyre logotast, Venstre Alt, Venstre logotast
 Choices-nl.UTF-8: Geen tijdelijke omschakeling, Beide Logotoetsen, Alt-Rechts (AltGr), Logotoets-Rechts, Alt-Links, Logotoets-Links
-Choices-nn.UTF-8: Ingen mellombels byte, Båe logotastane, Høgre Alt (Alt Gr), Høgre logotast, Venstre Alt, Venstre logotast
-Choices-no.UTF-8: Ingen midlertidig skifting, Begge Logo-tastene, Høgre Alt (Alt Gr), Høyre logotast, Venstre Alt, Venstre logotast
+Choices-nn.UTF-8: Ingen mellombels byte, Båe logotastane, Høgre Alt (AltGr), Høgre logotast, Venstre Alt, Venstre logotast
+Choices-no.UTF-8: Ingen midlertidig skifting, Begge Logo-tastene, Høyre Alt (AltGr), Høyre logotast, Venstre Alt, Venstre logotast
 Choices-oc.UTF-8: Pas cap de basculament temporari, Las doas tòcas « lògo », Tòca Alt de drecha (AltGr), Tòca « lògo » de drecha, Alt esquèrra, Tòca « lògo » d'esquèrra
 Choices-pa.UTF-8: ਕੋਈ ਆਰਜ਼ੀ ਸਵਿੱਚ ਨਹੀਂ, ਦੋਵੇਂ ਲੋਗੋ ਸਵਿੱਚ, ਸੱਜਾ Alt (AltGr), ਸੱਜੀ ਲੋਗੋ ਸਵਿੱਚ, ਖੱਬਾ Alt, ਖੱਬੀ ਲੋਗੋ ਸਵਿੱਚ
 Choices-pl.UTF-8: Bez tymczasowego przełączania, Oba klawisze logo, Prawy Alt (AltGr), Prawy klawisz logo, Lewy Alt, Lewy klawisz logo
@@ -2383,7 +2403,7 @@ Choices-th.UTF-8: ไม่มีการสลับชั่วคราว, 
 Choices-tr.UTF-8: Geçici geçiş yok, Her iki Logo tuşu, Sağ Alt (AltGr), Sağ Logo tuşu, Sol Alt, Sol Logo tuşu
 Choices-ug.UTF-8: ۋاقىتلىق ئۈزچات يوق, ئىككى Logo كۇنۇپكىسى, ئوڭ Alt (AltGr), ئوڭ  Logo كۇنۇپكا, سول Alt, سول Logo كۇنۇپكا
 Choices-uk.UTF-8: Без тимчасового перемикача, Обидві клавіші Logo, Правий Alt (AltGr), Права клавіша Logo, Лівий Alt, Ліва клавіша Logo
-Choices-vi.UTF-8: Không có phím chuyển tạm thời, Cả hai Logo, Alt phải (AltGr), Phím Win phải, Alt trái, Phím Win trái
+Choices-vi.UTF-8: Không có phím chuyển tạm thời, Cả hai khóa Logo, Alt phải (AltGr), Phím Win phải, Alt trái, Phím Win trái
 Choices-zh_CN.UTF-8: 无临时切换键, 两个徽标键, 右 Alt 键 (AltGr), 右徽标键, 左 Alt, 左徽标键
 Choices-zh_TW.UTF-8: 不要暫時切換, 兩邊的 Logo 鍵, 左 Alt (AltGr), 右 Logo 鍵, 左 Alt, 左 Logo 鍵
 Default: No temporary switch
@@ -2579,8 +2599,8 @@ Description-nl.UTF-8: Methode om tijdelijk te schakelen tussen nationale en Lati
  Soms is het toetsenbord in nationale modus en wilt u enkele Latijnse letters intikken. In dat geval kan het wenselijk zijn om een toets te hebben die u toelaat om tijdelijk te schakelen tussen nationale en Latijnse symbolen. Als deze toets is ingedrukt zal het toetsenbord Latijnse letters weergeven wanneer de de nationale modus actief is (en omgekeerd nationale letters wanneer in Latijnse modus).
  .
  U kunt deze optie uitschakelen door hier 'Geen tijdelijke omschakeling' te kiezen.
-Description-nn.UTF-8: Metode for å midlertidig byte mellom nasjonal- og latin-modus:
- Når tastaturet er i nasjonal modus og du berre vil skrive nokre få latinske bokstavar, kan det vere betre å byte mellombels til latinsk modus. Tastaturet held seg i den modusen så lenge den valde tasten er heldt inne. Den tasten kan òg brukast for å skriva nasjonale bokstavar når tastaturet er i latinmodus.
+Description-nn.UTF-8: Metode for å byte mellombels mellom nasjonal- og latin-modus:
+ Når tastaturet er sett til lokalt språk og du ønskjer å skriva nokre få latinske bokstavar, kan det enklaste vera å byte mellombels til latinske teikn. Tastaturet vil vera i latinsk modus så lenge den valde tasten vert halden nede. Denne tasten kan også brukast for å skriva inn lokale teikn når tastaturet er i latin-modus.
  .
  Du kan deaktivere denne funksjonen ved å velje «Ingen mellombels byte».
 Description-no.UTF-8: Metode for å skifte midlertidig mellom nasjonal- og Latin-modus:
@@ -2676,9 +2696,9 @@ Description-vi.UTF-8: Phương pháp bật/tắt tạm thời giữa cách gõ q
  .
  Có thể tắt tính năng này bằng cách bật tùy chọn “Không có cái chuyển tạm thời”.
 Description-zh_CN.UTF-8: 临时在国家和拉丁输入之间切换的方法：
- 当键盘在国家模式下且您就想输入几个拉丁字母时，可能临时转换为拉丁模式会比较方便。只要按着所选择的切换键，键盘会保持在该模式下。该键在键盘处于拉丁模式下时也可用来输入国家字符。
+ 当键盘在国家模式下且您就想输入几个拉丁字母时，可能临时转换为拉丁模式会比较方便。只要按着所选择的切换键，键盘就会保持在该模式下。该键也可以在键盘处于拉丁模式下时用于输入国家字符。
  .
- 您可以选择“无临时切换键”来禁用此功能。
+ 您可以选择 "无临时切换键" 来禁用此功能。
 Description-zh_TW.UTF-8: 在 national 及 Latin 模式間暫時切換的方式:
  當鍵盤處於 national 模式，而只是暫時要輸入幾個 Latin 文字的話，更適切的作法是暫時切換到 Latin 模式。只要這個鍵被按下的期間，鍵盤將會持續處於這個模式之下。這個鍵也可以用在 Latin 模式下作為輸入 national 文字之用。
  .
@@ -2692,7 +2712,7 @@ Choices-ar.UTF-8: تخطيط لوحة المفاتيح الافتراضي, لا 
 Choices-ast.UTF-8: La disposición por defeutu pal tecláu, Ensin tecla AltGr, Alt drecha (AltGr), Control Derecha, Tecla Logu Derecha, Tecla Menú, Alt Izquierda, Tecla Logu Izquierda, Tecla Enter del Keypad, Dambes Tecles de Logu, Dambes tecles Alt
 Choices-be.UTF-8: Перадвызначаная раскладка клавіятуры, Няма кнопкі AltGr, Правы Alt (AltGr), Правы Control, Правая кнопка Logo, Кнока меню, Левы Alt, Левая кнопка Logo, Enter на лічбавай клавіятуры, Дзве Logo кнопкі, Кнопкі Alt разам
 Choices-bg.UTF-8: Избиране на клавиатурна подредба, Без клавиш AltGr, Десен Alt (AltGr), Десен Control, Десен клавиш с лого, Клавиш меню, Ляв Alt, Ляв клавиш с лого, Клавиш Enter (цифров блок), И двата клавиша с лого, Двата клавиша Alt
-Choices-bn.UTF-8: কীবোর্ডের জন্য ডিফল্ট লেআউট, কোন AltGr কী নয়, ডান Alt  (AltGr), ডান কন্ট্রোল, ডান লোগো কী, মেনু কী, বাম Alt, বাম লোগো কী, কীপ্যাড এন্টার কী, উভয় লোগো কী, উভয় Alt কী
+Choices-bn.UTF-8: কীবোর্ডের জন্য ডিফল্ট লেআউট, কোন AltGr কী নয়, ডান Alt (AltGr), ডান কন্ট্রোল, ডান লোগো কী, মেনু কী, বাম Alt, বাম লোগো কী, কীপ্যাড এন্টার কী, উভয় লোগো কী, উভয় Alt কী
 Choices-bo.UTF-8: མཐེབ་གཞོང་བཀོད་པ་དེའི་སྔོན་སྒྲིག, AltGr མཐེབ་མེད་པ, Alt གཡས (AltGr), Control གཡོན, མཚོན་རྟགས་མཐེབ་གཡས, འདེམས་ཐོ་མཐེབ, Alt གཡོན, མཚོན་རྟགས་མཐེབ་གཡོན, ཨང་གྲངས་ཁུལ་གྱི་Enter མཐེབ, མཚོན་རྟགས་མཐེབ་གཉིས་པོ, Alt མཐེབ་གཉིས་ཀ
 Choices-bs.UTF-8: Standardni izbor za raspored tastature, Bez AltGr tipke, Desni Alt (AltGr), Desni Control taster, Desni Logo taster, Meni taster, Lijevi Alt, Lijevi Logo taster, Tastatura Enter tipka, Obje Logo tipke, Obje Alt tipke
 Choices-ca.UTF-8: El predeterminat per a la disposició de teclat, Sense tecla AltGr, Alt dret (AltGr), Control dret, Tecla de logotip dreta, Tecla de menú dreta, Alt esquerra, Tecla de logotip esquerra, Tecla Intro del teclat numèric, Ambdues tecles de logotip, Ambues tecles Alt
@@ -2706,7 +2726,7 @@ Choices-eo.UTF-8: La originalo por la klavar-aranĝo, Neniu klavo AltGr, Dekstra
 Choices-es.UTF-8: Distribución por omisión del teclado, Sin tecla AltGr, Alt derecho (AltGr), Control derecho, Tecla derecha de logo, Tecla de menú, Alt izquierdo, Tecla izquierda de logo, Tecla «Intro» del teclado numérico, Ambas teclas del logo, Ambas teclas de Alt
 Choices-et.UTF-8: Vaikimisi klaviatuuripaigutus, Pole AltGr klahvi, Parem Alt (AltGr), Parem Control, Parem logoklahv, Menüüklahv, Vasak Alt, Vasak logoklahv, Numbriklahvistiku Enter-klahv, Mõlemad logoklahvid, Mõlemad Alt-klahvid
 Choices-eu.UTF-8: Teklatuaren diseinu lehenetsia, AltGr teklarik ez, Eskuineko Alt (AltGr), Eskuineko Ktrl, Eskuineko Logotipoa tekla, Menua tekla, Ezkerreko Alt, Ezkerreko Logotipoa tekla, Zenbakizko teklatuko Sartu tekla, Bi logotipo teklak, Bi Alt teklak
-Choices-fa.UTF-8: طرح بندی پیش فرض صفحه کلید, No AltGr key, کلید Alt (AltGr) راست, کلید Control راست, کلید Logo راست, کلید MenuQ, کلید Alt چپ, کلید Logo چپ, Keypad Enter key, هر دو کلید Logo, هر دو کلید Alt
+Choices-fa.UTF-8: طرح بندی پیش فرض صفحه کلید, No AltGr key, دگرساز راست, مهار راست, سوپر راست, کلید فهرست, دگرساز چپ, سوپر چپ, Keypad Enter key, هر دو کلید Logo, هر دو کلید Alt
 Choices-fi.UTF-8: Valitse näppäinasettelun oletusarvo, Ei AltGr-näppäintä, Oikea Alt (AltGr), Oikea Control, Oikea Logo-näppäin, Menu-näppäin, Vasen Alt, Vasen Logo-näppäin, Numeronäppäimistön Enter-näppäin, Molemmat Logo-näppäimet, Molemmat Alt-näppäimet
 Choices-fr.UTF-8: Disposition par défaut pour le clavier, Pas de touche AltGr, Touche Alt de droite (AltGr), Touche Ctrl de droite, Touche « logo » de droite, Touche Menu, Touche Alt de gauche, Touche « logo » de gauche, Entrée (pavé numérique), Les deux touches « logo », Les deux touches Alt ensemble
 Choices-ga.UTF-8: Leagan amach réamhshocraithe, Gan eochair AltGr, Alt Ar Dheis (AltGr), Ctrl Ar Dheis, Eochair lógó ar dheis, Eochair roghchláir, Alt Ar Chlé, Eochair lógó ar chlé, Eochair Enter ar an eochaircheap, An dá eochair lógó, An dá eochair Alt
@@ -2732,9 +2752,10 @@ Choices-lv.UTF-8: Tastatūras izklājuma noklusējuma vērtība, Bez AltGr taust
 Choices-mk.UTF-8: Основен избор за распоредот на тастатурата, Без AltGr копче, Десен Alt (AltGr), Десен Control, Десното Лого копче, Мени копче, Лев Alt, Левото лого копче, Ентер на нумеричка тастатура, Двете лого копчиња, Двете Alt копчиња
 Choices-ml.UTF-8: ഒരു കീബോര്‍ഡ് വിന്യാസത്തിന്റെ സഹജവില, ആള്‍ട്ട്ജിആര്‍ കീ ഇല്ല, വലത് ആള്‍ട്ട് (AltGr), വലത് കണ്ട്രോള്‍, വലത് ലോഗോ കീ, മെനു കീ, ഇടത് ആള്‍ട്ട്, ഇടത് ലോഗോ കീ, കീപാഡ് എന്‍ര്‍ കീ, രണ്ടു് ലോഗോ കീകളും, രണ്ടു് ആള്‍ട്ട് കീകളും
 Choices-mr.UTF-8: कळफलकाचा मूलनिर्धारित आरखडा, AltGr कळ नाही, उजवी Alt (AltGr), उजवी Control, उजवी लोगो कळ, मेनू कळ, डावी Alt, डावी लोगो कळ, कळपॅड एंटर कळ, दोन्ही लोगो कळी, दोन्ही Alt कळी
-Choices-nb.UTF-8: Standarden for tastaturutformingen, Ingen AltGr-tast, Høgre Alt (Alt Gr), Høyre Ctrl, Høyre logotast, Menytast, Venstre Alt, Venstre logotast, Enter-tasten på det numeriske tastaturet, Begge Logo-tastene, Begge Alt-tastene
+Choices-nb.UTF-8: Standarden for tastaturutformingen, Ingen AltGr-tast, Høyre Alt (AltGr), Høyre Ctrl, Høyre logotast, Menytast, Venstre Alt, Venstre logotast, Enter-tasten på det numeriske tastaturet, Begge Logo-tastene, Begge Alt-tastene
 Choices-nl.UTF-8: De standaard voor de toetsenbordindeling, Geen AltGr-toets, Alt-Rechts (AltGr), Control-Rechts, Logotoets-Rechts, Menutoets, Alt-Links, Logotoets-Links, Keypad Enter-toets, Beide Logotoetsen, Beide Alt-toetsen
-Choices-no.UTF-8: Standarden for tastaturutformingen, Ingen AltGr-tast, Høgre Alt (Alt Gr), Høyre Ctrl, Høyre logotast, Menytast, Venstre Alt, Venstre logotast, Enter-tasten på det numeriske tastaturet, Begge Logo-tastene, Begge Alt-tastene
+Choices-nn.UTF-8: Standard tastaturoppsett, Ingen AltGr-tast, Høgre Alt (AltGr), Høgre Ctrl, Høgre logotast, Menytast, Venstre Alt, Venstre logotast, Enter-tasten på det numeriske tastaturet, Båe logotastane, Båe Alt-tastane
+Choices-no.UTF-8: Standarden for tastaturutformingen, Ingen AltGr-tast, Høyre Alt (AltGr), Høyre Ctrl, Høyre logotast, Menytast, Venstre Alt, Venstre logotast, Enter-tasten på det numeriske tastaturet, Begge Logo-tastene, Begge Alt-tastene
 Choices-oc.UTF-8: Disposicion per defaut pel clavièr, Pas de tòca AltGr, Tòca Alt de drecha (AltGr), Ctrl drecha, Tòca « lògo » de drecha, Tòca menú, Alt esquèrra, Tòca « lògo » d'esquèrra, Entrada (pavat numeric), Las doas tòcas « lògo », Las doas claus Alt amassa
 Choices-pa.UTF-8: ਆਪਣਾ ਕੀ-ਬੋਰਡ ਲੇਆਉਟ ਚੁਣੋ, ਕੋਈ altGr ਸਵਿੱਚ ਨਹੀਂ, ਸੱਜਾ Alt (AltGr), ਸੱਜਾ ਕੰਟਰੋਲ, ਸੱਜੀ ਲੋਗੋ ਸਵਿੱਚ, ਮੇਨੂ ਸਵਿੱਚ, ਖੱਬਾ Alt, ਖੱਬੀ ਲੋਗੋ ਸਵਿੱਚ, ਕੀ-ਪੈਡ Enter ਸਵਿੱਚ, ਦੋਵੇਂ ਲੋਗੋ ਸਵਿੱਚ, ਦੋਵੇਂ Alt ਸਵਿੱਚ
 Choices-pl.UTF-8: Domyślne ustawienie dla danego układu klawiatury, Bez klawisza AltGr, Prawy Alt (AltGr), Prawy Control, Prawy klawisz logo, Klawisz menu, Lewy Alt, Lewy klawisz logo, Klawisz ENTER klawiatury pomocniczej, Oba klawisze logo, Oba klawisze Alt
@@ -2756,7 +2777,7 @@ Choices-th.UTF-8: ค่าปริยายของผังแป้นพ�
 Choices-tr.UTF-8: Öntanımlı klavye düzeni, AltGr tuşu yok, Sağ Alt (AltGr), Sağ Control, Sağ Logo tuşu, Menü tuşu, Sol Alt, Sol Logo tuşu, Tuş takımı Enter tuşu, Her iki Logo tuşu, Her iki Alt tuşu
 Choices-ug.UTF-8: ھەرپتاختا جايلاشتۇرۇشنىڭ كۆڭۈلدىكى قىممىتى, AltGr كۇنۇپكا يوق, ئوڭ Alt (AltGr), ئوڭ Control, ئوڭ  Logo كۇنۇپكا, تىزىملىك كۇنۇپكا, سول Alt, سول Logo كۇنۇپكا, كىچىك ھەرپتاختا Enter كۇنۇپكىسى, ئىككى Logo كۇنۇپكىسى, ئىككى Alt كۇنۇپكىسى
 Choices-uk.UTF-8: Звична для даної розкладки клавіатури, Не AltGr клавіша, Правий Alt (AltGr), Правий Control, Права клавіша Logo, Клавіша Menu, Лівий Alt, Ліва клавіша Logo, Клавіша Enter на цифровій клавіатурі, Обидві клавіші Logo, Обидві клавіші Alt
-Choices-vi.UTF-8: Giá trị mặc định cho bố trí bàn phím, Không có phím AltGr, Alt phải (AltGr), Ctrl phải, Phím Win phải, Phím trình đơn, Alt trái, Phím Win trái, Phím Gõ Vùng Phím, Cả hai Logo, Cả hai phím Alt
+Choices-vi.UTF-8: Giá trị mặc định cho bố trí bàn phím, Không có phím AltGr, Alt phải (AltGr), Ctrl phải, Phím Win phải, Phím trình đơn, Alt trái, Phím Win trái, Phím Gõ Vùng Phím, Cả hai khóa Logo, Cả hai phím Alt
 Choices-zh_CN.UTF-8: 键盘布局默认值, 无 AltGr 键, 右 Alt 键 (AltGr), 右 Control 键, 右徽标键, 菜单键, 左 Alt, 左徽标键, 小键盘回车键, 两个徽标键, 两个 Alt 键
 Choices-zh_TW.UTF-8: 鍵盤排列方式的預設值, 沒有 AltGr 鍵, 左 Alt (AltGr), 右 Control, 右 Logo 鍵, Menu 鍵, 左 Alt, 左 Logo 鍵, 數字區的 Enter 鍵, 兩邊的 Logo 鍵, 兩邊的 Alt 鍵
 Default: Right Alt (AltGr)
@@ -2857,8 +2878,8 @@ Description-nb.UTF-8: Tast som skal fungere som AltGr:
  I noen tastaturutforminger er AltGr en modifiseringstast som brukes for å skrive noen tegn, primært de som er uvanlig for språket i tastaturutformingen, som utenlandske valutasymbol og aksenttegn. Disse vises ofte som et ekstra symbol på tastene.
 Description-nl.UTF-8: Toets om te functioneren als AltGr:
  Bij sommige toetsenborden is AltGr een aanpassingstoets nodig om sommige karakters in te voeren, voornamelijk die die ongewoon zijn voor de taal van de toetsenbordindeling (zoals b.v. buitenlandse valutasymbolen, en letters met accenten). Deze staan vaak als een extra symbool op de toetsen afgedrukt.
-Description-nn.UTF-8: Tast som skal fungere som AltGr:
- I nokre tastaturutformingar er AltGr ein modifiserande tast som blir brukt for å skrive nokre teikn, særs teikn som er uvanlege på språket i tastaturutforminga, som utanlandske valutateikn og aksentteikn. Dei er ofte trykte som ekstra symbol på tastane.
+Description-nn.UTF-8: Tast som skal verka som AltGr-tast:
+ På nokre tastatur er AltGr ein endringstast som vert brukt for å skriva inn spesielle teikn, som oftast teikn som er uvanlege i det språket tastaturet er sett opp for. Dette kan vera valutasymbol for andre språk, aksentteikn og liknande. Desse er ofte merkte med eit ekstra symbol på tastane.
 Description-no.UTF-8: Tast som skal fungere som AltGr:
  I noen tastaturutforminger er AltGr en modifiseringstast som brukes for å skrive noen tegn, primært de som er uvanlig for språket i tastaturutformingen, som utenlandske valutasymbol og aksenttegn. Disse vises ofte som et ekstra symbol på tastene.
 Description-oc.UTF-8: Tòca destinada a se substituir a AltGr :
@@ -2906,7 +2927,7 @@ Description-uk.UTF-8: Клавіша з функцією AltGr:
 Description-vi.UTF-8: Phím để dùng thay cho AltGr:
  Trên một số bố trí bàn phím nào đó, AltGr là một phím bổ trợ dùng để gõ một số ký tự, chính là ký tự khác với ngôn ngữ của bố trí bàn phím, v.d. ký hiệu tiền tệ nước ngoại và chữ có dấu phụ lạ. Ký tự như vậy thường được in trên phím dạng một ký hiệu bổ sung.
 Description-zh_CN.UTF-8: 作为 AltGr 的键：
- 在一些键盘布局中，AltGr 是用来输入某些字符的转换键，主要用来输入当前键盘布局很少使用到的字符，比如外语中的货币符号和口音字母。这些字符通常会作为额外符号印在键上。
+ 在一些键盘布局中，AltGr 是用来输入某些字符的修饰键，主要用来输入当前键盘布局的语言中很少使用到的字符，比如外国的货币符号和重音字母。这些字符通常会作为额外符号印在按键上。
 Description-zh_TW.UTF-8: 做為 AltGr 的鍵:
  在某些鍵盤的排列方式裡，會把 AltGr 當作修改鍵，用來輸入在該語言的鍵盤的排列方式裡一些不常用到的字元，像是別國的貨幣符號及重音字元之類的。這些鍵的上面常常會印有額外的符號。
 
@@ -2918,7 +2939,7 @@ Choices-ar.UTF-8: لا مفتاح تكوين, زر Alt اليمين (AltGr), ز�
 Choices-ast.UTF-8: Ensin tecla Compose, Alt drecha (AltGr), Control Derecha, Tecla Logu Derecha, Tecla Menú, Tecla Logu Izquierda, Caps Lock
 Choices-be.UTF-8: Няма кнопкі compose, Правы Alt (AltGr), Правы Control, Правая кнопка Logo, Кнока меню, Левая кнопка Logo, Caps Lock
 Choices-bg.UTF-8: Без клавиш „Compose“, Десен Alt (AltGr), Десен Control, Десен клавиш с лого, Клавиш меню, Ляв клавиш с лого, Caps Lock
-Choices-bn.UTF-8: কোন কম্পোজ কী নয় , ডান Alt  (AltGr), ডান কন্ট্রোল, ডান লোগো কী, মেনু কী, বাম লোগো কী, ক্যাপস্ লক
+Choices-bn.UTF-8: কোন কম্পোজ কী নয় , ডান Alt (AltGr), ডান কন্ট্রোল, ডান লোগো কী, মেনু কী, বাম লোগো কী, ক্যাপস্ লক
 Choices-bo.UTF-8: མཉམ་རྡེབ་མཐེབ་མེད་པ, Alt གཡས (AltGr), Control གཡོན, མཚོན་རྟགས་མཐེབ་གཡས, འདེམས་ཐོ་མཐེབ, མཚོན་རྟགས་མཐེབ་གཡོན, ཆེ་བྲིས་ཀྱི་ཟྭ
 Choices-bs.UTF-8: Bez compose tipke, Desni Alt (AltGr), Desni Control taster, Desni Logo taster, Meni taster, Lijevi Logo taster, Caps Lock
 Choices-ca.UTF-8: Sense tecla de composició, Alt dret (AltGr), Control dret, Tecla de logotip dreta, Tecla de menú dreta, Tecla de logotip esquerra, Fixació de majúscules
@@ -2932,7 +2953,7 @@ Choices-eo.UTF-8: Neniu kombino-klavo, Dekstra Alt (AltGr), Dekstra Control, Dek
 Choices-es.UTF-8: Sin tecla modificadora, Alt derecho (AltGr), Control derecho, Tecla derecha de logo, Tecla de menú, Tecla izquierda de logo, Bloqueo de mayúsculas
 Choices-et.UTF-8: Koosteklahvi pole, Parem Alt (AltGr), Parem Control, Parem logoklahv, Menüüklahv, Vasak logoklahv, Caps Lock
 Choices-eu.UTF-8: Tekla konposaturik ez, Eskuineko Alt (AltGr), Eskuineko Ktrl, Eskuineko Logotipoa tekla, Menua tekla, Ezkerreko Logotipoa tekla, Blok Maius
-Choices-fa.UTF-8: کلیدهای غیر ساختگی, کلید Alt (AltGr) راست, کلید Control راست, کلید Logo راست, کلید MenuQ, کلید Logo چپ, Caps Lock
+Choices-fa.UTF-8: کلیدهای غیر ساختگی, دگرساز راست, مهار راست, سوپر راست, کلید فهرست, سوپر چپ, قفل تبدیل
 Choices-fi.UTF-8: Ei yhdistelmänäppäintä, Oikea Alt (AltGr), Oikea Control, Oikea Logo-näppäin, Menu-näppäin, Vasen Logo-näppäin, Caps Lock
 Choices-fr.UTF-8: Pas de touche « compose », Touche Alt de droite (AltGr), Touche Ctrl de droite, Touche « logo » de droite, Touche Menu, Touche « logo » de gauche, Verrouillage Majuscule
 Choices-ga.UTF-8: Gan eochair athraithe, Alt Ar Dheis (AltGr), Ctrl Ar Dheis, Eochair lógó ar dheis, Eochair roghchláir, Eochair lógó ar chlé, Glas Ceannlitreacha
@@ -2958,9 +2979,10 @@ Choices-lv.UTF-8: Bez compose taustiņa, Labais Alt (AltGr), Labais Ctrl, Labais
 Choices-mk.UTF-8: Без копче за комбинирање, Десен Alt (AltGr), Десен Control, Десното Лого копче, Мени копче, Левото лого копче, Caps Lock
 Choices-ml.UTF-8: കമ്പോസ് കീ ഇല്ല, വലത് ആള്‍ട്ട് (AltGr), വലത് കണ്ട്രോള്‍, വലത് ലോഗോ കീ, മെനു കീ, ഇടത് ലോഗോ കീ, കാപ്സ് ലോക്ക്
 Choices-mr.UTF-8: काँपोझ कळ नाही, उजवी Alt (AltGr), उजवी Control, उजवी लोगो कळ, मेनू कळ, डावी लोगो कळ, Caps Lock
-Choices-nb.UTF-8: Ingen Compose-tast, Høgre Alt (Alt Gr), Høyre Ctrl, Høyre logotast, Menytast, Venstre logotast, Caps Lock
+Choices-nb.UTF-8: Ingen Compose-tast, Høyre Alt (AltGr), Høyre Ctrl, Høyre logotast, Menytast, Venstre logotast, Caps Lock
 Choices-nl.UTF-8: Geen samenstellingstoets, Alt-Rechts (AltGr), Control-Rechts, Logotoets-Rechts, Menutoets, Logotoets-Links, Caps Lock
-Choices-no.UTF-8: Ingen Compose-tast, Høgre Alt (Alt Gr), Høyre Ctrl, Høyre logotast, Menytast, Venstre logotast, Caps Lock
+Choices-nn.UTF-8: Ingen modifiseringstast, Høgre Alt (AltGr), Høgre Ctrl, Høgre logotast, Menytast, Venstre logotast, Caps Lock
+Choices-no.UTF-8: Ingen Compose-tast, Høyre Alt (AltGr), Høyre Ctrl, Høyre logotast, Menytast, Venstre logotast, Caps Lock
 Choices-oc.UTF-8: Pas de tòca « compose », Tòca Alt de drecha (AltGr), Ctrl drecha, Tòca « lògo » de drecha, Tòca menú, Tòca « lògo » d'esquèrra, Verrolhatge numeric
 Choices-pa.UTF-8: ਕੋਈ ਸੰਰਚਨਾ ਸਵਿੱਚ ਨਹੀਂ, ਸੱਜਾ Alt (AltGr), ਸੱਜਾ ਕੰਟਰੋਲ, ਸੱਜੀ ਲੋਗੋ ਸਵਿੱਚ, ਮੇਨੂ ਸਵਿੱਚ, ਖੱਬੀ ਲੋਗੋ ਸਵਿੱਚ, ਕੈਪਸ ਲਾਕ
 Choices-pl.UTF-8: Bez klawisza Compose, Prawy Alt (AltGr), Prawy Control, Prawy klawisz logo, Klawisz menu, Lewy klawisz logo, Caps Lock
@@ -3178,6 +3200,10 @@ Description-nl.UTF-8: Samenstellingstoets:
  De samenstellingstoets (ook bekend als de Multi-toets) laat de computer de volgende toetsaanslag als een combinatie te interpreteren, om zo een karakter te produceren dat niet op het toetsenbord terug te vinden is.
  .
  Op de tekstconsole werkt de samenstellingstoets niet in Unicode-modus. Wanneer u zich niet in Unicode-modus bevindt kunt u -onafhankelijk van wat u hier kiest- altijd de Control+punt combinatie gebruiken als samenstellingstoets.
+Description-nn.UTF-8: Modifiseringstast:
+ Modifiseringstasten gjer at dei neste få tastetrykka vert tolka som ei samansetjing for å laga eit teikn som ikkje finst på tastaturet.
+ .
+ Modifiseringstasten verkar ikkje i Unicode-modus på tekstkonsollen. Når Unicode-modus ikkje er sett, kan du alltid bruka kombinasjonen Ctrl + punktum som ein modifiseringstast uavhengig av kva du har vald her.
 Description-no.UTF-8: Compose-tast:
  Compose-tasten (også kjent som Multi_key) gjør at datamaskinen tolker de neste tastetrykkene som en kombinasjon slik at man kan lage et tegn som ikke finnes på tastaturet.
  .
@@ -3265,7 +3291,7 @@ Description-ug.UTF-8: بىرىكمە كۇنۇپكا:
 Description-uk.UTF-8: Клавіша Compose:
  Клавіша Compose (також відома під назвою "мультиклавіша") змушує комп'ютер інтерпретувати декілька наступних натискань клавіш у вигляді комбінації з метою компонування невластивого для даної клавіатури символу.
  .
- Клавіша Compose не працює на текстових консолях в режимі Unicode. В інших режимах, незалежно від від того, що ви оберете тут, завжди можна замінити клавішу Compose комбінацією клавіш Control+код та отримати аналогічний функціонал.
+ Клавіша Compose не працює на текстових консолях в режимі Unicode. В інших режимах, незалежно від того, що ви оберете тут, завжди можна замінити клавішу Compose комбінацією клавіш Control+код та отримати аналогічний функціонал.
 Description-vi.UTF-8: Phím cấu tạo :
  Phím tổ hợp (cũng được gọi như là Multi_key) gây ra máy tính đọc vài cú nhấn phím kế tiếp như là một tổ hợp để nhập một ký tự không nằm trên bàn phím đó.
  .
@@ -3304,7 +3330,7 @@ Description-cs.UTF-8: Použít Control+Alt+Backspace pro ukončení X serveru?
 Description-cy.UTF-8: Defnyddio Control+Alt+Backspace i derfynu'r gweinydd X?
  Yn arferol, nid yw'r cyfuniad Control+Alt+Backspace yn gwneud dim. Os hoffech chi, fe all gael ei ddefnyddio i derfynu'r gweinydd X.
 Description-da.UTF-8: Brug Ctrl+Alt+Backspace til at terminere X-server?
- Som standard gør kombinationen Ctrl+Alt+Backspace intet.  Hvis du ønsker, kan den blive brugt til at terminere X-serveren.
+ Som standard gør kombinationen Ctrl+Alt+Backspace intet. Hvis du ønsker, kan den blive brugt til at terminere X-serveren.
 Description-de.UTF-8: Strg+Alt+Zurück (Ctrl+Alt+Backspace) verwenden, um den X-Server zu beenden?
  Standardmäßig ist die Tastenkombination Strg+Alt+Zurück ohne Funktion. Wenn Sie möchten, kann Sie jedoch verwendet werden, um den X-Server zu beenden.
 Description-dz.UTF-8: ཨེགསི་ སར་བར་འདི་བཏོན་བཏང་ནི་གི་དོན་ལས་ ཚད་འཛིན་+གདམ་ལྡེ་+རྒྱབ་བཤུད་ལག་ལེན་འཐབ།
@@ -3375,8 +3401,8 @@ Description-nb.UTF-8: Bruk Ctrl + Alt + Rettetast for å stoppe X-tjeneren?
  Som standard gjør kombinasjonen Ctrl + Alt + Rettetast ingenting. Hvis du vil, kan den brukes til å stoppe X-tjeneren.
 Description-nl.UTF-8: Wilt u Control+Alt+Backspace gebruiken om de X-server af te sluiten?
  Standaard doet de combinatie Control+Alt+Backspace niets. Als u wilt, kan deze worden gebruikt om de X-server af te sluiten.
-Description-nn.UTF-8: Bruk Ctrl + Alt + Rettetast for å stoppe X-tenaren?
- Som standard gjør kombinasjonen Ctrl + Alt + Rettetast ingenting. Viss du vil, kan han brukast til å stoppe X-tenaren.
+Description-nn.UTF-8: Vil du bruke Ctrl + Alt + Rettetast for å stoppe X-tenaren?
+ Standardvalet er at kombinasjonen Ctrl + Alt + Rettetast ikkje gjer noko. Viss du vil, kan han brukast til å stoppe X-tenaren.
 Description-no.UTF-8: Bruk Ctrl + Alt + Rettetast for å stoppe X-tjeneren?
  Som standard gjør kombinasjonen Ctrl + Alt + Rettetast ingenting. Hvis du vil, kan den brukes til å stoppe X-tjeneren.
 Description-oc.UTF-8: Cal utilizar Control+Alt+Ret.Arr. per arrestar lo servidor X ?
@@ -3424,7 +3450,7 @@ Description-uk.UTF-8: Використовувати Control+Alt+Backspace дл�
 Description-vi.UTF-8: Dùng Control+Alt+Backspace để chấm dứt trình phục vụ X ?
  Mặc định là tổ hợp phím Control+Alt+Backspace không làm gì. Tuy nhiên, tùy chọn bạn có thể sử dụng nó để chấm dứt trình phục vụ X.
 Description-zh_CN.UTF-8: 使用 Control+Alt+Backspace 来终止 X 服务器吗？
- 默认时 Control+Alt+Backspace 组合键不做任何事情。如果您愿意它可用来终止 X 服务器。
+ 默认情况下 Control+Alt+Backspace 组合键不做任何事情。如果您愿意，可以使用此组合键来终止 X 服务器。
 Description-zh_TW.UTF-8: 是否使用 Control+Alt+Backspace 來中斷 X server？
  在預設上 Control+Alt+Backspace 這個組合鍵沒有作用。若您希望的話，可以把它做為中斷 X server 之用。
 
@@ -3435,9 +3461,9 @@ Choices: American English, Albanian, Arabic, Asturian, Bangladesh, Belarusian, B
 Choices-am.UTF-8: የአሜሪካን እንግሊዘኛ, አልቤኒኛ, ዐርቢኛ, አስቱራዊ, ባንግላዴሻዊ, ቤሎሩሳዊ, በንጋሊኛ, ቤልጅጋዊ, Berber (Latin), ቦስንያዊ, ብራዚላዊ, የእንግሊዝ እንግሊዘኛ, Bulgarian (BDS layout), ቡልጋርኛ  (phonetic layout), Burmese, ካናዲያዊ ፍረንሳይ, ካናዳ የቡዙ ቋንቋ, ካታላዊ, ቻይንኛ, ኮራሽያኛ, ቸኪያዊ, ዴንማርክኛ, ሆላንዳዊ, ድቮርካዊ, ድዞንግኻኛ, ኤስፐራንቶ, ኢስቶንያዊ, ኢትዮጵያዊ, ፊንላንድኛ, ፈረንሳዊ, ጊዮርጊያን, ጀርመናዊ, ግሪካዊ, ጉጃርቲኛ, ጉርሙካዊ, ኣይሁዳዊ, ሐንድኛ, ሁንጋሪያዊ, አይስላንድኛ, አይሪሽ, ጣሊያናዊ, ጃፓናዊ, ካናዳኛ, ካዛክኛ, ኮመራዊ, ኪርጊዛዊ, ኮሪያኛ, ኩርዳዊ F, ኩርዳዊ Q, ላውስኛ, ላቲን አሜሪካ, ላትቪኛ, ሊቱዌንኛ, መቀዶንኛ, ማላያላምኛ, ኔፓሊኛ, ሰሜን ሳምኛ, ኖርዌይኛ, ፐርሲያኛ, Philippines, ፖላንድኛ, ፖርቱጋልኛ, ፓንጃቢኛ, ሩማንኛ, ሩስኛ, ሰርብኛ, ሲንድኛ, ኒናልኛ, ስሎቫኪኛ, ስሎቪኛ, ስፓኝኛ, ስዊድንኛ, የስዊስ ፈረንሳይኛ, ያስዊስ ጀርመንኛ, ታጂክኛ, ታሚልኛ, ተሉጉኛ, ታይኛ, ቲቤትኛ, ቱርክኛ  (F layout), ቱርክኛ  (Q layout), ዩክሬንኛ, ዑይጉርኛ, ቪትናምኛ
 Choices-ar.UTF-8: الأميركية, الألبانية, العربية, الأستورية, بنغلادش, البيلاروسية, البنغالية, البلجيكية, البربرية (اللاتينية), البوسنية, البرازيلية, البريطانية, البلغارية - تخطيط BDS, البلغارية - تخطيط phonetic, البورمية, الفرنسيّة الكندية, الكندية متعددة اللغات, الكتالونية, الصينية, الكرواتية, التشيكية, الدنماركية, الهولندية, dvorak, الزونخاية, الإسبرانتو, الإستونية, الإثيوبية, الفنلندية, الفرنسية, الجرجية, الألمانية, اليونانية, الغوجاراتية, الجرمخى, العبرية, الهندية, المجرية, الآيسلندية, الأيرلندية, الإيطالية, اليابانية, الكنّادا, الكازاخيّة, الخميرية, قيرغيز, الكورية, الكرديّة (التخطيط F), الكردية (التخطيط Q), اللاو, اللاتينية, اللاتفية, اللثوانية, المقدونية, الماليالامية, النيبالية, الساميّة الشمالية, النرويجية, الفارسية, الفلبينية, البولندية, البرتغالية, البنجابية, الرومانية, الروسية, الصربية - السيريلية, السنديّة, السنهالية, السلوفاكية, السلوفينية, الإسبانية, السويدية, الفرنسية السويسرية, الألمانية السويسرية, الطاجيكية, التاميلية, التيلوغو, التايلندية, التيبت, التركية (التخطيط F), التركية (التخطيط Q), الأوكرانية, الأويغورية, الفييتنامية
 Choices-ast.UTF-8: Inglés americanu, Albanu, Árabe, Asturianu, Bangladesh, Bielorrusu, Bengalí, Belga, Berber (Latin), Bosniu, Brasileñu, Inglés británicu, Búlgaru (disposición BDS), Búlgaru (disposición fonética), Birmanu, Francés canadianu, Canadianu multillingüaxe, Catalán, Chinu, Croata, Checu, Danés, Holandés, Dvorak, Dzongkha, Esperantu, Estoniu, Etíope, Finladés, Francés, Xeorxanu, Alemán, Griegu, Gujarati, Gurmuqui, Hebréu, Hindí, Húngaru, Islandés, Irlandés, Italianu, Xaponés, Kannada, Kazaḥu, Camboyanu, Kirghiz, Coreanu, Kurdu (F layout), Kurdu (Q layout), Laosianu, Llatinoamericanu, Letón, Lituanu, Macedoniu, Malayalam, Nepalí, Sami del norte, Noruegu, Persa, Filipinu, Polacu, Portués, Panyabi, Rumanu, Rusu, Serbiu (Cirílicu), Sindhi, Cingalés, Eslovacu, Eslovenu, Castellanu, Suecu, Francés de Suiza, Alemán de Suiza, Taxiquistanín, Tamil, Telugu, Tailandés, Tibetanu, Turcu (F layout), Turcu (Q layout), Ucraín, Uigur, Vietnamín
-Choices-be.UTF-8: Амерыканская англійская, Албанская, Арабская, Астурыйская, Бангладэш, Беларуская, Бенгальская, Бельгійская, Berber (Latin), Баснійская, Бразільская, Брытанская англійская, Балгарская (раскладка БДС), Балгарская (раскладка phonetic), Бірманская, Канадская французская (amiga), Канадская шматмоўная, Каталонская, Кітайская, Харвацкая, Чэшская, Дацкая, Галандская, Дворак, Дзонг-хэ, Эсперанта, Эстонская, Эфіёпская, Фінская, Французская, Грузінская, Нямецкая, Грэцкая, Гуджараці, Гурмукхі, Ізраільская, Хіндзі, Венгерская, Ісландская, Ірландская, Італьянская, Японская, Канада, Казахская, Кхмерская, Кыргізская, Карэйская, Курдская (раскладка F), Курдская (раскладка Q), Лаоская, Лацінаамерынская, Латышская, Літоўская, Македонская, Малаялам, Непалі, Паўночна-саамская, Нарвежская, Персідская, Філіпінская, Польская, Партугальская, Панджабі, Румынская, Руская, Сербская (кірыліца), Сіндхі, Сінгальская, Славацкая, Славенская, Іспанская, Шведская, Швейцарская французская, Швейцарская нямецкая, Таджыкская, Тамільская, Тэлугу, Тайская, Тыбецкая, Турэцкая (раскладка F), Турэцкая (раскладка Q), Украінская, Уйгурская, В'етнамская
+Choices-be.UTF-8: Амерыканская англійская, Албанская, Арабская, Астурыйская, Бангладэш, Беларуская, Бенгальская, Бельгійская, Берберская (лацінка), Баснійская, Бразільская, Брытанская англійская, Балгарская (раскладка БДС), Балгарская (раскладка phonetic), Бірманская, Канадская французская (amiga), Канадская шматмоўная, Каталонская, Кітайская, Харвацкая, Чэшская, Дацкая, Галандская, Дворак, Дзонг-хэ, Эсперанта, Эстонская, Эфіёпская, Фінская, Французская, Грузінская, Нямецкая, Грэцкая, Гуджараці, Гурмукхі, Ізраільская, Хіндзі, Венгерская, Ісландская, Ірландская, Італьянская, Японская, Канада, Казахская, Кхмерская, Кыргізская, Карэйская, Курдская (раскладка F), Курдская (раскладка Q), Лаоская, Лацінаамерынская, Латышская, Літоўская, Македонская, Малаялам, Непалі, Паўночна-саамская, Нарвежская, Персідская, Філіпінская, Польская, Партугальская, Панджабі, Румынская, Руская, Сербская (кірыліца), Сіндхі, Сінгальская, Славацкая, Славенская, Іспанская, Шведская, Швейцарская французская, Швейцарская нямецкая, Таджыкская, Тамільская, Тэлугу, Тайская, Тыбецкая, Турэцкая (раскладка F), Турэцкая (раскладка Q), Украінская, Уйгурская, В'етнамская
 Choices-bg.UTF-8: Американска английска, Албанска, Арабска, Астурска, Бангладеш, Беларуска, Бенгалска, Белгийска, Берберска (латиница), Босненска, Бразилска, Британска английска, Българска (подредба БДС), Българска (фонетична подредба), Бирманска, Канадска (френски), Канадска многоезична, Каталунска, Китайска, Хърватска, Чешка, Датска, Датска, Дворак, Дзонгкха, Есперанто, Естонска, Етиопска, Финландска, Френска, Грузинска, Германска, Гръцка, Гуджаратска, Гурмукхи, Еврейска, Хинди, Унгарска, Исландска, Ирландска, Италианска, Японска, Каннада, Казахска, Кхмерска, Киргизка, Корейска, Кюрдска (подредба F), Кюрдска (подредба Q), Лаоска, Латиноамериканска, Латвийска, Литовска, Македонска, Малаялам, Непалска, Северносаамска, Норвежка, Персийска (Фарси), Филипинска, Полска, Португалска, Панджабска, Румънска, Руска, Сръбска (кирилица), Синдхи, Синхалска, Словашка, Словенска, Испанска, Шведска, Швейцарска (френски), Швейцарска (германски), Таджикска, Тамилска, Телугу, Тайска, Тибетска, Турска (подредба F), Турска (подредба Q), Украинска, Уйгурска, Виетнамска
-Choices-bn.UTF-8: মার্কিন ইংরেজী, আলবেনিয়, আরবি, আস্তুরীয়, বাংলাদেশ, বেলারুশীয়, বাংলা, বেলজিয়, Berber (Latin), বসনিয়া, ব্রাজিলীয়, বৃটিশ ইংরেজী, Bulgarian (BDS layout), বুলগেরীয় (phonetic লেআউট), Burmese, কানাডীয় ফরাসি, কানাডিয় মিশ্র ভাষা, ক্যাটালান, চাইনিজ, ক্রোয়েশিয়, চেক্, ড্যানিশ, ওলন্দাজ, ডিভোরাক (Dvorak), ঝোঙ্খা, এসপারান্তো, এস্তোনীয়, ইথোপীয়, ফিনীয়, ফরাসি, জর্জীয়, জার্মান, গ্রীক, গুজরাটি, গুরুমুখী, হিব্রু, হিন্দি, হাঙ্গেরীয়, আইসল্যান্ডীয়, আইরিশ, ইতালীয়, জাপানি, কান্নাড়া, কাজাখ, খেমার, কিরঘিজ, কোরিয়ান, কুর্দী (F লেআউট), কুর্দী (Q লেআউট), লাও, লাতিন আমেরিকান, লাটভীয়, লিথুনীয়, মেসেডোনীয়, মালায়ালাম, নেপালি, উত্তরীয় সামি, নরওয়েজীয়, ফারসি, Philippines, পোলীয়, পর্তুগিজ, পাঞ্জাবি, রোমানীয়, রাশিয়ান, সার্বীয় (সিরিলিক), সিন্ধি, সিনহালা, স্লোভাক, স্লোভেনিয়ান, স্প্যানীয়, সুইডিশ, সুইস ফরাসি, সুইস জার্মান, Tajik, তামিল, তেলেগু, থাই, Tibetan, তুর্কি (F লেআউট), তুর্কি (Q লেআউট), ইউক্রেনীয়, উইঘুর, ভিয়েতনামী
+Choices-bn.UTF-8: মার্কিন ইংরেজী, আলবেনিয়, আরবি, আস্তুরীয়, বাংলাদেশ, বেলারুশীয়, বাংলা, বেলজিয়, বারবার (ল্যাটিন), বসনিয়া, ব্রাজিলীয়, বৃটিশ ইংরেজী, বুলগেরীয় (BDS লেআউট), বুলগেরীয় (phonetic লেআউট), বার্মিজ, কানাডীয় ফরাসি, কানাডিয় মিশ্র ভাষা, ক্যাটালান, চাইনিজ, ক্রোয়েশিয়, চেক্, ড্যানিশ, ওলন্দাজ, ডিভোরাক (Dvorak), ঝোঙ্খা, এসপারান্তো, এস্তোনীয়, ইথোপীয়, ফিনীয়, ফরাসি, জর্জীয়, জার্মান, গ্রীক, গুজরাটি, গুরুমুখী, হিব্রু, হিন্দি, হাঙ্গেরীয়, আইসল্যান্ডীয়, আইরিশ, ইতালীয়, জাপানি, কান্নাড়া, কাজাখ, খেমার, কিরঘিজ, কোরিয়ান, কুর্দী (F লেআউট), কুর্দী (Q লেআউট), লাও, লাতিন আমেরিকান, লাটভীয়, লিথুনীয়, মেসেডোনীয়, মালায়ালাম, নেপালি, উত্তরীয় সামি, নরওয়েজীয়, ফারসি, ফিলিপিন্স, পোলীয়, পর্তুগিজ, পাঞ্জাবি, রোমানীয়, রাশিয়ান, সার্বীয় (সিরিলিক), সিন্ধি, সিনহালা, স্লোভাক, স্লোভেনিয়ান, স্প্যানীয়, সুইডিশ, সুইস ফরাসি, সুইস জার্মান, তাজিক, তামিল, তেলেগু, থাই, তিব্বতী, তুর্কি (F লেআউট), তুর্কি (Q লেআউট), ইউক্রেনীয়, উইঘুর, ভিয়েতনামী
 Choices-bo.UTF-8: ཨ་རིའི་དབྱིན་སྐད, ཨར་པ་མི་ཡ་སྐད, ཨ་རབ་སྐད, ཨོ་སི་ཁྲུ་རི་ཡ་སྐད, བྷང་ག་ལའི་སྐད, བེ་ལ་ཨུ་རུ་སུ་སྐད, བྷང་ག་་ལའི་སྐད, བེར་གྲེམ་སྐད, Berber (Latin), པོ་སི་ནི་ཡ་སྐད, པ་ར་ཟིའི་སྐད, དབྱིན་ཇིའི་དབྱིན་སྐད, པུར་ཀ་རི་ཡ་སྐད (BDS ཀྱི་བཀོད་པ), པུར་ཀ་རི་ཡ་སྐད (གསལ་བྱེད་ཀྱི་བཀོད་པ), Burmese, ཁ་ན་ཏའི་ཧྥ་རན་སེའི་སྐད, ཁ་ན་ཏའི་སྐད་རིགས་སྣ་མང, ཁ་ཏ་ལའི་སྐད, རྒྱ་ནག་སྐད, ཁུ་རོ་ཨ་ཏིའི་སྐད, ཅེ་ཁེའི་སྐད, ཏེན་མག་སྐད, ཧོ་ལན་སྐད, Dvorak ཡི་མཐེབ་གཞོང, རྫོང་ཁའི་སྐད, འཛམ་གླིང་སྐད, ཨེ་སོ་ནི་ཡ་སྐད, ཨེ་ཚི་ཨོ་ཕི་ཡ་སྐད, ཧྥིན་ལན་སྐད, ཧྥ་རན་སེའི་སྐད, གེ་རོ་ཇི་ཡ་སྐད, འཇར་མན་སྐད, ཀེ་རི་སེའི་སྐད, གུ་ཇ་ར་ཏིའི་སྐད, གུ་རུ་མུ་ཁི་སྐད, ཧེ་པོ་རུ་སྐད, ཧིན་རྡིའི་སྐད, ཧང་ག་རིའི་སྐད, འཁྱགས་གླིང་གི་སྐད, ཨིར་ལན་གྱི་སྐད, དབྱི་ཐ་ལིའི་སྐད, འཇར་པན་སྐད, ཀན་ན་དའི་སྐད, ཁ་ས་ཁའི་སྐད, ཁེ་མེར་སྐད, གི་རི་ཇི་སི་སྐད, ཀོ་རི་ཡ་སྐད, གུར་དི་སྐད (F ཡི་བཀོད་པ), གུར་དི་སྐད (Q ཡི་བཀོད་པ), ལའོ་ཝོ་སྐད, ལ་ཏིང་ཨ་རིའི་སྐད, ལ་ཏོ་ཝི་ཡ་སྐད, ལི་ཐུ་ཝན་མི་ཡ་སྐད, མ་ཆི་དོ་ནི་ཡ་སྐད, མ་ལ་ཡ་ལམ་སྐད, ནེ་པ་ལའི་སྐད, བྱང་ས་མིའི་སྐད, ནོར་ཝེའི་སྐད, པར་སིའི་སྐད, Philippines, ཕོ་ལན་སྐད, ཕོར་ཐིའུ་ཀལ་སྐད, ཕང་ཇི་པེ་སྐད, རོ་མའི་སྐད, ཨུ་རུ་སི་སྐད, སེ་རེ་པེ་ཡ་སྐད (Cyrillic གསལ་བྱེད), སིན་རྡི་སྐད, སིན་ཧ་ལ་སྐད, སི་ལོ་ཝ་ཁེའི་སྐད, སི་ལོ་ཝེ་ནི་ཡ་སྐད, སི་ཕེན་སྐད, སུའེ་ཏེན་སྐད, སུའེ་ཙེར་གྱི་ཧྥ་རན་སེའི་སྐད, སུའེ་ཙེར་གྱི་མཇར་མན་སྐད, Tajik, ཐ་མི་ལི་སྐད, ཐེ་ལུ་རྒུ་སྐད, ཐེ་ལན་སྐད, Tibetan, ཐུར་ཁེའི་སྐད (F ཡི་བཀོད་པ), ཐུར་ཁེའི་སྐད (Q ཡི་བཀོད་པ), ཨུ་ཁུ་རན་ནི་ཡ་སྐད, ཡུ་གུར་སྐད, ཝེ་ཐེ་ནམ་གྱི་སྐད
 Choices-bs.UTF-8: Američki engleski, Albanski, Arapski, Asturijski, Bangladeš, Bjeloruski, Bengalski, Belgijski, Berber (Latin), Bosanski, Brazilski, Britanski engleski, Bulgarian (BDS layout), Bugarski (fonetski raspored), Burmese, Kanadski francuski, Kanadski višejezični, Katalonski, Kineski, Hrvatski, Češki, Danski, Holandski, Dvorak, Dzongkha, Esperanto, Estonski, Etiopijski, Finski, Francuski, Gruzijski, Njemački, Grčki, Gudžaratski, Gurmukijski, Hebrejski, Hindi, Mađarski, Islandski, Irski, Italijanski, Japanski, Kannada, Kazahstanski, Kmerski, Kirgiški, Korejski, Kurdski (F raspored), Kurdski (Q raspored), Laoski, Latinoamerički, Latvijski, Litvanski, Makedonski, Malayalam, Nepalski, Sjeverni Sami, Norveški, Perzijski, Philippines, Poljski, Portugalski, Pandžabi, Rumunski, Ruski, Srpski (ćirilični), Sindi, Sinhala, Slovački, Slovenski, Španski, Švedski, Švicarski francuski, Švicarski njemački, Tadžički, Tamilski, Telugu, Tajlandski, Tibetanski, Turski (F raspored), Turski (Q raspored), Ukrajinski, Ujgurski, Vijetnamski
 Choices-ca.UTF-8: Anglès americà, Albanès, Àrab, Asturià, Bangla Desh, Bielorús, Bengalí, Belga, Amazic (llatí), Bosnià, Brasiler, Anglès britànic, Búlgar (disposició BDS), Búlgar (disposició fonètica), Birmà, Francès canadenc, Canadenc multilingüe, Català, Xinès, Croat, Txec, Danès, Holandès, Dvorak, Bhutanès, Esperanto, Estonià, Etíop, Finès, Francès, Georgià, Alemany, Grec, Gujarati, Gurmukhi, Hebreu, Hindi, Hongarès, Islandès, Irlandès, Italià, Japonès, Kanarès, Kazakh, Khmer, Kirguís, Coreà, Kurd (disposició F), Kurd (disposició Q), Laosià, Llatinoamericà, Letó, Lituà, Macedoni, Malaiàlam, Nepalès, Sami septrentional, Noruec, Persa, Filipí, Polonès, Portuguès, Panjabi, Romanès, Rus, Serbi (Ciríl·lic), Sindhi, Singalès, Eslovac, Eslovè, Espanyol, Suec, Francès suís, Alemany suís, Tadjik, Tàmil, Telugu, Tai, Tibetà, Turc (disposició F), Turc (disposició Q), Ucraïnès, Uigur, Vietnamita
@@ -3450,8 +3476,8 @@ Choices-el.UTF-8: Αγγλική ΗΠΑ, Αλβανική, Αραβική, Ασ�
 Choices-eo.UTF-8: Usona, Albana, Araba, Astura, Bangladeŝo, Belorusa, Bengala, Belga, Berbera (Latina), Bosna, Brazila, Brita, Bulgara (aranĝo BDS), Bulgara (phonetic), Birma, Kanada (franclingvo), Kanada plurlingva, Kataluna, Ĉina, Kroata, Ĉeĥa, Dana, Nederlanda, Dvoraka, Dzonka, Esperanto, Estona, Etiopia, Finna, Franca, Kartvela, Germana, Greka, Guĝarata, Gurmuka, Hebrea, Hindia, Hungara, Islanda, Irlanda, Itala, Japana, Kanara, Kazaĥa, Kmera, Kirgiza, Korea, Kurda (F), Kurda (Q), Laosa, Latin-amerika, Latva, Litava, Makedona, Malajala, Nepala, Nord-Samea, Norvega, Persa, Filipinoj, Pola, Portugala, Panĝaba, Rumana, Rusa, Cirila serba, Sinda, Sinhala, Slovaka, Slovena, Hispana, Sveda, Romanda svisa, Alemana svisa, Taĝika, Tamila, Telugua, Tajlanda, Tibeta, Turka (F), Turka (Q), Ukraina, Ujgura, Vjetnama
 Choices-es.UTF-8: Inglés estadounidense, Albanés, Árabe, Asturiano, Bangladesh, Bielorruso, Bengalí, Belga, Berebere (latino), Bosnio, Brasileño, Inglés británico, Búlgaro (variante BDS), Búlgaro (variante fonética), Birmano, Francés canadiense, Canadiense multilingüe, Catalán, Chino, Croata, Checo, Danés, Holandés, Dvorak, Butaní, Esperanto, Estonio, Etíope, Finlandés, Francés, Georgiano, Alemán, Griego, Guyaratí, Gurmukhi, Hebreo, Hindi, Húngaro, Islandés, Irlandés, Italiano, Japonés, Canarés, Kazajo, Jemer, Kirghizo, Coreano, Kurdo (variante F), Kurdo (variante Q), Laosiano, Latinoamericano, Letón, Lituano, Macedonio, Malayalamo, Nepalés, Sami septentrional, Noruego, Persa, Filipino, Polaco, Portugués, Panyabí, Rumano, Ruso, Serbio (cirílico), Sindhi, Cingalés, Eslovaco, Esloveno, Español, Sueco, Francés suizo, Alemán suizo, Tayiko, Tamil, Telugú, Tailandés, Tibetano, Turco (variante F), Turco (variante Q), Ucraniano, Uigur, Vietnamita
 Choices-et.UTF-8: ameerika inglise, Albaania, Araabia, astuuria, Bangladesh, valgevene, bengali, belgia, berberi (ladina), bosnia, brasiilia, briti inglise, bulgaaria (BDS asetus), bulgaaria (foneetiline asetus), birma, kanada prantsuse, kanada mitmekeelne, katalaani, Hiina, horvaatia, tšehhi, taani, hollandi, Dvoraki, dzongkha, Esperanto, eesti, etioopia, soome, prantsuse, gruusia, saksa, kreeka, gudžarati, gurmukhi, heebrea, hindi, ungari, islandi, Iiri, itaalia, jaapani, kannada, kasahhi, khmeeri, kirgiisi, Korea, kurdi (F asetus), kurdi (Q asetus), lao, ladina-ameerika, läti, leedu, makedoonia, malajalami, nepali, põhjasaami, norra, pärsia, filippiini, poola, portugali, pandžabi, rumeenia, vene, serbia (krillits), sindhi, singali, slovakkia, sloveenia, hispaania, rootsi, šveitsi prantsuse, šveitsi, Tadžiki, tamili, telugu, Tai, Tiibeti, türgi (F asetus), türgi (Q asetus), ukraina, uiguuri, Vietnami
-Choices-eu.UTF-8: AEBko ingelesa, Albaniera, Arabiera, Asturiarra, Bangladesh, Bielorrusiarra, Bengalera, Belgikarra, Amazigera (Latina), Bosniera, Brasildarra, Erresuma Batuko ingelesa, Bulgariera (BDS diseinua), Bulgariera (diseinu fonetikoa), Birmaniera , Kanadako frantsesa, Kanadar eleanitza, Katalana, Txinera, Kroaziera, Txekiera, Daniera, Nederlandera, Dvorak, Dzongkha, Esperantoa, Estoniera, Etiopiera, Finlandiera, Frantsesa, Georgiera, Alemana, Greziarra, Gujeratera, Gurmukhi, Hebreera, Hindi, Hungariera, Islandiera, Irlandera, Italiera, Japoniera, Kannada, Kazakhera, Khmerera, Kirghizera, Koreera, Kurduera (F diseinua), Kurduera (Q diseinua), Laosera, Latinoamerikarra, Letoniera, Lituaniera, Mazedoniera, Malabarera, Nepalera, Iparraldeko Samiera, Norvegiera, Persiera, Filipinera, Poloniera, Portugesa, Punjabera, Errumaniera, Errusiera, Serbiera (Zirilikoa), Sindhia, Sinhala, Eslovakiera, Esloveniera, Espainiera, Suediera, Suitzako frantsesa, Suitzako alemana, Tajikera, Tamilera, Telugua, Thailandiera, Tibetera, Turkiera (F diseinua), Turkiera (Q diseinua), Ukraniera, Uigurrera, Vietnamera
-Choices-fa.UTF-8: انگليسی امریکایی, آلبانیایی, عربی, آستوری, بنگلادش, بلاروس, بنگالی, بلژيكي, بربر (لاتین), بوسنیایی, برزیلی, انگليسي بريتانيا, بلغاری (چینش BDS), بلغاري (phonetic layout), برمه‌ای, كانادايي فرانسه, كانادا چند زبانه, کاتالان, چینی, كرواسي, چك, دانماركي, هلندي, دووراک, بوتانی, اسپرانتو, استوني, اتیوپیایی, فنلاندي, فرانسه, گرجی, آلمانی, یونانی, گجراتی, گرمکهی, عبري, هندی, مجارستاني, ايسلندي, ایرلندی, ايتالييايي, ژاپنی, کاناده‌ای, قزاقی, Khmer, قرقيزي, کره‌ای, کردی (طرح F), کردی (طرح Q), لائوسی, امريكاي لاتين, لتوني, لیتوانیایی, مقدونی, مالایالامی, نپالی, سامی شمالی, نروژی, پارسی, فیلیپینی, لهستاني, پرتغالي, پنجابی, رومانیایی, روسی, صربی (سیریلیک), سندی, Sinhala, اسلواک, اسلوونیایی, اسپانيايي, سوئدي, سوييس( فرانسه), سوييس الماني, تاجیکی, تامیلی, تلوگویی, تايلندي, تبتی, تركي, تركي, اوکراینی, اویغور, ویتنامی
+Choices-eu.UTF-8: AEBko ingelesa, Albaniera, Arabiera, Asturiarra, Bangladesh, Bielorrusiarra, Bengalera, Belgikarra, Amazigera (Latina), Bosniera, Brasildarra, Erresuma Batuko ingelesa, Bulgariera (BDS diseinua), Bulgariera (diseinu fonetikoa), Birmaniera, Kanadako frantsesa, Kanadar eleanitza, Katalana, Txinera, Kroaziera, Txekiera, Daniera, Nederlandera, Dvorak, Dzongkha, Esperantoa, Estoniera, Etiopiera, Finlandiera, Frantsesa, Georgiera, Alemana, Greziarra, Gujeratera, Gurmukhi, Hebreera, Hindi, Hungariera, Islandiera, Irlandera, Italiera, Japoniera, Kannada, Kazakhera, Khmerera, Kirghizera, Koreera, Kurduera (F diseinua), Kurduera (Q diseinua), Laosera, Latinoamerikarra, Letoniera, Lituaniera, Mazedoniera, Malabarera, Nepalera, Iparraldeko Samiera, Norvegiera, Persiera, Filipinera, Poloniera, Portugesa, Punjabera, Errumaniera, Errusiera, Serbiera (Zirilikoa), Sindhia, Sinhala, Eslovakiera, Esloveniera, Espainiera, Suediera, Suitzako frantsesa, Suitzako alemana, Tajikera, Tamilera, Telugua, Thailandiera, Tibetera, Turkiera (F diseinua), Turkiera (Q diseinua), Ukraniera, Uigurrera, Vietnamera
+Choices-fa.UTF-8: انگليسی امریکایی, آلبانیایی, عربی, آستوری, بنگلادش, بلاروسی, بنگالی, بلژيكي, بربر (لاتین), بوسنیایی, برزیلی, انگلیسی بریتانیایی, بلغاری (چینش BDS), بلغاري (phonetic layout), برمه‌ای, كانادايي فرانسه, كانادا چند زبانه, کاتالان, چینی, كرواسي, چك, دانماركي, هلندي, دووراک, بوتانی, اسپرانتو, استوني, اتیوپیایی, فنلاندي, فرانسه, گرجی, آلمانی, یونانی, گجراتی, گرمکهی, عبري, هندی, مجارستاني, ايسلندي, ایرلندی, ايتالييايي, ژاپنی, کاناده‌ای, قزاقی, Khmer, قرقيزي, کره‌ای, کردی (طرح F), کردی (طرح Q), لائوسی, امريكاي لاتين, لتوني, لیتوانیایی, مقدونی, مالایالامی, نپالی, سامی شمالی, نروژی, پارسی, فیلیپینی, لهستاني, پرتغالي, پنجابی, رومانیایی, روسی, صربی (سیریلیک), سندی, Sinhala, اسلواک, اسلوونیایی, اسپانيايي, سوئدي, سوييس( فرانسه), سوييس الماني, تاجیکی, تامیلی, تلوگویی, تايلندي, تبتی, تركي, تركي, اوکراینی, اویغور, ویتنامی
 Choices-fi.UTF-8: amerikanenglantilainen, Albania, Arabia, Asturialainen, Bangladesh, valkovenäläinen, Bengali, belgialainen, Berber (latina), bosnialainen, brasilialainen, brittienglantilainen, bulgarialainen (BDS-asettelu), bulgarialainen (foneetinen-asettelu), burmalainen, kanadanranskalainen, Kanadan monikielinen, katalaani, kiinalainen, kroatialainen, tsekkiläinen, tanskalainen, hollantilainen, Dvorak, Dzongkha, Esperanto, virolainen, etiopialainen, suomalainen, ranskalainen, Georgia, saksalainen, kreikkalainen, Gujarati, Gurmukhi, heprealainen, Hindi, unkarilainen, islantilainen, irlantilainen, italialainen, japanilainen, Kannada, Kazakki, Khmer, kirgiisi, korealainen, Kurdi (F-asettelu), Kurdi (Q-asettelu), Lao, latinalais-amerikkalainen, latvianlainen, liettualainen, makedonialainen, malajalam, Nepali, pohjois-saame, norjalainen, persialainen, Filippiinit, puolalainen, portugalilainen, punjabi, romanialainen, venäläinen, serbialainen (kyrillinen), sindhi, sinhala, slovakialainen, slovenialainen, espanjalainen, ruotsalainen, sveitsinranskalainen, sveitsinsaksalainen, Tajikl, tamili, telugu, thai, tiibettiläinen, turkkilainen (F-asettelu), turkkilainen (Q-asettelu), ukrainalainen, uiguuri, vietnamilainen
 Choices-fr.UTF-8: États-Unis, Albanais, Arabe, Asturien, Bangladesh, Bélarusse, Bengali, Belge, Berbère (Latin), Bosniaque, Brésilien, Britannique, Bulgare (BDS), Bulgare (phonétique), Birman, Canadien français, Canadien multilingue, Catalan, Chinois, Croate, Tchèque, Danois, Néerlandais, Dvorak, Dzongkha, Espéranto, Estonien, Éthiopien, Finnois, Français, Géorgien, Allemand, Grec, Gujarati, Gourmoukhî, Hébreu, Hindi, Hongrois, Islandais, Irlandais, Italien, Japonais, Kannada, Kazakh, Khmer, Kirghize, Coréen, Kurde (f), Kurde (q), Lao, Amérique latine, Letton, Lithuanien, Macédonien, Malayalam, Népalais, Sami septentrional, Norvégien, Persan, Philippines, Polonais, Portugais, Punjabi, Roumain, Russe, Serbe cyrillique, Sindhi, Singhalais, Slovaque, Slovène, Espagnol, Suédois, Suisse romand, Suisse alémanique, Tadjik, Tamoul, Télougou, Thaï, Tibétain, Turc (trfu), Turc (trqu), Ukrainien, Ouïgour, Vietnamien
 Choices-ga.UTF-8: Béarla Meiriceánach, Albánach, Arabach, Astúrach, An Bhanglaidéis, Bealarúiseach, Beangálach, Beilgeach, Berber (Latin), Boisniach, Brasaíleach, Béarla Sasanach, Bulgárach (leagan amach BDS), Bulgárach (leagan amach phonetic), Burmais, Francach (Ceanada), Ceanadach Ilteangach, Catalónach, Síneach, Crótach, Seiceach, Danmhargach, Ollannach, Dvorak, Seoiniach, Esperanto, Eastónach, Aetópach, Fionlannach, Francach, Seoirseach, Gearmánach, Gréagach, Gúisearátach, Gurmúcaí, Eabhrach, Hiondúis, Ungárach, Íoslannach, Gaeilge, Iodálach, Seapánach, Cannadach, Casacach, Ciméarach, Cirgiseach, Cóiréach, Coirdínach (leagan amach F), Coirdíneach (leagan amach Q), Laoch, Meiriceánach Laidineach, Laitviach, Liotuánach, Macadónach, Mailéalamach, Neipealach, Sáimis Thuaidh, Ioruach, Peirseach, Na hOileáin Fhilipíneacha, Polannach, Portaingéalach, Puinseábach, Rómánach, Rúiseach, Seirbiach (Coireallach), Sindeach, Siolónach, Slóvacach, Slóivéanach, Spáinneach, Sualannach, Francach (An Eilvéis), Gearmánach (An Eilvéis), Táidsíceastánach, Tamalach, Teileagúch, Téalannach, Tibéadach, Turcach (leagan amach F), Turcach (leagan amach Q), Úcránach, Uigiúrach, Vítneamach
@@ -3468,21 +3494,21 @@ Choices-it.UTF-8: Inglese (Stati Uniti), Albanese, Arabo, Asturiano, Bangladesh,
 Choices-ja.UTF-8: 米国, アルバニア語, アラビア語, アストゥリアス語, バングラデシュ語, ベラルーシ語, ベンガル語, ベルギー語, ベルベル語 (ラテン), ボスニア語, ブラジル語, イギリス英語, ブルガリア語 (BDS レイアウト), ブルガリア語 (phonetic レイアウト), ビルマ語, カナダ (フランス語), カナダ (多言語), カタルニア語, 中国語, クロアチア語, チェコ語, デンマーク語, オランダ語, Dvorak, ゾンカ語, エスペラント語, エストニア語, エチオピア語, フィンランド語, フランス語, ジョージア語, ドイツ語, ギリシャ語, グジャラーティー語, グルムキー文字, ヘブライ語, ヒンディー語, ハンガリー語, アイスランド語, アイルランド語, イタリア語, 日本語, カンナダ語, カザーフ語, クメール語, キルギス語, 朝鮮語, クルド語 (F 配置), クルド語 (Q レイアウト), ラオ語, ラテンアメリカ語, ラトビア語, リトアニア語, マケドニア語, マラヤーラム語, ネパール語, 北サーメ, ノルウェー語, ペルシア語, フィリピン, ポーランド語, ポルトガル語, パンジャブ語, ルーマニア語, ロシア語, セルビア語 (キリル文字), シンド語, シンハラ語, スロバキア語, スロベニア語, スペイン語, スウェーデン語, スイス (フランス語), スイス (ドイツ語), タジク語, タミル語, テルグ語, タイ語, チベット語, トルコ語 (F 配置), トルコ語 (Q レイアウト), ウクライナ語, ウイグル語, ベトナム語
 Choices-ka.UTF-8: ამერიკული ინგლისური, Albanian, არაბული, Asturian, ბანგლადეში, ბელორუსიული, Bengali, ბელგიური, Berber (Latin), Bosnian, ბრაზილიური, ბრიტანული ინგლისური, Bulgarian (BDS layout), ბულგარული (phonetic განლაგება), Burmese, კანადური ფრანგული, კანადური - მრავალენოვანი, Catalan, Chinese, ხორვატიული, ჩეხური, დანიური, ნიდერლანდური, Dvorak განლაგება, Dzongkha, Esperanto, ესტონური, Ethiopian, ფინური, ფრანგული, ქართული, გერმანული, ბერძნული, Gujarati, Gurmukhi, ებრაული, Hindi, უნგრული, აისლენდური, Irish, იტალიური, იაპონური, Kannada, Kazakh, Khmer, ყირგიზული, Korean, Kurdish (F layout), Kurdish (Q layout), ლაო, ლათინურ ამერიკული, ლატვიური, ლიტვური, მაკედონიური, Malayalam, Nepali, Northern Sami, ნორვეგიული, Persian, Philippines, პოლონური, პორტუგალიური, Punjabi, რუმინული, რუსული, სერბული (კირილიცა), Sindhi, Sinhala, Slovak, Slovenian, ესპანური, შვედური, შვეიცარული ფრანგული, შვეიცარული გერმანული, Tajik, Tamil, Telugu, ტაილანდური, Tibetan, თურქული (F განლაგება), თურქული (Q განლაგება), უკრაინული, Uyghur, Vietnamese
 Choices-kab.UTF-8: Taglizit (US), Talbanit, Taɛrabt, Tasturyant, Bengladic, Tabilarusit, Tabengalit, Abilǧik, Tamaziɣt (Talaṭinit), Tabusnit, Tabrizilit, Taglizit (UK), Tabulgarit (taneɣruft BDS), Tabulgarit (taneɣruft n ususru), Tabirmanit, Tafṛansist n Kanada, Akanadya yessnen aṭas n tutlayin, Takaṭalant, Tacinwat, Takrwasit, Taččikit, Tadanit, Tahulandit, Dvorak, Dzongkha, Taspirantit, Tisṭunit, Tatyupit, Tafinit, Tafṛansist, Taǧiyurǧit, Talmanit, Tagrigit, Taguǧaṛatit, Tagurmixit, Taɛebrit, Tahendit, Tahungrit, Taslandit, Tirlandit, Taṭelyanit, Tajapunit, Takannadat, Takazaxt, Taxemṛit, Takirgizt, Takurit, Taturkit (taneɣruft F), Taturkit (taneɣruft Q), Talawsit, Amarikan alatini, Talitwanit, Taliṭwanit, Tamasidunit, Tamayalamt, Tanipalit, Tasamt n ugafa, Tanurvijit, Tafarsit, Tafilipinit, Tapulunit, Tapurtugit, Tabenjabit, Tarumanit, Tarusit, Tasiṛbit (Sirilik), Tasinḍit, Tasinhalit, Tasluvakt, Tasluvinit, Taspanit, Taswidit, Tafransist n Swis, Talmanit n Swis, Tatajikt, Taṭamult, Telugutt, Tataylandit, Tatibitant, Taturkit (taneɣruft F), Taturkit (taneɣruft Q), Takrinit, Tawigurt, Tavyitnamit
-Choices-kk.UTF-8: Американ ағылшын, Албаниялық, Араб, Астуриялық, Бангладеш, Беларус, Бенгал, Бельгиялық, Berber (Latin), Босниялық, Бразилиялық, Ұлыбританиялық ағылшын, Болгар (BDS layout), Болгар (phonetic layout), Бирмалық, Канадалық француз, Канадалық көптілді, Каталан, Қытайша, Хорват, Чех, Даниялық, Голланд, Дворак, Дзонг-кэ, Эсперанто, Эстон, Эфиопиялық, Финн, Француз, Грузия, Неміс, Грек, Гуджарати, Гурмукхи, Иврит, Хинди, Венгр, Исландиялық, Ирландиялық, Италиян, Жапон, Каннада, Қазақ, Хмер, Қырғыз, Кореялық, Курд (F layout), Курд (Q layout), Лао, Латын америкалық, Латвиялық, Литвалық, Македон, Малаялам, Непалдық, Солтүстік Сами, Норвегиялық, Парсы, Филиппин, Польшалық, Португал, Панджаби, Румын, Орыс, Серб (Cyrillic), Синди, Синхала, Словакиялық, Словениялық, Испан, Швециялық, Швейцариялық француз, Швейцариялық неміс, Тәжік, Тамил, Телугу, Тай, Тибет, Түрік (F layout), Түрік (Q layout), Украин, Ұйғыр, Вьетнам
+Choices-kk.UTF-8: Американ ағылшын, Албаниялық, Араб, Астуриялық, Бангладеш, Беларус, Бенгал, Бельгиялық, Бербер (латын), Босниялық, Бразилиялық, Ұлыбританиялық ағылшын, Болгар (BDS layout), Болгар (phonetic layout), Бирмалық, Канадалық француз, Канадалық көптілді, Каталан, Қытайша, Хорват, Чех, Даниялық, Голланд, Дворак, Дзонг-кэ, Эсперанто, Эстон, Эфиопиялық, Финн, Француз, Грузия, Неміс, Грек, Гуджарати, Гурмукхи, Иврит, Хинди, Венгр, Исландиялық, Ирландиялық, Италиян, Жапон, Каннада, Қазақ, Хмер, Қырғыз, Кореялық, Курд (F жаймасы), Курд (Q жаймасы), Лао, Латын америкалық, Латвиялық, Литвалық, Македон, Малаялам, Непалдық, Солтүстік Сами, Норвегиялық, Парсы, Филиппин, Польшалық, Португал, Панджаби, Румын, Орыс, Серб (Cyrillic), Синди, Синхала, Словакиялық, Словениялық, Испан, Швециялық, Швейцариялық француз, Швейцариялық неміс, Тәжік, Тамил, Телугу, Тай, Тибет, Түрік (F layout), Түрік (Q layout), Украин, Ұйғыр, Вьетнам
 Choices-km.UTF-8: អង់គ្លេស អាមេរិក, អាល់បានី, អារ៉ាប់, អូតួរៀន, បង់ក្លាដេស, បេឡារុស្ស​​, បង់ហ្គាលី, បែលហ្សិក-ឡាតាំង១, Berber (Latin), ប៊ូស្នី, ប្រេស៊ីល, ​អង់គ្លេស អង់គ្លេស, Bulgarian (BDS layout), ប៊ុលហ្គារី-phonetic, Burmese, បារាំង​ កាណាដា, ច្រើន​ភាសា កាណាដៀន, កាតាឡាន, ចិន, ក្រូអាត, ឆេក, ដាណឺម៉ាក, ហូល្លង់, dvorak, ហ្សុងខា, អេស្ពីរ៉េនតូ, អេស្តូនី, អេត្យូពី, ហ្វាំងឡង់, បារាំង, ហ្សកហ្ស៊ី, អាល្លឺម៉ង់, ក្រិក, ហ្គូយ៉ារ៉ាទី, ហ្គូមូឃី, ហេប្រូ, ហិណ្ឌូ, ហុងគ្រី, អ៊ីស្លង់, អៀឡង់, អ៊ីតាលី, ជប៉ុន, កាណាដា, កាហ្សាក, ខ្មែរ, ឃឺកហីស, កូរ៉េ, ទួរគី (ប្លង់ F), ទួរគី (ប្លង់ Q), ឡាវ, អាមេរិក​ឡាទីន-ឡាតាំង១, ឡាតវីយ៉ា, លីទុយអានី, ម៉ាសេដូនី, ម៉ាឡេស៊ី, នេប៉ាល់, សាមី​ខាង​ជើង​, ន័រវ៉ែស, ភឺសៀន​​, Philippines, ប៉ូឡូញ, ព័រទុយហ្គាល់, ប៉ុនយ៉ាប៊ី, រ៉ូម៉ានី, រុស្ស៊ី, ស៊ែរប៊ី-ស៊ីពរ៍, ស៊ីន្តី, ស្រីលង្កា, ស្លូវ៉ាគី, ស្លូវ៉ានា, អេស្ប៉ាញ, ស៊ុយអែដ, បារាំង ស្វីស, ស្វីស អាល្លឺម៉ង់, Tajik, តាមីល, តេឡូហ្គូ, ថៃ, Tibetan, ទួរគី (ប្លង់ F), ទួរគី (ប្លង់ Q), អ៊ុយក្រែន, អុយហ្គូរ, វៀតណាម
 Choices-kn.UTF-8: ಅಮೆರಿಕನ್ ಇಂಗ್ಲೀಷ, ಅಲ್ಬೇನಿಯನ್, ಅರೇಬಿಕ್, ಅಸ್ತುರಿಯನ್, ಬಾಂಗ್ಲಾದೇಶ, ಬೆಲಾರೂಸಿಯನ್, ಬೆಂಗಾಲಿ, ಬೆಲ್ಜಿಯನ್, Berber (Latin), ಬೋಸ್ನಿಯನ್, ಬ್ರೆಝಿಲಿನ, ಬ್ರಿಟಿಷ್ ಇಂಗ್ಲೀಷ್, ಬಲ್ಗೇರಿಯನ್ (ಉಚ್ಚಾರಣಾನುರೂಪವಾಗಿರುವ ವಿನ್ಯಾಸ), ಬಲ್ಗೇರಿಯನ್ (ಉಚ್ಚಾರಣಾನುರೂಪವಾಗಿರುವ ವಿನ್ಯಾಸ), ಬರ್ಮೀಸ್, ಕೆನೆಡಿಯನ್ ಫ್ರೆಂಚ್, ಕೆನೆಡಿಯನ್ Multilingual, ಕ್ಯಾಟಲಾನ್, ಚೈನೀಸ್, ಕ್ರೊಏಶಿಯನ್, ಝೆಕ್, ಡ್ಯಾನಿಶ್, ಡಚ್, ಡೊರಾಕ್, ಜೋಂಗ್‌ಕಾ, ಎಸ್ಪರಾಂಟೊ, ಎಸ್ಟೊನಿಯನ್, ಇತಿಯೋಪಿಯನ್ನಿನ, ಫಿನ್ನಿಶ್, ಫ್ರೆಂಚ್, ಜಾರ್ಜಿಯನ್, ಜರ್ಮನ್, ಗ್ರೀಕ್, ಗುಜರಾತಿ, ಗುರ್ಮುಖಿ, ಹೀಬ್ರೂ, ಹಿಂದಿ, ಹಂಗೇರಿಯನ್, ಐಸ್ಲಾಂಡಿಕ್, ಐರಿಶ್, ಇಟಾಲಿಯನ್, ಜಪನೀಸ್, ಕನ್ನಡ, ಕಜಕ್, ಖ್ಮೆರ್, ಕಿರ್ಘಿಸ್, ಕೊರಿಯನ್, ಕುರ್ದಿಶ್ (F ವಿನ್ಯಾಸ), ಕುರ್ದಿಶ್ (Q ವಿನ್ಯಾಸ), ಲಾವೋ, ಲತಿನ್ ಅಮೆರಿಕನ್, ಲಾಟ್ವಿಯನ್, ಲಿಥುವೆನಿಯನ್, ಮೆಸಿಡೊನಿಯನ್, ಮಲಯಾಳಂ, ನೇಪಾಲಿ, ಉತ್ತರ ಸಾಮಿ, ನೊರ್ವೆಜಿಯನ್, ಪರ್ಶಿಯನ್, ಫಿಲಿಪ್ಪೀನ್ಸ್, ಪೋಲಿಶ್, ಪೋರ್ಚುಗೀಸ್, ಪಂಜಾಬಿ, ರೊಮೇನಿಯನ್, ರಷಿಯನ್, ಸರ್ಬಿಯನ್ (ಸಿರಿಲಿಕ್), ಸಿಂಧಿ, ಸಿನ್ಹಲ, ಸ್ಲೋವಾಕ್, ಸ್ಲೋವೆನಿಯನ್, ಸ್ಪಾನಿಷ್ , ಸ್ವೀಡಿಷ್, ಸ್ವಿಸ್ ಫ್ರೆಂಚ್, ಸ್ವಿಸ್ ಜರ್ಮನ್, ತಾಜೀಕ್, ತಮಿಳು, ತೆಲುಗು, ಥಾಯ್, ಟಿಬೆಟ, ತುರ್ಕಿಶ್ (F ವಿನ್ಯಾಸ), ತುರ್ಕಿಶ್ (Q ವಿನ್ಯಾಸ), ಉಕ್ರೇನಿಯನ್, ಉಯ್ಘುರ್, ವಿಯೆಟ್ನಾಮೀಸ್
-Choices-ko.UTF-8: 미국 영어, 알바니아어, 아랍어, 아스투리아스어, 방글라데시, 벨라루시아어, 벵골어, 벨기에어, Berber (Latin), 보스니아어, 브라질 포르투갈어, 영국 영어, 불가리아어 (BDS 배치), 불가리아어 (음성 표기), 미얀마, 캐나다 프랑스어, 캐나다 다국어, 카탈루냐어, 중국어, 크로아티아어, 체코어, 덴마크어, 네덜란드어, 드보락, 종카어, 에스페란토어, 에스토니아어, 에티오피아어, 핀란드어, 프랑스어, 조지아어, 독일어, 그리스어, 구자라트어, 구르무키 문자, 히브리어, 힌두어, 헝가리어, 아이슬란드어, 아일랜드어, 이탈리아어, 일본어, 칸나다어, 카자흐어, 크메르어, 키르기스어, 한국어, 쿠르드어 (F 배치), 쿠르드어 (Q 배치), 라오어, 중남미, 라트비아어, 리투아니아어, 마케도니아어, 말라얄람어, 네팔어, 사미어 (북부), 노르웨이어, 페르시아어, 필리핀, 폴란드어, 포르투갈어, 펀잡어, 루마이나어, 러시아어, 세르비아어 (키릴 문자), 신디어, 싱할라어, 슬로바키아어, 슬로베니아어, 스페인어, 스웨덴어, 스위스 프랑스어, 스위스 독일어, 타지크어, 타밀어, 텔루구어, 타이어, 티벳어, 터키어 (F 배치), 터키어 (Q 배치), 우크라니아어, 위구르어, 베트남어
+Choices-ko.UTF-8: 미국 영어, 알바니아어, 아랍어, 아스투리아스어, 방글라데시, 벨라루시아어, 벵골어, 벨기에어, 베르베르어 (라틴 문자), 보스니아어, 브라질 포르투갈어, 영국 영어, 불가리아어 (BDS 배치), 불가리아어 (음성 표기), 미얀마, 캐나다 프랑스어, 캐나다 다국어, 카탈루냐어, 중국어, 크로아티아어, 체코어, 덴마크어, 네덜란드어, 드보락, 종카어, 에스페란토어, 에스토니아어, 에티오피아어, 핀란드어, 프랑스어, 조지아어, 독일어, 그리스어, 구자라트어, 구르무키 문자, 히브리어, 힌두어, 헝가리어, 아이슬란드어, 아일랜드어, 이탈리아어, 일본어, 칸나다어, 카자흐어, 크메르어, 키르기스어, 한국어, 쿠르드어 (F 배치), 쿠르드어 (Q 배치), 라오어, 중남미, 라트비아어, 리투아니아어, 마케도니아어, 말라얄람어, 네팔어, 사미어 (북부), 노르웨이어, 페르시아어, 필리핀, 폴란드어, 포르투갈어, 펀잡어, 루마이나어, 러시아어, 세르비아어 (키릴 문자), 신디어, 싱할라어, 슬로바키아어, 슬로베니아어, 스페인어, 스웨덴어, 스위스 프랑스어, 스위스 독일어, 타지크어, 타밀어, 텔루구어, 타이어, 티벳어, 터키어 (F 배치), 터키어 (Q 배치), 우크라니아어, 위구르어, 베트남어
 Choices-ku.UTF-8: Îngilîziya Amerîka, Albanian, Erebî, Awûstrî, Banglades, Belarûsî, Bengali, Belçîkî, Berber (Latin), Bosnî, Brazîlî, Îngilîziya Brîtanya, Bulgarian (BDS layout), Bulgarî (phonetic), Burmese, Fransiya Kanadayê, Kanada ya Pirzimanî, Katalanî, Çîn, Kroatî, Çekî, Danimarkî, Hollandî, Dvorak, Dzongkha, Esperanto, Estonî, Ethiopian, Finî, Fransî, Gurcî, Almanî, Yewnanî, Gujarati, Gurmukhi, Îbranî, Hindî, Macarî, Îzlandî, Îrlandî, Îtalî, Japonî, Kannada, Kazakh, Khmer, Qirxizî, Korean, Kurdish (F layout), Kurdish (Q layout), Laoyî, Amerîkiya Latîn, Latwî, Lîtwanî, Makedonî, Malayalam, Nepali, Northern Sami, Norwecî, Persian, Philippines, Polonî, Portekîzî, Punjabi, Romanî, Rûsî, Sirbî (Kîrîl), Sindhi, Sinhala, Slovak, Slovenian, Spanî, Swêdî, Fransiya Swîsrê, Almaniya Swîsrê, Tajik, Tamil, Telugu, Tay, Tibetan, Tirkî (F), Tirkî (Q), Ukraynî, Uyghur, vîyetnamî
 Choices-lo.UTF-8: ພາສາອັງກິດອາເມລິກັນ, ອາເບເນຍ, ອາລັບ, ເເອຊ໌ທູລ້ຽນ, ບັງກະລາເດດ, ກ່ຽວກັບເບລະຣູສ, ພາສາບັງກະລາເດດ, ຊາວເບລຢຽມ, Berber (Latin), ພາສາບອສເນຍ, ບຣາຊິວ, ພາສາອັງກິດ, Bulgarian (BDS layout), ບັລເກເຣຍຮູບແບບການອອກສຽງ, Burmese, ຝຣັ່ງເສດ ແຄນາດາ, ເວົ້າໄດ້ຫລາຍພາສາ ຊາວແຄນາດາ, ພາສາກັດຕະລານ, ພາສາຈີນ, ພາສາໂຄຣເອເຊຍ, ພາສາເຊັກ, ພາສາເດັນມາຣກ, ພາສາດັດຊ, ພາສາໂວລັກ, ພາສາດອງກາ, ພາສາເອສເປີລານໂຕ, ພາສາເອສໂຕເນຍ, ພາສາອີຕີໂອປຽຍ, ພາສາຟິນແລນ, ພາສາຝຣັ່ງເສດ, ພາສາຈໍເຈຍ, ພາສາເຢີລະມັນ, ພາສາກຣີກ, ພາສາກູຈາລາຕີ, ພາສາເກີມູກີ, ພາສາຮິບຣູ, ພາສາຮີນດິ, ພາສາຮັງກາຣີ, ພາສາໄອຊແລນ, ພາສາໃອຣີຊ໌, ພາສາອິຕາລີ, ພາສາຢີ່ປຸ່ນ, ພາສາຄັນນາດາ, ພາສາກາຊາກ, ພາສາກໍາພູຊາ, ພາສາເຄີກີຊ, ພາສາເກົາຫຼີ, ພາສາເຄີດ (ແບບ F), ພາສາເຄີດ (ແບບ Q ), ພາສາລາວ, ລາຕິນອາເມຣິກາ, ພາສາລັດເວຍ, ພາສາລິຮົວເນຍ, ພາສາແມກຊີໂດເນຍ, ພາສາມາລາຍາມ, ພາສາເນປາລີ, ສາມິ ເໜືອ, ພາສານໍເວ, ພາສາເພີເຊຍ, Philippines, ພາສາໂປເເລນ, ໂປຣຕຸເກດ, ພາສາພຸນຈາບິ, ພາສາໂຣມາເນຍ, ພາສາຣັສເຊຍ, ພາສາເຊີເບຍ (ຊີຣິລລິກ), ພາສາສີນຮີ, ພາສາສີນຫາລາ, ພາສາສະໂລວັກ, ພາສາສະໂລວັກ, ພາສາສະເປນ, ພາສາສະວີເດັນ, ພາສາຝຣັ່ງເສດ ສະວິສ, ພາສາເຢີຣະມັນ ສະວິສ, Tajik, ພາສາທາມມີວ, ພາສາເທກາລູ, ພາສາໄທ, Tibetan, ພາສາຕຸຣະກີ (ແບບ F), ພາສາຕຸລະກີ (ແບບ Q ), ພາສາຢູເຄຣນ, ພາສາອູເກີ, ພາສາຫວຽດ
 Choices-lt.UTF-8: Amerikiečių angliškas, Albanų, Arabų, Astūrų, Bangladešas, Baltarusių, Bengalų, Belgų, Berberų (Lotynų), Bosnių, Brazilų, Britų angliškas, Bulgarų (BDS), Bulgarų (fonetinis), Birmiečių, Kanadiečių prancūziškas, Kanadiečių daugiakalbis, Katalonų, Kinų, Kroatų, Čekų, Danų, Olandų, Dvorako, Botijų, Esperanto, Estų, Etiopų, Suomių, Prancūzų, Gruzinų, Vokiečių, Graikų, Gudžaratų, Gurmukhų, Hebrajų, Hindi, Vengrų, Islandų, Airių, Italų, Japonų, Kanadų, Kazachų, Khmerų, Kirgizų, Korėjiečių, Kurdų (F), Kurdų (Q), Laosiečių, Lotynų Amerikos, Latvių, Lietuvių, Makedonų, Malajalių, Nepalų, Šiaurės samių, Norvegų, Persų, Filipiniečių, Lenkų, Portugalų, Pandžabų, Rumunų, Rusų, Serbų (kirilica), Sindų, Singalų, Slovakų, Slovėnų, Ispanų, Švedų, Šveicarų prancūziškas, Šveicarų vokiškas, Tadžikų, Tamilų, Telugų, Tajų, Tibetiečių, Turkų (F), Turkų (Q), Ukrainiečių, Uigūrų, Vietnamiečių
 Choices-lv.UTF-8: Amerikāņu angļu, Albāņu, Arābu, Astūriešu, Bangladešas, Baltkrievu, Bengāļu, Beļģu, Berberu (latīņu), Bosniešu, Brazīļu, Britu angļu, Bulgāru (BDS izkārtojums), Bulgāru (fonētiskais izkārtojums), Birmiešu, Kanādiešu franču, Kanādas daudzvalodu, Katalāņu, Ķīniešu, Horvātu, Čehu, Dāņu, Holandiešu, Dvorak, Dzongke, Esperanto, Igauņu, Etiopiešu, Somu, Franču, Gruzīnu, Vācu, Grieķu, Gudžaratu, Gurmuku, Ivrits, Hindi, Ungāru, Islandiešu, Īru, Itāliešu, Japāņu, Kannadu, Kazahu, Khmeru, Kirgīzu, Korejiešu, Kurdu (F izklājums), Kurdu (Q izklājums), Laosiešu, Latīņamerikas, Latviešu, Lietuviešu, Maķedoniešu, Malajalu, Nepāliešu, Ziemeļsāmu, Norvēģu, Persiešu, Filipīniešu, Poļu, Portugāļu, Pandžabu, Rumāņu, Krievu, Serbu (kirilica), Sindhu, Singāļu, Slovāku, Slovēņu, Spāņu, Zviedru, Šveices franču, Šveices vāciešu, Tadžiku, Tamilu, Telugu, Taju, Tibetiešu, Turku (F izklājums), Turku (Q izklājums), Ukraiņu, Uiguru, Vjetnamiešu
-Choices-mk.UTF-8: Американско-англиски, Албански, Арапски, Австриски, Бангладеш, Белоруски, Бенгалски, Белгиски, Berber (Latin), Босански, Бразилски, Британски англиски, Bulgarian (BDS layout), Бугарски (фонетски распоред), Burmese, Канадско француски, Канадско повеќејазично, Каталонски, Кинески, Хрватски, Чешки, Дански, Холандски, Дворак, Џонгха, Есперанто, Естониски, Етиопски, Фински, Француски, Грузиски, германска, Грчки, Гујарати, Гуркмуки, Хебрејски, Хинду, Унгарски, Исландски, Ирски, италијанска, Јапонски, Каннада, Казак, Кмер, Киргиз, Корејски, Курдски (F распоред), Курдски (Q распоред), Лаошки, Латино американски, Латвиски, Литвански, Македонски, Малајалам, Непалска, Северено самиска, Норвешка, Персиска, Philippines, Полска, Португалска, Панџаби, Романска, Руска, Српски (Кирилица), Синди, Синхала, Словачки, Словенечки, Шпански, Шведски, Швајцарско француски, Шведско-германски, Tajik, Тамилски, Телуг, Тајландски, Tibetan, турска fu, турска qu, украинска, Ујгхур, Виетнамски
+Choices-mk.UTF-8: Американско-англиски, Албански, Арапски, Австриски, Бангладеш, Белоруски, Бенгалски, Белгиски, Берберски (Латински), Босански, Бразилски, Британски англиски, Бугарски (BDS распоред), Бугарски (фонетски распоред), Бурмански, Канадско француски, Канадско повеќејазично, Каталонски, Кинески, Хрватски, Чешки, Дански, Холандски, Дворак, Џонгха, Есперанто, Естониски, Етиопски, Фински, Француски, Грузиски, германска, Грчки, Гујарати, Гуркмуки, Хебрејски, Хинду, Унгарски, Исландски, Ирски, италијанска, Јапонски, Каннада, Казак, Кмер, Киргиз, Корејски, Курдски (F распоред), Курдски (Q распоред), Лаошки, Латино американски, Латвиски, Литвански, Македонски, Малајалам, Непалска, Северено самиска, Норвешка, Персиска, Филипини, Полска, Португалска, Панџаби, Романска, Руска, Српски (Кирилица), Синди, Синхала, Словачки, Словенечки, Шпански, Шведски, Швајцарско француски, Шведско-германски, Таџикистан, Тамилски, Телуг, Тајландски, Тибетански, турска fu, турска qu, украинска, Ујгхур, Виетнамски
 Choices-ml.UTF-8: അമേരിക്കന്‍ ഇംഗ്ലീഷ്, അല്‍ബാനിയന്‍, അറബിക്, അസ്തൂറിയന്‍, ബംഗ്ലാദേശ്, ബെലാറൂസ്യന്‍, ബംഗാളി, ബെല്‍ജിയന്‍, Berber (Latin), ബോസ്നിയന്‍, ബ്രസീലിയന്‍, ബ്രിട്ടീഷ് ഇംഗ്ലീഷ്, ബള്‍ഗേറിയന്‍ (BDS ലേയൌട്ട്), ബള്‍ഗേറിയന്‍ (phonetic layout), ബര്‍മീസ്, കനേഡിയന്‍ ഫ്രഞ്ച്, കനേഡിയന്‍ ബഹുഭാഷ, കറ്റാലന്‍, ചൈനീസ്, ക്രൊയേഷ്യന്‍, ചെക്ക്, ഡാനിഷ്, ഡച്ച്, ഡ്വൊറാക്, സോങ്കാ, എസ്പറാന്റോ, എസ്തോണിയന്‍, എത്യോപ്യന്‍, ഫിന്നിഷ്, ഫ്രഞ്ച്, ജോര്‍ജ്യന്‍, ജര്‍മന്‍, ഗ്രീക്ക്, ഗുജറാത്തി, ഗുരുമുഖി, ഹീബ്രൂ, ഹിന്ദി, ഹങ്കേറിയന്‍, ഐസ്‌ലാന്‍ഡിക്, ഐറിഷ്, ഇറ്റാലിയന്‍, ജപ്പാനീസ്, കന്നഡ, ഖസക്, ഖമര്‍, കിര്‍ഗിസ്സ്, കൊറിയന്‍, കര്‍ഡിഷ് (F വിന്യാസം), കര്‍ഡിഷ് (Q വിന്യാസം), ലാവോ, ലാറ്റിന്‍ അമേരിക്കന്‍, ലാത്വിയന്‍, ലിത്വാനിയന്‍, മാസിഡോണിയന്‍, മലയാളം, നേപ്പാളി, വടക്കന്‍ സാമി, നോര്‍വീജിയന്‍, പേര്‍ശ്യന്‍, ഫിലിപ്പീന്‍സ്, പോളിഷ്, പോര്‍ച്ചുഗീസ്, പഞ്ചാബി, റുമേനിയന്‍, റഷ്യന്‍, സെര്‍ബിയന്‍ (സിറിലിക്), സിന്ദി, സിംഹള, സ്ലോവാക്ക്, സ്ലോവേനിയന്‍, സ്പാനിഷ്, സ്വീഡിഷ്, സ്വിസ്സ് ഫ്രഞ്ച്, സ്വിസ്സ് ജര്‍മന്‍, താജിക്, തമിഴ്, തെലുങ്കു, തായി, ടിബറ്റിയന്‍, തുര്‍ക്കിഷ് (F വിന്യാസം), തുര്‍ക്കിഷ് (Q വിന്യാസം), ഉക്രേനിയന്‍, വീഗോര്‍, വിയറ്റ്നാമീസ്
 Choices-mr.UTF-8: अमेरिकन इंग्लिश, अल्बनिअन, अरबीक, ऍस्टुरिअन, बांगलादेश, बेलेरशिअन, बंगाली, बेल्जिअन, Berber (Latin), बोस्नीयन, ब्राझिलिअन, ब्रिटिश इंग्लिश, बल्गेरिअन (बीडीएस आरखडा), बल्गेरिअन (फोनेटिक आरखडा), बर्मीज, कॅनेडियन फ्रेंच, कॅनेडियन मल्टिलिंग्वल, कॅटालान, चायनीज, क्रोएशीअन, झेक, डॅनिश, डच, डीव्होरॅक, ड्जोन्गखा, इस्पेरान्टो, एस्टोनिअन, इथिओपिअन, फिनीश, फ्रेंच, जार्जियन, जर्मन, ग्रीक, गुजराती, गुरुमुखी, हिब्र्यु, हिंदी, हंगेरीअन, आईसलॅंडीक, आयरिश, इटालियन, जपानी, कन्नड, कजाक, ख्मेर, क०रॴग०ृॣ, कोरियन, कुर्दिश (एफ आराखडा), कुर्दिश (ओ आराखडा), लाओ, लॅटिन अमेरिकन, लॅटेव्हिअन, लिथूआनिअन, मेसेडोनिअन, मल्याळम, नेपाळी, नॉर्थ सामी, नोर्वेजिअन, पर्शियन, फिलिपिनीज, पोलिश, पोर्तुगीज, पंजाबी, रोमानिअन, रशियन, सर्बिअन, सिंधी, सिंहला, स्लोव्हाक, स्लोव्हेनिअन, स्पॅनिश, स्विडीश, स्विस फ्रेंच, स्विस जर्मन, ताजिक, तमिळ, तेलुगू, थाई, तिबेटियन, तुर्किश (एफ आराखडा), तुर्किश (ओ आराखडा), युक्रेनिअन, युघूर, विएतनामिज
 Choices-nb.UTF-8: Engelsk (USA), Albansk, Arabisk, Asturisk, Bangladesh, Hviterussisk, bengali, Belgisk, Tamazight (latinsk alfabet), Bosnisk, Brasiliansk, Engelsk (Storbritannia), Bulgarsk (BDS-oppsett), Bulgarsk (phonetic-oppsett), Burmesisk, Fransk (Canada), Kanadisk\, flerspråklig, Katalansk, Kinesisk, Kroatisk, Tsjekkisk, Dansk, Nederlandsk, Dvorak, dzongkha, Esperanto, Estisk, Etiopisk, Finsk, Fransk, Georgisk, Tysk, Gresk, gujarati, gurmukhi, Hebraisk, hindi, Ungarsk, Islandsk, Irsk, Italiensk, Japansk, kannada, kasakhisk, Khmer, kirgisisk, Koreansk, Kurdisk (F-oppsett), Kurdisk (Q-oppsett), laotisk, Latinamerikansk, Latvisk, Litauisk, Makedonsk, malayalam, nepalsk, Nord-samisk, Norsk, Persisk, Filippinsk, Polsk, Portugisisk, Punjabi, Rumensk, Russisk, Serbisk (kyrillisk), Sindhi, Singalesisk, Slovakisk, Slovensk, Spansk, Svensk, Fransk (Sveits), Tysk (Sveits), Tadsjikisk, Tamilsk, Telugu, Thai, Tibetansk, Tyrkisk (F-oppsett), Tyrkisk (Q-oppsett), Ukrainsk, Uigursk, Vietnamesisk
 Choices-ne.UTF-8: अमेरिकि अङ्ग्रेजी, अल्बानियन, अरबिक, अस्टुरियन, बंगलादेश, द्वारा, बंगाली, बेल्जियन, Berber (Latin), बोस्नियन, ब्राजिली, ब्रिटिस अङ्ग्रेजी, बुल्गेरियन (BDS सजावट), बुल्गेरिया (phonetic सजावट), बर्मिज, क्यानडा फ्रान्सेली, क्यानेडीयन बहुभाषी, क्याटलान, चाइनिज, क्रोएसियाली, चेक, डेनिस, डच, डिभोरक, भुटानिज, इस्पेरान्तो, इस्टोनियाली, इथोपियन, फिनीस, फ्रान्सेली, जोर्जीयन, जर्मन, ग्रिक, गुजराती, गुर्मुखी, हिब्रु, हिन्दी, हङ्गेरियन, आइसल्यान्डिक, आइरिस, इटालियन, जापानी, कन्नड, काजाक, खमेर, कीरघिज़, कोरियन, कुर्दीश (F सजावट), कुरदीस (Q सजावट), लाओथियन, ल्याटिन-अमेरिकि, ल्याटभियन, लिथुनियन, म्यासडोनियन, मल्यालमम, नेपाली, उत्तरी सामी, नर्वेली, पर्शीयन, फिलिपीन्स, पोलिस, पोर्तुगाली, पन्जाबी, रोमानियन, रसियाली, सर्बियन-सिरिलिक, सिन्धी, सिङ्हाला, स्लोभाक, स्लोभेनियन, स्पेनी, स्विडिस, स्विस-फ्रान्सेली, स्वीस जर्मनी, ताजिक, तामिल, तेलुगु, थाई, तिबेतियन, टर्किस (F सजावट), टर्किस (Q सजावट), युक्रेनी, उईघुर, भियेतनमिज
 Choices-nl.UTF-8: Amerikaans Engels, Albanees, Arabisch, Asturisch, Bangladesh, Wit-Russisch, Bengaals, Belgisch, Berbers (Latijns), Bosnisch, Braziliaans, Brits Engels, Bulgaars (BDS indeling), Bulgaars (fonetische indeling), Birmaans/Birmees, Canadees Frans, Canadees meertalig, Catalaans, Chinees, Kroatisch, Tsjechisch, Deens, Nederlands, Engels met minimale vingerbeweging (dvorak), Dzongkha, Esperanto, Estlands, Ethiopisch, Fins, Frans, Georgisch, Duits, Grieks, Gujarati, Gurmukhi, Hebreeuws, Hindi, Hongaars, IJslands, Iers, Italiaans, Japans, Kannada\, Kanarees, Kazachs, Khmer, Kirgizisch, Koreaans, Koerdisch (F-indeling), Koerdisch (Q-indeling), Lao, Latijns-Amerikaans, Lets, Litouws, Macedonisch, Malayalam, Nepalees, Noord-Samisch, Noors, Perzisch, Filipijns, Pools, Portugees, Punjabi, Roemeens, Russisch, Servisch (Cyrillisch), Sindhisch, Singalees, Slowaaks, Sloveens, Spaans, Zweeds, Zwitsers Frans, Zwitsers Duits, Tadzjieks, Tamil, Telugu, Thais, Tibetaans, Turks (F-indeling), Turks (Q-indeling), Oekraïens, Oeigoers, Vietnamees
-Choices-nn.UTF-8: Engelsk (USA), Albansk, Arabisk, Asturisk, Bangladesh, Kviterussisk, Bengali, Belgisk, Berber (Latin), Bosnisk, Brasiliansk, Engelsk (Storbritannia), Bulgarsk (BDS-oppsett), Bulgarsk (phonetic-oppsett), Burmesisk, Fransk (Canada), Kanadisk\, fleirspråkleg, Katalansk, Kinesisk, Kroatisk, Tsjekkisk, Dansk, Nederlandsk, Dvorak, Dzongkha, Esperanto, Estisk, Etiopisk, Finsk, Fransk, Georgisk, Tysk, Gresk, Gujarati, gurmukhi, Hebraisk, Hindi, Ungarsk, Islandsk, Irsk, Italiensk, Japansk, Kannada, Kasakhisk, Khmer, Kirgisisk, Koreansk, Kurdisk (F-oppsett), Kurdisk (Q-oppsett), Laotisk, Latinamerikansk, Latvisk, Litauisk, Makedonsk, Malayalam, Nepali, Nordsamisk, Norsk, Persisk, Filippinsk, Polsk, Portugisisk, Punjabi, Rumensk, Russisk, Serbisk (kyrillisk), Sindhi, Singalesisk, Slovak, Slovensk, Spansk, Svensk, Fransk (Sveits), Tysk (Sveits), Tadsjikisk, Tamil, Telugu, Thai, Tibetansk, Russisk, Tyrkisk (Q-oppsett), Ukrainsk, Uigursk, Vietnamesisk
+Choices-nn.UTF-8: Engelsk (USA), Albansk, Arabisk, Asturisk, Bangladesh, Belarusisk, Bengali, Belgisk, Berbersk (latin), Bosnisk, Brasiliansk, Engelsk (Storbritannia), Bulgarsk (BDS-oppsett), Bulgarsk (phonetic-oppsett), Burmesisk, Fransk (Canada), Kanadisk\, fleirspråkleg, Katalansk, Kinesisk, Kroatisk, Tsjekkisk, Dansk, Nederlandsk, Dvorak, Dzongkha, Esperanto, Estisk, Etiopisk, Finsk, Fransk, Georgisk, Tysk, Gresk, Gujarati, Gurmukhi, Hebraisk, Hindi, Ungarsk, Islandsk, Irsk, Italiensk, Japansk, Kannada, Kasakhisk, Khmer, Kirgisisk, Koreansk, Kurdisk (F-oppsett), Kurdisk (Q-oppsett), Laotisk, Latinamerikansk, Latvisk, Litauisk, Makedonsk, Malayalam, Nepali, Nordsamisk, Norsk, Persisk, Filipino, Polsk, Portugisisk, Panjabi, Rumensk, Russisk, Serbisk (kyrillisk), Sindhi, Singalesisk, Slovakisk, Slovensk, Spansk, Svensk, Fransk (Sveits), Tysk (Sveits), Tadsjikisk, Tamil, Telugu, Thai, Tibetansk, Tyrkisk (F-oppsett), Tyrkisk (Q-oppsett), Ukrainsk, Uigurisk, Vietnamesisk
 Choices-no.UTF-8: Engelsk (USA), Albansk, Arabisk, Asturisk, Bangladesh, Hviterussisk, bengali, Belgisk, Tamazight (latinsk alfabet), Bosnisk, Brasiliansk, Engelsk (Storbritannia), Bulgarsk (BDS-oppsett), Bulgarsk (phonetic-oppsett), Burmesisk, Fransk (Canada), Kanadisk\, flerspråklig, Katalansk, Kinesisk, Kroatisk, Tsjekkisk, Dansk, Nederlandsk, Dvorak, dzongkha, Esperanto, Estisk, Etiopisk, Finsk, Fransk, Georgisk, Tysk, Gresk, gujarati, gurmukhi, Hebraisk, hindi, Ungarsk, Islandsk, Irsk, Italiensk, Japansk, kannada, kasakhisk, Khmer, kirgisisk, Koreansk, Kurdisk (F-oppsett), Kurdisk (Q-oppsett), laotisk, Latinamerikansk, Latvisk, Litauisk, Makedonsk, malayalam, nepalsk, Nord-samisk, Norsk, Persisk, Filippinsk, Polsk, Portugisisk, Punjabi, Rumensk, Russisk, Serbisk (kyrillisk), Sindhi, Singalesisk, Slovakisk, Slovensk, Spansk, Svensk, Fransk (Sveits), Tysk (Sveits), Tadsjikisk, Tamilsk, Telugu, Thai, Tibetansk, Tyrkisk (F-oppsett), Tyrkisk (Q-oppsett), Ukrainsk, Uigursk, Vietnamesisk
 Choices-oc.UTF-8: Anglés american, Albanés, Arabi, Asturian, Bangladèsh, Bielorus, Bengali, Bèlga, Berbèr (Latin), Bosniac, Brasilian, Anglés britanic, Bulgar (dispo. BDS), Bulgar (dispo. fonetica), Birman, Francés canadian, Canadian multilingüe, Catalan, Chinés, Croat, Chèc, Danés, Neerlandés, Dvorak, Dzongkha, Esperanto, Estonian, Etiopian, Finlandés, Francés, Georgian, Alemand, Grèc, Gujarati, Gurmukhi, Ebrieu, Indi, Ongrés, Islandés, Irlandés, Italian, Japonés, Canarés, Cazac, Khmer, Kirghiz, Corean, Curd (dispo. F), Curd (dispo. Q), Lao, America latina, Lituanian, Lituanian, Macedonian, Malaialam, Nepalés, Sami del Nòrd, Norvegian, Persian, Filipinas, Polonés, Portugués, Punjabi, Romanés, Rus, Sèrbi (cirillic), Sindi, Singalés, Eslovac, Eslovèn, Espanhòl, Suedés, Soís romand, Soís alemand, Tajik, Tamol, Telugu, Tai, Tibetan, Turc (dispo. F), Turc (dispo. Q), Urcraïnian, Oigor, Vietnamian
 Choices-pa.UTF-8: ਅਮਰੀਕੀ ਅੰਗਰੇਜ਼ੀ, ਅਲਬਾਨੀਆਈ, ਅਰਬੀ, ਅਸੁਟਰੀਆਈ, ਬੰਗਲਾਦੇਸ਼, ਬੇਲਾਰੂਸੀਅਨ, ਬੰਗਾਲੀ, ਬੈਲਜੀਅਨ, ਬੇਰਬੇਰ (ਲਾਤੀਨੀ), ਬੋਸਨੀਆਈ, ਬਰਾਜ਼ੀਲੀ, ਬਰਤਾਨਵੀ ਅੰਗਰੇਜ਼ੀ, ਬੁਲਗਾਰੀਅਨ (BDS ਲੇਆਉਟ), ਬੁਲਗਾਰੀਅਨ (ਫਨੋਟਿਕ ਲੇਆਉਟ), ਬਰਮੀਸੀ, ਕਨੇਡੀਅਨ ਫ਼ਰੈਂਚ, ਕਨੇਡੀਅਨ ਬਹੁ-ਭਾਸ਼ਾਈ, ਕਾਟਾਲਾਨ, ਚੀਨੀ, ਕਰੋਟੀਆਈ, ਚੈਕ, ਡੈਨਿਸ਼, ਡੱਚ, ਡਵੋਰਕ, ਡਜ਼ੌਂਗਖਾ, ਇਸਪੇਰਾਂਟੋ, ਏਸਟੋਨੀਅਨ, ਇਥੋਪੀਆਈ, ਫਿੰਨਿਸ਼, ਫਰੈਂਚ, ਜਾਰਜੀਆਈ, ਜਰਮਨ, ਗਰੀਕ, ਗੁਜਰਾਤੀ, ਗੁਰਮੁਖੀ, ਹੈਬਰਿਉ, ਹਿੰਦੀ, ਹੰਗੇਰੀਆਈ, ਆਈਸਲੈਂਡੀ, ਆਈਰਸ਼, ਇਤਾਲਵੀ, ਜਾਪਾਨੀ, ਕੰਨੜ, ਕਾਜ਼ਾਖ, ਖਮੀਰ, ਕਿਰਗਿਜ਼, ਕੋਰੀਆਈ, ਕੁਰਦ (F ਲੇਆਊਟ ), ਕੁਰਦ (Q ਲੇਆਊਟ ), ਲਾਓ, ਲਾਤੀਨੀ ਅਮਰੀਕੀ, ਲਾਤੀਵੀਅਨ, ਲਿਥੁਏਨਿਅਨ, ਮੈਸੇਡੋਨੀਅਨ, ਮਲਿਆਲਮ, ਨੇਪਾਲੀ, ਉੱਤਰੀ ਸਾਮੀ, ਨਾਰਵੇਗੀਆਈ, ਫ਼ਾਰਸੀ, ਫਿਲੀਪੀਨਜ਼, ਪੋਲੈਂਡੀ, ਪੁਰਤਗਾਲੀ, ਪੰਜਾਬੀ, ਰੋਮਾਨੀਆਈ, ਰੂਸੀ, ਸਰਬੀਆਈ (ਸਿਰਲਿਕ), ਸਿੰਧੀ, ਸਿੰਹਾਲਾ, ਸਲੋਵਾਕ, ਸਲੋਵੀਨੀਆਈ, ਸਪੇਨੀ, ਸਵੀਡਿਸ਼, ਸਵਿਸ ਫ਼ਰੈਂਚ, ਸਵਿਸ ਜਰਮਨ, ਤਾਜਿਕ, ਤਾਮਿਲ, ਤੇਲਗੂ, ਥਾਈ, ਤਿੱਬਤੀ, ਤੁਰਕੀ (F ਲੇਆਊਟ ), ਤੁਰਕੀ (Q ਲੇਆਊਟ ), ਯੂਕਰੇਨੀ, ਉਘੁਰ, ਵੀਅਤਨਾਮੀ
@@ -3506,8 +3532,8 @@ Choices-th.UTF-8: อังกฤษอเมริกัน, แอลเบเ
 Choices-tl.UTF-8: Ingles ng Amerikano, Albanyan, Arabo, Asturiano, Bangladesh, Belaruso, Bengali, Belhika, Berber (Latin), Bosniya, Brazilian, Ingles ng Britanya, Bulgarian (layout na BDS), Bulgarian (phonetic layout), Burmese, Canadian French, Canadian na multilingual, Catalan, Chinese, Croatian, Czech, Danish, Dutch, Dvorak, Dzongkha, Esperanto, Estonian, Ethiopian, Finnish, French, Georgian, Aleman, Griyego, Gujarati, Gurmukhi, Hebreo, Hindi, Hungarian, Icelandic, Irish, Italyano, Hapones, Kannada, Kazakh, Khmer, Kirghiz, Korean, Kurdish (F layout), Kurdish (Q layout), Lao, Latin American, Latvian, Lithuanian, Macedonian, Malayalam, Nepali, Northern Sami, Norwegian, Persian, Philippines, Polish, Portuges, Punjabi, Romanian, Ruso, Serbian (Cyrillic), Sindhi, Sinhala, Slovak, Slovenian, Espanyol, Swedish, Swiss French, Swiss German, Tajik, Tamil, Telugu, Thai, Tibetan, Turkish (F layout), Turkish (Q layout), Ukrainian, Uyghur, Vietnamese
 Choices-tr.UTF-8: Amerikan İngilizcesi, Arnavutça, Arapça, Asturyasça, Bangladeş, Beyaz Rusça, Bengalce, Belçika dili, Berberi (Latince), Boşnakça, Brezilya dili, Britanya İngilizcesi, Bulgarca (BDS düzeni), Bulgarca (fonetik düzeni), Burmaca, Kanada Fransızcası, Kanada Çokdilli, Katalanca, Çince, Hırvatça, Çekçe, Danimarka dili, Flâmanca, Dvorak, Dzongkha (Butan), Esperanto, Estonya dili, Etiyopya, Fince, Fransızca, Gürcüce, Almanca, Yunanca, Gujarati (Hindistan), Gurmukhi, İbranice, Hindu, Macarca, İzlanda dili, İrlandaca, İtalyanca, Japonca, Kannada, Kazak Dili, Kmer dili, Kırgızca, Korece, Kürtçe (F düzeni), Kürtçe (Q düzeni), Laos Dili, Latin Amerikan, Litvanya dili, Letonya dili, Makedonca, Malayalam, Nepal, Kuzey Sami, Norveççe, Persce, Filipinler, Lehçe, Portekizce, Punjabi, Romanca, Rusça, Sırpça (Kiril alfabesi), Sintçe, Sinhala, Slovakça, Slovence, İspanyolca, İsveççe, İsviçre Fransızcası, İsviçre Almancası, Tacik, Tamil, Telugu, Tayca, Tibet, Türkçe (F düzeni), Türkçe (Q düzeni), Ukrayna dili, Uygurca, Vietnamca
 Choices-ug.UTF-8: ئامېرىكا ئىنگلىزچە, ئالبانچە, ئەرەبچە, ئاستۇرىيەچە, باڭلادىش, بېلارۇسچە, بېنگالچە, بىلگىيەچە, Berber (Latin), بوسنىيەچە, بىرازىلىيەچە, ئەنگلىيە ئىنگلىزچە, Bulgarian (BDS layout), بۇلغارچە (فونېتىكىلىق جايلاشتۇرۇش), بېرما, كانادا فىرانسۇزچە, كانادا كۆپ تىل, كاتالانچە, خەنزۇچە, خورۋاتچە, چېخچە, دانىشچە, گوللاندىيەچە, Dvorak, بۇتانچە, ئېسپېرانتو (دۇنيا تىلى), ئېستونچە, ئېفىيوپىيەچە, فىنچە, فىرانسۇزچە, گىرۇزىنچە, گېرمانچە, گىرېكچە, گۇجاراتچە, گۇرمۇكىچە, ئىبرانىچە, ھىندىچە, ماجارچە, ئىسلاندچە, ئىرېلاندچە, ئىتاليانچە, ياپونچە, كانناداچە, قازاقچە, كېخمېرچە, قىرغىزچە, كورېيەچە, كۇردچە(F جايلاشتۇرۇش), كۇردچە(Q جايلاشتۇرۇش), لائوسچە, لاتىن ئامېرىكا, لاتۋىيەچە, لىتۋاچە, ماكېدونچە, مالايالامچە, نېپالچە, شىمالىي سامىچە, نورۋېگچە, پارىسچە, فىلىپپىنچە, پولەكچە, پورتۇگالچە, پەنجابچە, رۇمىنىيەچە, رۇسچە, سېربچە (سلاۋىيان), سىندىچە, سىنگالچە, سلوۋاكچە, سلوۋىنچە, ئىسپانچە, شۋېدچە, شىۋېتسىيە فىرانسۇزچە, شىۋېتسىيە  گېرمانچە, تاجىكچە, تامىلچە, تېلۇگۇچە, تايلاندچە, تىبەتچە, تۈركچە (F جايلاشتۇرۇش), تۈركچە (Q جايلاشتۇرۇش), ئۇكرائىنچە, ئۇيغۇرچە, ۋىيېتنامچە
-Choices-uk.UTF-8: Американська англійська, Албанська, Арабська, Астурійська, Бангладеш, Білоруська, Бенгальська, Бельгійська, Berber (Latin), Боснійська, Бразильська, Британська англійська, Болгарська (розкладка BDS), Болгарська (розкладка phonetic), Бурмезька, Канадська французька, Канадська багатомовна, Каталонська, Китайська, Хорватська, Чеська, Датська, Нідерландська, Дворак, Дзонг-ке, Есперанто, Естонська, Ефіопська, Фінська, Французька, Грузинська, Німецька, Грецька, Гуджараті, Гурмукі, Ізраїльська, Хінді, Угорська, Ісландська, Ірландська, Італійська, Японська, Каннада, Казахська, Кхмерська, Киргизька, Корейська, Курдська (розкладка F), Курдська (розкладка Q), Лаоська, Латиноамериканська, Латвійська, Литовська, Македонська, Малаялам, Непальська, Північносаамська, Норвезька, Перська, Філіппінська, Польська, Португальська, Пенджабська, Румунська, Російська, Сербська (кирилична), Сіндхі, Сингальська, Словацька, Словенська, Іспанська, Шведська, Швейцарська французька, Швейцарська німецька, Таджицька, Тамільська, Телугу, Тайська, Тибетська, Турецька (розкладка F), Турецька (розкладка Q), Українська, Уйгурська, В'єтнамська
-Choices-vi.UTF-8: Anh Mỹ, Tiếng An-ba-ni, Tiếng A Rập, Asturian, Băng-la-đét, Bê-la-rút, Tiếng Băng Gan, Bỉ, Berber (Latin), Tiếng Bô-xni-a, Bra-xin, Anh Quốc Anh, Bun-ga-ri (bố trí BDS), Bun-ga-ri (bố trí phonetic), Miến Điện, Pháp Ca-na-đa, Ca-na-đa đa ngôn ngữ, Tiếng Ca-ta-lăng, Tiếng Trung Quốc, Tiếng Croát-chi-a, Séc, Dan Mạch, Hà Lan, Dvorak, Tiếng Đ-xong-kha, Tiếng E-x-pê-ran-tô, E-x-tô-ni-a, Ê-ti-ô-pi, Phần Lan, Pháp, Tiếng Gi-oa-gi-a, Đức, Hy Lạp, Tiếng Gu-gia-ra-ti, Gổ-mu-khi, Do Thái, Tiếng Hin-đi, Hung-ga-ri, Băng Đảo, Tiếng Ái Nhĩ Lan, Ý, Nhật, Tiếng Kan-na-đa, Tiếng Ca-xakh, Khơ-me, Tiếng Kit-ki-dơ, Tiếng Hàn, Tiếng Kurd (bố trí F), Tiếng Kurd (bố trí Q), Tiếng Lào, Châu Mỹ Latinh, Lát-vi-a , Li-tu-a-ni, Ma-xê-đô-ni, Tiếng Mã Lai, Tiếng Nê-pan, Bắc Sami, Na Uy, Tiếng Ba Tư, Phi-líp-pin, Ba Lan, Bồ Đào Nha, Pun-gia-bi, Ru-ma-ni, Nga, Séc-bi (kir-in), Sindhi, Sinhala, Xlô-vác, Tiếng Xlô-ven, Tây Ban Nha, Thụy Điển, Pháp Thụy Sĩ, Đức Thụy Sĩ, Tajik, Tiếng Tamil (Ấn Độ), Tiếng Te-lu-gu, Thái Lan, Tiếng Tây Tạng, Thổ Nhĩ Kỳ (bố trí F), Thổ Nhĩ Kỳ (bố trí Q), Tiếng Ukraina , Uyghur, Tiếng Việt
+Choices-uk.UTF-8: Американська англійська, Албанська, Арабська, Астурійська, Бангладеш, Білоруська, Бенгальська, Бельгійська, Берберська (латин.), Боснійська, Бразильська, Британська англійська, Болгарська (розкладка BDS), Болгарська (розкладка phonetic), Бурмезька, Канадська французька, Канадська багатомовна, Каталонська, Китайська, Хорватська, Чеська, Датська, Нідерландська, Дворак, Дзонг-ке, Есперанто, Естонська, Ефіопська, Фінська, Французька, Грузинська, Німецька, Грецька, Гуджараті, Гурмукі, Ізраїльська, Хінді, Угорська, Ісландська, Ірландська, Італійська, Японська, Каннада, Казахська, Кхмерська, Киргизька, Корейська, Курдська (розкладка F), Курдська (розкладка Q), Лаоська, Латиноамериканська, Латвійська, Литовська, Македонська, Малаялам, Непальська, Північносаамська, Норвезька, Перська, Філіппінська, Польська, Португальська, Пенджабська, Румунська, Російська, Сербська (кирилична), Сіндхі, Сингальська, Словацька, Словенська, Іспанська, Шведська, Швейцарська французька, Швейцарська німецька, Таджицька, Тамільська, Телугу, Тайська, Тибетська, Турецька (розкладка F), Турецька (розкладка Q), Українська, Уйгурська, В'єтнамська
+Choices-vi.UTF-8: Tiếng Anh (Mỹ), Tiếng An-ba-ni, Tiếng A Rập, Tiếng Asturian, Băng-la-đét, Tiếng Bê-la-rút, Tiếng Băng Gan, Tiếng Bỉ, Berber (La tinh), Tiếng Bô-xni-a, Bra-xin, Tiếng Anh (Vương quốc Anh), Bun-ga-ri (bố trí BDS), Bun-ga-ri (bố trí phonetic), Miến Điện, Pháp Ca-na-đa, Ca-na-đa đa ngôn ngữ, Tiếng Ca-ta-lăng, Tiếng Trung Quốc, Tiếng Croát-chi-a, Tiếng Séc, Dan Mạch, Hà Lan, Dvorak, Tiếng Đ-xong-kha, Tiếng E-x-pê-ran-tô, E-x-tô-ni-a, Ê-ti-ô-pi, Phần Lan, Tiếng Pháp, Tiếng Gi-oa-gi-a, Đức, Hy Lạp, Tiếng Gu-gia-ra-ti, Gổ-mu-khi, Do Thái, Tiếng Hin-đi, Hung-ga-ri, Băng Đảo, Tiếng Ái Nhĩ Lan, Tiếng Ý, Tiếng Nhật, Tiếng Kan-na-đa, Tiếng Ca-xakh, Khơ-me, Tiếng Kit-ki-dơ, Tiếng Hàn, Tiếng Kurd (bố trí F), Tiếng Kurd (bố trí Q), Tiếng Lào, Châu Mỹ Latinh, Lát-vi-a, Li-tu-a-ni, Ma-xê-đô-ni, Tiếng Mã Lai, Tiếng Nê-pan, Bắc Sami, Na Uy, Tiếng Ba Tư, Phi-líp-pin, Ba Lan, Bồ Đào Nha, Pun-gia-bi, Ru-ma-ni, Tiếng Nga, Séc-bi (kir-in), Sindhi, Sinhala, Xlô-vác, Tiếng Xlô-ven, Tây Ban Nha, Thụy Điển, Pháp Thụy Sĩ, Đức Thụy Sĩ, Tajik, Tiếng Tamil (Ấn Độ), Tiếng Te-lu-gu, Thái Lan, Tiếng Tây Tạng, Thổ Nhĩ Kỳ (bố trí F), Thổ Nhĩ Kỳ (bố trí Q), Tiếng Ukraina, Uyghur, Tiếng Việt
 Choices-zh_CN.UTF-8: 美式英语, 阿尔巴尼亚语, 阿拉伯语, 阿斯图利亚斯语, 孟加拉语, 白俄罗斯语, 孟加拉语, 比利时语, 柏柏尔语（拉丁字母）, 波斯尼亚语, 巴西语, 英式英语, 保加利亚语 (BDS 布局), 保加利亚语 (拼音布局), 缅甸语, 加拿大法语, 加拿大多语言, 加泰罗尼亚语, 汉语, 克罗地亚语, 捷克语, 丹麦语, 荷兰语, 德沃夏克式 (Dvorak), 不丹语, 世界语, 爱沙尼亚语, 埃塞俄比亚语, 芬兰语, 法语, 格鲁吉亚语, 德语, 希腊语, 古吉拉特语, 果鲁穆奇语, 希伯来语, 印地语, 匈牙利语, 冰岛语, 爱尔兰语, 意大利语, 日语, 卡纳达语, 哈萨克语, 高棉语, 吉尔吉斯语, 韩语, 库尔德语 (F 布局), 库尔德语 (Q 布局), 老挝语, 拉丁美洲语, 拉脱维亚语, 立陶宛语, 马其顿语, 马拉雅拉姆语, 尼泊尔语, 北萨马语, 挪威语, 波斯语, 菲律宾语, 波兰语, 葡萄牙语, 旁遮普语, 罗马尼亚语, 俄语, 塞尔维亚语 (西里尔字母), 辛达语, 僧伽罗语, 斯洛伐克语, 斯洛文尼亚语, 西班牙语, 瑞典语, 瑞士法语, 瑞士德语, 塔吉克语, 泰米尔语, 泰卢固语, 泰语, 藏语, 土耳其语 (F 布局), 土耳其语 (Q 布局), 乌克兰语, 维吾尔语, 越南语
 Choices-zh_TW.UTF-8: 英語 (美國), 阿爾巴尼亞語, 阿拉伯語, 阿斯圖里亞斯語, 孟加拉語, 白俄羅斯語, 孟加拉語, 比利時語, 柏柏爾文 (拉丁), 波士尼亞語, 巴西語, 英語 (英國), 保加利亞語 (BDS 排列), 保加利亞語 (拼音排列), 緬甸語, 加拿大法語, 加拿大多語系, 加泰隆尼亞語, 中文, 克羅埃西亞語, 捷克語, 丹麥語, 荷蘭語, Dvorak 式, 宗卡語 (不丹), 世界語, 愛沙尼亞語, 衣索比亞語, 芬蘭語, 法文, 喬治亞語, 德文, 希臘文, 古吉拉特語, 果魯穆其文, 希伯來語, 印地語 (北印度), 匈牙利語, 冰島語, 愛爾蘭語, 義大利語, 日文, 卡納達語 (西南印度), 哈薩克語, 高棉語, 吉爾吉斯語, 韓文, 庫德語 (F 佈局), 庫德語 (Q 佈局), 老撾語, 拉丁語 (美洲), 拉脫維亞語, 立陶宛語, 馬其頓語, 馬來亞拉姆語, 尼泊爾語, 北方薩米語, 挪威語, 波斯語, 菲律賓語, 波蘭語, 葡萄牙語, 旁遮普語, 羅馬尼亞語, 俄羅斯語, 塞爾維亞語 (斯拉夫), 信德語, 僧伽羅語, 斯洛伐克語, 斯洛維尼亞語, 西班牙語, 瑞典語, 瑞士法文, 瑞士德文, 塔吉克語, 坦米爾語, 特拉古語, 泰文, 藏文, 土耳其語 (F 佈局), 土耳其語 (Q 佈局), 烏克蘭語, 維吾爾語, 越南語
 Description: Keymap to use:

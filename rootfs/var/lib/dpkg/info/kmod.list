@@ -16,12 +16,14 @@
 /usr/share/bash-completion/completions/kmod
 /usr/share/doc
 /usr/share/doc/libkmod2
-/usr/share/doc/libkmod2/README
+/usr/share/doc/libkmod2/README.md
 /usr/share/doc/libkmod2/TODO
 /usr/share/initramfs-tools
 /usr/share/initramfs-tools/hooks
 /usr/share/initramfs-tools/hooks/kmod
 /usr/share/man
+/usr/share/man/fr
+/usr/share/man/fr/man5
 /usr/share/man/fr/man5/modules.5.gz
 /usr/share/man/man5
 /usr/share/man/man5/depmod.d.5.gz

@@ -19,18 +19,21 @@ set -e
 
 case "$1" in
     configure)
-	# do it like udev and firmware-linux-*
-	if [ -x /usr/sbin/update-initramfs ] && [ -e /etc/initramfs-tools/initramfs.conf ] ; then
-	    update-initramfs -u && {
-		echo "intel-microcode: microcode will be updated at next boot" >&2
-		ls /usr/share/misc/intel-microcode* >/dev/null 2>&1 && {
-		    echo "intel-microcode: possibly old microcode files from /usr/share/misc were used" >&2
-		    echo "intel-microcode: remove them if this is not desired and run 'update-initramfs -u'" >&2
-		}
-	    }
-	else
-	    echo "intel-microcode: initramfs support missing" >&2
-	fi
+        RC=0
+        dpkg-trigger --no-await update-initramfs || RC=$?
+        [ "$RC" -ne 0 ] && [ -e /etc/initramfs-tools/initramfs.conf ] && {
+            RC=0
+            update-initramfs -u || RC=$?
+        }
+        if [ "$RC" -eq 0 ] ; then
+            echo "intel-microcode: microcode will be updated at next boot" >&2
+            ls /usr/share/misc/intel-microcode* >/dev/null 2>&1 && {
+                echo "intel-microcode: possibly old microcode files from /usr/share/misc were used" >&2
+                echo "intel-microcode: remove them if this is not desired and run 'dpkg-reconfigure intel-microcode'" >&2
+            }
+        else
+            echo "intel-microcode: initramfs support missing" >&2
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

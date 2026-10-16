@@ -40,6 +40,7 @@
 /usr/share/doc/kbd/AUTHORS
 /usr/share/doc/kbd/NEWS.Debian.gz
 /usr/share/doc/kbd/README.Debian
+/usr/share/doc/kbd/changelog.Debian.amd64.gz
 /usr/share/doc/kbd/changelog.Debian.gz
 /usr/share/doc/kbd/changelog.gz
 /usr/share/doc/kbd/charsets
@@ -74,7 +75,7 @@
 /usr/share/doc/kbd/scancodes
 /usr/share/doc/kbd/scancodes/README
 /usr/share/doc-base
-/usr/share/doc-base/kbd-font-formats
+/usr/share/doc-base/kbd.kbd-font-formats
 /usr/share/locale
 /usr/share/locale/cs
 /usr/share/locale/cs/LC_MESSAGES
@@ -121,6 +122,9 @@
 /usr/share/locale/ru
 /usr/share/locale/ru/LC_MESSAGES
 /usr/share/locale/ru/LC_MESSAGES/kbd.mo
+/usr/share/locale/sr
+/usr/share/locale/sr/LC_MESSAGES
+/usr/share/locale/sr/LC_MESSAGES/kbd.mo
 /usr/share/locale/sv
 /usr/share/locale/sv/LC_MESSAGES
 /usr/share/locale/sv/LC_MESSAGES/kbd.mo

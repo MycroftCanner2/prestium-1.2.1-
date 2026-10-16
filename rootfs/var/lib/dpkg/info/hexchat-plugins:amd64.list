@@ -10,6 +10,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/hexchat-plugins
+/usr/share/doc/hexchat-plugins/changelog.Debian.amd64.gz
 /usr/share/doc/hexchat-plugins/changelog.Debian.gz
 /usr/share/doc/hexchat-plugins/changelog.gz
 /usr/share/doc/hexchat-plugins/copyright

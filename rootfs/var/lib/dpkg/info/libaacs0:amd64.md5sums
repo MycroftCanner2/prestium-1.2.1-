@@ -1,6 +1,6 @@
-d4acb0f5a913a0437efaa82819f527cd  usr/lib/x86_64-linux-gnu/libaacs.so.0.6.0
-a3632b64b991994699b4412c239500cf  usr/share/doc/libaacs0/KEYDB.cfg.gz
-605bfe07b4c22ad7093c34377cc72fe6  usr/share/doc/libaacs0/README.txt
-b2417afced492def9d65365497340978  usr/share/doc/libaacs0/changelog.Debian.gz
-4fb989fcea3497696bbd8918c652bebf  usr/share/doc/libaacs0/changelog.gz
+cecb41771ee52244fc3c5259ab19251e  usr/lib/x86_64-linux-gnu/libaacs.so.0.7.2
+3169f5f9dfa19d7312ba7915fb022328  usr/share/doc/libaacs0/KEYDB.cfg.gz
+da46b4af9c8b4cfb32242cfa4c8ea06d  usr/share/doc/libaacs0/README.md
+0478da87487a9204646e20e60092d497  usr/share/doc/libaacs0/changelog.Debian.gz
+7066e0da229b07813a0c552f46d88efe  usr/share/doc/libaacs0/changelog.gz
 371af1f1d0087efc9db40e056b086f27  usr/share/doc/libaacs0/copyright

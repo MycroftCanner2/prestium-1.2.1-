@@ -4,7 +4,7 @@ set -e
 rmscript="update-dictcommon-hunspell"
 
 case "$1" in abort-install|remove)
-	if which $rmscript > /dev/null 2>&1; then
+	if command -v $rmscript >/dev/null; then
 	    $rmscript 
 	else
 	    echo "Warning: $rmscript not present or executable." >&2
