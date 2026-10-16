@@ -9,8 +9,12 @@
 #
 # ------------------------------------------------------------------
 
+  abi <abi/3.0>,
+
   /etc/samba/* r,
   /usr/lib*/ldb/*.so mr,
+  /usr/lib*/ldb2/*.so mr,
+  /usr/lib*/ldb2/modules/ldb/*.so mr,
   /usr/lib*/samba/ldb/*.so mr,
   /usr/share/samba/*.dat r,
   /usr/share/samba/codepages/{lowcase,upcase,valid}.dat r,
@@ -20,8 +24,17 @@
   /var/log/samba/cores/ rw,
   /var/log/samba/cores/** rw,
   /var/log/samba/* w,
-  /{,var/}run/samba/ w,
-  /{,var/}run/samba/*.tdb rw,
+  @{run}/{,lock/}samba/ w,
+  @{run}/{,lock/}samba/*.tdb rwk,
+  @{run}/{,lock/}samba/msg.{lock,sock}/ rwk,
+  @{run}/{,lock/}samba/msg.{lock,sock}/[0-9]* rwk,
+  /var/cache/samba/msg.lock/ rwk,
+  /var/cache/samba/msg.lock/[0-9]* rwk,
 
   # required for clustering
   /var/lib/ctdb/** rwk,
+
+  deny capability net_admin, # noisy setsockopt() calls from systemd
+
+  # Include additions to the abstraction
+  include if exists <abstractions/samba.d>

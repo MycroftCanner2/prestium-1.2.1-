@@ -10,7 +10,9 @@
 #
 # ------------------------------------------------------------------
 
-  #include <abstractions/dri-common>
+  abi <abi/3.0>,
+
+  include <abstractions/dri-common>
 
 
   # .ICEauthority files required for X authentication, per user
@@ -20,12 +22,12 @@
   # .Xauthority files required for X connections, per user
   owner @{HOME}/.Xauthority r,
   owner @{HOME}/.local/share/sddm/.Xauthority r,
-  owner /{,var/}run/gdm{,3}/*/database r,
-  owner /{,var/}run/lightdm/authority/[0-9]* r,
-  owner /{,var/}run/lightdm/*/xauthority r,
-  owner /{,var/}run/user/*/gdm/Xauthority r,
-  owner /{,var/}run/user/*/X11/Xauthority r,
-  owner /{,var/}run/user/*/xauth_* r,
+  owner @{run}/gdm{,3}/*/database r,
+  owner @{run}/lightdm/authority/[0-9]* r,
+  owner @{run}/lightdm/*/xauthority r,
+  owner @{run}/user/*/gdm/Xauthority r,
+  owner @{run}/user/*/X11/Xauthority r,
+  owner @{run}/user/*/xauth_* r,
 
   # the unix socket to use to connect to the display
   /tmp/.X11-unix/* rw,
@@ -58,5 +60,7 @@
   /etc/X11/cursors/**             r,
 
   # Xwayland
-  owner /run/user/*/.mutter-Xwaylandauth.* r,
+  owner @{run}/user/*/.mutter-Xwaylandauth.* r,
 
+  # Include additions to the abstraction
+  include if exists <abstractions/X.d>

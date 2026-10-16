@@ -1,6 +1,6 @@
-#Types: deb
-#URIs: https://deb.librewolf.net
-#Suites: bullseye
-#Components: main
-#Architectures: amd64
-#Signed-By: /usr/share/keyrings/librewolf.gpg
+Types: deb
+URIs: https://repo.librewolf.net
+Suites: librewolf
+Components: main
+Architectures: amd64
+Signed-By: /usr/share/keyrings/librewolf.gpg

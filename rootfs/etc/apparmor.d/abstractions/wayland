@@ -9,6 +9,10 @@
 #
 # ------------------------------------------------------------------
 
-  owner /var/run/user/*/weston-shared-* rw,
-  owner /run/user/*/wayland-[0-9]* rw,
-  owner /run/user/*/{mesa,mutter,sdl,wayland-cursor,weston,xwayland}-shared-* rw,
+  abi <abi/3.0>,
+
+  owner @{run}/user/*/wayland-[0-9]* rw,
+  owner @{run}/user/*/{mesa,mutter,sdl,wayland-cursor,weston,xwayland}-shared-* rw,
+
+  # Include additions to the abstraction
+  include if exists <abstractions/wayland.d>

@@ -9,6 +9,8 @@
 #
 # ------------------------------------------------------------------
 
+  abi <abi/3.0>,
+
   # abstraction for Enchant spellchecking frontend
 
   /usr/share/enchant/                              r,
@@ -18,7 +20,7 @@
   /usr/share/enchant-2/enchant.ordering            r,
 
   # aspell
-  #include <abstractions/aspell>
+  include <abstractions/aspell>
   /var/lib/dictionaries-common/aspell/             r,
   /var/lib/dictionaries-common/aspell/*            r,
 
@@ -57,3 +59,6 @@
   # per-user dictionaries
   owner @{HOME}/.config/enchant/                   rw,
   owner @{HOME}/.config/enchant/*                  rwk,
+
+  # Include additions to the abstraction
+  include if exists <abstractions/enchant.d>

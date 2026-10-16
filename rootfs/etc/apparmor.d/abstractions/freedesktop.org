@@ -9,6 +9,8 @@
 #
 # ------------------------------------------------------------------
 
+  abi <abi/3.0>,
+
   # system configuration
   @{system_share_dirs}/applications/{**,} r,
   @{system_share_dirs}/icons/{**,}        r,
@@ -26,3 +28,6 @@
   owner @{user_share_dirs}/applications/{**,} r,
   owner @{user_share_dirs}/icons/{**,}        r,
   owner @{user_share_dirs}/mime/{**,}         r,
+
+  # Include additions to the abstraction
+  include if exists <abstractions/freedesktop.org.d>

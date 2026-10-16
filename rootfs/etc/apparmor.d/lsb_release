@@ -4,19 +4,21 @@
 # is invoked from other confined applications, but not when it is used
 # in regular (unconfined) shell scripts or run directly by the user.
 
-#include <tunables/global>
+abi <abi/3.0>,
+
+include <tunables/global>
 
 # Do not attach to /usr/bin/lsb_release by default
 profile lsb_release {
-  #include <abstractions/base>
-  #include <abstractions/python>
+  include <abstractions/base>
+  include <abstractions/python>
 
   owner @{PROC}/@{pid}/fd/ r,
 
   /dev/tty rw,
 
   /usr/bin/lsb_release r,
-  /usr/bin/python3.[0-9] mr,
+  /usr/bin/python3.{1,}[0-9] mr,
 
   /etc/debian_version r,
   /etc/default/apport r,
@@ -28,6 +30,8 @@ profile lsb_release {
   /{usr/,}bin/dash ixr,
   /usr/bin/basename ixr,
   /usr/bin/dpkg-query ixr,
+  /usr/bin/cat ixr,
+  /usr/bin/cut ixr,
   /usr/bin/getopt ixr,
   /usr/bin/sed ixr,
   /usr/bin/tr ixr,
@@ -46,5 +50,5 @@ profile lsb_release {
   deny /tmp/gtalkplugin.log w,
 
   # Site-specific additions and overrides. See local/README for details.
-  #include <local/lsb_release>
+  include if exists <local/lsb_release>
 }
