@@ -85,6 +85,20 @@ Live ()
 					break
 				fi
 
+				# Prestium: ahci/libata are blacklisted so internal disks stay hidden.
+				# If no USB live medium shows up, the image was probably booted from a
+				# SATA/IDE optical drive (DVD or a VM's CD drive): load only those
+				# drivers, then keep looking.
+				if [ "$i" -eq 8 ]
+				then
+					for m in scsi_common scsi_mod cdrom sr_mod libata ata_piix ata_generic libahci ahci
+					do
+						f=$(find /lib/modules/$(uname -r) /usr/lib/modules/$(uname -r) -name "${m}.ko*" 2>/dev/null | head -n1)
+						[ -n "$f" ] && insmod "$f" 2>/dev/null
+					done
+					sleep 2
+				fi
+
 				sleep 1
 				i=$((i + 1))
 			done
