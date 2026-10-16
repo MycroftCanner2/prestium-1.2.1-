@@ -17,7 +17,7 @@ pathfind() {
 
 case "$1" in
     configure)
-        if `pathfind update-gsfontmap`; then
+        if $(pathfind update-gsfontmap); then
             update-gsfontmap
         fi
     ;;

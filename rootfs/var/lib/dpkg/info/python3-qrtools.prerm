@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-# Automatically added by dh_python3:
-if which py3clean >/dev/null 2>&1; then
+# Automatically added by dh_python3
+if command -v py3clean >/dev/null 2>&1; then
 	py3clean -p python3-qrtools 
 else
 	dpkg -L python3-qrtools | perl -ne 's,/([^/]*)\.py$,/__pycache__/\1.*, or next; unlink $_ or die $! foreach glob($_)'

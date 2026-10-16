@@ -7,13 +7,13 @@ then
 
     if which dpkg-trigger >/dev/null 2>&1 && \
        [ -n "$2" ] && \
-       dpkg --compare-versions "$2" lt 5.32.0~
+       dpkg --compare-versions "$2" lt 5.36.0~
     then
         dpkg-trigger --no-await perl-major-upgrade
     fi
 fi
 
-# Automatically added by dh_installdeb/13.3.4
+# Automatically added by dh_installdeb/13.11.4
 dpkg-maintscript-helper rm_conffile /etc/perl/sitecustomize.pl 5.26.0\~rc1-2\~ perl -- "$@"
 # End automatically added section
 

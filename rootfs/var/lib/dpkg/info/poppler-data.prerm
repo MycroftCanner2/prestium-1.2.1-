@@ -18,7 +18,7 @@ pathfind() {
 
 case "$1" in
     remove|upgrade|deconfigure)
-        if `pathfind update-gsfontmap`; then
+        if $(pathfind update-gsfontmap); then
             update-gsfontmap
         fi
     ;;

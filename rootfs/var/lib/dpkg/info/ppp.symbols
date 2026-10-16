@@ -1,6 +1,6 @@
 pppd.so.2.4.9 ppp #MINVER#
 * Build-Depends-Package: ppp-dev
-#MISSING: 2.4.9-1+1# $global$@Base 2.4.7-1+2~
+#MISSING: 2.4.9-1+1.1+b1# $global$@Base 2.4.7-1+2~
  ChallengeHash@Base 2.4.7-1+2~
  ChapMS2@Base 2.4.7-1+2~
  ChapMS@Base 2.4.7-1+2~

@@ -1,4 +1,5 @@
-e1e19bc046c6ef86950b137add8bd611  usr/lib/python3/dist-packages/gi/_gi_cairo.cpython-39-x86_64-linux-gnu.so
-8089482471295e231fdc1b44e0818192  usr/share/doc/python3-gi-cairo/changelog.Debian.gz
+abe4e47b337d2029ed1f6d11ac172ae8  usr/lib/python3/dist-packages/gi/_gi_cairo.cpython-311-x86_64-linux-gnu.so
+fa0cf1e2544ddf5c444c81debaecb34f  usr/share/doc/python3-gi-cairo/changelog.Debian.amd64.gz
+cb1a177d13e2e3891031491a2180b2b1  usr/share/doc/python3-gi-cairo/changelog.Debian.gz
 3f954603b7a7a6239e9765b6101feb56  usr/share/doc/python3-gi-cairo/changelog.gz
 56cdfd3474eb33104bb4d1059d380f01  usr/share/doc/python3-gi-cairo/copyright

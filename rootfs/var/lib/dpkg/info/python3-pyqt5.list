@@ -27,6 +27,7 @@
 /usr/lib/python3/dist-packages/PyQt5/QtXml.pyi
 /usr/lib/python3/dist-packages/PyQt5/__init__.py
 /usr/lib/python3/dist-packages/PyQt5/py.typed
+/usr/lib/python3/dist-packages/PyQt5/sip.pyi
 /usr/lib/python3/dist-packages/PyQt5/uic
 /usr/lib/python3/dist-packages/PyQt5/uic/Compiler
 /usr/lib/python3/dist-packages/PyQt5/uic/Compiler/__init__.py
@@ -62,9 +63,9 @@
 /usr/lib/python3/dist-packages/PyQt5/uic/widget-plugins/qtquickwidgets.py
 /usr/lib/python3/dist-packages/PyQt5/uic/widget-plugins/qtwebenginewidgets.py
 /usr/lib/python3/dist-packages/PyQt5/uic/widget-plugins/qtwebkit.py
-/usr/lib/python3/dist-packages/PyQt5-5.15.2.dist-info
-/usr/lib/python3/dist-packages/PyQt5-5.15.2.dist-info/INSTALLER
-/usr/lib/python3/dist-packages/PyQt5-5.15.2.dist-info/METADATA
+/usr/lib/python3/dist-packages/PyQt5-5.15.9.dist-info
+/usr/lib/python3/dist-packages/PyQt5-5.15.9.dist-info/INSTALLER
+/usr/lib/python3/dist-packages/PyQt5-5.15.9.dist-info/METADATA
 /usr/lib/x86_64-linux-gnu
 /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/plugins

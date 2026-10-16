@@ -2,11 +2,11 @@
 set -e
 
 # Automatically added by dh_python3
-if which py3compile >/dev/null 2>&1; then
-	py3compile -p python3-pil 
+if command -v py3compile >/dev/null 2>&1; then
+	py3compile -p python3-pil:amd64 
 fi
-if which pypy3compile >/dev/null 2>&1; then
-	pypy3compile -p python3-pil  || true
+if command -v pypy3compile >/dev/null 2>&1; then
+	pypy3compile -p python3-pil:amd64  || true
 fi
 
 # End automatically added section

@@ -1,2 +1,2 @@
-libsylph-0 1 sylpheed (>= 3.7.0)
-libsylpheed-plugin-0 1 sylpheed (>= 3.7.0)
+libsylph-0 1 sylpheed (>= 3.8.0~beta1)
+libsylpheed-plugin-0 1 sylpheed (>= 3.8.0~beta1)

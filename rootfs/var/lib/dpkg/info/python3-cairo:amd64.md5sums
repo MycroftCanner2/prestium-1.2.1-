@@ -1,7 +1,9 @@
 74576b5bbb4629822b31786e144805bc  usr/lib/python3/dist-packages/cairo/__init__.py
-4128b497f559fd8207a40df06238e7d5  usr/lib/python3/dist-packages/cairo/_cairo.cpython-39-x86_64-linux-gnu.so
-330378fd868636daecd84dfe30716e5e  usr/lib/python3/dist-packages/pycairo-1.16.2.egg-info
-3e266e15d5c49bfc2a7f22f2ca3e4c56  usr/share/doc/python3-cairo/changelog.Debian.amd64.gz
-fb14c7dc588e93a759f7e90b74421848  usr/share/doc/python3-cairo/changelog.Debian.gz
+cda4df86e6dd3cdb08c7dbb779f91b3b  usr/lib/python3/dist-packages/cairo/__init__.pyi
+8cdf87e6891f355def4eff89f66f26a7  usr/lib/python3/dist-packages/cairo/_cairo.cpython-311-x86_64-linux-gnu.so
+d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/cairo/py.typed
+a52c0cf75cce0cea3e4c941f6c9c689f  usr/lib/python3/dist-packages/pycairo-1.20.1.egg-info
+c3585d7009a04cd5a8c66b0819b541e7  usr/share/doc/python3-cairo/changelog.Debian.amd64.gz
+635a0738015ce0e38f5afccaebab729d  usr/share/doc/python3-cairo/changelog.Debian.gz
 3f9530f748da86e89e27c77821b46ec8  usr/share/doc/python3-cairo/changelog.gz
 c50877d988b70d389c9df781a2b7dbb3  usr/share/doc/python3-cairo/copyright

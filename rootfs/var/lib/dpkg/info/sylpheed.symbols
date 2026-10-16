@@ -327,6 +327,8 @@ libsylph-0.so.1 sylpheed #MINVER#
  nntp_xover@Base 1.2.0
  normalize_address_field@Base 1.2.0
  normalize_newlines@Base 1.2.0
+ oauth2_get_sasl_xoauth2@Base 3.8.0~beta1
+ oauth2_get_token@Base 3.8.0~beta1
  open_uri@Base 1.2.0
  path_cmp@Base 1.2.0
  play_sound@Base 1.2.0
@@ -335,6 +337,9 @@ libsylph-0.so.1 sylpheed #MINVER#
  pop3_gen_send@Base 1.2.0
  pop3_get_uidl_table@Base 1.2.0
  pop3_getauth_apop_send@Base 1.2.0
+ pop3_getauth_auth_data_send@Base 3.8.0~beta1
+ pop3_getauth_auth_recv@Base 3.8.0~beta1
+ pop3_getauth_auth_send@Base 3.8.0~beta1
  pop3_getauth_pass_send@Base 1.2.0
  pop3_getauth_user_send@Base 1.2.0
  pop3_getrange_last_recv@Base 1.2.0
@@ -571,6 +576,7 @@ libsylph-0.so.1 sylpheed #MINVER#
  sinfo_hash@Base 1.2.0
  slist_free_strings@Base 1.2.0
  smtp_session_new@Base 1.2.0
+ smtp_session_new_with_account@Base 3.8.0~beta1
  sock_add_watch@Base 1.2.0
  sock_add_watch_poll@Base 1.2.0
  sock_cleanup@Base 1.2.0

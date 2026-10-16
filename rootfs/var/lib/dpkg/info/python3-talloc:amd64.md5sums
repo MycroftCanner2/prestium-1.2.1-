@@ -1,6 +1,0 @@
-56fc0f7bb9ddc18d688c7d6dabaf6892  usr/lib/python3/dist-packages/talloc.cpython-39-x86_64-linux-gnu.so
-9ec2b48b497f9d725db21262807f0095  usr/lib/x86_64-linux-gnu/libpytalloc-util.cpython-39-x86-64-linux-gnu.so.2.3.1
-7079ed5eea231d2f62d7c67dd9fd0362  usr/share/doc/python3-talloc/changelog.Debian.amd64.gz
-a32834f5b55b442f07dc61095bb301c6  usr/share/doc/python3-talloc/changelog.Debian.gz
-6671b1da9ee0695f5fd70f0a509527a1  usr/share/doc/python3-talloc/copyright
-8c7358e2687f4536e1592760f49b2d94  usr/share/lintian/overrides/python3-talloc

@@ -6,8 +6,11 @@
 /usr/share/doc
 /usr/share/doc/scrot
 /usr/share/doc/scrot/AUTHORS
+/usr/share/doc/scrot/CONTRIBUTING.md
+/usr/share/doc/scrot/FAQ.gz
 /usr/share/doc/scrot/README.Debian
 /usr/share/doc/scrot/README.md
+/usr/share/doc/scrot/TODO.md
 /usr/share/doc/scrot/changelog.Debian.gz
 /usr/share/doc/scrot/changelog.gz
 /usr/share/doc/scrot/copyright
