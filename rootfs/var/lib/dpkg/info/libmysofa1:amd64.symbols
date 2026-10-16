@@ -17,6 +17,7 @@ libmysofa.so.1 libmysofa1 #MINVER#
  mysofa_getversion@Base 0.6~
  mysofa_interpolate@Base 0.6~
  mysofa_load@Base 0.6~
+ mysofa_load_data@Base 1.3~
  mysofa_lookup@Base 0.6~
  mysofa_lookup_free@Base 0.6~
  mysofa_lookup_init@Base 0.6~
@@ -29,6 +30,9 @@ libmysofa.so.1 libmysofa1 #MINVER#
  mysofa_open@Base 0.6~
  mysofa_open_advanced@Base 0.7~
  mysofa_open_cached@Base 0.6~
+ mysofa_open_data@Base 1.3~
+ mysofa_open_data_advanced@Base 1.3~
+ mysofa_open_data_no_norm@Base 1.3~
  mysofa_open_no_norm@Base 0.7~
  mysofa_resample@Base 0.6~
  mysofa_s2c@Base 0.6~

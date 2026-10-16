@@ -1,4 +1,5 @@
-2f0cf9e519a6bdd57aa69ee847e616a2  usr/lib/x86_64-linux-gnu/libopenmpt.so.0.1.1
-41d3e2502c9f630daf15a7dbd233d0d1  usr/share/doc/libopenmpt0/changelog.Debian.gz
-a2ae9efc628f85bbddbe348394dfe112  usr/share/doc/libopenmpt0/changelog.gz
-b95919e9aed011ef7d4c7d04d8fe7875  usr/share/doc/libopenmpt0/copyright
+9765087d755bc7af24ba21fe099318d3  usr/lib/x86_64-linux-gnu/libopenmpt.so.0.3.3
+6bef86ede2665a4d4447c23262e1baff  usr/share/doc/libopenmpt0/changelog.Debian.gz
+da19dc0b17e25dc2672a15a7e3ad67e7  usr/share/doc/libopenmpt0/changelog.gz
+36c3703df12e817003709b56c45c58a4  usr/share/doc/libopenmpt0/copyright
+226da0a22aa7ddd0bbb40dd842c05430  usr/share/lintian/overrides/libopenmpt0

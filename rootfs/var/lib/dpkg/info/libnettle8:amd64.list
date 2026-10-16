@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libnettle.so.8.4
+/usr/lib/x86_64-linux-gnu/libnettle.so.8.6
 /usr/share
 /usr/share/doc
 /usr/share/doc/libnettle8

@@ -4,6 +4,7 @@ libopenjp2.so.7 libopenjp2-7 #MINVER#
  opj_create_decompress@Base 2.0.0
  opj_decode@Base 2.0.0
  opj_decode_tile_data@Base 2.0.0
+ opj_decoder_set_strict_mode@Base 2.5.0
  opj_destroy_codec@Base 2.0.0
  opj_destroy_cstr_index@Base 2.0.0
  opj_destroy_cstr_info@Base 2.0.0

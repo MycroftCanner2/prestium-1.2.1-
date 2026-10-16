@@ -1,4 +1,5 @@
 libnspr4.so libnspr4 #MINVER#
+* Build-Depends-Package: libnspr4-dev
  GetExecutionEnvironment@Base 2:4.9-2~
  LL_MaxInt@Base 2:4.9-2~
  LL_MaxUint@Base 2:4.9-2~
@@ -180,6 +181,7 @@ libnspr4.so libnspr4 #MINVER#
  PR_GetPeerName@Base 2:4.9-2~
  PR_GetPhysicalMemorySize@Base 2:4.9-2~
  PR_GetPipeMethods@Base 2:4.9-2~
+ PR_GetPrefLoopbackAddrInfo@Base 2:4.34
  PR_GetProtoByName@Base 2:4.9-2~
  PR_GetProtoByNumber@Base 2:4.9-2~
  PR_GetRandomNoise@Base 2:4.9-2~
@@ -402,6 +404,7 @@ libnspr4.so libnspr4 #MINVER#
  _pr_test_ipv6_socket@Base 2:4.9-2~
  libVersionPoint@Base 2:4.9-2~
 libplc4.so libnspr4 #MINVER#
+* Build-Depends-Package: libnspr4-dev
  PL_Base64Decode@Base 2:4.9-2~
  PL_Base64Encode@Base 2:4.9-2~
  PL_CreateLongOptState@Base 2:4.9-2~
@@ -444,6 +447,7 @@ libplc4.so libnspr4 #MINVER#
  PL_strtok_r@Base 2:4.9-2~
  libVersionPoint@Base 2:4.9-2~
 libplds4.so libnspr4 #MINVER#
+* Build-Depends-Package: libnspr4-dev
  PL_ArenaAllocate@Base 2:4.9-2~
  PL_ArenaFinish@Base 2:4.9-2~
  PL_ArenaGrow@Base 2:4.9-2~

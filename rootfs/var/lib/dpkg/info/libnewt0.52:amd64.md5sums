@@ -1,8 +1,8 @@
-c0900cd72438351ccc497a72a4f65d92  usr/lib/x86_64-linux-gnu/libnewt.so.0.52.21
-6d5b4f18c1d62c1ac7d6c286e7780202  usr/share/doc/libnewt0.52/changelog.Debian.amd64.gz
-99c67ab39951b8dd5483397c2c3103d4  usr/share/doc/libnewt0.52/changelog.Debian.gz
-79ffe71119600e24bf8bdbcf745b0e69  usr/share/doc/libnewt0.52/changelog.gz
-28e0723bd9e4ce7a7a08cf21b2c58f34  usr/share/doc/libnewt0.52/copyright
+e5cc08a9cb354bc7c57a274b30f5b4c4  usr/lib/x86_64-linux-gnu/libnewt.so.0.52.23
+0b7721064138673de6000500d065eb53  usr/share/doc/libnewt0.52/changelog.Debian.amd64.gz
+aebff54130fc986f5aad41e867b2779c  usr/share/doc/libnewt0.52/changelog.Debian.gz
+9ef1f1045973baa5c939c3f1144604a8  usr/share/doc/libnewt0.52/changelog.gz
+333e9a4430db74c884f7b6ff14d97773  usr/share/doc/libnewt0.52/copyright
 ee084e9e30dea483e9811a459c79033e  usr/share/locale/ar/LC_MESSAGES/newt.mo
 de6c12edcdb0665486095b11973a515f  usr/share/locale/as/LC_MESSAGES/newt.mo
 3166e2969823c716b8fe3e5ebfc005fe  usr/share/locale/ast/LC_MESSAGES/newt.mo

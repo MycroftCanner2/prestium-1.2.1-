@@ -1,10 +1,12 @@
 libndp.so.0 libndp0 #MINVER#
+* Build-Depends-Package: libndp-dev
  ndp_call_eventfd_handler@Base 1.2
  ndp_callall_eventfd_handler@Base 1.2
  ndp_close@Base 1.2
  ndp_get_eventfd@Base 1.2
  ndp_get_log_priority@Base 1.2
  ndp_msg_addrto@Base 1.2
+ ndp_msg_dest_set@Base 1.8
  ndp_msg_destroy@Base 1.2
  ndp_msg_ifindex@Base 1.2
  ndp_msg_ifindex_set@Base 1.2
@@ -26,6 +28,7 @@ libndp.so.0 libndp0 #MINVER#
  ndp_msg_opt_route_preference@Base 1.2
  ndp_msg_opt_route_prefix@Base 1.2
  ndp_msg_opt_route_prefix_len@Base 1.2
+ ndp_msg_opt_set@Base 1.8
  ndp_msg_opt_slladdr@Base 1.2
  ndp_msg_opt_slladdr_len@Base 1.2
  ndp_msg_opt_tlladdr@Base 1.2
@@ -38,6 +41,7 @@ libndp.so.0 libndp0 #MINVER#
  ndp_msg_payload_opts_len@Base 1.2
  ndp_msg_send@Base 1.2
  ndp_msg_send_with_flags@Base 1.6
+ ndp_msg_target_set@Base 1.8
  ndp_msg_type@Base 1.2
  ndp_msgna@Base 1.2
  ndp_msgna_flag_override@Base 1.6

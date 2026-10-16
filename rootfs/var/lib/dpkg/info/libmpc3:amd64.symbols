@@ -6,6 +6,7 @@ libmpc.so.3 libmpc3 #MINVER#
  mpc_add_fr@Base 1.1.0
  mpc_add_si@Base 1.1.0
  mpc_add_ui@Base 1.1.0
+ mpc_agm@Base 1.3
  mpc_alloc_str@Base 1.1.0
  mpc_arg@Base 1.1.0
  mpc_asin@Base 1.1.0
@@ -26,6 +27,7 @@ libmpc.so.3 libmpc3 #MINVER#
  mpc_div_fr@Base 1.1.0
  mpc_div_ui@Base 1.1.0
  mpc_dot@Base 1.2.0~rc1
+ mpc_eta_fund@Base 1.3
  mpc_exp@Base 1.1.0
  mpc_fix_inf@Base 1.1.0
  mpc_fix_zero@Base 1.1.0
@@ -112,4 +114,48 @@ libmpc.so.3 libmpc3 #MINVER#
  mpc_ui_div@Base 1.1.0
  mpc_ui_ui_sub@Base 1.1.0
  mpc_urandom@Base 1.1.0
+ mpcb_add@Base 1.3
+ mpcb_can_round@Base 1.3
+ mpcb_clear@Base 1.3
+ mpcb_div@Base 1.3
+ mpcb_div_2ui@Base 1.3
+ mpcb_eta_err@Base 1.3
+ mpcb_get_prec@Base 1.3
+ mpcb_init@Base 1.3
+ mpcb_mul@Base 1.3
+ mpcb_neg@Base 1.3
+ mpcb_out_str@Base 1.3
+ mpcb_pow_ui@Base 1.3
+ mpcb_round@Base 1.3
+ mpcb_set@Base 1.3
+ mpcb_set_c@Base 1.3
+ mpcb_set_inf@Base 1.3
+ mpcb_set_prec@Base 1.3
+ mpcb_set_ui_ui@Base 1.3
+ mpcb_sqr@Base 1.3
+ mpcb_sqrt@Base 1.3
+ mpcr_add@Base 1.3
+ mpcr_add_rounding_error@Base 1.3
+ mpcr_c_abs_rnd@Base 1.3
+ mpcr_cmp@Base 1.3
+ mpcr_div@Base 1.3
+ mpcr_div_2ui@Base 1.3
+ mpcr_get_exp@Base 1.3
+ mpcr_inf_p@Base 1.3
+ mpcr_lt_half_p@Base 1.3
+ mpcr_max@Base 1.3
+ mpcr_mul@Base 1.3
+ mpcr_mul_2ui@Base 1.3
+ mpcr_out_str@Base 1.3
+ mpcr_set@Base 1.3
+ mpcr_set_inf@Base 1.3
+ mpcr_set_one@Base 1.3
+ mpcr_set_ui64_2si64@Base 1.3
+ mpcr_set_zero@Base 1.3
+ mpcr_sqr@Base 1.3
+ mpcr_sqrt@Base 1.3
+ mpcr_sub@Base 1.3
+ mpcr_sub_rnd@Base 1.3
+ mpcr_zero_p@Base 1.3
  set_pi_over_2@Base 1.1.0
+ sqrt_int64@Base 1.3

@@ -47,6 +47,7 @@ libonig.so.5 libonig5 #MINVER#
  OnigSyntaxPerl_NG@Base 6.8.1
  OnigSyntaxPosixBasic@Base 6.8.1
  OnigSyntaxPosixExtended@Base 6.8.1
+ OnigSyntaxPython@Base 6.9.7.1
  OnigSyntaxRuby@Base 6.8.1
  OnigUnicodeFolds1@Base 6.8.1
  OnigUnicodeFolds2@Base 6.8.1
@@ -82,11 +83,13 @@ libonig.so.5 libonig5 #MINVER#
  onig_free_reg_callout_list@Base 6.8.1
  onig_get_arg_by_callout_args@Base 6.8.1
  onig_get_args_num_by_callout_args@Base 6.8.1
+ onig_get_callback_each_match@Base 6.9.7.1
  onig_get_callout_data@Base 6.8.1
  onig_get_callout_data_by_callout_args@Base 6.8.1
  onig_get_callout_data_by_callout_args_self@Base 6.8.1
  onig_get_callout_data_by_callout_args_self_dont_clear_old@Base 6.8.1
  onig_get_callout_data_by_tag@Base 6.8.1
+ onig_get_callout_data_by_tag_dont_clear_old@Base 6.9.7.1
  onig_get_callout_data_dont_clear_old@Base 6.8.1
  onig_get_callout_end_func_by_name_id@Base 6.8.1
  onig_get_callout_in_by_callout_args@Base 6.8.1
@@ -201,6 +204,7 @@ libonig.so.5 libonig5 #MINVER#
  onig_scan_env_set_error_string@Base 6.8.1
  onig_search@Base 6.8.1
  onig_search_with_param@Base 6.8.1
+ onig_set_callback_each_match@Base 6.9.7.1
  onig_set_callout_data@Base 6.8.1
  onig_set_callout_data_by_callout_args@Base 6.8.1
  onig_set_callout_data_by_callout_args_self@Base 6.8.1
@@ -322,11 +326,11 @@ libonig.so.5 libonig5 #MINVER#
  re_mbcinit@Base 6.8.1
  re_search@Base 6.8.1
  re_set_casetable@Base 6.8.1
- reg_foreach_name@Base 6.9.6-1.1
- reg_name_to_group_numbers@Base 6.9.6-1.1
- reg_number_of_names@Base 6.9.6-1.1
- reg_set_encoding@Base 6.9.6-1.1
- regcomp@Base 6.9.6-1.1
- regerror@Base 6.9.6-1.1
- regexec@Base 6.9.6-1.1
- regfree@Base 6.9.6-1.1
+ reg_foreach_name@Base 6.9.7.1
+ reg_name_to_group_numbers@Base 6.9.7.1
+ reg_number_of_names@Base 6.9.7.1
+ reg_set_encoding@Base 6.9.7.1
+ regcomp@Base 6.9.7.1
+ regerror@Base 6.9.7.1
+ regexec@Base 6.9.7.1
+ regfree@Base 6.9.7.1

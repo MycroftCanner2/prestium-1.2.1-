@@ -7,7 +7,7 @@
 /usr/share/doc/libnma-common/copyright
 /usr/share/glib-2.0
 /usr/share/glib-2.0/schemas
-/usr/share/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
+/usr/share/glib-2.0/schemas/org.gnome.nm-applet.eap.gschema.xml
 /usr/share/locale
 /usr/share/locale/af
 /usr/share/locale/af/LC_MESSAGES
@@ -123,6 +123,9 @@
 /usr/share/locale/ja
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/libnma.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/libnma.mo
 /usr/share/locale/kk
 /usr/share/locale/kk/LC_MESSAGES
 /usr/share/locale/kk/LC_MESSAGES/libnma.mo

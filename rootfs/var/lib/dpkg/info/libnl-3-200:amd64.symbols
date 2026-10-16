@@ -269,6 +269,7 @@ libnl-3.so.200 libnl-3-200 #MINVER#
  nla_memcpy@Base 3.2.7
  nla_nest_cancel@Base 3.2.24
  nla_nest_end@Base 3.2.7
+ nla_nest_end_keep_empty@Base 3.5.0
  nla_nest_start@Base 3.2.7
  nla_next@Base 3.2.7
  nla_ok@Base 3.2.7

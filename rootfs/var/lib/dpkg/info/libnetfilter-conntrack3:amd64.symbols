@@ -1,4 +1,5 @@
 libnetfilter_conntrack.so.3 libnetfilter-conntrack3 #MINVER#
+* Build-Depends-Package: libnetfilter-conntrack-dev
  __abi_breakage@Base 1.0.8
  __build_conntrack@Base 1.0.1
  __build_expect@Base 1.0.1
@@ -9,6 +10,8 @@ libnetfilter_conntrack.so.3 libnetfilter-conntrack3 #MINVER#
  __compare@Base 1.0.1
  __copy_fast@Base 1.0.1
  __getobjopt@Base 1.0.1
+ __icmp_reply_type@Base 1.0.9
+ __icmpv6_reply_type@Base 1.0.9
  __l3proto2str@Base 1.0.1
  __labelmap_destroy@Base 1.0.4
  __labelmap_get_bit@Base 1.0.4
@@ -97,6 +100,7 @@ libnetfilter_conntrack.so.3 libnetfilter-conntrack3 #MINVER#
  nfct_new@Base 1.0.1
  nfct_nfnlh@Base 1.0.1
  nfct_nlmsg_build@Base 1.0.2
+ nfct_nlmsg_build_filter@Base 1.0.9
  nfct_nlmsg_parse@Base 1.0.2
  nfct_open@Base 1.0.1
  nfct_open_nfnl@Base 1.0.1

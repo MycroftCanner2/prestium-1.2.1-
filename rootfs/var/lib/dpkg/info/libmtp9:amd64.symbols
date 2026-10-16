@@ -23,6 +23,7 @@ libmtp.so.9 libmtp9 #MINVER#
  LIBMTP_Get_Allowed_Property_Values@Base 1.1.0
  LIBMTP_Get_Batterylevel@Base 1.1.0
  LIBMTP_Get_Connected_Devices@Base 1.1.0
+ LIBMTP_Get_Device@Base 1.1.18
  LIBMTP_Get_Device_Certificate@Base 1.1.0
  LIBMTP_Get_Deviceversion@Base 1.1.0
  LIBMTP_Get_Errorstack@Base 1.1.0

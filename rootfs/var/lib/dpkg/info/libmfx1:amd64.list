@@ -2,9 +2,9 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libmfx-tracer.so.1.34
-/usr/lib/x86_64-linux-gnu/libmfx.so.1.34
-/usr/lib/x86_64-linux-gnu/libmfxhw64.so.1.34
+/usr/lib/x86_64-linux-gnu/libmfx-tracer.so.1.35
+/usr/lib/x86_64-linux-gnu/libmfx.so.1.35
+/usr/lib/x86_64-linux-gnu/libmfxhw64.so.1.35
 /usr/lib/x86_64-linux-gnu/mfx
 /usr/lib/x86_64-linux-gnu/mfx/libmfx_h264la_hw64.so
 /usr/lib/x86_64-linux-gnu/mfx/libmfx_hevc_fei_hw64.so
