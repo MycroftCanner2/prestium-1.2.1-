@@ -226,6 +226,7 @@ libgimp-2.0.so.0 libgimp2.0 #MINVER#
  gimp_drawable_edit_stroke_item@Base 2.10.0~RC2
  gimp_drawable_edit_stroke_selection@Base 2.10.0~RC2
  gimp_drawable_equalize@Base 2.10.0
+ gimp_drawable_extract_component@Base 2.10.34
  gimp_drawable_fill@Base 2.4.0
  gimp_drawable_flush@Base 2.4.0
  gimp_drawable_foreground_extract@Base 2.4.0
@@ -279,6 +280,7 @@ libgimp-2.0.so.0 libgimp2.0 #MINVER#
  gimp_drawable_set_pixel@Base 2.4.0
  gimp_drawable_set_tattoo@Base 2.4.0
  gimp_drawable_set_visible@Base 2.4.0
+ gimp_drawable_shadows_highlights@Base 2.10.34
  gimp_drawable_threshold@Base 2.10.0
  gimp_drawable_transform_2d@Base 2.4.0
  gimp_drawable_transform_2d_default@Base 2.4.0
@@ -767,6 +769,7 @@ libgimp-2.0.so.0 libgimp2.0 #MINVER#
  gimp_pixel_rgns_process@Base 2.4.0
  gimp_pixel_rgns_register2@Base 2.4.0
  gimp_pixel_rgns_register@Base 2.4.0
+ gimp_plug_in_error_quark@Base 2.10.32
  gimp_plugin_domain_register@Base 2.4.0
  gimp_plugin_enable_precision@Base 2.10.0
  gimp_plugin_get_pdb_error_handler@Base 2.6.0
@@ -1642,6 +1645,8 @@ libgimpwidgets-2.0.so.0 libgimp2.0 #MINVER#
  _gimp_pick_button_default_pick@Base 2.10.0
  _gimp_pick_button_kwin_available@Base 2.10.0
  _gimp_pick_button_kwin_pick@Base 2.10.0
+ _gimp_pick_button_xdg_available@Base 2.10.30
+ _gimp_pick_button_xdg_pick@Base 2.10.30
  _gimp_standard_help_func@Base 2.4.0
  _gimp_unit_store_sync_units@Base 2.8.14
  _gimp_widgets_marshal_BOOLEAN__POINTER@Base 2.4.0

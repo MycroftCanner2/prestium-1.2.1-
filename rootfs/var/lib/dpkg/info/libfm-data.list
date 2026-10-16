@@ -46,8 +46,6 @@
 /usr/share/locale/ja/LC_MESSAGES/libfm.mo
 /usr/share/locale/kk/LC_MESSAGES/libfm.mo
 /usr/share/locale/ko/LC_MESSAGES/libfm.mo
-/usr/share/locale/lg
-/usr/share/locale/lg/LC_MESSAGES
 /usr/share/locale/lg/LC_MESSAGES/libfm.mo
 /usr/share/locale/lt/LC_MESSAGES/libfm.mo
 /usr/share/locale/ml/LC_MESSAGES/libfm.mo
@@ -70,14 +68,10 @@
 /usr/share/locale/te/LC_MESSAGES/libfm.mo
 /usr/share/locale/th/LC_MESSAGES/libfm.mo
 /usr/share/locale/tr/LC_MESSAGES/libfm.mo
-/usr/share/locale/tt_RU
-/usr/share/locale/tt_RU/LC_MESSAGES
 /usr/share/locale/tt_RU/LC_MESSAGES/libfm.mo
 /usr/share/locale/ug/LC_MESSAGES/libfm.mo
 /usr/share/locale/uk/LC_MESSAGES/libfm.mo
 /usr/share/locale/ur/LC_MESSAGES/libfm.mo
-/usr/share/locale/ur_PK
-/usr/share/locale/ur_PK/LC_MESSAGES
 /usr/share/locale/ur_PK/LC_MESSAGES/libfm.mo
 /usr/share/locale/vi/LC_MESSAGES/libfm.mo
 /usr/share/locale/zh_CN/LC_MESSAGES/libfm.mo

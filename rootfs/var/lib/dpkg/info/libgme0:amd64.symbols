@@ -1,8 +1,7 @@
 libgme.so.0 libgme0 #MINVER#
 * Build-Depends-Package: libgme-dev
- _ZNSt6vectorIS_IsSaIsEESaIS1_EED1Ev@Base 0.6.3
- _ZNSt6vectorIS_IsSaIsEESaIS1_EED2Ev@Base 0.6.3
  _ZNSt6vectorIsSaIsEE17_M_default_appendEm@Base 0.6.3
+ _ZSt18__do_uninit_fill_nIPSt6vectorIsSaIsEEmS2_ET_S4_T0_RKT1_@Base 0.6.3
  gme_ay_type@Base 0.6.3
  gme_clear_playlist@Base 0.6.0
  gme_delete@Base 0.5.5

@@ -52,6 +52,12 @@
 /usr/share/locale/it
 /usr/share/locale/it/LC_MESSAGES
 /usr/share/locale/it/LC_MESSAGES/gegl-0.4.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/gegl-0.4.mo
+/usr/share/locale/kab
+/usr/share/locale/kab/LC_MESSAGES
+/usr/share/locale/kab/LC_MESSAGES/gegl-0.4.mo
 /usr/share/locale/ko
 /usr/share/locale/ko/LC_MESSAGES
 /usr/share/locale/ko/LC_MESSAGES/gegl-0.4.mo
@@ -82,6 +88,9 @@
 /usr/share/locale/pt_BR
 /usr/share/locale/pt_BR/LC_MESSAGES
 /usr/share/locale/pt_BR/LC_MESSAGES/gegl-0.4.mo
+/usr/share/locale/ro
+/usr/share/locale/ro/LC_MESSAGES
+/usr/share/locale/ro/LC_MESSAGES/gegl-0.4.mo
 /usr/share/locale/ru
 /usr/share/locale/ru/LC_MESSAGES
 /usr/share/locale/ru/LC_MESSAGES/gegl-0.4.mo
@@ -94,6 +103,9 @@
 /usr/share/locale/sr
 /usr/share/locale/sr/LC_MESSAGES
 /usr/share/locale/sr/LC_MESSAGES/gegl-0.4.mo
+/usr/share/locale/sr@latin
+/usr/share/locale/sr@latin/LC_MESSAGES
+/usr/share/locale/sr@latin/LC_MESSAGES/gegl-0.4.mo
 /usr/share/locale/sv
 /usr/share/locale/sv/LC_MESSAGES
 /usr/share/locale/sv/LC_MESSAGES/gegl-0.4.mo

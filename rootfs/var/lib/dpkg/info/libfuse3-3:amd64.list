@@ -1,7 +1,7 @@
 /.
 /lib
 /lib/x86_64-linux-gnu
-/lib/x86_64-linux-gnu/libfuse3.so.3.10.3
+/lib/x86_64-linux-gnu/libfuse3.so.3.14.0
 /usr
 /usr/share
 /usr/share/doc

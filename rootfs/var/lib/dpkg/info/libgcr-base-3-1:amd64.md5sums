@@ -1,4 +1,4 @@
-ef8a75e9cc5cd8305080d73872283d4b  usr/lib/x86_64-linux-gnu/libgcr-base-3.so.1.0.0
-e3b3bfb49d5afc153376d8542269ec7c  usr/share/doc/libgcr-base-3-1/changelog.Debian.gz
-596396b0c46571796398599628bcea8c  usr/share/doc/libgcr-base-3-1/changelog.gz
-82d9586ee64cb1ec6be0447155607d43  usr/share/doc/libgcr-base-3-1/copyright
+815a3c4bac9d61be1ed646d6fd5b05fc  usr/lib/x86_64-linux-gnu/libgcr-base-3.so.1.0.0
+e991906a1475f5e941b65f540610ceb7  usr/share/doc/libgcr-base-3-1/changelog.Debian.amd64.gz
+7e7f66173ab96d740103406b90677bde  usr/share/doc/libgcr-base-3-1/changelog.Debian.gz
+8ba3e8ce2e98366abe1577b9f9a116be  usr/share/doc/libgcr-base-3-1/copyright

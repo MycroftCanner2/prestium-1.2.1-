@@ -55,6 +55,7 @@ libfontconfig.so.1 libfontconfig1 #MINVER#
  FcConfigGetConfigDirs@Base 2.12.6
  FcConfigGetConfigFiles@Base 2.12.6
  FcConfigGetCurrent@Base 2.12.6
+ FcConfigGetFilename@Base 2.14.1
  FcConfigGetFontDirs@Base 2.12.6
  FcConfigGetFonts@Base 2.12.6
  FcConfigGetRescanInterval@Base 2.12.6
@@ -201,6 +202,7 @@ libfontconfig.so.1 libfontconfig1 #MINVER#
  FcRuleDestroy@Base 2.12.6
  FcScandir@Base 2.12.6
  FcStrBasename@Base 2.12.6
+ FcStrBuildFilename@Base 2.14.1
  FcStrCmp@Base 2.12.6
  FcStrCmpIgnoreCase@Base 2.12.6
  FcStrCopy@Base 2.12.6

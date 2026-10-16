@@ -33,6 +33,7 @@ libgphoto2_port.so.12 libgphoto2-port12 #MINVER#
  gp_port_info_set_name@LIBGPHOTO2_INTERNAL 2.5.10
  gp_port_info_set_path@LIBGPHOTO2_INTERNAL 2.5.10
  gp_port_info_set_type@LIBGPHOTO2_INTERNAL 2.5.10
+ gp_port_init_localedir@LIBGPHOTO2_5_0 2.5.30
  gp_port_library_version@LIBGPHOTO2_5_0 2.5.10
  gp_port_message_codeset@LIBGPHOTO2_5_0 2.5.10
  gp_port_new@LIBGPHOTO2_5_0 2.5.10

@@ -145,10 +145,16 @@ libgpgme.so.11 libgpgme11 #MINVER#
  gpgme_op_passwd_start@GPGME_1.1 1.3.2
  gpgme_op_query_swdb@GPGME_1.1 1.8.0
  gpgme_op_query_swdb_result@GPGME_1.1 1.8.0
+ gpgme_op_receive_keys@GPGME_1.0 1.17.1
+ gpgme_op_receive_keys_start@GPGME_1.0 1.17.1
+ gpgme_op_revsig@GPGME_1.0 1.15.0
+ gpgme_op_revsig_start@GPGME_1.0 1.15.0
  gpgme_op_revuid@GPGME_1.1 1.7.0
  gpgme_op_revuid_start@GPGME_1.1 1.7.0
  gpgme_op_set_uid_flag@GPGME_1.1 1.9.0
  gpgme_op_set_uid_flag_start@GPGME_1.1 1.9.0
+ gpgme_op_setexpire@GPGME_1.0 1.15.0
+ gpgme_op_setexpire_start@GPGME_1.0 1.15.0
  gpgme_op_sign@GPGME_1.0 1.1.2
  gpgme_op_sign_result@GPGME_1.0 1.1.2
  gpgme_op_sign_start@GPGME_1.0 1.1.2

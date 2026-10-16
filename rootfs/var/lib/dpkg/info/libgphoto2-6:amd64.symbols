@@ -120,9 +120,11 @@ libgphoto2.so.6 libgphoto2-6 #MINVER#
  gp_filesystem_set_file_noop@Base 2.5.10
  gp_filesystem_set_funcs@Base 2.5.10
  gp_filesystem_set_info@Base 2.5.10
+ gp_filesystem_set_info_dirty@Base 2.5.28
  gp_filesystem_set_info_noop@Base 2.5.10
  gp_gamma_correct_single@Base 2.5.10
  gp_gamma_fill_table@Base 2.5.10
+ gp_init_localedir@Base 2.5.30
  gp_library_version@Base 2.5.10
  gp_list_append@Base 2.5.10
  gp_list_count@Base 2.5.10

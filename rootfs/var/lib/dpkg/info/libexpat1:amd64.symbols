@@ -28,8 +28,12 @@ libexpat.so.1 libexpat1 #MINVER#
  XML_ParserFree@Base 2.0.1
  XML_ParserReset@Base 2.0.1
  XML_ResumeParser@Base 2.0.1
+ XML_SetAllocTrackerActivationThreshold@Base 2.5.0-1+deb12u4
+ XML_SetAllocTrackerMaximumAmplification@Base 2.5.0-1+deb12u4
  XML_SetAttlistDeclHandler@Base 2.0.1
  XML_SetBase@Base 2.0.1
+ XML_SetBillionLaughsAttackProtectionActivationThreshold@Base 2.4.1
+ XML_SetBillionLaughsAttackProtectionMaximumAmplification@Base 2.4.1
  XML_SetCdataSectionHandler@Base 2.0.1
  XML_SetCharacterDataHandler@Base 2.0.1
  XML_SetCommentHandler@Base 2.0.1
@@ -52,6 +56,7 @@ libexpat.so.1 libexpat1 #MINVER#
  XML_SetNotationDeclHandler@Base 2.0.1
  XML_SetParamEntityParsing@Base 2.0.1
  XML_SetProcessingInstructionHandler@Base 2.0.1
+ XML_SetReparseDeferralEnabled@Base 2.5.0
  XML_SetReturnNSTriplet@Base 2.0.1
  XML_SetSkippedEntityHandler@Base 2.0.1
  XML_SetStartCdataSectionHandler@Base 2.0.1
@@ -65,7 +70,6 @@ libexpat.so.1 libexpat1 #MINVER#
  XML_StopParser@Base 2.0.1
  XML_UseForeignDTD@Base 2.0.1
  XML_UseParserAsHandlerArg@Base 2.0.1
- _INTERNAL_trim_to_complete_utf8_characters@Base 2.2.5
 libexpatw.so.1 libexpat1 #MINVER#
  XML_DefaultCurrent@Base 2.0.1
  XML_ErrorString@Base 2.0.1
@@ -96,8 +100,12 @@ libexpatw.so.1 libexpat1 #MINVER#
  XML_ParserFree@Base 2.0.1
  XML_ParserReset@Base 2.0.1
  XML_ResumeParser@Base 2.0.1
+ XML_SetAllocTrackerActivationThreshold@Base 2.5.0-1+deb12u4
+ XML_SetAllocTrackerMaximumAmplification@Base 2.5.0-1+deb12u4
  XML_SetAttlistDeclHandler@Base 2.0.1
  XML_SetBase@Base 2.0.1
+ XML_SetBillionLaughsAttackProtectionActivationThreshold@Base 2.4.1
+ XML_SetBillionLaughsAttackProtectionMaximumAmplification@Base 2.4.1
  XML_SetCdataSectionHandler@Base 2.0.1
  XML_SetCharacterDataHandler@Base 2.0.1
  XML_SetCommentHandler@Base 2.0.1
@@ -120,6 +128,7 @@ libexpatw.so.1 libexpat1 #MINVER#
  XML_SetNotationDeclHandler@Base 2.0.1
  XML_SetParamEntityParsing@Base 2.0.1
  XML_SetProcessingInstructionHandler@Base 2.0.1
+ XML_SetReparseDeferralEnabled@Base 2.5.0
  XML_SetReturnNSTriplet@Base 2.0.1
  XML_SetSkippedEntityHandler@Base 2.0.1
  XML_SetStartCdataSectionHandler@Base 2.0.1
@@ -133,4 +142,3 @@ libexpatw.so.1 libexpat1 #MINVER#
  XML_StopParser@Base 2.0.1
  XML_UseForeignDTD@Base 2.0.1
  XML_UseParserAsHandlerArg@Base 2.0.1
- _INTERNAL_trim_to_complete_utf8_characters@Base 2.2.5

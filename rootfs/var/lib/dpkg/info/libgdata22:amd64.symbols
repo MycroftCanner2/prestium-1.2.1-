@@ -310,7 +310,12 @@ libgdata.so.22 libgdata22 #MINVER#
  gdata_documents_document_new@Base 0.15.0
  gdata_documents_drawing_get_type@Base 0.15.0
  gdata_documents_drawing_new@Base 0.15.0
+ gdata_documents_drive_get_name@Base 0.18.0
+ gdata_documents_drive_get_type@Base 0.18.0
+ gdata_documents_drive_query_get_type@Base 0.18.0
+ gdata_documents_drive_query_new@Base 0.18.0
  gdata_documents_entry_add_documents_property@Base 0.17.11
+ gdata_documents_entry_can_edit@Base 0.18.0
  gdata_documents_entry_get_document_id@Base 0.15.0
  gdata_documents_entry_get_document_properties@Base 0.17.11
  gdata_documents_entry_get_edited@Base 0.15.0
@@ -320,6 +325,7 @@ libgdata.so.22 libgdata22 #MINVER#
  gdata_documents_entry_get_path@Base 0.15.0
  gdata_documents_entry_get_quota_used@Base 0.15.0
  gdata_documents_entry_get_resource_id@Base 0.15.0
+ gdata_documents_entry_get_shared_with_me_date@Base 0.18.0
  gdata_documents_entry_get_type@Base 0.15.0
  gdata_documents_entry_is_deleted@Base 0.15.0
  gdata_documents_entry_remove_documents_property@Base 0.17.11
@@ -378,6 +384,8 @@ libgdata.so.22 libgdata22 #MINVER#
  gdata_documents_service_new@Base 0.15.0
  gdata_documents_service_query_documents@Base 0.15.0
  gdata_documents_service_query_documents_async@Base 0.15.0
+ gdata_documents_service_query_drives@Base 0.18.0
+ gdata_documents_service_query_drives_async@Base 0.18.0
  gdata_documents_service_remove_entry_from_folder@Base 0.15.0
  gdata_documents_service_remove_entry_from_folder_async@Base 0.15.0
  gdata_documents_service_remove_entry_from_folder_finish@Base 0.15.0

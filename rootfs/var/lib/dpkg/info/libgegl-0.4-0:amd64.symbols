@@ -5,7 +5,7 @@ libgegl-0.4.so.0 libgegl-0.4-0 #MINVER#
  _gegl_float_epsilon_equal@Base 0.3.0
  _gegl_float_epsilon_zero@Base 0.3.0
  _gegl_get_required_for_scale@Base 0.3.0
- _gegl_init_u8_lut@Base 0.3.28
+ _gegl_init_buffer@Base 1:0.4.36
  _gegl_operation_is_attached@Base 1:0.4.24
  _gegl_threads@Base 0.3.0
  _gegl_tile_handler_get_cache@Base 0.3.0
@@ -267,13 +267,15 @@ libgegl-0.4.so.0 libgegl-0.4-0 #MINVER#
  gegl_dot_visitor_get_type@Base 0.3.0
  gegl_dot_visitor_set_string_to_append@Base 0.3.0
  gegl_downscale_2x2@Base 0.3.0
- gegl_downscale_2x2_double@Base 0.3.0
- gegl_downscale_2x2_float@Base 0.3.0
- gegl_downscale_2x2_get_fun@Base 0.3.28
- gegl_downscale_2x2_nearest@Base 0.3.0
- gegl_downscale_2x2_u16@Base 0.3.0
- gegl_downscale_2x2_u32@Base 0.3.0
- gegl_downscale_2x2_u8@Base 0.3.0
+ gegl_downscale_2x2_generic@Base 1:0.4.36
+ gegl_downscale_2x2_get_fun_generic@Base 1:0.4.36
+ gegl_downscale_2x2_get_fun_x86_64_v2@Base 1:0.4.36
+ gegl_downscale_2x2_get_fun_x86_64_v3@Base 1:0.4.36
+ gegl_downscale_2x2_nearest_generic@Base 1:0.4.36
+ gegl_downscale_2x2_nearest_x86_64_v2@Base 1:0.4.36
+ gegl_downscale_2x2_nearest_x86_64_v3@Base 1:0.4.36
+ gegl_downscale_2x2_x86_64_v2@Base 1:0.4.36
+ gegl_downscale_2x2_x86_64_v3@Base 1:0.4.36
  gegl_eval_manager_apply@Base 0.3.0
  gegl_eval_manager_get_bounding_box@Base 0.3.0
  gegl_eval_manager_get_type@Base 0.3.0
@@ -321,6 +323,9 @@ libgegl-0.4.so.0 libgegl-0.4-0 #MINVER#
  gegl_lookup_free@Base 0.3.0
  gegl_lookup_new@Base 0.3.0
  gegl_lookup_new_full@Base 0.3.0
+ gegl_lut_u16_to_u8@Base 1:0.4.36
+ gegl_lut_u8_to_u16@Base 1:0.4.36
+ gegl_lut_u8_to_u16f@Base 1:0.4.36
  gegl_malloc@Base 0.3.0
  gegl_matrix3_copy@Base 0.3.0
  gegl_matrix3_copy_into@Base 0.3.0
@@ -391,12 +396,9 @@ libgegl-0.4.so.0 libgegl-0.4-0 #MINVER#
  gegl_metadata_store_set_warning@Base 1:0.4.24
  gegl_metadata_store_typeof_value@Base 1:0.4.24
  gegl_metadata_unregister_map@Base 1:0.4.24
- gegl_module_db_get_load_inhibit@Base 0.3.0
  gegl_module_db_get_type@Base 0.3.0
  gegl_module_db_load@Base 0.3.0
  gegl_module_db_new@Base 0.3.0
- gegl_module_db_refresh@Base 0.3.0
- gegl_module_db_set_load_inhibit@Base 0.3.0
  gegl_module_get_type@Base 0.3.0
  gegl_module_info_copy@Base 0.3.0
  gegl_module_info_free@Base 0.3.0
@@ -723,18 +725,17 @@ libgegl-0.4.so.0 libgegl-0.4-0 #MINVER#
  gegl_render_op@Base 0.3.0
  gegl_render_op_valist@Base 0.3.0
  gegl_resample_bilinear@Base 0.3.2
- gegl_resample_bilinear_double@Base 0.3.2
- gegl_resample_bilinear_float@Base 0.3.2
- gegl_resample_bilinear_u16@Base 0.3.2
- gegl_resample_bilinear_u32@Base 0.3.2
- gegl_resample_bilinear_u8@Base 0.3.2
+ gegl_resample_bilinear_generic@Base 1:0.4.36
+ gegl_resample_bilinear_x86_64_v2@Base 1:0.4.36
+ gegl_resample_bilinear_x86_64_v3@Base 1:0.4.36
  gegl_resample_boxfilter@Base 0.3.0
- gegl_resample_boxfilter_double@Base 0.3.0
- gegl_resample_boxfilter_float@Base 0.3.0
- gegl_resample_boxfilter_u16@Base 0.3.0
- gegl_resample_boxfilter_u32@Base 0.3.0
- gegl_resample_boxfilter_u8@Base 0.3.0
+ gegl_resample_boxfilter_generic@Base 1:0.4.36
+ gegl_resample_boxfilter_x86_64_v2@Base 1:0.4.36
+ gegl_resample_boxfilter_x86_64_v3@Base 1:0.4.36
  gegl_resample_nearest@Base 0.3.0
+ gegl_resample_nearest_generic@Base 1:0.4.36
+ gegl_resample_nearest_x86_64_v2@Base 1:0.4.36
+ gegl_resample_nearest_x86_64_v3@Base 1:0.4.36
  gegl_reset_stats@Base 0.3.28
  gegl_resolution_unit_get_type@Base 1:0.4.24
  gegl_sampler_cubic_get_type@Base 0.3.0

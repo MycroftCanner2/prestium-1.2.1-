@@ -286,6 +286,7 @@ libgck-1.so.0 libgck-1-0 #MINVER#
  gck_slot_open_session_finish@Base 2.91.1
  gck_slot_open_session_full@Base 2.91.1
  gck_slot_open_session_full_async@Base 2.91.1
+ gck_slot_token_has_flags@Base 3.40.0
  gck_slots_enumerate_objects@Base 2.91.4
  gck_string_from_chars@Base 2.91.1
  gck_string_to_chars@Base 3.2.2

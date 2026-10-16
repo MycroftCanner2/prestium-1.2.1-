@@ -1,11 +1,11 @@
-d4b965cc7539b71360ebb3defa6cbada  usr/lib/x86_64-linux-gnu/libexiv2.so.0.27.3
-d6e24c0830b2ac4d4baac2e1e5f61209  usr/share/doc/libexiv2-27/changelog.Debian.gz
-d59a3eea37b7d0b7bbf9723f7de72b56  usr/share/doc/libexiv2-27/changelog.gz
-14bf08a24bf4a5f75f4b4eb5b1dced0c  usr/share/doc/libexiv2-27/copyright
+93cbed0cba2b0897ef703b7e7ac89ffe  usr/lib/x86_64-linux-gnu/libexiv2.so.0.27.6
+a493099fed08c51245647047fe7f62ed  usr/share/doc/libexiv2-27/changelog.Debian.gz
+63cafaedb65141bac296b81b3be6eb58  usr/share/doc/libexiv2-27/changelog.gz
+bffa1d8d97dc0015ba678102d7e9e11b  usr/share/doc/libexiv2-27/copyright
 989bfca3452c431b314313a77b2ec595  usr/share/locale/bs/LC_MESSAGES/exiv2.mo
 3c2bbdde951a6f6404829aae3e7949da  usr/share/locale/ca/LC_MESSAGES/exiv2.mo
 3998c3619b8a6def76be1a5fee888869  usr/share/locale/de/LC_MESSAGES/exiv2.mo
-a81099c68ebc5a445aa61184641db1bc  usr/share/locale/es/LC_MESSAGES/exiv2.mo
+0d8c1f27ccdedb3287478585fd7478fe  usr/share/locale/es/LC_MESSAGES/exiv2.mo
 0fa03d8bb8b6289bc42bfc40f32251f8  usr/share/locale/fi/LC_MESSAGES/exiv2.mo
 4f565875ccb9801ff5b785eb591f6797  usr/share/locale/fr/LC_MESSAGES/exiv2.mo
 ac68abb4b36fbfaee96d06cde4277f02  usr/share/locale/gl/LC_MESSAGES/exiv2.mo

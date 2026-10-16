@@ -1,6 +1,7 @@
 libfuse3.so.3 libfuse3-3 #MINVER#
 * Build-Depends-Package: libfuse-dev
  FUSE_3.0@FUSE_3.0 3.2.3
+ FUSE_3.12@FUSE_3.12 3.12.0
  FUSE_3.1@FUSE_3.1 3.2.3
  FUSE_3.2@FUSE_3.2 3.2.3
  FUSE_3.3@FUSE_3.3 3.4.1
@@ -71,11 +72,21 @@ libfuse3.so.3 libfuse3-3 #MINVER#
  fuse_lib_help@FUSE_3.1 3.2.3
  fuse_log@FUSE_3.7 3.7.0
  fuse_loop@FUSE_3.0 3.2.3
+ fuse_loop_cfg_convert@FUSE_3.12 3.12.0
+ fuse_loop_cfg_create@FUSE_3.12 3.12.0
+ fuse_loop_cfg_destroy@FUSE_3.12 3.12.0
+ fuse_loop_cfg_set_clone_fd@FUSE_3.12 3.12.0
+ fuse_loop_cfg_set_idle_threads@FUSE_3.12 3.12.0
+ fuse_loop_cfg_set_max_threads@FUSE_3.12 3.12.0
  fuse_loop_mt@FUSE_3.0 3.2.3
+ fuse_loop_mt@FUSE_3.12 3.12.0
  fuse_loop_mt@FUSE_3.2 3.2.3
+ fuse_loop_mt_312@FUSE_3.12 3.12.0
  fuse_loop_mt_31@FUSE_3.2 3.2.3
+ fuse_loop_mt_32@FUSE_3.12 3.12.0
  fuse_lowlevel_help@FUSE_3.0 3.2.3
  fuse_lowlevel_notify_delete@FUSE_3.0 3.2.3
+ fuse_lowlevel_notify_expire_entry@FUSE_3.12 3.12.0
  fuse_lowlevel_notify_inval_entry@FUSE_3.0 3.2.3
  fuse_lowlevel_notify_inval_inode@FUSE_3.0 3.2.3
  fuse_lowlevel_notify_poll@FUSE_3.0 3.2.3
@@ -87,6 +98,7 @@ libfuse3.so.3 libfuse3-3 #MINVER#
  fuse_new@FUSE_3.0 3.2.3
  fuse_new@FUSE_3.1 3.2.3
  fuse_new_30@FUSE_3.1 3.2.3
+ fuse_new_31@FUSE_3.1 3.2.3
  fuse_notify_poll@FUSE_3.0 3.2.3
  fuse_open_channel@FUSE_3.3 3.4.1
  fuse_opt_add_arg@FUSE_3.0 3.2.3
@@ -97,6 +109,9 @@ libfuse3.so.3 libfuse3-3 #MINVER#
  fuse_opt_match@FUSE_3.0 3.2.3
  fuse_opt_parse@FUSE_3.0 3.2.3
  fuse_parse_cmdline@FUSE_3.0 3.2.3
+ fuse_parse_cmdline@FUSE_3.12 3.12.0
+ fuse_parse_cmdline_30@FUSE_3.12 3.12.0
+ fuse_parse_cmdline_312@FUSE_3.12 3.12.0
  fuse_parse_conn_info_opts@FUSE_3.0 3.2.3
  fuse_pkgversion@FUSE_3.0 3.2.3
  fuse_pollhandle_destroy@FUSE_3.0 3.2.3
@@ -126,13 +141,16 @@ libfuse3.so.3 libfuse3-3 #MINVER#
  fuse_req_interrupt_func@FUSE_3.0 3.2.3
  fuse_req_interrupted@FUSE_3.0 3.2.3
  fuse_req_userdata@FUSE_3.0 3.2.3
+ fuse_session_custom_io@FUSE_3.0 3.2.3
  fuse_session_destroy@FUSE_3.0 3.2.3
  fuse_session_exit@FUSE_3.0 3.2.3
  fuse_session_exited@FUSE_3.0 3.2.3
  fuse_session_fd@FUSE_3.0 3.2.3
  fuse_session_loop@FUSE_3.0 3.2.3
  fuse_session_loop_mt@FUSE_3.0 3.2.3
+ fuse_session_loop_mt@FUSE_3.12 3.12.0
  fuse_session_loop_mt@FUSE_3.2 3.2.3
+ fuse_session_loop_mt_312@FUSE_3.12 3.12.0
  fuse_session_loop_mt_31@FUSE_3.2 3.2.3
  fuse_session_loop_mt_32@FUSE_3.2 3.2.3
  fuse_session_mount@FUSE_3.0 3.2.3

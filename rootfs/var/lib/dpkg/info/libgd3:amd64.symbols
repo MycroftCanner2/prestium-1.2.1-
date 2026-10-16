@@ -37,6 +37,11 @@ libgd.so.3 libgd3 #MINVER#
  gdImageAABlend@Base 2.1.0~alpha~
  gdImageAlphaBlending@Base 2.1.0~alpha~
  gdImageArc@Base 2.1.0~alpha~
+ gdImageAvif@Base 2.3.3
+ gdImageAvifCtx@Base 2.3.3
+ gdImageAvifEx@Base 2.3.3
+ gdImageAvifPtr@Base 2.3.3
+ gdImageAvifPtrEx@Base 2.3.3
  gdImageBmp@Base 2.1.0~alpha~
  gdImageBmpCtx@Base 2.1.0~alpha~
  gdImageBmpPtr@Base 2.1.0~alpha~
@@ -73,6 +78,9 @@ libgd.so.3 libgd3 #MINVER#
  gdImageCopyResized@Base 2.1.0~alpha~
  gdImageCopyRotated@Base 2.1.0~alpha~
  gdImageCreate@Base 2.1.0~alpha~
+ gdImageCreateFromAvif@Base 2.3.3
+ gdImageCreateFromAvifCtx@Base 2.3.3
+ gdImageCreateFromAvifPtr@Base 2.3.3
  gdImageCreateFromBmp@Base 2.1.0~alpha~
  gdImageCreateFromBmpCtx@Base 2.1.0~alpha~
  gdImageCreateFromBmpPtr@Base 2.1.0~alpha~
@@ -89,6 +97,9 @@ libgd.so.3 libgd3 #MINVER#
  gdImageCreateFromGif@Base 2.1.0~alpha~
  gdImageCreateFromGifCtx@Base 2.1.0~alpha~
  gdImageCreateFromGifPtr@Base 2.1.0~alpha~
+ gdImageCreateFromHeif@Base 2.3.3
+ gdImageCreateFromHeifCtx@Base 2.3.3
+ gdImageCreateFromHeifPtr@Base 2.3.3
  gdImageCreateFromJpeg@Base 2.1.0~alpha~
  gdImageCreateFromJpegCtx@Base 2.1.0~alpha~
  gdImageCreateFromJpegCtxEx@Base 2.1.0~alpha~
@@ -155,6 +166,11 @@ libgd.so.3 libgd3 #MINVER#
  gdImageGifCtx@Base 2.1.0~alpha~
  gdImageGifPtr@Base 2.1.0~alpha~
  gdImageGrayScale@Base 2.1.0~alpha~
+ gdImageHeif@Base 2.3.3
+ gdImageHeifCtx@Base 2.3.3
+ gdImageHeifEx@Base 2.3.3
+ gdImageHeifPtr@Base 2.3.3
+ gdImageHeifPtrEx@Base 2.3.3
  gdImageInterlace@Base 2.1.0~alpha~
  gdImageJpeg@Base 2.1.0~alpha~
  gdImageJpegCtx@Base 2.1.0~alpha~

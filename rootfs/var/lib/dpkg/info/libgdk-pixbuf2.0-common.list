@@ -6,6 +6,9 @@
 /usr/share/doc/libgdk-pixbuf2.0-common/changelog.Debian.gz
 /usr/share/doc/libgdk-pixbuf2.0-common/copyright
 /usr/share/locale
+/usr/share/locale/ab
+/usr/share/locale/ab/LC_MESSAGES
+/usr/share/locale/ab/LC_MESSAGES/gdk-pixbuf.mo
 /usr/share/locale/af
 /usr/share/locale/af/LC_MESSAGES
 /usr/share/locale/af/LC_MESSAGES/gdk-pixbuf.mo
