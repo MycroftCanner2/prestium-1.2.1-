@@ -26,4 +26,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-startx
+# Fallback: start X on tty1 only if LightDM is not running
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ] && ! systemctl -q is-active lightdm.service 2>/dev/null; then
+    startx
+fi

@@ -33,4 +33,6 @@ test -z $BG || $BG -solid "#303030"
 
 tint2 &
 
+volumeicon &
+
 clipit &

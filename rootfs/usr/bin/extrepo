@@ -1,0 +1,197 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+use utf8;
+
+use Getopt::Long;
+
+=head1 NAME
+
+extrepo - manage external Debian repositories
+
+=head1 SYNOPSIS
+
+extrepo search I<search_key>
+
+extrepo enable I<repository_name>
+
+extrepo disable I<repository_name>
+
+extrepo update I<repository_name>
+
+=head1 DESCRIPTION
+
+The extrepo tool is used to manage external repositories in Debian.
+Before extrepo, users who wished to use software not packaged for Debian
+had to manually write the apt configuration files, run an unsigned
+script as root, or install an unsigned .deb package that contained all
+the configuration on their system. None of these methods were very
+secure.
+
+Extrepo remedies this by way of a metadata repository for external
+package repositories. The user can search the list of metadata
+repositories by way of C<extrepo search>, and manage them through
+C<extrepo enable>, C<extrepo disable>, or C<extrepo update>.
+
+By default, only the main policy is enabled, which means only repositories
+with DFSG-free licensed packages are searched and can be enabled. This can
+be changed in the configuration file.
+
+=head1 OPTIONS
+
+=head2 --url
+
+Specifies the URL from which extrepo will fetch the data for all
+repositories it manages. This makes it possible to use your own
+extrepo data server.
+
+Warning: when using --url file:///usr/share/extrepo/offline-data
+(see also --offlinedata below), extrepo bypasses the GPG-based
+integrity checks of the index.yaml containing the repositories
+data, as the files provided by the extrepo-offline-data are supposed
+to be already validated through the normal Debian package GPG key
+infrastructure.
+
+=head2 --offlinedata
+
+Equivalent to --url file:///usr/share/extrepo/offline-data. Makes
+it possible to use the extrepo data from the extrepo-offline-data
+package.
+
+=head2 --mirror
+
+Overrides the URL of the external repository. This options is
+only useful for the enable and update command. It makes it possible
+to use your own mirror of external repositories, but keeping the
+original GPG authentification that is provided by extrepo.
+
+=head1 SUBCOMMANDS
+
+=head2 search I<key>
+
+Searches for a repository where the given argument I<key> (a regular
+expression) matches either the name of the repository, its description,
+or the URL of the repository in question. The full YAML configuration of
+all repositories that have a match are printed to standard output.
+
+To search for all repositories, don't provide any search key.
+
+=head2 enable I<repository_name>
+
+Enable the repository named I<repository_name>. 
+
+There are two cases for this command:
+
+=over
+
+=item *
+
+If the repository had not yet been created before, this creates its
+configuration from the current metadata.
+
+=item *
+
+If the repository had been created before but disabled by way of the
+C<extrepo disable> command, re-enable it I<without> updating the
+metadata. If you want to update it, see the C<extrepo update> command.
+
+If --mirror is used, the URI of the repository to re-enable will also
+be updated.
+
+=back
+
+=head2 disable I<repository_name>
+
+This simply adds a line "Enabled: no" to the apt configuration file, so
+that the repository is not enabled. It can be re-enabled by changing the
+line to "Enabled: yes" (or removing it entirely), or by way of the
+C<extrepo enable> command (second case).
+
+=head2 update I<repository_name>
+
+Re-writes the apt configuration file for this repository, as well as the
+GPG keyring for it, from the current metadata.
+
+=head1 FILES
+
+/etc/extrepo/config.yaml	Extrepo configuration file.
+
+=head1 SEE ALSO
+
+L<https://salsa.debian.org/extrepo-team/extrepo-data> for instructions
+on adding your own repository
+
+=head1 AUTHOR
+
+Wouter Verhelst
+
+=cut
+
+use Debian::ExtRepo::Commands::Search;
+use Debian::ExtRepo::Commands::Disable;
+use Debian::ExtRepo::Commands::Enable;
+use Debian::ExtRepo::Data qw/fetch_repodata fetch_config/;
+
+sub usage($) {
+	my $appname = $0;
+	print "Usage:\n";
+	print "$appname search  search for repositories\n";
+	print "$appname update  update a repository to the latest metadata\n";
+	print "$appname disable disable an extrepo-configured repository\n";
+	print "$appname enable  (re-)enable an extrepo repository\n";
+	print "Options:\n";
+	print "  --url <url>: define the url where to fetch extrepo data.\n";
+	print "  --offlinedata: use offline data provided by the extrepo-offline-data package\n";
+	print "  --mirror <mirror>: use the mirror URL provided\n";
+	print "\n";
+	print "For more info, please read extrepo(1)\n";
+	exit 0 if shift;
+}
+
+my $url;
+my $offlinedata;
+my $mirror;
+my $help;
+
+GetOptions(
+	'url=s' => \$url,
+	'offlinedata' => \$offlinedata,
+	'mirror=s' => \$mirror,
+	'help' => \$help);
+
+if ($help) {
+	usage(1);
+}
+
+my $config = fetch_config();
+if ($offlinedata) {
+	$config->{url} = "file:///usr/share/extrepo/offline-data";
+}else{
+	if ($url) {
+		$config->{url} = $url;
+	}
+}
+
+my $cmdlower = shift;
+my $arg = shift;
+
+if(!defined $cmdlower) {
+	usage(0);
+	die "Need command, can't continue\n";
+}
+$arg = "" unless defined($arg);
+
+my $command = ucfirst($cmdlower);
+
+if($command eq "Update") {
+	Debian::ExtRepo::Commands::Enable::run($config, $mirror, 1, $arg);
+} elsif($command eq "Enable") {
+	Debian::ExtRepo::Commands::Enable::run($config, $mirror, 0, $arg);
+} else {
+	eval "Debian::ExtRepo::Commands::${command}::run(\$config, \$mirror, \$arg);";
+
+	if($@) {
+		die $!;
+	}
+}
