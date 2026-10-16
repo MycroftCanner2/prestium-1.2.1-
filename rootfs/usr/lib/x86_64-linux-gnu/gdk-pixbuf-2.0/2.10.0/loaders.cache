@@ -1,6 +1,6 @@
 # GdkPixbuf Image Loader Modules file
 # Automatically generated file, do not edit
-# Created by gdk-pixbuf-query-loaders from gdk-pixbuf-2.42.2
+# Created by gdk-pixbuf-query-loaders from gdk-pixbuf-2.42.10
 #
 "/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ani.so"
 "ani" 4 "gdk-pixbuf" "Windows animated cursor" "LGPL"
@@ -32,18 +32,6 @@
 "ico" "cur" ""
 "  \001   " "zz znz" 100
 "  \002   " "zz znz" 100
-
-"/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-jpeg.so"
-"jpeg" 5 "gdk-pixbuf" "JPEG" "LGPL"
-"image/jpeg" ""
-"jpeg" "jpe" "jpg" ""
-"\377\330" "" 100
-
-"/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so"
-"png" 5 "gdk-pixbuf" "PNG" "LGPL"
-"image/png" ""
-"png" ""
-"\211PNG\r\n\032\n" "" 100
 
 "/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pnm.so"
 "pnm" 4 "gdk-pixbuf" "PNM/PBM/PGM/PPM" "LGPL"
