@@ -206,7 +206,7 @@ EOF
     if [ -d "$old_mdsum_dir" ]; then
 	echo "The historical md5sum dir $old_mdsum_dir exists"
     elif [ -f "$old_mdsum_file" ]; then
-	echo "The histotical md5sum file $old_mdsum_file exists"
+	echo "The historical md5sum file $old_mdsum_file exists"
     else
 	echo "Historical md5sums are not available"
     fi
@@ -238,7 +238,7 @@ if [ -d "$old_mdsum_dir" -o -f "$old_mdsum_file" ]; then
 #	   (like just one), the maintainer is also making a guess at
 #	   this point by supplying a historical md5sum default file.
     if [ "X$VERBOSE" != "X" ]; then
-	echo >&2 "Histotical md5sums did not match."
+	echo >&2 "Historical md5sums did not match."
     fi
     if [ -d "$old_mdsum_dir"  ]; then
 	if [ -e "${old_mdsum_dir}/default" ]; then

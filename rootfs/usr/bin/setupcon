@@ -557,12 +557,6 @@ if [ "$do_font" ]; then
             ;;
     esac
 fi
-# Due to bug in splashy and usplash: do not load fonts (#540314)
-if which pidof >/dev/null; then
-    if pidof splashy > /dev/null || pidof usplash > /dev/null; then
-        do_font=''
-    fi
-fi
 
 # CODESET
 [ "$CODESET" != guess ] || CODESET=''
@@ -764,8 +758,143 @@ if [ "$CHARMAP" != UTF-8 ]; then
 elif [ "$kernel" = freebsd ]; then
     acm_option='-charmap ISO-8859-1'
 else
-    acm_option=''
+    # No encoding limitation, but kernel limitation to 256 diacriticals, so
+    # fine-tune which set of compositions should enabled
+    layout=$(echo $XKBLAYOUT | sed -e 's/^us,//')
+    layout=$(echo $layout | sed -e 's/,.*$//')
+    case "$layout" in
+	# None yet
+	#am)
+	#    acm_option='-ccharmap ARMSCII-8'
+	#    ;;
+
+	# None yet
+	#bg)
+	#    acm_option='-ccharmap CP1251'
+	#    ;;
+
+	# None yet
+	#)
+	#    acm_option='-ccharmap CP1255'
+	#    ;;
+
+	# None yet
+	#)
+	#    acm_option='-ccharmap CP1256'
+	#    ;;
+
+	# None yet
+	#ge)
+	#    acm_option='-ccharmap GEORGIAN-ACADEMY'
+	#    ;;
+
+	# None yet
+	#)
+	#    acm_option='-ccharmap GEORGIAN-PS'
+	#    ;;
+
+	# None yet
+	#la)
+	#    acm_option='-ccharmap IBM1133'
+	#    ;;
+
+	# None yet
+	#ara|ir)
+	#    acm_option='-ccharmap ISIRI-3342'
+	#    ;;
+
+	ca|br|latam|us)
+	    acm_option='-ccharmap ISO-8859-1'
+	    ;;
+
+	al|ba|cz|hr|hu|pl|rs|rs|sk|si|si)
+	    acm_option='-ccharmap ISO-8859-2'
+	    ;;
+
+	epo|epo|mt|mt)
+	    acm_option='-ccharmap ISO-8859-3'
+	    ;;
+
+	# Not used any more
+	#ee|lt|lv)
+	#    acm_option='-ccharmap ISO-8859-4'
+	#    ;;
+
+	# iso-8859-5 unused
+
+	# None yet
+	#ara)
+	#    acm_option='-ccharmap ISO-8859-6'
+	#    ;;
+
+	gr)
+	    acm_option='-ccharmap ISO-8859-7'
+	    ;;
+
+	# None yet
+	#il)
+	#    acm_option='-ccharmap ISO-8859-8'
+	#    ;;
+
+	az|tr)
+	    acm_option='-ccharmap ISO-8859-9'
+	    ;;
+
+	# None yet
+	#no)
+	#    acm_option='-ccharmap ISO-8859-10'
+	#    ;;
+
+	# None yet
+	#th)
+	#    acm_option='-ccharmap ISO-8859-11'
+	#    ;;
+
+	# iso-8859-12 doesn't exist
+
+	ee|lt|lv)
+	    acm_option='-ccharmap ISO-8859-13'
+	    ;;
+
+	# No supported layout yet
+	#)
+	#    acm_option='-ccharmap ISO-8859-14'
+	#    ;;
+
+	be|ch|de|dk|es|ie|is|fi|fr|gb|it|nl|pt|se)
+	    acm_option='-ccharmap ISO-8859-15'
+	    ;;
+
+	ro|ro,*)
+	     # None yet
+	     #acm_option='-ccharmap ISO-8859-16'
+	     acm_option='-ccharmap ISO-8859-2'
+	     ;;
+
+	kg|mk|ru|tj)
+	    acm_option='-ccharmap KOI8-R'
+	    ;;
+
+	by|kz|ua)
+	    acm_option='-ccharmap KOI8-U'
+	    ;;
+
+	# None yet
+	#th|th,*)
+	#    acm_option='-ccharmap TIS-620'
+	#    ;;
+
+	vn)
+	    acm_option='-ccharmap VISCII'
+	    ;;
+
+	bd|bt|cn|dz|in|jp|kh|kr|lk|mm|np|ph|pk|*)
+	    # Leave kernel defaults
+	    acm_option=''
+	    ;;
+    esac
 fi
+report The ACM is $acm_option
 
 # rules_option
 if [ "$XKBRULES" ]; then
@@ -1214,7 +1343,7 @@ if [ "$setupdir" ]; then
                         ;;
                     /*)
                         echo -n "'"
-                        if [ -e "$arg" ]; then
+                        if [ -f "$arg" ]; then
                             f="${arg##*/}"
                             f="${f%.gz}"
                             case "$arg" in

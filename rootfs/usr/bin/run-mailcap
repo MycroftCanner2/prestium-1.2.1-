@@ -298,7 +298,7 @@ sub MagicMimetype {
     my($file) = @_;
     my($typ);
 
-    if (`which file`) {
+    if (`command -v file`) {
         open(READER, "-|", "file", "-b", "--mime-type", "-e", "tokens", "-L", "-z", $file);
         $typ = <READER>;
         chomp $typ;

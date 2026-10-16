@@ -1,95 +1,97 @@
-#!/usr/bin/python3 -Es
+#!/bin/sh
 
-# lsb_release command for Debian
-# (C) 2005-10 Chris Lawrence <lawrencc@debian.org>
+# SPDX-FileCopyrightText: 2021-2022 Gioele Barabucci
+# SPDX-License-Identifier: ISC
 
-#    This package is free software; you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation; version 2 dated June, 1991.
+set -eu
 
-#    This package is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+export LC_ALL="C.UTF-8"
 
-#    You should have received a copy of the GNU General Public License
-#    along with this package; if not, write to the Free Software
-#    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-#    02110-1301 USA
+help () {
+	cat <<-EOD
+		Usage: lsb_release [options]
 
-from optparse import OptionParser
-import sys
-import os
-import re
+		Options:
+		  -h, --help         show this help message and exit
+		  -v, --version      show LSB modules this system supports
+		  -i, --id           show distributor ID
+		  -d, --description  show description of this distribution
+		  -r, --release      show release number of this distribution
+		  -c, --codename     show code name of this distribution
+		  -a, --all          show all of the above information
+		  -s, --short        show requested information in short format
+	EOD
+	exit
+}
 
-import lsb_release
+show_id=false
+show_desc=false
+show_release=false
+show_codename=false
+short_format=false
 
-def main():
-    parser = OptionParser()
-    parser.add_option('-v', '--version', dest='version', action='store_true',
-                      default=False,
-                      help="show LSB modules this system supports")
-    parser.add_option('-i', '--id', dest='id', action='store_true',
-                      default=False,
-                      help="show distributor ID")
-    parser.add_option('-d', '--description', dest='description',
-                      default=False, action='store_true',
-                      help="show description of this distribution")
-    parser.add_option('-r', '--release', dest='release',
-                      default=False, action='store_true',
-                      help="show release number of this distribution")
-    parser.add_option('-c', '--codename', dest='codename',
-                      default=False, action='store_true',
-                      help="show code name of this distribution")
-    parser.add_option('-a', '--all', dest='all',
-                      default=False, action='store_true',
-                      help="show all of the above information")
-    parser.add_option('-s', '--short', dest='short',
-                      action='store_true', default=False,
-                      help="show requested information in short format")
-    
-    (options, args) = parser.parse_args()
-    if args:
-        parser.error("No arguments are permitted")
+options=$(getopt --name lsb_release -o hvidrcas -l help,version,id,description,release,codename,all,short -- "$@") || exit 2
+eval set -- "$options"
+while [ $# -gt 0 ] ; do
+	case "$1" in
+		-h|--help) help ;;
+		-v|--version) ;;
+		-i|--id) show_id=true ;;
+		-d|--description) show_desc=true ;;
+		-r|--release) show_release=true ;;
+		-c|--codename) show_codename=true ;;
+		-a|--all) show_id=true ; show_desc=true ; show_release=true ; show_codename=true ;;
+		-s|--short) short_format=true ;;
+		*) break  ;;
+	esac
+	shift
+done
 
-    short = (options.short)
-    none = not (options.all or options.version or options.id or
-                options.description or options.codename or options.release)
+display_line () {
+	label="$1"
+	value="$2"
 
-    distinfo = lsb_release.get_distro_information()
+	if $short_format ; then
+		printf "%s\n" "$value"
+	else
+		printf "%s:\t%s\n" "$label" "$value"
+	fi
+}
 
-    if none or options.all or options.version:
-        verinfo = lsb_release.check_modules_installed()
-        if not verinfo:
-            print("No LSB modules are available.", file=sys.stderr)
-        elif short:
-            print(':'.join(verinfo))
-        else:
-            print('LSB Version:\t' + ':'.join(verinfo))
+# Load release info from standard identification data files
+[ -f /usr/lib/os-release ] && os_release=/usr/lib/os-release
+[ -f /etc/os-release ] && os_release=/etc/os-release
+[ "${LSB_OS_RELEASE-x}" != "x" ] && [ -f "$LSB_OS_RELEASE" ] && os_release="$LSB_OS_RELEASE"
+[ "${os_release-x}" != "x" ] && . "$os_release"
 
-    if options.id or options.all:
-        if short:
-            print(distinfo.get('ID', 'n/a'))
-        else:
-            print('Distributor ID:\t%s' % distinfo.get('ID', 'n/a'))
+# Mimic the output of Debian's Python-based lsb_release
+# Capitalize ID
+: "${ID=}"
+ID="$(printf "%s" "$ID" | cut -c1 | tr '[:lower:]' '[:upper:]')$(printf "%s" "$ID" | cut -c2-)"
+# Use NAME if set and different from ID only in capitalization.
+if [ "${NAME-x}" != "x" ] ; then
+	lower_case_id=$(printf "%s" "$ID" | tr '[:upper:]' '[:lower:]')
+	lower_case_name=$(printf "%s" "$NAME" | tr '[:upper:]'  '[:lower:]')
+	if [ "${lower_case_id}" = "${lower_case_name}" ] ; then
+		ID="$NAME"
+	fi
+fi
 
-    if options.description or options.all:
-        if short:
-            print(distinfo.get('DESCRIPTION', 'n/a'))
-        else:
-            print('Description:\t%s' % distinfo.get('DESCRIPTION', 'n/a'))
+# Generate minimal standard-conform output (if stdout is a TTY).
+[ -t 1 ] && echo "No LSB modules are available." >& 2
 
-    if options.release or options.all:
-        if short:
-            print(distinfo.get('RELEASE', 'n/a'))
-        else:
-            print('Release:\t%s' % distinfo.get('RELEASE', 'n/a'))
+if $show_id ; then
+	display_line "Distributor ID" "${ID:-n/a}"
+fi
 
-    if options.codename or options.all:
-        if short:
-            print(distinfo.get('CODENAME', 'n/a'))
-        else:
-            print('Codename:\t%s' % distinfo.get('CODENAME', 'n/a'))
+if $show_desc ; then
+	display_line "Description" "${PRETTY_NAME:-n/a}"
+fi
 
-if __name__ == '__main__':
-    main()
+if $show_release ; then
+	display_line "Release" "${VERSION_ID:-n/a}"
+fi
+
+if $show_codename ; then
+	display_line "Codename" "${VERSION_CODENAME:-n/a}"
+fi

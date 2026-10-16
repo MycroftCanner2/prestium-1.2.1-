@@ -13,20 +13,14 @@ import sys, os
 from math import ceil
 from PyQt5 import QtCore, QtGui, QtNetwork, QtWidgets
 from qrtools import QR
-try:
-    # import pynotify
-    if not pynotify.init("QtQR"):
-        print ("DEBUG: There was a problem initializing the pynotify module")
-    NOTIFY = True
-except:
-    NOTIFY = False
+from PIL import Image
     
 __author__ = "Ramiro Algozino"
 __email__ = "algozino@gmail.com"
-__copyright__ = "copyright (C) 2011 Ramiro Algozino"
+__copyright__ = "copyright (C) 2011-2020 Ramiro Algozino"
 __credits__ = "David Green, Boyuan Yang, Ying-Chun Liu"
 __license__ = "GPLv3"
-__version__ = "2.0"
+__version__ = "2.1"
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -54,6 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
             "geo": str(self.tr("Geolocalization")),
             "wifi": str(self.tr("WiFi Network")),
             "sepa": str(self.tr("SEPA Single Payment")),
+            "bip21": str(self.tr("Bitcoin Address"))
             }
         # With this we make the dict bidirectional
         self.templates.update( dict((self.templates[k], k) for k in self.templates))
@@ -72,6 +67,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.templates["geo"],
             self.templates["wifi"],
             self.templates["sepa"],
+            self.templates["bip21"],
             )
         self.selector = QtWidgets.QComboBox()
         self.selector.addItems(self.templateNames)
@@ -87,6 +83,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.geoTab = QtWidgets.QWidget()
         self.wifiTab = QtWidgets.QWidget()
         self.sepaTab = QtWidgets.QWidget()
+        self.bip21Tab = QtWidgets.QWidget()
         self.tabs.addWidget(self.textTab)
         self.tabs.addWidget(self.urlTab)
         self.tabs.addWidget(self.bookmarkTab)
@@ -98,6 +95,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tabs.addWidget(self.geoTab)
         self.tabs.addWidget(self.wifiTab)
         self.tabs.addWidget(self.sepaTab)
+        self.tabs.addWidget(self.bip21Tab)
 
         #Widgets for Text Tab
         self.l1 = QtWidgets.QLabel(self.tr('Text to be encoded:'))
@@ -177,6 +175,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.tr('No Encryption'),
                 )
             )
+        self.wifiHiddenNetwork = QtWidgets.QCheckBox(self.tr('Hidden network'))
         
         #Widgets for SEPA Überweisung Tab
         # Reference: http://www.bezahlcode.de/wp-content/uploads/BezahlCode_TechDok.pdf
@@ -196,7 +195,17 @@ class MainWindow(QtWidgets.QMainWindow):
         # self.sepaIBANEdit = QtWidgets.QLineEdit()
         # self.sepaBICLabel = QtWidgets.QLabel(self.tr("BIC:"))
         # self.sepaBICEdit = QtWidgets.QLineEdit()
-        
+                
+        #Widgets for BIP0021 Bitcoin Address
+        # Reference: https://en.bitcoin.it/wiki/BIP_0021
+        self.bip21AddressLabel = QtWidgets.QLabel(self.tr("Address:"))
+        self.bip21AddressEdit = QtWidgets.QLineEdit()
+        self.bip21AmountLabel = QtWidgets.QLabel(self.tr("Amount:"))
+        self.bip21AmountEdit = QtWidgets.QLineEdit()
+        self.bip21LabelLabel = QtWidgets.QLabel(self.tr("Label:"))
+        self.bip21LabelEdit = QtWidgets.QLineEdit()
+        self.bip21MessageLabel = QtWidgets.QLabel(self.tr("Message:"))
+        self.bip21MessageEdit = QtWidgets.QLineEdit()
 
         #Widgets for QREncode Parameters Configuration
         self.optionsGroup = QtWidgets.QGroupBox(self.tr('Parameters:'))
@@ -218,6 +227,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.l4 = QtWidgets.QLabel(self.tr('&Margin Size:'))
         self.marginSize = QtWidgets.QSpinBox()
 
+        self.addBom = QtWidgets.QCheckBox(self.tr('Add BOM character'))
+
         #QLabel for displaying the Generated QRCode
         self.qrcode = QtWidgets.QLabel(self.tr('Start typing to create QR Code\n or  drop here image files for decoding.'))
         self.qrcode.setAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
@@ -230,7 +241,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.decodeButton = QtWidgets.QPushButton(QtGui.QIcon.fromTheme(u'preview-file'), self.tr('&Decode'))
 
         self.decodeFileButton = QtWidgets.QPushButton(QtGui.QIcon.fromTheme(u'document-open'), self.tr('Decode from &File'))
-        self.decodeWebcamButton = QtWidgets.QPushButton(QtGui.QIcon.fromTheme(u'camera'), self.tr('Decode from &Webcam'))
+        self.decodeWebcamButton = QtWidgets.QPushButton(QtGui.QIcon.fromTheme(u'camera-web'), self.tr('Decode from &Webcam'))
 
         self.exitAction = QtWidgets.QAction(QtGui.QIcon.fromTheme(u'application-exit'), self.tr('E&xit'), self)
         self.addAction(self.exitAction)
@@ -248,6 +259,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.l4.setBuddy(self.marginSize)
         self.ecLevel.setToolTip(self.tr('Error Correction Level'))
         self.l3.setToolTip(self.tr('Error Correction Level'))
+        self.addBom.setToolTip(self.tr('Uncheck this if you are having issues decoding your QR codes on mobile apps. Applies only to "Text" type.'))
         self.decodeFileButton.setShortcut(u"Ctrl+O")
         self.decodeWebcamButton.setShortcut(u"Ctrl+W")
         self.saveButton.setShortcut(u"Ctrl+S")
@@ -356,6 +368,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.wifiShowPassword.setChecked(True)
         self.wifiTabLayout.addWidget(self.wifiEncryptionLabel)
         self.wifiTabLayout.addWidget(self.wifiEncryptionType)
+        self.wifiTabLayout.addWidget(self.wifiHiddenNetwork)
         self.wifiTabLayout.addStretch()
         self.wifiTab.setLayout(self.wifiTabLayout)
 
@@ -376,6 +389,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.sepaTabLayout.addStretch()
         self.sepaTab.setLayout(self.sepaTabLayout)
 
+        #BIP21 Tab
+        self.bip21TabLayout = QtWidgets.QVBoxLayout()
+        self.bip21TabLayout.addWidget(self.bip21AddressLabel)
+        self.bip21TabLayout.addWidget(self.bip21AddressEdit)
+        self.bip21TabLayout.addWidget(self.bip21AmountLabel)
+        self.bip21TabLayout.addWidget(self.bip21AmountEdit)
+        self.bip21TabLayout.addWidget(self.bip21LabelLabel)
+        self.bip21TabLayout.addWidget(self.bip21LabelEdit)
+        self.bip21TabLayout.addWidget(self.bip21MessageLabel)
+        self.bip21TabLayout.addWidget(self.bip21MessageEdit)
+        self.bip21TabLayout.addStretch()
+        self.bip21Tab.setLayout(self.bip21TabLayout)
+
         #Pixel Size Controls
         self.pixControls = QtWidgets.QVBoxLayout()
         self.pixControls.addWidget(self.l2)
@@ -391,6 +417,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.marginControls.addWidget(self.l4)
         self.marginControls.addWidget(self.marginSize)
 
+        #BOM Char Controls
+        self.bomControls = QtWidgets.QVBoxLayout()
+        self.bomControls.addWidget(self.addBom)
+
         #Controls Layout
         self.controls = QtWidgets.QHBoxLayout()
         self.controls.addLayout(self.pixControls)
@@ -398,6 +428,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.controls.addLayout(self.levelControls)
         self.controls.addSpacing(10)
         self.controls.addLayout(self.marginControls)
+        self.controls.addSpacing(10)
+        self.controls.addLayout(self.bomControls)
         self.controls.addStretch()
         self.optionsGroup.setLayout(self.controls)
 
@@ -455,16 +487,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self.wifiPasswordEdit.textChanged.connect(self.qrencode)
         self.wifiShowPassword.stateChanged.connect(self.toggleShowPassword)
         self.wifiEncryptionType.currentIndexChanged.connect(self.qrencode)
+        self.wifiHiddenNetwork.stateChanged.connect(self.qrencode)
         self.sepaNameEdit.textChanged.connect(self.qrencode)
         self.sepaAccountEdit.textChanged.connect(self.qrencode)
         self.sepaBNCEdit.textChanged.connect(self.qrencode)
         self.sepaAmountEdit.textChanged.connect(self.qrencode)
         self.sepaReasonEdit.textChanged.connect(self.qrencode)
         self.sepaCurrencyEdit.textChanged.connect(self.qrencode)
+        self.bip21LabelEdit.textChanged.connect(self.qrencode)
+        self.bip21AddressEdit.textChanged.connect(self.qrencode)
+        self.bip21MessageEdit.textChanged.connect(self.qrencode)
+        self.bip21AmountEdit.textChanged.connect(self.qrencode)
 
         self.pixelSize.valueChanged.connect(self.qrencode)
         self.ecLevel.currentIndexChanged.connect(self.qrencode)
         self.marginSize.valueChanged.connect(self.qrencode)
+        self.addBom.stateChanged.connect(self.qrencode)
         self.saveButton.clicked.connect(self.saveCode)
         self.exitAction.triggered.connect(self.close)
         self.aboutAction.triggered.connect(self.about)
@@ -491,6 +529,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pixelSize.setValue(int(self.settings.value("pixelSize", "3")))
         self.ecLevel.setCurrentIndex(int(self.settings.value("errorCorrection", 0)))
         self.marginSize.setValue(int(self.settings.value("marginSize", 4)))
+        self.addBom.setChecked((self.settings.value("addBom", "true")) == 'true')
         self.settings.endGroup()
 
     def write_settings(self):
@@ -501,6 +540,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.settings.setValue("pixelSize", self.pixelSize.value())
         self.settings.setValue("errorCorrection", self.ecLevel.currentIndex())
         self.settings.setValue("marginSize", self.marginSize.value())
+        self.settings.setValue("addBom", self.addBom.isChecked())
         self.settings.endGroup()
 
 
@@ -526,7 +566,7 @@ class MainWindow(QtWidgets.QMainWindow):
             "sms": ( str(self.smsNumberEdit.text()), str(self.smsBodyEdit.toPlainText()) ),
             "mms": ( str(self.mmsNumberEdit.text()), str(self.mmsBodyEdit.toPlainText()) ),
             "geo": ( str(self.geoLatEdit.text()), str(self.geoLongEdit.text()) ),
-            "wifi": ( str(self.wifiSSIDEdit.text()), (u"WEP",u"WPA",u"nopass")[self.wifiEncryptionType.currentIndex()], str(self.wifiPasswordEdit.text())),
+            "wifi": ( str(self.wifiSSIDEdit.text()), (u"WEP",u"WPA",u"nopass")[self.wifiEncryptionType.currentIndex()], str(self.wifiPasswordEdit.text()), str("true" if self.wifiHiddenNetwork.isChecked() else "") ),
             "sepa": (str(self.sepaNameEdit.text()),
                      str(self.sepaAccountEdit.text()),
                      str(self.sepaBNCEdit.text()),
@@ -534,6 +574,12 @@ class MainWindow(QtWidgets.QMainWindow):
                      str(self.sepaReasonEdit.text()),
                      str(self.sepaCurrencyEdit.text())
                      ),
+            "bip21": (
+                str(self.bip21AddressEdit.text()),
+                str(self.bip21AmountEdit.text()),
+                str(self.bip21LabelEdit.text()),
+                str(self.bip21MessageEdit.text()),
+            )
         }
 
         data_type = str(self.templates[str(self.selector.currentText())])
@@ -550,6 +596,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     level = str(level[self.ecLevel.currentIndex()]),
                     margin_size = str(self.marginSize.value()),
                     data_type = data_type,
+                    add_bom=self.addBom.isChecked(),
                     )
             error = 1
             if type(fileName) is not str:
@@ -565,19 +612,11 @@ class MainWindow(QtWidgets.QMainWindow):
             elif error == 2:
                QtWidgets.QMessageBox.information(
                     self, 
-                    unicode(self.tr('Bad input')),
-                    unicode(self.tr('Invalid input data'))
+                    self.tr('Bad input'),
+                    self.tr('Invalid input data')
                     )
             else:
-                if NOTIFY:
-                    n = pynotify.Notification(
-                        "QtQR",
-                        str(self.tr("ERROR: Something went wrong while trying to generate the QR Code.")),
-                        "qtqr"
-                        )
-                    n.show()
-                else:
-                    print ("Something went wrong while trying to generate the QR Code")
+                print ("Something went wrong while trying to generate the QR Code")
             qr.destroy()
         else:
             self.saveButton.setEnabled(False)
@@ -606,19 +645,11 @@ class MainWindow(QtWidgets.QMainWindow):
             and not fn.lower().endswith(u".ansiutf8"):
                 fn += u".png"
             self.qrencode(fileName=str(fn))
-            if NOTIFY:
-                n = pynotify.Notification(
-                    str(self.tr("Save QR Code")),
-                    str(self.tr("QR Code succesfully saved to %s")) % fn,
-                    "qtqr"
-                    )
-                n.show()
-            else:
-               QtWidgets.QMessageBox.information(
-                    self, 
-                    str(self.tr('Save QRCode')),
-                    str(self.tr('QRCode succesfully saved to <b>%s</b>.')) % fn
-                    )
+            QtWidgets.QMessageBox.information(
+                self, 
+                str(self.tr('Save QRCode')),
+                str(self.tr('QRCode succesfully saved to <b>%s</b>.')) % fn
+                )
 
     def decodeFile(self, fn=None):
         if not fn:
@@ -658,6 +689,26 @@ class MainWindow(QtWidgets.QMainWindow):
                 os.path.abspath(fn),
                 QtWidgets.QMessageBox.Ok
             )
+    
+    def decodeFromMemory(self, image):
+        qr = QR()
+        decode_result = None
+
+        try:
+            decode_result = qr.decode(image=image)
+        except IOError:
+            # raised by GIL when not an image
+            decode_result = False
+
+        if decode_result:
+            self.showInfo(qr)
+        else:
+            QtWidgets.QMessageBox.information(
+                self,
+                self.tr('Decode Image'),
+                str(self.tr('No QRCode could be found in dropped file.'))
+            )
+        qr.destroy()
 
     def showInfo(self, qr):
         dt = qr.data_type
@@ -691,7 +742,7 @@ class MainWindow(QtWidgets.QMainWindow):
             'sms': lambda : str(self.tr("QRCode contains the following SMS message:\n\nTo: %s\nMessage: %s")) % (data),
             'mms': lambda : str(self.tr("QRCode contains the following MMS message:\n\nTo: %s\nMessage: %s")) % (data),
             'geo': lambda : str(self.tr("QRCode contains the following coordinates:\n\nLatitude: %s\nLongitude:%s")) % (data),
-            'wifi': lambda : str(self.tr("QRCode contains the following WiFi Network Configuration:\n\nSSID: %s\nEncryption Type: %s\nPassword: %s")) % (data),
+            'wifi': lambda : str(self.tr("QRCode contains the following WiFi Network Configuration:\n\nSSID: %s\nEncryption Type: %s\nPassword: %s\nHidden network: %s\n")) % (data),
             'sepa': lambda : str(self.tr("QRCode contains the following Single Payment Information:\n\nName: %s\nAccount: %s\nBNC: %s\nAmmount: %s\nReason: %s\nCurrency: %s\n")) % (
                 data.get('name')[0] or '',
                 data.get('account')[0] or '',
@@ -700,6 +751,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 data.get('reason')[0] or '',
                 data.get('currency')[0] or '',
                 ),
+            'bip21': lambda : str(self.tr("QRCode contains the following Bitcoin information:\n\nAddress: %s\nAmount: %s\nLabel: %s\nMessage: %s")) % (
+                data.get('address') or "",
+                ' '.join(data.get('options').get('amount') or []) if data.get('options') else '',
+                ' '.join(data.get('options').get('label') or []) if data.get('options') else '',
+                ' '.join(data.get('options').get('message') or []) if data.get('options') else '',
+            ),
         }
         wanna = self.tr("\n\nDo you want to ")
         action = {
@@ -715,6 +772,7 @@ class MainWindow(QtWidgets.QMainWindow):
             'geo': wanna + self.tr("open it in Google Maps?"),
             'wifi': u"",
             'sepa': u"",
+            'bip21': u"",
         }
         if action[qr.data_type] != u"":
             msgBox = QtWidgets.QMessageBox(
@@ -811,6 +869,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.wifiSSIDEdit.setText(data[0] or "")
                 self.wifiEncryptionType.setCurrentIndex({u"WEP":0,u"WPA":1,u"nopass":2}.get(data[1]) or 0)
                 self.wifiPasswordEdit.setText(data[2] or "")
+                self.wifiHiddenNetwork.setCheckState(True if data[3] == "true" else False)
                 self.tabs.setCurrentIndex(tabIndex)
             elif qr.data_type == 'sepa':
                 self.sepaNameEdit.setText(data.get('name')[0])
@@ -819,6 +878,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.sepaAmountEdit.setText(data.get('amount')[0])
                 self.sepaReasonEdit.setText(data.get('reason')[0])
                 self.sepaCurrencyEdit.setText(data.get('currency')[0])
+                self.tabs.setCurrentIndex(tabIndex)
+            elif qr.data_type == 'bip21':
+                self.bip21AddressEdit.setText(data.get('address'))
+                self.bip21LabelEdit.setText(' '.join(data.get('options').get('label') or []) if data.get('options') else '')
+                self.bip21MessageEdit.setText(' '.join(data.get('options').get('message') or []) if data.get('options') else '')
+                self.bip21AmountEdit.setText(' '.join(data.get('options').get('amount') or []) if data.get('options') else '')
                 self.tabs.setCurrentIndex(tabIndex)
 
     def decodeWebcam(self):
@@ -831,16 +896,36 @@ class MainWindow(QtWidgets.QMainWindow):
                 device = vdDialog.videoDevices[vdDialog.videoDevice.currentIndex()][1]
         if device:
             qr = QR()
-            qr.decode_webcam(device=device)
-            if qr.data_decode[qr.data_type](qr.data) == 'NULL':
+            deviceOK = qr.decode_webcam(device=device)
+            if not deviceOK:
+                qr.destroy()
                 QtWidgets.QMessageBox.warning(
-                    self,
-                    self.tr("Decoding Failed"),
-                    self.tr("<p>Oops! no code was found.<br /> Maybe your webcam didn't focus.</p>"),
-                    QtWidgets.QMessageBox.Ok
+                        self,
+                        self.tr("Webcam not availabled"),
+                        self.tr("<p>Oops! failed to connect to the webcam.<br /> Maybe your webcam is already busy in another application?</p>"),
+                        QtWidgets.QMessageBox.Ok
+                  )
+                return
+            try:
+                matchData = qr.data_decode[qr.data_type](qr.data)
+            except IndexError:
+              QtWidgets.QMessageBox.warning(
+                  self,
+                  self.tr("Decoding Failed"),
+                  self.tr(f"<p>oops! Your code seems to be of type '{qr.data_type}', but no decoding for data '{qr.data}' could be found.</p>"),
+                  QtWidgets.QMessageBox.Ok
                 )
             else:
-                self.showInfo(qr)
+                if matchData == 'NULL':
+                    QtWidgets.QMessageBox.warning(
+                        self,
+                        self.tr("Decoding Failed"),
+                        self.tr("<p>Oops! no code was found.<br /> Maybe your webcam didn't focus.</p>"),
+                        QtWidgets.QMessageBox.Ok
+                  )
+                else:
+                    self.showInfo(qr)
+
             qr.destroy()
 
     def about(self):
@@ -872,11 +957,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def handleNetworkData(self, QNetReply):
         print ("DEBUG: Finished downloading file.")
-        tmpfn = '/tmp/qrtemp.png'
-        fn = open(tmpfn,"w")
-        fn.write(QNetReply.readAll())
-        fn.close()
-        self.decodeFile(tmpfn)
+        image_bytes = Image.io.BytesIO(bytes(QNetReply.readAll()))
+        image = Image.open(image_bytes)
+        self.decodeFromMemory(image)
 
     def toggleShowPassword(self, status):
         if status == 0:
@@ -950,11 +1033,14 @@ if __name__ == '__main__':
                     QtCore.QLibraryInfo.location(
                     QtCore.QLibraryInfo.TranslationsPath)
                     )
-    app.installTranslator(qtTranslator);
+    app.installTranslator(qtTranslator)
 
     mw = MainWindow()
     mw.show()
     if len(sys.argv)>1:
+        if sys.argv[1] in ('--version', '-v'):
+            print('QtQR version', __version__)
+            sys.exit(0)
         #Open the file and try to decode it
         for fn in sys.argv[1:]:
             # We should check if the file exists.

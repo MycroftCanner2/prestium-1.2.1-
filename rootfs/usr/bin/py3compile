@@ -156,9 +156,11 @@ def filter_files(files, e_patterns, compile_versions):
 def py_compile(version, optimize, workers):
     if not isinstance(version, str):
         version = vrepr(version)
-    cmd = "/usr/bin/python%s%s -m py_compile -" \
-        % (version, ' -O' if optimize else '')
-    process = Popen(cmd, bufsize=0, shell=True,
+    cmd = ["/usr/bin/python" + version]
+    if optimize:
+        cmd.append("-O")
+    cmd += ["-m", "py_compile",  "-"]
+    process = Popen(cmd, bufsize=0,
                     stdin=PIPE, close_fds=True)
     workers[version] = process  # keep the reference for .communicate()
     stdin = process.stdin
@@ -197,10 +199,12 @@ def compile(files, versions, force, optimize, e_patterns=None):
                 if not force:
                     try:
                         mtime = int(os.stat(fn).st_mtime)
-                        expect = struct.pack('<4sl',
-                                             interpreter.magic_number(version), mtime)
+                        expect = struct.pack('<4sLL',
+                                             interpreter.magic_number(version),
+                                             0,
+                                             mtime & 0xFFFF_FFFF)
                         with open(cfn, 'rb') as chandle:
-                            actual = chandle.read(8)
+                            actual = chandle.read(12)
                         if expect == actual:
                             continue
                     except (IOError, OSError):
@@ -220,7 +224,7 @@ def compile(files, versions, force, optimize, e_patterns=None):
 def main():
     usage = '%prog [-V [X.Y][-][A.B]] DIR_OR_FILE [-X REGEXPR]\n' +\
         '       %prog -p PACKAGE'
-    parser = optparse.OptionParser(usage, version='%prog 3.9.2-3',
+    parser = optparse.OptionParser(usage, version='%prog 3.11.2-1+b1',
                                    option_class=Option)
     parser.add_option('-v', '--verbose', action='store_true', dest='verbose',
                       help='turn verbose mode on')
