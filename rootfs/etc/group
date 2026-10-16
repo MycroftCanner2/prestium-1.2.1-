@@ -51,6 +51,6 @@ irc:*:39:
 games:*:60:
 _ssh:x:108:
 polkitd:x:999:
-debian-tor:x:112:
+debian-tor:x:112:user
 lightdm:x:113:
 autologin:x:998:user

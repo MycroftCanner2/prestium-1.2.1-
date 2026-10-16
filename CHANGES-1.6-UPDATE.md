@@ -67,3 +67,14 @@ The four files over GitHub's 100 MB limit are left out of git, as on `main`; see
 - Power: poweroff/reboot/restart-i2pd/tunnel-hops now work without a password for `user` (polkit rule + pkla + sudoers.d/prestium-power); Openbox menu falls back to `sudo -n`.
 - LibreWolf: HTTPS-only/HTTPS-first fully disabled (I2P eepsites are plain HTTP; stock LibreWolf 157 policy had forced it on). System-wide hardening block in librewolf.cfg: resistFingerprinting + letterboxing, first-party isolation, WebGL/WebGPU/WebRTC/WebAudio off, JavaScript off, JS JIT (baseline/Ion/regexp) + WebAssembly + asm.js off, no prefetch/speculative connects, strict tracking protection, TLS 1.2+ with safe renegotiation, nothing persisted on shutdown, camera/mic/geo/notifications denied. NoScript and uBlock Origin bundled and force-installed (also in private windows). Overrides file also placed at the XDG path.
 - Live ISO layers: 90-xorg, 91-librewolf, 92-apps.
+
+## Network fixes (2026-10-16)
+- Live base layer had NetworkManager, NetworkManager-dispatcher and ferm masked (build leftovers),
+  so the ISO booted with no DHCP and no firewall. Unmasked via overlay whiteouts in `94-netfix.squashfs`.
+  NetworkManager-wait-online stays masked, as in stock Prestium.
+- ferm: Tor (`debian-tor`, uid 107) may now connect out, IPv4 and IPv6. `user` added to `debian-tor` so Nyx can read Tor's control socket.
+- i2pd gets a random port (10000–30000) each boot, opened inbound for TCP/UDP only
+  (`/usr/local/sbin/prestium-i2pd-port`, run as `ExecStartPre=+`). The router is no longer
+  firewalled, which helps tunnel building.
+- Boot: optical-drive fallback in live-boot, `loop.max_loop=64` for the 10+ squashfs layers.
+- Tested in QEMU (IDE CD, e1000): ferm loads, NetworkManager gets DHCP, i2pd starts, Tor bootstraps to 100%.

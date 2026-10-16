@@ -1,0 +1,20 @@
+#!/bin/sh
+# Prestium: give i2pd a fresh random port each boot and open only that port
+# inbound, so the router is reachable (not "firewalled") and builds tunnels faster.
+CONF=/var/lib/i2pd/i2pd.conf
+PORT=$(shuf -i 10000-30000 -n 1)
+TMP=$(mktemp)
+# Only the global "port" (before the first [section]) is touched.
+awk -v p="$PORT" '
+  !done && /^\[/ { print "port = " p; print ""; done=1 }
+  !done && /^port[ \t]*=/ { next }
+  { print }
+' "$CONF" > "$TMP" && cat "$TMP" > "$CONF"
+rm -f "$TMP"
+for ipt in iptables ip6tables; do
+  $ipt -N PRESTIUM_I2PD 2>/dev/null || $ipt -F PRESTIUM_I2PD
+  $ipt -C INPUT -j PRESTIUM_I2PD 2>/dev/null || $ipt -I INPUT 1 -j PRESTIUM_I2PD
+  $ipt -A PRESTIUM_I2PD -p tcp --dport "$PORT" -j ACCEPT
+  $ipt -A PRESTIUM_I2PD -p udp --dport "$PORT" -j ACCEPT
+done
+exit 0
