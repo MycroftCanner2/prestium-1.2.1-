@@ -208,12 +208,12 @@ purge_md5sum () {
 	if [ "X$docmd" = "XYES" ]; then
 	    set +e
 	    if [ "X$VERBOSE" != "X" ]; then
-		echo >&2 "egrep -v [[:space:]]${safe_dest_file}$ $statedir/hashfile"
-		egrep -v "[[:space:]]${safe_dest_file}$"  "$statedir/hashfile" >&2 \
+		echo >&2 "grep -Ev [[:space:]]${safe_dest_file}$ $statedir/hashfile"
+		grep -Ev "[[:space:]]${safe_dest_file}$"  "$statedir/hashfile" >&2 \
 		    || true;
 	    fi
-	    #echo "egrep -v [[:space:]]${safe_dest_file}$ $statedir/hashfile"
-	    egrep -v "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" > \
+	    #echo "grep -Ev [[:space:]]${safe_dest_file}$ $statedir/hashfile"
+	    grep -Ev "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" > \
 		"$statedir/hashfile.tmp" || true;
 	    if [ "X$docmd" = "XYES" ]; then
 		mv -f "$statedir/hashfile.tmp"  "$statedir/hashfile"
@@ -250,18 +250,18 @@ replace_md5sum () {
 	if [ "X$docmd" = "XYES" ]; then
 	    set +e
 	    if [ "X$VERBOSE" != "X" ]; then
-		echo >&2 "(egrep -v \"[[:space:]]${safe_dest_file}$\" \"$statedir/hashfile\";"
-		egrep -v "[[:space:]]${safe_dest_file}$"  "$statedir/hashfile" >&2 || true;
+		echo >&2 "(grep -Ev \"[[:space:]]${safe_dest_file}$\" \"$statedir/hashfile\";"
+		grep -Ev "[[:space:]]${safe_dest_file}$"  "$statedir/hashfile" >&2 || true;
 		md5sum "$orig_new_file" | sed "s|$orig_new_file|$dest_file|" >&2;
 	    fi
-	    egrep -v "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" > \
+	    grep -Ev "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" > \
 		"$statedir/hashfile.tmp" || true;
 	    md5sum "$orig_new_file" | sed "s|$orig_new_file|$dest_file|" >> \
 		"$statedir/hashfile.tmp";
 	    mv -f "$statedir/hashfile.tmp"  "$statedir/hashfile"
 	    set -e
 	else
-	    echo "(egrep -v \"[[:space:]]${safe_dest_file}$\" \"$statedir/hashfile\""
+	    echo "(grep -Ev \"[[:space:]]${safe_dest_file}$\" \"$statedir/hashfile\""
 	    echo " md5sum \"$orig_new_file\" | sed \"s|$orig_new_file|$dest_file|\"; "
 	    echo ") | sort > \"$statedir/hashfile\""
 	fi
@@ -342,6 +342,7 @@ NEW_SUFFIX="ucf-new"
 OLD_SUFFIX="ucf-old"
 ERR_SUFFIX="merge-error"
 # save up the cmdline with proper quoting/escaping
+saved=
 for arg in "$@"; do
     saved="${saved:+$saved }'$(quote_single "$arg")'"
 done
@@ -349,8 +350,8 @@ done
 # Note that we use `"$@"' to let each command-line parameter expand to a
 # separate word. The quotes around `$@' are essential!
 # We need TEMP as the `eval set --' would nuke the return value of getopt.
-TEMP=$(getopt -a -o hs:d::D::nZv -n "$progname" \
-      --long help,src-dir:,sum-file:,dest-dir:,debug::,DEBUG::,no-action,purge,verbose,three-way,debconf-ok,debconf-template:,state-dir: \
+TEMP=$(getopt -a -o hs:d::D::npP:Zv -n "$progname" \
+      --long help,src-dir:,sum-file:,dest-dir:,debug::,DEBUG::,no-action,package:,purge,verbose,three-way,debconf-ok,debconf-template:,state-dir: \
              -- "$@")
 
 # Note the quotes around `$TEMP': they are essential!
@@ -439,16 +440,10 @@ else
 fi
 
 # Follow dpkg-divert as though we are installed as part of $opt_package
-divert_line=$(dpkg-divert --list "$dest_file")
+divert_line=$(dpkg-divert --listpackage "$dest_file")
 if [ -n "$divert_line" ]; then
-   if [ echo "$divert_line" | grep "^local" ]; then
-       # local diversion; pick something not in the package namespace
-       divert_package="LOCAL"
-   else
-       # extract the name of the diverted package.
-       # The fact that this requires output parsing is bug #485012
-       divert_package=$(dpkg-divert --listpackage "$dest_file")
-   fi
+   # name of the package or 'LOCAL' for a local diversion
+   divert_package="$divert_line"
 
    if [ "$divert_package" != "$opt_package" ]; then
        dest_file=$(dpkg-divert --truename "$dest_file")
@@ -587,10 +582,10 @@ fi
 if [ -e "$statedir/hashfile" ]; then
     if [ "X$VERBOSE" != "X" ]; then
 	echo >&2 "The hash file exists"
-	echo >&2 egrep "[[:space:]]${safe_dest_file}$" "$statedir/hashfile"
-	egrep "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" >&2 || true
+	echo >&2 "grep -E" "[[:space:]]${safe_dest_file}$" "$statedir/hashfile"
+	grep -E "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" >&2 || true
     fi
-    lastsum=$(egrep "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" | \
+    lastsum=$(grep -E "[[:space:]]${safe_dest_file}$" "$statedir/hashfile" | \
                    awk '{print $1;}' )
 fi
 
@@ -795,7 +790,7 @@ if [ -e "$dest_file" ]; then
 		    fi
 		done
 	    elif [ -f "$old_mdsum_file" ]; then
-		oldsum=$(egrep "^${destsum}" "$old_mdsum_file" || true)
+		oldsum=$(grep -E "^${destsum}" "$old_mdsum_file" || true)
 		if [ "X$oldsum" != "X" ]; then
 #                    Bingo
 		    if [ "X$force_conffold" = "X" ]; then
@@ -820,7 +815,7 @@ if [ -e "$dest_file" ]; then
 #	   (like just one), the maintainer is also making a guess at
 #	   this point by supplying a historical md5sum default file.
 	    if [ "X$VERBOSE" != "X" ]; then
-		echo >&2 "Histotical md5sums did not match."
+		echo >&2 "Historical md5sums did not match."
 	    fi
 	    if [ -d "$old_mdsum_dir"  ]; then
 		if [ -e "${old_mdsum_dir}/default" ]; then
@@ -831,7 +826,7 @@ if [ -e "$dest_file" ]; then
 		    do_replace_md5sum=1;
 		fi
 	    elif [ -f "$old_mdsum_file" ]; then
-		oldsum=$(egrep "[[:space:]]default$" "$old_mdsum_file" | \
+		oldsum=$(grep -E "[[:space:]]default$" "$old_mdsum_file" | \
 		    awk '{print $1;}')
 		if [ "X$oldsum" != "X" ]; then
 #                    Bingo

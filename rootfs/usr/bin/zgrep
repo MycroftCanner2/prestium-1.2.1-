@@ -3,7 +3,7 @@
 # zgrep -- a wrapper around a grep program that decompresses files as needed
 # Adapted from a version sent by Charles Levert <charles@comm.polymtl.ca>
 
-# Copyright (C) 1998, 2001-2002, 2006-2007, 2009-2018 Free Software Foundation,
+# Copyright (C) 1998, 2001-2002, 2006-2007, 2009-2022 Free Software Foundation,
 # Inc.
 
 # Copyright (C) 1993 Jean-loup Gailly
@@ -25,7 +25,7 @@
 grep='${GREP-'\''grep'\''}'
 args=
 
-version='zgrep (gzip) 1.10
+version='zgrep (gzip) 1.12
 Copyright (C) 2010-2018 Free Software Foundation, Inc.
 This is free software.  You may redistribute copies of it under the terms of
 the GNU General Public License <https://www.gnu.org/licenses/gpl.html>.
@@ -65,7 +65,8 @@ while test $# -ne 0; do
 
   case $option in
   (-[0123456789EFGHIKLPRTUVZabchilnoqrsuvwxyz]*[!0123456789]*)
-    arg2=-\'$(LC_ALL=C expr "X$option" : 'X-.[0-9]*\(.*\)' | LC_ALL=C sed "$escape")
+    arg2=-\'$(LC_ALL=C expr "X$option" : 'X-.[0-9]*\(.*\)' |
+                LC_ALL=C sed "$escape")
     eval "set -- $arg2 "'${1+"$@"}'
     option=$(LC_ALL=C expr "X$option" : 'X\(-.[0-9]*\)');;
   (--binary-*=* | --[lm]a*=* | --reg*=*)
@@ -79,13 +80,15 @@ while test $# -ne 0; do
     esac
     shift;;
   (-f?*\'*)
-    optarg=" '"$(LC_ALL=C expr "X$option" : 'X-f\(.*\)' | LC_ALL=C sed "$escape")
+    optarg=" '"$(LC_ALL=C expr "X$option" : 'X-f\(.*\)' |
+                   LC_ALL=C sed "$escape")
     option=-f;;
   (-f?*)
     optarg=" '"$(LC_ALL=C expr "X$option" : 'X-f\(.*\)')\'
     option=-f;;
   (--file=*\'*)
-    optarg=" '"$(LC_ALL=C expr "X$option" : 'X--file=\(.*\)' | LC_ALL=C sed "$escape")
+    optarg=" '"$(LC_ALL=C expr "X$option" : 'X--file=\(.*\)' |
+                   LC_ALL=C sed "$escape")
     option=--file;;
   (--file=*)
     optarg=" '"$(LC_ALL=C expr "X$option" : 'X--file=\(.*\)')\'
