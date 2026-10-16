@@ -1,39 +1,42 @@
-#!/usr/bin/perl
+#! /usr/bin/perl
 
-# deluser -- a utility to remove users from the system
-# delgroup -- a utilty to remove groups from the system
-my $version = "3.118";
 
 # Copyright (C) 2000 Roland Bauerschmidt <rb@debian.org>
-# Based on 'adduser' as pattern by
-#     Guy Maor <maor@debian.org>
-#     Ted Hajek <tedhajek@boombox.micro.umn.edu>
-#     Ian A. Murdock <imurdock@gnu.ai.mit.edu>
-
+#
+# Based on the Debian "adduser" utility developed by:
+#   Guy Maor <maor@debian.org>
+#   Ted Hajek <tedhajek@boombox.micro.umn.edu>
+#   Ian A. Murdock <imurdock@gnu.ai.mit.edu>
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
+# the Free Software Foundation; either version 2 of the License, or (at
+# your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+# along with this program; if not, write to:
+#
+#   Free Software Foundation
+#   51 Franklin Street, Fifth Floor
+#   Boston, MA 02110
+#   USA
 
-####################
-# See the usage subroutine for explanation about how the program can be called
-####################
 
-use warnings;
 use strict;
+use warnings;
+
 use Getopt::Long;
+
 use Debian::AdduserCommon;
 
-my $install_more_packages ;
+my $version = "3.134";
+
+my $install_more_packages;
 
 BEGIN {
     local $ENV{PERL_DL_NONLAZY}=1;
@@ -72,25 +75,30 @@ my $action = $0 =~ /delgroup$/ ? "delgroup" : "deluser";
 our $verbose = 1;
 my %pconfig = ();
 my %config = ();
-my $configfile;
+my @configfiles;
 my @defaults;
-my $force;
+my $no_preserve_root;
 
 
-unless ( GetOptions ("quiet|q" => sub {$verbose = 0; },
-            "debug" => sub {$verbose = 2; },
-	    "version|v" => sub { &version(); exit 0; },
-	    "help|h" => sub { &usage(); exit 0;},
-	    "group" => sub { $action = "delgroup";},
-	    "conf=s" => \$configfile,
-	    "system" => \$pconfig{"system"},
-	    "only-if-empty" => \$pconfig{"only_if_empty"},
-	    "remove-home" => \$pconfig{"remove_home"},
-	    "remove-all-files" => \$pconfig{"remove_all_files"},
-	    "backup" => \$pconfig{"backup"},
-	    "backup-to=s" => \$pconfig{"backup_to"},
-            "force" => \$force
-       ) ) {
+unless ( 
+    GetOptions (
+        "quiet|q" => sub {$verbose = 0; },
+        "debug" => sub {$verbose = 2; },
+        "verbose" => sub {$verbose = 2; },
+        "version|v" => sub { &version(); exit 0; },
+        "help|h" => sub { &usage(); exit 0;},
+        "group" => sub { $action = "delgroup";},
+        "conf|c=s" => \@configfiles,
+        "system" => \$pconfig{"system"},
+        "only-if-empty" => \$pconfig{"only_if_empty"},
+        "remove-home" => \$pconfig{"remove_home"},
+        "remove-all-files" => \$pconfig{"remove_all_files"},
+        "backup" => \$pconfig{"backup"},
+        "backup-to=s" => \$pconfig{"backup_to"},
+        "backup-suffix=s" => \$pconfig{"backup_suffix"},
+        "no-preserve-root" => \$no_preserve_root
+    )
+) {
     &usage;
     exit 1;
 }
@@ -98,10 +106,10 @@ unless ( GetOptions ("quiet|q" => sub {$verbose = 0; },
 # everyone can issue "--help" and "--version", but only root can go on
 dief (gtx("Only root may remove a user or group from the system.\n")) if ($> != 0);
 
-if (!defined($configfile)) { 
+if (!@configfiles) {
     @defaults = ("/etc/adduser.conf", "/etc/deluser.conf");
 } else {
-    @defaults = ($configfile);
+    @defaults = (@configfiles);
 }
 
 # explicitly set PATH, because super (1) cleans up the path and makes deluser unusable;
@@ -117,17 +125,17 @@ my ($user,$group);
 
 while (defined(my $arg = shift(@ARGV))) {
   if (defined($names[0]) && $arg =~ /^--/) {
-      dief (gtx("No options allowed after names.\n"));
-    } else {			# it's a username
-	push (@names, $arg);
+        dief (gtx("No options allowed after names.\n"));
+    } else {                    # it's a username
+        push (@names, $arg);
     }
 }
 
 if(@names == 0) {
     if($action eq "delgroup") {
-	print (gtx("Enter a group name to remove: "));
+        print (gtx("Enter a group name to remove: "));
     } else {
-	print (gtx("Enter a user name to remove: "));
+        print (gtx("Enter a user name to remove: "));
     }
     chomp(my $answer=<STDIN>);
     push(@names, $answer);
@@ -143,14 +151,16 @@ if(@names == 2) {      # must be deluserfromgroup
     $group = shift(@names);
 } else {
     if($action eq "delgroup") {
-	$group = shift(@names);
+        $group = shift(@names);
     } else {
-	$user = shift(@names);
+        $user = shift(@names);
     }
 }
 
 undef(@names);
 
+$ENV{"VERBOSE"} = $verbose;
+$ENV{"DEBUG"}   = $verbose;
 
 ##########################################################
 # (1) preseed the config
@@ -172,7 +182,7 @@ you need to install the `perl' package. To accomplish that, run
 apt-get install perl.\n"));
 }
 
- 
+
 my ($pw_uid, $pw_gid, $pw_homedir, $gr_gid, $maingroup);
 
 if(defined($user)) {
@@ -180,7 +190,7 @@ if(defined($user)) {
     $pw_uid = $passwd[2];
     $pw_gid = $passwd[3];
     $pw_homedir = $passwd[7];
-    
+
     $maingroup = $pw_gid ? getgrgid($pw_gid) : "";
 }
 if(defined($group)) {
@@ -203,37 +213,33 @@ if(defined($group)) {
 
 
 if($action eq "deluser") {
-    &invalidate_nscd();
-    
     my($dummy1,$dummy2,$uid);
-
-
 
     # Don't allow a non-system user to be deleted when --system is given
     # Also, "user does not exist" is only a warning with --system, but an
     # error without --system.
     if( $config{"system"} ) {
-	if( ($dummy1,$dummy2,$uid) = getpwnam($user) ) {
-	    if ( ($uid < $config{"first_system_uid"} ||
-		$uid > $config{"last_system_uid" } ) ) {
-		printf (gtx("The user `%s' is not a system user. Exiting.\n"), $user) if $verbose;
-		exit 1;
-	    }
+        if( ($dummy1,$dummy2,$uid) = getpwnam($user) ) {
+            if ( ($uid < $config{"first_system_uid"} ||
+                $uid > $config{"last_system_uid" } ) ) {
+                warnf (gtx("The user `%s' is not a system user. Exiting.\n"), $user) if $verbose;
+                 exit 1;
+            }
         } else {
-	    printf (gtx("The user `%s' does not exist, but --system was given. Exiting.\n"), $user) if $verbose;
-	    exit 0;
-	}
+            warnf (gtx("The user `%s' does not exist, but --system was given. Exiting.\n"), $user) if $verbose;
+            exit 0;
+        }
     }
-    
+
     unless(exist_user($user)) {
-	fail (2,gtx("The user `%s' does not exist.\n"),$user);
+        fail (2,gtx("The user `%s' does not exist.\n"),$user);
     }
-    
-    # Warn in any case if you want to remove the root account 
-    if ((defined($pw_uid)) && ($pw_uid == 0) && (!defined($force)))  {
+
+    # Warn in any case if you want to remove the root account
+    if ((defined($pw_uid)) && ($pw_uid == 0) && (!defined($no_preserve_root)))  {
         printf (gtx("WARNING: You are just about to delete the root account (uid 0)\n"));
         printf (gtx("Usually this is never required as it may render the whole system unusable\n"));
-        printf (gtx("If you really want this, call deluser with parameter --force\n"));
+        printf (gtx("If you really want this, call deluser with parameter --no-preserve-root\n"));
         printf (gtx("Stopping now without having performed any action\n"));
         exit 9;
     }
@@ -245,202 +251,192 @@ if($action eq "deluser") {
     }
 
     if($config{"remove_home"} || $config{"remove_all_files"}) {
-      s_print (gtx("Looking for files to backup/remove ...\n"));
-      my @mountpoints;
-      open(MOUNT, "mount |")
-	      || fail (4 ,gtx("fork for `mount' to parse mount points failed: %s\n", $!));
-      while (<MOUNT>) {
-	      my @temparray = split;
-	      my $fstype = $temparray[4];
-	      my $exclude_fstypes = $config{"exclude_fstypes"};
-	      if (defined($exclude_fstypes)) {
-	      	next if ($fstype =~ /$exclude_fstypes/);
-	      }
-	      push @mountpoints,$temparray[2];
-      }
-      close(MOUNT) or dief (gtx("pipe of command `mount' could not be closed: %s\n",$!));
-      my(@files,@dirs);
-      if($config{"remove_home"} && ! $config{"remove_all_files"}) {
+        s_print (gtx("Looking for files to backup/remove ...\n"));
+        my @mountpoints;
+        my $exclude_fstypes = $config{"exclude_fstypes"};
+        open(MOUNT, '/proc/mounts')
+            || fail (4 ,gtx("failed to open /proc/mounts: %s\n", $!));
+        while (<MOUNT>) {
+          my @temparray = split;
+          my ($fstype, $fname) = ($temparray[2], $temparray[1]);
 
-        # collect all files in user home
-	sub home_match {
-	  # according to the manpage
-	  foreach my $mount (@mountpoints) {
-	    if( $File::Find::name eq $mount ) {
-	      s_printf (gtx("Not backing up/removing `%s', it is a mount point.\n"),$File::Find::name);
-	      $File::Find::prune=1;
-	      return;
-	    }
-	  }
-	  foreach my $re ( split ' ', $config{"no_del_paths"} ) {
-	    if( $File::Find::name =~ qr/$re/ ) {
-	      s_printf (gtx("Not backing up/removing `%s', it matches %s.\n"),$File::Find::name,$re);
-	      $File::Find::prune=1;
-	      return;
-	    }
-	  }
+          next if $fname eq '/';
+          next if $fname eq '/home';
 
-	  push(@files, $File::Find::name) 
-	    if(-f $File::Find::name || -l $File::Find::name);
-	  push(@dirs, $File::Find::name)
-	    if(-d $File::Find::name);
-	} # sub home_match
-	
-	File::Find::find({wanted => \&home_match, untaint => 1, no_chdir => 1}, $pw_homedir)
-	  if(-d "$pw_homedir");
-	push(@files, "/var/mail/$user")
-	  if(-e "/var/mail/$user");
-      } else {
+          push @mountpoints,$fname if ($fstype =~ /$exclude_fstypes/);
+        }
+        close(MOUNT) or dief (gtx("failed to close /proc/mounts: %s\n",$!));
+        my(@files,@dirs);
+        if($config{"remove_home"}) {
+            # collect all files in user home
+            sub home_match {
+                push(@files, $File::Find::name)
+                    if(-f $File::Find::name || -l $File::Find::name);
+                push(@dirs, $File::Find::name)
+                    if(-d $File::Find::name);
+            } # sub home_match
 
-        # collect all files on system belonging to that user
-	sub find_match {
-	  my ($dev,$ino,$mode,$nlink,$uid,$gid);
-	  (($dev,$ino,$mode,$nlink,$uid,$gid) = lstat($_)) &&
-	    ($uid == $pw_uid) &&
-	      (
-		($File::Find::name =~ /^\/proc\// && ($File::Find::prune = 1)) ||
-		(-f $File::Find::name && push(@files, $File::Find::name)) ||
-                (-l $File::Find::name && push(@files, $File::Find::name)) ||
-		(-d $File::Find::name && push(@dirs, $File::Find::name)) ||
-                (-S $File::Find::name && push(@dirs, $File::Find::name)) || 
-                (-p $File::Find::name && push(@dirs, $File::Find::name))
-	      );
-              if ( -b $File::Find::name || -c $File::Find::name ) {
-               warnf (gtx("Cannot handle special file %s\n"),$File::Find::name);
-              }
-	} # sub find_match
-	
-	File::Find::find({wanted => \&find_match, untaint => 1, no_chdir => 1}, '/');
-      }
+            File::Find::find({wanted => \&home_match, untaint => 1, no_chdir => 1}, $pw_homedir)
+                if(-d "$pw_homedir");
+            push(@files, "/var/mail/$user")
+                if(-e "/var/mail/$user");
+        }
 
-      if($config{"backup"}) {
-	 s_printf (gtx("Backing up files to be removed to %s ...\n"),$config{"backup_to"});
-	 my $filesfile = new File::Temp(TEMPLATE=>"deluser.XXXXX", DIR=>"/tmp");
-	 my $filesfilename = $filesfile->filename;
-	 my $backup_name = $config{"backup_to"} . "/$user.tar";
-	 print "backup_name = $backup_name\n";
-	 print $filesfile join("\n",@files);
-	 $filesfile->close();
-         my $tar = &which('tar');
-         my $bzip2 = &which('bzip2', 1);
-         my $gzip = &which('gzip', 1);
-         my $options = '';
-	 if($bzip2) {
-             $backup_name = "$backup_name.bz2";
-             $options = "--bzip2";
-	 } elsif($gzip) {
-             $backup_name = "$backup_name.gz";
-             $options = "--gzip";
-	 }
-	 &systemcall($tar, $options, "-cf", $backup_name, "--files-from", $filesfilename);
-	 chmod 0600, $backup_name;
-         my $rootid = 0;
-	 chown $rootid, $rootid, $backup_name;
-	 unlink($filesfilename);
-      }
+        if ($config{"remove_all_files"}) {
+            # collect all files on system belonging to that user
+            sub find_match {
+                my ($dev,$ino,$mode,$nlink,$uid,$gid) = lstat;
+                foreach my $mount (@mountpoints) {
+                    if( $File::Find::name eq $mount ) {
+                        s_printf (gtx("Not backing up/removing `%s', it is a mount point.\n"),$File::Find::name) if ($verbose > 1);
+                        $File::Find::prune=1;
+                        return;
+                    }
+                }
+                foreach my $re ( split ' ', $config{"no_del_paths"} ) {
+                    if( $File::Find::name =~ qr/$re/ ) {
+                      s_printf (gtx("Not backing up/removing `%s', it matches %s.\n"),$File::Find::name,$re) if ($verbose > 1);
+                      $File::Find::prune=1;
+                      return;
+                    }
+                }
+                (defined($uid) && ($uid == $pw_uid)) &&
+                    (
+                        (-f $File::Find::name && push(@files, $File::Find::name)) ||
+                        (-l $File::Find::name && push(@files, $File::Find::name)) ||
+                        (-d $File::Find::name && push(@dirs, $File::Find::name)) ||
+                        (-S $File::Find::name && push(@files, $File::Find::name)) ||
+                        (-p $File::Find::name && push(@files, $File::Find::name))
+                    );
+                if ( -b $File::Find::name || -c $File::Find::name ) {
+                    warnf (gtx("Cannot handle special file %s\n"),$File::Find::name);
+                }
+            } # sub find_match
 
-      if(@files || @dirs) {
-	  s_print (gtx("Removing files ...\n"));
-	  unlink(@files) if(@files);
-	  foreach(reverse(sort(@dirs))) {
-	      rmdir($_);
-	  }
-      }
+            File::Find::find({wanted => \&find_match, untaint => 1, no_chdir => 1}, '/');
+        }
+
+        if($config{"backup"}) {
+            s_printf (gtx("Backing up files to be removed to %s ...\n"),$config{"backup_to"});
+            my $filesfile = new File::Temp(TEMPLATE=>"deluser.XXXXX", DIR=>"/tmp");
+            my $filesfilename = $filesfile->filename;
+            my $backup_name = $config{"backup_to"} . "/$user.tar";
+            print $filesfile join("\n", map { s/^\///r } @files);
+    
+            $filesfile->close();
+            my $tar = &which('tar');
+            &check_backup_suffix();
+            $backup_name .= $config{'backup_suffix'};
+            print "backup_name = $backup_name\n";
+            &systemcall($tar, "--directory", "/", "--auto-compress", "-cf", $backup_name, "--files-from", $filesfilename);
+            chmod 0600, $backup_name;
+            my $rootid = 0;
+            chown $rootid, $rootid, $backup_name;
+            unlink($filesfilename);
+        }
+
+        if(@files || @dirs) {
+            s_print (gtx("Removing files ...\n"));
+            unlink(@files) if(@files);
+            foreach(reverse(sort(@dirs))) {
+                rmdir unless /^$config{dhome}$/ || /^\/$/;
+            }
+        }
     }
 
-    if (system("crontab -l $user >/dev/null 2>&1") == 0) {
-      # crontab -l returns 1 if there is no crontab
-      my $crontab = &which('crontab');
-      &systemcall($crontab, "-r", $user);
-      s_print (gtx("Removing crontab ...\n"));
+    if (-x '/usr/bin/crontab') {
+        s_print(gtx("Removing crontab ...\n"));
+
+        if (&systemcall_silent('/usr/bin/crontab', '-u', $user, '-l') == 0) {
+            &systemcall_or_warn('/usr/bin/crontab', '-u', $user, '-r');
+        }
+    } else {
+        warnf(gtx("`%s' not executed. Skipping crontab removal. Package `cron' required.\n"),
+            '/usr/bin/crontab');
     }
 
-    s_printf (gtx("Removing user `%s' ...\n"),$user);
-    my @members = get_group_members($maingroup);
-    if (@members == 0) {
-        s_printf (gtx("Warning: group `%s' has no more members.\n"), $maingroup);    
-    }
-    my $userdel = &which('userdel');
-    &systemcall($userdel, $user);
-    &invalidate_nscd();
+    s_printf(gtx("Removing user `%s' ...\n"), $user);
+    acquire_lock();
+    &systemcall('/usr/sbin/userdel', $user);
+    release_lock();
 
-    systemcall('/usr/local/sbin/deluser.local', $user, $pw_uid,
-                $pw_gid, $pw_homedir) if (-x "/usr/local/sbin/deluser.local");
+    &systemcall('/usr/local/sbin/deluser.local', $user, $pw_uid,
+        $pw_gid, $pw_homedir) if (-x "/usr/local/sbin/deluser.local");
 
-    s_print (gtx("Done.\n"));
+    s_print(gtx("Done.\n"));
     exit 0;
 }
 
-    
-if($action eq "delgroup") {
-    &invalidate_nscd();
-    unless(exist_group($group)) {
-	printf( gtx("The group `%s' does not exist.\n"),$group) if $verbose;
-        exit 3;
+
+if ($action eq 'delgroup') {
+    unless (exist_group($group)) {
+        warnf (gtx("The group `%s' does not exist.\n"), $group) if $verbose;
+        exit(0) if $config{'system'};
+        exit(3);
     }
+
     my($dummy,$gid,$members);
     if( !(($dummy, $dummy, $gid, $members ) = getgrnam($group)) ) {
-	fail (4 ,gtx("getgrnam `%s' failed. This shouldn't happen.\n"), $group);
+        fail (4 ,gtx("getgrnam `%s' failed. This shouldn't happen.\n"), $group);
     }
-    if( $config{"system"} && 
-	($gid < $config{"first_system_gid"} ||
-	 $gid > $config{"last_system_gid" } )) {
-        printf (gtx("The group `%s' is not a system group. Exiting.\n"), $group) if $verbose;
-	exit 3;
+    if( $config{"system"} &&
+        ($gid < $config{"first_system_gid"} ||
+         $gid > $config{"last_system_gid" } )) {
+        warnf (gtx("The group `%s' is not a system group. Exiting.\n"), $group) if $verbose;
+        exit 3;
     }
     if( $config{"only_if_empty"} && $members ne "") {
-	fail (5, gtx("The group `%s' is not empty!\n"),$group);
+        fail (5, gtx("The group `%s' is not empty!\n"),$group);
     }
-    
-    setpwent;
-    while ((my $acctname,my $primgrp) = (getpwent)[0,3]) {
-	if( $primgrp eq $gr_gid ) {
-	    fail (7, gtx("`%s' still has `%s' as their primary group!\n"),$acctname,$group);
-	}
-    }
-    endpwent;
 
+    # groupdel will error out if there are users left that
+    # have $group as primary group. We are not checking this
+    # ourself since this would mean enumerating all users.
     s_printf (gtx("Removing group `%s' ...\n"),$group);
     my $groupdel = &which('groupdel');
+    acquire_lock();
     &systemcall($groupdel,$group);
-    &invalidate_nscd();
+    release_lock();
     s_print (gtx("Done.\n"));
     exit 0;
 }
 
 
-if($action eq "deluserfromgroup")
+if($action eq 'deluserfromgroup')
 {
-    &invalidate_nscd();
     unless(exist_user($user)) {
-	fail (2, gtx("The user `%s' does not exist.\n"),$user);
+        fail (2, gtx("The user `%s' does not exist.\n"),$user);
     }
     unless(exist_group($group)) {
-	fail (3, gtx("The group `%s' does not exist.\n"),$group);
+        fail (3, gtx("The group `%s' does not exist.\n"),$group);
     }
     if($maingroup eq $group) {
-	fail (7, gtx("You may not remove the user from their primary group.\n"));
+        fail (7, gtx("You may not remove the user from their primary group.\n"));
     }
 
-    my @members = get_group_members($group);
-    my $ismember = 0;
+    my $is_member;
+    my @members;
 
-    for(my $i = 0; $i <= $#members; $i++) {
-	if($members[$i] eq $user) {
-	    $ismember = 1;
-	    splice(@members,$i,1);
-	}
+    foreach my $member (get_group_members($group)) {
+
+        if ($member eq $user) {
+            $is_member = 1;
+            next;
+        }
+
+        push @members, $member;
     }
 
-    unless($ismember) {
-	fail (6, gtx("The user `%s' is not a member of group `%s'.\n"),$user,$group);
+    unless($is_member) {
+        fail (6, gtx("The user `%s' is not a member of group `%s'.\n"),$user,$group);
     }
 
     s_printf (gtx("Removing user `%s' from group `%s' ...\n"),$user,$group);
-    #systemcall("usermod","-G", join(",",@groups), $user );
-    my $gpasswd = &which('gpasswd');
-    &systemcall($gpasswd,'-M', join(',',@members), $group);
-    &invalidate_nscd();
+
+    acquire_lock();
+    &systemcall('/usr/bin/gpasswd', '-M', join(',', @members), $group);
+    release_lock();
+
     s_print (gtx("Done.\n"));
 }
 
@@ -449,21 +445,19 @@ if($action eq "deluserfromgroup")
 
 sub fail {
   my ($errorcode, $format, @args) = @_;
-  printf STDERR "$0: $format",@args;
+  warnf "$format",@args;
   exit $errorcode;
-
 }
 
 sub version {
     printf (gtx("deluser version %s\n\n"), $version);
-    printf (gtx("Removes users and groups from the system.\n"));
-    
-    printf gtx("Copyright (C) 2000 Roland Bauerschmidt <roland\@copyleft.de>\n\n");
+    print gtx("Removes users and groups from the system.
 
-    printf gtx("deluser is based on adduser by Guy Maor <maor\@debian.org>, Ian Murdock\n".
-	  "<imurdock\@gnu.ai.mit.edu> and Ted Hajek <tedhajek\@boombox.micro.umn.edu>\n\n");
+For detailed copyright information, please refer to
+/usr/share/doc/adduser/copyright.
+\n");
 
-    printf gtx("This program is free software; you can redistribute it and/or modify
+    print gtx("This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or (at
 your option) any later version.
@@ -471,39 +465,26 @@ your option) any later version.
 This program is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-General Public License, /usr/share/common-licenses/GPL, for more details.\n");
+General Public License, /usr/share/common-licenses/GPL, for more details.
+");
 }
 
 sub usage {
     printf gtx(
-"deluser USER
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]
+        [--backup-to dir] [--backup-suffix str] [--conf file]
+        [--quiet] [--verbose] [--debug] user
+
   remove a normal user from the system
-  example: deluser mike
 
-  --remove-home             remove the users home directory and mail spool
-  --remove-all-files        remove all files owned by user
-  --backup                  backup files before removing.
-  --backup-to <DIR>         target directory for the backups.
-                            Default is the current directory.
-  --system                  only remove if system user
-
-delgroup GROUP
-deluser --group GROUP
+deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]
+        [--verbose] [--debug] group
+delgroup [--system] [--only-if-empty] [--conf file] [--quiet]
+         [--verbose] [--debug] group
   remove a group from the system
-  example: deluser --group students
 
-  --system                  only remove if system group
-  --only-if-empty           only remove if no members left
-
-deluser USER GROUP
-  remove the user from a group
-  example: deluser mike students
-
-general options:
-  --quiet | -q      don't give process information to stdout
-  --help | -h       usage message
-  --version | -v    version number and copyright
-  --conf | -c FILE  use FILE as configuration file\n\n");
+deluser [--conf file] [--quiet] [--verbose] [--debug] user group
+  remove the user from a group\n");
 }
 
 sub exist_user {
@@ -516,4 +497,33 @@ sub exist_group {
     return(defined getgrnam($exist_group));
 }
 
-# vim:set ai et sts=4 sw=4 tw=0:
+sub check_backup_suffix {
+    my $tar = &which('tar');
+    my $suffix = $config{'backup_suffix'} || 'gz';
+    if ($suffix !~ /^\./) {
+        $suffix = ".$suffix";
+    }
+    my $filename = '/tmp/deluser-check.tar';
+    my $testfile = 'usr/sbin/deluser';
+    &systemcall_silent_error($tar, '--auto-compress', '--directory', '/', '-cf', $filename.$suffix, $testfile);
+
+    if ($?) {
+        # compressor recognized, not available
+        warnf gtx("Backup suffix %s unavailable, using gzip.\n"), $suffix;
+        $suffix = '.gz';
+    } else {
+        # no error, check if compressed
+        &systemcall_silent($tar, '--directory', '/', '-cf', $filename, $testfile);
+
+        my @zstat = stat($filename.$suffix);
+        my @ustat = stat($filename);
+        unlink($filename, $filename.$suffix);
+        if ($zstat[7] == $ustat[7]) {
+            warnf gtx("Backup suffix %s unavailable, using gzip.\n"), $suffix;
+            $suffix = '.gz';
+        }
+    }
+    $config{'backup_suffix'} = $suffix;
+}
+
+# vim: tabstop=4 shiftwidth=4 expandtab

@@ -44,7 +44,7 @@ print_help() {
 }
 
 print_version() {
-	echo "e2scrub_all 1.46.2 (28-Feb-2021)"
+	echo "e2scrub_all 1.47.0 (5-Feb-2023)"
 }
 
 exitcode() {

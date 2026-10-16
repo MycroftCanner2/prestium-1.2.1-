@@ -142,9 +142,19 @@ sub ReadDesktopEntries
 
 		if (open(FILE,"<$file")) {
 			my($terminal, $name, $icon, $exec, @types) = ("test=test -n \"\$DISPLAY\"", $pkg);
+			my $in_desktop_group = 0;
 			while (<FILE>) {
 				chomp;
 				next if (m/^\s*$|^\s*\#/);
+				if (m/^\[Desktop Entry\]$/) {
+					$in_desktop_group = 1;
+					next;
+				}
+				if (m/^\[.*\]$/) {
+					$in_desktop_group = 0;
+					next;
+				}
+				next unless $in_desktop_group;
 				if (m/^Terminal=(\w+)/i) {
 					$terminal = "needsterminal" if ($1 eq "true");
 				}

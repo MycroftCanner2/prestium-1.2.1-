@@ -2,7 +2,7 @@
 #
 #  script for ispell hash autorebuild in Debian systems
 #
-# Copyright 2003-2021 Agustin Martin Domingo <agmartin@debian.org>
+# Copyright 2003-2022 Agustin Martin Domingo <agmartin@debian.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,7 +20,6 @@
 
 use strict;
 use Debian::DictionariesCommon qw(dico_checkroot dico_activate_trigger);
-use Debconf::Client::ConfModule q(:all);
 use Getopt::Long;
 
 my $debug;
@@ -230,7 +229,7 @@ sub get_ispell_compat {
     open (my $COMPAT,"$ispellcompatfile");
     chomp ( $ispell_compat = <$COMPAT> );
     close $COMPAT;
-  } elsif ( system("which ispell > /dev/null 2>&1") == 0 ){
+  } elsif ( system("command -v ispell >/dev/null") == 0 ){
     $ispell_compat = (split(" ",`ispell -v | head -n 1`))[4];
   }
 
