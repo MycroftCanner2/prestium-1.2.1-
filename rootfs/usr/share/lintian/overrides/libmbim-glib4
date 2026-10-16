@@ -3,4 +3,4 @@
 # create a circular dependency by making libmbim-glib depend on libmbim-proxy,
 # we instead make every package linking against libmbim-glib have an explicit
 # dependency on libmbim-proxy.
-libmbim-glib4: symbols-declares-dependency-on-other-package libmbim-proxy
+libmbim-glib4: symbols-declares-dependency-on-other-package libmbim-proxy (libmbim-glib.so.4) [symbols]

@@ -1,2 +1,2 @@
-# This is intentional, we want utempter with these permissions.
-libutempter0: setgid-binary usr/lib/*/utempter/utempter 2755 root/utmp
+# utempter needs write access on /run/utmp owned by root:utmp
+elevated-privileges 2755 root/utmp [usr/lib/x86_64-linux-gnu/utempter/utempter]

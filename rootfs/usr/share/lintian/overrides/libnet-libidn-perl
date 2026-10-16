@@ -1,2 +1,0 @@
-# false positive, lintian just looks for the string 'ISCSIprep'
-embedded-library */LibIDN/LibIDN.so: libidn

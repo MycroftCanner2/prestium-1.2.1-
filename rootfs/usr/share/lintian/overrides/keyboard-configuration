@@ -1,1 +1,1 @@
-keyboard-configuration: script-not-executable ./usr/share/console-setup/KeyboardNames.pl
+keyboard-configuration: script-not-executable *usr/share/console-setup/KeyboardNames.pl*
