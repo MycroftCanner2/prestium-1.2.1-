@@ -19,16 +19,16 @@ case "$1" in
 		;;
 esac
 
-# Automatically added by dh_installmenu/13.3.4
+# Automatically added by dh_installmenu/13.6
 inst=/etc/menu-methods/openbox
 if [ -f $inst ]; then
 	chmod a+x $inst
-	if [ -x "`which update-menus 2>/dev/null`" ]; then
+	if [ -x "`command -v update-menus`" ]; then
 		update-menus
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installdeb/13.3.4
+# Automatically added by dh_installdeb/13.6
 dpkg-maintscript-helper rm_conffile /etc/xdg/openbox/autostart.sh 3.5.0-1 -- "$@"
 # End automatically added section
 

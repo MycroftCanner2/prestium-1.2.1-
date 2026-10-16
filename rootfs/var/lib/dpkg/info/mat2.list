@@ -44,6 +44,3 @@
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/mat2.1.gz
-/usr/share/nautilus-python
-/usr/share/nautilus-python/extensions
-/usr/share/nautilus-python/extensions/mat2.py

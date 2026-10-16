@@ -35,11 +35,6 @@
 /usr/share/doc/ntfs-3g/changelog.Debian.gz
 /usr/share/doc/ntfs-3g/changelog.gz
 /usr/share/doc/ntfs-3g/copyright
-/usr/share/hal
-/usr/share/hal/fdi
-/usr/share/hal/fdi/policy
-/usr/share/hal/fdi/policy/10osvendor
-/usr/share/hal/fdi/policy/10osvendor/25-ntfs-3g-policy.fdi
 /usr/share/initramfs-tools
 /usr/share/initramfs-tools/hooks
 /usr/share/initramfs-tools/hooks/ntfs_3g

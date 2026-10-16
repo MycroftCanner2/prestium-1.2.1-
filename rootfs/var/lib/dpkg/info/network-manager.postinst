@@ -41,13 +41,6 @@ case "$1" in
             fi
         fi
 
-        # Fix up existing /etc/resolv.conf symlinks after the migration to /run
-        if dpkg --compare-versions "$2" lt-nl "1.8.0-4"; then
-            if [ "$(readlink /etc/resolv.conf)" = /var/run/NetworkManager/resolv.conf ] ; then
-                ln -sf  /run/NetworkManager/resolv.conf /etc/resolv.conf
-            fi
-        fi
-
         if dpkg --compare-versions "$2" lt-nl "1.20.4-2"; then
             if [ -f /var/lib/NetworkManager/secret_key ]; then
                 chmod 0600 /var/lib/NetworkManager/secret_key
@@ -55,6 +48,9 @@ case "$1" in
         fi
         if dpkg --compare-versions "$2" lt-nl "1.25.91-1"; then
             update-rc.d -f network-manager remove || true
+        fi
+        if dpkg --compare-versions "$2" lt-nl "1.35.91-1"; then
+            deb-systemd-helper purge "nm-priv-helper.service" || true
         fi
         ;;
 
@@ -67,15 +63,12 @@ case "$1" in
         ;;
 esac
 
-# Automatically added by dh_installdeb/13.3.4
-dpkg-maintscript-helper mv_conffile /etc/NetworkManager/dispatcher.d/01ifupdown /etc/NetworkManager/dispatcher.d/01-ifupdown 1.8.0-5\~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/nm-dispatcher.conf 1.14.4-4\~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.NetworkManager.conf 1.14.4-4\~ -- "$@"
+# Automatically added by dh_installdeb/13.11.4
 dpkg-maintscript-helper rm_conffile /etc/init.d/network-manager 1.25.91-1\~ -- "$@"
 # End automatically added section
-# Automatically added by dh_installsystemd/13.3.4
+# Automatically added by dh_installsystemd/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	# This will only remove masks created by d-s-h on package removal.
+	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'NetworkManager-dispatcher.service' >/dev/null || true
 
 	# was-enabled defaults to true, so new installations run enable.
@@ -90,9 +83,9 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.3.4
+# Automatically added by dh_installsystemd/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	# This will only remove masks created by d-s-h on package removal.
+	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'NetworkManager-wait-online.service' >/dev/null || true
 
 	# was-enabled defaults to true, so new installations run enable.
@@ -107,9 +100,9 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.3.4
+# Automatically added by dh_installsystemd/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	# This will only remove masks created by d-s-h on package removal.
+	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'NetworkManager.service' >/dev/null || true
 
 	# was-enabled defaults to true, so new installations run enable.
@@ -124,7 +117,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.3.4
+# Automatically added by dh_installsystemd/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	if [ -d /run/systemd/system ]; then
 		systemctl --system daemon-reload >/dev/null || true

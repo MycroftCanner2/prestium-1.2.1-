@@ -2,17 +2,21 @@
 Template: linux-base/removing-title
 Type: title
 Description: Removing ${package}
+Description-ca.UTF-8: S'està suprimint ${package}
 Description-cs.UTF-8: Odstraňuje se ${package}
 Description-da.UTF-8: Fjerner ${package}
 Description-de.UTF-8: Entfernen von ${package}
+Description-es.UTF-8: Eliminando ${package}
 Description-fr.UTF-8: Suppression du noyau ${package}
 Description-ja.UTF-8: ${package} を削除しています
 Description-nl.UTF-8: Verwijderen van ${package}
 Description-pl.UTF-8: Usuwanie ${package}
 Description-pt.UTF-8: A remover ${package}
 Description-pt_BR.UTF-8: Removendo ${package}
+Description-ro.UTF-8: Se elimină nucleul „${package}”
 Description-ru.UTF-8: Удаляется ${package}
 Description-sv.UTF-8: Ta bort ${package}
+Description-tr.UTF-8: ${package} paketi kaldırılıyor
 
 Template: linux-base/removing-running-kernel
 Type: boolean
@@ -106,6 +110,12 @@ Description-pt_BR.UTF-8: Cancelar remoção do kernel?
  Isto pode tornar o sistema não inicializável, pois removerá /boot/vmlinuz-${running} e todos os módulos sob o diretório /lib/modules/${running}. Isto só pode ser consertado com uma cópia da imagem do kernel e dos módulos correspondentes.
  .
  É altamente recomendável cancelar a remoção do kernel, a menos que você esteja preparado para consertar o sistema após a remoção.
+Description-ro.UTF-8: Anulați operația de eliminare a nucleului?
+ Rulați un nucleu cu versiunea (versiunea ${running}) și încercați să eliminați aceeași versiune; exact cea pe care o folosiți în acest moment.
+ .
+ Această acțiune poate face sistemul de nepornit, deoarece va elimina „/boot/vmlinuz-${running}” și toate modulele din directorul „/lib/modules/${running}”. Acest lucru poate fi remediat doar cu o copie a imaginii nucleului și a modulelor corespunzătoare.
+ .
+ Este foarte recomandat să renunțați la eliminarea nucleului, cu excepția cazului în care sunteți pregătit să remediați sistemul după eliminare.
 Description-ru.UTF-8: Прервать удаление ядра?
  Вы пытаетесь удалить запущенную версию ядра (${running}).
  .
@@ -125,11 +135,11 @@ Description-sv.UTF-8: Avbryt radering av kärnan?
  .
  Det rekomenderas starkt att du avbryter raderingen av kärnan om du inte är beredd på att laga systemet efter raderingen.
 Description-tr.UTF-8: Çekirdeği kaldırma işlemi iptal edilsin mi?
- Kullandığınız çekirdekle (${running}) aynı sürümdeki çekirdeği kaldırmaya çalışıyorsunuz.
+ (${running}) sürümündeki çekirdeği kullanıyorsunuz ve aynı sürümdeki çekirdeği kaldırmaya çalışıyorsunuz.
  .
- Bu eylem sisteminizi başlatılamaz hale getirebilir ( /boot/vmlinuz-${running} dosyasını ve  /lib/modules/${running} dizinindeki tüm modülleri kaldıracağından dolayı). Bu durum yalnızca bir çekirdek görüntüsü ve bu görüntüye uygun modüller yardımıyla düzeltilebilir.
+ Bu eylem /boot/vmlinuz-${running} dosyasını ve /lib/modules/${running} dizinindeki tüm modülleri kaldıracağından dolayı sisteminizi başlatılamaz duruma getirebilir. Bu durum yalnızca bir çekirdek görüntüsü kopyası ve bu görüntüye uygun modüller ile düzeltilebilir.
  .
- Kaldırma işlemi sonrasında sistemi düzeltmeye hazır olmadığınız takdirde kaldırma işleminden vazgeçmeniz şiddetle tavsiye edilir.
+ Kaldırma işlemi sonrasında sisteminizi düzeltmeye hazırlanmadıysanız, çekirdek kaldırma işleminden vazgeçmeniz şiddetle önerilir.
 Description-vi.UTF-8: Hủy bỏ tiến trình gỡ bỏ hạt nhân ?
  Bạn đang chạy một hạt nhân phiên bản ${running} trong khi thử gỡ bỏ phiên bản đó.
  .

@@ -7,12 +7,15 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libzvbi0
-/usr/share/doc/libzvbi0/AUTHORS
+/usr/share/doc/libzvbi0/AUTHORS.gz
 /usr/share/doc/libzvbi0/NEWS.gz
-/usr/share/doc/libzvbi0/README.gz
+/usr/share/doc/libzvbi0/README.md.gz
 /usr/share/doc/libzvbi0/TODO
 /usr/share/doc/libzvbi0/changelog.Debian.gz
 /usr/share/doc/libzvbi0/changelog.gz
 /usr/share/doc/libzvbi0/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libzvbi0
 /usr/lib/x86_64-linux-gnu/libzvbi-chains.so.0
 /usr/lib/x86_64-linux-gnu/libzvbi.so.0

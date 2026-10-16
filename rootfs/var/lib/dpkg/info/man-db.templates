@@ -104,6 +104,12 @@ Description-pt_BR.UTF-8: O man e o mandb devem ser instalados 'setuid man'?
  Páginas de manual em cache funcionarão somente se você utilizar um terminal de 80 colunas. Isso é para evitar que um usuário faça com que páginas cat sejam salvas em larguras que seriam incovenientes para outros usuários. Caso você utilize um terminal amplo, você pode forçar as páginas de manual a serem formatadas para 80 colunas definindo a variável de ambiente MANWIDTH=80.
  .
  Habilitar este recurso pode ser um risco de segurança, por isso o mesmo está desabilitado por padrão. Em caso de dúvidas, é sugerido que você mantenho-o desabilitado.
+Description-ro.UTF-8: Trebuie să fie instalate «man» și «mandb» cu bitul „setuid man” activat (cu drepturile utilizatorului „man”)?
+ Programele «man» și «mandb» pot fi instalate cu bitul „set-user-id” activat, astfel încât acestea să ruleze cu permisiunile utilizatorului „man”. Acest lucru permite utilizatorilor obișnuiți să beneficieze de stocarea în zona de prestocare a memoriei, a paginilor de manual preformatate („pagini cat”), ceea ce poate ajuta la îmbunătățirea performanței pe mașinile mai lente.
+ .
+ Paginile de manual stocate în zona de prestocare a memoriei funcționează numai dacă utilizați un terminal cu 80 de coloane, pentru a evita ca un utilizator să provoace salvarea paginilor „cat” (preformatate) cu lățimi care ar fi incomode pentru alți utilizatori. Dacă utilizați un terminal larg, puteți forța oricum paginile de manual să fie formatate la 80 de coloane stabilind MANWIDTH=80.
+ .
+ Activarea acestei funcții poate reprezenta un risc de securitate, deci este dezactivată în mod implicit. Dacă aveți îndoieli, ar trebui să o lăsați dezactivată.
 Description-ru.UTF-8: Установить программы man и mandb как 'setuid man'?
  Программы man и mandb могут быть установлены с включённым битом set-user-id для того, чтобы они запускались с правами пользователя 'man'. Это позволит обычным пользователям использовать ранее отформатированные страницы руководств ('cat pages'), что, возможно, ускорит вывод страниц на медленных машинах.
  .

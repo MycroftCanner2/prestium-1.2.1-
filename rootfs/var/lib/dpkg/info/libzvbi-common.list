@@ -3,9 +3,9 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libzvbi-common
-/usr/share/doc/libzvbi-common/AUTHORS
+/usr/share/doc/libzvbi-common/AUTHORS.gz
 /usr/share/doc/libzvbi-common/NEWS.gz
-/usr/share/doc/libzvbi-common/README.gz
+/usr/share/doc/libzvbi-common/README.md.gz
 /usr/share/doc/libzvbi-common/TODO
 /usr/share/doc/libzvbi-common/changelog.Debian.gz
 /usr/share/doc/libzvbi-common/changelog.gz
@@ -29,6 +29,9 @@
 /usr/share/locale/it
 /usr/share/locale/it/LC_MESSAGES
 /usr/share/locale/it/LC_MESSAGES/zvbi.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/zvbi.mo
 /usr/share/locale/nl
 /usr/share/locale/nl/LC_MESSAGES
 /usr/share/locale/nl/LC_MESSAGES/zvbi.mo

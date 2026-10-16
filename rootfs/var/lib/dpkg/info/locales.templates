@@ -15,7 +15,7 @@ Choices-gl.UTF-8: Todas as configuracións locais, ${locales}
 Choices-hu.UTF-8: Minden nyelvi beállítás, ${locales}
 Choices-it.UTF-8: Tutti i «locale», ${locales}
 Choices-ja.UTF-8: すべてのロケール, ${locales}
-Choices-ko.UTF-8: 모든 로케일, ${locales}
+Choices-ko.UTF-8: 모든 로캘, ${locales}
 Choices-lt.UTF-8: Visos lokalės, ${locales}
 Choices-ml.UTF-8: എല്ലാ ലൊക്കേലുകളും, ${locales}
 Choices-nb.UTF-8: Alle lokaler, ${locales}
@@ -24,7 +24,7 @@ Choices-no.UTF-8: Alle lokaler, ${locales}
 Choices-pl.UTF-8: Wszystkie dostępne, ${locales}
 Choices-pt.UTF-8: Todos os locales, ${locales}
 Choices-pt_BR.UTF-8: Todos os "locales", ${locales}
-Choices-ro.UTF-8: Toate localele, ${locales}
+Choices-ro.UTF-8: Toate configurările regionale, ${locales}
 Choices-ru.UTF-8: Все локали, ${locales}
 Choices-sk.UTF-8: Všetky locales, ${locales}
 Choices-sv.UTF-8: Alla lokalanpassningar, ${locales}
@@ -98,10 +98,10 @@ Description-ja.UTF-8: 生成するロケールの選択:
  ロケールとは、複数の言語を切り替え、ユーザが自身の言語・国・文字・並べ替え順序などを使えるようにするための仕組みです。
  .
  生成したいロケールを選択してください。UTF-8 ロケールは、特に新規にインストールしたものであれば、デフォルトで選択されているはずです。その他の文字セットは、より古いシステムおよびソフトウェアとの後方互換性のために役立つでしょう。
-Description-ko.UTF-8: 생성할 로케일 목록:
- 로케일이란 여러 언어 중에서 선택하여 사용자들이 자신의 언어, 국가, 문자, 정렬순서 등을 사용할 수 있도록 해주는 구성틀입니다.
+Description-ko.UTF-8: 생성할 로캘 목록:
+ 로캘이란 여러 언어 중에서 선택하여 사용자들이 자신의 언어, 국가, 문자, 정렬순서 등을 사용할 수 있도록 해주는 구성틀입니다.
  .
- 생성하고자 하는 로케일을 선택하여 주십시오. 기본적으로는 UTF-8 로케일을 선택하시고, 특히 새로 설치하는 시스템에서는 더더욱 이를 선택하십시오. 기존 시스템이나 소프트웨어와의 역호환성을 위해서는 다른 문제셋을 선택하셔도 됩니다.
+ 생성하고자 하는 로캘을 선택하여 주십시오. 기본적으로는 UTF-8 로캘을 선택하시고, 특히 새로 설치하는 시스템에서는 더더욱 이를 선택하십시오. 기존 시스템이나 소프트웨어와의 역호환성을 위해서는 다른 문제셋을 선택하셔도 됩니다.
 Description-lt.UTF-8: Lokalės, kurios bus sugeneruotos:
  Lokalės yra karkasas, kuriuo naudotojai gali nustatyti savo kalbą, informaciją apie savo šalį, simbolius, valiutą, rikiavimo tvarką ir t.t.
  .
@@ -134,10 +134,10 @@ Description-pt_BR.UTF-8: "Locales" a serem gerados:
  Locales são uma infraestrutura para alternar entre múltiplos idiomas e permitem aos usuários utilizar o seu idioma, país, caracteres, ordenação, etc.
  .
  Por favor, escolha quais locales serão gerados. Locales UTF-8 deveriam ser escolhidos por padrão, particularmente para novas instalações. Outros conjuntos de caracteres podem ser úteis para compatibilidade com sistemas e softwares antigos.
-Description-ro.UTF-8: Localele ce vor fi generate:
- Locale este un cadru de lucru pentru utilizatori, care le permite acestora să schimbe între mai multe limbi pentru a folosi propria lor limbă, țară, caractere, formatare a datei, etc.
+Description-ro.UTF-8: Configurările regionale ce vor fi generate:
+ Configurările regionale (numite și „locales”) constituie un cadru de lucru pentru utilizatori, ce le permite acestora să aleagă propria lor limbă, țară, set de caractere, ordonare alfanumerică, formatare a datei, etc.
  .
- Alegeți ce locale se generează. Localele UTF-8 ar trebui alese implicit, în special pentru instalări noi. Din motive de compatibilitate cu soft sau sisteme mai vechi, puteți alege să se genereze și alte seturi de caractere.
+ Alegeți ce configurări regionale vor fi generate. Configurările regionale UTF-8 ar trebui alese implicit, în special pentru instalări noi. Din motive de compatibilitate cu software sau sisteme mai vechi, puteți alege să se genereze și alte seturi de caractere (sau datorită unor necesități proprii; de exemplu dorința/necesitatea de-a scrie într-o limbă diferită de cea maternă).
 Description-ru.UTF-8: Локали, которые будут созданы:
  Локаль — это инфраструктура для поддержки в системе нескольких языков; она позволяет пользователю настроить язык сообщений, страну, алфавит, порядок сортировки и т. п.
  .
@@ -154,10 +154,10 @@ Description-ta.UTF-8: உருவாக்க வேண்டிய உள்�
  உள்ளார்ந்த இடங்கள் என்பது பல மொழிகளுக்கிடையே மாறவும் பயனர்களை அவரவர் மொழி, நாடு, குறிகள், முறைமைகள் ஆகியவற்றை பயன்படுத்தவும் பயனாகும் சட்ட அமைப்பு
  .
  எந்த உள்ளார்ந்த இடத்தை உருவாக்க வேண்டும் என தேர்வு செய்க. முன்னிருப்பாக UTF-8 உள்ளார்ந்த இடங்கள் தேர்வு செய்யபட வேண்டும். குறிப்பாக புதிய நிறுவல்களுக்கு. மற்ற குறியாக்க தொகுப்புகள் பழைய கணினிகள் மற்றும் மென்பொருட்களுடன் பின் நோக்கு இசைவுக்கு பயன்படும்.
-Description-tr.UTF-8: Oluşturulacak yereller: 
- Yerel (locale), kullanıcıların kullanmak istediği dil, ülke, karakter, sıralama şekli gibi dile özgü ayarlar arasında kolayca geçiş yapmasını sağlayan bir yapıdır.
+Description-tr.UTF-8: Oluşturulacak yereller:
+ Yereller; kullanıcıların kendi dillerini, yazı karakterlerini, ülkelerine ve dillerine özgü tanımlama şekillerini kullanabilmeleri için birden çok dil arasında geçiş yapmalarını sağlayan bir yapıdır.
  .
- Lütfen hangi yerellerin oluşturulacağını seçin. Yeni kurulum için UTF-8 yereller öntanımlı olarak seçilecektir. Diğer karakter setleri daha eski sistemler ve yazılımlar ile uyumluluk için yararlı olabilir.
+ Hangi yerellerin oluşturulacağını seçin. Yeni kurulumlar için ön tanımlı olarak UTF-8 yereller seçilecektir. Daha eski sistemler ve yazılımlar ile uyumluluk için başka karakter setleri de yararlı olabilir.
 Description-vi.UTF-8: Miền địa phương cần tạo ra:
  Miền địa phương (locale) là một khuôn khổ để chuyển đổi giữa các ngôn ngữ khác nhau, cũng cho phép người dùng chọn sử dụng ngôn ngữ, quốc gia, ký tự, thứ tự sắp xếp v.v. của quê.
  .
@@ -193,7 +193,7 @@ Choices-no.UTF-8: Ingen, C.UTF-8, ${locales}
 Choices-pl.UTF-8: Brak, C.UTF-8, ${locales}
 Choices-pt.UTF-8: Nenhum, C.UTF-8, ${locales}
 Choices-pt_BR.UTF-8: Nenhum, C.UTF-8, ${locales}
-Choices-ro.UTF-8: Nici una, C.UTF-8, ${locales}
+Choices-ro.UTF-8: Niciuna, C.UTF-8, ${locales}
 Choices-ru.UTF-8: Нет, C.UTF-8, ${locales}
 Choices-sk.UTF-8: žiadne, C.UTF-8, ${locales}
 Choices-sv.UTF-8: Ingen, C.UTF-8, ${locales}
@@ -267,8 +267,8 @@ Description-ja.UTF-8: システムの環境変数として設定するデフォ�
  ユーザに合った言語でテキストを表示するため、Debian では多くのパッケージがロケールを使用します。生成したロケールの中からシステムでのデフォルトロケールを選択できます。
  .
  これはシステム全体のデフォルトの言語を選ぶことになります。このシステムがマルチユーザシステムで、すべてのユーザがデフォルトの言語を話すことができるというわけではない場合は、そういった人々は困難を感じることになってしまいます。
-Description-ko.UTF-8: 시스템 환경의 기본 로케일:
- 데비안에 있는 많은 꾸러미들은 사용자에게 맞는 언어로 출력하기 위해 로케일을 사용합니다. 생성된 로케일 중에서 시스템의 기본 로케일로 사용할 로케일을 선택하실 수 있습니다.
+Description-ko.UTF-8: 시스템 환경의 기본 로캘:
+ 데비안에 있는 많은 꾸러미들은 사용자에게 맞는 언어로 출력하기 위해 로캘을 사용합니다. 생성된 로캘 중에서 시스템의 기본 로캘로 사용할 로캘을 선택하실 수 있습니다.
  .
  이 선택은 시스템 전체의 기본 언어를 결정합니다. 기본 언어를 사용할 수 없는 사용자도 있는 복수 사용자 시스템일 경우에는 그 사용자들이 시스템 사용에 어려움을 겪으실 수 있습니다.
 Description-lt.UTF-8: Sistemos lokalė pagal nutylėjimą
@@ -303,18 +303,18 @@ Description-pt_BR.UTF-8: Locale padrão para o ambiente do sistema:
  Muitos pacotes no Debian usam locales para exibir texto aos usuários no idioma correto. Você pode escolher um locale padrão para o sistema a partir dos locales gerados.
  .
  Isto selecionará o idioma padrão para o sistema inteiro. Se este sistema é um sistema multiusuário no qual nem todos os usuários são capazes de falar o idioma padrão, eles enfrentarão dificuldades.
-Description-ro.UTF-8: Locale implicite pentru sistem:
- Multe pachete din Debian folosesc locale pentru a afișa text în limba corectă pentru utilizatori. Puteți alege o valoarea pentru locale, implicită pentru sistem, din localele generate.
+Description-ro.UTF-8: Configurația regională implicită pentru acest sistem:
+ Multe pachete din Debian folosesc configurările regionale pentru a afișa text în limba corectă pentru utilizatori. Puteți alege o configurație regională, implicită pentru sistem, dintre configurațiile ce-au fost generate.
  .
  Această opțiune va stabili limba pentru tot sistemul. Dacă aveți un sistem multi-utilizator unde nu toți utilizatorii vorbesc limba aleasă, atunci ei vor întâmpina dificultăți.
 Description-ru.UTF-8: Локаль по умолчанию в системном окружении:
  Многие пакеты в Debian используют локали для отображения сообщений на языке пользователя. Вы можете выбрать из созданных локалей системную локаль по умолчанию.
  .
  Эта настройка устанавливает язык по умолчанию для всей системы. Если это многопользовательская система, где не все пользователи говорят на выбранном языке по умолчанию, то у них возникнут трудности.
-Description-sk.UTF-8: Štandarné locale systémového prostredia:
+Description-sk.UTF-8: Štandardné locale systémového prostredia:
  Mnohé balíky v Debiane používajú locales pre zobrazovanie textu v správnom jazyku používateľa. Z vytvorených locales môžete zvoliť štandardné locale systému.
  .
- Týmto vyberiete štandardný jazyk pre celý systém. Ak je toto viacpoužívateľský systém, kde nie všetci používatelia hovoria štandarným jazykom, môžu mať ťažkosti.
+ Týmto vyberiete štandardný jazyk pre celý systém. Ak je toto viacpoužívateľský systém, kde nie všetci používatelia hovoria štandardným jazykom, môžu mať ťažkosti.
 Description-sv.UTF-8: Välj lokalanpassning som ska vara standard i systemet:
  Många paket i Debian använder lokalanpassningar för att visa text i det korrekta språket för användaren. Du kan välja en standardlokal för systemet från de genererade lokalerna.
  .
@@ -323,10 +323,10 @@ Description-ta.UTF-8: கணினி சூழலுக்கு முன்�
  பயனருக்கு சரியான மொழியில் உரையை காட்ட டெபியனின் பல பொதிகள் உள்ளார்ந்த இடத்தை பயன்படுத்துகின்றன. உருவாக்கப்பட்டவற்றிலிருந்து கணினிக்கு முன்னிருப்பு உள்ளார்ந்த இடத்தை தேர்வு செய்யவும்.
  .
  இது முழு கணினிக்கு முன்னிருப்பு மொழியை தேர்வு செய்யும். இது பலர் பயன் படுத்தும் கணினியானால் எல்லா பயனர்களும் முன்னிருப்பு மொழியை அறிந்திராவிடில் அவர்கள் துன்புறுவர்.
-Description-tr.UTF-8: Sistem ortamında kullanılacak öntanımlı yerel:
- Çoğu Debian paketi iletileri göstermekte kullanacağı dili belirlemek için yerelleri kullanır. Oluşturulmak üzere seçtikleriniz arasından sistem için öntanımlı bir yerel seçebilirsiniz.
+Description-tr.UTF-8: Sistemin kullanacağı ön tanımlı yerel:
+ Debian paketleri sizinle düzgün iletişim kurmak amacıyla seçeceği dili belirlerken, yerelleri kullanır. Eklediğiniz yereller arasından sisteminiz için ön tanımlı bir yerel seçebilirsiniz.
  .
- Bu ayar, sisteminizin tümünde kullanılacak olan dili belirleyecektir. Farklı dilleri konuşan kullanıcıların bir arada bulunduğu çok kullanıcılı sistemlerdeki kullanıcılar bazı zorluklarla karşılaşabilir.
+ Bu seçim, sisteminizin tümünde kullanılacak olan ön tanımlı dili belirleyecektir. Sisteminiz aynı dili konuşmayan kullanıcılar tarafından kullanıyorsa, ön tanımlı yerel dilini kullanmayan kullanıcılar bazı zorluklarla karşılaşabilir.
 Description-vi.UTF-8: Miền địa phương mặc định cho môi trường hệ thống:
  Nhiều gói của Debian có dùng miền địa phương để hiển thị văn bản bằng ngôn ngữ thích hợp với người dùng. Bạn có dịp chọn miền địa phương mặc định cho hệ thống, trong những miền địa phương được tạo ra.
  .

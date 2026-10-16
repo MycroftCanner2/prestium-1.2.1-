@@ -2,12 +2,12 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libxmlsec1.so.1.2.31
+/usr/lib/x86_64-linux-gnu/libxmlsec1.so.1.2.37
 /usr/share
 /usr/share/doc
 /usr/share/doc/libxmlsec1
-/usr/share/doc/libxmlsec1/README
 /usr/share/doc/libxmlsec1/README.Debian
+/usr/share/doc/libxmlsec1/README.md
 /usr/share/doc/libxmlsec1/changelog.Debian.gz
 /usr/share/doc/libxmlsec1/changelog.gz
 /usr/share/doc/libxmlsec1/copyright

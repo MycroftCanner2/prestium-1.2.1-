@@ -12,18 +12,18 @@ libzvbi-chains.so.0 libzvbi0 #MINVER#
  _vbi_strndup@Base 0.2.35
  _vbi_vasprintf@Base 0.2.35
  _zvbi_intl_domainname@Base 0.2.35
- close@Base 0.2.35
+ close@Base 0.2.41
  device_close@Base 0.2.35
  device_ioctl@Base 0.2.35
  device_mmap@Base 0.2.35
  device_munmap@Base 0.2.35
  device_open@Base 0.2.35
- fcntl@Base 0.2.35
+ fcntl@Base 0.2.41
  fprint_symbolic@Base 0.2.35
  fprint_unknown_ioctl@Base 0.2.35
- ioctl@Base 0.2.35
- open@Base 0.2.35
- read@Base 0.2.35
+ ioctl@Base 0.2.41
+ open@Base 0.2.41
+ read@Base 0.2.41
  vbi_capture_delete@Base 0.2.35
  vbi_capture_fd@Base 0.2.35
  vbi_capture_flush@Base 0.2.35
@@ -77,7 +77,7 @@ libzvbi-chains.so.0 libzvbi0 #MINVER#
  vbi_proxy_msg_stop_listen@Base 0.2.35
  vbi_proxy_msg_write@Base 0.2.35
  vbi_proxy_msg_write_idle@Base 0.2.35
- write@Base 0.2.35
+ write@Base 0.2.41
 libzvbi.so.0 libzvbi0 #MINVER#
  __vbi_event_handler_list_send@Base 0.2.35
  _vbi3_bit_slicer_destroy@Base 0.2.35

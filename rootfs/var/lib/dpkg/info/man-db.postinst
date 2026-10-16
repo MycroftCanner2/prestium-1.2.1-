@@ -15,12 +15,18 @@ run_mandb () {
 	echo "Not building database; man-db/auto-update is not 'true'." >&2
 	return 0
     fi
+    # shellcheck disable=SC3043
     local message="$1"
     shift
     [ "$message" ] && echo "$message" >&2
     # start-stop-daemon isn't available when running from debootstrap.
-    perl -e '@pwd = getpwnam("man"); $) = $( = $pwd[3]; $> = $< = $pwd[2];
-	     exec "/usr/bin/mandb", @ARGV' -- "$@" || true
+    if command -v setpriv >/dev/null; then
+	setpriv --reuid man --regid man --init-groups -- /usr/bin/mandb "$@" || true
+    else
+	# runuser isn't ideal here, because it starts a PAM session.
+	# However, setpriv is only available on Linux.
+	runuser -u man -- /usr/bin/mandb "$@" || true
+    fi
 }
 
 if [ "$1" = triggered ]; then
@@ -31,6 +37,7 @@ if [ "$1" = triggered ]; then
     exit 0
 fi
 
+# shellcheck disable=SC1091
 . /usr/share/debconf/confmodule
 db_version 2.0
 
@@ -52,18 +59,11 @@ fi
 
 for x in $maybesetuid; do
     # No statoverrides available or none exist for us ...
-    if ! dpkg-statoverride --list /usr/bin/$x >/dev/null; then
-	chown $owner /usr/bin/$x || true
-	chmod $mode  /usr/bin/$x
+    if ! dpkg-statoverride --list "/usr/bin/$x" >/dev/null; then
+	chown $owner "/usr/bin/$x" || true
+	chmod $mode  "/usr/bin/$x"
     fi
 done
-
-if [ -e /etc/cron.daily/man.moved-by-preinst ]; then
-    rm /etc/cron.daily/man.moved-by-preinst
-fi
-if [ -e /etc/cron.weekly/catman.moved-by-preinst ]; then
-    rm /etc/cron.weekly/catman.moved-by-preinst
-fi
 
 ensure_catdir
 
@@ -83,9 +83,6 @@ build_db=0
 if [ ! -f $catdir/index.db ]; then
     # Build the database from scratch on fresh installs.
     build_db=1
-elif dpkg --compare-versions "$2" lt 2.7.0; then
-    # At 2.7.0, the database version number changed to 2.7.0.
-    build_db=1
 fi
 
 if [ $build_db -eq 1 ]; then
@@ -99,7 +96,7 @@ else
     run_mandb "Updating database of manual pages ..." -pq
 fi
 
-# Automatically added by dh_apparmor/2.13.6-9
+# Automatically added by dh_apparmor/3.0.8-3
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.bin.man"
     if [ -f "$APP_PROFILE" ]; then
@@ -118,18 +115,16 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.3.3
+# Automatically added by dh_installtmpfiles/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	# In case this system is running systemd, we need to ensure that all
-	# necessary tmpfiles (if any) are created before starting.
-	if [ -d /run/systemd/system ] ; then
-		systemd-tmpfiles --create man-db.conf >/dev/null || true
+	if [ -x "$(command -v systemd-tmpfiles)" ]; then
+		systemd-tmpfiles ${DPKG_ROOT:+--root="$DPKG_ROOT"} --create man-db.conf >/dev/null || true
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.3.3
+# Automatically added by dh_installsystemd/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	# This will only remove masks created by d-s-h on package removal.
+	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'man-db.timer' >/dev/null || true
 
 	# was-enabled defaults to true, so new installations run enable.
@@ -144,7 +139,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.3.3
+# Automatically added by dh_installsystemd/13.11.4
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	if [ -d /run/systemd/system ]; then
 		systemctl --system daemon-reload >/dev/null || true

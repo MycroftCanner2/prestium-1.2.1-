@@ -259,6 +259,7 @@
 /usr/share/i18n/locales/aa_ER
 /usr/share/i18n/locales/aa_ER@saaho
 /usr/share/i18n/locales/aa_ET
+/usr/share/i18n/locales/ab_GE
 /usr/share/i18n/locales/af_ZA
 /usr/share/i18n/locales/agr_PE
 /usr/share/i18n/locales/ak_GH
@@ -316,6 +317,7 @@
 /usr/share/i18n/locales/ca_IT
 /usr/share/i18n/locales/ce_RU
 /usr/share/i18n/locales/chr_US
+/usr/share/i18n/locales/ckb_IQ
 /usr/share/i18n/locales/cmn_TW
 /usr/share/i18n/locales/cns11643_stroke
 /usr/share/i18n/locales/crh_UA
@@ -518,6 +520,7 @@
 /usr/share/i18n/locales/pt_PT@euro
 /usr/share/i18n/locales/quz_PE
 /usr/share/i18n/locales/raj_IN
+/usr/share/i18n/locales/rif_MA
 /usr/share/i18n/locales/ro_RO
 /usr/share/i18n/locales/ru_RU
 /usr/share/i18n/locales/ru_UA
@@ -553,6 +556,7 @@
 /usr/share/i18n/locales/sv_SE
 /usr/share/i18n/locales/sw_KE
 /usr/share/i18n/locales/sw_TZ
+/usr/share/i18n/locales/syr
 /usr/share/i18n/locales/szl_PL
 /usr/share/i18n/locales/ta_IN
 /usr/share/i18n/locales/ta_LK

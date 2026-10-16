@@ -18,8 +18,10 @@
 /usr/share/doc/network-manager-gnome
 /usr/share/doc/network-manager-gnome/NEWS.gz
 /usr/share/doc/network-manager-gnome/changelog.Debian.gz
-/usr/share/doc/network-manager-gnome/changelog.gz
 /usr/share/doc/network-manager-gnome/copyright
+/usr/share/glib-2.0
+/usr/share/glib-2.0/schemas
+/usr/share/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 /usr/share/icons
 /usr/share/icons/hicolor
 /usr/share/icons/hicolor/16x16
@@ -33,6 +35,7 @@
 /usr/share/icons/hicolor/22x22/apps/nm-device-wired-secure.png
 /usr/share/icons/hicolor/22x22/apps/nm-device-wired.png
 /usr/share/icons/hicolor/22x22/apps/nm-device-wwan.png
+/usr/share/icons/hicolor/22x22/apps/nm-insecure-warn.png
 /usr/share/icons/hicolor/22x22/apps/nm-mb-roam.png
 /usr/share/icons/hicolor/22x22/apps/nm-no-connection.png
 /usr/share/icons/hicolor/22x22/apps/nm-secure-lock.png
@@ -259,6 +262,9 @@
 /usr/share/locale/ja
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/nm-applet.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/nm-applet.mo
 /usr/share/locale/kk
 /usr/share/locale/kk/LC_MESSAGES
 /usr/share/locale/kk/LC_MESSAGES/nm-applet.mo
