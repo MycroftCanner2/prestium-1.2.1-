@@ -6,6 +6,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libdrm-nouveau2
+/usr/share/doc/libdrm-nouveau2/changelog.Debian.amd64.gz
 /usr/share/doc/libdrm-nouveau2/changelog.Debian.gz
 /usr/share/doc/libdrm-nouveau2/copyright
 /usr/share/lintian

@@ -1,7 +1,6 @@
-1a3e866304621e750a541acfc1d35d54  usr/lib/x86_64-linux-gnu/libclucene-core.so.2.3.3.4
-1768a42937ddd4bf1ab80bf758fa4753  usr/lib/x86_64-linux-gnu/libclucene-shared.so.2.3.3.4
+1e682ce5e129c1795f0612daf5d81c1b  usr/lib/x86_64-linux-gnu/libclucene-core.so.2.3.3.4
+ec7ce3bbf46b21717f0c9674deebe5d9  usr/lib/x86_64-linux-gnu/libclucene-shared.so.2.3.3.4
 782c1bc169e4810aca4496a4e82703a7  usr/share/doc/libclucene-core1v5/README
-b7393def53d1cfad67221099c20bc47c  usr/share/doc/libclucene-core1v5/changelog.Debian.amd64.gz
-d42b92371a19e7c18fe7da7fce474fa6  usr/share/doc/libclucene-core1v5/changelog.Debian.gz
+e597894b4b93506b06aae1fdb5ff316e  usr/share/doc/libclucene-core1v5/changelog.Debian.gz
 69a0489bd6b0145e260e842e9d653bd1  usr/share/doc/libclucene-core1v5/changelog.gz
 9a79171efcf99f104cf1955a1ec03439  usr/share/doc/libclucene-core1v5/copyright

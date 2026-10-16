@@ -24,6 +24,8 @@ libdw.so.1 libdw1 #MINVER#
  ELFUTILS_0.173@ELFUTILS_0.173 0.173
  ELFUTILS_0.175@ELFUTILS_0.175 0.175
  ELFUTILS_0.177@ELFUTILS_0.177 0.177
+ ELFUTILS_0.186@ELFUTILS_0.186 0.186
+ ELFUTILS_0.188@ELFUTILS_0.188 0.188
  ELFUTILS_0@ELFUTILS_0 0.126
  dwarf_abbrevhaschildren@ELFUTILS_0.122 0.126
  dwarf_addrdie@ELFUTILS_0.122 0.126
@@ -124,9 +126,11 @@ libdw.so.1 libdw1 #MINVER#
  dwarf_linebeginstatement@ELFUTILS_0.122 0.126
  dwarf_lineblock@ELFUTILS_0.122 0.126
  dwarf_linecol@ELFUTILS_0.122 0.126
+ dwarf_linecontext@ELFUTILS_0.186 0.186
  dwarf_linediscriminator@ELFUTILS_0.148 0.148
  dwarf_lineendsequence@ELFUTILS_0.122 0.126
  dwarf_lineepiloguebegin@ELFUTILS_0.122 0.126
+ dwarf_linefunctionname@ELFUTILS_0.186 0.186
  dwarf_lineisa@ELFUTILS_0.148 0.148
  dwarf_lineno@ELFUTILS_0.122 0.126
  dwarf_lineop_index@ELFUTILS_0.148 0.148
@@ -189,7 +193,9 @@ libdw.so.1 libdw1 #MINVER#
  dwfl_errmsg@ELFUTILS_0.122 0.126
  dwfl_errno@ELFUTILS_0.122 0.126
  dwfl_frame_pc@ELFUTILS_0.158 0.158
+ dwfl_frame_reg@ELFUTILS_0.188 0.188
  dwfl_frame_thread@ELFUTILS_0.158 0.158
+ dwfl_get_debuginfod_client@ELFUTILS_0.188 0.188
  dwfl_getdwarf@ELFUTILS_0.122 0.126
  dwfl_getmodules@ELFUTILS_0.122 0.126
  dwfl_getsrc@ELFUTILS_0.122 0.126
@@ -245,6 +251,7 @@ libdw.so.1 libdw1 #MINVER#
  dwfl_report_end@ELFUTILS_0.122 0.126
  dwfl_report_module@ELFUTILS_0.122 0.126
  dwfl_report_offline@ELFUTILS_0.122 0.126
+ dwfl_report_offline_memory@ELFUTILS_0.188 0.188
  dwfl_report_segment@ELFUTILS_0.136 0.136
  dwfl_standard_argp@ELFUTILS_0.122 0.126
  dwfl_standard_find_debuginfo@ELFUTILS_0.122 0.126

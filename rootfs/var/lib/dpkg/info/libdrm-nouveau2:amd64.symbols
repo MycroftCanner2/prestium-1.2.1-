@@ -14,6 +14,7 @@ libdrm_nouveau.so.2 libdrm-nouveau2 #MINVER#
  nouveau_bufctx_new@Base 2.4.34
  nouveau_bufctx_refn@Base 2.4.34
  nouveau_bufctx_reset@Base 2.4.34
+ nouveau_check_dead_channel@Base 2.4.111
  nouveau_client_del@Base 2.4.34
  nouveau_client_new@Base 2.4.34
  nouveau_device_del@Base 2.4.34

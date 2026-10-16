@@ -1,9 +1,7 @@
 libcc1.so.0 libcc1-0 #MINVER#
- _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEEvDpOT_@Base 6
  _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_@Base 8
  _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_@Base 8
- _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED1Ev@Base 10
- _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev@Base 10
+ _ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits@Base 12
  _xexit_cleanup@Base 5
  concat@Base 5
  concat_copy2@Base 5
@@ -21,6 +19,7 @@ libcc1.so.0 libcc1-0 #MINVER#
  htab_elements@Base 5
  htab_empty@Base 5
  htab_eq_pointer@Base 5
+ htab_eq_string@Base 12
  htab_find@Base 5
  htab_find_slot@Base 5
  htab_find_slot_with_hash@Base 5

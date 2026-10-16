@@ -11,6 +11,7 @@
 /usr/share/doc
 /usr/share/doc/libegl-mesa0
 /usr/share/doc/libegl-mesa0/changelog.Debian.gz
+/usr/share/doc/libegl-mesa0/changelog.gz
 /usr/share/doc/libegl-mesa0/copyright
 /usr/share/glvnd
 /usr/share/glvnd/egl_vendor.d

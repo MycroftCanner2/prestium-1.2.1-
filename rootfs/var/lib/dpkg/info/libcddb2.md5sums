@@ -1,9 +1,8 @@
-5fa8ff474ee221c4e97cc9bedc77ec75  usr/lib/x86_64-linux-gnu/libcddb.so.2.2.3
+8cb773af90a265623450f6ab6e480e50  usr/lib/x86_64-linux-gnu/libcddb.so.2.2.3
 5c6d5affea2d304c230c7050e0d3a760  usr/share/doc/libcddb2/NEWS.gz
 c1cd0ba527c01b99bc031666fa23d28c  usr/share/doc/libcddb2/README
-44b3deaea6d1b44d3bddca89ff936b49  usr/share/doc/libcddb2/THANKS
+a58c391707b1b46c30df63edfd3663f5  usr/share/doc/libcddb2/THANKS
 82617dc62dd687503bff217063bc752c  usr/share/doc/libcddb2/TODO
-0bbbc08d929dd1cffe0d78a5eebf7e9a  usr/share/doc/libcddb2/changelog.Debian.amd64.gz
-ad825dc7355f07de29ef036ba2dbf457  usr/share/doc/libcddb2/changelog.Debian.gz
+b600b8d138b0f9dc8788c7b008cf36b8  usr/share/doc/libcddb2/changelog.Debian.gz
 89374a14d97f03b2d4b8e74f70a7c0ac  usr/share/doc/libcddb2/changelog.gz
-96c2752602ec88bf9e48b5c8f372f721  usr/share/doc/libcddb2/copyright
+b47d0932cf0802c7762b1e4a0a7ccde0  usr/share/doc/libcddb2/copyright

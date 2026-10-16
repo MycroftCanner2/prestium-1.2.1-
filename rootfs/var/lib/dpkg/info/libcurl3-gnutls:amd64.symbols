@@ -6,7 +6,9 @@ libcurl-gnutls.so.4 libcurl3-gnutls #MINVER#
  curl_easy_duphandle@CURL_GNUTLS_3 7.16.2
  curl_easy_escape@CURL_GNUTLS_3 7.16.2
  curl_easy_getinfo@CURL_GNUTLS_3 7.16.2
+ curl_easy_header@CURL_GNUTLS_3 7.83.0
  curl_easy_init@CURL_GNUTLS_3 7.16.2
+ curl_easy_nextheader@CURL_GNUTLS_3 7.83.0
  curl_easy_option_by_id@CURL_GNUTLS_3 7.74.0
  curl_easy_option_by_name@CURL_GNUTLS_3 7.74.0
  curl_easy_option_next@CURL_GNUTLS_3 7.74.0
@@ -30,7 +32,6 @@ libcurl-gnutls.so.4 libcurl3-gnutls #MINVER#
  curl_global_init@CURL_GNUTLS_3 7.16.2
  curl_global_init_mem@CURL_GNUTLS_3 7.16.2
  curl_global_sslset@CURL_GNUTLS_3 7.56.1
- curl_jmpenv@CURL_GNUTLS_3 7.16.2
  curl_maprintf@CURL_GNUTLS_3 7.16.2
  curl_mfprintf@CURL_GNUTLS_3 7.16.2
  curl_mime_addpart@CURL_GNUTLS_3 7.56.1
@@ -86,5 +87,9 @@ libcurl-gnutls.so.4 libcurl3-gnutls #MINVER#
  curl_url_dup@CURL_GNUTLS_3 7.63.0
  curl_url_get@CURL_GNUTLS_3 7.63.0
  curl_url_set@CURL_GNUTLS_3 7.63.0
+ curl_url_strerror@CURL_GNUTLS_3 7.80.0
  curl_version@CURL_GNUTLS_3 7.16.2
  curl_version_info@CURL_GNUTLS_3 7.16.2
+ curl_ws_meta@CURL_GNUTLS_3 7.86.0
+ curl_ws_recv@CURL_GNUTLS_3 7.86.0
+ curl_ws_send@CURL_GNUTLS_3 7.86.0

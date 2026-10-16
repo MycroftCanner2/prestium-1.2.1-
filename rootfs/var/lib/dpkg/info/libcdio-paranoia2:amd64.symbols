@@ -1,4 +1,5 @@
 libcdio_paranoia.so.2 libcdio-paranoia2 #MINVER#
+* Build-Depends-Package: libcdio-paranoia-dev
  CDIO_PARANOIA_2@CDIO_PARANOIA_2 10.2+2.0.0
  cdio_paranoia_cachemodel_size@CDIO_PARANOIA_2 10.2+2.0.0
  cdio_paranoia_free@CDIO_PARANOIA_2 10.2+2.0.0

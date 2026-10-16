@@ -1,3 +1,4 @@
-36388bd99fc234f8887fbffee57a96f8  usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.0.0
-9e3a60e8f59691b5503466fe0f5a0300  usr/share/doc/libdrm-intel1/changelog.Debian.gz
+2eebd7da546260ec855ee6339a7d2c85  usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.0.0
+966d58f9ac137ae8c72880a8f9968aa5  usr/share/doc/libdrm-intel1/changelog.Debian.amd64.gz
+9a36f12e641b95e2dde31c72574a257d  usr/share/doc/libdrm-intel1/changelog.Debian.gz
 f877b409d7f2dfcf6e3e2a139d19798c  usr/share/doc/libdrm-intel1/copyright

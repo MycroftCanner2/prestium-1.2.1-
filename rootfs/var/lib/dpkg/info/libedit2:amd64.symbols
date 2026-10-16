@@ -1,6 +1,10 @@
 libedit.so.2 libedit2 #MINVER#
  _el_fn_complete@Base 2.11-20080614-0
  _rl_abort_internal@Base 2.11-20080614-0
+ _rl_complete_mark_directories@Base 3.1-20210910
+ _rl_completion_prefix_display_length@Base 3.1-20210910
+ _rl_echoing_p@Base 3.1-20210910
+ _rl_erase_entire_line@Base 3.1-20210910
  _rl_print_completions_horizontally@Base 2.11-20080614-0
  _rl_qsort_string_compare@Base 2.11-20080614-0
  add_history@Base 2.11-20080614-0
@@ -12,6 +16,7 @@ libedit.so.2 libedit2 #MINVER#
  current_history@Base 2.11-20080614-0
  el_beep@Base 2.11-20080614-0
  el_cursor@Base 3.1-20130712-0
+ el_deletestr1@Base 3.1-20221030-2
  el_deletestr@Base 2.11-20080614-0
  el_end@Base 2.11-20080614-0
  el_get@Base 2.11-20080614-0
@@ -23,6 +28,7 @@ libedit.so.2 libedit2 #MINVER#
  el_line@Base 2.11-20080614-0
  el_parse@Base 2.11-20080614-0
  el_push@Base 2.11-20080614-0
+ el_replacestr@Base 3.1-20221030-2
  el_reset@Base 2.11-20080614-0
  el_resize@Base 2.11-20080614-0
  el_set@Base 2.11-20080614-0
@@ -34,15 +40,18 @@ libedit.so.2 libedit2 #MINVER#
  el_wline@Base 3.1-20140620-0
  el_wparse@Base 3.1-20140620-0
  el_wpush@Base 3.1-20140620-0
+ el_wreplacestr@Base 3.1-20221030-2
  el_wset@Base 3.1-20140620-0
  emacs_ctlx_keymap@Base 2.11-20080614-0
  emacs_meta_keymap@Base 2.11-20080614-0
  emacs_standard_keymap@Base 2.11-20080614-0
  filename_completion_function@Base 2.11-20080614-0
+ fn_complete2@Base 3.1-20210419-1
  fn_complete@Base 2.11-20080614-0
  fn_display_match_list@Base 2.11-20080614-0
  fn_filename_completion_function@Base 2.11-20080614-0
  fn_tilde_expand@Base 2.11-20080614-0
+ free_history_entry@Base 3.1-20210910
  get_history_event@Base 2.11-20080614-0
  history@Base 2.11-20080614-0
  history_arg_extract@Base 2.11-20080614-0
@@ -57,6 +66,7 @@ libedit.so.2 libedit2 #MINVER#
  history_is_stifled@Base 2.11-20080614-0
  history_length@Base 2.11-20080614-0
  history_list@Base 3.1-20160903-0
+ history_max_entries@Base 3.1-20210910
  history_no_expand_chars@Base 2.11-20080614-0
  history_offset@Base 3.1-20160903-0
  history_search@Base 2.11-20080614-0
@@ -76,12 +86,15 @@ libedit.so.2 libedit2 #MINVER#
  read_history@Base 2.11-20080614-0
  readline@Base 2.11-20080614-0
  readline_echoing_p@Base 2.11-20080614-0
+ reallocarr@Base 3.1-20221030-2
  remove_history@Base 2.11-20080614-0
  replace_history_entry@Base 3.1-20130611-0
+ rl_abort@Base 3.1-20210910
  rl_add_defun@Base 2.11-20080614-0
  rl_already_prompted@Base 2.11-20080614-0
  rl_attempted_completion_function@Base 2.11-20080614-0
  rl_attempted_completion_over@Base 2.11-20080614-0
+ rl_basic_quote_characters@Base 3.1-20210910
  rl_basic_word_break_characters@Base 2.11-20080614-0
  rl_bind_key@Base 2.11-20080614-0
  rl_bind_key_in_map@Base 2.11-20080614-0
@@ -99,15 +112,22 @@ libedit.so.2 libedit2 #MINVER#
  rl_completion_entry_function@Base 2.11-20080614-0
  rl_completion_matches@Base 2.11-20080614-0
  rl_completion_query_items@Base 2.11-20080614-0
+ rl_completion_suppress_append@Base 3.1-20210910
  rl_completion_type@Base 2.11-20080614-0
  rl_completion_word_break_hook@Base 3.1-20130611-0
+ rl_copy_text@Base 3.1-20221030-2
+ rl_crlf@Base 3.1-20210910
+ rl_delete_text@Base 3.1-20221030-2
  rl_deprep_term_function@Base 2.11-20080614-0
  rl_deprep_terminal@Base 2.11-20080614-0
- rl_did_startup_hook@Base 3.1-20180525-0
+ rl_ding@Base 3.1-20210910
+ rl_directory_completion_hook@Base 3.1-20210910
  rl_display_match_list@Base 2.11-20080614-0
+ rl_display_prompt@Base 3.1-20210910
  rl_done@Base 2.11-20080614-0
  rl_echo_signal_char@Base 3.1-20181209-0
  rl_end@Base 2.11-20080614-0
+ rl_erase_empty_line@Base 3.1-20221030-2
  rl_event_hook@Base 2.11-20080614-0
  rl_filename_completion_desired@Base 2.11-20080614-0
  rl_filename_completion_function@Base 2.11-20080614-0
@@ -129,6 +149,7 @@ libedit.so.2 libedit2 #MINVER#
  rl_line_buffer@Base 2.11-20080614-0
  rl_linefunc@Base 2.11-20080614-0
  rl_make_bare_keymap@Base 2.11-20080614-0
+ rl_message@Base 3.1-20221030-2
  rl_newline@Base 2.11-20080614-0
  rl_on_new_line@Base 3.1-20130611-0
  rl_outstream@Base 2.11-20080614-0
@@ -138,19 +159,27 @@ libedit.so.2 libedit2 #MINVER#
  rl_prep_term_function@Base 2.11-20080614-0
  rl_prep_terminal@Base 2.11-20080614-0
  rl_prompt@Base 2.11-20080614-0
+ rl_prompt_saved@Base 3.1-20221030-2
  rl_read_init_file@Base 2.11-20080614-0
  rl_read_key@Base 2.11-20080614-0
  rl_readline_name@Base 2.11-20080614-0
+ rl_readline_state@Base 3.1-20210910
  rl_readline_version@Base 3.1-20130611-0
  rl_redisplay@Base 2.11-20080614-0
  rl_redisplay_function@Base 2.11-20080614-0
+ rl_replace_line@Base 3.1-20221030-2
  rl_reset_after_signal@Base 3.1-20181209-0
  rl_reset_terminal@Base 2.11-20080614-0
  rl_resize_terminal@Base 3.1-20180525-0
+ rl_restore_prompt@Base 3.1-20221030-2
+ rl_save_prompt@Base 3.1-20221030-2
+ rl_set_key@Base 3.1-20221030-2
  rl_set_keyboard_input_timeout@Base 3.1-20160618-0
  rl_set_keymap@Base 2.11-20080614-0
+ rl_set_keymap_name@Base 3.1-20210910
  rl_set_prompt@Base 3.1-20130611-0
  rl_set_screen_size@Base 2.11-20080614-0
+ rl_sort_completion_matches@Base 3.1-20210910
  rl_special_prefixes@Base 2.11-20080614-0
  rl_startup1_hook@Base 2.11-20080614-0
  rl_startup_hook@Base 2.11-20080614-0

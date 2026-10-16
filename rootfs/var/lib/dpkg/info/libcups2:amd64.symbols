@@ -129,6 +129,7 @@ libcups.so.2 libcups2 #MINVER#
  _ppdCacheGetSource@Base 2.3~b6
  _ppdCacheGetType@Base 2.3~b6
  _ppdCacheWriteFile@Base 2.3~b6
+ _ppdCreateFromIPP2@Base 2.3~b6
  _ppdCreateFromIPP@Base 2.3~b6
  _ppdFreeLanguages@Base 2.3~b6
  _ppdGetEncoding@Base 2.3~b6
@@ -316,6 +317,7 @@ libcups.so.2 libcups2 #MINVER#
  cupsSetDests2@Base 1.4.0
  cupsSetDests@Base 1.4.0
  cupsSetEncryption@Base 1.4.0
+ cupsSetOAuthCB@Base 2.4.1op1
  cupsSetPasswordCB2@Base 1.4.0
  cupsSetPasswordCB@Base 1.4.0
  cupsSetServer@Base 1.4.0

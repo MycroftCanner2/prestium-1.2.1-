@@ -1,4 +1,5 @@
 libcdio_cdda.so.2 libcdio-cdda2 #MINVER#
+* Build-Depends-Package: libcdio-cdda-dev
  CDIO_CDDA_2@CDIO_CDDA_2 10.2+2.0.0
  cdio_cddap_close@CDIO_CDDA_2 10.2+2.0.0
  cdio_cddap_close_no_free_cdio@CDIO_CDDA_2 10.2+2.0.0

@@ -6,7 +6,9 @@ libcurl.so.4 libcurl4 #MINVER#
  curl_easy_duphandle@CURL_OPENSSL_4 7.16.2
  curl_easy_escape@CURL_OPENSSL_4 7.16.2
  curl_easy_getinfo@CURL_OPENSSL_4 7.16.2
+ curl_easy_header@CURL_OPENSSL_4 7.83.0
  curl_easy_init@CURL_OPENSSL_4 7.16.2
+ curl_easy_nextheader@CURL_OPENSSL_4 7.83.0
  curl_easy_option_by_id@CURL_OPENSSL_4 7.74.0
  curl_easy_option_by_name@CURL_OPENSSL_4 7.74.0
  curl_easy_option_next@CURL_OPENSSL_4 7.74.0
@@ -30,7 +32,6 @@ libcurl.so.4 libcurl4 #MINVER#
  curl_global_init@CURL_OPENSSL_4 7.16.2
  curl_global_init_mem@CURL_OPENSSL_4 7.16.2
  curl_global_sslset@CURL_OPENSSL_4 7.56.1
- curl_jmpenv@CURL_OPENSSL_4 7.16.2
  curl_maprintf@CURL_OPENSSL_4 7.16.2
  curl_mfprintf@CURL_OPENSSL_4 7.16.2
  curl_mime_addpart@CURL_OPENSSL_4 7.56.1
@@ -86,5 +87,9 @@ libcurl.so.4 libcurl4 #MINVER#
  curl_url_dup@CURL_OPENSSL_4 7.63.0
  curl_url_get@CURL_OPENSSL_4 7.63.0
  curl_url_set@CURL_OPENSSL_4 7.63.0
+ curl_url_strerror@CURL_OPENSSL_4 7.80.0
  curl_version@CURL_OPENSSL_4 7.16.2
  curl_version_info@CURL_OPENSSL_4 7.16.2
+ curl_ws_meta@CURL_OPENSSL_4 7.86.0
+ curl_ws_recv@CURL_OPENSSL_4 7.86.0
+ curl_ws_send@CURL_OPENSSL_4 7.86.0

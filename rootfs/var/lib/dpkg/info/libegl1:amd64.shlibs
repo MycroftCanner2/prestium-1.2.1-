@@ -1,1 +1,1 @@
-libEGL 1 libegl1 (>= 1.3.2)
+libEGL 1 libegl1 (>= 1.6.0)

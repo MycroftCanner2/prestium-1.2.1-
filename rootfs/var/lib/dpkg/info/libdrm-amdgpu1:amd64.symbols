@@ -26,6 +26,7 @@ libdrm_amdgpu.so.1 libdrm-amdgpu1 #MINVER#
  amdgpu_cs_ctx_create@Base 2.4.63
  amdgpu_cs_ctx_free@Base 2.4.63
  amdgpu_cs_ctx_override_priority@Base 2.4.99
+ amdgpu_cs_ctx_stable_pstate@Base 2.4.110
  amdgpu_cs_destroy_semaphore@Base 2.4.67
  amdgpu_cs_destroy_syncobj@Base 2.4.82
  amdgpu_cs_export_syncobj@Base 2.4.82
@@ -53,6 +54,7 @@ libdrm_amdgpu.so.1 libdrm-amdgpu1 #MINVER#
  amdgpu_cs_wait_fences@Base 2.4.81
  amdgpu_cs_wait_semaphore@Base 2.4.67
  amdgpu_device_deinitialize@Base 2.4.63
+ amdgpu_device_get_fd@Base 2.4.109
  amdgpu_device_initialize@Base 2.4.63
  amdgpu_find_bo_by_cpu_mapping@Base 2.4.94
  amdgpu_get_marketing_name@Base 2.4.73
@@ -67,6 +69,7 @@ libdrm_amdgpu.so.1 libdrm-amdgpu1 #MINVER#
  amdgpu_query_info@Base 2.4.63
  amdgpu_query_sensor_info@Base 2.4.80
  amdgpu_query_sw_info@Base 2.4.90
+ amdgpu_query_video_caps_info@Base 2.4.105
  amdgpu_read_mm_registers@Base 2.4.63
  amdgpu_va_range_alloc@Base 2.4.63
  amdgpu_va_range_free@Base 2.4.63

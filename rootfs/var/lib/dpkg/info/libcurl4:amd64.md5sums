@@ -1,5 +1,4 @@
-3c76b3e7f47e5d8a670cd204478f4d24  usr/lib/x86_64-linux-gnu/libcurl.so.4.7.0
-5f67ab850d7e46a9e730e66884b300c7  usr/share/doc/libcurl4/NEWS.Debian.gz
-994cd4d5f99529c647d4f1f4ad0fc991  usr/share/doc/libcurl4/changelog.Debian.gz
-422d2c3da7ede7e88007fad1ed48fddb  usr/share/doc/libcurl4/changelog.gz
-e78a25b5b39c2476a1fa5800f5b1c185  usr/share/doc/libcurl4/copyright
+816c3e553906e2f9852db2dee6a255b2  usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0
+cbe626a69890c8f56403115e45e5501a  usr/share/doc/libcurl4/changelog.Debian.gz
+0a7d15f1f7beb98774b69a1e88bc2119  usr/share/doc/libcurl4/changelog.gz
+f9f6598312858fead4eed4d151197550  usr/share/doc/libcurl4/copyright

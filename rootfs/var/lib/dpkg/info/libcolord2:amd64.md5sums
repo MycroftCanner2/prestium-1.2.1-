@@ -1,4 +1,4 @@
-d92c99cbc1eedfe664fa0f1f63b257ce  usr/lib/x86_64-linux-gnu/libcolord.so.2.0.5
-c0811789db053b431a2b4a419586459d  usr/lib/x86_64-linux-gnu/libcolordprivate.so.2.0.5
-6918bb7d98d2522a338359e82727e7d1  usr/share/doc/libcolord2/changelog.Debian.gz
-35e395c30863393f77ae859ef3a9de5c  usr/share/doc/libcolord2/copyright
+a156291851ce829676e9c179d655351a  usr/lib/x86_64-linux-gnu/libcolord.so.2.0.5
+d5bb21bd038c76aed2401f6c3a7c5ac3  usr/lib/x86_64-linux-gnu/libcolordprivate.so.2.0.5
+619111d1aae5b44309a6c41fad9f4c3a  usr/share/doc/libcolord2/changelog.Debian.gz
+e15d3e425af21bc70e2fe15f5aed2ebc  usr/share/doc/libcolord2/copyright

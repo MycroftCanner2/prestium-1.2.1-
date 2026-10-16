@@ -1,3 +1,4 @@
-66c3bc8b77614fd5412317f9b504eca0  lib/x86_64-linux-gnu/libcom_err.so.2.1
-147cd7e8810121e02b3c5973a637167b  usr/share/doc/libcom-err2/changelog.Debian.gz
-dfb3e511190f0d507e578e663d3899e1  usr/share/doc/libcom-err2/copyright
+61c644f5379a5f72b05f578cb1b20cf9  lib/x86_64-linux-gnu/libcom_err.so.2.1
+b47ae0c4ebbbd0c15fa08331e69ae3e2  usr/share/doc/libcom-err2/changelog.Debian.amd64.gz
+7afd35a4116bb1d9623ecc8ec297e7f9  usr/share/doc/libcom-err2/changelog.Debian.gz
+1310ed8edd8d42af06394a2c050f9c8c  usr/share/doc/libcom-err2/copyright
