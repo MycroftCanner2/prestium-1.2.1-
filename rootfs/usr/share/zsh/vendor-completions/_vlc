@@ -4,13 +4,9 @@ typeset -A opt_args
 local context state line ret=1
 local modules
 
-vlc_modules="shm vnc vcd dvdnav dvdread libbluray ftp http smb tcp sftp udp nfs avio satip concat access_mtp rist adummy afile amem alsa jack stereo_widen audio_format i420_rgb_mmx i420_yuy2_mmx i422_yuy2_mmx i420_rgb_sse2 i420_yuy2_sse2 i422_yuy2_sse2 ddummy edummy spdif adpcm a52 aes3 dca araw faad g711 fluidsynth lpcm uleaddvaudio mpg123 cdg libmpeg2 rawvideo rtpvideo png svgdec jpeg sdl_image xwd libass cc cvdsub dvbsub scte18 scte27 stl subsdec subsusf svcdsub textst t140 zvbi substx3g flac kate opus theora vorbis speex oggspots vaapi x265 x264 twolame shine x26410b dav1d demuxdump rawdv rawvid au rawaud wav nsv real mod pva aiff mjpeg ty subtitle vobsub voc nuv xa nsc tta mpc vc1 demux_cdg smf diracsys sid image demux_stl caf directory es h26x mp4 mpgv fingerprinter gnutls rtsp mpjpeg ps mux_ogg mux_ts av1 mpegvideo mpeg4video mpeg4audio h264 mpegaudio dirac hevc mlp copy dts packetizer_avparser stream_out_chromaprint stream_out_chromecast remoteosd record adf skiptags svg postproc blend xcb_window glconv_vaapi_drm egl_x11 glx egl_wl vdummy flaschen fb attachment yuv vmem filesystem idummy sdp imem imem_access timecode access_jack access_alsa vdr dv1394 linsys_hdsdi dc1394 linsys_sdi v4l2 xcb_screen cdda access_realrtsp dtv dvb access_mms dummy file access_output_livehttp access_output_shout access_output_rist pulse chorus_flanger audiobargraph_a compressor equalizer normvol karaoke gain param_eq scaletempo scaletempo_pitch spatializer headphone dolby mono remap simple_channel_mixer trivial spatialaudio tospdif samplerate soxr ugly speex_resampler mad float_mixer integer_mixer i420_rgb i420_yuy2 i422_yuy2 i422_i420 yuy2_i420 grey_yuv rv32 yuy2_i422 chain yuvp swscale aribsub spudec ttml vaapi_drm webvtt avcodec gestures netsync hotkeys oldrc lirc dbus xcb_hotkeys flacsys ogg asf avformat avi mkv playlist ts noseek demux_chromecast ncurses memory qt skins2 secret kwallet console syslog sd_journal lua folder taglib logger stats audioscrobbler export xdg dbus_screensaver vorepository fsstorage xml notify mediadirs sap podcast avahi mtp udev upnp pulselist xcb_apps delay cycle description duplicate stream_out_standard display gather bridge mosaic_bridge smem autodel stream_out_transcode setid wall clone stream_out_rtp panoramix subsdelay logo audiobargraph_v marq dynamicoverlay rss mosaic archive decomp cache_read inflate cache_block hds prefetch tdummy freetype vaapi_filters vdpau_adjust vdpau_deinterlace vdpau_sharpen vdpau_chroma vdpau_display alphamask adjust vdpau_avcodec ball blendbench bluescreen canvas colorthres croppadd erase edgedetection extract gradient gaussianblur grain invert magnify mirror motionblur posterize motiondetect psychedelic ripple scene scale sepia wave sharpen transform gradfun antiflicker hqdn3d anaglyph oldmovie fps freeze vhs puzzle deinterlace rotate glspectrum gles2 visual gl glconv_vaapi_wl glconv_vaapi_x11 glconv_vdpau xcb_x11 xcb_xv wl_shm wl_shell aa xdg_shell caca pulsesrc rtp access i420_nv12 i420_10_p010 motion adaptive "
+vlc_modules="vnc dvdnav dvdread libbluray ftp http smb tcp udp sftp nfs avio satip concat access_mtp rist access_srt adummy afile amem alsa jack stereo_widen audio_format i420_rgb_mmx i420_yuy2_mmx i422_yuy2_mmx i420_rgb_sse2 i420_yuy2_sse2 i422_yuy2_sse2 ddummy spdif edummy a52 dca adpcm aes3 faad araw g711 lpcm fluidsynth mpg123 uleaddvaudio cdg libmpeg2 rtpvideo rawvideo png jpeg svgdec sdl_image xwd libass cc cvdsub dvbsub scte27 scte18 stl subsdec subsusf svcdsub t140 textst zvbi flac substx3g kate opus theora speex oggspots vorbis x264 x265 x26410b vaapi shine dav1d twolame demuxdump rawdv rawvid au rawaud wav nsv real mod pva aiff mjpeg subtitle ty vobsub xa voc nuv nsc mpc tta demux_cdg vc1 smf dmxmus sid diracsys image demux_stl caf directory es h26x mp4 mpgv gnutls fingerprinter rtsp mpjpeg ps mux_ogg mux_ts av1 mpegvideo mpeg4video mpeg4audio mpegaudio h264 mlp dirac hevc copy dts packetizer_avparser stream_out_chromaprint stream_out_chromecast remoteosd record skiptags adf svg postproc blend glconv_vaapi_drm xcb_window egl_x11 glx egl_wl fb flaschen vdummy vmem yuv attachment filesystem imem_access idummy imem sdp timecode vdr access_alsa access_jack dc1394 linsys_hdsdi shm dv1394 linsys_sdi xcb_screen v4l2 cdda vcd dtv dvb access_mms access_realrtsp file dummy access_output_livehttp access_output_shout access_output_rist access_output_srt pulse audiobargraph_a chorus_flanger compressor equalizer karaoke gain normvol param_eq scaletempo_pitch scaletempo spatializer dolby headphone mono remap simple_channel_mixer trivial spatialaudio tospdif samplerate soxr ugly speex_resampler float_mixer mad integer_mixer i420_rgb i420_yuy2 i422_yuy2 i422_i420 grey_yuv yuy2_i420 rv32 yuy2_i422 chain yuvp aribsub swscale ttml spudec webvtt avcodec vaapi_drm gestures hotkeys netsync lirc oldrc xcb_hotkeys dbus flacsys ogg asf avi avformat mkv playlist ts noseek demux_chromecast ncurses memory secret kwallet console skins2 syslog sd_journal qt folder lua taglib logger stats audioscrobbler export dbus_screensaver xdg vorepository fsstorage xml notify podcast mediadirs sap mtp avahi upnp pulselist udev xcb_apps cycle delay description stream_out_standard duplicate display gather bridge mosaic_bridge autodel smem setid stream_out_transcode clone stream_out_rtp wall panoramix subsdelay audiobargraph_v logo marq mosaic rss dynamicoverlay archive cache_read decomp cache_block inflate prefetch hds tdummy freetype vaapi_filters vdpau_deinterlace vdpau_adjust vdpau_sharpen vdpau_chroma adjust vdpau_avcodec vdpau_display alphamask ball blendbench bluescreen canvas colorthres croppadd edgedetection erase extract gradient grain gaussianblur invert magnify mirror motiondetect motionblur posterize psychedelic ripple scale sepia scene sharpen transform wave antiflicker gradfun hqdn3d anaglyph oldmovie vhs fps freeze puzzle rotate deinterlace glspectrum gles2 visual gl glconv_vaapi_wl glconv_vaapi_x11 glconv_vdpau wl_shm wl_shell xcb_x11 xcb_xv xdg_shell aa caca pulsesrc rtp access i420_nv12 i420_10_p010 motion adaptive "
 
 _arguments -S -s \
-  "--shm-fps[Frame rate]"\
-  "--shm-depth[Frame buffer depth]:Pixel depth of the frame buffer, or zero for XWD file:((32\:\"32 bits\" 24\:\"24 bits\" 16\:\"16 bits\" 15\:\"15 bits\" 8\:\"8 bits\" 0\:\"XWD file (autodetect)\" ))"\
-  "--shm-width[Frame buffer width]"\
-  "--shm-height[Frame buffer height]"\
   "--rfb-user[Username]"\
   "--rfb-password[Password]"\
   "--rfb-x509-ca[X.509 Certificate Authority]:Certificate of the Authority to verify server's against:_files"\
@@ -39,10 +35,10 @@ _arguments -S -s \
   "--smb-user[Username]"\
   "--smb-pwd[Password]"\
   "--smb-domain[SMB domain]"\
+  "--udp-timeout[UDP Source timeout (sec)]"\
   "--sftp-port[SFTP port]"\
   "--sftp-user[Username]"\
   "--sftp-pwd[Password]"\
-  "--udp-timeout[UDP Source timeout (sec)]"\
   "(--nonfs-auto-guid --no-nfs-auto-guid)--nfs-auto-guid[Set NFS uid/guid automatically]"\
   "(--nonfs-auto-guid --nfs-auto-guid)--no-nfs-auto-guid[Set NFS uid/guid automatically]"\
   "(--no-nfs-auto-guid --nfs-auto-guid)--nonfs-auto-guid[Set NFS uid/guid automatically]"\
@@ -67,6 +63,11 @@ _arguments -S -s \
   "(--nomcast-blind-nacks --no-mcast-blind-nacks)--mcast-blind-nacks[Do not check for a valid rtcp message from the encoder]"\
   "(--nomcast-blind-nacks --mcast-blind-nacks)--no-mcast-blind-nacks[Do not check for a valid rtcp message from the encoder]"\
   "(--no-mcast-blind-nacks --mcast-blind-nacks)--nomcast-blind-nacks[Do not check for a valid rtcp message from the encoder]"\
+  "--poll-timeout[Return poll wait after timeout milliseconds (-1 = infinite)]"\
+  "--latency[SRT latency (ms)]"\
+  "--passphrase[Password for stream encryption]"\
+  "--key-length[Crypto key length in bytes]:Crypto key length in bytes:((32\:\"32 bytes\" 24\:\"24 bytes\" 16\:\"16 bytes\" ))"\
+  "--streamid[ SRT Stream ID]"\
   "--audiofile-file[Output file]:Output file:_files"\
   "--audiofile-format[Output format]:Output format:((spdif\:\"spdif\" float32\:\"float32\" s16\:\"s16\" u8\:\"u8\" ))"\
   "--audiofile-channels[Number of output channels]"\
@@ -105,10 +106,10 @@ _arguments -S -s \
   "(--nosynth-reverb --synth-reverb)--no-synth-reverb[Reverb]"\
   "(--no-synth-reverb --synth-reverb)--nosynth-reverb[Reverb]"\
   "--synth-sample-rate[Sample rate]"\
+  "--sout-jpeg-quality[Quality level]"\
   "--svg-width[Image width]"\
   "--svg-height[Image height]"\
   "--svg-scale[Scale factor]"\
-  "--sout-jpeg-quality[Quality level]"\
   "--ssa-fontsdir[Additional fonts directory]"\
   "(--nocc-opaque --no-cc-opaque)--cc-opaque[Opacity]"\
   "(--nocc-opaque --cc-opaque)--no-cc-opaque[Opacity]"\
@@ -140,12 +141,6 @@ _arguments -S -s \
   "(--no-kate-formatted --kate-formatted)--nokate-formatted[Formatted Subtitles]"\
   "--theora-postproc[Post processing quality]"\
   "--sout-theora-quality[Encoding quality]"\
-  "--sout-vorbis-quality[Encoding quality]"\
-  "--sout-vorbis-max-bitrate[Maximum encoding bitrate]"\
-  "--sout-vorbis-min-bitrate[Minimum encoding bitrate]"\
-  "(--nosout-vorbis-cbr --no-sout-vorbis-cbr)--sout-vorbis-cbr[CBR encoding]"\
-  "(--nosout-vorbis-cbr --sout-vorbis-cbr)--no-sout-vorbis-cbr[CBR encoding]"\
-  "(--no-sout-vorbis-cbr --sout-vorbis-cbr)--nosout-vorbis-cbr[CBR encoding]"\
   "--sout-speex-mode[Mode]:Enforce the mode of the encoder.:((2\:\"Ultra-wideband (32kHz)\" 1\:\"Wide-band (16kHz)\" 0\:\"Narrow-band (8kHz)\" ))"\
   "--sout-speex-complexity[Encoding complexity]"\
   "(--nosout-speex-cbr --no-sout-speex-cbr)--sout-speex-cbr[CBR encoding]"\
@@ -159,6 +154,12 @@ _arguments -S -s \
   "(--nosout-speex-dtx --no-sout-speex-dtx)--sout-speex-dtx[Discontinuous Transmission]"\
   "(--nosout-speex-dtx --sout-speex-dtx)--no-sout-speex-dtx[Discontinuous Transmission]"\
   "(--no-sout-speex-dtx --sout-speex-dtx)--nosout-speex-dtx[Discontinuous Transmission]"\
+  "--sout-vorbis-quality[Encoding quality]"\
+  "--sout-vorbis-max-bitrate[Maximum encoding bitrate]"\
+  "--sout-vorbis-min-bitrate[Minimum encoding bitrate]"\
+  "(--nosout-vorbis-cbr --no-sout-vorbis-cbr)--sout-vorbis-cbr[CBR encoding]"\
+  "(--nosout-vorbis-cbr --sout-vorbis-cbr)--no-sout-vorbis-cbr[CBR encoding]"\
+  "(--no-sout-vorbis-cbr --sout-vorbis-cbr)--nosout-vorbis-cbr[CBR encoding]"\
   "--sout-x264-keyint[Maximum GOP size]"\
   "--sout-x264-min-keyint[Minimum GOP size]"\
   "(--nosout-x264-opengop --no-sout-x264-opengop)--sout-x264-opengop[Use recovery points to close GOPs]"\
@@ -279,12 +280,6 @@ _arguments -S -s \
   "--sout-x264-preset[Default preset setting used]:Default preset setting used:((placebo\:\"placebo\" veryslow\:\"veryslow\" slower\:\"slower\" slow\:\"slow\" medium\:\"medium\" fast\:\"fast\" faster\:\"faster\" veryfast\:\"veryfast\" superfast\:\"superfast\" ultrafast\:\"ultrafast\" ))"\
   "--sout-x264-tune[Default tune setting used]:Default tune setting used:((zerolatency\:\"zerolatency\" fastdecode\:\"fastdecode\" ssim\:\"ssim\" psnr\:\"psnr\" stillimage\:\"stillimage\" grain\:\"grain\" animation\:\"animation\" film\:\"film\" ))"\
   "--sout-x264-options[x264 advanced options]"\
-  "--sout-twolame-quality[Encoding quality]"\
-  "--sout-twolame-mode[Stereo mode]:Handling mode for stereo streams:((2\:\"Joint stereo\" 1\:\"Dual mono\" 0\:\"Stereo\" ))"\
-  "(--nosout-twolame-vbr --no-sout-twolame-vbr)--sout-twolame-vbr[VBR mode]"\
-  "(--nosout-twolame-vbr --sout-twolame-vbr)--no-sout-twolame-vbr[VBR mode]"\
-  "(--no-sout-twolame-vbr --sout-twolame-vbr)--nosout-twolame-vbr[VBR mode]"\
-  "--sout-twolame-psy[Psycho-acoustic model]"\
   "--sout-x26410b-keyint[Maximum GOP size]"\
   "--sout-x26410b-min-keyint[Minimum GOP size]"\
   "(--nosout-x26410b-opengop --no-sout-x26410b-opengop)--sout-x26410b-opengop[Use recovery points to close GOPs]"\
@@ -406,8 +401,16 @@ _arguments -S -s \
   "--sout-x26410b-tune[Default tune setting used]:Default tune setting used:((zerolatency\:\"zerolatency\" fastdecode\:\"fastdecode\" ssim\:\"ssim\" psnr\:\"psnr\" stillimage\:\"stillimage\" grain\:\"grain\" animation\:\"animation\" film\:\"film\" ))"\
   "--sout-x26410b-options[x264 advanced options]"\
   "--dav1d-thread-frames[Frames Threads]"\
-  "--dav1d-thread-tiles[Tiles Threads]"\
-  "--demuxdump-access[Dump module]:Dump module:(ftp avio stream_out_chromecast dummy file http udp access_output_livehttp access_output_shout access_output_rist mp4)"\
+  "(--nodav1d-all-layers --no-dav1d-all-layers)--dav1d-all-layers[All Layers]"\
+  "(--nodav1d-all-layers --dav1d-all-layers)--no-dav1d-all-layers[All Layers]"\
+  "(--no-dav1d-all-layers --dav1d-all-layers)--nodav1d-all-layers[All Layers]"\
+  "--sout-twolame-quality[Encoding quality]"\
+  "--sout-twolame-mode[Stereo mode]:Handling mode for stereo streams:((2\:\"Joint stereo\" 1\:\"Dual mono\" 0\:\"Stereo\" ))"\
+  "(--nosout-twolame-vbr --no-sout-twolame-vbr)--sout-twolame-vbr[VBR mode]"\
+  "(--nosout-twolame-vbr --sout-twolame-vbr)--no-sout-twolame-vbr[VBR mode]"\
+  "(--no-sout-twolame-vbr --sout-twolame-vbr)--nosout-twolame-vbr[VBR mode]"\
+  "--sout-twolame-psy[Psycho-acoustic model]"\
+  "--demuxdump-access[Dump module]:Dump module:(ftp avio stream_out_chromecast file dummy http udp access_output_livehttp access_output_shout access_output_rist access_output_srt mp4)"\
   "--demuxdump-file[Dump filename]:Name of the file to which the raw stream will be dumped.:_files"\
   "(--nodemuxdump-append --no-demuxdump-append)--demuxdump-append[Append to existing file]"\
   "(--nodemuxdump-append --demuxdump-append)--no-demuxdump-append[Append to existing file]"\
@@ -542,10 +545,6 @@ _arguments -S -s \
   "--postproc-q[Post processing quality]"\
   "--postproc-name[FFmpeg post processing filter chains]"\
   "--x11-display[X11 display]"\
-  "--dummy-chroma[Dummy image chroma format]"\
-  "--flaschen-display[Flaschen-Taschen display address]"\
-  "--flaschen-width[Width]"\
-  "--flaschen-height[Height]"\
   "--fbdev[Framebuffer device]:Framebuffer device:_files"\
   "(--nofb-tty --no-fb-tty)--fb-tty[Run fb on current tty]"\
   "(--nofb-tty --fb-tty)--no-fb-tty[Run fb on current tty]"\
@@ -555,6 +554,10 @@ _arguments -S -s \
   "(--nofb-hw-accel --no-fb-hw-accel)--fb-hw-accel[Framebuffer uses hw acceleration]"\
   "(--nofb-hw-accel --fb-hw-accel)--no-fb-hw-accel[Framebuffer uses hw acceleration]"\
   "(--no-fb-hw-accel --fb-hw-accel)--nofb-hw-accel[Framebuffer uses hw acceleration]"\
+  "--flaschen-display[Flaschen-Taschen display address]"\
+  "--flaschen-width[Width]"\
+  "--flaschen-height[Height]"\
+  "--dummy-chroma[Dummy image chroma format]"\
   "--yuv-file[device, fifo or filename]"\
   "--yuv-chroma[Chroma used]"\
   "(--noyuv-yuv4mpeg2 --no-yuv-yuv4mpeg2)--yuv-yuv4mpeg2[Add a YUV4MPEG2 header]"\
@@ -564,28 +567,40 @@ _arguments -S -s \
   "(--nolist-special-files --list-special-files)--no-list-special-files[List special files]"\
   "(--no-list-special-files --list-special-files)--nolist-special-files[List special files]"\
   "--timecode-fps[Frame rate]:Frame rate:((30/1\:\"30\" 30000/1001\:\"29.97\" 25/1\:\"25\" 24/1\:\"24\" ))"\
+  "--vdr-chapter-offset[Chapter offset in ms]"\
+  "--vdr-fps[Frame rate]"\
+  "(--noalsa-stereo --no-alsa-stereo)--alsa-stereo[Stereo]"\
+  "(--noalsa-stereo --alsa-stereo)--no-alsa-stereo[Stereo]"\
+  "(--no-alsa-stereo --alsa-stereo)--noalsa-stereo[Stereo]"\
+  "--alsa-samplerate[Sample rate]:Sample rate:((4000\:\"4000 Hz\" 8000\:\"8000 Hz\" 11025\:\"11025 Hz\" 16000\:\"16000 Hz\" 24000\:\"24000 Hz\" 22050\:\"22050 Hz\" 32000\:\"32000 Hz\" 44100\:\"44100 Hz\" 48000\:\"48000 Hz\" 88200\:\"88200 Hz\" 96000\:\"96000 Hz\" 176400\:\"176400 Hz\" 192000\:\"192000 Hz\" ))"\
   "(--nojack-input-use-vlc-pace --no-jack-input-use-vlc-pace)--jack-input-use-vlc-pace[Pace]"\
   "(--nojack-input-use-vlc-pace --jack-input-use-vlc-pace)--no-jack-input-use-vlc-pace[Pace]"\
   "(--no-jack-input-use-vlc-pace --jack-input-use-vlc-pace)--nojack-input-use-vlc-pace[Pace]"\
   "(--nojack-input-auto-connect --no-jack-input-auto-connect)--jack-input-auto-connect[Auto connection]"\
   "(--nojack-input-auto-connect --jack-input-auto-connect)--no-jack-input-auto-connect[Auto connection]"\
   "(--no-jack-input-auto-connect --jack-input-auto-connect)--nojack-input-auto-connect[Auto connection]"\
-  "(--noalsa-stereo --no-alsa-stereo)--alsa-stereo[Stereo]"\
-  "(--noalsa-stereo --alsa-stereo)--no-alsa-stereo[Stereo]"\
-  "(--no-alsa-stereo --alsa-stereo)--noalsa-stereo[Stereo]"\
-  "--alsa-samplerate[Sample rate]:Sample rate:((4000\:\"4000 Hz\" 8000\:\"8000 Hz\" 11025\:\"11025 Hz\" 16000\:\"16000 Hz\" 24000\:\"24000 Hz\" 22050\:\"22050 Hz\" 32000\:\"32000 Hz\" 44100\:\"44100 Hz\" 48000\:\"48000 Hz\" 88200\:\"88200 Hz\" 96000\:\"96000 Hz\" 176400\:\"176400 Hz\" 192000\:\"192000 Hz\" ))"\
-  "--vdr-chapter-offset[Chapter offset in ms]"\
-  "--vdr-fps[Frame rate]"\
   "--linsys-hdsdi-link[Link #]"\
   "--linsys-hdsdi-id-video[Video ID]"\
   "--linsys-hdsdi-aspect-ratio[Aspect ratio]"\
   "--linsys-hdsdi-audio[Audio configuration]"\
+  "--shm-fps[Frame rate]"\
+  "--shm-depth[Frame buffer depth]:Pixel depth of the frame buffer, or zero for XWD file:((32\:\"32 bits\" 24\:\"24 bits\" 16\:\"16 bits\" 15\:\"15 bits\" 8\:\"8 bits\" 0\:\"XWD file (autodetect)\" ))"\
+  "--shm-width[Frame buffer width]"\
+  "--shm-height[Frame buffer height]"\
   "--linsys-sdi-link[Link #]"\
   "--linsys-sdi-id-video[Video ID]"\
   "--linsys-sdi-aspect-ratio[Aspect ratio]"\
   "--linsys-sdi-audio[Audio configuration]"\
   "--linsys-sdi-telx[Teletext configuration]"\
   "--linsys-sdi-telx-lang[Teletext language]"\
+  "--screen-fps[Frame rate]"\
+  "--screen-left[Region left column]"\
+  "--screen-top[Region top row]"\
+  "--screen-width[Capture region width]"\
+  "--screen-height[Capture region height]"\
+  "(--noscreen-follow-mouse --no-screen-follow-mouse)--screen-follow-mouse[Follow the mouse]"\
+  "(--noscreen-follow-mouse --screen-follow-mouse)--no-screen-follow-mouse[Follow the mouse]"\
+  "(--no-screen-follow-mouse --screen-follow-mouse)--noscreen-follow-mouse[Follow the mouse]"\
   "--v4l2-dev[Video capture device]:Video capture device node.:_files"\
   "--v4l2-vbidev[VBI capture device]:VBI capture device:_files"\
   "--v4l2-standard[Standard]:Standard:((ATSC_16_VSB\:\"ATSC 16-VSB\" ATSC_8_VSB\:\"ATSC 8-VSB\" SECAM_LC\:\"SECAM L/C\" SECAM_L\:\"SECAM L\" SECAM_K1\:\"SECAM K1\" SECAM_K\:\"SECAM K\" SECAM_H\:\"SECAM H\" SECAM_G\:\"SECAM G\" SECAM_D\:\"SECAM D\" SECAM_B\:\"SECAM B\" NTSC_M_KR\:\"NTSC M South Korea\" NTSC_443\:\"NTSC 443\" NTSC_M_JP\:\"NTSC M Japan\" NTSC_M\:\"NTSC M\" PAL_60\:\"PAL 60\" PAL_Nc\:\"PAL N Argentina\" PAL_N\:\"PAL N\" PAL_M\:\"PAL M\" PAL_K\:\"PAL K\" PAL_D1\:\"PAL D1\" PAL_D\:\"PAL D\" PAL_I\:\"PAL I\" PAL_H\:\"PAL H\" PAL_G\:\"PAL G\" PAL_B1\:\"PAL B1\" PAL_B\:\"PAL B\" MN\:\"PAL/NTSC M/N\" BG\:\"PAL/SECAM B/G\" DK\:\"PAL/SECAM D/K\" GH\:\"PAL/SECAM G/H\" L\:\"PAL/SECAM L\" H\:\"PAL/SECAM H\" G\:\"PAL/SECAM G\" B\:\"PAL/SECAM B\" ATSC\:\"ATSC\" 625_50\:\"625 lines / 50 Hz\" 525_60\:\"525 lines / 60 Hz\" MTS\:\"Multichannel television sound (MTS)\" SECAM_DK\:\"SECAM D/K\" SECAM\:\"SECAM\" NTSC\:\"NTSC\" PAL_DK\:\"PAL D/K\" PAL_BG\:\"PAL B/G\" PAL\:\"PAL\" ALL\:\"All\" \:\"Undefined\" ))"\
@@ -641,14 +656,6 @@ _arguments -S -s \
   "(--nov4l2-audio-loudness --v4l2-audio-loudness)--no-v4l2-audio-loudness[Loudness mode]"\
   "(--no-v4l2-audio-loudness --v4l2-audio-loudness)--nov4l2-audio-loudness[Loudness mode]"\
   "--v4l2-set-ctrls[v4l2 driver controls]"\
-  "--screen-fps[Frame rate]"\
-  "--screen-left[Region left column]"\
-  "--screen-top[Region top row]"\
-  "--screen-width[Capture region width]"\
-  "--screen-height[Capture region height]"\
-  "(--noscreen-follow-mouse --no-screen-follow-mouse)--screen-follow-mouse[Follow the mouse]"\
-  "(--noscreen-follow-mouse --screen-follow-mouse)--no-screen-follow-mouse[Follow the mouse]"\
-  "(--no-screen-follow-mouse --screen-follow-mouse)--noscreen-follow-mouse[Follow the mouse]"\
   "--cd-audio[Audio CD device]:This is the default Audio CD device to use.:_files"\
   "--musicbrainz-server[Musicbrainz Server]"\
   "--cddb-server[CDDB Server]"\
@@ -771,18 +778,25 @@ _arguments -S -s \
   "--sout-rist-buffer-size[RIST retry-buffer queue size (ms)]"\
   "--sout-rist-ssrc[SSRC used in RTP output (default is random, i.e. 0)]"\
   "--sout-rist-stream-name[Stream name]"\
-  "--delay-time[Delay time]"\
-  "--sweep-depth[Sweep Depth]"\
-  "--sweep-rate[Sweep Rate]"\
-  "--feedback-gain[Feedback gain]"\
-  "--wet-mix[Wet mix]"\
-  "--dry-mix[Dry Mix]"\
+  "--poll-timeout[Return poll wait after timeout milliseconds (-1 = infinite)]"\
+  "--latency[SRT latency (ms)]"\
+  "--passphrase[Password for stream encryption]"\
+  "--payload-size[SRT maximum payload size (bytes)]"\
+  "--bandwidth-overhead-limit[SRT maximum bandwidth ceiling (bytes)]"\
+  "--key-length[Crypto key length in bytes]:Crypto key length in bytes:((32\:\"32 bytes\" 24\:\"24 bytes\" 16\:\"16 bytes\" ))"\
+  "--streamid[ SRT Stream ID]"\
   "--audiobargraph_a-bargraph[Defines if BarGraph information should be sent]"\
   "--audiobargraph_a-bargraph_repetition[Sends the barGraph information every n audio packets]"\
   "--audiobargraph_a-silence[Defines if silence alarm information should be sent]"\
   "--audiobargraph_a-time_window[Time window to use in ms]"\
   "--audiobargraph_a-alarm_threshold[Minimum Audio level to raise the alarm]"\
   "--audiobargraph_a-repetition_time[Time between two alarm messages in ms]"\
+  "--delay-time[Delay time]"\
+  "--sweep-depth[Sweep Depth]"\
+  "--sweep-rate[Sweep Rate]"\
+  "--feedback-gain[Feedback gain]"\
+  "--wet-mix[Wet mix]"\
+  "--dry-mix[Dry Mix]"\
   "--compressor-rms-peak[RMS/peak]"\
   "--compressor-attack[Attack time]"\
   "--compressor-release[Release time]"\
@@ -799,9 +813,9 @@ _arguments -S -s \
   "(--noequalizer-vlcfreqs --equalizer-vlcfreqs)--no-equalizer-vlcfreqs[Use VLC frequency bands]"\
   "(--no-equalizer-vlcfreqs --equalizer-vlcfreqs)--noequalizer-vlcfreqs[Use VLC frequency bands]"\
   "--equalizer-preamp[Global gain]"\
+  "--gain-value[Gain multiplier]"\
   "--norm-buff-size[Number of audio buffers]"\
   "--norm-max-level[Maximal volume level]"\
-  "--gain-value[Gain multiplier]"\
   "--param-eq-lowf[Low freq (Hz)]"\
   "--param-eq-lowgain[Low freq gain (dB)]"\
   "--param-eq-highf[High freq (Hz)]"\
@@ -818,10 +832,10 @@ _arguments -S -s \
   "--scaletempo-stride[Stride Length]"\
   "--scaletempo-overlap[Overlap Length]"\
   "--scaletempo-search[Search Length]"\
+  "--pitch-shift[Pitch Shift]"\
   "--scaletempo-stride[Stride Length]"\
   "--scaletempo-overlap[Overlap Length]"\
   "--scaletempo-search[Search Length]"\
-  "--pitch-shift[Pitch Shift]"\
   "--spatializer-roomsize[Room size]"\
   "--spatializer-width[Room width]"\
   "--spatializer-wet[Wet]"\
@@ -857,17 +871,17 @@ _arguments -S -s \
   "--src-converter-type[Sample rate converter type]:Different resampling algorithms are supported. The best one is slower, while the fast one exhibits low quality.:((4\:\"Linear (fastest)\" 3\:\"Zero Order Hold (fastest)\" 2\:\"Sinc function (fast)\" 1\:\"Sinc function (medium quality)\" 0\:\"Sinc function (best quality)\" ))"\
   "--soxr-resampler-quality[Resampling quality]:Resampling quality:((4\:\"Very high quality\" 3\:\"High quality\" 2\:\"Medium 16-bit with medium roll-off\" 1\:\"Low 16-bit with larger roll-off\" 0\:\"Quick cubic interpolation\" ))"\
   "--speex-resampler-quality[Resampling quality]"\
-  "--swscale-mode[Scaling mode]:Scaling mode to use.:((10\:\"Bicubic spline\" 9\:\"Lanczos\" 8\:\"SincR\" 7\:\"Gauss\" 6\:\"Luma bicubic / chroma bilinear\" 5\:\"Area\" 4\:\"Nearest neighbour (bad quality)\" 3\:\"Experimental\" 2\:\"Bicubic (good quality)\" 1\:\"Bilinear\" 0\:\"Fast bilinear\" ))"\
   "(--noaribsub-ignore-ruby --no-aribsub-ignore-ruby)--aribsub-ignore-ruby[Ignore ruby (furigana)]"\
   "(--noaribsub-ignore-ruby --aribsub-ignore-ruby)--no-aribsub-ignore-ruby[Ignore ruby (furigana)]"\
   "(--no-aribsub-ignore-ruby --aribsub-ignore-ruby)--noaribsub-ignore-ruby[Ignore ruby (furigana)]"\
   "(--noaribsub-use-coretext --no-aribsub-use-coretext)--aribsub-use-coretext[Use Core Text renderer]"\
   "(--noaribsub-use-coretext --aribsub-use-coretext)--no-aribsub-use-coretext[Use Core Text renderer]"\
   "(--no-aribsub-use-coretext --aribsub-use-coretext)--noaribsub-use-coretext[Use Core Text renderer]"\
+  "--swscale-mode[Scaling mode]:Scaling mode to use.:((10\:\"Bicubic spline\" 9\:\"Lanczos\" 8\:\"SincR\" 7\:\"Gauss\" 6\:\"Luma bicubic / chroma bilinear\" 5\:\"Area\" 4\:\"Nearest neighbour (bad quality)\" 3\:\"Experimental\" 2\:\"Bicubic (good quality)\" 1\:\"Bilinear\" 0\:\"Fast bilinear\" ))"\
+  "--ttml-align[Subtitle justification]"\
   "(--nodvdsub-transparency --no-dvdsub-transparency)--dvdsub-transparency[Disable DVD subtitle transparency]"\
   "(--nodvdsub-transparency --dvdsub-transparency)--no-dvdsub-transparency[Disable DVD subtitle transparency]"\
   "(--no-dvdsub-transparency --dvdsub-transparency)--nodvdsub-transparency[Disable DVD subtitle transparency]"\
-  "--ttml-align[Subtitle justification]"\
   "(--noavcodec-dr --no-avcodec-dr)--avcodec-dr[Direct rendering]"\
   "(--noavcodec-dr --avcodec-dr)--no-avcodec-dr[Direct rendering]"\
   "(--no-avcodec-dr --avcodec-dr)--noavcodec-dr[Direct rendering]"\
@@ -887,7 +901,7 @@ _arguments -S -s \
   "--avcodec-skiploopfilter[Skip the loop filter for H.264 decoding]:Skip the loop filter for H.264 decoding:((4\:\"All\" 3\:\"Non-key\" 2\:\"Bidir\" 1\:\"Non-ref\" 0\:\"None\" ))"\
   "--avcodec-debug[Debug mask]"\
   "--avcodec-codec[Codec name]"\
-  "--avcodec-hw[Hardware decoding]:This allows hardware decoding when available.:(vaapi vaapi_drm vdpau_avcodec xdg)"\
+  "--avcodec-hw[Hardware decoding]:This allows hardware decoding when available.:(vaapi vaapi_drm vdpau_avcodec dbus_screensaver)"\
   "--avcodec-threads[Threads]"\
   "--avcodec-options[Advanced options]"\
   "--sout-avcodec-codec[Codec name]"\
@@ -936,6 +950,7 @@ _arguments -S -s \
   "(--no-netsync-master --netsync-master)--nonetsync-master[Network master clock]"\
   "--netsync-master-ip[Master server IP address]"\
   "--netsync-timeout[UDP timeout (in ms)]"\
+  "--lirc-file[Change the lirc configuration file]"\
   "(--norc-show-pos --no-rc-show-pos)--rc-show-pos[Show stream position]"\
   "(--norc-show-pos --rc-show-pos)--no-rc-show-pos[Show stream position]"\
   "(--no-rc-show-pos --rc-show-pos)--norc-show-pos[Show stream position]"\
@@ -944,10 +959,13 @@ _arguments -S -s \
   "(--no-rc-fake-tty --rc-fake-tty)--norc-fake-tty[Fake TTY]"\
   "--rc-unix[UNIX socket command input]"\
   "--rc-host[TCP command input]"\
-  "--lirc-file[Change the lirc configuration file]"\
   "(--nops-trust-timestamps --no-ps-trust-timestamps)--ps-trust-timestamps[Trust MPEG timestamps]"\
   "(--nops-trust-timestamps --ps-trust-timestamps)--no-ps-trust-timestamps[Trust MPEG timestamps]"\
   "(--no-ps-trust-timestamps --ps-trust-timestamps)--nops-trust-timestamps[Trust MPEG timestamps]"\
+  "(--noavi-interleaved --no-avi-interleaved)--avi-interleaved[Force interleaved method]"\
+  "(--noavi-interleaved --avi-interleaved)--no-avi-interleaved[Force interleaved method]"\
+  "(--no-avi-interleaved --avi-interleaved)--noavi-interleaved[Force interleaved method]"\
+  "--avi-index[Force index creation]:Force index creation:((3\:\"Fix when necessary\" 2\:\"Never fix\" 1\:\"Always fix\" 0\:\"Ask for action\" ))"\
   "--avformat-format[Format name]"\
   "--avformat-options[Advanced options]"\
   "--sout-avformat-mux[Avformat mux]"\
@@ -955,10 +973,6 @@ _arguments -S -s \
   "(--nosout-avformat-reset-ts --no-sout-avformat-reset-ts)--sout-avformat-reset-ts[Reset timestamps]"\
   "(--nosout-avformat-reset-ts --sout-avformat-reset-ts)--no-sout-avformat-reset-ts[Reset timestamps]"\
   "(--no-sout-avformat-reset-ts --sout-avformat-reset-ts)--nosout-avformat-reset-ts[Reset timestamps]"\
-  "(--noavi-interleaved --no-avi-interleaved)--avi-interleaved[Force interleaved method]"\
-  "(--noavi-interleaved --avi-interleaved)--no-avi-interleaved[Force interleaved method]"\
-  "(--no-avi-interleaved --avi-interleaved)--noavi-interleaved[Force interleaved method]"\
-  "--avi-index[Force index creation]:Force index creation:((3\:\"Fix when necessary\" 2\:\"Never fix\" 1\:\"Always fix\" 0\:\"Ask for action\" ))"\
   "(--nomkv-use-ordered-chapters --no-mkv-use-ordered-chapters)--mkv-use-ordered-chapters[Respect ordered chapters]"\
   "(--nomkv-use-ordered-chapters --mkv-use-ordered-chapters)--no-mkv-use-ordered-chapters[Respect ordered chapters]"\
   "(--no-mkv-use-ordered-chapters --mkv-use-ordered-chapters)--nomkv-use-ordered-chapters[Respect ordered chapters]"\
@@ -1013,6 +1027,30 @@ _arguments -S -s \
   "(--nots-pcr-offsetfix --ts-pcr-offsetfix)--no-ts-pcr-offsetfix[Try to fix too early PCR (or late DTS)]"\
   "(--no-ts-pcr-offsetfix --ts-pcr-offsetfix)--nots-pcr-offsetfix[Try to fix too early PCR (or late DTS)]"\
   "--browse-dir[Filebrowser starting point]:This option allows you to specify the directory the ncurses filebrowser will show you initially.:_files -/"\
+  "(--nofile-logging --no-file-logging)--file-logging[Log to file]"\
+  "(--nofile-logging --file-logging)--no-file-logging[Log to file]"\
+  "(--no-file-logging --file-logging)--nofile-logging[Log to file]"\
+  "--logfile[Log filename]:Specify the log filename.:_files"\
+  "--logmode[Log format]:Specify the logging format.:((html\:\"HTML\" text\:\"Text\" ))"\
+  "--log-verbose[Verbosity]:Select the logging verbosity or default to use the same verbosity given by --verbose.:((3\:\"Debug\" 2\:\"Warning\" 1\:\"Error\" 0\:\"Info\" -1\:\"Default\" ))"\
+  "--skins2-last[Skin to use]:Path to the skin to use.:_files"\
+  "(--noskins2-transparency --no-skins2-transparency)--skins2-transparency[Enable transparency effects]"\
+  "(--noskins2-transparency --skins2-transparency)--no-skins2-transparency[Enable transparency effects]"\
+  "(--no-skins2-transparency --skins2-transparency)--noskins2-transparency[Enable transparency effects]"\
+  "(--noskinned-playlist --no-skinned-playlist)--skinned-playlist[Use a skinned playlist]"\
+  "(--noskinned-playlist --skinned-playlist)--no-skinned-playlist[Use a skinned playlist]"\
+  "(--no-skinned-playlist --skinned-playlist)--noskinned-playlist[Use a skinned playlist]"\
+  "(--noskinned-video --no-skinned-video)--skinned-video[Display video in a skinned window if any]"\
+  "(--noskinned-video --skinned-video)--no-skinned-video[Display video in a skinned window if any]"\
+  "(--no-skinned-video --skinned-video)--noskinned-video[Display video in a skinned window if any]"\
+  "(--nosyslog --no-syslog)--syslog[System log (syslog)]"\
+  "(--nosyslog --syslog)--no-syslog[System log (syslog)]"\
+  "(--no-syslog --syslog)--nosyslog[System log (syslog)]"\
+  "(--nosyslog-debug --no-syslog-debug)--syslog-debug[Debug messages]"\
+  "(--nosyslog-debug --syslog-debug)--no-syslog-debug[Debug messages]"\
+  "(--no-syslog-debug --syslog-debug)--nosyslog-debug[Debug messages]"\
+  "--syslog-ident[Identity]"\
+  "--syslog-facility[Facility]:System logging facility.:((local7\:\"local7\" local6\:\"local6\" local5\:\"local5\" local4\:\"local4\" local3\:\"local3\" local2\:\"local2\" local1\:\"local1\" local0\:\"local0\" daemon\:\"daemon\" user\:\"user\" ))"\
   "(--noqt-minimal-view --no-qt-minimal-view)--qt-minimal-view[Start in minimal view (without menus)]"\
   "(--noqt-minimal-view --qt-minimal-view)--no-qt-minimal-view[Start in minimal view (without menus)]"\
   "(--no-qt-minimal-view --qt-minimal-view)--noqt-minimal-view[Start in minimal view (without menus)]"\
@@ -1042,6 +1080,9 @@ _arguments -S -s \
   "(--no-qt-recentplay --qt-recentplay)--noqt-recentplay[Save the recently played items in the menu]"\
   "--qt-recentplay-filter[List of words separated by | to filter]"\
   "--qt-continue[Continue playback?]:Continue playback?:((2\:\"Always\" 1\:\"Ask\" 0\:\"Never\" ))"\
+  "(--noqt-dark-palette --no-qt-dark-palette)--qt-dark-palette[Enable Dark Mode]"\
+  "(--noqt-dark-palette --qt-dark-palette)--no-qt-dark-palette[Enable Dark Mode]"\
+  "(--no-qt-dark-palette --qt-dark-palette)--noqt-dark-palette[Enable Dark Mode]"\
   "(--noqt-embedded-open --no-qt-embedded-open)--qt-embedded-open[Embed the file browser in open dialog]"\
   "(--noqt-embedded-open --qt-embedded-open)--no-qt-embedded-open[Embed the file browser in open dialog]"\
   "(--no-qt-embedded-open --qt-embedded-open)--noqt-embedded-open[Embed the file browser in open dialog]"\
@@ -1068,30 +1109,7 @@ _arguments -S -s \
   "--qt-max-volume[Maximum Volume displayed]"\
   "--qt-fs-sensitivity[Fullscreen controller mouse sensitivity]"\
   "--qt-auto-raise[When to raise the interface]:This option allows the interface to be raised automatically when a video/audio playback starts, or never.:((3\:\"Audio/Video\" 2\:\"Audio\" 1\:\"Video\" 0\:\"Never\" ))"\
-  "--skins2-last[Skin to use]:Path to the skin to use.:_files"\
-  "(--noskins2-transparency --no-skins2-transparency)--skins2-transparency[Enable transparency effects]"\
-  "(--noskins2-transparency --skins2-transparency)--no-skins2-transparency[Enable transparency effects]"\
-  "(--no-skins2-transparency --skins2-transparency)--noskins2-transparency[Enable transparency effects]"\
-  "(--noskinned-playlist --no-skinned-playlist)--skinned-playlist[Use a skinned playlist]"\
-  "(--noskinned-playlist --skinned-playlist)--no-skinned-playlist[Use a skinned playlist]"\
-  "(--no-skinned-playlist --skinned-playlist)--noskinned-playlist[Use a skinned playlist]"\
-  "(--noskinned-video --no-skinned-video)--skinned-video[Display video in a skinned window if any]"\
-  "(--noskinned-video --skinned-video)--no-skinned-video[Display video in a skinned window if any]"\
-  "(--no-skinned-video --skinned-video)--noskinned-video[Display video in a skinned window if any]"\
-  "(--nosyslog --no-syslog)--syslog[System log (syslog)]"\
-  "(--nosyslog --syslog)--no-syslog[System log (syslog)]"\
-  "(--no-syslog --syslog)--nosyslog[System log (syslog)]"\
-  "(--nosyslog-debug --no-syslog-debug)--syslog-debug[Debug messages]"\
-  "(--nosyslog-debug --syslog-debug)--no-syslog-debug[Debug messages]"\
-  "(--no-syslog-debug --syslog-debug)--nosyslog-debug[Debug messages]"\
-  "--syslog-ident[Identity]"\
-  "--syslog-facility[Facility]:System logging facility.:((local7\:\"local7\" local6\:\"local6\" local5\:\"local5\" local4\:\"local4\" local3\:\"local3\" local2\:\"local2\" local1\:\"local1\" local0\:\"local0\" daemon\:\"daemon\" user\:\"user\" ))"\
-  "(--nofile-logging --no-file-logging)--file-logging[Log to file]"\
-  "(--nofile-logging --file-logging)--no-file-logging[Log to file]"\
-  "(--no-file-logging --file-logging)--nofile-logging[Log to file]"\
-  "--logfile[Log filename]:Specify the log filename.:_files"\
-  "--logmode[Log format]:Specify the logging format.:((html\:\"HTML\" text\:\"Text\" ))"\
-  "--log-verbose[Verbosity]:Select the logging verbosity or default to use the same verbosity given by --verbose.:((3\:\"Debug\" 2\:\"Warning\" 1\:\"Error\" 0\:\"Info\" -1\:\"Default\" ))"\
+  "--album-art-filename[Album art filename]:Filename to look for album art in current directory:_files"\
   "--lua-intf[Lua interface]"\
   "--lua-config[Lua interface configuration]"\
   "--http-password[Password]"\
@@ -1104,10 +1122,16 @@ _arguments -S -s \
   "--telnet-host[Host]"\
   "--telnet-port[Port]"\
   "--telnet-password[Password]"\
-  "--album-art-filename[Album art filename]:Filename to look for album art in current directory:_files"\
   "--lastfm-username[Username]"\
   "--lastfm-password[Password]"\
   "--scrobbler-url[Scrobbler URL]"\
+  "--sout-asf-title[Title]"\
+  "--sout-asf-author[Author]"\
+  "--sout-asf-copyright[Copyright]"\
+  "--sout-asf-comment[Comment]"\
+  "--sout-asf-rating[Rating]"\
+  "--sout-asf-packet-size[Packet Size]"\
+  "--sout-asf-bitrate-override[Bitrate override]"\
   "--sout-avi-artist[Artist]"\
   "--sout-avi-date[Date]"\
   "--sout-avi-genre[Genre]"\
@@ -1117,14 +1141,8 @@ _arguments -S -s \
   "--sout-avi-subject[Subject]"\
   "--sout-avi-encoder[Encoder]"\
   "--sout-avi-keywords[Keywords]"\
-  "--sout-asf-title[Title]"\
-  "--sout-asf-author[Author]"\
-  "--sout-asf-copyright[Copyright]"\
-  "--sout-asf-comment[Comment]"\
-  "--sout-asf-rating[Rating]"\
-  "--sout-asf-packet-size[Packet Size]"\
-  "--sout-asf-bitrate-override[Bitrate override]"\
   "--notify-timeout[Timeout (ms)]"\
+  "--podcast-urls[Podcast URLs list]"\
   "--sap-addr[SAP multicast address]"\
   "--sap-timeout[SAP timeout (seconds)]"\
   "(--nosap-parse --no-sap-parse)--sap-parse[Try to parse the announce]"\
@@ -1133,22 +1151,11 @@ _arguments -S -s \
   "(--nosap-strict --no-sap-strict)--sap-strict[SAP Strict mode]"\
   "(--nosap-strict --sap-strict)--no-sap-strict[SAP Strict mode]"\
   "(--no-sap-strict --sap-strict)--nosap-strict[SAP Strict mode]"\
-  "--podcast-urls[Podcast URLs list]"\
-  "--satip-channelist[SAT>IP channel list]:SAT>IP channel list:((CustomList\:\"Custom List\" ServerList\:\"Server List\" MasterList\:\"Master List\" ASTRA_23_5E\:\"Astra 23.5°E\" ASTRA_28_2E\:\"Astra 28.2°E\" ASTRA_19_2E\:\"Astra 19.2°E\" auto\:\"Auto\" ))"\
   "--satip-channellist-url[Custom SAT>IP channel list URL]"\
-  "--sout-delay-id[Elementary Stream ID]"\
-  "--sout-delay-delay[Delay of the ES (ms)]"\
   "--sout-stats-output[Output file]"\
   "--sout-stats-prefix[Prefix to show on output line]"\
-  "--sout-es-access[Output access method]"\
-  "--sout-es-mux[Output muxer]"\
-  "--sout-es-dst[Output URL]"\
-  "--sout-es-access-audio[Audio output access method]"\
-  "--sout-es-mux-audio[Audio output muxer]"\
-  "--sout-es-dst-audio[Audio output URL]"\
-  "--sout-es-access-video[Video output access method]"\
-  "--sout-es-mux-video[Video output muxer]"\
-  "--sout-es-dst-video[Video output URL]"\
+  "--sout-delay-id[Elementary Stream ID]"\
+  "--sout-delay-delay[Delay of the ES (ms)]"\
   "--sout-standard-access[Output access method]"\
   "--sout-standard-mux[Output muxer]"\
   "--sout-standard-dst[Output destination]"\
@@ -1161,6 +1168,15 @@ _arguments -S -s \
   "--sout-standard-description[Session description]"\
   "--sout-standard-url[Session URL]"\
   "--sout-standard-email[Session email]"\
+  "--sout-es-access[Output access method]"\
+  "--sout-es-mux[Output muxer]"\
+  "--sout-es-dst[Output URL]"\
+  "--sout-es-access-audio[Audio output access method]"\
+  "--sout-es-mux-audio[Audio output muxer]"\
+  "--sout-es-dst-audio[Audio output URL]"\
+  "--sout-es-access-video[Video output access method]"\
+  "--sout-es-mux-video[Video output muxer]"\
+  "--sout-es-dst-video[Video output URL]"\
   "(--nosout-display-audio --no-sout-display-audio)--sout-display-audio[Enable audio]"\
   "(--nosout-display-audio --sout-display-audio)--no-sout-display-audio[Enable audio]"\
   "(--no-sout-display-audio --sout-display-audio)--nosout-display-audio[Enable audio]"\
@@ -1190,7 +1206,11 @@ _arguments -S -s \
   "--sout-mosaic-bridge-x[X offset]"\
   "--sout-mosaic-bridge-y[Y offset]"\
   "--sout-record-dst-prefix[Destination prefix]"\
-  "--sout-transcode-venc[Video encoder]:Video encoder:(edummy araw g711 lpcm rtpvideo png jpeg dvbsub t140 flac opus theora vorbis speex x265 x264 twolame shine x26410b avcodec stats lua)"\
+  "--sout-setid-id[Elementary Stream ID]"\
+  "--sout-setid-new-id[New ES ID]"\
+  "--sout-setlang-id[Elementary Stream ID]"\
+  "--sout-setlang-lang[Language]"\
+  "--sout-transcode-venc[Video encoder]:Video encoder:(edummy araw g711 lpcm rtpvideo png jpeg dvbsub t140 flac opus theora speex vorbis x264 x265 x26410b shine twolame avcodec stats lua)"\
   "--sout-transcode-vcodec[Destination video codec]"\
   "--sout-transcode-vb[Video bitrate]"\
   "--sout-transcode-scale[Video scaling]"\
@@ -1204,14 +1224,14 @@ _arguments -S -s \
   "--sout-transcode-maxwidth[Maximum video width]"\
   "--sout-transcode-maxheight[Maximum video height]"\
   "--sout-transcode-vfilter[Video filter]"\
-  "--sout-transcode-aenc[Audio encoder]:Audio encoder:(edummy araw g711 lpcm rtpvideo png jpeg dvbsub t140 flac opus theora vorbis speex x265 x264 twolame shine x26410b avcodec stats lua)"\
+  "--sout-transcode-aenc[Audio encoder]:Audio encoder:(edummy araw g711 lpcm rtpvideo png jpeg dvbsub t140 flac opus theora speex vorbis x264 x265 x26410b shine twolame avcodec stats lua)"\
   "--sout-transcode-acodec[Destination audio codec]"\
   "--sout-transcode-ab[Audio bitrate]"\
   "--sout-transcode-alang[Audio language]"\
   "--sout-transcode-channels[Audio channels]"\
   "--sout-transcode-samplerate[Audio sample rate]"\
   "--sout-transcode-afilter[Audio filter]"\
-  "--sout-transcode-senc[Subtitle encoder]:Subtitle encoder:(edummy araw g711 lpcm rtpvideo png jpeg dvbsub t140 flac opus theora vorbis speex x265 x264 twolame shine x26410b avcodec stats lua)"\
+  "--sout-transcode-senc[Subtitle encoder]:Subtitle encoder:(edummy araw g711 lpcm rtpvideo png jpeg dvbsub t140 flac opus theora speex vorbis x264 x265 x26410b shine twolame avcodec stats lua)"\
   "--sout-transcode-scodec[Destination subtitle codec]"\
   "(--nosout-transcode-soverlay --no-sout-transcode-soverlay)--sout-transcode-soverlay[Destination subtitle codec]"\
   "(--nosout-transcode-soverlay --sout-transcode-soverlay)--no-sout-transcode-soverlay[Destination subtitle codec]"\
@@ -1222,14 +1242,6 @@ _arguments -S -s \
   "(--nosout-transcode-high-priority --no-sout-transcode-high-priority)--sout-transcode-high-priority[High priority]"\
   "(--nosout-transcode-high-priority --sout-transcode-high-priority)--no-sout-transcode-high-priority[High priority]"\
   "(--no-sout-transcode-high-priority --sout-transcode-high-priority)--nosout-transcode-high-priority[High priority]"\
-  "--sout-setid-id[Elementary Stream ID]"\
-  "--sout-setid-new-id[New ES ID]"\
-  "--sout-setlang-id[Elementary Stream ID]"\
-  "--sout-setlang-lang[Language]"\
-  "--wall-cols[Number of columns]"\
-  "--wall-rows[Number of rows]"\
-  "--wall-active[Active windows]"\
-  "--wall-element-aspect[Element aspect ratio]"\
   "--clone-count[Number of clones]"\
   "--clone-vout-list[Video output modules]"\
   "--sout-rtp-dst[Destination]"\
@@ -1260,6 +1272,10 @@ _arguments -S -s \
   "--rtsp-timeout[RTSP session timeout (s)]"\
   "--sout-rtsp-user[Username]"\
   "--sout-rtsp-pwd[Password]"\
+  "--wall-cols[Number of columns]"\
+  "--wall-rows[Number of rows]"\
+  "--wall-active[Active windows]"\
+  "--wall-element-aspect[Element aspect ratio]"\
   "--panoramix-cols[Number of columns]"\
   "--panoramix-rows[Number of rows]"\
   "--panoramix-bz-length[length of the overlapping area (in %)]"\
@@ -1294,6 +1310,12 @@ _arguments -S -s \
   "--subsdelay-min-stops[Interval between two disappearances]"\
   "--subsdelay-min-start-stop[Interval between appearance and disappearance]"\
   "--subsdelay-min-stop-start[Interval between disappearance and appearance]"\
+  "--audiobargraph_v-x[X coordinate]"\
+  "--audiobargraph_v-y[Y coordinate]"\
+  "--audiobargraph_v-transparency[Transparency of the bargraph]"\
+  "--audiobargraph_v-position[Bargraph position]:Bargraph position:((10\:\"Bottom-Right\" 9\:\"Bottom-Left\" 6\:\"Top-Right\" 5\:\"Top-Left\" 8\:\"Bottom\" 4\:\"Top\" 2\:\"Right\" 1\:\"Left\" 0\:\"Center\" ))"\
+  "--audiobargraph_v-barWidth[Bar width in pixel]"\
+  "--audiobargraph_v-barHeight[Bar Height in pixel]"\
   "--logo-file[Logo filenames]:Full path of the image files to use. Format is <image>[,<delay in ms>[,<alpha>]][;<image>[,<delay>[,<alpha>]]][;...]. If you only have one file, simply enter its filename.:_files"\
   "--logo-x[X coordinate]"\
   "--logo-y[Y coordinate]"\
@@ -1301,12 +1323,6 @@ _arguments -S -s \
   "--logo-repeat[Logo animation # of loops]"\
   "--logo-opacity[Opacity of the logo]"\
   "--logo-position[Logo position]:Logo position:((10\:\"Bottom-Right\" 9\:\"Bottom-Left\" 6\:\"Top-Right\" 5\:\"Top-Left\" 8\:\"Bottom\" 4\:\"Top\" 2\:\"Right\" 1\:\"Left\" 0\:\"Center\" ))"\
-  "--audiobargraph_v-x[X coordinate]"\
-  "--audiobargraph_v-y[Y coordinate]"\
-  "--audiobargraph_v-transparency[Transparency of the bargraph]"\
-  "--audiobargraph_v-position[Bargraph position]:Bargraph position:((10\:\"Bottom-Right\" 9\:\"Bottom-Left\" 6\:\"Top-Right\" 5\:\"Top-Left\" 8\:\"Bottom\" 4\:\"Top\" 2\:\"Right\" 1\:\"Left\" 0\:\"Center\" ))"\
-  "--audiobargraph_v-barWidth[Bar width in pixel]"\
-  "--audiobargraph_v-barHeight[Bar Height in pixel]"\
   "--marq-marquee[Text]"\
   "--marq-file[Text file]:File to read the marquee text from.:_files"\
   "--marq-x[X offset]"\
@@ -1317,22 +1333,6 @@ _arguments -S -s \
   "--marq-size[Font size, pixels]"\
   "--marq-timeout[Timeout]"\
   "--marq-refresh[Refresh period in ms]"\
-  "--overlay-input[Input FIFO]:FIFO which will be read for commands:_files"\
-  "--overlay-output[Output FIFO]:FIFO which will be written to for responses:_files"\
-  "--rss-urls[Feed URLs]"\
-  "--rss-x[X offset]"\
-  "--rss-y[Y offset]"\
-  "--rss-position[Text position]:Text position:((10\:\"Bottom-Right\" 9\:\"Bottom-Left\" 6\:\"Top-Right\" 5\:\"Top-Left\" 8\:\"Bottom\" 4\:\"Top\" 2\:\"Right\" 1\:\"Left\" 0\:\"Center\" ))"\
-  "--rss-opacity[Opacity]"\
-  "--rss-color[Color]"\
-  "--rss-size[Font size, pixels]"\
-  "--rss-speed[Speed of feeds]"\
-  "--rss-length[Max length]"\
-  "--rss-ttl[Refresh time]"\
-  "(--norss-images --no-rss-images)--rss-images[Feed images]"\
-  "(--norss-images --rss-images)--no-rss-images[Feed images]"\
-  "(--no-rss-images --rss-images)--norss-images[Feed images]"\
-  "--rss-title[Title display mode]:Title display mode:((2\:\"Scroll with feed\" 1\:\"Always visible\" 0\:\"Don't show\" -1\:\"Default\" ))"\
   "--mosaic-alpha[Transparency]"\
   "--mosaic-height[Height]"\
   "--mosaic-width[Width]"\
@@ -1353,6 +1353,22 @@ _arguments -S -s \
   "--mosaic-order[Elements order]"\
   "--mosaic-offsets[Offsets in order]"\
   "--mosaic-delay[Delay]"\
+  "--rss-urls[Feed URLs]"\
+  "--rss-x[X offset]"\
+  "--rss-y[Y offset]"\
+  "--rss-position[Text position]:Text position:((10\:\"Bottom-Right\" 9\:\"Bottom-Left\" 6\:\"Top-Right\" 5\:\"Top-Left\" 8\:\"Bottom\" 4\:\"Top\" 2\:\"Right\" 1\:\"Left\" 0\:\"Center\" ))"\
+  "--rss-opacity[Opacity]"\
+  "--rss-color[Color]"\
+  "--rss-size[Font size, pixels]"\
+  "--rss-speed[Speed of feeds]"\
+  "--rss-length[Max length]"\
+  "--rss-ttl[Refresh time]"\
+  "(--norss-images --no-rss-images)--rss-images[Feed images]"\
+  "(--norss-images --rss-images)--no-rss-images[Feed images]"\
+  "(--no-rss-images --rss-images)--norss-images[Feed images]"\
+  "--rss-title[Title display mode]:Title display mode:((2\:\"Scroll with feed\" 1\:\"Always visible\" 0\:\"Don't show\" -1\:\"Default\" ))"\
+  "--overlay-input[Input FIFO]:FIFO which will be read for commands:_files"\
+  "--overlay-output[Output FIFO]:FIFO which will be written to for responses:_files"\
   "--prefetch-buffer-size[Buffer size]"\
   "--prefetch-read-size[Read size]"\
   "--prefetch-seek-threshold[Seek threshold]"\
@@ -1388,7 +1404,6 @@ _arguments -S -s \
   "(--no-vdpau-chroma-skip --vdpau-chroma-skip)--novdpau-chroma-skip[Deinterlace chroma skip]"\
   "--vdpau-noise-reduction[Noise reduction level]"\
   "--vdpau-scaling[Scaling quality]"\
-  "--alphamask-mask[Transparency mask]:Alpha blending transparency mask. Uses a png alpha channel.:_files"\
   "--contrast[Image contrast (0-2)]"\
   "--brightness[Image brightness (0-2)]"\
   "--hue[Image hue (-180..180)]"\
@@ -1397,6 +1412,7 @@ _arguments -S -s \
   "(--nobrightness-threshold --no-brightness-threshold)--brightness-threshold[Brightness threshold]"\
   "(--nobrightness-threshold --brightness-threshold)--no-brightness-threshold[Brightness threshold]"\
   "(--no-brightness-threshold --brightness-threshold)--nobrightness-threshold[Brightness threshold]"\
+  "--alphamask-mask[Transparency mask]:Alpha blending transparency mask. Uses a png alpha channel.:_files"\
   "--ball-color[Ball color]:Ball color:((white\:\"White\" blue\:\"Blue\" green\:\"Green\" red\:\"Red\" ))"\
   "--ball-speed[Ball speed]"\
   "--ball-size[Ball size]"\
@@ -1440,14 +1456,15 @@ _arguments -S -s \
   "(--nogradient-cartoon --no-gradient-cartoon)--gradient-cartoon[Apply cartoon effect]"\
   "(--nogradient-cartoon --gradient-cartoon)--no-gradient-cartoon[Apply cartoon effect]"\
   "(--no-gradient-cartoon --gradient-cartoon)--nogradient-cartoon[Apply cartoon effect]"\
-  "--gaussianblur-sigma[Gaussian's std deviation]"\
   "--grain-variance[Variance]"\
   "--grain-period-min[Minimal period]"\
   "--grain-period-max[Maximal period]"\
+  "--gaussianblur-sigma[Gaussian's std deviation]"\
   "--mirror-split[Mirror orientation]:Defines orientation of the mirror splitting. Can be vertical or horizontal.:((1\:\"Horizontal\" 0\:\"Vertical\" ))"\
   "--mirror-direction[Direction]:Direction of the mirroring.:((1\:\"Right to left/Bottom to top\" 0\:\"Left to right/Top to bottom\" ))"\
   "--blur-factor[Blur factor (1-127)]"\
   "--posterize-level[Posterize level]"\
+  "--sepia-intensity[Sepia intensity]"\
   "--scene-format[Image format]"\
   "--scene-width[Image width]"\
   "--scene-height[Image height]"\
@@ -1457,13 +1474,12 @@ _arguments -S -s \
   "(--noscene-replace --scene-replace)--no-scene-replace[Always write to the same file]"\
   "(--no-scene-replace --scene-replace)--noscene-replace[Always write to the same file]"\
   "--scene-ratio[Recording ratio]"\
-  "--sepia-intensity[Sepia intensity]"\
   "--sharpen-sigma[Sharpen strength (0-2)]"\
   "--transform-type[Transform type]:Transform type:((antitranspose\:\"Anti-transpose\" transpose\:\"Transpose\" vflip\:\"Flip vertically\" hflip\:\"Flip horizontally\" 270\:\"Rotate by 270 degrees\" 180\:\"Rotate by 180 degrees\" 90\:\"Rotate by 90 degrees\" ))"\
-  "--gradfun-radius[Radius]"\
-  "--gradfun-strength[Strength]"\
   "--antiflicker-window-size[Window size]"\
   "--antiflicker-softening-size[Softening value]"\
+  "--gradfun-radius[Radius]"\
+  "--gradfun-strength[Strength]"\
   "--hqdn3d-luma-spat[Spatial luma strength (0-254)]"\
   "--hqdn3d-chroma-spat[Spatial chroma strength (0-254)]"\
   "--hqdn3d-luma-temp[Temporal luma strength (0-254)]"\
@@ -1482,20 +1498,20 @@ _arguments -S -s \
   "--puzzle-auto-solve[Auto solve]"\
   "--puzzle-rotation[Rotation]:Rotation parameter; none;180;90-270;mirror:((3\:\"0/90/180/270/mirror\" 2\:\"0/90/180/270\" 1\:\"0/180\" 0\:\"0\" ))"\
   "--puzzle-mode[Game mode]:Select game mode variation from jigsaw puzzle to sliding puzzle.:((3\:\"exchange puzzle\" 2\:\"swap puzzle\" 1\:\"sliding puzzle\" 0\:\"jigsaw puzzle\" ))"\
-  "--sout-deinterlace-mode[Streaming deinterlace mode]:Deinterlace method to use for streaming.:((ivtc\:\"Film NTSC (IVTC)\" phosphor\:\"Phosphor\" yadif2x\:\"Yadif (2x)\" yadif\:\"Yadif\" x\:\"X\" linear\:\"Linear\" bob\:\"Bob\" mean\:\"Mean\" blend\:\"Blend\" discard\:\"Discard\" ))"\
-  "--sout-deinterlace-phosphor-chroma[Phosphor chroma mode for 4;2;0 input]:Phosphor chroma mode for 4;2;0 input:((4\:\"Upconvert\" 3\:\"Blend\" 2\:\"AltLine\" 1\:\"Latest\" ))"\
-  "--sout-deinterlace-phosphor-dimmer[Phosphor old field dimmer strength]:This controls the strength of the darkening filter that simulates CRT TV phosphor light decay for the old field in the Phosphor framerate doubler. Default; Low.:((4\:\"High\" 3\:\"Medium\" 2\:\"Low\" 1\:\"Off\" ))"\
   "--rotate-angle[Angle in degrees]"\
   "(--norotate-use-motion --no-rotate-use-motion)--rotate-use-motion[Use motion sensors]"\
   "(--norotate-use-motion --rotate-use-motion)--no-rotate-use-motion[Use motion sensors]"\
   "(--no-rotate-use-motion --rotate-use-motion)--norotate-use-motion[Use motion sensors]"\
+  "--sout-deinterlace-mode[Streaming deinterlace mode]:Deinterlace method to use for streaming.:((ivtc\:\"Film NTSC (IVTC)\" phosphor\:\"Phosphor\" yadif2x\:\"Yadif (2x)\" yadif\:\"Yadif\" x\:\"X\" linear\:\"Linear\" bob\:\"Bob\" mean\:\"Mean\" blend\:\"Blend\" discard\:\"Discard\" ))"\
+  "--sout-deinterlace-phosphor-chroma[Phosphor chroma mode for 4;2;0 input]:Phosphor chroma mode for 4;2;0 input:((4\:\"Upconvert\" 3\:\"Blend\" 2\:\"AltLine\" 1\:\"Latest\" ))"\
+  "--sout-deinterlace-phosphor-dimmer[Phosphor old field dimmer strength]:This controls the strength of the darkening filter that simulates CRT TV phosphor light decay for the old field in the Phosphor framerate doubler. Default; Low.:((4\:\"High\" 3\:\"Medium\" 2\:\"Low\" 1\:\"Off\" ))"\
   "--glspectrum-width[Video width]"\
   "--glspectrum-height[Video height]"\
   "--gles2[OpenGL ES 2 extension]:OpenGL ES 2 extension:(egl_x11 egl_wl aes3)"\
   "--glconv[Open GL/GLES hardware converter]:Force a 'glconv' module.:(glconv_vaapi_drm glconv_vaapi_wl glconv_vaapi_x11 glconv_vdpau vaapi)"\
   "--rendering-intent[Rendering intent for color conversion]:The algorithm used to convert between color spaces:((3\:\"Saturation\" 2\:\"Absolute colorimetric\" 1\:\"Relative colorimetric\" 0\:\"Perceptual\" ))"\
-  "--target-prim[Display primaries]:The primaries associated with the output display:((13\:\"Sony S-Gamut\" 12\:\"Panasonic V-Gamut (VARICAM)\" 10\:\"DCI-P3 (Digital Cinema)\" 9\:\"CIE 1931 RGB primaries\" 8\:\"ProPhoto RGB (ROMM)\" 7\:\"Adobe RGB (1998)\" 6\:\"Apple RGB\" 5\:\"ITU-R Rec. BT.2020 (UltraHD)\" 4\:\"ITU-R Rec. BT.470 M\" 3\:\"ITU-R Rec. BT.709 (HD), also sRGB\" 2\:\"ITU-R Rec. BT.601 (625-line = PAL, SECAM)\" 1\:\"ITU-R Rec. BT.601 (525-line = NTSC, SMPTE-C)\" 0\:\"Unknown primaries\" ))"\
-  "--target-trc[Display gamma / transfer function]:The gamma/transfer function associated with the output display:((12\:\"Sony S-Log2\" 11\:\"Sony S-Log1\" 10\:\"Panasonic V-Log (VARICAM)\" 9\:\"ITU-R BT.2100 HLG (hybrid log-gamma), aka ARIB STD-B67\" 8\:\"ITU-R BT.2100 PQ (perceptual quantizer), aka SMPTE ST2048\" 7\:\"ProPhoto RGB (ROMM)\" 6\:\"Pure power gamma 2.8\" 5\:\"Pure power gamma 2.2\" 4\:\"Pure power gamma 1.8\" 3\:\"Linear light content\" 2\:\"IEC 61966-2-4 sRGB (CRT emulation)\" 1\:\"ITU-R Rec. BT.1886 (CRT emulation + OOTF)\" 0\:\"Unknown gamma\" ))"\
+  "--target-prim[Display primaries]:The primaries associated with the output display:((14\:\"Sony S-Gamut\" 13\:\"Panasonic V-Gamut (VARICAM)\" 11\:\"DCI-P3 (Digital Cinema)\" 10\:\"CIE 1931 RGB primaries\" 9\:\"ProPhoto RGB (ROMM)\" 8\:\"Adobe RGB (1998)\" 7\:\"Apple RGB\" 6\:\"ITU-R Rec. BT.2020 (UltraHD)\" 4\:\"ITU-R Rec. BT.470 M\" 3\:\"ITU-R Rec. BT.709 (HD), also sRGB\" 2\:\"ITU-R Rec. BT.601 (625-line = PAL, SECAM)\" 1\:\"ITU-R Rec. BT.601 (525-line = NTSC, SMPTE-C)\" 0\:\"Unknown primaries\" ))"\
+  "--target-trc[Display gamma / transfer function]:The gamma/transfer function associated with the output display:((15\:\"Sony S-Log2\" 14\:\"Sony S-Log1\" 13\:\"Panasonic V-Log (VARICAM)\" 12\:\"ITU-R BT.2100 HLG (hybrid log-gamma), aka ARIB STD-B67\" 11\:\"ITU-R BT.2100 PQ (perceptual quantizer), aka SMPTE ST2048\" 10\:\"ProPhoto RGB (ROMM)\" 9\:\"Pure power gamma 2.8\" 6\:\"Pure power gamma 2.2\" 4\:\"Pure power gamma 1.8\" 3\:\"Linear light content\" 2\:\"IEC 61966-2-4 sRGB (CRT emulation)\" 1\:\"ITU-R Rec. BT.1886 (CRT emulation + OOTF)\" 0\:\"Unknown gamma\" ))"\
   "--tone-mapping[Tone-mapping algorithm]:Algorithm to use when converting from wide gamut to standard gamut, or from HDR to SDR:((0\:\"Hard clip out-of-gamut\" 5\:\"Linear stretch (peak to peak)\" 4\:\"Gamma-Power law\" 2\:\"Reinhard (simple non-linear)\" 1\:\"Mobius (linear + knee)\" 3\:\"Hable (filmic mapping, recommended)\" ))"\
   "--tone-mapping-param[Tone-mapping parameter]"\
   "(--notone-mapping-warn --no-tone-mapping-warn)--tone-mapping-warn[Highlight clipped pixels]"\
@@ -1543,8 +1559,8 @@ _arguments -S -s \
   "--gl[OpenGL extension]:OpenGL extension:(egl_x11 glx egl_wl egl_x11)"\
   "--glconv[Open GL/GLES hardware converter]:Force a 'glconv' module.:(glconv_vaapi_drm glconv_vaapi_wl glconv_vaapi_x11 glconv_vdpau vaapi)"\
   "--rendering-intent[Rendering intent for color conversion]:The algorithm used to convert between color spaces:((3\:\"Saturation\" 2\:\"Absolute colorimetric\" 1\:\"Relative colorimetric\" 0\:\"Perceptual\" ))"\
-  "--target-prim[Display primaries]:The primaries associated with the output display:((13\:\"Sony S-Gamut\" 12\:\"Panasonic V-Gamut (VARICAM)\" 10\:\"DCI-P3 (Digital Cinema)\" 9\:\"CIE 1931 RGB primaries\" 8\:\"ProPhoto RGB (ROMM)\" 7\:\"Adobe RGB (1998)\" 6\:\"Apple RGB\" 5\:\"ITU-R Rec. BT.2020 (UltraHD)\" 4\:\"ITU-R Rec. BT.470 M\" 3\:\"ITU-R Rec. BT.709 (HD), also sRGB\" 2\:\"ITU-R Rec. BT.601 (625-line = PAL, SECAM)\" 1\:\"ITU-R Rec. BT.601 (525-line = NTSC, SMPTE-C)\" 0\:\"Unknown primaries\" ))"\
-  "--target-trc[Display gamma / transfer function]:The gamma/transfer function associated with the output display:((12\:\"Sony S-Log2\" 11\:\"Sony S-Log1\" 10\:\"Panasonic V-Log (VARICAM)\" 9\:\"ITU-R BT.2100 HLG (hybrid log-gamma), aka ARIB STD-B67\" 8\:\"ITU-R BT.2100 PQ (perceptual quantizer), aka SMPTE ST2048\" 7\:\"ProPhoto RGB (ROMM)\" 6\:\"Pure power gamma 2.8\" 5\:\"Pure power gamma 2.2\" 4\:\"Pure power gamma 1.8\" 3\:\"Linear light content\" 2\:\"IEC 61966-2-4 sRGB (CRT emulation)\" 1\:\"ITU-R Rec. BT.1886 (CRT emulation + OOTF)\" 0\:\"Unknown gamma\" ))"\
+  "--target-prim[Display primaries]:The primaries associated with the output display:((14\:\"Sony S-Gamut\" 13\:\"Panasonic V-Gamut (VARICAM)\" 11\:\"DCI-P3 (Digital Cinema)\" 10\:\"CIE 1931 RGB primaries\" 9\:\"ProPhoto RGB (ROMM)\" 8\:\"Adobe RGB (1998)\" 7\:\"Apple RGB\" 6\:\"ITU-R Rec. BT.2020 (UltraHD)\" 4\:\"ITU-R Rec. BT.470 M\" 3\:\"ITU-R Rec. BT.709 (HD), also sRGB\" 2\:\"ITU-R Rec. BT.601 (625-line = PAL, SECAM)\" 1\:\"ITU-R Rec. BT.601 (525-line = NTSC, SMPTE-C)\" 0\:\"Unknown primaries\" ))"\
+  "--target-trc[Display gamma / transfer function]:The gamma/transfer function associated with the output display:((15\:\"Sony S-Log2\" 14\:\"Sony S-Log1\" 13\:\"Panasonic V-Log (VARICAM)\" 12\:\"ITU-R BT.2100 HLG (hybrid log-gamma), aka ARIB STD-B67\" 11\:\"ITU-R BT.2100 PQ (perceptual quantizer), aka SMPTE ST2048\" 10\:\"ProPhoto RGB (ROMM)\" 9\:\"Pure power gamma 2.8\" 6\:\"Pure power gamma 2.2\" 4\:\"Pure power gamma 1.8\" 3\:\"Linear light content\" 2\:\"IEC 61966-2-4 sRGB (CRT emulation)\" 1\:\"ITU-R Rec. BT.1886 (CRT emulation + OOTF)\" 0\:\"Unknown gamma\" ))"\
   "--tone-mapping[Tone-mapping algorithm]:Algorithm to use when converting from wide gamut to standard gamut, or from HDR to SDR:((0\:\"Hard clip out-of-gamut\" 5\:\"Linear stretch (peak to peak)\" 4\:\"Gamma-Power law\" 2\:\"Reinhard (simple non-linear)\" 1\:\"Mobius (linear + knee)\" 3\:\"Hable (filmic mapping, recommended)\" ))"\
   "--tone-mapping-param[Tone-mapping parameter]"\
   "(--notone-mapping-warn --no-tone-mapping-warn)--tone-mapping-warn[Highlight clipped pixels]"\
@@ -1556,9 +1572,9 @@ _arguments -S -s \
   "--desat-exponent[Desaturation exponent]"\
   "--desat-base[Desaturation base]"\
   "--max-boost[Maximum brightness boost]"\
+  "--wl-display[Wayland display]"\
   "--xvideo-adaptor[XVideo adaptor number]"\
   "--xvideo-format-id[XVideo format id]"\
-  "--wl-display[Wayland display]"\
   "--wl-display[Wayland display]"\
   "--rtcp-port[RTCP (local) port]"\
   "--srtp-key[SRTP key (hexadecimal)]"\
@@ -1689,8 +1705,8 @@ _arguments -S -s \
   "--zoom[Zoom video]"\
   "--deinterlace[Deinterlace]:Deinterlace:((1\:\"On\" -1\:\"Automatic\" 0\:\"Off\" ))"\
   "--deinterlace-mode[Deinterlace mode]:Deinterlace method to use for video processing.:((ivtc\:\"Film NTSC (IVTC)\" phosphor\:\"Phosphor\" yadif2x\:\"Yadif (2x)\" yadif\:\"Yadif\" x\:\"X\" linear\:\"Linear\" bob\:\"Bob\" mean\:\"Mean\" blend\:\"Blend\" discard\:\"Discard\" auto\:\"Auto\" ))"\
-  "(-V)--vout=[Video output module]:This is the the video output method used by VLC. The default behavior is to automatically select the best method available.:(vdummy vdummy flaschen fb yuv vmem vdpau_display gles2 gl xcb_x11 xcb_xv wl_shm aa caca xcb_window)"\
-  "(--vout)-V[Video output module]:This is the the video output method used by VLC. The default behavior is to automatically select the best method available.:(vdummy vdummy flaschen fb yuv vmem vdpau_display gles2 gl xcb_x11 xcb_xv wl_shm aa caca xcb_window)"\
+  "(-V)--vout=[Video output module]:This is the the video output method used by VLC. The default behavior is to automatically select the best method available.:(fb flaschen vdummy vdummy vmem yuv vdpau_display gles2 gl wl_shm xcb_x11 xcb_xv aa caca xcb_window)"\
+  "(--vout)-V[Video output module]:This is the the video output method used by VLC. The default behavior is to automatically select the best method available.:(fb flaschen vdummy vdummy vmem yuv vdpau_display gles2 gl wl_shm xcb_x11 xcb_xv aa caca xcb_window)"\
   "--video-filter[Video filter module]"\
   "--video-splitter[Video splitter module]"\
   "(--nospu --no-spu)--spu[Enable sub-pictures]"\
@@ -1775,8 +1791,8 @@ _arguments -S -s \
   "(--no-lua --lua)--nolua[Disable all lua plugins]"\
   "--codec[Preferred decoders list]"\
   "--encoder[Preferred encoders list]"\
-  "--access[Access module]:This allows you to force an access module. You can use it if the correct access is not automatically detected. You should not set this as a global option unless you really know what you are doing.:(vcd ftp http smb tcp sftp udp nfs avio satip concat access_mtp rist attachment filesystem filesystem sdp imem imem_access vdr dv1394 v4l2 cdda access_realrtsp dtv dvb access_mms upnp access shm)"\
-  "--demux[Demux module]:Demux module:(dvdnav libbluray demuxdump rawdv rawvid au rawaud wav nsv real mod pva aiff mjpeg ty subtitle vobsub voc nuv xa nsc tta mpc vc1 demux_cdg smf diracsys sid image demux_stl caf directory es es h26x h26x mp4 mpgv linsys_sdi ttml webvtt webvtt flacsys ogg asf ps ps avformat avi mkv ts stats sap adaptive noseek)"\
+  "--access[Access module]:This allows you to force an access module. You can use it if the correct access is not automatically detected. You should not set this as a global option unless you really know what you are doing.:(ftp http smb tcp udp sftp nfs avio satip concat access_mtp rist access_srt attachment filesystem filesystem imem_access imem sdp vdr dv1394 v4l2 cdda vcd dtv dvb access_mms access_realrtsp upnp access vnc)"\
+  "--demux[Demux module]:Demux module:(dvdnav libbluray demuxdump rawdv rawvid au rawaud wav nsv real mod pva aiff mjpeg subtitle ty vobsub xa voc nuv nsc mpc tta demux_cdg vc1 smf dmxmus sid diracsys image demux_stl caf directory es es h26x h26x mp4 mpgv linsys_sdi ttml webvtt webvtt flacsys ogg asf ps ps avi avformat mkv ts stats sap adaptive noseek)"\
   "--stream-filter[Stream filter module]"\
   "--demux-filter[Demux filter module]"\
   "--sout[Default stream output chain]"\
@@ -1801,13 +1817,13 @@ _arguments -S -s \
   "--sout-mux-caching[Stream output muxer caching (ms)]"\
   "--vlm-conf[VLM configuration file]:Read a VLM configuration file as soon as VLM is started.:_files"\
   "--sap-interval[SAP announcement interval]"\
-  "--mux[Mux module]:This is a legacy entry to let you configure mux modules:(mp4 mp4 mpjpeg ps wav mux_ogg mux_ts avformat dummy avi asf stream_out_chromaprint)"\
-  "--access_output[Access output module]:This is a legacy entry to let you configure access output modules:(ftp avio stream_out_chromecast dummy file http udp access_output_livehttp access_output_shout access_output_rist mp4)"\
+  "--mux[Mux module]:This is a legacy entry to let you configure mux modules:(mp4 mp4 mpjpeg ps wav mux_ogg mux_ts avformat dummy asf avi stream_out_chromaprint)"\
+  "--access_output[Access output module]:This is a legacy entry to let you configure access output modules:(ftp avio stream_out_chromecast file dummy http udp access_output_livehttp access_output_shout access_output_rist access_output_srt mp4)"\
   "--ttl[Hop limit (TTL)]"\
   "--miface[Multicast output interface]"\
   "--dscp[DiffServ Code Point]"\
-  "--packetizer[Preferred packetizer list]:This allows you to select the order in which VLC will choose its packetizers.:(aes3 lpcm rawvideo cvdsub svcdsub theora vorbis speex oggspots av1 mpegvideo mpeg4video mpeg4audio h264 mpegaudio vc1 flac dirac hevc mlp copy a52 dts packetizer_avparser spudec export)"\
-  "--vod-server[VoD server module]:You can select which VoD server module you want to use. Set this to 'vod_rtsp' to switch back to the old, legacy module.:(rtsp stream_out_rtp vdummy)"\
+  "--packetizer[Preferred packetizer list]:This allows you to select the order in which VLC will choose its packetizers.:(aes3 lpcm rawvideo cvdsub svcdsub theora speex oggspots vorbis av1 mpegvideo mpeg4video mpeg4audio mpegaudio h264 vc1 mlp dirac flac hevc copy a52 dts packetizer_avparser spudec export)"\
+  "--vod-server[VoD server module]:You can select which VoD server module you want to use. Set this to 'vod_rtsp' to switch back to the old, legacy module.:(rtsp stream_out_rtp fb)"\
   "(--noplugins-cache --no-plugins-cache)--plugins-cache[Use a plugins cache]"\
   "(--noplugins-cache --plugins-cache)--no-plugins-cache[Use a plugins cache]"\
   "(--no-plugins-cache --plugins-cache)--noplugins-cache[Use a plugins cache]"\
@@ -1904,9 +1920,9 @@ _arguments -S -s \
   "(--nostats --no-stats)--stats[Locally collect statistics]"\
   "(--nostats --stats)--no-stats[Locally collect statistics]"\
   "(--no-stats --stats)--nostats[Locally collect statistics]"\
-  "(-I)--intf=[Interface module]:This is the main interface used by VLC. The default behavior is to automatically select the best module available.:(oldrc ncurses qt skins2 lua gestures)"\
-  "(--intf)-I[Interface module]:This is the main interface used by VLC. The default behavior is to automatically select the best module available.:(oldrc ncurses qt skins2 lua gestures)"\
-  "--extraintf[Extra interface modules]:Extra interface modules:_values -s , extraintf '*oldrc' '*ncurses' '*qt' '*skins2' '*lua'"\
+  "(-I)--intf=[Interface module]:This is the main interface used by VLC. The default behavior is to automatically select the best module available.:(oldrc ncurses skins2 qt lua gestures)"\
+  "(--intf)-I[Interface module]:This is the main interface used by VLC. The default behavior is to automatically select the best module available.:(oldrc ncurses skins2 qt lua gestures)"\
+  "--extraintf[Extra interface modules]:Extra interface modules:_values -s , extraintf '*oldrc' '*ncurses' '*skins2' '*qt' '*lua'"\
   "--control[Control interfaces]:You can select control interfaces for VLC.:_values -s , control '*gestures' '*lirc' '*audioscrobbler' '*notify' '*motion'"\
   "--hotkeys-y-wheel-mode[Mouse wheel vertical axis control]:Mouse wheel vertical axis control:((3\:\"Position control reversed\" 2\:\"Position control\" 0\:\"Volume control\" -1\:\"Ignore\" ))"\
   "--hotkeys-x-wheel-mode[Mouse wheel horizontal axis control]:Mouse wheel horizontal axis control:((3\:\"Position control reversed\" 2\:\"Position control\" 0\:\"Volume control\" -1\:\"Ignore\" ))"\
