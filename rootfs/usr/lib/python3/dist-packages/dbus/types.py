@@ -1,3 +1,5 @@
+# Copyright 2006-2021 Collabora Ltd.
+# Copyright 2011 Barry Warsaw
 # SPDX-License-Identifier: MIT
 
 __all__ = ['ObjectPath', 'ByteArray', 'Signature', 'Byte', 'Boolean',
@@ -11,6 +13,3 @@ from _dbus_bindings import (
     UnixFd)
 
 from dbus._compat import is_py2
-if is_py2:
-    from _dbus_bindings import UTF8String
-    __all__.append('UTF8String')

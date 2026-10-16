@@ -1,11 +1,10 @@
 from html import parser, escape
-from typing import Dict, Any, List, Tuple, Set, Optional
+from typing import Any, Optional, Dict, List, Tuple, Set
 import re
 import string
 
 from . import abstract
 
-assert Set
 
 # pylint: disable=too-many-instance-attributes
 
@@ -92,7 +91,7 @@ class _HTMLParser(parser.HTMLParser):
         self.filename = filename
         self.__textrepr = ''
         self.__meta = {}
-        self.__validation_queue = []  # type: List[str]
+        self.__validation_queue = []  # type: list[str]
 
         # We're using counters instead of booleans, to handle nested tags
         self.__in_dangerous_but_required_tag = 0

@@ -3,7 +3,7 @@ import functools
 import shutil
 import logging
 
-from typing import Dict, Union
+from typing import Union, Dict
 
 from . import exiftool
 from . import bubblewrap
@@ -45,12 +45,12 @@ class AbstractFFmpegParser(exiftool.ExiftoolParser):
             return False
         return True
 
-    def get_meta(self) -> Dict[str, Union[str, dict]]:
+    def get_meta(self) -> Dict[str, Union[str, Dict]]:
         meta = super().get_meta()
 
-        ret = dict()  # type: Dict[str, Union[str, dict]]
+        ret = dict()  # type: Dict[str, Union[str, Dict]]
         for key, value in meta.items():
-            if key in self.meta_key_value_allowlist.keys():
+            if key in self.meta_key_value_allowlist:
                 if value == self.meta_key_value_allowlist[key]:
                     continue
             ret[key] = value
@@ -91,11 +91,11 @@ class AVIParser(AbstractFFmpegParser):
                       'VideoFrameRate', 'VideoFrameCount', 'Quality',
                       'SampleSize', 'BMPVersion', 'ImageWidth', 'ImageHeight',
                       'Planes', 'BitDepth', 'Compression', 'ImageLength',
-                      'PixelsPerMeterX', 'PixelsPerMeterY', 'NumColors',
-                      'NumImportantColors', 'NumColors', 'NumImportantColors',
+                      'PixelsPerMeterX', 'PixelsPerMeterY',
+                      'NumImportantColors', 'NumColors',
                       'RedMask', 'GreenMask', 'BlueMask', 'AlphaMask',
                       'ColorSpace', 'AudioCodec', 'AudioCodecRate',
-                      'AudioSampleCount', 'AudioSampleCount',
+                      'AudioSampleCount',
                       'AudioSampleRate', 'Encoding', 'NumChannels',
                       'SampleRate', 'AvgBytesPerSec', 'BitsPerSample',
                       'Duration', 'ImageSize', 'Megapixels'}
@@ -135,7 +135,7 @@ class MP4Parser(AbstractFFmpegParser):
     }
 
 
-@functools.lru_cache()
+@functools.lru_cache(maxsize=None)
 def _get_ffmpeg_path() -> str:  # pragma: no cover
     which_path = shutil.which('ffmpeg')
     if which_path:

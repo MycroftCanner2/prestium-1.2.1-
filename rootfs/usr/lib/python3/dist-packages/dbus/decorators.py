@@ -211,10 +211,7 @@ def method(dbus_interface, in_signature=None, out_signature=None,
         func._dbus_connection_keyword = connection_keyword
         func._dbus_args = args
         func._dbus_get_args_options = dict(byte_arrays=byte_arrays)
-        if is_py2:
-            func._dbus_get_args_options['utf8_strings'] = kwargs.get(
-                'utf8_strings', False)
-        elif 'utf8_strings' in kwargs:
+        if 'utf8_strings' in kwargs:
             raise TypeError("unexpected keyword argument 'utf8_strings'")
         return func
 
@@ -327,7 +324,16 @@ def signal(dbus_interface, signature=None, path_keyword=None,
                 location[0].send_message(message)
         # end emit_signal
 
-        args = inspect.getargspec(func)[0]
+        if hasattr(inspect, 'Signature'):
+            args = []
+
+            for arg in inspect.signature(func).parameters.values():
+                if arg.kind in (inspect.Parameter.POSITIONAL_ONLY,
+                        inspect.Parameter.POSITIONAL_OR_KEYWORD):
+                    args.append(arg.name)
+        else:
+            args = inspect.getargspec(func)[0]
+
         args.pop(0)
 
         for keyword in rel_path_keyword, path_keyword:

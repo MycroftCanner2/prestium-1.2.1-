@@ -16,7 +16,8 @@ Documentation=man:org.freedesktop.login1(5)
 
 Wants=user.slice modprobe@drm.service
 After=nss-user-lookup.target user.slice modprobe@drm.service
-ConditionPathExists=/lib/systemd/system/dbus.service
+ConditionPathExists=|/lib/systemd/system/dbus.service
+ConditionPathExists=|/lib/systemd/system/dbus-broker.service
 
 # Ask for the dbus socket.
 Wants=dbus.socket
@@ -28,6 +29,7 @@ CapabilityBoundingSet=CAP_SYS_ADMIN CAP_MAC_ADMIN CAP_AUDIT_CONTROL CAP_CHOWN CA
 DeviceAllow=block-* r
 DeviceAllow=char-/dev/console rw
 DeviceAllow=char-drm rw
+DeviceAllow=char-hvc rw
 DeviceAllow=char-input rw
 DeviceAllow=char-tty rw
 DeviceAllow=char-vcs rw
@@ -38,7 +40,7 @@ LockPersonality=yes
 MemoryDenyWriteExecute=yes
 NoNewPrivileges=yes
 PrivateTmp=yes
-ProtectProc=invisible
+# We don't use ProtectProc= since we need to look for usernames and tty for wall messages
 ProtectClock=yes
 ProtectControlGroups=yes
 ProtectHome=yes

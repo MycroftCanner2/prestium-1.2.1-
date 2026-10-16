@@ -7,8 +7,7 @@ import re
 import logging
 import tempfile
 import io
-from typing import Dict, Union
-from distutils.version import LooseVersion
+from typing import Union, Dict
 
 import cairo
 import gi
@@ -17,10 +16,7 @@ from gi.repository import Poppler, GLib
 
 from . import abstract
 
-poppler_version = Poppler.get_version()
-if LooseVersion(poppler_version) < LooseVersion('0.46'):  # pragma: no cover
-    raise ValueError("mat2 needs at least Poppler version 0.46 to work. \
-The installed version is %s." % poppler_version)  # pragma: no cover
+FIXED_PDF_VERSION = cairo.PDFVersion.VERSION_1_5
 
 
 class PDFParser(abstract.AbstractParser):
@@ -32,7 +28,7 @@ class PDFParser(abstract.AbstractParser):
     def __init__(self, filename):
         super().__init__(filename)
         self.uri = 'file://' + os.path.abspath(self.filename)
-        self.__scale = 2  # how much precision do we want for the render
+        self.__scale = 200 / 72.0  # how much precision do we want for the render
         try:  # Check now that the file is valid, to avoid surprises later
             Poppler.Document.new_from_file(self.uri, None)
         except GLib.GError:  # Invalid PDF
@@ -52,6 +48,7 @@ class PDFParser(abstract.AbstractParser):
 
         tmp_path = tempfile.mkstemp()[1]
         pdf_surface = cairo.PDFSurface(tmp_path, 10, 10)  # resized later anyway
+        pdf_surface.restrict_to_version(FIXED_PDF_VERSION)
         pdf_context = cairo.Context(pdf_surface)  # context draws on the surface
 
         for pagenum in range(pages_count):
@@ -80,6 +77,7 @@ class PDFParser(abstract.AbstractParser):
 
         _, tmp_path = tempfile.mkstemp()
         pdf_surface = cairo.PDFSurface(tmp_path, 32, 32)  # resized later anyway
+        pdf_surface.restrict_to_version(FIXED_PDF_VERSION)
         pdf_context = cairo.Context(pdf_surface)
 
         for pagenum in range(pages_count):
@@ -90,8 +88,8 @@ class PDFParser(abstract.AbstractParser):
             page_width, page_height = page.get_size()
             logging.info("Rendering page %d/%d", pagenum + 1, pages_count)
 
-            width = int(page_width) * self.__scale
-            height = int(page_height) * self.__scale
+            width = int(page_width * self.__scale)
+            height = int(page_height * self.__scale)
             img_surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
             img_context = cairo.Context(img_surface)
 
@@ -105,7 +103,11 @@ class PDFParser(abstract.AbstractParser):
             buf.seek(0)
 
             img = cairo.ImageSurface.create_from_png(buf)
-            pdf_surface.set_size(page_width*self.__scale, page_height*self.__scale)
+            if cairo.version_info < (1, 12, 0):
+                pdf_surface.set_size(width, height)
+            else:
+                pdf_surface.set_size(page_width, page_height)
+                pdf_surface.set_device_scale(1 / self.__scale, 1 / self.__scale)
             pdf_context.set_source_surface(img, 0, 0)
             pdf_context.paint()
             pdf_context.show_page()  # draw pdf_context on pdf_surface
@@ -145,7 +147,7 @@ class PDFParser(abstract.AbstractParser):
             metadata[key] = value
         return metadata
 
-    def get_meta(self) -> Dict[str, Union[str, dict]]:
+    def get_meta(self) -> Dict[str, Union[str, Dict]]:
         """ Return a dict with all the meta of the file
         """
         metadata = {}

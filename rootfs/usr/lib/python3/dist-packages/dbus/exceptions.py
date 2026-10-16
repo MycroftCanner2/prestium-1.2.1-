@@ -77,10 +77,7 @@ class DBusException(Exception):
 
     def get_dbus_message(self):
         if len(self.args) > 1:
-            if is_py3:
-                s = str(self.args)
-            else:
-                s = unicode(self.args)
+            s = str(self.args)
         else:
             s = ''.join(self.args)
 

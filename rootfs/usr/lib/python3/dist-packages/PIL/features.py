@@ -9,7 +9,7 @@ from . import Image
 
 modules = {
     "pil": ("PIL._imaging", "PILLOW_VERSION"),
-    "tkinter": ("PIL._tkinter_finder", None),
+    "tkinter": ("PIL._tkinter_finder", "tk_version"),
     "freetype2": ("PIL._imagingft", "freetype2_version"),
     "littlecms2": ("PIL._imagingcms", "littlecms_version"),
     "webp": ("PIL._webp", "webpdecoder_version"),
@@ -25,7 +25,8 @@ def check_module(feature):
     :raises ValueError: If the module is not defined in this version of Pillow.
     """
     if not (feature in modules):
-        raise ValueError(f"Unknown module {feature}")
+        msg = f"Unknown module {feature}"
+        raise ValueError(msg)
 
     module, ver = modules[feature]
 
@@ -78,7 +79,8 @@ def check_codec(feature):
     :raises ValueError: If the codec is not defined in this version of Pillow.
     """
     if feature not in codecs:
-        raise ValueError(f"Unknown codec {feature}")
+        msg = f"Unknown codec {feature}"
+        raise ValueError(msg)
 
     codec, lib = codecs[feature]
 
@@ -118,6 +120,8 @@ features = {
     "webp_mux": ("PIL._webp", "HAVE_WEBPMUX", None),
     "transp_webp": ("PIL._webp", "HAVE_TRANSPARENCY", None),
     "raqm": ("PIL._imagingft", "HAVE_RAQM", "raqm_version"),
+    "fribidi": ("PIL._imagingft", "HAVE_FRIBIDI", "fribidi_version"),
+    "harfbuzz": ("PIL._imagingft", "HAVE_HARFBUZZ", "harfbuzz_version"),
     "libjpeg_turbo": ("PIL._imaging", "HAVE_LIBJPEGTURBO", "libjpeg_turbo_version"),
     "libimagequant": ("PIL._imaging", "HAVE_LIBIMAGEQUANT", "imagequant_version"),
     "xcb": ("PIL._imaging", "HAVE_XCB", None),
@@ -133,7 +137,8 @@ def check_feature(feature):
     :raises ValueError: If the feature is not defined in this version of Pillow.
     """
     if feature not in features:
-        raise ValueError(f"Unknown feature {feature}")
+        msg = f"Unknown feature {feature}"
+        raise ValueError(msg)
 
     module, flag, ver = features[feature]
 
@@ -216,7 +221,7 @@ def get_supported():
 def pilinfo(out=None, supported_formats=True):
     """
     Prints information about this installation of Pillow.
-    This function can be called with ``python -m PIL``.
+    This function can be called with ``python3 -m PIL``.
 
     :param out:
         The output stream to print to. Defaults to ``sys.stdout`` if ``None``.
@@ -274,6 +279,11 @@ def pilinfo(out=None, supported_formats=True):
                     # this check is also in src/_imagingcms.c:setup_module()
                     version_static = tuple(int(x) for x in v.split(".")) < (2, 7)
                 t = "compiled for" if version_static else "loaded"
+                if name == "raqm":
+                    for f in ("fribidi", "harfbuzz"):
+                        v2 = version_feature(f)
+                        if v2 is not None:
+                            v += f", {f} {v2}"
                 print("---", feature, "support ok,", t, v, file=out)
             else:
                 print("---", feature, "support ok", file=out)

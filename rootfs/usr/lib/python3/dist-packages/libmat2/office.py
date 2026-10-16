@@ -4,7 +4,7 @@ import logging
 import os
 import re
 import zipfile
-from typing import Dict, Set, Pattern, Tuple, Any
+from typing import Pattern, Any, Tuple, Dict
 
 import xml.etree.ElementTree as ET  # type: ignore
 
@@ -12,9 +12,6 @@ from .archive import ZipParser
 
 # pylint: disable=line-too-long
 
-# Make pyflakes happy
-assert Set
-assert Pattern
 
 def _parse_xml(full_path: str) -> Tuple[ET.ElementTree, Dict[str, str]]:
     """ This function parses XML, with namespace support. """
@@ -72,7 +69,6 @@ class MSOfficeParser(ZipParser):
         'application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml',
     }
 
-
     def __init__(self, filename):
         super().__init__(filename)
 
@@ -88,9 +84,14 @@ class MSOfficeParser(ZipParser):
             r'^\[Content_Types\]\.xml$',
             r'^_rels/\.rels$',
             r'^xl/sharedStrings\.xml$',  # https://docs.microsoft.com/en-us/office/open-xml/working-with-the-shared-string-table
+            r'^xl/calcChain\.xml$',
             r'^(?:word|ppt|xl)/_rels/document\.xml\.rels$',
             r'^(?:word|ppt|xl)/_rels/footer[0-9]*\.xml\.rels$',
             r'^(?:word|ppt|xl)/_rels/header[0-9]*\.xml\.rels$',
+            r'^(?:word|ppt|xl)/charts/_rels/chart[0-9]+\.xml\.rels$',
+            r'^(?:word|ppt|xl)/charts/colors[0-9]+\.xml$',
+            r'^(?:word|ppt|xl)/charts/style[0-9]+\.xml$',
+            r'^(?:word|ppt|xl)/drawings/_rels/drawing[0-9]+\.xml\.rels$',
             r'^(?:word|ppt|xl)/styles\.xml$',
             # TODO: randomize axId ( https://docs.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/089f849f-fcd6-4fa0-a281-35aa6a432a16 )
             r'^(?:word|ppt|xl)/charts/chart[0-9]*\.xml$',
@@ -108,6 +109,8 @@ class MSOfficeParser(ZipParser):
             r'^ppt/slideMasters/slideMaster[0-9]+\.xml',
             r'^ppt/slideMasters/_rels/slideMaster[0-9]+\.xml\.rels',
             r'^xl/worksheets/_rels/sheet[0-9]+\.xml\.rels',
+            r'^xl/drawings/vmlDrawing[0-9]+\.vml',
+            r'^xl/drawings/drawing[0-9]+\.xml',
         }))
         self.files_to_omit = set(map(re.compile, {  # type: ignore
             r'^\[trash\]/',
@@ -124,6 +127,7 @@ class MSOfficeParser(ZipParser):
             # Additional presentation-wide properties like printing properties,
             # presentation show properties etc.
             r'^(?:word|ppt|xl)/presProps\.xml$',
+            r'^(?:word|ppt|xl)/comments[0-9]+\.xml$',
 
             # we have an allowlist in self.files_to_keep,
             # so we can trash everything else
@@ -175,7 +179,7 @@ class MSOfficeParser(ZipParser):
             return False
 
         # rsid, tags or attributes, are always under the `w` namespace
-        if 'w' not in namespace.keys():
+        if 'w' not in namespace:
             return True
 
         parent_map = {c:p for p in tree.iter() for c in p}
@@ -211,10 +215,10 @@ class MSOfficeParser(ZipParser):
             return False
 
         # The nsid tag is always under the `w` namespace
-        if 'w' not in namespace.keys():
+        if 'w' not in namespace:
             return True
 
-        parent_map = {c:p for p in tree.iter() for c in p}
+        parent_map = {c: p for p in tree.iter() for c in p}
 
         elements_to_remove = list()
         for element in tree.iterfind('.//w:nsid', namespace):
@@ -224,7 +228,6 @@ class MSOfficeParser(ZipParser):
 
         tree.write(full_path, xml_declaration=True)
         return True
-
 
     @staticmethod
     def __remove_revisions(full_path: str) -> bool:
@@ -315,7 +318,6 @@ class MSOfficeParser(ZipParser):
             for i in re.findall(r'<p:cNvPr id="([0-9]+)"', content):
                 self.__counters['cNvPr'].add(int(i))
 
-
     @staticmethod
     def __randomize_creationId(full_path: str) -> bool:
         try:
@@ -324,7 +326,7 @@ class MSOfficeParser(ZipParser):
             logging.error("Unable to parse %s: %s", full_path, e)
             return False
 
-        if 'p14' not in namespace.keys():
+        if 'p14' not in namespace:
             return True  # pragma: no cover
 
         for item in tree.iterfind('.//p14:creationId', namespace):
@@ -340,7 +342,7 @@ class MSOfficeParser(ZipParser):
             logging.error("Unable to parse %s: %s", full_path, e)
             return False
 
-        if 'p' not in namespace.keys():
+        if 'p' not in namespace:
             return True  # pragma: no cover
 
         for item in tree.iterfind('.//p:sldMasterId', namespace):
@@ -437,8 +439,8 @@ class MSOfficeParser(ZipParser):
 
         with open(full_path, encoding='utf-8') as f:
             try:
-                results = re.findall(r"<(.+)>(.+)</\1>", f.read(), re.I|re.M)
-                return {k:v for (k, v) in results}
+                results = re.findall(r"<(.+)>(.+)</\1>", f.read(), re.I | re.M)
+                return {k: v for (k, v) in results}
             except (TypeError, UnicodeDecodeError):
                 # We didn't manage to parse the xml file
                 return {file_path: 'harmful content', }
@@ -454,7 +456,6 @@ class LibreOfficeParser(ZipParser):
         'application/vnd.oasis.opendocument.formula',
         'application/vnd.oasis.opendocument.image',
     }
-
 
     def __init__(self, filename):
         super().__init__(filename)
@@ -482,7 +483,7 @@ class LibreOfficeParser(ZipParser):
             logging.error("Unable to parse %s: %s", full_path, e)
             return False
 
-        if 'office' not in namespace.keys():  # no revisions in the current file
+        if 'office' not in namespace:  # no revisions in the current file
             return True
 
         for text in tree.getroot().iterfind('.//office:text', namespace):

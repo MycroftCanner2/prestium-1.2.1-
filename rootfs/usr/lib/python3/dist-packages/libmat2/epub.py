@@ -3,9 +3,10 @@ import re
 import uuid
 import zipfile
 import xml.etree.ElementTree as ET  # type: ignore
-from typing import Dict, Any
+from typing import Any, Dict
 
 from . import archive, office
+
 
 class EPUBParser(archive.ZipParser):
     mimetypes = {'application/epub+zip', }
@@ -27,7 +28,6 @@ class EPUBParser(archive.ZipParser):
             'OEBPS/package.opf',
              }))
         self.uniqid = uuid.uuid4()
-
 
     def is_archive_valid(self):
         super().is_archive_valid()
@@ -73,7 +73,6 @@ class EPUBParser(archive.ZipParser):
                    short_empty_elements=False)
         return True
 
-
     def __handle_tocncx(self, full_path: str) -> bool:
         try:
             tree, namespace = office._parse_xml(full_path)
@@ -108,7 +107,7 @@ class EPUBParser(archive.ZipParser):
                 item.append(uniqid)
 
                 # items without mandatory content
-                for name in {'language', 'title'}:
+                for name in ['language', 'title']:
                     uniqid = ET.Element(self.metadata_namespace + name)
                     item.append(uniqid)
                 break  # there is only a single <metadata> block

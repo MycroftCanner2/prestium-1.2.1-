@@ -32,7 +32,11 @@ import sys
 import logging
 import threading
 import traceback
-from collections import Sequence
+try:
+    from collections.abc import Sequence
+except ImportError:
+    # Python 2 (and 3.x < 3.3, but we don't support those)
+    from collections import Sequence
 
 import _dbus_bindings
 from dbus import (
@@ -62,9 +66,6 @@ class _VariantSignature(object):
     def __next__(self):
         """Return 'v' whenever called."""
         return 'v'
-
-    if is_py2:
-        next = __next__
 
 
 class BusName(object):

@@ -63,8 +63,6 @@ __all__ = [
            ]
 
 from dbus._compat import is_py2
-if is_py2:
-    __all__.append('UTF8String')
 
 __docformat__ = 'restructuredtext'
 
@@ -90,9 +88,6 @@ from dbus.exceptions import (
 from _dbus_bindings import (
     Array, Boolean, Byte, ByteArray, Dictionary, Double, Int16, Int32, Int64,
     ObjectPath, Signature, String, Struct, UInt16, UInt32, UInt64)
-
-if is_py2:
-    from _dbus_bindings import UTF8String
 
 from dbus._dbus import Bus, SystemBus, SessionBus, StarterBus
 from dbus.proxies import Interface

@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: onboard
+Version: 1.4.1
+Summary: Simple On-screen Keyboard
+Home-page: http://launchpad.net/onboard/
+Author: Onboard Devel Team
+Author-email: https://launchpad.net/~onboard/+contactuser
+License: GPL-3+
+Requires: Onboard.osk
+Requires: Onboard.pypredict.lm
+Provides: Onboard
+License-File: COPYING
+License-File: COPYING.BSD3
+License-File: COPYING.GPL3
+License-File: AUTHORS

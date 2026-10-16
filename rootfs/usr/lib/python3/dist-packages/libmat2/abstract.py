@@ -1,9 +1,7 @@
 import abc
 import os
 import re
-from typing import Set, Dict, Union
-
-assert Set  # make pyflakes happy
+from typing import Union, Set, Dict
 
 
 class AbstractParser(abc.ABC):
@@ -35,7 +33,7 @@ class AbstractParser(abc.ABC):
         self.sandbox = True
 
     @abc.abstractmethod
-    def get_meta(self) -> Dict[str, Union[str, dict]]:
+    def get_meta(self) -> Dict[str, Union[str, Dict]]:
         """Return all the metadata of the current file"""
 
     @abc.abstractmethod

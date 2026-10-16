@@ -7,13 +7,9 @@ import tempfile
 import os
 import logging
 import shutil
-from typing import Dict, Set, Pattern, Union, Any, List
+from typing import Pattern, Union, Any, Set, Dict, List
 
 from . import abstract, UnknownMemberPolicy, parser_factory
-
-# Make pyflakes happy
-assert Set
-assert Pattern
 
 # pylint: disable=not-callable,assignment-from-no-return,too-many-branches
 
@@ -48,8 +44,8 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
     def __init__(self, filename):
         super().__init__(filename)
         # We ignore typing here because mypy is too stupid
-        self.archive_class = None  #  type: ignore
-        self.member_class = None  #  type: ignore
+        self.archive_class = None  # type: ignore
+        self.member_class = None  # type: ignore
 
         # Those are the files that have a format that _isn't_
         # supported by mat2, but that we want to keep anyway.
@@ -73,20 +69,20 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
     def _specific_cleanup(self, full_path: str) -> bool:
         """ This method can be used to apply specific treatment
         to files present in the archive."""
-        # pylint: disable=unused-argument,no-self-use
+        # pylint: disable=unused-argument
         return True  # pragma: no cover
 
     def _specific_get_meta(self, full_path: str, file_path: str) -> Dict[str, Any]:
         """ This method can be used to extract specific metadata
         from files present in the archive."""
-        # pylint: disable=unused-argument,no-self-use
+        # pylint: disable=unused-argument
         return {}  # pragma: no cover
 
     def _final_checks(self) -> bool:
         """ This method is invoked after the file has been cleaned,
         allowing to run final verifications.
         """
-        # pylint: disable=unused-argument,no-self-use
+        # pylint: disable=unused-argument
         return True
 
     @staticmethod
@@ -120,8 +116,20 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
         # pylint: disable=unused-argument
         return member
 
-    def get_meta(self) -> Dict[str, Union[str, dict]]:
-        meta = dict()  # type: Dict[str, Union[str, dict]]
+    @staticmethod
+    def _get_member_compression(member: ArchiveMember):
+        """Get the compression of the archive member."""
+        # pylint: disable=unused-argument
+        return None
+
+    @staticmethod
+    def _set_member_compression(member: ArchiveMember, compression) -> ArchiveMember:
+        """Set the compression of the archive member."""
+        # pylint: disable=unused-argument
+        return member
+
+    def get_meta(self) -> Dict[str, Union[str, Dict]]:
+        meta = dict()  # type: Dict[str, Union[str, Dict]]
 
         with self.archive_class(self.filename) as zin:
             temp_folder = tempfile.mkdtemp()
@@ -167,7 +175,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
                 # Some fileformats do require to have the `mimetype` file
                 # as the first file in the archive.
                 if self._get_member_name(item) == 'mimetype':
-                    items = [item] + items
+                    items.insert(0, item)
                 else:
                     items.append(item)
 
@@ -199,6 +207,8 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
                     break
 
                 os.chmod(full_path, original_permissions | stat.S_IWUSR | stat.S_IRUSR)
+
+                original_compression = self._get_member_compression(item)
 
                 if self._specific_cleanup(full_path) is False:
                     logging.warning("Something went wrong during deep cleaning of %s in %s",
@@ -239,6 +249,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
 
                 zinfo = self.member_class(member_name)  # type: ignore
                 zinfo = self._set_member_permissions(zinfo, original_permissions)
+                zinfo = self._set_member_compression(zinfo, original_compression)
                 clean_zinfo = self._clean_member(zinfo)
                 self._add_file_to_archive(zout, clean_zinfo, full_path)
 
@@ -253,6 +264,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
 
 class TarParser(ArchiveBasedAbstractParser):
     mimetypes = {'application/x-tar'}
+
     def __init__(self, filename):
         super().__init__(filename)
         # yes, it's tarfile.open and not tarfile.TarFile,
@@ -380,16 +392,17 @@ class TarXzParser(TarParser):
 
 class ZipParser(ArchiveBasedAbstractParser):
     mimetypes = {'application/zip'}
-    def __init__(self, filename):
+
+    def __init__(self, filename: str):
         super().__init__(filename)
         self.archive_class = zipfile.ZipFile
         self.member_class = zipfile.ZipInfo
-        self.zip_compression_type = zipfile.ZIP_DEFLATED
 
     def is_archive_valid(self):
         try:
-            zipfile.ZipFile(self.filename)
-        except zipfile.BadZipFile:
+            with zipfile.ZipFile(self.filename):
+                pass
+        except (zipfile.BadZipFile, OSError):
             raise ValueError
 
     @staticmethod
@@ -425,7 +438,7 @@ class ZipParser(ArchiveBasedAbstractParser):
         assert isinstance(member, zipfile.ZipInfo)  # please mypy
         with open(full_path, 'rb') as f:
             archive.writestr(member, f.read(),
-                             compress_type=self.zip_compression_type)
+                             compress_type=member.compress_type)
 
     @staticmethod
     def _get_all_members(archive: ArchiveClass) -> List[ArchiveMember]:
@@ -436,3 +449,14 @@ class ZipParser(ArchiveBasedAbstractParser):
     def _get_member_name(member: ArchiveMember) -> str:
         assert isinstance(member, zipfile.ZipInfo)  # please mypy
         return member.filename
+
+    @staticmethod
+    def _get_member_compression(member: ArchiveMember):
+        assert isinstance(member, zipfile.ZipInfo)  # please mypy
+        return member.compress_type
+
+    @staticmethod
+    def _set_member_compression(member: ArchiveMember, compression) -> ArchiveMember:
+        assert isinstance(member, zipfile.ZipInfo)  # please mypy
+        member.compress_type = compression
+        return member

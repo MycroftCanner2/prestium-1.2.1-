@@ -1,7 +1,6 @@
-import imghdr
 import os
 import re
-from typing import Set, Dict, Union, Any
+from typing import Union, Any, Dict
 
 import cairo
 
@@ -13,7 +12,6 @@ from gi.repository import GdkPixbuf, GLib, Rsvg
 from . import exiftool, abstract
 
 # Make pyflakes happy
-assert Set
 assert Any
 
 class SVGParser(exiftool.ExiftoolParser):
@@ -26,17 +24,31 @@ class SVGParser(exiftool.ExiftoolParser):
                       }
 
     def remove_all(self) -> bool:
-        svg = Rsvg.Handle.new_from_file(self.filename)
-        dimensions = svg.get_dimensions()
-        surface = cairo.SVGSurface(self.output_filename,
-                                   dimensions.height,
-                                   dimensions.width)
+        try:
+            svg = Rsvg.Handle.new_from_file(self.filename)
+        except GLib.GError:
+            raise ValueError
+
+        try:
+            _, _, _, _, has_viewbox, viewbox = svg.get_intrinsic_dimensions()
+            if has_viewbox is False:
+                raise ValueError
+            _, width, height = svg.get_intrinsic_size_in_pixels()
+        except AttributeError:
+            dimensions = svg.get_dimensions()
+            height, width = dimensions.height, dimensions.width
+
+        surface = cairo.SVGSurface(self.output_filename, height, width)
         context = cairo.Context(surface)
-        svg.render_cairo(context)
+        try:
+            svg.render_document(context, viewbox)
+        except AttributeError:
+            svg.render_cairo(context)
+
         surface.finish()
         return True
 
-    def get_meta(self) -> Dict[str, Union[str, dict]]:
+    def get_meta(self) -> Dict[str, Union[str, Dict]]:
         meta = super().get_meta()
 
         # The namespace is mandatory, but only the …/2000/svg is valid.
@@ -44,6 +56,7 @@ class SVGParser(exiftool.ExiftoolParser):
         if meta.get('Xmlns') == ns:
             meta.pop('Xmlns')
         return meta
+
 
 class PNGParser(exiftool.ExiftoolParser):
     mimetypes = {'image/png', }
@@ -58,12 +71,9 @@ class PNGParser(exiftool.ExiftoolParser):
     def __init__(self, filename):
         super().__init__(filename)
 
-        if imghdr.what(filename) != 'png':
-            raise ValueError
-
         try:  # better fail here than later
             cairo.ImageSurface.create_from_png(self.filename)
-        except Exception:  # pragma: no cover
+        except:  # pragma: no cover
             # Cairo is returning some weird exceptions :/
             raise ValueError
 
@@ -98,7 +108,6 @@ class GdkPixbufAbstractParser(exiftool.ExiftoolParser):
 
     def __init__(self, filename):
         super().__init__(filename)
-        # we can't use imghdr here because of https://bugs.python.org/issue28591
         try:
             GdkPixbuf.Pixbuf.new_from_file(self.filename)
         except GLib.GError:
@@ -148,10 +157,11 @@ class TiffParser(GdkPixbufAbstractParser):
                       'FileTypeExtension', 'ImageHeight', 'ImageSize',
                       'ImageWidth', 'MIMEType', 'Megapixels', 'SourceFile'}
 
+
 class PPMParser(abstract.AbstractParser):
     mimetypes = {'image/x-portable-pixmap'}
 
-    def get_meta(self) -> Dict[str, Union[str, dict]]:
+    def get_meta(self) -> Dict[str, Union[str, Dict]]:
         meta = {}  # type: Dict[str, Union[str, Dict[Any, Any]]]
         with open(self.filename) as f:
             for idx, line in enumerate(f):
@@ -167,3 +177,24 @@ class PPMParser(abstract.AbstractParser):
                         line = re.sub(r"\s+", "", line, flags=re.UNICODE)
                         fout.write(line)
         return True
+
+
+class HEICParser(exiftool.ExiftoolParser):
+    mimetypes = {'image/heic'}
+    meta_allowlist = {'SourceFile', 'ExifToolVersion', 'FileName', 'Directory',
+            'FileSize', 'FileModifyDate', 'FileAccessDate',
+            'FileInodeChangeDate', 'FilePermissions', 'FileType',
+            'FileTypeExtension', 'MIMEType', 'MajorBrand', 'MinorVersion',
+            'CompatibleBrands','HandlerType', 'PrimaryItemReference',
+            'HEVCConfigurationVersion', 'GeneralProfileSpace',
+            'GeneralTierFlag', 'GeneralProfileIDC',
+            'GenProfileCompatibilityFlags', 'ConstraintIndicatorFlags',
+            'GeneralLevelIDC', 'MinSpatialSegmentationIDC',
+            'ParallelismType','ChromaFormat', 'BitDepthLuma', 'BitDepthChroma',
+            'NumTemporalLayers', 'TemporalIDNested', 'ImageWidth',
+            'ImageHeight', 'ImageSpatialExtent', 'ImagePixelDepth',
+            'AverageFrameRate', 'ConstantFrameRate', 'MediaDataSize',
+            'MediaDataOffset','ImageSize', 'Megapixels'}
+
+    def remove_all(self) -> bool:
+        return self._lightweight_cleanup()

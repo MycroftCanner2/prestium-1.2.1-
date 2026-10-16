@@ -357,7 +357,7 @@ class ProxyObject(object):
                 this name.
             `arg...` : unicode or UTF-8 str
                 If there are additional keyword parameters of the form
-                ``arg``\ *n*, match only signals where the *n*\ th argument
+                ``arg``\\ *n*, match only signals where the *n*\\ th argument
                 is the value given for that keyword parameter. As of this time
                 only string arguments can be matched (in particular,
                 object paths and signatures can't).
@@ -372,8 +372,6 @@ class ProxyObject(object):
 
     def _Introspect(self):
         kwargs = {}
-        if is_py2:
-            kwargs['utf8_strings'] = True
         return self._bus.call_async(self._named_service,
                                     self.__dbus_object_path__,
                                     INTROSPECTABLE_IFACE, 'Introspect', '', (),

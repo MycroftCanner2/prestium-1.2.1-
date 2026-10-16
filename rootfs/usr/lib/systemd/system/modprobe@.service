@@ -13,7 +13,8 @@ DefaultDependencies=no
 Before=sysinit.target
 Documentation=man:modprobe(8)
 ConditionCapability=CAP_SYS_MODULE
+StartLimitIntervalSec=0
 
 [Service]
 Type=oneshot
-ExecStart=-/sbin/modprobe -abq %I
+ExecStart=-/sbin/modprobe -abq %i

@@ -80,16 +80,12 @@ class NameOwnerWatch(object):
                                                    BUS_DAEMON_NAME,
                                                    BUS_DAEMON_PATH,
                                                    arg0=bus_name)
-        keywords = {}
-        if is_py2:
-            keywords['utf8_strings'] = True
         self._pending_call = bus_conn.call_async(BUS_DAEMON_NAME,
                                                  BUS_DAEMON_PATH,
                                                  BUS_DAEMON_IFACE,
                                                  'GetNameOwner',
                                                  's', (bus_name,),
-                                                 callback, error_cb,
-                                                 **keywords)
+                                                 callback, error_cb)
 
     def cancel(self):
         if self._match is not None:
@@ -327,12 +323,9 @@ class BusConnection(Connection):
         :Returns: a dbus.Array of dbus.UTF8String
         :Since: 0.81.0
         """
-        keywords = {}
-        if is_py2:
-            keywords['utf8_strings'] = True
         return self.call_blocking(BUS_DAEMON_NAME, BUS_DAEMON_PATH,
                                   BUS_DAEMON_IFACE, 'ListNames',
-                                  '', (), **keywords)
+                                  '', ())
 
     def list_activatable_names(self):
         """Return a list of all names that can be activated on the bus.
@@ -340,12 +333,9 @@ class BusConnection(Connection):
         :Returns: a dbus.Array of dbus.UTF8String
         :Since: 0.81.0
         """
-        keywords = {}
-        if is_py2:
-            keywords['utf8_strings'] = True
         return self.call_blocking(BUS_DAEMON_NAME, BUS_DAEMON_PATH,
                                   BUS_DAEMON_IFACE, 'ListActivatableNames',
-                                  '', (), **keywords)
+                                  '', ())
 
     def get_name_owner(self, bus_name):
         """Return the unique connection name of the primary owner of the
@@ -354,13 +344,10 @@ class BusConnection(Connection):
         :Raises `DBusException`: if the `bus_name` has no owner
         :Since: 0.81.0
         """
-        keywords = {}
-        if is_py2:
-            keywords['utf8_strings'] = True
         validate_bus_name(bus_name, allow_unique=False)
         return self.call_blocking(BUS_DAEMON_NAME, BUS_DAEMON_PATH,
                                   BUS_DAEMON_IFACE, 'GetNameOwner',
-                                  's', (bus_name,), **keywords)
+                                  's', (bus_name,))
 
     def watch_name_owner(self, bus_name, callback):
         """Watch the unique connection name of the primary owner of the

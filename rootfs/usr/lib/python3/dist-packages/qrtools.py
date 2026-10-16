@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 # Authors:
-#   David Green <david4dev@gmail.com>
 #   Ramiro Algozino <algozino@gmail.com>
 #   Ying-Chun Liu <paul.liu@canonical.com>
+#   David Green <david4dev@gmail.com>
 #
 # qrtools.py: Library for encoding/decoding QR Codes (2D barcodes).
-# Copyright (C) 2011 David Green <david4dev@gmail.com>
+# Copyright (C) 2011-2020 Ramiro Algozino <algozino@gmail.com> - David Green <david4dev@gmail.com>
 #
 # `qrtools.py` is free software: you can redistribute it and/or modify it under the
 # terms of the GNU General Public License as published by the Free
@@ -29,7 +29,10 @@ import sys
 import time
 import shutil
 import hashlib
-import zbar
+try:
+    import zbar
+except ImportError:
+    print("WARNING: ZBar not available. You won't be able to decode images.")
 try:
     from PIL import Image
 except ImportError:
@@ -37,6 +40,13 @@ except ImportError:
 import re
 from codecs import BOM_UTF8
 from urllib.parse import urlparse, parse_qs
+    
+__author__ = "Ramiro Algozino"
+__email__ = "algozino@gmail.com"
+__copyright__ = "copyright (C) 2011 Ramiro Algozino"
+__credits__ = "David Green, Boyuan Yang, Ying-Chun Liu"
+__license__ = "GPLv3"
+__version__ = "2.1"
 
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
@@ -77,13 +87,17 @@ class QR(object):
         # phonebook or meCard should be a list of tuples like this:
         # [('N','Name'),('TEL', '231698890'), ...]
         'phonebook': lambda data: "MECARD:" + ";".join([":".join(i) for i in data]) + ";",
-        'wifi': lambda data: "WIFI:S:" + data[0] + ";T:" + data[1] + ";P:" + data[2] +";;",
+        'wifi': lambda data: "WIFI:S:{};T:{};P:{};{};".format(data[0], data[1], data[2], "" if len(data)==3 else "H:" + data[3]),
         'sepa': lambda data: "bank://singlepayment?name=" + data[0] \
                                                 + "&account=" + data[1]\
                                                 + "&bnc=" + data[2]\
                                                 + "&amount=" + data[3]\
                                                 + "&reason=" + data[4]\
                                                 + "&currency=" + data[5],
+        'bip21': lambda data: "bitcoin:" + data[0] \
+                                                + "?amount=" + data[1]\
+                                                + "&label=" + data[2]\
+                                                + "&message=" + data[3],
     }
 
     data_decode = {
@@ -97,8 +111,9 @@ class QR(object):
         'geo': lambda data: re.findall(u"GEO:(.*),(.*)", data, re.IGNORECASE)[0],
         'bookmark': lambda data: re.findall(u"MEBKM:TITLE:(.*);URL:(.*);;", data, re.IGNORECASE)[0],
         'phonebook': lambda data: dict(re.findall("(.*?):(.*?);", data.replace("MECARD:",""), re.IGNORECASE)),
-        'wifi' : lambda data: re.findall(u"WIFI:S:(.*);T:(.*);P:(.*);;", data, re.IGNORECASE)[0],
+        'wifi' : lambda data: re.findall(u"WIFI:(?:;|S:([^;]*);|T:([^;]*);|P:([^;]*);|H:([^;]*);)+", data, re.IGNORECASE)[0],
         'sepa' : lambda data: parse_qs(urlparse(data).query),
+        'bip21' : lambda data: {'address': urlparse(data).path, 'options': parse_qs(urlparse(data).query)},
     }
 
     def data_recognise(self, data = None):
@@ -116,11 +131,12 @@ class QR(object):
         elif data_lower.startswith(u"mecard:"): return u'phonebook'
         elif data_lower.startswith(u"wifi:"): return u'wifi'
         elif data_lower.startswith(u"bank://singlepayment"): return u'sepa'
+        elif data_lower.startswith(u"bitcoin:"): return u'bip21'
         else: return u'text'
 
     def __init__(
         self, data=u'NULL', pixel_size=3, level='L', margin_size=4,
-        data_type=u'text', filename=None
+        data_type=u'text', filename=None, add_bom=True
     ):
         self.pixel_size = pixel_size
         self.level = level
@@ -134,6 +150,9 @@ class QR(object):
         os.makedirs(self.directory)
         self.qrencode_version = self.get_qrencode_version()
         self.qrencode_types = self.get_qrencode_types()
+        # Workaround to disabling adding the BOM character to text QR codes
+        # Set it to False if you don't want the BOM to be added to your codes
+        self.add_bom = add_bom
 
     def data_to_string(self):
         """Returns a UTF8 string with the QR Code's data"""
@@ -141,7 +160,7 @@ class QR(object):
         # correctly; but if we add it, mobile apps don't.- 
         # /Apparently/ Confirmed that is a zbar bug.
         # See: https://bugs.launchpad.net/qr-tools/+bug/796387
-        if self.data_type == 'text':
+        if self.data_type == 'text' and self.add_bom:
             return BOM_UTF8 + self.__class__.data_encode[self.data_type](self.data).encode('utf-8')
         else:
             return self.__class__.data_encode[self.data_type](self.data).encode('utf-8')
@@ -175,7 +194,7 @@ class QR(object):
             eprint(repr(e))
             return 1
 
-        if self.qrencode_version > '3.1.1':
+        if self.qrencode_version > "3.1.1":
             command = [
                 'qrencode',
                 '-o', self.filename,
@@ -197,14 +216,17 @@ class QR(object):
             ]
         return subprocess.Popen(command).wait()
 
-    def decode(self, filename=None):
+    def decode(self, filename=None, image=None):
         self.filename = filename or self.filename
-        if self.filename:
+        if self.filename is not None or image is not None:
             scanner = zbar.ImageScanner()
             # configure the reader
             scanner.parse_config('enable')
             # obtain image data
-            pil = Image.open(self.filename).convert('L')
+            if image is not None:
+                pil = image.convert('L')
+            else:
+                pil = Image.open(self.filename).convert('L')
             width, height = pil.size
             try:
                 raw = pil.tostring()
@@ -230,14 +252,18 @@ class QR(object):
             return False
 
     def decode_webcam(self, callback=lambda s:None, device='/dev/video0'):
-        # create a Processor
+        # create a Processor; return True if the device could be opened
+        # else return False
         proc = zbar.Processor()
 
         # configure the Processor
         proc.parse_config('enable')
 
         # initialize the Processor
-        proc.init(device)
+        try:
+            proc.init(device)
+        except zbar.UnsupportedError:
+            return False
 
         # setup a callback
         def my_handler(proc, image, closure):
@@ -259,6 +285,7 @@ class QR(object):
             proc.process_one()
         except zbar.WindowClosed:
             pass
+        return True
 
     def destroy(self):
         shutil.rmtree(self.directory)
@@ -269,18 +296,18 @@ class QR(object):
         #We should at least check if the binary is available.
         p = subprocess.Popen(['qrencode','-V'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         version_text = p.communicate()[0]
-        version = re.search('version\s([\d.]*)',str(version_text)) 
+        version = re.search(r'version\s([\d.]*)',str(version_text)) 
         if version:
             version_number = version.group(1)
         else:
-            version_number = -1
+            version_number = "-1"
         #print ("Using qrencode version:", version_number)
         return version_number
 
     def get_qrencode_types(self):
         p = subprocess.Popen(['qrencode','-h'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         help_text = p.communicate()[1]
-        types_text = re.search('-t {([\w,]*)}', str(help_text)) 
+        types_text = re.search(r'-t {([\w,]*)}', str(help_text)) 
         if types_text:
             types = types_text.group(1).split(',')
             #print "The following format types have been found!:", types

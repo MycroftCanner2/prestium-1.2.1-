@@ -39,10 +39,7 @@ from dbus.lowlevel import (
 from dbus.proxies import ProxyObject
 from dbus._compat import is_py2, is_py3
 
-if is_py3:
-    from _dbus_bindings import String
-else:
-    from _dbus_bindings import UTF8String
+from _dbus_bindings import String
 
 
 _logger = logging.getLogger('dbus.connection')
@@ -59,8 +56,6 @@ class SignalMatch(object):
               '_destination_keyword', '_interface_keyword',
               '_message_keyword', '_member_keyword',
               '_sender_keyword', '_path_keyword', '_int_args_match']
-    if is_py2:
-        _slots.append('_utf8_strings')
 
     __slots__ = tuple(_slots)
 
@@ -91,9 +86,7 @@ class SignalMatch(object):
         # this later
         self._sender_name_owner = sender
 
-        if is_py2:
-            self._utf8_strings = kwargs.pop('utf8_strings', False)
-        elif 'utf8_strings' in kwargs:
+        if 'utf8_strings' in kwargs:
             raise TypeError("unexpected keyword argument 'utf8_strings'")
 
         self._byte_arrays = byte_arrays
@@ -186,15 +179,12 @@ class SignalMatch(object):
         if self._sender_name_owner not in (None, message.get_sender()):
             return False
         if self._int_args_match is not None:
-            # extracting args with utf8_strings and byte_arrays is less work
+            # extracting args with byte_arrays is less work
             kwargs = dict(byte_arrays=True)
-            arg_type = (String if is_py3 else UTF8String)
-            if is_py2:
-                kwargs['utf8_strings'] = True
             args = message.get_args_list(**kwargs)
             for index, value in self._int_args_match.items():
                 if (index >= len(args)
-                    or not isinstance(args[index], arg_type)
+                    or not isinstance(args[index], String)
                     or args[index] != value):
                     return False
 
@@ -210,12 +200,8 @@ class SignalMatch(object):
             # minor optimization: if we already extracted the args with the
             # right calling convention to do the args match, don't bother
             # doing so again
-            utf8_strings = (is_py2 and self._utf8_strings)
-            if args is None or not utf8_strings or not self._byte_arrays:
-                kwargs = dict(byte_arrays=self._byte_arrays)
-                if is_py2:
-                    kwargs['utf8_strings'] = self._utf8_strings
-                args = message.get_args_list(**kwargs)
+            if args is None or not self._byte_arrays:
+                args = message.get_args_list(byte_arrays=self._byte_arrays)
             kwargs = {}
             if self._sender_keyword is not None:
                 kwargs[self._sender_keyword] = message.get_sender()
@@ -392,7 +378,7 @@ class Connection(_Connection):
                 this name.
             `arg...` : unicode or UTF-8 str
                 If there are additional keyword parameters of the form
-                ``arg``\ *n*, match only signals where the *n*\ th argument
+                ``arg``\\ *n*, match only signals where the *n*\\ th argument
                 is the value given for that keyword parameter. As of this
                 time only string arguments can be matched (in particular,
                 object paths and signatures can't).
@@ -572,9 +558,7 @@ class Connection(_Connection):
         # no need to validate other args - MethodCallMessage ctor will do
 
         get_args_opts = dict(byte_arrays=byte_arrays)
-        if is_py2:
-            get_args_opts['utf8_strings'] = kwargs.get('utf8_strings', False)
-        elif 'utf8_strings' in kwargs:
+        if 'utf8_strings' in kwargs:
             raise TypeError("unexpected keyword argument 'utf8_strings'")
 
         message = MethodCallMessage(destination=bus_name,
@@ -629,9 +613,7 @@ class Connection(_Connection):
         # no need to validate other args - MethodCallMessage ctor will do
 
         get_args_opts = dict(byte_arrays=byte_arrays)
-        if is_py2:
-            get_args_opts['utf8_strings'] = kwargs.get('utf8_strings', False)
-        elif 'utf8_strings' in kwargs:
+        if 'utf8_strings' in kwargs:
             raise TypeError("unexpected keyword argument 'utf8_strings'")
 
         message = MethodCallMessage(destination=bus_name,

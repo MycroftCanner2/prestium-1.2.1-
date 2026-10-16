@@ -8,8 +8,8 @@
 #  (at your option) any later version.
 
 [Unit]
-Description=Suspend; Hibernate if not used for a period of time
-Documentation=man:systemd-suspend.service(8)
+Description=System Suspend then Hibernate
+Documentation=man:systemd-suspend-then-hibernate.service(8)
 DefaultDependencies=no
 Requires=sleep.target
 After=sleep.target

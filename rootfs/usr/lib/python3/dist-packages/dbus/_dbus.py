@@ -42,9 +42,6 @@ from dbus.bus import BusConnection
 from dbus.lowlevel import SignalMessage
 from dbus._compat import is_py2
 
-if is_py2:
-    from _dbus_bindings import UTF8String
-
 
 class Bus(BusConnection):
     """A connection to one of three possible standard buses, the SESSION,

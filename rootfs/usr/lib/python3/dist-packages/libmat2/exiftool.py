@@ -4,13 +4,10 @@ import logging
 import os
 import shutil
 import subprocess
-from typing import Dict, Union, Set
+from typing import Union, Set, Dict
 
 from . import abstract
 from . import bubblewrap
-
-# Make pyflakes happy
-assert Set
 
 
 class ExiftoolParser(abstract.AbstractParser):
@@ -20,7 +17,7 @@ class ExiftoolParser(abstract.AbstractParser):
     """
     meta_allowlist = set()  # type: Set[str]
 
-    def get_meta(self) -> Dict[str, Union[str, dict]]:
+    def get_meta(self) -> Dict[str, Union[str, Dict]]:
         try:
             if self.sandbox:
                 out = bubblewrap.run([_get_exiftool_path(), '-json',
@@ -70,7 +67,7 @@ class ExiftoolParser(abstract.AbstractParser):
             return False
         return True
 
-@functools.lru_cache()
+@functools.lru_cache(maxsize=None)
 def _get_exiftool_path() -> str:  # pragma: no cover
     which_path = shutil.which('exiftool')
     if which_path:

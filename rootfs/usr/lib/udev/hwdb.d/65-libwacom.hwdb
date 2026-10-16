@@ -10,10 +10,112 @@ libwacom:name:*:input:b0003v056Ap0084*
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
-libwacom:name:* Finger:input:b0003v056Ap0084*:
+libwacom:name:* Finger:input:b0003v056Ap0084*
  ID_INPUT_TOUCHPAD=1
 
-libwacom:name:* Pad:input:b0003v056Ap0084*:
+libwacom:name:* Pad:input:b0003v056Ap0084*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Graphire Wireless
+libwacom:name:*:input:b0005v056Ap0081*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0005v056Ap0081*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos4 WL
+libwacom:name:*:input:b0005v056Ap00BD*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0005v056Ap00BD*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos Pro M
+libwacom:name:*:input:b0005v056Ap0360*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0005v056Ap0360*
+ ID_INPUT_TOUCHPAD=1
+
+libwacom:name:* Pad:input:b0005v056Ap0360*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos Pro L
+libwacom:name:*:input:b0005v056Ap0361*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0005v056Ap0361*
+ ID_INPUT_TOUCHPAD=1
+
+libwacom:name:* Pad:input:b0005v056Ap0361*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos BT S
+libwacom:name:*:input:b0005v056Ap0377*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0005v056Ap0377*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos BT M
+libwacom:name:*:input:b0005v056Ap0379*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0005v056Ap0379*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos Pro S
+libwacom:name:*:input:b0005v056Ap0393*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0005v056Ap0393*
+ ID_INPUT_TOUCHPAD=1
+
+libwacom:name:* Pad:input:b0005v056Ap0393*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos BT S
+libwacom:name:*:input:b0005v056Ap03C6*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0005v056Ap03C6*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos BT M
+libwacom:name:*:input:b0005v056Ap03C8*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0005v056Ap03C8*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos Pro S
+libwacom:name:*:input:b0005v056Ap03DD*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0005v056Ap03DD*
+ ID_INPUT_TOUCHPAD=1
+
+libwacom:name:* Pad:input:b0005v056Ap03DD*
  ID_INPUT_TABLET_PAD=1
 
 # ELAN 2072
@@ -24,6 +126,9 @@ libwacom:name:*:input:b0003v04F3p2072*
 
 libwacom:name:* Finger:input:b0003v04F3p2072*
  ID_INPUT_TOUCHSCREEN=1
+
+libwacom:name:* Keyboard:input:b0003v04F3p2072*
+ ID_INPUT_TABLET=0
 
 # Wacom Graphire
 libwacom:name:*:input:b0003v056Ap0010*
@@ -283,35 +388,11 @@ libwacom:name:*:input:b0003v056Ap006B*
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
-# Wacom Graphire Wireless
-libwacom:name:*:input:b0005v056Ap0081*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0005v056Ap0081*
- ID_INPUT_TABLET_PAD=1
-
 # Wacom ISDv4 90
 libwacom:name:*:input:b0003v056Ap0090*
  ID_INPUT=1
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
-
-# Wacom ISDv4 90
-libwacom:name:*:input:b0003v056Ap0090*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-# Wacom ISDv4 93
-libwacom:name:*:input:b0003v056Ap0093*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0003v056Ap0093*
- ID_INPUT_TOUCHSCREEN=1
 
 # Wacom ISDv4 93
 libwacom:name:*:input:b0003v056Ap0093*
@@ -428,33 +509,6 @@ libwacom:name:*:input:b0003v056Ap00BC*
  ID_INPUT_JOYSTICK=0
 
 libwacom:name:* Pad:input:b0003v056Ap00BC*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos4 WL
-libwacom:name:*:input:b0005v056Ap00BD*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0005v056Ap00BD*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos4 WL
-libwacom:name:*:input:b0003v056Ap00BC*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v056Ap00BC*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos4 WL
-libwacom:name:*:input:b0005v056Ap00BD*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0005v056Ap00BD*
  ID_INPUT_TABLET_PAD=1
 
 # Wacom DTF-720
@@ -681,15 +735,6 @@ libwacom:name:*:input:b0003v056Ap00E2*
  ID_INPUT=1
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
-
-# Wacom ISDv4 E3
-libwacom:name:*:input:b0003v056Ap00E3*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0003v056Ap00E3*
- ID_INPUT_TOUCHSCREEN=1
 
 # Wacom ISDv4 E3
 libwacom:name:*:input:b0003v056Ap00E3*
@@ -1198,42 +1243,6 @@ libwacom:name:* Finger:input:b0003v056Ap0357*
 libwacom:name:* Pad:input:b0003v056Ap0357*
  ID_INPUT_TABLET_PAD=1
 
-# Wacom Intuos Pro M
-libwacom:name:*:input:b0005v056Ap0360*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0005v056Ap0360*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0005v056Ap0360*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos Pro M
-libwacom:name:*:input:b0003v056Ap0357*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0003v056Ap0357*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0003v056Ap0357*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos Pro M
-libwacom:name:*:input:b0005v056Ap0360*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0005v056Ap0360*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0005v056Ap0360*
- ID_INPUT_TABLET_PAD=1
-
 # Wacom Intuos Pro L
 libwacom:name:*:input:b0003v056Ap0358*
  ID_INPUT=1
@@ -1244,42 +1253,6 @@ libwacom:name:* Finger:input:b0003v056Ap0358*
  ID_INPUT_TOUCHPAD=1
 
 libwacom:name:* Pad:input:b0003v056Ap0358*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos Pro L
-libwacom:name:*:input:b0005v056Ap0361*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0005v056Ap0361*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0005v056Ap0361*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos Pro L
-libwacom:name:*:input:b0003v056Ap0358*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0003v056Ap0358*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0003v056Ap0358*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos Pro L
-libwacom:name:*:input:b0005v056Ap0361*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0005v056Ap0361*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0005v056Ap0361*
  ID_INPUT_TABLET_PAD=1
 
 # Wacom DTU1141B
@@ -1327,33 +1300,6 @@ libwacom:name:*:input:b0003v056Ap0376*
 libwacom:name:* Pad:input:b0003v056Ap0376*
  ID_INPUT_TABLET_PAD=1
 
-# Wacom Intuos BT S
-libwacom:name:*:input:b0005v056Ap0377*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0005v056Ap0377*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos BT S
-libwacom:name:*:input:b0003v056Ap0376*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v056Ap0376*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos BT S
-libwacom:name:*:input:b0005v056Ap0377*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0005v056Ap0377*
- ID_INPUT_TABLET_PAD=1
-
 # Wacom Intuos BT M
 libwacom:name:*:input:b0003v056Ap0378*
  ID_INPUT=1
@@ -1361,33 +1307,6 @@ libwacom:name:*:input:b0003v056Ap0378*
  ID_INPUT_JOYSTICK=0
 
 libwacom:name:* Pad:input:b0003v056Ap0378*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos BT M
-libwacom:name:*:input:b0005v056Ap0379*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0005v056Ap0379*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos BT M
-libwacom:name:*:input:b0003v056Ap0378*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v056Ap0378*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos BT M
-libwacom:name:*:input:b0005v056Ap0379*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0005v056Ap0379*
  ID_INPUT_TABLET_PAD=1
 
 # One by Wacom (small)
@@ -1453,42 +1372,6 @@ libwacom:name:* Finger:input:b0003v056Ap0392*
 libwacom:name:* Pad:input:b0003v056Ap0392*
  ID_INPUT_TABLET_PAD=1
 
-# Wacom Intuos Pro S
-libwacom:name:*:input:b0005v056Ap0393*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0005v056Ap0393*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0005v056Ap0393*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos Pro S
-libwacom:name:*:input:b0003v056Ap0392*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0003v056Ap0392*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0003v056Ap0392*
- ID_INPUT_TABLET_PAD=1
-
-# Wacom Intuos Pro S
-libwacom:name:*:input:b0005v056Ap0393*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Finger:input:b0005v056Ap0393*
- ID_INPUT_TOUCHPAD=1
-
-libwacom:name:* Pad:input:b0005v056Ap0393*
- ID_INPUT_TABLET_PAD=1
-
 # Wacom DTK-1660E
 libwacom:name:*:input:b0003v056Ap0396*
  ID_INPUT=1
@@ -1549,6 +1432,66 @@ libwacom:name:*:input:b0003v056Ap03B0*
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
+# Wacom Cintiq Pro 16
+libwacom:name:*:input:b0003v056Ap03B2*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap03B2*
+ ID_INPUT_TOUCHSCREEN=1
+
+libwacom:name:* Pad:input:b0003v056Ap03B2*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom One Pen Display 13
+libwacom:name:*:input:b0003v056Ap03BD*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+# Wacom Cintiq Pro 27
+libwacom:name:*:input:b0003v056Ap03C0*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap03C0*
+ ID_INPUT_TOUCHSCREEN=1
+
+libwacom:name:* Pad:input:b0003v056Ap03C0*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos BT S
+libwacom:name:*:input:b0003v056Ap03C5*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v056Ap03C5*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos BT M
+libwacom:name:*:input:b0003v056Ap03C7*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v056Ap03C7*
+ ID_INPUT_TABLET_PAD=1
+
+# Wacom Intuos Pro S
+libwacom:name:*:input:b0003v056Ap03DC*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap03DC*
+ ID_INPUT_TOUCHPAD=1
+
+libwacom:name:* Pad:input:b0003v056Ap03DC*
+ ID_INPUT_TABLET_PAD=1
+
 # Wacom ISDv4 4004
 libwacom:name:*:input:b0003v056Ap4004*
  ID_INPUT=1
@@ -1592,6 +1535,15 @@ libwacom:name:*:input:b0003v056Ap5010*
  ID_INPUT_JOYSTICK=0
 
 libwacom:name:* Finger:input:b0003v056Ap5010*
+ ID_INPUT_TOUCHSCREEN=1
+
+# ISDv4 5019
+libwacom:name:*:input:b0003v056Ap5019*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap5019*
  ID_INPUT_TOUCHSCREEN=1
 
 # Wacom ISDv4 503E
@@ -1648,6 +1600,15 @@ libwacom:name:*:input:b0003v056Ap504A*
 libwacom:name:* Finger:input:b0003v056Ap504A*
  ID_INPUT_TOUCHSCREEN=1
 
+# ISDv4 504c
+libwacom:name:*:input:b0003v056Ap504C*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap504C*
+ ID_INPUT_TOUCHSCREEN=1
+
 # Wacom ISDv4 5090
 libwacom:name:*:input:b0003v056Ap5090*
  ID_INPUT=1
@@ -1655,6 +1616,15 @@ libwacom:name:*:input:b0003v056Ap5090*
  ID_INPUT_JOYSTICK=0
 
 libwacom:name:* Finger:input:b0003v056Ap5090*
+ ID_INPUT_TOUCHSCREEN=1
+
+# ISDv4 5093
+libwacom:name:*:input:b0003v056Ap5093*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap5093*
  ID_INPUT_TOUCHSCREEN=1
 
 # Wacom ISDv4 509D
@@ -1682,6 +1652,15 @@ libwacom:name:*:input:b0003v056Ap50A2*
  ID_INPUT_JOYSTICK=0
 
 libwacom:name:* Finger:input:b0003v056Ap50A2*
+ ID_INPUT_TOUCHSCREEN=1
+
+# Wacom Pen and multitouch sensor Pen
+libwacom:name:*:input:b0003v056Ap50A9*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap50A9*
  ID_INPUT_TOUCHSCREEN=1
 
 # Wacom ISDv4 50b4
@@ -1756,6 +1735,15 @@ libwacom:name:*:input:b0003v056Ap5150*
 libwacom:name:* Finger:input:b0003v056Ap5150*
  ID_INPUT_TOUCHSCREEN=1
 
+# Wacom ISDv4 5155
+libwacom:name:*:input:b0003v056Ap5155*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap5155*
+ ID_INPUT_TOUCHSCREEN=1
+
 # Wacom ISDv4 5157
 libwacom:name:*:input:b0003v056Ap5157*
  ID_INPUT=1
@@ -1772,6 +1760,15 @@ libwacom:name:*:input:b0003v056Ap5158*
  ID_INPUT_JOYSTICK=0
 
 libwacom:name:* Finger:input:b0003v056Ap5158*
+ ID_INPUT_TOUCHSCREEN=1
+
+# ISDv4 5159
+libwacom:name:*:input:b0003v056Ap5159*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap5159*
  ID_INPUT_TOUCHSCREEN=1
 
 # Wacom ISDv4 515a
@@ -1927,6 +1924,15 @@ libwacom:name:*:input:b0003v056Ap51BF*
 libwacom:name:* Finger:input:b0003v056Ap51BF*
  ID_INPUT_TOUCHSCREEN=1
 
+# ISDv4 51d0
+libwacom:name:*:input:b0003v056Ap51D0*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap51D0*
+ ID_INPUT_TOUCHSCREEN=1
+
 # ISDv4 51e9
 libwacom:name:*:input:b0003v056Ap51E9*
  ID_INPUT=1
@@ -1952,6 +1958,15 @@ libwacom:name:*:input:b0003v056Ap51F6*
  ID_INPUT_JOYSTICK=0
 
 libwacom:name:* Finger:input:b0003v056Ap51F6*
+ ID_INPUT_TOUCHSCREEN=1
+
+# ISDv4 51f9
+libwacom:name:*:input:b0003v056Ap51F9*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap51F9*
  ID_INPUT_TOUCHSCREEN=1
 
 # ISDv4 521F
@@ -1990,6 +2005,24 @@ libwacom:name:*:input:b0003v056Ap5222*
 libwacom:name:* Finger:input:b0003v056Ap5222*
  ID_INPUT_TOUCHSCREEN=1
 
+# ISDv4 5229
+libwacom:name:*:input:b0003v056Ap5229*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v056Ap5229*
+ ID_INPUT_TOUCHSCREEN=1
+
+# Waltop Slim Tablet 12.1"
+libwacom:name:*:input:b0003v172Fp0031*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Keyboard:input:b0003v172Fp0031*
+ ID_INPUT_TABLET=0
+
 # N-Trig Pen
 libwacom:name:*:input:b0003v1B96p0001*
  ID_INPUT=1
@@ -1999,14 +2032,8 @@ libwacom:name:*:input:b0003v1B96p0001*
 libwacom:name:* Finger:input:b0003v1B96p0001*
  ID_INPUT_TOUCHSCREEN=1
 
-# GAOMON S620
-libwacom:name:*:input:b0003v256Cp006D*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006D*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v1B96p0001*
+ ID_INPUT_TABLET=0
 
 # GAOMON S620
 libwacom:name:*:input:b0003v256Cp006D*
@@ -2017,14 +2044,8 @@ libwacom:name:*:input:b0003v256Cp006D*
 libwacom:name:* Pad:input:b0003v256Cp006D*
  ID_INPUT_TABLET_PAD=1
 
-# GAOMON S620
-libwacom:name:*:input:b0003v256Cp006D*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006D*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
 
 # GAOMON S620
 libwacom:name:*:input:b0003v256Cp006D*
@@ -2034,6 +2055,57 @@ libwacom:name:*:input:b0003v256Cp006D*
 
 libwacom:name:* Pad:input:b0003v256Cp006D*
  ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# HUION H1060P Tablet
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# HUION H1060P Tablet
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion H640P
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion H640P
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
 
 # Huion H950P
 libwacom:name:*:input:b0003v256Cp006D*
@@ -2044,29 +2116,86 @@ libwacom:name:*:input:b0003v256Cp006D*
 libwacom:name:* Pad:input:b0003v256Cp006D*
  ID_INPUT_TABLET_PAD=1
 
-# GAOMON S56K
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion HS611
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion HS611
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion HS611
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion Kamvas 13
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion Kamvas 13
+libwacom:name:*:input:b0003v256Cp006D*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v256Cp006D*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v256Cp006D*
+ ID_INPUT_TABLET=0
+
+# Huion 420
 libwacom:name:*:input:b0003v256Cp006E*
  ID_INPUT=1
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
-# GAOMON S56K
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
+
+# Huion 420
 libwacom:name:*:input:b0003v256Cp006E*
  ID_INPUT=1
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
-# GAOMON S56K
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-# GAOMON S56K
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H420
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2077,14 +2206,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H420
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H420
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2095,14 +2218,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H420
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2113,14 +2230,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2131,14 +2242,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2149,14 +2254,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2167,14 +2266,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2185,14 +2278,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2203,14 +2290,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2221,14 +2302,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion H610 Pro
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2239,7 +2314,10 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
+
+# Huion Kamvas Pro 13
 libwacom:name:*:input:b0003v256Cp006E*
  ID_INPUT=1
  ID_INPUT_TABLET=1
@@ -2248,7 +2326,10 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
+
+# Huion Kamvas Pro 13
 libwacom:name:*:input:b0003v256Cp006E*
  ID_INPUT=1
  ID_INPUT_TABLET=1
@@ -2257,80 +2338,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion 420
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-# Huion 420
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion New 1060 Plus
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2341,80 +2350,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion New 1060 Plus
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion 420
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-# Huion 420
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # Huion New 1060 Plus
 libwacom:name:*:input:b0003v256Cp006E*
@@ -2425,68 +2362,8 @@ libwacom:name:*:input:b0003v256Cp006E*
 libwacom:name:* Pad:input:b0003v256Cp006E*
  ID_INPUT_TABLET_PAD=1
 
-# Huion New 1060 Plus
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
-
-# Huion H610 Pro
-libwacom:name:*:input:b0003v256Cp006E*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v256Cp006E*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v256Cp006E*
+ ID_INPUT_TABLET=0
 
 # XP-Pen G430
 libwacom:name:*:input:b0003v28BDp0075*
@@ -2494,11 +2371,8 @@ libwacom:name:*:input:b0003v28BDp0075*
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
-# XP-Pen Star G640
-libwacom:name:*:input:b0003v28BDp0914*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
+libwacom:name:* Keyboard:input:b0003v28BDp0075*
+ ID_INPUT_TABLET=0
 
 # XP-Pen Star G640
 libwacom:name:*:input:b0003v28BDp0094*
@@ -2506,17 +2380,101 @@ libwacom:name:*:input:b0003v28BDp0094*
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
+libwacom:name:* Keyboard:input:b0003v28BDp0094*
+ ID_INPUT_TABLET=0
+
+# XP-Pen Artist 12
+libwacom:name:*:input:b0003v28BDp080A*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v28BDp080A*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v28BDp080A*
+ ID_INPUT_TABLET=0
+
+# XP-Pen Artist 12
+libwacom:name:*:input:b0003v28BDp080A*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v28BDp080A*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v28BDp080A*
+ ID_INPUT_TABLET=0
+
+# XP-Pen Artist 12
+libwacom:name:*:input:b0003v28BDp080A*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v28BDp080A*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v28BDp080A*
+ ID_INPUT_TABLET=0
+
+# XP-Pen Artist 12
+libwacom:name:*:input:b0003v28BDp080A*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v28BDp080A*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v28BDp080A*
+ ID_INPUT_TABLET=0
+
+# UGTABLET 10 inch PenTablet Pad
+libwacom:name:*:input:b0003v28BDp0905*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v28BDp0905*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v28BDp0905*
+ ID_INPUT_TABLET=0
+
+# XP-Pen Star 03
+libwacom:name:*:input:b0003v28BDp0907*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v28BDp0907*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v28BDp0907*
+ ID_INPUT_TABLET=0
+
 # XP-Pen Star G640
 libwacom:name:*:input:b0003v28BDp0914*
  ID_INPUT=1
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
 
-# XP-Pen Star G640
-libwacom:name:*:input:b0003v28BDp0094*
+libwacom:name:* Keyboard:input:b0003v28BDp0914*
+ ID_INPUT_TABLET=0
+
+# Hanvon Ugee Technology Co.,Ltd Deco L
+libwacom:name:*:input:b0003v28BDp0935*
  ID_INPUT=1
  ID_INPUT_TABLET=1
  ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v28BDp0935*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v28BDp0935*
+ ID_INPUT_TABLET=0
 
 # Wacom Intuos S (Android Mode)
 libwacom:name:*:input:b0003v2D1Fp0374*
@@ -2527,6 +2485,9 @@ libwacom:name:*:input:b0003v2D1Fp0374*
 libwacom:name:* Pad:input:b0003v2D1Fp0374*
  ID_INPUT_TABLET_PAD=1
 
+libwacom:name:* Keyboard:input:b0003v2D1Fp0374*
+ ID_INPUT_TABLET=0
+
 # Wacom Intuos M (Android Mode)
 libwacom:name:*:input:b0003v2D1Fp0375*
  ID_INPUT=1
@@ -2535,6 +2496,9 @@ libwacom:name:*:input:b0003v2D1Fp0375*
 
 libwacom:name:* Pad:input:b0003v2D1Fp0375*
  ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v2D1Fp0375*
+ ID_INPUT_TABLET=0
 
 # Wacom Intuos BT S (Android Mode)
 libwacom:name:*:input:b0003v2D1Fp0376*
@@ -2545,6 +2509,9 @@ libwacom:name:*:input:b0003v2D1Fp0376*
 libwacom:name:* Pad:input:b0003v2D1Fp0376*
  ID_INPUT_TABLET_PAD=1
 
+libwacom:name:* Keyboard:input:b0003v2D1Fp0376*
+ ID_INPUT_TABLET=0
+
 # Wacom Intuos BT M (Android Mode)
 libwacom:name:*:input:b0003v2D1Fp0378*
  ID_INPUT=1
@@ -2554,6 +2521,45 @@ libwacom:name:*:input:b0003v2D1Fp0378*
 libwacom:name:* Pad:input:b0003v2D1Fp0378*
  ID_INPUT_TABLET_PAD=1
 
+libwacom:name:* Keyboard:input:b0003v2D1Fp0378*
+ ID_INPUT_TABLET=0
+
+# Wacom Intuos BT S (Android Mode)
+libwacom:name:*:input:b0003v2D1Fp03C5*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v2D1Fp03C5*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v2D1Fp03C5*
+ ID_INPUT_TABLET=0
+
+# Wacom Intuos BT M (Android Mode)
+libwacom:name:*:input:b0003v2D1Fp03C7*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v2D1Fp03C7*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v2D1Fp03C7*
+ ID_INPUT_TABLET=0
+
+# Lenovo ThinkVision M14t
+libwacom:name:*:input:b0003v2D1Fp524C*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Finger:input:b0003v2D1Fp524C*
+ ID_INPUT_TOUCHSCREEN=1
+
+libwacom:name:* Keyboard:input:b0003v2D1Fp524C*
+ ID_INPUT_TABLET=0
+
 # XP-Pen Star 03
 libwacom:name:*:input:b0003v5543p0081*
  ID_INPUT=1
@@ -2563,14 +2569,8 @@ libwacom:name:*:input:b0003v5543p0081*
 libwacom:name:* Pad:input:b0003v5543p0081*
  ID_INPUT_TABLET_PAD=1
 
-# XP-Pen Star 03
-libwacom:name:*:input:b0003v5543p0081*
- ID_INPUT=1
- ID_INPUT_TABLET=1
- ID_INPUT_JOYSTICK=0
-
-libwacom:name:* Pad:input:b0003v5543p0081*
- ID_INPUT_TABLET_PAD=1
+libwacom:name:* Keyboard:input:b0003v5543p0081*
+ ID_INPUT_TABLET=0
 
 # XP-Pen Star 03
 libwacom:name:*:input:b0003v5543p0081*
@@ -2581,6 +2581,9 @@ libwacom:name:*:input:b0003v5543p0081*
 libwacom:name:* Pad:input:b0003v5543p0081*
  ID_INPUT_TABLET_PAD=1
 
+libwacom:name:* Keyboard:input:b0003v5543p0081*
+ ID_INPUT_TABLET=0
+
 # XP-Pen Star 03
 libwacom:name:*:input:b0003v5543p0081*
  ID_INPUT=1
@@ -2589,4 +2592,28 @@ libwacom:name:*:input:b0003v5543p0081*
 
 libwacom:name:* Pad:input:b0003v5543p0081*
  ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v5543p0081*
+ ID_INPUT_TABLET=0
+
+# XP-Pen Star 03
+libwacom:name:*:input:b0003v5543p0081*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Pad:input:b0003v5543p0081*
+ ID_INPUT_TABLET_PAD=1
+
+libwacom:name:* Keyboard:input:b0003v5543p0081*
+ ID_INPUT_TABLET=0
+
+# LetSketch LetSketch
+libwacom:name:*:input:b0003v6161p4D15*
+ ID_INPUT=1
+ ID_INPUT_TABLET=1
+ ID_INPUT_JOYSTICK=0
+
+libwacom:name:* Keyboard:input:b0003v6161p4D15*
+ ID_INPUT_TABLET=0
 
