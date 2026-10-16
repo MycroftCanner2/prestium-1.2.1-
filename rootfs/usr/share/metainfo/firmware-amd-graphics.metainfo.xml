@@ -5,7 +5,39 @@
   <summary>Binary firmware for AMD/ATI graphics chips supported by the radeon, amdgpu and r128 drivers.</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <provides>
+    <firmware type="runtime">amdgpu/aldebaran_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_sjt_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_sjt_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_smc.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_sos.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/aldebaran_vcn.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_asd.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_gpu_info.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_smc.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_sos.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/arcturus_vcn.bin</firmware>
     <firmware type="runtime">amdgpu/banks_k_2_smc.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_me.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_smc.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_sos.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/beige_goby_vcn.bin</firmware>
     <firmware type="runtime">amdgpu/bonaire_ce.bin</firmware>
     <firmware type="runtime">amdgpu/bonaire_k_smc.bin</firmware>
     <firmware type="runtime">amdgpu/bonaire_mc.bin</firmware>
@@ -28,6 +60,31 @@
     <firmware type="runtime">amdgpu/carrizo_sdma1.bin</firmware>
     <firmware type="runtime">amdgpu/carrizo_uvd.bin</firmware>
     <firmware type="runtime">amdgpu/carrizo_vce.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_me.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/cyan_skillfish2_sdma1.bin</firmware>
+    <firmware type="runtime">amdgpu/dcn_3_1_4_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/dcn_3_1_5_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/dcn_3_1_6_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/dcn_3_2_0_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/dcn_3_2_1_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_me.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_smc.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_sos.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/dimgrey_cavefish_vcn.bin</firmware>
     <firmware type="runtime">amdgpu/fiji_ce.bin</firmware>
     <firmware type="runtime">amdgpu/fiji_mc.bin</firmware>
     <firmware type="runtime">amdgpu/fiji_me.bin</firmware>
@@ -40,6 +97,39 @@
     <firmware type="runtime">amdgpu/fiji_smc.bin</firmware>
     <firmware type="runtime">amdgpu/fiji_uvd.bin</firmware>
     <firmware type="runtime">amdgpu/fiji_vce.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_6_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_6_me.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_6_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_6_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_6_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_6_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_7_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_7_me.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_7_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_7_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_7_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_10_3_7_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_0_imu.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_0_me.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_0_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_0_mes1.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_0_mes.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_0_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_0_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_1_imu.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_1_me.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_1_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_1_mes.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_1_mes1.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_1_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_1_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_2_imu.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_2_me.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_2_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_2_mes1.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_2_mes.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_2_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/gc_11_0_2_rlc.bin</firmware>
     <firmware type="runtime">amdgpu/green_sardine_asd.bin</firmware>
     <firmware type="runtime">amdgpu/green_sardine_ce.bin</firmware>
     <firmware type="runtime">amdgpu/green_sardine_dmcub.bin</firmware>
@@ -146,6 +236,18 @@
     <firmware type="runtime">amdgpu/navi14_sos.bin</firmware>
     <firmware type="runtime">amdgpu/navi14_ta.bin</firmware>
     <firmware type="runtime">amdgpu/navi14_vcn.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_me.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_smc.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_sos.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/navy_flounder_vcn.bin</firmware>
     <firmware type="runtime">amdgpu/oland_ce.bin</firmware>
     <firmware type="runtime">amdgpu/oland_k_smc.bin</firmware>
     <firmware type="runtime">amdgpu/oland_mc.bin</firmware>
@@ -216,6 +318,7 @@
     <firmware type="runtime">amdgpu/polaris11_smc_sk.bin</firmware>
     <firmware type="runtime">amdgpu/polaris11_uvd.bin</firmware>
     <firmware type="runtime">amdgpu/polaris11_vce.bin</firmware>
+    <firmware type="runtime">amdgpu/polaris12_32_mc.bin</firmware>
     <firmware type="runtime">amdgpu/polaris12_ce.bin</firmware>
     <firmware type="runtime">amdgpu/polaris12_ce_2.bin</firmware>
     <firmware type="runtime">amdgpu/polaris12_k_mc.bin</firmware>
@@ -235,6 +338,18 @@
     <firmware type="runtime">amdgpu/polaris12_smc.bin</firmware>
     <firmware type="runtime">amdgpu/polaris12_uvd.bin</firmware>
     <firmware type="runtime">amdgpu/polaris12_vce.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_0_sos.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_0_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_4_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_4_toc.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_5_asd.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_5_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_5_toc.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_7_sos.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_7_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_8_asd.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_8_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/psp_13_0_8_toc.bin</firmware>
     <firmware type="runtime">amdgpu/raven2_asd.bin</firmware>
     <firmware type="runtime">amdgpu/raven2_ce.bin</firmware>
     <firmware type="runtime">amdgpu/raven2_gpu_info.bin</firmware>
@@ -271,6 +386,13 @@
     <firmware type="runtime">amdgpu/renoir_sdma.bin</firmware>
     <firmware type="runtime">amdgpu/renoir_ta.bin</firmware>
     <firmware type="runtime">amdgpu/renoir_vcn.bin</firmware>
+    <firmware type="runtime">amdgpu/sdma_5_2_6.bin</firmware>
+    <firmware type="runtime">amdgpu/sdma_5_2_7.bin</firmware>
+    <firmware type="runtime">amdgpu/sdma_6_0_0.bin</firmware>
+    <firmware type="runtime">amdgpu/sdma_6_0_1.bin</firmware>
+    <firmware type="runtime">amdgpu/sdma_6_0_2.bin</firmware>
+    <firmware type="runtime">amdgpu/smu_13_0_0.bin</firmware>
+    <firmware type="runtime">amdgpu/smu_13_0_7.bin</firmware>
     <firmware type="runtime">amdgpu/si58_mc.bin</firmware>
     <firmware type="runtime">amdgpu/sienna_cichlid_ce.bin</firmware>
     <firmware type="runtime">amdgpu/sienna_cichlid_dmcub.bin</firmware>
@@ -324,6 +446,21 @@
     <firmware type="runtime">amdgpu/topaz_sdma.bin</firmware>
     <firmware type="runtime">amdgpu/topaz_sdma1.bin</firmware>
     <firmware type="runtime">amdgpu/topaz_smc.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_asd.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_me.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_toc.bin</firmware>
+    <firmware type="runtime">amdgpu/vangogh_vcn.bin</firmware>
+    <firmware type="runtime">amdgpu/vcn_3_1_2.bin</firmware>
+    <firmware type="runtime">amdgpu/vcn_4_0_0.bin</firmware>
+    <firmware type="runtime">amdgpu/vcn_4_0_2.bin</firmware>
+    <firmware type="runtime">amdgpu/vcn_4_0_4.bin</firmware>
     <firmware type="runtime">amdgpu/vega10_acg_smc.bin</firmware>
     <firmware type="runtime">amdgpu/vega10_asd.bin</firmware>
     <firmware type="runtime">amdgpu/vega10_ce.bin</firmware>
@@ -386,6 +523,18 @@
     <firmware type="runtime">amdgpu/verde_rlc.bin</firmware>
     <firmware type="runtime">amdgpu/verde_smc.bin</firmware>
     <firmware type="runtime">amdgpu/verde_uvd.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_asd.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_ce.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_dmcub.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_me.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_mec.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_mec2.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_pfp.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_rlc.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_sdma.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_ta.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_toc.bin</firmware>
+    <firmware type="runtime">amdgpu/yellow_carp_vcn.bin</firmware>
     <firmware type="runtime">r128/r128_cce.bin</firmware>
     <firmware type="runtime">radeon/ARUBA_me.bin</firmware>
     <firmware type="runtime">radeon/ARUBA_pfp.bin</firmware>
@@ -634,6 +783,8 @@
     <firmware type="runtime">radeon/verde_rlc.bin</firmware>
     <firmware type="runtime">radeon/VERDE_smc.bin</firmware>
     <firmware type="runtime">radeon/verde_smc.bin</firmware>
+    <modalias>pci:v00001002d*sv*sd*bc03sc00i00*</modalias>
+    <modalias>pci:v00001002d*sv*sd*bc03sc80i00*</modalias>
     <modalias>pci:v00001002d00001304sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00001305sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00001306sv*sd*bc*sc*i*</modalias>
@@ -656,11 +807,17 @@
     <modalias>pci:v00001002d0000131Bsv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d0000131Csv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d0000131Dsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000013FEsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d0000143Fsv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000015D8sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000015DDsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000015E7sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00001636sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00001638sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d0000163Fsv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d0000164Csv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d0000164Dsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00001681sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00003150sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00003151sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00003152sv*sd*bc*sc*i*</modalias>
@@ -1198,12 +1355,49 @@
     <modalias>pci:v00001002d0000738Esv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00007390sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000073A0sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073A1sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000073A2sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000073A3sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073A5sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073A8sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073A9sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000073ABsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073ACsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073ADsv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000073AEsv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000073AFsv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d000073BFsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073C0sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073C1sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073C3sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073DAsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073DBsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073DCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073DDsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073DEsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073DFsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073E0sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073E1sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073E2sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073E3sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073E8sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073E9sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073EAsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073EBsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073ECsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073EDsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073EFsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d000073FFsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00007408sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d0000740Csv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d0000740Fsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00007410sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00007420sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00007421sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00007422sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00007423sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d00007424sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00001002d0000743Fsv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00007834sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d00007835sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v00001002d0000791Esv*sd*bc*sc*i*</modalias>

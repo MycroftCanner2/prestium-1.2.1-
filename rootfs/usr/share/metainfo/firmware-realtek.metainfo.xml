@@ -13,12 +13,18 @@
     <firmware type="runtime">rtl_bt/rtl8723a_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8723b_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8723bs_config-OBDA8723.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8723bs_config-OBDA0623.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8723bs_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8723d_config.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8723d_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8761a_fw.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8761b_config.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8761b_fw.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8761bu_config.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8761bu_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8812ae_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8821a_fw.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8821a_config.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8821c_config.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8821c_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8822b_config.bin</firmware>
@@ -29,6 +35,10 @@
     <firmware type="runtime">rtl_bt/rtl8822cu_fw.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8852au_config.bin</firmware>
     <firmware type="runtime">rtl_bt/rtl8852au_fw.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8852bu_config.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8852bu_fw.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8852cu_config.bin</firmware>
+    <firmware type="runtime">rtl_bt/rtl8852cu_fw.bin</firmware>
     <firmware type="runtime">rtl_nic/rtl8105e-1.fw</firmware>
     <firmware type="runtime">rtl_nic/rtl8106e-1.fw</firmware>
     <firmware type="runtime">rtl_nic/rtl8106e-2.fw</firmware>
@@ -41,6 +51,9 @@
     <firmware type="runtime">rtl_nic/rtl8153a-3.fw</firmware>
     <firmware type="runtime">rtl_nic/rtl8153a-4.fw</firmware>
     <firmware type="runtime">rtl_nic/rtl8153b-2.fw</firmware>
+    <firmware type="runtime">rtl_nic/rtl8153c-1.fw</firmware>
+    <firmware type="runtime">rtl_nic/rtl8156a-2.fw</firmware>
+    <firmware type="runtime">rtl_nic/rtl8156b-2.fw</firmware>
     <firmware type="runtime">rtl_nic/rtl8168d-1.fw</firmware>
     <firmware type="runtime">rtl_nic/rtl8168d-2.fw</firmware>
     <firmware type="runtime">rtl_nic/rtl8168e-1.fw</firmware>
@@ -100,6 +113,8 @@
     <firmware type="runtime">rtw88/rtw8822c_wow_fw.bin</firmware>
     <firmware type="runtime">rtw88/rtw8723d_fw.bin</firmware>
     <firmware type="runtime">rtw89/rtw8852a_fw.bin</firmware>
+    <firmware type="runtime">rtw89/rtw8852b_fw.bin</firmware>
+    <firmware type="runtime">rtw89/rtw8852c_fw.bin</firmware>
     <modalias>pci:v00000001d00008168sv*sd00002410bc*sc*i*</modalias>
     <modalias>pci:v000007AAd00000044sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v000007AAd00000047sv*sd*bc*sc*i*</modalias>
@@ -111,6 +126,7 @@
     <modalias>pci:v000010ECd00008129sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v000010ECd00008136sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v000010ECd00008161sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v000010ECd00008162sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v000010ECd00008167sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v000010ECd00008168sv*sd*bc*sc*i*</modalias>
     <modalias>pci:v000010ECd00008169sv*sd*bc*sc*i*</modalias>
@@ -143,6 +159,8 @@
     <modalias>usb:v045Ep07C6d*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v045Ep0927d*dc*dsc*dp*ic02isc06ip00in*</modalias>
     <modalias>usb:v045Ep0927d*dc*dsc*dp*icFFisc*ip*in*</modalias>
+    <modalias>usb:v045Ep0C5Ed*dc*dsc*dp*ic02isc06ip00in*</modalias>
+    <modalias>usb:v045Ep0C5Ed*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v04E8pA101d*dc*dsc*dp*ic02isc06ip00in*</modalias>
     <modalias>usb:v04E8pA101d*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v04F2pAFF2d*dc*dsc*dp*ic*isc*ip*in*</modalias>
@@ -184,6 +202,7 @@
     <modalias>usb:v083ApC512d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0846p9021d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0846p9041d*dc*dsc*dp*ic*isc*ip*in*</modalias>
+    <modalias>usb:v0846p9042d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0846p9043d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0846pF001d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0955p09FFd*dc*dsc*dp*ic02isc06ip00in*</modalias>
@@ -202,10 +221,16 @@
     <modalias>usb:v0BDAp5088d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0BDAp8050d*dc*dsc*dp*ic02isc06ip00in*</modalias>
     <modalias>usb:v0BDAp8050d*dc*dsc*dp*icFFisc*ip*in*</modalias>
+    <modalias>usb:v0BDAp8053d*dc*dsc*dp*ic02isc06ip00in*</modalias>
+    <modalias>usb:v0BDAp8053d*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v0BDAp8152d*dc*dsc*dp*ic02isc06ip00in*</modalias>
     <modalias>usb:v0BDAp8152d*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v0BDAp8153d*dc*dsc*dp*ic02isc06ip00in*</modalias>
     <modalias>usb:v0BDAp8153d*dc*dsc*dp*icFFisc*ip*in*</modalias>
+    <modalias>usb:v0BDAp8155d*dc*dsc*dp*ic02isc06ip00in*</modalias>
+    <modalias>usb:v0BDAp8155d*dc*dsc*dp*icFFisc*ip*in*</modalias>
+    <modalias>usb:v0BDAp8156d*dc*dsc*dp*ic02isc06ip00in*</modalias>
+    <modalias>usb:v0BDAp8156d*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v0BDAp8170d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0BDAp8171d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v0BDAp8172d*dc*dsc*dp*ic*isc*ip*in*</modalias>
@@ -286,6 +311,8 @@
     <modalias>usb:v177Fp0154d*dc*dsc*dp*ic*isc*ip*in*</modalias>
     <modalias>usb:v17EFp304Fd*dc*dsc*dp*ic02isc06ip00in*</modalias>
     <modalias>usb:v17EFp304Fd*dc*dsc*dp*icFFisc*ip*in*</modalias>
+    <modalias>usb:v17EFp3054d*dc*dsc*dp*ic02isc06ip00in*</modalias>
+    <modalias>usb:v17EFp3054d*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v17EFp3062d*dc*dsc*dp*ic02isc06ip00in*</modalias>
     <modalias>usb:v17EFp3062d*dc*dsc*dp*icFFisc*ip*in*</modalias>
     <modalias>usb:v17EFp3069d*dc*dsc*dp*ic02isc06ip00in*</modalias>

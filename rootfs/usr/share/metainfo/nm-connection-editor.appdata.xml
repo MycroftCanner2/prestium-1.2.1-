@@ -21,15 +21,18 @@
   <name xml:lang="pa">ਨੈੱਟਵਰਕ-ਮੈਨੇਜਰ</name>
   <name xml:lang="oc">NetworkManager</name>
   <name xml:lang="nl">Netwerkbeheer</name>
+  <name xml:lang="nb">NetworkManager</name>
   <name xml:lang="lv">NetworkManager</name>
   <name xml:lang="lt">NetworkManager</name>
   <name xml:lang="kk">NetworkManager</name>
+  <name xml:lang="ka">NetworkManager</name>
   <name xml:lang="ja">NetworkManager</name>
   <name xml:lang="it">NetworkManager</name>
   <name xml:lang="is">NetworkManager netstýring</name>
   <name xml:lang="id">NetworkManager</name>
   <name xml:lang="hu">Hálózatkezelő</name>
   <name xml:lang="hr">Mrežni upravitelj</name>
+  <name xml:lang="he">NetworkManager</name>
   <name xml:lang="gl">NetworkManager</name>
   <name xml:lang="gd">Manaidsear lìonraidh</name>
   <name xml:lang="fr">NetworkManager</name>
@@ -53,18 +56,23 @@
   <summary xml:lang="ru">Редактор подключений NetworkManager</summary>
   <summary xml:lang="ro">Editorul de conexiuni „Administrator de rețea”</summary>
   <summary xml:lang="pt_BR">Editor de conexão NetworkManager</summary>
+  <summary xml:lang="pt">Editor de ligação NetworkManager</summary>
   <summary xml:lang="pl">Edytor połączeń usługi NetworkManager</summary>
   <summary xml:lang="pa">ਨੈੱਟਵਰਕ-ਮੈਨੇਜਰ ਕਨੈਕਸ਼ਨ ਐਡੀਟਰ</summary>
+  <summary xml:lang="oc">Editor de connexion NetworkManager</summary>
   <summary xml:lang="nl">Netwerkbeheer verbindingseditor</summary>
+  <summary xml:lang="nb">NetworkManager – redigering av tilkoblinger</summary>
   <summary xml:lang="lv">NetworkManager savienojumu redaktors</summary>
   <summary xml:lang="lt">NetworkManager ryšio redaktorius</summary>
   <summary xml:lang="kk">NetworkManager байланыстар түзеткіші</summary>
+  <summary xml:lang="ka">NetworkManager -ის შეერთების მორგება</summary>
   <summary xml:lang="ja">NetworkManager 接続エディター</summary>
   <summary xml:lang="it">Editor connessione NetworkManager</summary>
   <summary xml:lang="is">NetworkManager tengingaritill</summary>
   <summary xml:lang="id">Penyunting koneksi NetworkManager</summary>
   <summary xml:lang="hu">Hálózatkezelő kapcsolatszerkesztő</summary>
   <summary xml:lang="hr">Mrežni upravitelj - uređivač povezivanja</summary>
+  <summary xml:lang="he">עורך החיבורים של NetworkManager</summary>
   <summary xml:lang="gl">Editor de conexións de NetworkManager</summary>
   <summary xml:lang="gd">Deasaiche ceanglaichean Manaidsear lìonraidh</summary>
   <summary xml:lang="fr">Éditeur de connexion NetworkManager</summary>
@@ -93,7 +101,9 @@
     <p xml:lang="pt">O Gestor de redes é um serviço do sistema para gerir e configurar os seus dispositivos e ligações de rede.</p>
     <p xml:lang="pl">NetworkManager jest usługą systemową do zarządzania i konfigurowania połączeń i urządzeń sieciowych.</p>
     <p xml:lang="pa">ਨੈੱਟਵਰਕ-ਮੈਨੇਜਰ ਤੁਹਾਡੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਅਤੇ ਜੰਤਰ ਦੇ ਪਰਬੰਧ ਅਤੇ ਸੰਰਚਨਾ ਲਈ ਸਿਸਟਮ ਸੇਵਾ ਹੈ।</p>
+    <p xml:lang="oc">NetwokrManager es un servici sistèma per gerir e configurar las connexions e periferics ret.</p>
     <p xml:lang="nl">Netwerkbeheer is een systeemdienst voor het beheren en configureren van uw netwerkverbindingen en apparaten.</p>
+    <p xml:lang="nb">NetworkManager et en systemtjeneste som behandler og setter opp systemets nettverkstilkoblinger og enheter.</p>
     <p xml:lang="lv">NetworkManager ir sistēmas pakalpojums tīkla savienojumu un ierīču pārvaldībai un konfigurēšanai.</p>
     <p xml:lang="lt">NetworkManager yra sisteminė tarnyba tinklo ryšių bei įrenginių valdymui bei konfigūravimui.</p>
     <p xml:lang="kk">NetworkManager - бұл жүйелік байланыстарды және құрылғыларды басқару және баптауға арналған жүйелік қызмет.</p>
@@ -117,7 +127,7 @@
     <p>The nm-connection-editor program works with NetworkManager to create
     and edit existing connection profiles for NetworkManager.</p>
     <p xml:lang="zh_TW">nm-connection-editor 程式與 NetworkManager 一起使用，以建立和編輯 NetworkManager 的現有連線設定檔。</p>
-    <p xml:lang="zh_CN">nm-connection-editor 与网络管理器交互来为网络管理器创建和编辑已有的连接配置。</p>
+    <p xml:lang="zh_CN">程序 nm-connection-editor 与网络管理器（NetworkManager）交互来为网络管理器创建和编辑已有的连接配置。</p>
     <p xml:lang="uk">Програма nm-connection-editor працює із NetworkManager з метою створення та редагування профілів з'єднань NetworkManager.</p>
     <p xml:lang="tr">nm-connection-editor programı, Ağ Yöneticisi için bağlantı profilleri oluşturmak ve var olanları düzenlemek için Ağ Yöneticisi ile birlikte çalışır.</p>
     <p xml:lang="sv">Programmet nm-connection-editor arbetar med Nätverkshanteraren för att skapa och redigera befintliga profiler för Nätverkshanteraren.</p>
@@ -129,7 +139,9 @@
     <p xml:lang="pt_BR">O programa nm-connection-editor funciona com NetworkManager para criar e editar perfis de conexão existentes para NetworkManager.</p>
     <p xml:lang="pt">O programa nm-connection-editor trabalha com o Gestor de redes para criar e editar perfis de ligação existentes.</p>
     <p xml:lang="pl">Program nm-connection-editor umożliwia tworzenie i modyfikowanie istniejących profilów połączeń za pomocą usługi NetworkManager.</p>
+    <p xml:lang="oc">Lo programa nm-connection-editor fonciona amb NetworkManager per crear e modificar de perfils de connexion existentas per NetwokrManager.</p>
     <p xml:lang="nl">Het programma nm-connection-editor werkt met Netwerkbeheer om bestaande verbindingsprofielen voor Netwerkbeheer aan te maken en te bewerken.</p>
+    <p xml:lang="nb">Programmet nm-connection-editor virker med NetworkManager for å opprette og redigere eksisterende profiler til NetworkManager.</p>
     <p xml:lang="lv">nm-connection-editor strādā ar NetworkManager, lai izveidotu un rediģētu savienojumu profilus NetworkManager programmai.</p>
     <p xml:lang="lt">nm-connection-editor programa dirba su NetworkManager ryšių profilių kūrimui bei redagavimui.</p>
     <p xml:lang="kk">nm-connection-editor бағдарламасы NetworkManager-мен бірге NetworkManager үшін байланыс профильдерін жасауға және түзетуге жұмыс істейді.</p>
@@ -156,7 +168,7 @@
       <image width="772" height="548">https://git.gnome.org/browse/network-manager-applet/plain/nm-connection-editor.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://wiki.gnome.org/Projects/NetworkManager</url>
+  <url type="homepage">https://networkmanager.dev</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/network-manager-applet/issues</url>
   <update_contact>networkmanager-maint@gnome.bugs</update_contact>
   <translation type="gettext">nm-applet</translation>
@@ -172,18 +184,23 @@
   <developer_name xml:lang="ru">Разработчики NetworkManager</developer_name>
   <developer_name xml:lang="ro">Dezvoltatorii Administrator de rețea</developer_name>
   <developer_name xml:lang="pt_BR">Os desenvolvedores do NetworkManager</developer_name>
+  <developer_name xml:lang="pt">Os programadores do NetworkManager</developer_name>
   <developer_name xml:lang="pl">Programiści projektu NetworkManager</developer_name>
   <developer_name xml:lang="pa">ਨੈੱਟਵਰਕ-ਮੈਨੇਜਰ ਡਿਵੈਲਪਰ</developer_name>
+  <developer_name xml:lang="oc">Los desvolopaires de NetworkManager</developer_name>
   <developer_name xml:lang="nl">De Netwerkbeheer-ontwikkelaars</developer_name>
+  <developer_name xml:lang="nb">NetworkManagers utviklere</developer_name>
   <developer_name xml:lang="lv">NetworkManager izstrādātāji</developer_name>
   <developer_name xml:lang="lt">NetworkManager kūrėjai</developer_name>
   <developer_name xml:lang="kk">NetworkManager жасағандар</developer_name>
+  <developer_name xml:lang="ka">NetworkManager-ის პროგრამისტები</developer_name>
   <developer_name xml:lang="ja">NetworkManager 開発者</developer_name>
   <developer_name xml:lang="it">Gli sviluppatori di NetworkManager</developer_name>
   <developer_name xml:lang="is">Þróunarteymi NetworkManager</developer_name>
   <developer_name xml:lang="id">Para Pengembang NetworkManager</developer_name>
   <developer_name xml:lang="hu">A Hálózatkezelő fejlesztői</developer_name>
   <developer_name xml:lang="hr">Razvijatelji mrežnog upravitelja</developer_name>
+  <developer_name xml:lang="he">מפתחי NetworkManager</developer_name>
   <developer_name xml:lang="gl">Os desenvolvedores de NetworkManager</developer_name>
   <developer_name xml:lang="gd">Luchd-leasachaidh na h-aplaid Manaidsear lìonraidh</developer_name>
   <developer_name xml:lang="fr">Les développeurs de NetworkManager</developer_name>
