@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="svx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="SafeModeDialog">
     <property name="can_focus">False</property>
     <property name="border_width">6</property>
@@ -25,11 +25,11 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -118,7 +118,6 @@ You can make one or more of the following changes to your user profile to return
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="xalign">0</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
               </object>
@@ -132,7 +131,7 @@ You can make one or more of the following changes to your user profile to return
               <object class="GtkBox" id="group_restore">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">18</property>
+                <property name="margin-start">18</property>
                 <property name="margin_bottom">6</property>
                 <property name="orientation">vertical</property>
                 <child>
@@ -141,7 +140,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -156,7 +154,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -178,8 +175,6 @@ You can make one or more of the following changes to your user profile to return
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="xalign">0</property>
-                <property name="active">True</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">radio_restore</property>
               </object>
@@ -193,7 +188,7 @@ You can make one or more of the following changes to your user profile to return
               <object class="GtkBox" id="group_configure">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">18</property>
+                <property name="margin-start">18</property>
                 <property name="margin_bottom">6</property>
                 <property name="orientation">vertical</property>
                 <child>
@@ -202,7 +197,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -217,7 +211,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -239,7 +232,6 @@ You can make one or more of the following changes to your user profile to return
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">radio_restore</property>
               </object>
@@ -253,7 +245,7 @@ You can make one or more of the following changes to your user profile to return
               <object class="GtkBox" id="group_deinstall">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">18</property>
+                <property name="margin-start">18</property>
                 <property name="margin_bottom">6</property>
                 <property name="orientation">vertical</property>
                 <child>
@@ -262,7 +254,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -277,7 +268,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -292,7 +282,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -314,8 +303,6 @@ You can make one or more of the following changes to your user profile to return
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="xalign">0</property>
-                <property name="active">True</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">radio_restore</property>
               </object>
@@ -329,7 +316,7 @@ You can make one or more of the following changes to your user profile to return
               <object class="GtkBox" id="group_reset">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">18</property>
+                <property name="margin-start">18</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkCheckButton" id="check_reset_customizations">
@@ -337,7 +324,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -352,7 +338,6 @@ You can make one or more of the following changes to your user profile to return
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -379,11 +364,12 @@ You can make one or more of the following changes to your user profile to return
           <object class="GtkExpander" id="expander1">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="resize_toplevel">True</property>
             <child>
               <object class="GtkBox" id="box2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">12</property>
+                <property name="margin-start">12</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">12</property>
                 <child>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface domain="sc">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkAdjustment" id="adjustment1">
     <property name="upper">100</property>
     <property name="step_increment">1</property>
@@ -23,6 +23,11 @@
         <property name="use_underline">True</property>
         <property name="active">True</property>
         <property name="draw_as_radio">True</property>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="hyperlink-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|hyperlink">Inserts a hyperlink when you drag-and-drop an object from the Navigator into a document.</property>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -33,6 +38,11 @@
         <property name="use_underline">True</property>
         <property name="draw_as_radio">True</property>
         <property name="group">hyperlink</property>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="link-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|link">Creates a link when you drag-and-drop an object from the Navigator into a document.</property>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -43,6 +53,11 @@
         <property name="use_underline">True</property>
         <property name="draw_as_radio">True</property>
         <property name="group">hyperlink</property>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="copy-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|copy">Generates a copy when you drag-and-drop an object from the Navigator into a document.</property>
+          </object>
+        </child>
       </object>
     </child>
   </object>
@@ -68,6 +83,7 @@
       <column type="gchararray"/>
     </columns>
   </object>
+  <!-- n-columns=1 n-rows=1 -->
   <object class="GtkGrid" id="NavigatorPanel">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -75,21 +91,22 @@
     <property name="vexpand">True</property>
     <property name="border_width">6</property>
     <child>
+      <!-- n-columns=1 n-rows=1 -->
       <object class="GtkGrid">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
-        <property name="border_width">6</property>
         <property name="row_spacing">6</property>
         <property name="column_spacing">12</property>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="hexpand">True</property>
-            <property name="row_spacing">6</property>
-            <property name="column_spacing">12</property>
+            <property name="row_spacing">3</property>
+            <property name="column_spacing">6</property>
             <child>
               <object class="GtkLabel" id="label1">
                 <property name="visible">True</property>
@@ -125,6 +142,12 @@
                 <property name="tooltip_text" translatable="yes" context="navigatorpanel|column|tooltip_text">Column</property>
                 <property name="hexpand">True</property>
                 <property name="adjustment">adjustment1</property>
+                <property name="truncate-multiline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="column-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|column">Enter the column letter. Press Enter to reposition the cell cursor to the specified column in the same row.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -138,6 +161,12 @@
                 <property name="tooltip_text" translatable="yes" context="navigatorpanel|row|tooltip_text">Row</property>
                 <property name="hexpand">True</property>
                 <property name="adjustment">adjustment2</property>
+                <property name="truncate-multiline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="row-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|row">Enter a row number. Press Enter to reposition the cell cursor to the specified row in the same column.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -150,12 +179,17 @@
                 <property name="can_focus">True</property>
                 <property name="toolbar_style">icons</property>
                 <property name="show_arrow">False</property>
+                <property name="icon_size">2</property>
                 <child>
                   <object class="GtkToolButton" id="datarange">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes" context="navigatorpanel|datarange|tooltip_text">Data Range</property>
                     <property name="icon_name">sc/res/na03.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="datarange-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|datarange">Specifies the current data range denoted by the position of the cell cursor.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -165,9 +199,13 @@
                 <child>
                   <object class="GtkToolButton" id="start">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes" context="navigatorpanel|start|tooltip_text">Start</property>
                     <property name="icon_name">sc/res/na05.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="start-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|start">Moves to the cell at the beginning of the current data range, which you can highlight using the Data Range button.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -177,9 +215,13 @@
                 <child>
                   <object class="GtkToolButton" id="end">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes" context="navigatorpanel|end|tooltip_text">End</property>
                     <property name="icon_name">sc/res/na06.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="end-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|end">Moves to the cell at the end of the current data range, which you can highlight using the Data Range button.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -189,7 +231,6 @@
                 <child>
                   <object class="GtkToggleToolButton" id="contents">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes" context="navigatorpanel|contents|tooltip_text">Contents</property>
                     <property name="icon_name">sc/res/na011.png</property>
                   </object>
@@ -210,12 +251,17 @@
                 <property name="can_focus">True</property>
                 <property name="toolbar_style">icons</property>
                 <property name="show_arrow">False</property>
+                <property name="icon_size">2</property>
                 <child>
                   <object class="GtkToggleToolButton" id="toggle">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes" context="navigatorpanel|toggle|tooltip_text">Toggle</property>
                     <property name="icon_name">sc/res/na010.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="toggle-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|toggle">Allows you to hide/show the contents.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -225,9 +271,13 @@
                 <child>
                   <object class="GtkToggleToolButton" id="scenarios">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes" context="navigatorpanel|scenarios|tooltip_text">Scenarios</property>
                     <property name="icon_name">sc/res/na07.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="scenarios-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|scenarios">Displays all available scenarios. Double-click a name to apply that scenario.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -237,9 +287,13 @@
                 <child>
                   <object class="GtkMenuToolButton" id="dragmode">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes" context="navigatorpanel|dragmode|tooltip_text">Drag Mode</property>
                     <property name="icon_name">sc/res/na09.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="dragmode-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|dragmode">Opens a submenu for selecting the drag mode. You decide which action is performed when dragging and dropping an object from the Navigator into a document. Depending on the mode you select, the icon indicates whether a hyperlink, link or a copy is created.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -266,6 +320,7 @@
             <child internal-child="accessible">
               <object class="AtkObject" id="documents-atkobject">
                 <property name="AtkObject::accessible-name" translatable="yes" context="navigatorpanel|documents-atkobject">Active Window</property>
+                <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|documents">Displays the names of all open documents.</property>
               </object>
             </child>
           </object>
@@ -314,6 +369,11 @@
                         <attribute name="text">1</attribute>
                       </attributes>
                     </child>
+                  </object>
+                </child>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="contentbox-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|contentbox">Displays all objects in your document.</property>
                   </object>
                 </child>
               </object>
@@ -408,6 +468,11 @@
         <property name="left_attach">0</property>
         <property name="top_attach">0</property>
       </packing>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="NavigatorPanel-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="navigatorpanel|extended_tip|NavigatorPanel">Activates and deactivates the Navigator.</property>
+      </object>
     </child>
   </object>
 </interface>

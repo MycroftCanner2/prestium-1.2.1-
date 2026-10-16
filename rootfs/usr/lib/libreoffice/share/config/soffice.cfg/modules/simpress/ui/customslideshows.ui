@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.4 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sd">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkTreeStore" id="liststore1">
     <columns>
       <!-- column-name text -->
@@ -29,12 +29,11 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -50,6 +49,11 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="startshow-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|startshow">Runs the slide show. Ensure that a custom slide show is selected if you want to run a custom presentation.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -59,12 +63,16 @@
             </child>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="ok-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|ok">Saves all changes and closes dialog.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -124,6 +132,11 @@
                             </child>
                           </object>
                         </child>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="customshowlist-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|customshowlist">Lists the custom slide shows that are available.</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
@@ -131,22 +144,6 @@
                     <property name="expand">True</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="usecustomshows">
-                    <property name="label" translatable="yes" context="customslideshows|usecustomshows">_Use custom slide show</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
                   </packing>
                 </child>
               </object>
@@ -165,14 +162,18 @@
                 <property name="layout_style">start</property>
                 <child>
                   <object class="GtkButton" id="new">
-                    <property name="label">gtk-new</property>
+                    <property name="label" translatable="yes" context="stock">_New</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="can_default">True</property>
                     <property name="has_default">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_underline">True</property>
-                    <property name="use_stock">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="new-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|new">Add, remove or reorder slides as well as change the name of the selected custom slide show.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -182,12 +183,16 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="edit">
-                    <property name="label">gtk-edit</property>
+                    <property name="label" translatable="yes" context="stock">_Edit</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_underline">True</property>
-                    <property name="use_stock">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="edit-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|edit">Add, remove or reorder slides as well as change the name of the selected custom slide show.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -202,6 +207,11 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_underline">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="copy-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|copy">Creates a copy of the selected custom slide show. You can modify the name of the show by clicking Edit.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -211,12 +221,16 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="delete">
-                    <property name="label">gtk-delete</property>
+                    <property name="label" translatable="yes" context="stock">_Delete</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_underline">True</property>
-                    <property name="use_stock">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="delete-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|delete">Deletes the selected element or elements without requiring confirmation.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -245,8 +259,13 @@
       <action-widget response="101">startshow</action-widget>
       <action-widget response="-5">ok</action-widget>
     </action-widgets>
-    <child>
+    <child type="titlebar">
       <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="CustomSlideShows-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="customslideshows|extended_tip|CustomSlideShows">Defines a custom slide show using slides within the current presentation. You can then pick slides to meet the needs of your audience. You can create as many custom slide shows as you want.</property>
+      </object>
     </child>
   </object>
 </interface>

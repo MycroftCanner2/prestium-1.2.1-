@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sc">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
+  <!-- n-columns=1 n-rows=1 -->
   <object class="GtkGrid" id="ValidationCriteriaPage">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -53,6 +54,11 @@
           <item id="7" translatable="yes" context="validationcriteriapage|liststore1">Text length</item>
           <item id="8" translatable="yes" context="validationcriteriapage|liststore1">Custom</item>
         </items>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="allow-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|allow">Click a validation option for the selected cell(s).</property>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -73,6 +79,11 @@
           <item id="6" translatable="yes" context="validationcriteriapage|liststore2">valid range</item>
           <item id="7" translatable="yes" context="validationcriteriapage|liststore2">invalid range</item>
         </items>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="data-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|data">Select the comparative operator that you want to use.</property>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -94,11 +105,13 @@
       </packing>
     </child>
     <child>
+      <!-- n-columns=1 n-rows=1 -->
       <object class="GtkGrid" id="mingrid">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="hexpand">True</property>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="refgrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -110,6 +123,12 @@
                 <property name="no_show_all">True</property>
                 <property name="hexpand">True</property>
                 <property name="activates_default">True</property>
+                <property name="truncate-multiline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="min-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|min">Enter the minimum value for the data validation option that you selected in the Allow box.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -148,6 +167,11 @@
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="minlist-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|minlist">Enter the entries that will be valid values or text strings.</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -183,8 +207,12 @@
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
         <property name="use_underline">True</property>
-        <property name="xalign">0</property>
         <property name="draw_indicator">True</property>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="allowempty-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|allowempty">In conjunction with Tools - Detective - Mark invalid Data, this defines that blank cells are shown as invalid data (disabled) or not (enabled).</property>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -198,8 +226,12 @@
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
         <property name="use_underline">True</property>
-        <property name="xalign">0</property>
         <property name="draw_indicator">True</property>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="showlist-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|showlist">Shows a list of all valid strings or values to select from. The list can also be opened by selecting the cell and pressing Ctrl+D.</property>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -212,11 +244,15 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
-        <property name="margin_left">12</property>
+        <property name="margin-start">12</property>
         <property name="use_underline">True</property>
-        <property name="xalign">0</property>
         <property name="active">True</property>
         <property name="draw_indicator">True</property>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="sortascend-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|sortascend">Sorts the selection list in ascending order and filters duplicates from the list. If not checked, the order from the data source is taken.</property>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -244,6 +280,12 @@
         <property name="no_show_all">True</property>
         <property name="hexpand">True</property>
         <property name="activates_default">True</property>
+        <property name="truncate-multiline">True</property>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="max-atkobject">
+            <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|max">Enter the maximum value for the data validation option that you selected in the Allow box.</property>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -261,6 +303,11 @@
     </child>
     <child>
       <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="ValidationCriteriaPage-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="validationcriteriapage|extended_tip|ValidationCriteriaPage">Specify the validation rules for the selected cell(s).</property>
+      </object>
     </child>
   </object>
   <object class="GtkSizeGroup" id="sizegroup1">

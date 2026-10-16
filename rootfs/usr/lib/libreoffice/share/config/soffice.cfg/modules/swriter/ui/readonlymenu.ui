@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.20.0 -->
 <interface domain="sw">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkMenu" id="menu">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -153,12 +153,16 @@
               <object class="GtkMenuItem" id="backaslink">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes" context="readonlymenu|backaslink">As Link</property>
+                <property name="use_underline">True</property>
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="backascopy">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes" context="readonlymenu|backascopy">Copy</property>
+                <property name="use_underline">True</property>
               </object>
             </child>
             <child>

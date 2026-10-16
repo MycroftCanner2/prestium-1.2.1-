@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface domain="svx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
+  <!-- n-columns=1 n-rows=1 -->
   <object class="GtkGrid" id="MediaPlaybackPanel">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="border_width">6</property>
     <child>
+      <!-- n-columns=1 n-rows=1 -->
       <object class="GtkGrid" id="grid1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="halign">center</property>
         <property name="hexpand">True</property>
         <property name="border_width">6</property>
-        <property name="column_spacing">7</property>
+        <property name="row_spacing">3</property>
+        <property name="column_spacing">6</property>
         <child>
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">end</property>
             <property name="label" translatable="yes" context="mediaplayback|label1">Playback:</property>
             <property name="use_underline">True</property>
             <property name="mnemonic_widget">playtoolbox</property>
+            <property name="xalign">0</property>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -32,10 +33,12 @@
           <object class="GtkLabel" id="label2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">end</property>
+            <property name="valign">center</property>
+            <property name="vexpand">True</property>
             <property name="label" translatable="yes" context="mediaplayback|label2">Seek:</property>
             <property name="use_underline">True</property>
             <property name="mnemonic_widget">timeslider</property>
+            <property name="xalign">0</property>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -46,10 +49,12 @@
           <object class="GtkLabel" id="label3">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">end</property>
+            <property name="valign">center</property>
+            <property name="vexpand">True</property>
             <property name="label" translatable="yes" context="mediaplayback|label3">Volume:</property>
             <property name="use_underline">True</property>
             <property name="mnemonic_widget">volumeslider</property>
+            <property name="xalign">0</property>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -61,7 +66,9 @@
             <property name="width_request">150</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="valign">center</property>
             <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
             <property name="digits">2</property>
             <property name="draw_value">False</property>
           </object>
@@ -77,7 +84,9 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="opacity">0.9882352941176471</property>
+            <property name="valign">center</property>
             <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
             <property name="draw_value">False</property>
           </object>
           <packing>
@@ -89,6 +98,7 @@
           <object class="GtkComboBoxText" id="zoombox">
             <property name="can_focus">False</property>
             <property name="no_show_all">True</property>
+            <property name="hexpand">True</property>
           </object>
           <packing>
             <property name="left_attach">1</property>
@@ -100,7 +110,9 @@
           <object class="GtkEntry" id="timeedit">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="hexpand">True</property>
             <property name="editable">False</property>
+            <property name="truncate-multiline">True</property>
             <property name="xalign">0.5</property>
           </object>
           <packing>
@@ -112,14 +124,15 @@
         <child>
           <object class="GtkToolbar" id="mutetoolbox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can_focus">True</property>
             <property name="toolbar_style">icons</property>
             <property name="show_arrow">False</property>
             <property name="icon_size">2</property>
             <child>
               <object class="GtkToggleToolButton" id="mute">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="valign">center</property>
+                <property name="vexpand">True</property>
                 <property name="label" translatable="no">Mute</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">avmedia/res/av02054.png</property>
@@ -138,14 +151,14 @@
         <child>
           <object class="GtkToolbar" id="playtoolbox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can_focus">True</property>
             <property name="halign">center</property>
+            <property name="hexpand">True</property>
             <property name="toolbar_style">icons</property>
             <property name="show_arrow">False</property>
             <property name="icon_size">2</property>
             <child>
               <object class="GtkToolButton" id="open">
-                <property name="can_focus">False</property>
                 <property name="no_show_all">True</property>
                 <property name="label" translatable="no">Open</property>
                 <property name="use_underline">True</property>
@@ -158,7 +171,6 @@
             </child>
             <child>
               <object class="GtkToolButton" id="apply">
-                <property name="can_focus">False</property>
                 <property name="no_show_all">True</property>
                 <property name="label" translatable="no">Apply</property>
                 <property name="use_underline">True</property>
@@ -182,7 +194,6 @@
             <child>
               <object class="GtkToggleToolButton" id="play">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="no">Play</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">avmedia/res/av02049.png</property>
@@ -195,7 +206,6 @@
             <child>
               <object class="GtkToggleToolButton" id="pause">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="no">Pause</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">avmedia/res/av02050.png</property>
@@ -208,7 +218,6 @@
             <child>
               <object class="GtkToggleToolButton" id="stop">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="no">Stop</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">avmedia/res/av02051.png</property>
@@ -231,7 +240,6 @@
             <child>
               <object class="GtkToggleToolButton" id="loop">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="no">Repeat</property>
                 <property name="use_underline">True</property>
                 <property name="icon_name">avmedia/res/av02052.png</property>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="dkt">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkTreeStore" id="liststore1">
     <columns>
       <!-- column-name text -->
@@ -36,13 +36,13 @@
             <property name="layout_style">center</property>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -72,7 +72,8 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes" context="dependenciesdialog|label1">The extension cannot be installed as the following system dependencies are not fulfilled:</property>
                 <property name="wrap">True</property>
-                <property name="max_width_chars">60</property>
+                <property name="width-chars">50</property>
+                <property name="max_width_chars">50</property>
                 <property name="xalign">0</property>
               </object>
               <packing>

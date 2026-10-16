@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="uui">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="AuthFallbackDlg">
     <property name="can_focus">False</property>
     <property name="border_width">6</property>
@@ -25,13 +25,13 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -41,11 +41,11 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -62,10 +62,12 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid" id="GDrive">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -92,6 +94,7 @@
                         <property name="can_focus">True</property>
                         <property name="max_length">6</property>
                         <property name="activates_default">True</property>
+                        <property name="truncate-multiline">True</property>
                         <property name="width_chars">6</property>
                       </object>
                       <packing>
@@ -125,6 +128,7 @@
               </packing>
             </child>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid" id="OneDrive">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -136,6 +140,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="activates_default">True</property>
+                    <property name="truncate-multiline">True</property>
                     <property name="width_chars">0</property>
                   </object>
                   <packing>
@@ -148,6 +153,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="editable">False</property>
+                    <property name="truncate-multiline">True</property>
                     <property name="activates_default">True</property>
                   </object>
                   <packing>

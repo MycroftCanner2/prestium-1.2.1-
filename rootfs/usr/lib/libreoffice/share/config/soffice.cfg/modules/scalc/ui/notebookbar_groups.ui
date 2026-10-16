@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.18.3 -->
 <interface domain="sc">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <requires lib="LibreOffice" version="1.0"/>
   <!-- interface-local-resource-path ../../../icon-themes/galaxy/cmd/ -->
   <object class="GtkImage" id="boldi">
@@ -344,6 +344,7 @@
     <property name="pixbuf">cmd/lc_undo.png</property>
     <property name="pixel_size">24</property>
   </object>
+  <!-- n-columns=1 n-rows=1 -->
   <object class="GtkGrid" id="NotebookBar">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -351,8 +352,8 @@
       <object class="GtkBox" id="box">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
-        <property name="margin_left">6</property>
-        <property name="margin_right">6</property>
+        <property name="margin-start">6</property>
+        <property name="margin-end">6</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
         <property name="spacing">6</property>
@@ -774,7 +775,6 @@
                               <object class="GtkToolButton" id="NumberFormatType">
                                 <property name="width_request">150</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
                                 <property name="action_name">.uno:NumberFormatType</property>
@@ -793,12 +793,11 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="sfxlo-SidebarToolBox" id="font">
+                          <object class="sfxlo-NotebookbarToolBox" id="font">
                             <property name="can_focus">False</property>
                             <child>
                               <object class="GtkToolButton" id="fontname">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
                                 <property name="is_important">True</property>
@@ -839,7 +838,6 @@
                               <object class="GtkToolButton" id="currency">
                                 <property name="height_request">30</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="action_name">.uno:NumberFormatCurrencySimple</property>
                                 <property name="use_underline">True</property>
                               </object>
@@ -852,7 +850,6 @@
                               <object class="GtkToolButton" id="percent">
                                 <property name="height_request">30</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="action_name">.uno:NumberFormatPercent</property>
                                 <property name="use_underline">True</property>
                               </object>
@@ -865,7 +862,6 @@
                               <object class="GtkToolButton" id="numericfield">
                                 <property name="height_request">30</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="action_name">.uno:NumberFormatDecimal</property>
                                 <property name="use_underline">True</property>
                               </object>
@@ -876,7 +872,6 @@
                             </child>
                             <child>
                               <object class="GtkToolButton" id="NumberFormatIncDecimals">
-                                <property name="can_focus">False</property>
                                 <property name="action_name">.uno:NumberFormatIncDecimals</property>
                                 <property name="use_underline">True</property>
                               </object>
@@ -887,7 +882,6 @@
                             </child>
                             <child>
                               <object class="GtkToolButton" id="NumberFormatDecDecimals">
-                                <property name="can_focus">False</property>
                                 <property name="action_name">.uno:NumberFormatDecDecimals</property>
                                 <property name="use_underline">True</property>
                               </object>
@@ -904,7 +898,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="sfxlo-SidebarToolBox" id="fontadjust">
+                          <object class="sfxlo-NotebookbarToolBox" id="fontadjust">
                             <property name="can_focus">False</property>
                             <property name="halign">end</property>
                             <property name="hexpand">True</property>
@@ -912,7 +906,6 @@
                             <child>
                               <object class="GtkToolButton" id="grow">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="is_important">True</property>
                                 <property name="action_name">.uno:Grow</property>
                                 <property name="use_underline">True</property>
@@ -925,7 +918,6 @@
                             <child>
                               <object class="GtkToolButton" id="shrink">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="is_important">True</property>
                                 <property name="action_name">.uno:Shrink</property>
                                 <property name="use_underline">True</property>
@@ -1085,6 +1077,7 @@
                         <property name="image">boldi</property>
                         <property name="relief">none</property>
                         <property name="xalign">0</property>
+                        <property name="always-show-image">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1103,6 +1096,7 @@
                         <property name="image">italicsi</property>
                         <property name="relief">none</property>
                         <property name="xalign">0</property>
+                        <property name="always-show-image">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1140,7 +1134,7 @@
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
                     <child>
-                      <object class="sfxlo-SidebarToolBox" id="wrapbox">
+                      <object class="sfxlo-NotebookbarToolBox" id="wrapbox">
                         <property name="height_request">26</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -1148,7 +1142,6 @@
                         <child>
                           <object class="GtkToolButton" id="wraptextb">
                             <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="is_important">True</property>
                             <property name="action_name">.uno:WrapText</property>
                             <property name="use_underline">True</property>
@@ -1167,7 +1160,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="sfxlo-SidebarToolBox" id="backgroundbox">
+                      <object class="sfxlo-NotebookbarToolBox" id="backgroundbox">
                         <property name="height_request">26</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -1175,7 +1168,6 @@
                         <child>
                           <object class="GtkMenuToolButton" id="backgroundcolor">
                             <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="is_important">True</property>
                             <property name="action_name">.uno:BackgroundColor</property>
                             <property name="use_underline">True</property>
@@ -1194,7 +1186,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="sfxlo-SidebarToolBox" id="colorbox">
+                      <object class="sfxlo-NotebookbarToolBox" id="colorbox">
                         <property name="height_request">26</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -1202,7 +1194,6 @@
                         <child>
                           <object class="GtkMenuToolButton" id="fontcolor">
                             <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="is_important">True</property>
                             <property name="action_name">.uno:Color</property>
                             <property name="use_underline">True</property>
@@ -1468,7 +1459,7 @@
                         <property name="can_focus">False</property>
                         <property name="orientation">vertical</property>
                         <child>
-                          <object class="sfxlo-SidebarToolBox" id="tableborder1">
+                          <object class="sfxlo-NotebookbarToolBox" id="tableborder1">
                             <property name="height_request">26</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -1476,7 +1467,6 @@
                             <child>
                               <object class="GtkMenuToolButton" id="borderstyleb">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="is_important">True</property>
                                 <property name="action_name">.uno:SetBorderStyle</property>
                                 <property name="use_underline">True</property>
@@ -1495,7 +1485,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="sfxlo-SidebarToolBox" id="tableborder2">
+                          <object class="sfxlo-NotebookbarToolBox" id="tableborder2">
                             <property name="height_request">26</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -1503,7 +1493,6 @@
                             <child>
                               <object class="GtkMenuToolButton" id="borderlineb">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="is_important">True</property>
                                 <property name="action_name">.uno:LineStyle</property>
                                 <property name="use_underline">True</property>
@@ -1522,7 +1511,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="sfxlo-SidebarToolBox" id="tableborder3">
+                          <object class="sfxlo-NotebookbarToolBox" id="tableborder3">
                             <property name="height_request">26</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -1530,7 +1519,6 @@
                             <child>
                               <object class="GtkMenuToolButton" id="bordercolorb">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="is_important">True</property>
                                 <property name="action_name">.uno:FrameLineColor</property>
                                 <property name="use_underline">True</property>
@@ -1687,7 +1675,7 @@
                         <property name="can_focus">False</property>
                         <property name="orientation">vertical</property>
                         <child>
-                          <object class="sfxlo-SidebarToolBox" id="tablebox">
+                          <object class="sfxlo-NotebookbarToolBox" id="tablebox">
                             <property name="height_request">26</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -1695,7 +1683,6 @@
                             <child>
                               <object class="GtkToolButton" id="tableb">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="is_important">True</property>
                                 <property name="action_name">.uno:InsertTable</property>
                               </object>
@@ -1712,7 +1699,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="sfxlo-SidebarToolBox" id="shapesbox">
+                          <object class="sfxlo-NotebookbarToolBox" id="shapesbox">
                             <property name="height_request">26</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -1720,7 +1707,6 @@
                             <child>
                               <object class="GtkToolButton" id="shapesb">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
                                 <property name="is_important">True</property>
                                 <property name="action_name">.uno:BasicShapes</property>
                                 <property name="label" translatable="yes" context="notebookbar_groups|shapesb">Shapes</property>
@@ -1748,6 +1734,7 @@
                             <property name="image">linksi</property>
                             <property name="relief">none</property>
                             <property name="xalign">0</property>
+                            <property name="always-show-image">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -1796,6 +1783,7 @@
                             <property name="image">charti</property>
                             <property name="relief">none</property>
                             <property name="xalign">0</property>
+                            <property name="always-show-image">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -1897,6 +1885,7 @@
                         <property name="image">paragraphstylei</property>
                         <property name="relief">none</property>
                         <property name="image_position">top</property>
+                        <property name="always-show-image">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>

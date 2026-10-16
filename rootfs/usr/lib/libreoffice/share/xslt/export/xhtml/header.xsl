@@ -77,7 +77,9 @@
         <xsl:param name="globalData" />
 
         <xsl:element name="style">
-            <xsl:attribute name="type">text/css</xsl:attribute>
+          <!-- https://validator.w3.org/unicorn:
+               The “type” attribute for the “style” element is not needed and should be omitted.
+            <xsl:attribute name="type">text/css</xsl:attribute> -->
 <xsl:text>
     </xsl:text>
     <xsl:call-template name='create-page-layout'>
@@ -102,11 +104,6 @@
 <xsl:text>ol, ul { margin:0; padding:0;}
     </xsl:text>
 <xsl:text>li { list-style: none; margin:0; padding:0;}
-    </xsl:text>
-<xsl:text>/* "li span.odfLiEnd" - IE 7 issue*/</xsl:text>
-<xsl:text>
-    </xsl:text>
-<xsl:text>li span. { clear: both; line-height:0; width:0; height:0; margin:0; padding:0; }
     </xsl:text>
 <xsl:text>span.footnodeNumber { padding-right:1em; }
     </xsl:text>
@@ -135,8 +132,9 @@
 
             </xsl:for-each>
             <!-- Otherwise all styles have been processed and the empty styles have to be given out -->
-                <xsl:text>/* ODF styles with no properties representable as CSS */</xsl:text><xsl:text>
-    </xsl:text><xsl:for-each select="$globalData/all-styles/style[final-properties = '']"><xsl:value-of select="concat('.', @style:name, ' ')"/></xsl:for-each> { }
+                <xsl:text>/* ODF styles with no properties representable as CSS:
+    </xsl:text><xsl:for-each select="$globalData/all-styles/style[final-properties = '']"><xsl:value-of select="concat('.', @style:name, ' ')"/></xsl:for-each><xsl:text> { } */
+</xsl:text>
     </xsl:template>
 
     <!-- Creating CSS page layout based on first office master style -->
@@ -165,20 +163,23 @@
          <!-- Find the according style:page-layout and store the properties in a variable  -->
         <xsl:variable name="pageProperties" select="key('pageLayoutElements', $pageLayoutName)/style:page-layout-properties"/>
 
+        <xsl:variable name="pageSize">
+            <xsl:call-template name="page-size">
+                <xsl:with-param name="globalData"       select="$globalData" />
+                <xsl:with-param name="pageProperties"   select="$pageProperties" />
+            </xsl:call-template>
+            <xsl:call-template name="page-margin">
+                <xsl:with-param name="globalData"       select="$globalData" />
+                <xsl:with-param name="pageProperties"   select="$pageProperties" />
+            </xsl:call-template>
+        </xsl:variable>
+
+        <xsl:if test="$pageSize and $pageSize!=''">
 <xsl:text>@page { </xsl:text>
-
-        <xsl:call-template name="page-size">
-            <xsl:with-param name="globalData"       select="$globalData" />
-            <xsl:with-param name="pageProperties"   select="$pageProperties" />
-        </xsl:call-template>
-        <xsl:call-template name="page-margin">
-            <xsl:with-param name="globalData"       select="$globalData" />
-            <xsl:with-param name="pageProperties"   select="$pageProperties" />
-        </xsl:call-template>
-
+<xsl:value-of select="$pageSize"/>
 <xsl:text> }
     </xsl:text>
-
+        </xsl:if>
     </xsl:template>
 
 
@@ -371,11 +372,31 @@
         </xsl:if>
 
         <!-- keywords about the input source (keywords) -->
-        <xsl:call-template name="add-meta-tag">
-            <xsl:with-param name="meta-name" select="'DCTERMS.subject'" />
-            <xsl:with-param name="meta-data" select="normalize-space(concat($globalData/meta-file/*/office:meta/dc:subject,',   ',$keywords))" />
-            <xsl:with-param name="meta-lang" select="$lang" />
-        </xsl:call-template>
+        <xsl:if test="($globalData/meta-file/*/office:meta/dc:subject != '') or ($keywords != '')">
+            <xsl:choose>
+                <xsl:when test="($globalData/meta-file/*/office:meta/dc:subject != '') and ($keywords != '')">
+                    <xsl:call-template name="add-meta-tag">
+                        <xsl:with-param name="meta-name" select="'DCTERMS.subject'" />
+                        <xsl:with-param name="meta-data" select="normalize-space(concat($globalData/meta-file/*/office:meta/dc:subject,', ',$keywords))" />
+                        <xsl:with-param name="meta-lang" select="$lang" />
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:when test="($globalData/meta-file/*/office:meta/dc:subject != '')">
+                    <xsl:call-template name="add-meta-tag">
+                        <xsl:with-param name="meta-name" select="'DCTERMS.subject'" />
+                        <xsl:with-param name="meta-data" select="normalize-space($globalData/meta-file/*/office:meta/dc:subject)" />
+                        <xsl:with-param name="meta-lang" select="$lang" />
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="add-meta-tag">
+                        <xsl:with-param name="meta-name" select="'DCTERMS.subject'" />
+                        <xsl:with-param name="meta-data" select="normalize-space($keywords)" />
+                        <xsl:with-param name="meta-lang" select="$lang" />
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
 
         <!-- detailed description about the input source (description) -->
         <xsl:call-template name="add-meta-tag">
@@ -401,6 +422,10 @@
             <!-- <xsl:with-param name="meta-lang" select="$lang" /> -->
         </xsl:call-template>
         </xsl:for-each>
+        <xsl:call-template name="add-meta-tag">
+            <xsl:with-param name="meta-name" select="'xsl:vendor'" />
+            <xsl:with-param name="meta-data" select="system-property('xsl:vendor')" />
+        </xsl:call-template>
 
         <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" hreflang="en" />
         <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" hreflang="en" />
@@ -430,7 +455,7 @@
         <xsl:param name="meta-enc" />
         <xsl:param name="meta-lang" />
 
-        <xsl:if test="$meta-data">
+        <xsl:if test="$meta-data and $meta-data != ''">
             <xsl:element name="meta">
                 <xsl:attribute name="name">
                     <xsl:value-of select="$meta-name" />

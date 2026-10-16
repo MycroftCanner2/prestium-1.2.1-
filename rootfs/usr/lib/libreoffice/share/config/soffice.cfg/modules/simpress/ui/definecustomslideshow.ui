@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sd">
-  <requires lib="gtk+" version="3.18"/>
-  <object class="GtkTreeStore" id="liststore1">
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkListStore" id="liststore1">
     <columns>
       <!-- column-name text -->
       <column type="gchararray"/>
@@ -10,7 +10,7 @@
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkTreeStore" id="liststore2">
+  <object class="GtkListStore" id="liststore2">
     <columns>
       <!-- column-name text -->
       <column type="gchararray"/>
@@ -26,9 +26,6 @@
     <property name="default_width">0</property>
     <property name="default_height">0</property>
     <property name="type_hint">dialog</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can_focus">False</property>
@@ -40,13 +37,13 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -56,11 +53,11 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -70,11 +67,11 @@
             </child>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -125,6 +122,12 @@
                     <property name="can_focus">True</property>
                     <property name="hexpand">True</property>
                     <property name="activates_default">True</property>
+                    <property name="truncate-multiline">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="customname-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="definecustomslideshow|extended_tip|customname">Displays the name of the custom slide show. If you want, you can enter a new name.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -140,6 +143,7 @@
               </packing>
             </child>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid" id="grid1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -194,9 +198,7 @@
                         <property name="search_column">0</property>
                         <property name="show_expanders">False</property>
                         <child internal-child="selection">
-                          <object class="GtkTreeSelection" id="treeview-selection1">
-                            <property name="mode">multiple</property>
-                          </object>
+                          <object class="GtkTreeSelection" id="treeview-selection1"/>
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="treeviewcolumn1">
@@ -206,6 +208,11 @@
                                 <attribute name="text">0</attribute>
                               </attributes>
                             </child>
+                          </object>
+                        </child>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="pages-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="definecustomslideshow|extended_tip|pages">Lists all of the slides in the order in which they appear in the current document.</property>
                           </object>
                         </child>
                       </object>
@@ -248,6 +255,11 @@
                             </child>
                           </object>
                         </child>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="custompages-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="definecustomslideshow|extended_tip|custompages">Lists all of the slides in the custom slide show. If you want, you can change the order of the list by dragging the slides up or down.</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
@@ -269,6 +281,11 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="add-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="definecustomslideshow|extended_tip|add">Adds an existing slide to the bottom of the Selected slides list. You need to select a slide in the Existing slides list before you can use this button.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -282,6 +299,11 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="remove-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="definecustomslideshow|extended_tip|remove">Removes a slide from the Selected slides list. You need to choose a slide in the Selected slides list before you can use this button.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -319,6 +341,14 @@
       <action-widget response="-6">cancel</action-widget>
       <action-widget response="-11">help</action-widget>
     </action-widgets>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="DefineCustomSlideShow-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="definecustomslideshow|extended_tip|DefineCustomSlideShow">Creates a custom slide show.</property>
+      </object>
+    </child>
   </object>
   <object class="GtkSizeGroup" id="sizegroup1">
     <widgets>

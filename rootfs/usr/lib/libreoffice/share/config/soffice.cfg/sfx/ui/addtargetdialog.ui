@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="sfx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="AddTargetDialog">
     <property name="can_focus">False</property>
     <property name="border_width">6</property>
@@ -26,11 +26,11 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="close">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -40,11 +40,11 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -54,11 +54,11 @@
             </child>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -76,6 +76,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -102,6 +103,7 @@
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="activates_default">True</property>
+                <property name="truncate-multiline">True</property>
                 <accessibility>
                   <relation type="labelled-by" target="label_name"/>
                 </accessibility>
@@ -147,6 +149,7 @@
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="activates_default">True</property>
+                <property name="truncate-multiline">True</property>
                 <accessibility>
                   <relation type="labelled-by" target="label_content"/>
                 </accessibility>
@@ -228,7 +231,7 @@
             <property name="spacing">12</property>
             <child>
               <object class="GtkCheckButton" id="checkboxCaseSensitive">
-                <property name="label" translatable="yes" context="addtargetdialog|checkboxCaseSensitive">Case Sensitive</property>
+                <property name="label" translatable="yes" context="addtargetdialog|checkboxCaseSensitive">Match case</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -243,7 +246,7 @@
             </child>
             <child>
               <object class="GtkCheckButton" id="checkboxWholeWords">
-                <property name="label" translatable="yes" context="addtargetdialog|checkboxWholeWords">Whole Words Only</property>
+                <property name="label" translatable="yes" context="addtargetdialog|checkboxWholeWords">Whole words only</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>

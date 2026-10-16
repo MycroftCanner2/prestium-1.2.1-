@@ -28,10 +28,10 @@
       <menu:menuitem menu:id=".uno:AutoPilotMenu" menu:style="text"/>
       <menu:menu menu:id=".uno:TemplateMenu">
           <menu:menupopup>
-              <menu:menuitem menu:id=".uno:OpenTemplate" menu:style="text"/>
-              <menu:menuitem menu:id=".uno:SaveAsTemplate" menu:style="text"/>
+              <menu:menuitem menu:id=".uno:OpenTemplate"/>
+              <menu:menuitem menu:id=".uno:SaveAsTemplate"/>
               <menu:menuseparator/>
-              <menu:menuitem menu:id=".uno:NewDoc" menu:style="text"/>
+              <menu:menuitem menu:id=".uno:NewDoc"/>
           </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
@@ -150,7 +150,9 @@
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:ReplyComment" menu:style="text"/>
           <menu:menuitem menu:id=".uno:ResolveComment" menu:style="text"/>
+          <menu:menuitem menu:id=".uno:ResolveCommentThread" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteComment" menu:style="text"/>
+          <menu:menuitem menu:id=".uno:DeleteCommentThread" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteAuthor" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteAllNotes" menu:style="text"/>
         </menu:menupopup>
@@ -178,7 +180,7 @@
       <menu:menuitem menu:id=".uno:PrintLayout" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:BrowseView" menu:style="radio"/>
       <menu:menuseparator/>
-      <menu:menuitem menu:id=".uno:ToolbarMode"/>
+      <menu:menuitem menu:id=".uno:ToolbarModeUI"/>
       <menu:menuitem menu:id=".uno:AvailableToolbars" menu:style="text"/>
       <menu:menuitem menu:id=".uno:StatusBarVisible" menu:style="text"/>
       <menu:menuseparator/>
@@ -214,6 +216,7 @@
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:Marks" menu:style="text"/>
       <menu:menuitem menu:id=".uno:Fieldnames" menu:style="text"/>
+      <menu:menuitem menu:id=".uno:ShowHiddenParagraphs"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:Sidebar"/>
       <menu:menuitem menu:id=".uno:ViewSidebarStyles"/>
@@ -322,7 +325,7 @@
           <menu:menuitem menu:id=".uno:InsertSoftHyphen"/>
           <menu:menuitem menu:id=".uno:InsertNarrowNobreakSpace"/>
           <menu:menuitem menu:id=".uno:InsertZWSP"/>
-          <menu:menuitem menu:id=".uno:InsertZWNBSP"/>
+          <menu:menuitem menu:id=".uno:InsertWJ"/>
           <menu:menuitem menu:id=".uno:InsertLRM"/>
           <menu:menuitem menu:id=".uno:InsertRLM"/>
         </menu:menupopup>
@@ -397,6 +400,7 @@
       <menu:menu menu:id=".uno:FormatSpacingMenu">
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:SpacePara1"/>
+          <menu:menuitem menu:id=".uno:SpacePara115"/>
           <menu:menuitem menu:id=".uno:SpacePara15"/>
           <menu:menuitem menu:id=".uno:SpacePara2"/>
           <menu:menuseparator/>
@@ -419,10 +423,17 @@
           <menu:menuitem menu:id=".uno:CommonAlignBottom" menu:style="radio"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:FormatPaintbrush"/>
+      <menu:menuitem menu:id=".uno:ResetAttributes"/>
+      <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:FontDialog"/>
+      <menu:menuitem menu:id=".uno:ParagraphDialog"/>
       <menu:menu menu:id=".uno:FormatBulletsMenu">
         <menu:menupopup>
-          <menu:menuitem menu:id=".uno:DefaultBullet"/>
-          <menu:menuitem menu:id=".uno:DefaultNumbering"/>
+          <menu:menuitem menu:id=".uno:RemoveBullets" menu:style="radio"/>
+          <menu:menuitem menu:id=".uno:DefaultBullet" menu:style="radio"/>
+          <menu:menuitem menu:id=".uno:DefaultNumbering" menu:style="radio"/>
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:DecrementLevel"/>
           <menu:menuitem menu:id=".uno:IncrementLevel"/>
@@ -436,19 +447,12 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:InsertNeutralParagraph"/>
           <menu:menuitem menu:id=".uno:NumberingStart"/>
-          <menu:menuitem menu:id=".uno:RemoveBullets"/>
+          <menu:menuitem menu:id=".uno:ContinueNumbering"/>
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:JumpDownThisLevel"/>
           <menu:menuitem menu:id=".uno:JumpUpThisLevel"/>
-          <menu:menuitem menu:id=".uno:ContinueNumbering"/>
         </menu:menupopup>
       </menu:menu>
-      <menu:menuseparator/>
-      <menu:menuitem menu:id=".uno:FormatPaintbrush"/>
-      <menu:menuitem menu:id=".uno:ResetAttributes"/>
-      <menu:menuseparator/>
-      <menu:menuitem menu:id=".uno:FontDialog"/>
-      <menu:menuitem menu:id=".uno:ParagraphDialog"/>
       <menu:menuitem menu:id=".uno:OutlineBullet"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:PageDialog"/>
@@ -486,6 +490,7 @@
           <menu:menuitem menu:id=".uno:ColorSettings"/>
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:GraphicDialog"/>
+          <menu:menuitem menu:id=".uno:GraphicSizeCheck"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menu menu:id=".uno:FormatObjectMenu">
@@ -576,6 +581,7 @@
       <menu:menuitem menu:id=".uno:QuoteCharStyle" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:SourceCharStyle" menu:style="radio"/>
       <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:RemoveBullets" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:BulletListStyle" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:NumberListStyle" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:AlphaListStyle" menu:style="radio"/>
@@ -703,6 +709,17 @@
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:OpenReadOnly"/>
       <menu:menuitem menu:id=".uno:AutoControlFocus"/>
+      <menu:menuseparator/>
+      <menu:menu menu:id=".uno:ContentControlsMenu">
+        <menu:menupopup>
+          <menu:menuitem menu:id=".uno:InsertContentControl"/>
+          <menu:menuitem menu:id=".uno:InsertPictureContentControl"/>
+          <menu:menuitem menu:id=".uno:InsertCheckboxContentControl"/>
+          <menu:menuitem menu:id=".uno:InsertDropdownContentControl"/>
+          <menu:menuitem menu:id=".uno:InsertDateContentControl"/>
+          <menu:menuitem menu:id=".uno:ContentControlProperties"/>
+        </menu:menupopup>
+      </menu:menu>
     </menu:menupopup>
   </menu:menu>
   <menu:menu menu:id=".uno:ToolsMenu">
@@ -783,6 +800,8 @@
           <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuitem menu:id=".uno:DevelopmentToolsDockingWindow"/>
+      <menu:menuseparator/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>
@@ -801,6 +820,7 @@
       <menu:menuitem menu:id=".uno:ExtendedHelp"/>
       <menu:menuitem menu:id=".uno:Documentation"/>
       <menu:menuitem menu:id=".uno:TipOfTheDay"/>
+      <menu:menuitem menu:id=".uno:CommandPopup"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:QuestionAnswers"/>
       <menu:menuitem menu:id=".uno:SendFeedback"/>

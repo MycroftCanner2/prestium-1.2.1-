@@ -297,6 +297,7 @@ The current presentation contains no OLE objects.</value>
         <node-ref oor:name="Normal" oor:node-type="ToolBarDescription"/>
         <node-ref oor:name="MouseOver" oor:node-type="ToolBarDescription"/>
         <node-ref oor:name="Selected" oor:node-type="ToolBarDescription"/>
+        <node-ref oor:name="MouseOverSelected" oor:node-type="ToolBarDescription"/>
         <node-ref oor:name="Disabled" oor:node-type="ToolBarDescription"/>
       </group>
       <group oor:name="ToolBar">
@@ -660,7 +661,7 @@ The current presentation contains no OLE objects.</value>
       <node oor:name="Templates">
         <node oor:name="template1" oor:op="replace">
           <prop oor:name="Name">
-            <value xml:lang="en-US">E-mail (96 DPI): minimize document size for sharing</value>
+            <value xml:lang="en-US">Email (96 DPI): minimize document size for sharing</value>
           </prop>
           <prop oor:name="JPEGQuality">
             <value>70</value>
@@ -1028,6 +1029,86 @@ The current presentation contains no OLE objects.</value>
             </node>
             <node oor:name="k" oor:op="replace">
               <prop oor:name="Name">
+                <value>PauseResumeTimer</value>
+              </prop>
+              <prop oor:name="Type">
+                <value>Button</value>
+              </prop>
+              <node oor:name="Normal">
+                <prop oor:name="Text">
+                  <value xml:lang="en-US">Pause</value>
+                </prop>
+                <node oor:name="Icon">
+                  <prop oor:name="NormalFileName">
+                    <value>bitmaps/ButtonPauseTimerNormal.png</value>
+                  </prop>
+                </node>
+                <prop oor:name="Action">
+                  <value>vnd.org.libreoffice.presenterscreen:PauseResumeTimer</value>
+                </prop>
+                <node oor:name="Font">
+                  <prop oor:name="Size">
+                    <value>12</value>
+                  </prop>
+                  <prop oor:name="Style">
+                    <value>Bold</value>
+                  </prop>
+                  <prop oor:name="Color">
+                    <value>B3B7BC</value>
+                  </prop>
+                  <prop oor:name="Anchor">
+                    <value>Center</value>
+                  </prop>
+                </node>
+              </node>
+              <node oor:name="MouseOver">
+                <node oor:name="Icon">
+                  <prop oor:name="NormalFileName">
+                    <value>bitmaps/ButtonPauseTimerMouseOver.png</value>
+                  </prop>
+                </node>
+                <node oor:name="Font">
+                  <prop oor:name="Color">
+                    <value>FFFFFF</value>
+                  </prop>
+                </node>
+              </node>
+              <node oor:name="Selected">
+                <prop oor:name="Text">
+                  <value xml:lang="en-US">Resume</value>
+                </prop>
+                <node oor:name="Icon">
+                  <prop oor:name="NormalFileName">
+                    <value>bitmaps/ButtonResumeTimerNormal.png</value>
+                  </prop>
+                </node>
+                <node oor:name="Font">
+                  <prop oor:name="Color">
+                    <value>B3B7BC</value>
+                  </prop>
+                </node>
+                <prop oor:name="Action">
+                  <value>vnd.org.libreoffice.presenterscreen:PauseResumeTimer</value>
+                </prop>
+              </node>
+              <node oor:name="MouseOverSelected">
+                <prop oor:name="Text">
+                  <value xml:lang="en-US">Resume</value>
+                </prop>
+                <node oor:name="Icon">
+                  <prop oor:name="NormalFileName">
+                    <value>bitmaps/ButtonResumeTimerMouseOver.png</value>
+                  </prop>
+                </node>
+                <node oor:name="Font">
+                  <prop oor:name="Color">
+                    <value>FFFFFF</value>
+                  </prop>
+                </node>
+              </node>
+            </node>
+            <node oor:name="l" oor:op="replace">
+              <prop oor:name="Name">
                 <value>RestartTimer</value>
               </prop>
               <prop oor:name="Type">
@@ -1073,7 +1154,7 @@ The current presentation contains no OLE objects.</value>
                 </node>
               </node>
             </node>
-            <node oor:name="l" oor:op="replace">
+            <node oor:name="m" oor:op="replace">
               <prop oor:name="Type">
                 <value>VerticalSeparator</value>
               </prop>
@@ -1085,7 +1166,7 @@ The current presentation contains no OLE objects.</value>
                 </node>
               </node>
             </node>
-            <node oor:name="m" oor:op="replace">
+            <node oor:name="n" oor:op="replace">
               <prop oor:name="Name">
                 <value>SwitchMonitor</value>
               </prop>
@@ -1139,7 +1220,7 @@ The current presentation contains no OLE objects.</value>
                 </node>
               </node>
             </node>
-            <node oor:name="n" oor:op="replace">
+            <node oor:name="o" oor:op="replace">
               <prop oor:name="Type">
                 <value>VerticalSeparator</value>
               </prop>
@@ -1151,7 +1232,7 @@ The current presentation contains no OLE objects.</value>
                 </node>
               </node>
             </node>
-            <node oor:name="o" oor:op="replace">
+            <node oor:name="p" oor:op="replace">
               <prop oor:name="Name">
                 <value>Help</value>
               </prop>
@@ -1216,6 +1297,65 @@ The current presentation contains no OLE objects.</value>
                 <node oor:name="Icon">
                   <prop oor:name="NormalFileName">
                     <value>bitmaps/ButtonHelpDisabled.png</value>
+                  </prop>
+                </node>
+              </node>
+            </node>
+            <node oor:name="q" oor:op="replace">
+              <prop oor:name="Type">
+                <value>VerticalSeparator</value>
+              </prop>
+              <node oor:name="Normal">
+                <node oor:name="Font">
+                  <prop oor:name="Color">
+                    <value>76797C</value>
+                  </prop>
+                </node>
+              </node>
+            </node>
+            <node oor:name="r" oor:op="replace">
+              <prop oor:name="Name">
+                <value>ExitPresenter</value>
+              </prop>
+              <prop oor:name="Type">
+                <value>Button</value>
+              </prop>
+              <node oor:name="Normal">
+                <prop oor:name="Text">
+                  <value xml:lang="en-US">Exit</value>
+                </prop>
+                <node oor:name="Icon">
+                  <prop oor:name="NormalFileName">
+                    <value>bitmaps/ButtonExitPresenterNormal.png</value>
+                  </prop>
+                </node>
+                <prop oor:name="Action">
+                  <value>vnd.org.libreoffice.presenterscreen:ExitPresenter</value>
+                </prop>
+                <node oor:name="Font">
+                  <prop oor:name="Size">
+                    <value>12</value>
+                  </prop>
+                  <prop oor:name="Style">
+                    <value>Bold</value>
+                  </prop>
+                  <prop oor:name="Color">
+                    <value>B3B7BC</value>
+                  </prop>
+                  <prop oor:name="Anchor">
+                    <value>Center</value>
+                  </prop>
+                </node>
+              </node>
+              <node oor:name="MouseOver">
+                <node oor:name="Icon">
+                  <prop oor:name="NormalFileName">
+                    <value>bitmaps/ButtonExitPresenterMouseOver.png</value>
+                  </prop>
+                </node>
+                <node oor:name="Font">
+                  <prop oor:name="Color">
+                    <value>FFFFFF</value>
                   </prop>
                 </node>
               </node>
@@ -1516,7 +1656,7 @@ The current presentation contains no OLE objects.</value>
         <node oor:name="HelpStrings">
           <node oor:name="a" oor:op="replace">
             <prop oor:name="Left">
-              <value xml:lang="en-US">Left click, right or down arrow, spacebar, page down, enter, return, 'N'</value>
+              <value xml:lang="en-US">Left click, right or down arrow, spacebar, page down, enter, return</value>
             </prop>
             <prop oor:name="Right">
               <value xml:lang="en-US">Next slide, or next effect</value>
@@ -1524,15 +1664,19 @@ The current presentation contains no OLE objects.</value>
           </node>
           <node oor:name="b" oor:op="replace">
             <prop oor:name="Left">
-              <value xml:lang="en-US">Right click, left or up arrow, page up, backspace, 'P'</value>
+              <value xml:lang="en-US">Right click, left or up arrow, page up, backspace</value>
             </prop>
             <prop oor:name="Right">
               <value xml:lang="en-US">Previous slide, or previous effect</value>
             </prop>
           </node>
           <node oor:name="c" oor:op="replace">
-            <prop oor:name="Left"/>
-            <prop oor:name="Right"/>
+            <prop oor:name="Left">
+              <value xml:lang="en-US">'P'</value>
+            </prop>
+            <prop oor:name="Right">
+              <value xml:lang="en-US">Use mouse pointer as pen</value>
+            </prop>
           </node>
           <node oor:name="d" oor:op="replace">
             <prop oor:name="Left">
@@ -1551,8 +1695,12 @@ The current presentation contains no OLE objects.</value>
             </prop>
           </node>
           <node oor:name="f" oor:op="replace">
-            <prop oor:name="Left"/>
-            <prop oor:name="Right"/>
+            <prop oor:name="Left">
+              <value xml:lang="en-US">'E'</value>
+            </prop>
+            <prop oor:name="Right">
+              <value xml:lang="en-US">Erase all ink on slide</value>
+            </prop>
           </node>
           <node oor:name="g" oor:op="replace">
             <prop oor:name="Left">
@@ -1676,6 +1824,14 @@ The current presentation contains no OLE objects.</value>
             </prop>
             <prop oor:name="Right">
               <value xml:lang="en-US">Switches monitors</value>
+            </prop>
+          </node>
+          <node oor:name="z" oor:op="replace">
+            <prop oor:name="Left">
+              <value xml:lang="en-US">Ctrl-'A'</value>
+            </prop>
+            <prop oor:name="Right">
+              <value xml:lang="en-US">Turn off pointer as pen mode</value>
             </prop>
           </node>
         </node>
@@ -3331,7 +3487,7 @@ The current presentation contains no OLE objects.</value>
         </node>
         <node oor:name="ooo-motionpath-equal-triangle" oor:op="replace">
           <prop oor:name="Label" oor:type="xs:string">
-            <value xml:lang="en-US">Equal Triangle</value>
+            <value xml:lang="en-US">Regular Triangle</value>
           </prop>
         </node>
         <node oor:name="ooo-motionpath-oval" oor:op="replace">
@@ -3612,6 +3768,26 @@ The current presentation contains no OLE objects.</value>
         <node oor:name="ooo-motionpath-vertical-figure-8" oor:op="replace">
           <prop oor:name="Label" oor:type="xs:string">
             <value xml:lang="en-US">Vertical Figure 8</value>
+          </prop>
+        </node>
+        <node oor:name="libo-physics-fall-fade-out" oor:op="replace">
+          <prop oor:name="Label" oor:type="xs:string">
+            <value xml:lang="en-US">Fall and fade out</value>
+          </prop>
+        </node>
+        <node oor:name="libo-physics-fall" oor:op="replace">
+          <prop oor:name="Label" oor:type="xs:string">
+            <value xml:lang="en-US">Fall simulated</value>
+          </prop>
+        </node>
+        <node oor:name="libo-physics-shoot-right-return" oor:op="replace">
+          <prop oor:name="Label" oor:type="xs:string">
+            <value xml:lang="en-US">Shoot right and return</value>
+          </prop>
+        </node>
+        <node oor:name="libo-physics-shoot-left-return" oor:op="replace">
+          <prop oor:name="Label" oor:type="xs:string">
+            <value xml:lang="en-US">Shoot left and return</value>
           </prop>
         </node>
         <node oor:name="ooo-media-start" oor:op="replace">
@@ -5064,7 +5240,7 @@ The current presentation contains no OLE objects.</value>
             <value xml:lang="en-US">Exciting</value>
           </prop>
           <prop oor:name="Effects" oor:type="oor:string-list">
-            <value oor:separator=";">ooo-emphasis-blast;ooo-emphasis-bold-reveal;ooo-emphasis-style-emphasis;ooo-emphasis-wave;ooo-emphasis-blink</value>
+            <value oor:separator=";">ooo-emphasis-blast;ooo-emphasis-bold-reveal;ooo-emphasis-style-emphasis;ooo-emphasis-wave;ooo-emphasis-blink;libo-physics-fall;libo-physics-shoot-right-return;libo-physics-shoot-left-return</value>
           </prop>
         </node>
       </node>
@@ -5098,7 +5274,7 @@ The current presentation contains no OLE objects.</value>
             <value xml:lang="en-US">Exciting</value>
           </prop>
           <prop oor:name="Effects" oor:type="oor:string-list">
-            <value oor:separator=";">ooo-exit-swivel;ooo-exit-boomerang;ooo-exit-bounce;ooo-exit-movie-credits;ooo-exit-float;ooo-exit-breaks;ooo-exit-pinwheel;ooo-exit-swish;ooo-exit-thread;ooo-exit-whip;ooo-exit-sling;ooo-exit-magnify;ooo-exit-curve-down;ooo-exit-glide;ooo-exit-flip;ooo-exit-fold</value>
+            <value oor:separator=";">ooo-exit-swivel;ooo-exit-boomerang;ooo-exit-bounce;ooo-exit-movie-credits;ooo-exit-float;ooo-exit-breaks;ooo-exit-pinwheel;ooo-exit-swish;ooo-exit-thread;ooo-exit-whip;ooo-exit-sling;ooo-exit-magnify;ooo-exit-curve-down;ooo-exit-glide;ooo-exit-flip;ooo-exit-fold;libo-physics-fall-fade-out</value>
           </prop>
         </node>
       </node>
@@ -5108,7 +5284,7 @@ The current presentation contains no OLE objects.</value>
             <value xml:lang="en-US">Basic</value>
           </prop>
           <prop oor:name="Effects" oor:type="oor:string-list">
-            <value oor:separator=";">ooo-motionpath-4-point-star;ooo-motionpath-5-point-star;ooo-motionpath-6-point-star;ooo-motionpath-8-point-star;ooo-motionpath-circle;ooo-motionpath-crescent-moon;ooo-motionpath-diamond;ooo-motionpath-equal-triangle;ooo-motionpath-oval;ooo-motionpath-heart;ooo-motionpath-left;ooo-motionpath-right;ooo-motionpath-hexagon;ooo-motionpath-octagon;ooo-motionpath-parallelogram;ooo-motionpath-pentagon;ooo-motionpath-right-triangle;ooo-motionpath-square;ooo-motionpath-teardrop;ooo-motionpath-trapezoid</value>
+            <value oor:separator=";">ooo-motionpath-4-point-star;ooo-motionpath-5-point-star;ooo-motionpath-6-point-star;ooo-motionpath-8-point-star;ooo-motionpath-circle;ooo-motionpath-crescent-moon;ooo-motionpath-diamond;ooo-motionpath-equal-triangle;ooo-motionpath-oval;ooo-motionpath-heart;;ooo-motionpath-hexagon;ooo-motionpath-octagon;ooo-motionpath-parallelogram;ooo-motionpath-pentagon;ooo-motionpath-right-triangle;ooo-motionpath-square;ooo-motionpath-teardrop;ooo-motionpath-trapezoid</value>
           </prop>
         </node>
         <node oor:name="linesandcurves" oor:op="replace">
@@ -5190,7 +5366,7 @@ The current presentation contains no OLE objects.</value>
         </node>
         <node oor:name="private:resource/popupmenu/gluepoint" oor:op="replace">
           <prop oor:name="UIName" oor:type="xs:string">
-            <value xml:lang="en-US">Glue Point</value>
+            <value xml:lang="en-US">Gluepoint</value>
           </prop>
         </node>
         <node oor:name="private:resource/popupmenu/graphic" oor:op="replace">
@@ -6018,6 +6194,17 @@ The current presentation contains no OLE objects.</value>
           </prop>
           <prop oor:name="HideFromToolbarMenu" oor:type="xs:boolean">
             <value>true</value>
+          </prop>
+        </node>
+        <node oor:name="private:resource/toolbar/distributebar" oor:op="replace">
+          <prop oor:name="Docked" oor:type="xs:boolean">
+            <value>false</value>
+          </prop>
+          <prop oor:name="Visible" oor:type="xs:boolean">
+            <value>false</value>
+          </prop>
+          <prop oor:name="UIName" oor:type="xs:string">
+            <value xml:lang="en-US">Distribute Selection</value>
           </prop>
         </node>
       </node>

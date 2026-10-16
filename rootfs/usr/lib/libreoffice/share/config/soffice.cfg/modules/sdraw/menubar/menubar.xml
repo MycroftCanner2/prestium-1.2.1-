@@ -114,7 +114,7 @@
       <menu:menuitem menu:id=".uno:PageMode" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:MasterPage" menu:style="radio"/>
       <menu:menuseparator/>
-      <menu:menuitem menu:id=".uno:ToolbarMode"/>
+      <menu:menuitem menu:id=".uno:ToolbarModeUI"/>
       <menu:menuitem menu:id=".uno:AvailableToolbars" menu:style="text"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:StatusBarVisible" menu:style="text"/>
@@ -222,7 +222,7 @@
           <menu:menuitem menu:id=".uno:InsertSoftHyphen"/>
           <menu:menuitem menu:id=".uno:InsertNarrowNobreakSpace"/>
           <menu:menuitem menu:id=".uno:InsertZWSP"/>
-          <menu:menuitem menu:id=".uno:InsertZWNBSP"/>
+          <menu:menuitem menu:id=".uno:InsertWJ"/>
           <menu:menuitem menu:id=".uno:InsertLRM"/>
           <menu:menuitem menu:id=".uno:InsertRLM"/>
         </menu:menupopup>
@@ -272,6 +272,7 @@
           <menu:menuitem menu:id=".uno:NavigationBar"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuitem menu:id=".uno:InsertSignatureLine" menu:style="text"/>
     </menu:menupopup>
   </menu:menu>
   <menu:menu menu:id=".uno:FormatMenu">
@@ -383,6 +384,7 @@
           <menu:menuitem menu:id=".uno:MergeCells"/>
           <menu:menuitem menu:id=".uno:SplitCell"/>
           <menu:menuseparator/>
+          <menu:menuitem menu:id=".uno:DeleteTable"/>
           <menu:menuitem menu:id=".uno:SelectTable"/>
           <menu:menuitem menu:id=".uno:TableDialog"/>
         </menu:menupopup>
@@ -415,6 +417,7 @@
           <menu:menuitem menu:id=".uno:ColorSettings"/>
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:GrafAttrCrop"/>
+          <menu:menuitem menu:id=".uno:GraphicSizeCheck"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
@@ -445,10 +448,6 @@
       <menu:menuitem menu:id=".uno:DrawingLayout" menu:style="text"/>
       <menu:menuitem menu:id=".uno:InsertMasterPage"/>
       <menu:menuitem menu:id=".uno:DeleteMasterPage"/>
-      <menu:menuseparator/>
-      <menu:menuitem menu:id=".uno:DisplayMasterBackground"/>
-      <menu:menuitem menu:id=".uno:DisplayMasterObjects"/>
-      <menu:menuitem menu:id=".uno:MasterLayouts"/>
       <menu:menuseparator/>
       <menu:menu menu:id=".uno:SlideMoveMenu">
         <menu:menupopup>
@@ -622,10 +621,11 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:RedactedExportWhite"/>
           <menu:menuitem menu:id=".uno:RedactedExportBlack"/>
-          <menu:menuitem menu:id=".uno:ExportDirectToPDF"/>
+          <menu:menuitem menu:id=".uno:RedactionPreviewExport"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:DevelopmentToolsDockingWindow"/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>
@@ -644,6 +644,7 @@
       <menu:menuitem menu:id=".uno:ExtendedHelp"/>
       <menu:menuitem menu:id=".uno:Documentation"/>
       <menu:menuitem menu:id=".uno:TipOfTheDay"/>
+      <menu:menuitem menu:id=".uno:CommandPopup"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:QuestionAnswers"/>
       <menu:menuitem menu:id=".uno:SendFeedback"/>

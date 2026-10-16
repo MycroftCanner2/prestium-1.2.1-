@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="cui">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkAdjustment" id="adjustment1">
     <property name="lower">50</property>
     <property name="upper">65535</property>
@@ -32,6 +32,7 @@
     <property name="border_width">6</property>
     <property name="orientation">vertical</property>
     <child>
+      <!-- n-columns=1 n-rows=1 -->
       <object class="GtkGrid" id="grid1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -40,12 +41,14 @@
         <property name="row_spacing">6</property>
         <property name="column_spacing">12</property>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="row_spacing">6</property>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid" id="grid4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -72,8 +75,12 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="enablewordcomplete-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|enablewordcomplete">Stores frequently used words, and automatically completes a word after you type three letters that match the first three letters of a stored word.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -81,46 +88,49 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkAlignment" id="alignment1">
+                  <!-- n-columns=1 n-rows=1 -->
+                  <object class="GtkGrid" id="grid41">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="left_padding">18</property>
+                    <property name="row_spacing">6</property>
+                    <property name="margin-start">18</property>
                     <child>
-                      <object class="GtkGrid" id="grid41">
+                      <object class="GtkCheckButton" id="appendspace">
+                        <property name="label" translatable="yes" context="wordcompletionpage|appendspace">_Append space</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="row_spacing">6</property>
-                        <child>
-                          <object class="GtkCheckButton" id="appendspace">
-                            <property name="label" translatable="yes" context="wordcompletionpage|appendspace">_Append space</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="use_underline">True</property>
-                            <property name="xalign">0</property>
-                            <property name="draw_indicator">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="appendspace-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|appendspace">If you do not add punctuation after the word then a space is added automatically.</property>
                           </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkCheckButton" id="showastip">
-                            <property name="label" translatable="yes" context="wordcompletionpage|showastip">_Show as tip</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="use_underline">True</property>
-                            <property name="xalign">0</property>
-                            <property name="draw_indicator">True</property>
-                          </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">1</property>
-                          </packing>
                         </child>
                       </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton" id="showastip">
+                        <property name="label" translatable="yes" context="wordcompletionpage|showastip">_Show as tip</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="showastip-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|showastip">Displays the completed word as a Help Tip.</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>
@@ -135,96 +145,108 @@
               </packing>
             </child>
             <child>
-              <object class="GtkAlignment" id="alignment2">
+              <!-- n-columns=1 n-rows=1 -->
+              <object class="GtkGrid" id="grid7">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="left_padding">18</property>
+                <property name="hexpand">True</property>
+                <property name="row_spacing">6</property>
+                <property name="column_spacing">6</property>
+                <property name="margin-start">18</property>
                 <child>
-                  <object class="GtkGrid" id="grid7">
+                  <object class="GtkLabel" id="label2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="row_spacing">6</property>
-                    <property name="column_spacing">6</property>
-                    <child>
-                      <object class="GtkLabel" id="label2">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes" context="wordcompletionpage|label2">Mi_n. word length:</property>
-                        <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">maxentries</property>
-                        <property name="xalign">0</property>
+                    <property name="label" translatable="yes" context="wordcompletionpage|label2">Mi_n. word length:</property>
+                    <property name="use_underline">True</property>
+                    <property name="mnemonic_widget">maxentries</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="minwordlen">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="text">100</property>
+                    <property name="adjustment">adjustment2</property>
+                    <property name="value">100</property>
+                    <property name="truncate-multiline">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="minwordlen-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|minwordlen">Enter the minimum word length for a word to become eligible for the word completion feature.</property>
                       </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkSpinButton" id="minwordlen">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="text">100</property>
-                        <property name="adjustment">adjustment2</property>
-                        <property name="value">100</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="label1">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes" context="wordcompletionpage|label1">_Max. entries:</property>
-                        <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">maxentries</property>
-                        <property name="xalign">0</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkSpinButton" id="maxentries">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="text">500</property>
-                        <property name="adjustment">adjustment1</property>
-                        <property name="value">500</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="label3">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes" context="wordcompletionpage|label3">Acc_ept with:</property>
-                        <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">acceptwith</property>
-                        <property name="xalign">0</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBoxText" id="acceptwith">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">0</property>
-                      </packing>
                     </child>
                   </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes" context="wordcompletionpage|label1">_Max. entries:</property>
+                    <property name="use_underline">True</property>
+                    <property name="mnemonic_widget">maxentries</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="maxentries">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="text">500</property>
+                    <property name="adjustment">adjustment1</property>
+                    <property name="value">500</property>
+                    <property name="truncate-multiline">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="maxentries-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|maxentries">Enter the maximum number of words that you want to store in the Word Completion list.</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes" context="wordcompletionpage|label3">Acc_ept with:</property>
+                    <property name="use_underline">True</property>
+                    <property name="mnemonic_widget">acceptwith</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="acceptwith">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="acceptwith-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|acceptwith">Select the key that you want to use to accept the automatic word completion.</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
               </object>
               <packing>
@@ -239,6 +261,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid3">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -294,6 +317,11 @@
                         </child>
                       </object>
                     </child>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="entries-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|entries">Lists the collected words. The list is valid until you close the current document. To make the list available to other documents in the current session, disable "When closing a document, remove the words collected from it from the list".</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -309,9 +337,12 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
-                <property name="yalign">0</property>
                 <property name="draw_indicator">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="whenclosing-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|whenclosing">When enabled, the list gets cleared when closing the current document. When disabled, makes the current Word Completion list available to other documents after you close the current document. The list remains available until you exit office suite.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -329,8 +360,12 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="collectwords-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|collectwords">Adds the frequently used words to a list. To remove a word from the Word Completion list, select the word, and then click Delete Entry.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -347,6 +382,11 @@
                     <property name="halign">end</property>
                     <property name="hexpand">True</property>
                     <property name="use_underline">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="delete-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|delete">Removes the selected word or words from the Word Completion list.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -372,6 +412,11 @@
         <property name="fill">True</property>
         <property name="position">0</property>
       </packing>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="WordCompletionPage-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="wordcompletionpage|extended_tip|WordCompletionPage">Stores frequently used words, and automatically completes a word after you type three letters that match the first three letters of a stored word.</property>
+      </object>
     </child>
   </object>
   <object class="GtkSizeGroup" id="sizegroup1">

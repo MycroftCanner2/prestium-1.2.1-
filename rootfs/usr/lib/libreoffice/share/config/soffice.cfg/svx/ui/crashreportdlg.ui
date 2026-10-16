@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.36.0 -->
 <interface domain="svx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkTextBuffer" id="textbuffer1">
     <property name="text" translatable="yes" context="crashreportdlg|ed_post">The crash report was successfully uploaded.
 You can soon find the report at:
-crashreport.libreoffice.org/stats/crash_details/%CRASHID</property>
+https://crashreport.libreoffice.org/stats/crash_details/%CRASHID</property>
   </object>
   <object class="GtkTextBuffer" id="textbuffer2">
     <property name="text" translatable="yes" context="crashreportdlg|ed_bugreport">Please check the report and if no bug report is connected to the crash report yet, open a new bug report at bugs.documentfoundation.org.
@@ -47,7 +47,7 @@ Thank you for your help in improving %PRODUCTNAME.</property>
             </child>
             <child>
               <object class="GtkButton" id="btn_cancel">
-                <property name="label" translatable="yes" context="crashreportdlg|btn_cancel">Do_n’t Send</property>
+                <property name="label" translatable="yes" context="crashreportdlg|btn_cancel">Do _Not Send</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -75,7 +75,7 @@ Thank you for your help in improving %PRODUCTNAME.</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">4</property>
+            <property name="position">5</property>
           </packing>
         </child>
         <child>
@@ -131,13 +131,26 @@ You can help us to fix this issue by sending an anonymous crash report to the %P
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
-            <property name="xalign">0</property>
             <property name="draw_indicator">True</property>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLinkButton" id="btnPrivacyPolicy">
+            <property name="label" translatable="yes" context="crashreportdlg|privacy">Privacy Policy</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
           </packing>
         </child>
       </object>

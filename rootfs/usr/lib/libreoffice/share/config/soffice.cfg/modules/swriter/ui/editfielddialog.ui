@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sw">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkImage" id="image3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-media-previous</property>
+    <property name="icon-name">media-skip-backward</property>
   </object>
   <object class="GtkImage" id="image4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-media-next</property>
+    <property name="icon-name">media-skip-forward</property>
   </object>
   <object class="GtkDialog" id="EditFieldDialog">
     <property name="can_focus">False</property>
@@ -20,9 +20,6 @@
     <property name="default_width">0</property>
     <property name="default_height">0</property>
     <property name="type_hint">dialog</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can_focus">False</property>
@@ -35,11 +32,11 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -50,13 +47,13 @@
             </child>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -66,11 +63,11 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -87,6 +84,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -98,9 +96,15 @@
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes" context="editfielddialog|prev_tip">Previous field of same type</property>
                 <property name="valign">center</property>
-                <property name="margin_left">8</property>
+                <property name="margin-start">8</property>
                 <property name="image">image3</property>
                 <property name="image_position">right</property>
+                <property name="always-show-image">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="prev-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="editfielddialog|extended_tip|prev">Edit field contents.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -115,6 +119,12 @@
                 <property name="tooltip_text" translatable="yes" context="editfielddialog|next_tip">Next field of same type</property>
                 <property name="valign">center</property>
                 <property name="image">image4</property>
+                <property name="always-show-image">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="next-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="editfielddialog|extended_tip|next">Edit field contents.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -129,8 +139,13 @@
                 <property name="receives_default">True</property>
                 <property name="no_show_all">True</property>
                 <property name="tooltip_text" translatable="yes" context="editfielddialog|edit_tip">Edit variable field content</property>
-                <property name="margin_left">12</property>
+                <property name="margin-start">12</property>
                 <property name="use_underline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="edit-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="editfielddialog|extended_tip|edit">Edit field contents.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -155,5 +170,13 @@
       <action-widget response="-5">ok</action-widget>
       <action-widget response="-6">cancel</action-widget>
     </action-widgets>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="EditFieldDialog-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="editfielddialog|extended_tip|EditFieldDialog">Edit field contents.</property>
+      </object>
+    </child>
   </object>
 </interface>

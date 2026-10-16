@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface domain="sc">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkTreeStore" id="liststore1">
     <columns>
       <!-- column-name text -->
@@ -63,13 +63,18 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="ok-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|ok">Saves all changes and closes dialog.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -79,11 +84,16 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="cancel-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|cancel">Closes dialog and discards all changes.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -93,11 +103,11 @@
             </child>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -130,6 +140,7 @@
                 <property name="vexpand">True</property>
                 <property name="spacing">6</property>
                 <child>
+                  <!-- n-columns=1 n-rows=1 -->
                   <object class="GtkGrid" id="grid7">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -149,7 +160,6 @@
                           <object class="GtkLabel" id="label3">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xpad">4</property>
                             <property name="label" translatable="yes" context="pivottablelayoutdialog|label3">Column Fields:</property>
                             <property name="use_underline">True</property>
                             <property name="mnemonic_widget">listbox-column</property>
@@ -199,6 +209,11 @@
                                     </child>
                                   </object>
                                 </child>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="listbox-column-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|listbox-column">To define the layout of a pivot table, drag and drop data field buttons onto the Filters, Row Fields, Column Fields and Data Fields areas.</property>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -226,7 +241,6 @@
                           <object class="GtkLabel" id="label5">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xpad">4</property>
                             <property name="label" translatable="yes" context="pivottablelayoutdialog|label5">Data Fields:</property>
                             <property name="use_underline">True</property>
                             <property name="mnemonic_widget">listbox-data</property>
@@ -276,6 +290,11 @@
                                     </child>
                                   </object>
                                 </child>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="listbox-data-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|listbox-data">To define the layout of a pivot table, drag and drop data field buttons onto the Filters, Row Fields, Column Fields and Data Fields areas.</property>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -303,7 +322,6 @@
                           <object class="GtkLabel" id="label4">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xpad">4</property>
                             <property name="label" translatable="yes" context="pivottablelayoutdialog|label4">Row Fields:</property>
                             <property name="use_underline">True</property>
                             <property name="mnemonic_widget">listbox-row</property>
@@ -351,6 +369,11 @@
                                     </child>
                                   </object>
                                 </child>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="listbox-row-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|listbox-row">To define the layout of a pivot table, drag and drop data field buttons onto the Filters, Row Fields, Column Fields and Data Fields areas.</property>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -378,7 +401,6 @@
                           <object class="GtkLabel" id="label2">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xpad">4</property>
                             <property name="label" translatable="yes" context="pivottablelayoutdialog|label2">Filters:</property>
                             <property name="use_underline">True</property>
                             <property name="mnemonic_widget">listbox-page</property>
@@ -428,6 +450,11 @@
                                     </child>
                                   </object>
                                 </child>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="listbox-page-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|listbox-page">To define the layout of a pivot table, drag and drop data field buttons onto the Filters, Row Fields, Column Fields and Data Fields areas.</property>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -451,6 +478,32 @@
                   </packing>
                 </child>
                 <child>
+                  <object class="GtkBox" id="boxline">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="vexpand">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkSeparator" id="separator1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkBox" id="box3">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -461,7 +514,6 @@
                       <object class="GtkLabel" id="label1">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xpad">4</property>
                         <property name="label" translatable="yes" context="pivottablelayoutdialog|label1">Available Fields:</property>
                         <property name="use_underline">True</property>
                         <property name="mnemonic_widget">listbox-fields</property>
@@ -510,6 +562,11 @@
                                 </child>
                               </object>
                             </child>
+                            <child internal-child="accessible">
+                              <object class="AtkObject" id="listbox-fields-atkobject">
+                                <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|listbox-fields">To define the layout of a pivot table, drag and drop data field buttons onto the Filters, Row Fields, Column Fields and Data Fields areas.</property>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
@@ -523,7 +580,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">1</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
               </object>
@@ -553,11 +610,13 @@
               <object class="GtkExpander" id="options">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="resize_toplevel">True</property>
                 <child>
+                  <!-- n-columns=1 n-rows=1 -->
                   <object class="GtkGrid" id="grid5">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_left">12</property>
+                    <property name="margin-start">12</property>
                     <property name="margin_top">6</property>
                     <property name="row_spacing">3</property>
                     <property name="column_spacing">12</property>
@@ -569,8 +628,12 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="check-ignore-empty-rows-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|check-ignore-empty-rows">Ignores empty fields in the data source.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -584,8 +647,12 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="check-identify-categories-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|check-identify-categories">Automatically assigns rows without labels to the category of the row above.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -599,8 +666,12 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="check-total-rows-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|check-total-rows">Calculates and displays the grand total of the row calculation.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -614,8 +685,12 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="check-total-columns-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|check-total-columns">Calculates and displays the grand total of the column calculation.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -629,8 +704,12 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="check-add-filter-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|check-add-filter">Adds a Filter button to pivot tables that are based on spreadsheet data.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -644,8 +723,12 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="draw_indicator">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="check-drill-to-details-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|check-drill-to-details">Select this check box and double-click an item label in the table to show or hide details for the item. Clear this check box and double-click a cell in the table to edit the contents of the cell.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -676,11 +759,13 @@
               <object class="GtkExpander" id="more">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="resize_toplevel">True</property>
                 <child>
+                  <!-- n-columns=1 n-rows=1 -->
                   <object class="GtkGrid" id="grid2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_left">12</property>
+                    <property name="margin-start">12</property>
                     <property name="margin_top">6</property>
                     <property name="hexpand">True</property>
                     <property name="row_spacing">6</property>
@@ -693,101 +778,109 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">none</property>
                         <child>
-                          <object class="GtkAlignment" id="alignment1">
+                          <!-- n-columns=1 n-rows=1 -->
+                          <object class="GtkGrid" id="grid3">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="top_padding">6</property>
-                            <property name="left_padding">12</property>
+                            <property name="hexpand">True</property>
+                            <property name="row_spacing">3</property>
+                            <property name="column_spacing">6</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-top">6</property>
                             <child>
-                              <object class="GtkGrid" id="grid3">
+                              <object class="GtkRadioButton" id="destination-radio-new-sheet">
+                                <property name="label" translatable="yes" context="pivottablelayoutdialog|destination-radio-new-sheet">New sheet</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_underline">True</property>
+                                <property name="active">True</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">0</property>
+                                <property name="width">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkRadioButton" id="destination-radio-selection">
+                                <property name="label" translatable="yes" context="pivottablelayoutdialog|destination-radio-selection">Selection</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_indicator">True</property>
+                                <property name="group">destination-radio-new-sheet</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkEntry" id="destination-edit">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
                                 <property name="hexpand">True</property>
-                                <property name="row_spacing">3</property>
-                                <property name="column_spacing">6</property>
-                                <child>
-                                  <object class="GtkRadioButton" id="destination-radio-new-sheet">
-                                    <property name="label" translatable="yes" context="pivottablelayoutdialog|destination-radio-new-sheet">New sheet</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
-                                    <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
+                                <property name="truncate-multiline">True</property>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="destination-edit-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|destination-edit">Select the area where you want to display the results of the pivot table.</property>
                                   </object>
-                                  <packing>
-                                    <property name="left_attach">0</property>
-                                    <property name="top_attach">0</property>
-                                    <property name="width">3</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkRadioButton" id="destination-radio-selection">
-                                    <property name="label" translatable="yes" context="pivottablelayoutdialog|destination-radio-selection">Selection</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
-                                    <property name="draw_indicator">True</property>
-                                    <property name="group">destination-radio-new-sheet</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">0</property>
-                                    <property name="top_attach">2</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkEntry" id="destination-edit">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="hexpand">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">1</property>
-                                    <property name="top_attach">2</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="destination-button">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">2</property>
-                                    <property name="top_attach">2</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkComboBoxText" id="destination-list">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">1</property>
-                                    <property name="top_attach">1</property>
-                                    <property name="width">2</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkRadioButton" id="destination-radio-named-range">
-                                    <property name="label" translatable="yes" context="pivottablelayoutdialog|destination-radio-named-range">Named range</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
-                                    <property name="draw_indicator">True</property>
-                                    <property name="group">destination-radio-new-sheet</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">0</property>
-                                    <property name="top_attach">1</property>
-                                  </packing>
                                 </child>
                               </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="destination-button">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="destination-button-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|destination-button">Click the Shrink icon to reduce the dialog to the size of the input field. It is then easier to mark the required reference in the sheet. The icons then automatically convert to the Maximize icon. Click it to restore the dialog to its original size.</property>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkComboBoxText" id="destination-list">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="destination-list-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|destination-list">Select the area where you want to display the results of the pivot table.</property>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">1</property>
+                                <property name="width">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkRadioButton" id="destination-radio-named-range">
+                                <property name="label" translatable="yes" context="pivottablelayoutdialog|destination-radio-named-range">Named range</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_indicator">True</property>
+                                <property name="group">destination-radio-new-sheet</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">1</property>
+                              </packing>
                             </child>
                           </object>
                         </child>
@@ -815,85 +908,89 @@
                         <property name="label_xalign">0</property>
                         <property name="shadow_type">none</property>
                         <child>
-                          <object class="GtkAlignment" id="alignment2">
+                          <!-- n-columns=1 n-rows=1 -->
+                          <object class="GtkGrid" id="grid4">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="top_padding">6</property>
-                            <property name="left_padding">12</property>
+                            <property name="hexpand">True</property>
+                            <property name="row_spacing">3</property>
+                            <property name="column_spacing">6</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-top">6</property>
                             <child>
-                              <object class="GtkGrid" id="grid4">
+                              <object class="GtkRadioButton" id="source-radio-selection">
+                                <property name="label" translatable="yes" context="pivottablelayoutdialog|source-radio-selection">Selection</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_underline">True</property>
+                                <property name="active">True</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkEntry" id="source-edit">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
                                 <property name="hexpand">True</property>
-                                <property name="row_spacing">3</property>
-                                <property name="column_spacing">6</property>
-                                <child>
-                                  <object class="GtkRadioButton" id="source-radio-selection">
-                                    <property name="label" translatable="yes" context="pivottablelayoutdialog|source-radio-selection">Selection</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
-                                    <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
+                                <property name="activates_default">True</property>
+                                <property name="truncate-multiline">True</property>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="source-edit-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|source-edit">Select the area that contains the data for the current pivot table.</property>
                                   </object>
-                                  <packing>
-                                    <property name="left_attach">0</property>
-                                    <property name="top_attach">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkEntry" id="source-edit">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="activates_default">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">1</property>
-                                    <property name="top_attach">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="source-button">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">2</property>
-                                    <property name="top_attach">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkRadioButton" id="source-radio-named-range">
-                                    <property name="label" translatable="yes" context="pivottablelayoutdialog|source-radio-named-range">Named range</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
-                                    <property name="draw_indicator">True</property>
-                                    <property name="group">source-radio-selection</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">0</property>
-                                    <property name="top_attach">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkComboBoxText" id="source-list">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                  </object>
-                                  <packing>
-                                    <property name="left_attach">1</property>
-                                    <property name="top_attach">0</property>
-                                    <property name="width">2</property>
-                                  </packing>
                                 </child>
                               </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="source-button">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="source-button-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|source-button">Select the area that contains the data for the current pivot table.</property>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkRadioButton" id="source-radio-named-range">
+                                <property name="label" translatable="yes" context="pivottablelayoutdialog|source-radio-named-range">Named range</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_indicator">True</property>
+                                <property name="group">source-radio-selection</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkComboBoxText" id="source-list">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">0</property>
+                                <property name="width">2</property>
+                              </packing>
                             </child>
                           </object>
                         </child>
@@ -926,6 +1023,11 @@
                     </attributes>
                   </object>
                 </child>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="more-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|more">Displays or hides additional options for defining the pivot table.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -947,5 +1049,10 @@
       <action-widget response="-6">cancel</action-widget>
       <action-widget response="-11">help</action-widget>
     </action-widgets>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="PivotTableLayout-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="pivottablelayoutdialog|extended_tip|PivotTableLayout">Specify the layout of the table that is generated by the pivot table.</property>
+      </object>
+    </child>
   </object>
 </interface>

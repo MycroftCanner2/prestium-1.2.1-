@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="fps">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-add</property>
+    <property name="icon-name">list-add</property>
   </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-remove</property>
+    <property name="icon-name">list-remove</property>
   </object>
   <object class="GtkImage" id="image4">
     <property name="visible">True</property>
@@ -60,9 +60,6 @@
     <property name="border_width">6</property>
     <property name="modal">True</property>
     <property name="type_hint">dialog</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can_focus">False</property>
@@ -116,6 +113,7 @@
                         <property name="has_entry">True</property>
                         <child internal-child="entry">
                           <object class="GtkEntry">
+                            <property name="truncate-multiline">True</property>
                             <property name="can_focus">True</property>
                           </object>
                         </child>
@@ -163,11 +161,10 @@
                             <child>
                               <object class="GtkToolbar" id="up_bar">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
+                                <property name="can_focus">True</property>
                                 <child>
                                   <object class="GtkMenuToolButton" id="up_btn">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
                                     <property name="use_underline">True</property>
                                     <property name="icon_name">res/fp010.png</property>
                                   </object>
@@ -296,6 +293,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="tooltip_text" translatable="yes" context="explorerfiledialog|add">Add current folder to Places</property>
                                     <property name="image">image1</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -310,6 +308,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
+                                    <property name="tooltip_text" translatable="yes" context="explorerfiledialog|add">Remove selected folder from Places</property>
                                     <property name="image">image2</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -445,18 +444,8 @@
                                     <property name="hexpand">True</property>
                                     <property name="vexpand">True</property>
                                     <property name="model">liststore2</property>
-                                    <child>
-                                      <object class="GtkCellRendererPixbuf" id="icon"/>
-                                      <attributes>
-                                        <attribute name="pixbuf">0</attribute>
-                                      </attributes>
-                                    </child>
-                                    <child>
-                                      <object class="GtkCellRendererText" id="text"/>
-                                      <attributes>
-                                        <attribute name="text">1</attribute>
-                                      </attributes>
-                                    </child>
+                                    <property name="pixbuf-column">0</property>
+                                    <property name="text-column">1</property>
                                   </object>
                                 </child>
                               </object>
@@ -487,6 +476,7 @@
                   </packing>
                 </child>
                 <child>
+                  <!-- n-columns=1 n-rows=1 -->
                   <object class="GtkGrid" id="grid1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -502,14 +492,16 @@
                         <property name="layout_style">start</property>
                         <child>
                           <object class="GtkButton" id="open">
-                            <property name="label">gtk-open</property>
+                            <property name="label" translatable="yes" context="explorerfiledialog|open">_Open</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="can_default">True</property>
                             <property name="has_default">True</property>
                             <property name="receives_default">True</property>
                             <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
+                            <style>
+                              <class name="suggested-action"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -519,11 +511,11 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="cancel">
-                            <property name="label">gtk-cancel</property>
+                            <property name="label" translatable="yes" context="stock">_Cancel</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_stock">True</property>
+                            <property name="use-underline">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -533,11 +525,11 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="help">
-                            <property name="label">gtk-help</property>
+                            <property name="label" translatable="yes" context="stock">_Help</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_stock">True</property>
+                            <property name="use-underline">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -547,10 +539,10 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="play">
-                            <property name="label">gtk-media-play</property>
+                            <property name="label" translatable="yes" context="explorerfiledialog|play">_Play</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="use_stock">True</property>
+                            <property name="use_underline">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -565,12 +557,14 @@
                       </packing>
                     </child>
                     <child>
+                      <!-- n-columns=1 n-rows=1 -->
                       <object class="GtkGrid" id="grid2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="hexpand">True</property>
                         <property name="row_spacing">12</property>
                         <child>
+                          <!-- n-columns=1 n-rows=1 -->
                           <object class="GtkGrid" id="grid3">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -648,6 +642,7 @@
                                 <child internal-child="entry">
                                   <object class="GtkEntry">
                                     <property name="can_focus">True</property>
+                                    <property name="truncate-multiline">True</property>
                                     <property name="activates_default">True</property>
                                   </object>
                                 </child>
@@ -664,6 +659,7 @@
                           </packing>
                         </child>
                         <child>
+                          <!-- n-columns=1 n-rows=1 -->
                           <object class="GtkGrid" id="grid4">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -677,7 +673,6 @@
                                 <property name="halign">start</property>
                                 <property name="hexpand">True</property>
                                 <property name="use_underline">True</property>
-                                <property name="xalign">0</property>
                                 <property name="draw_indicator">True</property>
                               </object>
                               <packing>
@@ -686,6 +681,7 @@
                               </packing>
                             </child>
                             <child>
+                              <!-- n-columns=1 n-rows=1 -->
                               <object class="GtkGrid" id="checkboxes">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
@@ -698,7 +694,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -712,7 +707,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -726,7 +720,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -741,7 +734,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -782,7 +774,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -796,7 +787,6 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -892,6 +882,12 @@
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <action-widgets>
+      <action-widget response="-11">help</action-widget>
+    </action-widgets>
   </object>
   <object class="GtkMenu" id="up_menu">
     <property name="visible">True</property>

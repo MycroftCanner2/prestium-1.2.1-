@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sd">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="HeaderFooterDialog">
     <property name="can_focus">False</property>
     <property name="border_width">6</property>
@@ -10,9 +10,6 @@
     <property name="default_width">0</property>
     <property name="default_height">0</property>
     <property name="type_hint">dialog</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can_focus">False</property>
@@ -31,6 +28,11 @@
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="apply_all-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="headerfooterdialog|extended_tip|apply_all">Applies the settings to all the slides in your presentation, including the corresponding master slides.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -40,12 +42,16 @@
             </child>
             <child>
               <object class="GtkButton" id="apply">
-                <property name="label">gtk-apply</property>
+                <property name="label" translatable="yes" context="stock">_Apply</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="apply-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="headerfooterdialog|extended_tip|apply">Applies the current settings to the selected slides.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -55,12 +61,11 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -70,11 +75,11 @@
             </child>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -100,6 +105,7 @@
             <property name="scrollable">True</property>
             <property name="enable_popup">True</property>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -143,6 +149,7 @@
               </packing>
             </child>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -204,5 +211,13 @@
       <action-widget response="-6">cancel</action-widget>
       <action-widget response="-11">help</action-widget>
     </action-widgets>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="HeaderFooterDialog-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="headerfooterdialog|extended_tip|HeaderFooterDialog">Adds or changes text in placeholders at the top and the bottom of slides and master slides.</property>
+      </object>
+    </child>
   </object>
 </interface>

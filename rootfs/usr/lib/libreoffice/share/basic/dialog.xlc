@@ -10,4 +10,10 @@
  <library:library library:name="Depot" xlink:href="$(INST)/share/basic/Depot/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
  <library:library library:name="ScriptBindingLibrary" xlink:href="$(INST)/share/basic/ScriptBindingLibrary/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
  <library:library library:name="Access2Base" xlink:href="$(INST)/share/basic/Access2Base/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
+ <library:library library:name="ScriptForge" xlink:href="$(INST)/share/basic/ScriptForge/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
+ <library:library library:name="SFDatabases" xlink:href="$(INST)/share/basic/SFDatabases/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
+ <library:library library:name="SFDialogs" xlink:href="$(INST)/share/basic/SFDialogs/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
+ <library:library library:name="SFDocuments" xlink:href="$(INST)/share/basic/SFDocuments/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
+ <library:library library:name="SFUnitTests" xlink:href="$(INST)/share/basic/SFUnitTests/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
+ <library:library library:name="SFWidgets" xlink:href="$(INST)/share/basic/SFWidgets/dialog.xlb/" xlink:type="simple" library:link="true" library:readonly="false"/>
  </library:libraries>

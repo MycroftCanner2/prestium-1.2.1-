@@ -93,6 +93,8 @@
           <menu:menuitem menu:id=".uno:PasteOnlyValue"/>
           <menu:menuitem menu:id=".uno:PasteOnlyFormula"/>
           <menu:menuseparator/>
+          <menu:menuitem menu:id=".uno:PasteTransposed"/>
+          <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:PasteSpecial"/>
         </menu:menupopup>
       </menu:menu>
@@ -110,6 +112,8 @@
           <menu:menuitem menu:id=".uno:SelectColumn"/>
           <menu:menuitem menu:id=".uno:SelectData"/>
           <menu:menuitem menu:id=".uno:SelectUnprotectedCells"/>
+          <menu:menuitem menu:id=".uno:SelectVisibleRows"/>
+          <menu:menuitem menu:id=".uno:SelectVisibleColumns"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
@@ -145,7 +149,7 @@
       <menu:menuitem menu:id=".uno:NormalViewMode" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:PagebreakMode"  menu:style="radio"/>
       <menu:menuseparator/>
-      <menu:menuitem menu:id=".uno:ToolbarMode"/>
+      <menu:menuitem menu:id=".uno:ToolbarModeUI"/>
       <menu:menuitem menu:id=".uno:AvailableToolbars" menu:style="text"/>
       <menu:menuitem menu:id=".uno:InputLineVisible" menu:style="text"/>
       <menu:menuitem menu:id=".uno:StatusBarVisible" menu:style="text"/>
@@ -161,6 +165,7 @@
       </menu:menu>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:ViewValueHighlighting"/>
+      <menu:menuitem menu:id=".uno:ViewHiddenColRow"/>
       <menu:menuitem menu:id=".uno:ToggleFormula"/>
       <menu:menuitem menu:id=".uno:ShowAnnotations"/>
       <menu:menuseparator/>
@@ -168,8 +173,8 @@
       <menu:menuitem menu:id=".uno:FreezePanes"/>
       <menu:menu menu:id=".uno:FreezeCellsMenu">
         <menu:menupopup>
-          <menu:menuitem menu:id=".uno:FreezePanesFirstColumn"/>
-          <menu:menuitem menu:id=".uno:FreezePanesFirstRow"/>
+          <menu:menuitem menu:id=".uno:FreezePanesColumn"/>
+          <menu:menuitem menu:id=".uno:FreezePanesRow"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
@@ -202,6 +207,7 @@
     <menu:menupopup>
       <menu:menuitem menu:id=".uno:InsertGraphic"/>
       <menu:menuitem menu:id=".uno:InsertObjectChart"/>
+      <menu:menuitem menu:id=".uno:InsertSparkline"/>
       <menu:menuitem menu:id=".uno:DataDataPilotRun"/>
       <menu:menu menu:id=".uno:GraphicMenu">
         <menu:menupopup>
@@ -262,7 +268,7 @@
           <menu:menuitem menu:id=".uno:InsertSoftHyphen"/>
           <menu:menuitem menu:id=".uno:InsertNarrowNobreakSpace"/>
           <menu:menuitem menu:id=".uno:InsertZWSP"/>
-          <menu:menuitem menu:id=".uno:InsertZWNBSP"/>
+          <menu:menuitem menu:id=".uno:InsertWJ"/>
           <menu:menuitem menu:id=".uno:InsertLRM"/>
           <menu:menuitem menu:id=".uno:InsertRLM"/>
         </menu:menupopup>
@@ -345,19 +351,6 @@
         <menu:menuitem menu:id=".uno:ChangeCaseToFullWidth"/>
         <menu:menuitem menu:id=".uno:ChangeCaseToHiragana"/>
         <menu:menuitem menu:id=".uno:ChangeCaseToKatakana"/>
-        </menu:menupopup>
-      </menu:menu>
-      <menu:menu menu:id=".uno:FormatSpacingMenu">
-        <menu:menupopup>
-        <menu:menuitem menu:id=".uno:SpacePara1"/>
-        <menu:menuitem menu:id=".uno:SpacePara15"/>
-        <menu:menuitem menu:id=".uno:SpacePara2"/>
-        <menu:menuseparator/>
-        <menu:menuitem menu:id=".uno:ParaspaceIncrease"/>
-        <menu:menuitem menu:id=".uno:ParaspaceDecrease"/>
-        <menu:menuseparator/>
-        <menu:menuitem menu:id=".uno:IncrementIndent"/>
-        <menu:menuitem menu:id=".uno:DecrementIndent"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menu menu:id=".uno:TextAlign">
@@ -447,7 +440,16 @@
           <menu:menuitem menu:id=".uno:ExportAsGraphic"/>
         </menu:menupopup>
       </menu:menu>
-      <menu:menu menu:id=".uno:ObjectMenu">
+      <menu:menu menu:id=".uno:FormatSparklineMenu">
+        <menu:menupopup>
+          <menu:menuitem menu:id=".uno:EditSparklineGroup"/>
+          <menu:menuitem menu:id=".uno:DeleteSparkline"/>
+          <menu:menuitem menu:id=".uno:DeleteSparklineGroup"/>
+          <menu:menuitem menu:id=".uno:GroupSparklines"/>
+          <menu:menuitem menu:id=".uno:UngroupSparklines"/>
+        </menu:menupopup>
+      </menu:menu>
+      <menu:menu menu:id=".uno:FormatObjectMenu">
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:TransformDialog"/>
           <menu:menuitem menu:id=".uno:FormatLine"/>
@@ -586,8 +588,10 @@
       <menu:menuitem menu:id=".uno:Show" menu:style="text"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:Move"/>
+      <menu:menuitem menu:id=".uno:DuplicateSheet"/>
       <menu:menu menu:id=".uno:NavigateMenu">
         <menu:menupopup>
+          <menu:menuitem menu:id=".uno:JumpToTable"/>
           <menu:menuitem menu:id=".uno:JumpToPrevTable"/>
           <menu:menuitem menu:id=".uno:JumpToNextTable"/>
         </menu:menupopup>
@@ -756,6 +760,8 @@
           <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuitem menu:id=".uno:DevelopmentToolsDockingWindow"/>
+      <menu:menuseparator/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>
@@ -773,6 +779,7 @@
       <menu:menuitem menu:id=".uno:ExtendedHelp"/>
       <menu:menuitem menu:id=".uno:Documentation"/>
       <menu:menuitem menu:id=".uno:TipOfTheDay"/>
+      <menu:menuitem menu:id=".uno:CommandPopup"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:QuestionAnswers"/>
       <menu:menuitem menu:id=".uno:SendFeedback"/>

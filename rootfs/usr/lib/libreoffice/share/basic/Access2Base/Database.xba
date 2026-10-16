@@ -294,14 +294,14 @@ Dim oQuery As Object, oQueries As Object, i As Integer, sQueryName As String
 	If Not Utils._CheckArgument(pvSql, 2, vbString) Then Goto Exit_Function
 	If pvSql = &quot;&quot; Then Call _TraceArguments()
 	If Not Utils._CheckArgument(pvOption, 3, Utils._AddNumeric(), Array(cstNull, dbSQLPassThrough)) Then Goto Exit_Function
-	
+
 	If _ReadOnly Then Goto Error_NoUpdate
-	
+
 	Set oQuery = CreateUnoService(&quot;com.sun.star.sdb.QueryDefinition&quot;)
 	oQuery.rename(pvQueryName)
 	oQuery.Command = _ReplaceSquareBrackets(pvSql)
 	oQuery.EscapeProcessing = Not ( pvOption = dbSQLPassThrough )
-	
+
 	Set oQueries = Document.DataSource.getQueryDefinitions()
 	With oQueries
 		For i = 0 To .getCount() - 1
@@ -348,9 +348,9 @@ Dim vNameComponents() As Variant, iNames As Integer
 
 	If Not Utils._CheckArgument(pvTableName, 1, vbString) Then Goto Exit_Function
 	If pvTableName = &quot;&quot; Then Call _TraceArguments()
-	
+
 	If _ReadOnly Then Goto Error_NoUpdate
-	
+
 	Set oTables = Connection.getTables
 	With oTables
 		sTables = .ElementNames()
@@ -561,7 +561,7 @@ Public Function getProperty(Optional ByVal pvProperty As Variant) As Variant
 	If IsMissing(pvProperty) Then Call _TraceArguments()
 	getProperty = _PropertyGet(pvProperty)
 	Utils._ResetCalledSub(&quot;Database.getProperty&quot;)
-	
+
 End Function		&apos;	getProperty
 
 REM -----------------------------------------------------------------------------------------------------------------------
@@ -570,7 +570,7 @@ Public Function hasProperty(ByVal Optional pvProperty As Variant) As Boolean
 
 	If IsMissing(pvProperty) Then hasProperty = PropertiesGet._hasProperty(_Type, _PropertiesList()) Else hasProperty = PropertiesGet._hasProperty(_Type, _PropertiesList(), pvProperty)
 	Exit Function
-	
+
 End Function	&apos;	hasProperty
 
 REM -----------------------------------------------------------------------------------------------------------------------
@@ -588,25 +588,35 @@ Const cstNull = -1
 Dim lCommandType As Long, sCommand As String, oObject As Object
 Dim sSource As String, i As Integer, iCount As Integer
 Dim sObjects() As String, bFound As Boolean, oTables As Object, oQueries As Object
+Dim iType As Integer, iOptions As Integer, iLockEdit As Integer
 
 	If _ErrorHandler() Then On Local Error Goto Error_Function
 	Set oObject = Nothing
 	If IsMissing(pvSource) Then Call _TraceArguments()
 	If pvSource = &quot;&quot; Then Call _TraceArguments()
-	If IsMissing(pvType) Then
-		pvType = cstNull
+	If VarType(pvType) = vbError Then
+		iType = cstNull
+	ElseIf IsMissing(pvType) Then
+		iType = cstNull
 	Else
 		If Not Utils._CheckArgument(pvType, 2, Utils._AddNumeric(), Array(cstNull, dbOpenForwardOnly)) Then Goto Exit_Function
+		iType = pvType
 	End If
-	If IsMissing(pvOptions) Then
-		pvOptions = cstNull
+	If VarType(pvOptions) = vbError Then
+		iOptions = cstNull
+	ElseIf IsMissing(pvOptions) Then
+		iOptions = cstNull
 	Else
 		If Not Utils._CheckArgument(pvOptions, 3, Utils._AddNumeric(), Array(cstNull, dbSQLPassThrough)) Then Goto Exit_Function
+		iOptions = pvOptions
 	End If
-	If IsMissing(pvLockEdit) Then
-		pvLockEdit = cstNull
+	If VarType(pvLockEdit) = vbError Then
+		iLockEdit = cstNull
+	ElseIf IsMissing(pvLockEdit) Then
+		iLockEdit = cstNull
 	Else
 		If Not Utils._CheckArgument(pvLockEdit, 4, Utils._AddNumeric(), Array(cstNull, dbReadOnly)) Then Goto Exit_Function
+		iLockEdit = pvLockEdit
 	End If
 
 	sSource = Split(UCase(Trim(pvSource)), &quot; &quot;)(0)
@@ -644,16 +654,16 @@ Dim sObjects() As String, bFound As Boolean, oTables As Object, oQueries As Obje
 				lCommandType = com.sun.star.sdb.CommandType.QUERY
 			End If
 	End Select
-	
+
 	Set oObject = New Recordset
 	With oObject
 		._CommandType = lCommandType
 		._Command = sCommand
 		._ParentName = Title
 		._ParentType = _Type
-		._ForwardOnly = ( pvType = dbOpenForwardOnly )
-		._PassThrough = ( pvOptions = dbSQLPassThrough )
-		._ReadOnly = ( (pvLockEdit = dbReadOnly) Or _ReadOnly )
+		._ForwardOnly = ( iType = dbOpenForwardOnly )
+		._PassThrough = ( iOptions = dbSQLPassThrough )
+		._ReadOnly = ( (iLockEdit = dbReadOnly) Or _ReadOnly )
 		Set ._This = oObject
 		Set ._ParentDatabase = _This
 		Call ._Initialize()
@@ -689,7 +699,7 @@ Public Function OpenSQL(Optional ByVal pvSQL As Variant _
 
 Const cstThisSub = &quot;Database.OpenSQL&quot;
 	Utils._SetCalledSub(cstThisSub)
-	
+
 	OpenSQL = False
 	If IsMissing(pvSQL) Then Call _TraceArguments()
 	If Not Utils._CheckArgument(pvSQL, 1, vbString) Then Goto Exit_Function
@@ -753,7 +763,7 @@ Const cstThisSub = &quot;Database.OutputTo&quot;
 	Utils._SetCalledSub(cstThisSub)
 
 	OutputTo = False
-	
+
 	If Not Utils._CheckArgument(pvObjectType, 1, Utils._AddNumeric(), Array(acOutputTable, acOutputQuery, acOutputArray)) Then Goto Exit_Function
 	If IsMissing(pvObjectName) Then Call _TraceArguments()
 	If Not Utils._CheckArgument(pvObjectName, 2, vbString) Then Goto Exit_Function
@@ -794,7 +804,7 @@ Dim sOutputFormat As String, iTemplate As Integer, iOutputFile As Integer, bOutp
 		If pvObjectType = acOutputTable Then Set oTable = TableDefs(pvObjectName, True) Else Set oTable = Querydefs(pvObjectName, True)
 		If IsNull(oTable) Then Goto Error_NotFound
 	End If
-	
+
 	&apos;Determine format and parameters
 	If pvOutputFormat = &quot;&quot; Then
 		sOutputFormat = _PromptFormat(Array(&quot;HTML&quot;, &quot;ODS&quot;, &quot;XLS&quot;, &quot;XLSX&quot;, &quot;TXT&quot;))			&apos;	Prompt user for format
@@ -816,7 +826,7 @@ Dim sOutputFormat As String, iTemplate As Integer, iOutputFile As Integer, bOutp
 		If sOutputFile = &quot;&quot; Then Goto Exit_Function
 	Else
 		sOutputFile = pvOutputFile
-	End If	
+	End If
 	sOutputFile = ConvertToURL(sOutputFile)
 
 	&apos;Create file
@@ -836,7 +846,7 @@ Dim sOutputFormat As String, iTemplate As Integer, iOutputFile As Integer, bOutp
 		Case UCase(acFormatTXT), &quot;TXT&quot;, &quot;CSV&quot;
 			bOutput = _OutputToCalc(oTable, sOutputFile, acFormatTXT, pvEncoding)
 	End Select
-	
+
 	&apos;Launch application, if requested
 	If bOutput Then
 		If pvAutoStart Then Call _ShellExecute(sOutputFile)
@@ -845,7 +855,7 @@ Dim sOutputFormat As String, iTemplate As Integer, iOutputFile As Integer, bOutp
 	End If
 
 	OutputTo = True
-	
+
 Exit_Function:
 	If Not IsNull(oTable) Then
 		oTable.Dispose()
@@ -881,7 +891,7 @@ Dim vProperty As Variant, vPropertiesList() As Variant, sObject As String
 		vProperty._Value = _PropertyGet(vPropertiesList(pvIndex))
 	End If
 	Set vProperty._ParentDatabase = _This
-	
+
 Exit_Function:
 	Set Properties = vProperty
 	Utils._ResetCalledSub(&quot;Database.Properties&quot;)
@@ -903,7 +913,7 @@ Dim i As Integer, bFound As Boolean, oQueries As Object
 	If Not IsMissing(pvIndex) Then
 		If Not Utils._CheckArgument(pvIndex, 1, Utils._AddNumeric(vbString)) Then Goto Exit_Function
 	End If
-			
+
 	Set oQueries = Connection.getQueries
 	sObjects = oQueries.ElementNames()
 	Select Case True
@@ -965,7 +975,7 @@ Public Function Recordsets(ByVal Optional pvIndex As Variant) As Object
 	If Not IsMissing(pvIndex) Then
 		If Not Utils._CheckArgument(pvIndex, 1, Utils._AddNumeric(vbString)) Then Goto Exit_Function
 	End If
-			
+
 Dim sObjects() As String, sObjectName As String, oObject As Object
 Dim i As Integer, bFound As Boolean, oTables As Object
 
@@ -1012,7 +1022,7 @@ Public Function RunSQL(Optional ByVal pvSQL As Variant _
 
 Const cstThisSub = &quot;Database.RunSQL&quot;
 	Utils._SetCalledSub(cstThisSub)
-	
+
 	RunSQL = False
 	If IsMissing(pvSQL) Then Call _TraceArguments()
 	If Not Utils._CheckArgument(pvSQL, 1, vbString) Then Goto Exit_Function
@@ -1058,7 +1068,7 @@ Dim i As Integer, bFound As Boolean, oTables As Object
 	If Not IsMissing(pvIndex) Then
 		If Not Utils._CheckArgument(pvIndex, 1, Utils._AddNumeric(vbString)) Then Goto Exit_Function
 	End If
-			
+
 	Set oTables = Connection.getTables
 	sObjects = oTables.ElementNames()
 	Select Case True
@@ -1151,12 +1161,7 @@ Dim sProductName As String
 	If pvOrderClause &lt;&gt; &quot;&quot; Then sOrderBy = &quot; ORDER BY &quot; &amp; pvOrderClause Else sOrderBy = &quot;&quot;
 	sLimit = &quot;&quot;
 
-&apos;	Workaround for https://bugs.documentfoundation.org/show_bug.cgi?id=118767
-&apos;	awaiting solution for https://bugs.documentfoundation.org/show_bug.cgi?id=118809
 	sProductName = UCase(MetaData.getDatabaseProductName())
-	If sProductName = &quot;&quot; Then
-		If MetaData.URL = &quot;sdbc:embedded:firebird&quot; Or Left(MetaData.URL, 13) = &quot;sdbc:firebird&quot; Then sProductName = &quot;FIREBIRD&quot;
-	End If
 
 	Select Case sProductName
 		Case &quot;MYSQL&quot;, &quot;SQLITE&quot;
@@ -1167,7 +1172,7 @@ Dim sProductName As String
 				sTarget = UCase(psFunction) &amp; &quot;(&quot; &amp; psExpr &amp; &quot;)&quot;
 			End If
 			sSql = &quot;SELECT &quot; &amp; sTarget &amp; &quot; AS &quot; &amp; sTempField &amp; &quot; FROM &quot; &amp; psDomain &amp;  sWhere &amp; sOrderBy &amp; sLimit
-		Case &quot;FIREBIRD&quot;
+		Case &quot;FIREBIRD (ENGINE12)&quot;
 			If psFunction = &quot;&quot; Then sTarget = &quot;FIRST 1 &quot; &amp; psExpr Else sTarget = UCase(psFunction) &amp; &quot;(&quot; &amp; psExpr &amp; &quot;)&quot;
 			sSql = &quot;SELECT &quot; &amp; sTarget &amp; &quot; AS &quot; &amp; sTempField &amp; &quot; FROM &quot; &amp; psDomain &amp; sWhere &amp; sOrderBy
 		Case Else		&apos;	Standard syntax - Includes HSQLDB
@@ -1367,7 +1372,7 @@ Private Function _OutputBooleanToHTML(ByVal pbBool As Boolean) As String
 End Function	&apos;	_OutputBooleanToHTML	V1.4.0
 
 REM -----------------------------------------------------------------------------------------------------------------------
-Private Function _OutputClassToHTML(ByVal pvArray As variant) As String
+Private Function _OutputClassToHTML(ByVal pvArray As Variant) As String
 &apos;	Formats classes attribute of &lt;tr&gt; and &lt;td&gt; tags
 
 	If Not IsArray(pvArray) Then
@@ -1626,7 +1631,7 @@ Dim i As Integer, l As Long
 			lCurrentChar = Len(psString) + 1
 		End If
 	Loop
-	
+
 	_OutputStringToHTML = sOutput
 
 End Function	&apos;	_OutputStringToHTML V1.4.0
@@ -1637,8 +1642,8 @@ Private Function _OutputToCalc(poData As Object _
 								, ByVal psFilter As String _
 								, Optional ByVal plEncoding As Long _
 								) As Boolean
-&apos;	https://wiki.openoffice.org/wiki/Documentation/DevGuide/Spreadsheets/Database_Import
-&apos;	https://wiki.openoffice.org/wiki/Documentation/DevGuide/Spreadsheets/Filter_Options
+&apos;	https://wiki.documentfoundation.org/Documentation/DevGuide/Spreadsheet_Documents#Database_Import
+&apos;	https://wiki.documentfoundation.org/Documentation/DevGuide/Spreadsheet_Documents#Filter_Options
 
 Dim oCalcDoc As Object, oSheet As Object, vWin As Variant
 Dim vImportDesc() As Variant, iSource As Integer
@@ -1696,7 +1701,7 @@ Dim oRange As Object, i As Integer, iCol As Integer, oColumns As Object
 					, _MakePropertyValue(&quot;Overwrite&quot;, True) _
 					))
 	End Select
-	
+
 	oCalcDoc.close(False)
 	_OutputToCalc = True
 
@@ -1739,7 +1744,7 @@ Const cstTitleAlt = &quot;&lt;!--AccessTemplate_Title--&gt;&quot;, cstBodyAlt = 
 
 	vTemplate = _ReadFileIntoArray(psTemplateFile)
 	If LBound(vTemplate) &gt; UBound(vTemplate) Then vTemplate() = vMinimalTemplate()
-	
+
 	bDataArray = IsNull(pvTable)
 
 &apos;	Write output file
@@ -1801,7 +1806,7 @@ Dim i As Integer, vEvents As Variant, sEvent As String, vEvent As Variant
 	Utils._SetCalledSub(&quot;Database.get&quot; &amp; psProperty)
 
 	_PropertyGet = EMPTY
-	
+
 	Select Case UCase(psProperty)
 		Case UCase(&quot;Connect&quot;)
 			If IsNull(Document) Then _PropertyGet = &quot;&quot; Else _PropertyGet = Document.Datasource.URL
@@ -1841,7 +1846,7 @@ Dim i As Integer, vEvents As Variant, sEvent As String, vEvent As Variant
 		Case Else
 			Goto Trace_Error
 	End Select
-	
+
 Exit_Function:
 	Utils._ResetCalledSub(&quot;Database.get&quot; &amp; psProperty)
 	Exit Function
@@ -1863,7 +1868,7 @@ Public Function _ReplaceSquareBrackets(ByVal psSql As String) As String
 Dim sQuote As String		&apos;RDBMS specific quote character
 Dim vSubStrings() As Variant, i As Integer
 Const cstSingleQuote = &quot;&apos;&quot;
-	
+
 	sQuote = MetaData.IdentifierQuoteString
 	If sQuote = &quot; &quot; Then		&apos;	IdentifierQuoteString returns a space &quot; &quot; if identifier quoting is not supported.
 		_ReplaceSquareBrackets = Trim(psSql)
@@ -1876,9 +1881,9 @@ Const cstSingleQuote = &quot;&apos;&quot;
 			vSubStrings(i) = Join(Split(vSubStrings(i), &quot;]&quot;), sQuote)
 		End If
 	Next i
-	
+
 	_ReplaceSquareBrackets = Trim(Join(vSubStrings, cstSingleQuote))
-	
+
 End Function	&apos;	ReplaceSquareBrackets		V1.1.0
 
 </script:module>

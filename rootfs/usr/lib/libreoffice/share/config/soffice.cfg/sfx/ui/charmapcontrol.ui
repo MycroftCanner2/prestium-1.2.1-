@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sfx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkPopover" id="charmapctrl">
     <property name="can_focus">False</property>
     <property name="no_show_all">True</property>
     <property name="border_width">4</property>
+    <property name="constrain-to">none</property>
     <child>
       <object class="GtkBox" id="container">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="resize_mode">queue</property>
         <property name="orientation">vertical</property>
         <property name="spacing">6</property>
         <child>
@@ -26,10 +26,13 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
+            <property name="row_spacing">3</property>
+            <property name="column_spacing">3</property>
             <child>
               <object class="GtkDrawingArea" id="favchar1">
                 <property name="width_request">35</property>
@@ -264,10 +267,13 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
+            <property name="row_spacing">3</property>
+            <property name="column_spacing">3</property>
             <child>
               <object class="GtkDrawingArea" id="viewchar1">
                 <property name="width_request">35</property>

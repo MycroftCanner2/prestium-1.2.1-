@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="sw">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkPopover" id="PageColumnControl">
     <property name="can_focus">False</property>
     <property name="no_show_all">True</property>
     <property name="border_width">4</property>
+    <property name="constrain-to">none</property>
     <child>
       <object class="GtkBox" id="container">
         <property name="visible">True</property>
@@ -190,6 +191,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="image">image_pagecolumntype</property>
             <property name="tooltip_text" translatable="yes" context="pagecolumncontrol|moreoptions|tooltip_text">More Options</property>
             <property name="relief">none</property>
             <property name="use_underline">True</property>
@@ -253,5 +255,10 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">sw/res/sidebar/pageproppanel/columnright_24x24.png</property>
+  </object>
+  <object class="GtkImage" id="image_pagecolumntype">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">cmd/lc_pagecolumntype.png</property>
   </object>
 </interface>

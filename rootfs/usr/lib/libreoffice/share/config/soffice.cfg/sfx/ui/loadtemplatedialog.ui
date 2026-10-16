@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.2 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sfx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkTreeStore" id="liststore1">
     <columns>
       <!-- column-name text -->
@@ -42,6 +42,12 @@
                 <property name="receives_default">True</property>
                 <property name="no_show_all">True</property>
                 <property name="use_underline">True</property>
+                <property name="tooltip_text" translatable="yes" context="loadtemplatedialog|fromfile|tooltip_text">Copy styles from selected external document to current document.</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="fromfile-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|fromfile">Locate the file containing the styles that you want to load, and then click Open.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -51,12 +57,12 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -66,13 +72,13 @@
             </child>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -82,12 +88,12 @@
             </child>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -105,9 +111,12 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
             <property name="row_spacing">6</property>
             <property name="column_spacing">12</property>
             <property name="column_homogeneous">True</property>
@@ -116,46 +125,44 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
                 <property name="label_xalign">0</property>
                 <property name="shadow_type">none</property>
                 <child>
-                  <object class="GtkAlignment" id="alignment1">
+                  <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can_focus">True</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
-                    <property name="top_padding">6</property>
-                    <property name="left_padding">12</property>
+                    <property name="shadow_type">in</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-top">6</property>
                     <child>
-                      <object class="GtkScrolledWindow">
+                      <object class="GtkTreeView" id="categories">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
-                        <property name="shadow_type">in</property>
+                        <property name="model">liststore1</property>
+                        <property name="headers_visible">False</property>
+                        <property name="headers_clickable">False</property>
+                        <property name="search_column">0</property>
+                        <property name="show_expanders">False</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection" id="treeview-selection1"/>
+                        </child>
                         <child>
-                          <object class="GtkTreeView" id="categories">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="vexpand">True</property>
-                            <property name="model">liststore1</property>
-                            <property name="headers_visible">False</property>
-                            <property name="headers_clickable">False</property>
-                            <property name="search_column">0</property>
-                            <property name="show_expanders">False</property>
-                            <child internal-child="selection">
-                              <object class="GtkTreeSelection" id="treeview-selection1"/>
-                            </child>
+                          <object class="GtkTreeViewColumn" id="treeviewcolumn1">
                             <child>
-                              <object class="GtkTreeViewColumn" id="treeviewcolumn1">
-                                <child>
-                                  <object class="GtkCellRendererText" id="cellrenderertext1"/>
-                                  <attributes>
-                                    <attribute name="text">0</attribute>
-                                  </attributes>
-                                </child>
-                              </object>
+                              <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                              <attributes>
+                                <attribute name="text">0</attribute>
+                              </attributes>
                             </child>
+                          </object>
+                        </child>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="categories-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|categories">Lists the available template categories. Click a category to view its contents in the Templates list.</property>
                           </object>
                         </child>
                       </object>
@@ -183,46 +190,44 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
                 <property name="label_xalign">0</property>
                 <property name="shadow_type">none</property>
                 <child>
-                  <object class="GtkAlignment" id="alignment2">
+                  <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can_focus">True</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
-                    <property name="top_padding">6</property>
-                    <property name="left_padding">12</property>
+                    <property name="shadow_type">in</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-top">6</property>
                     <child>
-                      <object class="GtkScrolledWindow">
+                      <object class="GtkTreeView" id="templates">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
-                        <property name="shadow_type">in</property>
+                        <property name="model">liststore2</property>
+                        <property name="headers_visible">False</property>
+                        <property name="headers_clickable">False</property>
+                        <property name="search_column">0</property>
+                        <property name="show_expanders">False</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection" id="treeview-selection2"/>
+                        </child>
                         <child>
-                          <object class="GtkTreeView" id="templates">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="vexpand">True</property>
-                            <property name="model">liststore2</property>
-                            <property name="headers_visible">False</property>
-                            <property name="headers_clickable">False</property>
-                            <property name="search_column">0</property>
-                            <property name="show_expanders">False</property>
-                            <child internal-child="selection">
-                              <object class="GtkTreeSelection" id="treeview-selection2"/>
-                            </child>
+                          <object class="GtkTreeViewColumn" id="treeviewcolumn2">
                             <child>
-                              <object class="GtkTreeViewColumn" id="treeviewcolumn2">
-                                <child>
-                                  <object class="GtkCellRendererText" id="cellrenderertext2"/>
-                                  <attributes>
-                                    <attribute name="text">0</attribute>
-                                  </attributes>
-                                </child>
-                              </object>
+                              <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                              <attributes>
+                                <attribute name="text">0</attribute>
+                              </attributes>
                             </child>
+                          </object>
+                        </child>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="templates-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|templates">Lists the available templates for the selected category.</property>
                           </object>
                         </child>
                       </object>
@@ -237,6 +242,7 @@
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
+                    <property name="tooltip_text" translatable="yes" context="loadtemplatedialog|label2|tooltip_text">Templates in the selected category</property>
                   </object>
                 </child>
               </object>
@@ -246,6 +252,7 @@
               </packing>
             </child>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid" id="optionsgrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -254,13 +261,18 @@
                 <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkCheckButton" id="text">
-                    <property name="label" translatable="yes" context="loadtemplatedialog|text">Te_xt</property>
+                    <property name="label" translatable="yes" context="loadtemplatedialog|text">_Paragraph and Character</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="no_show_all">True</property>
                     <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
+                    <property name="tooltip_text" translatable="yes" context="loadtemplatedialog|text|tooltip_text">Copy paragraph and character styles to current document.</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="text-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|text">Loads the paragraph and the character styles from the selected document into the current document.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -274,8 +286,13 @@
                     <property name="receives_default">False</property>
                     <property name="no_show_all">True</property>
                     <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
+                    <property name="tooltip_text" translatable="yes" context="loadtemplatedialog|frame|tooltip_text">Copy frame styles to current document.</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="frame-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|frame">Loads the frame styles from the selected document into the current document.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -284,13 +301,18 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="pages">
-                    <property name="label" translatable="yes" context="loadtemplatedialog|pages">_Pages</property>
+                    <property name="label" translatable="yes" context="loadtemplatedialog|pages">Pa_ge</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="no_show_all">True</property>
                     <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
+                    <property name="tooltip_text" translatable="yes" context="loadtemplatedialog|pages|tooltip_text">Copy page styles to current document.</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="pages-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|pages">Loads the page styles from the selected document into the current document.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -299,13 +321,18 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="numbering">
-                    <property name="label" translatable="yes" context="loadtemplatedialog|numbering">N_umbering</property>
+                    <property name="label" translatable="yes" context="loadtemplatedialog|numbering">_List</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="no_show_all">True</property>
                     <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
+                    <property name="tooltip_text" translatable="yes" context="loadtemplatedialog|numbering|tooltip_text">Copy list styles to current document.</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="numbering-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|numbering">Loads the list styles from the selected document into the current document.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -319,8 +346,13 @@
                     <property name="receives_default">False</property>
                     <property name="no_show_all">True</property>
                     <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
+                    <property name="tooltip_text" translatable="yes" context="loadtemplatedialog|overwrite|tooltip_text">Overwrite styles with same name</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="overwrite-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|overwrite">Replaces styles in the current document that have the same name as the styles you are loading.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -341,7 +373,7 @@
               <object class="GtkLabel" id="alttitle">
                 <property name="can_focus">False</property>
                 <property name="no_show_all">True</property>
-                <property name="label" translatable="yes" context="loadtemplatedialog|alttitle">Load Styles</property>
+                <property name="label" translatable="yes" context="loadtemplatedialog|alttitle">Load Styles from Template</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -355,6 +387,7 @@
                 <property name="can_focus">True</property>
                 <property name="resize_toplevel">True</property>
                 <child>
+                  <!-- n-columns=1 n-rows=1 -->
                   <object class="GtkGrid" id="previewgrid">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -381,6 +414,11 @@
                     <property name="use_underline">True</property>
                   </object>
                 </child>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="expander-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|expander">Shows or hides a preview of a selected template.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -403,8 +441,13 @@
       <action-widget response="-5">ok</action-widget>
       <action-widget response="-11">help</action-widget>
     </action-widgets>
-    <child>
+    <child type="titlebar">
       <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="LoadTemplateDialog-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="loadtemplatedialog|extended_tip|LoadTemplateDialog">Imports formatting styles from another document or template into the current document.</property>
+      </object>
     </child>
   </object>
 </interface>

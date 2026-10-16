@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.4 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="sd">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkAdjustment" id="adjustment1">
     <property name="lower">8</property>
     <property name="upper">32</property>
@@ -47,6 +47,11 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="preview-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="vectorize|extended_tip|preview">Previews the converted image without applying the changes.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -56,13 +61,13 @@
             </child>
             <child>
               <object class="GtkButton" id="ok">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes" context="stock">_OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -72,11 +77,11 @@
             </child>
             <child>
               <object class="GtkButton" id="cancel">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes" context="stock">_Cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -86,11 +91,11 @@
             </child>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -108,6 +113,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -133,6 +139,12 @@
                 <property name="can_focus">True</property>
                 <property name="activates_default">True</property>
                 <property name="adjustment">adjustment1</property>
+                <property name="truncate-multiline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="colors-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="vectorize|extended_tip|colors">Enter the number of colors to be displayed in the converted image. A polygon is generated for each occurrence of a color in the image.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -159,6 +171,12 @@
                 <property name="can_focus">True</property>
                 <property name="activates_default">True</property>
                 <property name="adjustment">adjustment2</property>
+                <property name="truncate-multiline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="points-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="vectorize|extended_tip|points">Removes color polygons that are smaller than the pixel value you enter.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -169,8 +187,7 @@
               <object class="GtkLabel" id="tilesft">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">12</property>
-                <property name="xpad">12</property>
+                <property name="margin-start">12</property>
                 <property name="label" translatable="yes" context="vectorize|tilesft">Tile size:</property>
                 <property name="use_underline">True</property>
                 <property name="mnemonic_widget">tiles</property>
@@ -187,6 +204,12 @@
                 <property name="can_focus">True</property>
                 <property name="activates_default">True</property>
                 <property name="adjustment">adjustment3</property>
+                <property name="truncate-multiline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="tiles-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="vectorize|extended_tip|tiles">Enter the size of the rectangle for the background fill.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -200,8 +223,12 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="fillholes-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="vectorize|extended_tip|fillholes">Fills the color gaps caused by applying a point reduction.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -217,6 +244,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -336,8 +364,13 @@
       <action-widget response="-6">cancel</action-widget>
       <action-widget response="-11">help</action-widget>
     </action-widgets>
-    <child>
+    <child type="titlebar">
       <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="VectorizeDialog-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="vectorize|extended_tip|VectorizeDialog">Converts the selected object to a polygon (a closed object bounded by straight lines).</property>
+      </object>
     </child>
   </object>
 </interface>

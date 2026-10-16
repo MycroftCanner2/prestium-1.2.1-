@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="svx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkAdjustment" id="adjustment2">
     <property name="lower">1</property>
     <property name="upper">1000</property>
@@ -13,6 +13,7 @@
     <property name="can_focus">False</property>
     <property name="no_show_all">True</property>
     <property name="border_width">4</property>
+    <property name="constrain-to">none</property>
     <child>
       <object class="GtkBox" id="container">
         <property name="visible">True</property>
@@ -41,6 +42,7 @@
           <object class="GtkSpinButton" id="spinbutton">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="truncate-multiline">True</property>
             <property name="adjustment">adjustment2</property>
           </object>
           <packing>

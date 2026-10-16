@@ -79,11 +79,19 @@
     </xsl:template>
 
     <!-- text-shadow is a CSS2 feature and yet not common used in user-agents -->
-    <xsl:template match="@fo:color |@svg:font-family |@fo:font-size |@fo:font-style |@fo:font-weight |@fo:text-indent |@fo:text-shadow |@text:display">
+    <xsl:template match="@fo:color |@fo:font-size |@fo:font-style |@fo:font-weight |@fo:text-indent |@fo:text-shadow |@text:display">
         <xsl:value-of select="substring-after(name(), ':')"/>
         <xsl:text>:</xsl:text>
         <xsl:value-of select="."/>
         <xsl:text>; </xsl:text>
+    </xsl:template>
+
+    <!-- text-shadow is a CSS2 feature and yet not common used in user-agents -->
+    <xsl:template match="@svg:font-family">
+        <xsl:value-of select="substring-after(name(), ':')"/>
+        <xsl:text>:"</xsl:text>
+        <xsl:value-of select="."/>
+        <xsl:text>"; </xsl:text>
     </xsl:template>
 
     <!-- workaround AOOO#119401 suspicious property fo:margin="100%" in paragraph style -->
@@ -208,9 +216,8 @@
 
         <xsl:text>font-family:</xsl:text>
         <xsl:variable name="content" select="."/>
-        <xsl:variable name="quote">'</xsl:variable>
         <xsl:variable name="fontName" select="$globalData/office:font-face-decls/style:font-face[@style:name=$content]/@svg:font-family" />
-        <xsl:value-of select="translate($fontName, $quote, '')"/>
+        <xsl:value-of select="$fontName"/>
         <xsl:text>; </xsl:text>
     </xsl:template>
 

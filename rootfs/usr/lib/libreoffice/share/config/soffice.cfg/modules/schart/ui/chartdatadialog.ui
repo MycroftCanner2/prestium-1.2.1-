@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="chart">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="ChartDataDialog">
     <property name="can_focus">False</property>
     <property name="border_width">6</property>
     <property name="title" translatable="yes" context="chartdatadialog|ChartDataDialog">Data Table</property>
     <property name="modal">True</property>
     <property name="type_hint">dialog</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can_focus">False</property>
@@ -22,11 +19,11 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="close">
-                <property name="label">gtk-close</property>
+                <property name="label" translatable="yes" context="stock">_Close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -36,11 +33,11 @@
             </child>
             <child>
               <object class="GtkButton" id="help">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes" context="stock">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -58,6 +55,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -67,14 +65,18 @@
             <child>
               <object class="GtkToolbar" id="toolbar">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
                 <child>
                   <object class="GtkToolButton" id="InsertRow">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|InsertRow">Insert Row</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon01.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="InsertRow-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|InsertRow">Inserts a new row below the current row.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -84,10 +86,14 @@
                 <child>
                   <object class="GtkToolButton" id="InsertColumn">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|InsertColumn">Insert Series</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon02.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="InsertColumn-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|InsertColumn">Inserts a new data series after the current column.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -97,10 +103,14 @@
                 <child>
                   <object class="GtkToolButton" id="InsertTextColumn">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|InsertTextColumn">Insert Text Column</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon07.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="InsertTextColumn-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|InsertTextColumn">Inserts a new text column after the current column for hierarchical axes descriptions.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -110,10 +120,14 @@
                 <child>
                   <object class="GtkToolButton" id="RemoveRow">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|RemoveRow">Delete Row</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon03.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="RemoveRow-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|RemoveRow">Deletes the current row. It is not possible to delete the label row.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -123,10 +137,14 @@
                 <child>
                   <object class="GtkToolButton" id="RemoveColumn">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|RemoveColumn">Delete Series</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon04.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="RemoveColumn-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|RemoveColumn">Deletes the current series or text column. It is not possible to delete the first text column.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -146,10 +164,14 @@
                 <child>
                   <object class="GtkToolButton" id="MoveLeftColumn">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|MoveLeftColumn">Move Series Left</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon08.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="MoveLeftColumn-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|MoveLeftColumn">Switches the current column with its neighbor at the left.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -159,10 +181,14 @@
                 <child>
                   <object class="GtkToolButton" id="MoveRightColumn">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|MoveRightColumn">Move Series Right</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon05.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="MoveRightColumn-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|MoveRightColumn">Switches the current column with its neighbor at the right.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -172,10 +198,14 @@
                 <child>
                   <object class="GtkToolButton" id="MoveUpRow">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|MoveUpRow">Move Row Up</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon09.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="MoveUpRow-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|MoveUpRow">Switches the current row with its neighbor above.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -185,10 +215,14 @@
                 <child>
                   <object class="GtkToolButton" id="MoveDownRow">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes" context="chartdatadialog|MoveDownRow">Move Row Down</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">chart2/res/dataeditor_icon06.png</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="MoveDownRow-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|MoveDownRow">Switches the current row with its neighbor below.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -315,5 +349,13 @@
       <action-widget response="-7">close</action-widget>
       <action-widget response="-11">help</action-widget>
     </action-widgets>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="ChartDataDialog-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="chartdatadialog|extended_tip|ChartDataDialog">Opens the Data Table dialog where you can edit the chart data.</property>
+      </object>
+    </child>
   </object>
 </interface>

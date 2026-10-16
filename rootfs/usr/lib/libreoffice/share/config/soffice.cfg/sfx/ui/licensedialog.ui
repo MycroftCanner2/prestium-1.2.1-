@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.20.2 -->
 <interface domain="sfx">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="LicenseDialog">
     <property name="can_focus">False</property>
     <property name="border_width">6</property>
@@ -38,14 +38,14 @@
             </child>
             <child>
               <object class="GtkButton" id="close">
-                <property name="label">gtk-close</property>
+                <property name="label" translatable="yes" context="stock">_Close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="use-underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -71,7 +71,7 @@ Third Party Code Additional copyright notices and license terms applicable to po
 
 All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 
-Copyright © 2000–2020 LibreOffice contributors. All rights reserved.
+Copyright © 2000–2022 LibreOffice contributors. All rights reserved.
 
 This product was created by %OOOVENDOR, based on OpenOffice.org, which is Copyright 2000, 2011 Oracle and/or its affiliates. %OOOVENDOR acknowledges all community members, please see http://www.libreoffice.org/ for more details.</property>
             <property name="wrap">True</property>

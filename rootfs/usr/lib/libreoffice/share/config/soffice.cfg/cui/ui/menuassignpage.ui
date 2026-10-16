@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface domain="cui">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-go-up</property>
+    <property name="icon-name">go-up</property>
   </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-go-down</property>
+    <property name="icon-name">go-down</property>
   </object>
   <object class="GtkImage" id="image3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-go-forward</property>
+    <property name="icon-name">go-next</property>
     <property name="icon_size">3</property>
   </object>
   <object class="GtkImage" id="image4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-go-back</property>
+    <property name="icon-name">go-previous</property>
     <property name="icon_size">3</property>
   </object>
   <object class="GtkImage" id="image7">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="icon_name">sfx2/res/actionaction013.png</property>
+    <property name="icon_name">open-menu-symbolic</property>
+    <property name="icon_size">2</property>
   </object>
   <object class="GtkImage" id="image8">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="icon_name">sfx2/res/actionaction013.png</property>
+    <property name="icon_name">open-menu-symbolic</property>
+    <property name="icon_size">2</property>
   </object>
   <object class="GtkMenu" id="insertmenu">
     <property name="visible">True</property>
@@ -245,6 +247,7 @@
     <property name="orientation">vertical</property>
     <property name="spacing">6</property>
     <child>
+      <!-- n-columns=1 n-rows=1 -->
       <object class="GtkGrid">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -280,9 +283,11 @@
                 <property name="wrap_mode">word</property>
                 <property name="cursor_visible">False</property>
                 <property name="accepts_tab">False</property>
-                <accessibility>
-                  <relation type="labelled-by" target="descriptionlabel"/>
-                </accessibility>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="desc-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|desc">The text box contains a short description of the selected command.</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -300,9 +305,6 @@
             <property name="label" translatable="yes" context="menuassignpage|label33">D_escription</property>
             <property name="use_underline">True</property>
             <property name="mnemonic_widget">desc</property>
-            <accessibility>
-              <relation type="label-for" target="desc"/>
-            </accessibility>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -321,7 +323,6 @@
                 <property name="width_request">-1</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
                 <property name="has_tooltip">True</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
@@ -329,7 +330,6 @@
                 <property name="headers_visible">False</property>
                 <property name="search_column">1</property>
                 <property name="enable_tree_lines">True</property>
-                <property name="show_expanders">True</property>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="Macro Library List-selection1"/>
                 </child>
@@ -348,6 +348,11 @@
                         <attribute name="text">1</attribute>
                       </attributes>
                     </child>
+                  </object>
+                </child>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="functions-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|functions">Displays the results of the combination of the search string and category of the desired function.</property>
                   </object>
                 </child>
               </object>
@@ -378,6 +383,11 @@
             <property name="can_focus">False</property>
             <property name="margin_bottom">4</property>
             <property name="hexpand">True</property>
+            <child internal-child="accessible">
+              <object class="AtkObject" id="commandcategorylist-atkobject">
+                <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|commandcategorylist">Select the menu command category in the drop-down list to restrict the search of commands or scroll the list below. Macros and styles commands are in the bottom of the list.</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -405,6 +415,12 @@
             <property name="can_focus">True</property>
             <property name="margin_bottom">4</property>
             <property name="placeholder_text" translatable="yes" context="menuassignpage|searchEntry">Type to search</property>
+            <property name="truncate-multiline">True</property>
+            <child internal-child="accessible">
+              <object class="AtkObject" id="searchEntry-atkobject">
+                <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|searchEntry">Enter a string in the text box to narrow the search of commands.</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -412,6 +428,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -421,8 +438,13 @@
               <object class="GtkComboBoxText" id="savein">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_right">5</property>
+                <property name="margin-end">5</property>
                 <property name="hexpand">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="savein-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|savein">Select the location where the menu is to be attached. If attached to an office suite module, the menu is available for all files opened in that module. If attached to the file, the menu will be available only when that file is opened and active.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -450,6 +472,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid6">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -460,6 +483,11 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="toplevellist-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|toplevellist">Select the menu where the customization is to be applied. The current set of functions is displayed in the box below.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -471,7 +499,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="halign">end</property>
-                <property name="margin_left">1</property>
+                <property name="margin-start">1</property>
                 <property name="image">image7</property>
                 <property name="always_show_image">True</property>
                 <property name="popup">menugearmenu</property>
@@ -493,7 +521,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="halign">end</property>
-                <property name="margin_left">1</property>
+                <property name="margin-start">1</property>
                 <property name="image">image8</property>
                 <property name="always_show_image">True</property>
                 <property name="popup">toolbargearmenu</property>
@@ -517,6 +545,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="entries">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -557,22 +586,12 @@
                             <attribute name="active">0</attribute>
                           </attributes>
                         </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkTreeViewColumn" id="treeviewcolumn9">
-                        <property name="spacing">6</property>
                         <child>
                           <object class="GtkCellRendererPixbuf" id="cellrenderertext9"/>
                           <attributes>
                             <attribute name="pixbuf">1</attribute>
                           </attributes>
                         </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkTreeViewColumn" id="treeviewcolumn10">
-                        <property name="spacing">6</property>
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext10"/>
                           <attributes>
@@ -620,10 +639,6 @@
                             <attribute name="pixbuf">0</attribute>
                           </attributes>
                         </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkTreeViewColumn" id="treeviewcolumn33">
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext22"/>
                           <attributes>
@@ -660,8 +675,8 @@
           <object class="GtkButtonBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">5</property>
-            <property name="margin_right">5</property>
+            <property name="margin-start">5</property>
+            <property name="margin-end">5</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
             <property name="hexpand">True</property>
@@ -672,8 +687,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
+                <property name="margin-start">5</property>
+                <property name="margin-end">5</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">5</property>
                 <property name="use_underline">True</property>
@@ -696,8 +711,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
+                <property name="margin-start">5</property>
+                <property name="margin-end">5</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">5</property>
                 <property name="use_underline">True</property>
@@ -720,8 +735,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
+                <property name="margin-start">5</property>
+                <property name="margin-end">5</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">5</property>
                 <property name="use_underline">True</property>
@@ -744,14 +759,16 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid7">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="valign">center</property>
-            <property name="margin_left">6</property>
-            <property name="margin_right">6</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
             <property name="row_spacing">6</property>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -765,10 +782,13 @@
                     <property name="halign">center</property>
                     <property name="valign">start</property>
                     <property name="margin_bottom">5</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
                     <property name="image">image3</property>
                     <property name="always_show_image">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="add-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|add">Click on the right arrow button to select a function on the left display box and copy to the right display box. This will add the function to the selected menu.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -782,6 +802,7 @@
               </packing>
             </child>
             <child>
+              <!-- n-columns=1 n-rows=1 -->
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -795,10 +816,13 @@
                     <property name="halign">center</property>
                     <property name="valign">end</property>
                     <property name="margin_bottom">5</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
                     <property name="image">image4</property>
                     <property name="always_show_image">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="remove-atkobject">
+                        <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|remove">Click on the left arrow button to remove the selected command from the current menu.</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -818,6 +842,7 @@
           </packing>
         </child>
         <child>
+          <!-- n-columns=1 n-rows=1 -->
           <object class="GtkGrid" id="grid5">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -830,6 +855,12 @@
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes" context="menuassignpage|moveupbtn">Move up</property>
                 <property name="image">image1</property>
+                <property name="always-show-image">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="up-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|up">Click on the Up or Down arrows on the right to move the selected command upward or downward in the list of displayed menu commands.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -843,6 +874,12 @@
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes" context="menuassignpage|movedownbtn">Move down</property>
                 <property name="image">image2</property>
+                <property name="always-show-image">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="down-atkobject">
+                    <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|down">Click on the Up or Down arrows on the right to move the selected command upward or downward in the list of displayed menu commands.</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -955,6 +992,11 @@
         <property name="fill">True</property>
         <property name="position">0</property>
       </packing>
+    </child>
+    <child internal-child="accessible">
+      <object class="AtkObject" id="MenuAssignPage-atkobject">
+        <property name="AtkObject::accessible-description" translatable="yes" context="menuassignpage|extended_tip|MenuAssignPage">Lets you customize the office suite menus for all modules.</property>
+      </object>
     </child>
   </object>
   <object class="GtkSizeGroup" id="sizegrp2">

@@ -145,7 +145,9 @@
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:ReplyComment" menu:style="text"/>
           <menu:menuitem menu:id=".uno:ResolveComment" menu:style="text"/>
+          <menu:menuitem menu:id=".uno:ResolveCommentThread" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteComment" menu:style="text"/>
+          <menu:menuitem menu:id=".uno:DeleteCommentThread" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteAuthor" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteAllNotes" menu:style="text"/>
         </menu:menupopup>
@@ -313,7 +315,7 @@
           <menu:menuitem menu:id=".uno:InsertHardHyphen"/>
           <menu:menuitem menu:id=".uno:InsertSoftHyphen"/>
           <menu:menuitem menu:id=".uno:InsertZWSP"/>
-          <menu:menuitem menu:id=".uno:InsertZWNBSP"/>
+          <menu:menuitem menu:id=".uno:InsertWJ"/>
           <menu:menuitem menu:id=".uno:InsertLRM"/>
           <menu:menuitem menu:id=".uno:InsertRLM"/>
         </menu:menupopup>
@@ -428,10 +430,10 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:InsertNeutralParagraph"/>
           <menu:menuitem menu:id=".uno:NumberingStart"/>
+          <menu:menuitem menu:id=".uno:ContinueNumbering"/>
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:JumpDownThisLevel"/>
           <menu:menuitem menu:id=".uno:JumpUpThisLevel"/>
-          <menu:menuitem menu:id=".uno:ContinueNumbering"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
@@ -477,6 +479,7 @@
           <menu:menuitem menu:id=".uno:ColorSettings"/>
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:GraphicDialog"/>
+          <menu:menuitem menu:id=".uno:GraphicSizeCheck"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menu menu:id=".uno:FormatObjectMenu">
@@ -765,6 +768,8 @@
           <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuitem menu:id=".uno:DevelopmentToolsDockingWindow"/>
+      <menu:menuseparator/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>
@@ -783,6 +788,7 @@
       <menu:menuitem menu:id=".uno:ExtendedHelp"/>
       <menu:menuitem menu:id=".uno:Documentation"/>
       <menu:menuitem menu:id=".uno:TipOfTheDay"/>
+      <menu:menuitem menu:id=".uno:CommandPopup"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:QuestionAnswers"/>
       <menu:menuitem menu:id=".uno:SendFeedback"/>

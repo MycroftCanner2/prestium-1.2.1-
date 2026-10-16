@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="sd">
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkAdjustment" id="adjustment1">
     <property name="upper">1000</property>
     <property name="step_increment">1</property>
@@ -260,6 +260,7 @@
         <property name="has_entry">True</property>
         <child internal-child="entry">
           <object class="GtkEntry">
+            <property name="truncate-multiline">True</property>
             <property name="can_focus">True</property>
           </object>
         </child>
@@ -275,6 +276,7 @@
         <property name="can_focus">True</property>
         <property name="no_show_all">True</property>
         <property name="hexpand">True</property>
+        <property name="truncate-multiline">True</property>
         <property name="adjustment">adjustment1</property>
       </object>
       <packing>
@@ -290,6 +292,7 @@
         <property name="no_show_all">True</property>
         <property name="popup">menu</property>
         <property name="draw_indicator">True</property>
+        <property name="xalign">0</property>
         <property name="label" translatable="no"></property>
         <child>
           <placeholder/>
@@ -306,6 +309,7 @@
         <property name="can_focus">True</property>
         <property name="no_show_all">True</property>
         <property name="hexpand">True</property>
+        <property name="truncate-multiline">True</property>
         <property name="adjustment">adjustment2</property>
       </object>
       <packing>
@@ -321,6 +325,7 @@
         <property name="no_show_all">True</property>
         <property name="popup">menu1</property>
         <property name="draw_indicator">True</property>
+        <property name="xalign">0</property>
         <property name="label" translatable="no"></property>
         <child>
           <placeholder/>
@@ -337,6 +342,7 @@
         <property name="can_focus">True</property>
         <property name="no_show_all">True</property>
         <property name="hexpand">True</property>
+        <property name="truncate-multiline">True</property>
         <property name="adjustment">adjustment3</property>
       </object>
       <packing>
@@ -352,6 +358,7 @@
         <property name="no_show_all">True</property>
         <property name="popup">menu2</property>
         <property name="draw_indicator">True</property>
+        <property name="xalign">0</property>
         <property name="label" translatable="no"></property>
         <child>
           <placeholder/>
@@ -368,6 +375,7 @@
         <property name="can_focus">True</property>
         <property name="no_show_all">True</property>
         <property name="hexpand">True</property>
+        <property name="truncate-multiline">True</property>
         <property name="adjustment">adjustment4</property>
       </object>
       <packing>
@@ -383,6 +391,7 @@
         <property name="no_show_all">True</property>
         <property name="popup">menu3</property>
         <property name="draw_indicator">True</property>
+        <property name="xalign">0</property>
         <property name="label" translatable="no"></property>
         <child>
           <placeholder/>
@@ -399,6 +408,7 @@
         <property name="can_focus">True</property>
         <property name="no_show_all">True</property>
         <property name="hexpand">True</property>
+        <property name="truncate-multiline">True</property>
         <property name="editable">False</property>
       </object>
       <packing>
@@ -414,6 +424,7 @@
         <property name="no_show_all">True</property>
         <property name="popup">menu4</property>
         <property name="draw_indicator">True</property>
+        <property name="xalign">0</property>
         <property name="label" translatable="no"></property>
         <child>
           <placeholder/>
