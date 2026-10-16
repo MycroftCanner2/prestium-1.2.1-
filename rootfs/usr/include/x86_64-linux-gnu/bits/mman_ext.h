@@ -1,5 +1,5 @@
-/* Define where padding goes in struct msqid_ds.  Generic version.
-   Copyright (C) 2018-2020 Free Software Foundation, Inc.
+/* System-specific extensions of <sys/mman.h>, Linux version.
+   Copyright (C) 2022 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -16,16 +16,17 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-#ifndef _SYS_MSG_H
-# error "Never use <bits/msq-pad.h> directly; include <sys/msg.h> instead."
+#ifndef _SYS_MMAN_H
+# error "Never include <bits/mman_ext.h> directly; use <sys/mman.h> instead."
 #endif
 
-#include <bits/timesize.h>
+#ifdef __USE_GNU
+struct iovec;
+extern __ssize_t process_madvise (int __pid_fd, const struct iovec *__iov,
+				  size_t __count, int __advice,
+				  unsigned __flags)
+  __THROW;
 
-/* On most architectures, padding goes after time fields for 32-bit
-   systems and is omitted for 64-bit systems.  Some architectures pad
-   before time fields instead, or omit padding despite being
-   32-bit.  */
+extern int process_mrelease (int pidfd, unsigned int flags) __THROW;
 
-#define __MSQ_PAD_AFTER_TIME (__TIMESIZE == 32)
-#define __MSQ_PAD_BEFORE_TIME 0
+#endif /* __USE_GNU  */

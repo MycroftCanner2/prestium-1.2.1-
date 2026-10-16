@@ -1,4 +1,4 @@
-/* Copyright (C) 1991-2020 Free Software Foundation, Inc.
+/* Copyright (C) 1991-2022 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -87,8 +87,12 @@ enum
 #define IPPROTO_UDPLITE		IPPROTO_UDPLITE
     IPPROTO_MPLS = 137,    /* MPLS in IP.  */
 #define IPPROTO_MPLS		IPPROTO_MPLS
+    IPPROTO_ETHERNET = 143, /* Ethernet-within-IPv6 Encapsulation.  */
+#define IPPROTO_ETHERNET	IPPROTO_ETHERNET
     IPPROTO_RAW = 255,	   /* Raw IP packets.  */
 #define IPPROTO_RAW		IPPROTO_RAW
+    IPPROTO_MPTCP = 262,   /* Multipath TCP connection.  */
+#define IPPROTO_MPTCP		IPPROTO_MPTCP
     IPPROTO_MAX
   };
 
@@ -192,6 +196,9 @@ enum
 #define	INADDR_BROADCAST	((in_addr_t) 0xffffffff)
 /* Address indicating an error return.  */
 #define	INADDR_NONE		((in_addr_t) 0xffffffff)
+/* Dummy address for source of ICMPv6 errors converted to IPv4 (RFC
+   7600).  */
+#define	INADDR_DUMMY		((in_addr_t) 0xc0000008)
 
 /* Network number for local host loopback.  */
 #define	IN_LOOPBACKNET		127
@@ -269,6 +276,19 @@ struct ip_mreq
 
     /* Local IP address of interface.  */
     struct in_addr imr_interface;
+  };
+
+/* IPv4 multicast request with interface index.  */
+struct ip_mreqn
+  {
+    /* IP multicast address of group.  */
+    struct in_addr imr_multiaddr;
+
+    /* Local IP address of interface.  */
+    struct in_addr imr_address;
+
+    /* Interface index.  */
+    int imr_ifindex;
   };
 
 struct ip_mreq_source

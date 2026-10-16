@@ -61,6 +61,9 @@
 #define AT_HWCAP2	26		/* More machine-dependent hints about
 					   processor capabilities.  */
 
+#define AT_RSEQ_FEATURE_SIZE	27	/* rseq supported feature size.  */
+#define AT_RSEQ_ALIGN	28		/* rseq allocation alignment.  */
+
 #define AT_EXECFN	31		/* Filename of executable.  */
 
 /* Pointer to the global system page used for system calls and other
@@ -87,5 +90,4 @@
 #define AT_L3_CACHESIZE		46
 #define AT_L3_CACHEGEOMETRY	47
 
-#define AT_MINSIGSTKSZ		51 /* Stack needed for signal delivery
-				      (AArch64).  */
+#define AT_MINSIGSTKSZ		51 /* Stack needed for signal delivery  */
