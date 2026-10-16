@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="error" xml:lang="ru">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Использование параметра <cmd>--error</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно ошибки</title>
+      <p>Используйте параметр <cmd>--error</cmd>, чтобы создать диалоговое окно ошибки.</p>
+
+      <p>Следующий сценарий является примером того, как можно создавать диалоговое окно ошибки:</p>
+
+<code>
+#!/bin/bash
+
+zenity --error \
+--text="Не удалось найти /var/log/syslog."
+</code>
+
+
+      <figure>
+        <title>Пример диалогового окна ошибки</title>
+        <desc>Пример диалогового окна ошибки <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-error-screenshot.png"/>
+      </figure>
+</page>

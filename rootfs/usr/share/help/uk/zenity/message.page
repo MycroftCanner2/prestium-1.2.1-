@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="message" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs" group="message"/>
+    <desc><link xref="error">Помилка</link>, <link xref="info">Інформація</link>, <link xref="question">Питання</link>, <link xref="warning">Попередження</link></desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно повідомлення</title>
+  <p>Для кожного типу параметр <cmd>--text</cmd> вказує текст, який буде показано у вікні.</p>
+  <links type="topic" style="2column"/>
+</page>

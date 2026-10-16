@@ -7,7 +7,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 -->
 
 <ldmlBCP47>
-	<version number="$Revision: 12253 $" />
+	<version number="$Revision$" />
 	<keyword>
 		<key extension="t" name="m0" description="Transform extension mechanism:
 			to reference an authority or rules for a type of transformation" since="21">
@@ -31,6 +31,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type name="xml" description="for hex transforms, using the xml syntax: &amp;#x61;&amp;#x1F4D6;" since="29"/>
 			<type name="xml10" description="for hex transforms, using the xml decimal syntax: &amp;#97;&amp;#128214;" since="29"/>
 			<type name="prprname" description="transform variant for proper names" since="29" alias="names"/>
+			<type name="iast" description="International Alphabet of Sanskrit Transliteration" since="35"/>
+			<type name="ewts" description="Extended Wylie Transliteration Scheme" since="35"/>
+			<type name="aethiopi" description="Encylopedia Aethiopica Transliteration" since="41"/>
+			<type name="betamets" description="Beta Maṣāḥǝft Transliteration" since="41" alias="beta-metsehaf"/>
+			<type name="iesjes" description="IES/JES Amharic Transliteration" since="41" alias="ies-jes"/>
+			<type name="es3842" description="Ethiopian Standards Agency ES 3842:2014 Ethiopic-Latin Transliteration" since="41"/>
+			<type name="lambdin" description="Thomas Oden Lambdin Ethiopic-Latin Transliteration" since="41"/>
+			<type name="gurage" description="Gurage Legacy to Modern Transliteration" since="41"/>
+			<type name="gutgarts" description="Yaros Gutgarts Ethiopic-Cyrillic Transliteration" since="41"/>
+			<type name="sera" description="System for Ethiopic Representation in ASCII" since="41"/>
+			<type name="tekieali" description="Tekie Alibekit Blin-Latin Transliteration" since="41" alias="tekie-alibekit"/>
+			<type name="xaleget" description="Eritrean Ministry of Education Blin-Latin Transliteration" since="41"/>
 		</key>
 	</keyword>
 </ldmlBCP47>

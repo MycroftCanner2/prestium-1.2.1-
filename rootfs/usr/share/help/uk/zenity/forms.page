@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="forms" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--forms</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно форм</title>
+    <p>Для створення діалогового вікна форм скористайтеся параметром <cmd>--forms</cmd>.</p>
+	
+    <p>У вікні форм передбачено підтримку таких параметрів:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--add-entry</cmd>=<var>НАЗВА_ПОЛЯ</var></title>
+	<p>Додати нове поле у вікно форм.</p>
+      </item>
+
+      <item>
+        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+	<p>Додати у вікно форм поле для введення пароля (приховує введений текст).</p>
+      </item>
+
+      <item>
+        <title><cmd>--add-calendar</cmd>=<var>НАЗВА_ПОЛЯ</var></title>
+	<p>Додати новий календар у вікно форм.</p>
+      </item>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>ТЕКСТ</var></title>
+	<p>Вказати текст вікна.</p>
+      </item>
+
+      <item>
+        <title><cmd>--separator</cmd>=<var>РОЗДІЛЬНИК</var></title>
+	<p>Встановити символ-роздільник виведених даних. (Типовий: | )</p>
+      </item>
+
+      <item>
+        <title><cmd>--forms-date-format</cmd>=<var>ВЗІРЕЦЬ</var></title>
+	<p>Встановити формат повернутої дати. Типовий формат залежить від локалі. Формат має бути допустимим виразом для функції <cmd>strftime</cmd>, наприклад <var>%A %d/%m/%y</var>.</p>
+      </item>
+
+    </terms>
+
+    <p>У наступному сценарії продемонстровано створення вікна форм:</p>
+
+<code>
+#!/bin/sh
+
+zenity --forms --title="Додавання друга" \
+	--text="Вкажіть відомості щодо вашого друга." \
+	--separator="," \
+	--add-entry="Імʼя" \
+	--add-entry="Прізвище" \
+	--add-entry="Ел. пошта" \
+	--add-calendar="День народження" &gt;&gt; addr.csv
+
+case $? in
+    0)
+        echo "Додано друга.";;
+    1)
+        echo "Друзів не додано."
+	;;
+    -1)
+        echo "Сталася неочікувана помилка."
+	;;
+esac
+</code>
+
+    <figure>
+      <title>Приклад вікна форм</title>
+      <desc>Приклад вікна форм <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-forms-screenshot.png"/>
+    </figure>
+</page>

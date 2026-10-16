@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="warning" xml:lang="uk">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Використання параметра <cmd>--warning</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно попередження</title>
+      <p>Для створення вікна попередження використовуйте <cmd>--info</cmd>.</p>
+
+      <p>У наступному сценарії продемонстровано створення вікна попередження:</p>
+
+<code>
+#!/bin/bash
+
+zenity --warning \
+--text="Вимкніть кабель живлення, щоб запобігти ураженню електричним струмом."
+</code>
+
+      <figure>
+        <title>Приклад вікна попередження</title>
+	<desc>Приклад вікна попередження <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-warning-screenshot.png"/>
+      </figure>
+</page>

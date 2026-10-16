@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="question" xml:lang="eu">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Erabili <cmd>--question</cmd> aukera.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Galderen elkarrizketa-koadroa</title>
+      <p>Erabili <option>--question</option> aukera galderen elkarrizketa-koadroa sortzeko.</p>
+
+      <p>
+        The following example script shows how to create a question dialog:
+      </p>
+
+<code>
+#!/bin/bash
+
+zenity --question \
+--text="Ziur zaude jarraitu nahi duzula?"
+</code>
+
+
+      <figure>
+        <title>Galderen elkarrizketa-koadroaren adibidea</title>
+	<desc><app>Zenity</app> question dialog example</desc>
+        <media type="image" mime="image/png" src="figures/zenity-question-screenshot.png"/>
+      </figure>
+</page>

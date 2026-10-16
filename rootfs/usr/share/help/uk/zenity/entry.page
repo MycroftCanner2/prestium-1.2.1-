@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="entry" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--entry</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно вводу тексту</title>
+    <p>Для створення вікна вводу тексту використовується наступний параметр <cmd>--entry</cmd>. <app>Zenity</app> повертає вміст поля вводу тексту в стандартний потік виводу.</p>	
+    <p>Вікно вводу тексту підтримує наступні параметри:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>текст</var></title>
+	<p>Вказує текст, який буде показано у вікні вводу тексту.</p>
+      </item>
+
+      <item>
+        <title><cmd>--entry-text</cmd>=<var>текст</var></title>
+	<p>Вказує текст, який буде показано у полі вводу тексту в вікні вводу тексту.</p>
+      </item>
+
+      <item>
+        <title><cmd>--hide-text</cmd></title>
+	<p>Текст у полі вводу тексту ховається.</p>
+      </item>
+
+    </terms>
+
+    <p>У наступному сценарії продемонстровано створення вікна введення тексту:</p>
+
+<code>
+#!/bin/sh
+
+if zenity --entry \
+--title="Додавання нового профілю" \
+--text="Введіть назву нового профілю:" \
+--entry-text "НовийПрофіль"
+  then echo $?
+  else echo "Назву не введено"
+fi
+</code>
+
+
+    <figure>
+      <title>Приклад вікна вводу тексту</title>
+      <desc>Приклад вікна введення тексту <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-entry-screenshot.png"/>
+    </figure>
+</page>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="color-selection" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--color-selection</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de selecció de color</title>
+  <p>Utilitzeu l'opció <cmd>--color-selection</cmd> per a crear un diàleg de selecció de color.</p>
+  <p>El diàleg de selecció de color admet les opcions següents:</p>
+
+  <terms>
+
+    <item>
+      <title><cmd>--color</cmd>=<var>VALOR</var></title>
+      <p>Establiu el color inicial (per exemple, #FF0000)</p>
+    </item>
+
+    <item>
+      <title><cmd>--show-palette</cmd></title>
+      <p>Mostreu la paleta.</p>
+    </item>
+
+  </terms>
+
+  <p>L'script d'exemple següent mostra com crear un diàleg de selecció de color:</p>
+
+<code>
+#!/bin/sh
+
+COLOR=`zenity --color-selection --show-palette`
+
+case $? in
+         0)
+		echo "Heu seleccionat $COLOR.";;
+         1)
+                echo "No s'ha seleccionat cap color.";;
+         -1)
+                echo "S'ha produït un error inesperat.";;
+esac
+</code>
+
+  <figure>
+    <title>Exemple de diàleg de selecció de color</title>
+    <desc>Exemple de diàleg de selecció de color del <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-colorselection-screenshot.png"/>
+  </figure>
+
+</page>

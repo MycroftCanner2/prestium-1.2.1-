@@ -5,6 +5,7 @@
     <child name="keyboard" schema="org.gnome.desktop.peripherals.keyboard"/>
     <child name="mouse" schema="org.gnome.desktop.peripherals.mouse"/>
     <child name="trackball" schema="org.gnome.desktop.peripherals.trackball"/>
+    <child name="pointingstick" schema="org.gnome.desktop.peripherals.pointingstick"/>
     <child name="tablet" schema="org.gnome.desktop.peripherals.tablet"/>
     <child name="touchscreen" schema="org.gnome.desktop.peripherals.touchscreen"/>
   </schema>
@@ -16,7 +17,7 @@
     </key>
     <key name="two-finger-scrolling-enabled" type="b">
       <default>true</default>
-      <summary>Whether edge scrolling is enabled</summary>
+      <summary>Whether two-finger scrolling is enabled</summary>
       <description>When enabled, touchpads that support two-finger scrolling will have that feature enabled.</description>
     </key>
     <key name="disable-while-typing" type="b">
@@ -53,6 +54,11 @@
       <default>'mouse'</default>
       <summary>Touchpad button orientation</summary>
       <description>Swap left and right mouse buttons for left-handed mice with “left”, “right” for right-handed, “mouse” to follow the mouse setting.</description>
+    </key>
+    <key name="accel-profile" enum="org.gnome.desktop.GDesktopPointerAccelProfile">
+      <default>'default'</default>
+      <summary>Acceleration profile</summary>
+      <description>Acceleration profile used for connected touchpads. The acceleration profile can be set to either default (“default”) which uses the default acceleration profile for each device, flat (“flat”), which accelerates by a device specific constant factor derived from the configured pointer speed, or adaptive (“adaptive”) which adapts the acceleration depending on the mouse movement. If a touchpad doesn’t support the configured profile, “default” will be used.</description>
     </key>
     <key name="speed" type="d">
       <default>0</default>
@@ -130,13 +136,18 @@
       <summary>Emulate middle click</summary>
       <description>Set this to TRUE to enable middle click during simultaneous left and right click.</description>
     </key>
+    <key name="double-click" type="i">
+      <default>400</default>
+      <summary>Double click time</summary>
+      <description>Length of a double click in milliseconds.</description>
+    </key>
+    <key name="drag-threshold" type="i">
+      <default>8</default>
+      <summary>Drag threshold</summary>
+      <description>Distance before a drag is started.</description>
+    </key>
   </schema>
   <schema id="org.gnome.desktop.peripherals.tablet">
-    <key name="display" type="as">
-      <default>["", "", ""]</default>
-      <summary>Deprecated tablet output mapping</summary>
-      <description>This key is deprecated. Use "org.gnome.desktop.peripherals.tablet output" instead</description>
-    </key>
     <key name="output" type="as">
       <default>["", "", ""]</default>
       <summary>Drawing tablet mapping</summary>
@@ -203,11 +214,6 @@
     </key>
   </schema>
   <schema id="org.gnome.desktop.peripherals.touchscreen">
-    <key name="display" type="as">
-      <default>["", "", ""]</default>
-      <summary>Deprecated touchscreen output mapping</summary>
-      <description>This key is deprecated. Use "org.gnome.desktop.peripherals.touchscreen output" instead</description>
-    </key>
     <key name="output" type="as">
       <default>["", "", ""]</default>
       <summary>Touchscreen output mapping</summary>
@@ -220,6 +226,11 @@
       <range min="0" max="24"/>
       <summary>Mouse wheel emulation button. 0 to disable the feature.</summary>
     </key>
+    <key name="scroll-wheel-emulation-button-lock" type="b">
+      <default>false</default>
+      <summary>Mouse wheel emulation button lock</summary>
+      <description>Set this to TRUE to enable button locking for the wheel emulation button. If enabled, the first click of the button enables scrolling, the second click disables scrolling again.</description>
+    </key>
     <key name="accel-profile" enum="org.gnome.desktop.GDesktopPointerAccelProfile">
       <default>'default'</default>
       <summary>Acceleration profile</summary>
@@ -229,6 +240,24 @@
       <default>false</default>
       <summary>Emulate middle click</summary>
       <description>Set this to TRUE to enable middle click during simultaneous left and right click.</description>
+    </key>
+  </schema>
+  <schema id="org.gnome.desktop.peripherals.pointingstick" path="/org/gnome/desktop/peripherals/pointingstick/">
+    <key name="speed" type="d">
+      <default>0</default>
+      <summary>Pointer speed</summary>
+      <description>Pointer speed for pointing sticks. Accepted values are in the [-1..1] range (from “unaccelerated” to “fast”). A value of 0 is the system default.</description>
+      <range min="-1" max="1"/>
+    </key>
+    <key name="accel-profile" enum="org.gnome.desktop.GDesktopPointerAccelProfile">
+      <default>'default'</default>
+      <summary>Acceleration profile</summary>
+      <description>Acceleration profile used for the pointing stick. The acceleration profile can be set to either default (“default”) which uses the default acceleration profile, flat (“flat”), which accelerates by a device specific constant factor derived from the configured speed, or adaptive (“adaptive”) which adapts the acceleration depending on the movement. If the pointing stick doesn’t support the configured profile, “default” will be used.</description>
+    </key>
+    <key name="scroll-method" enum="org.gnome.desktop.GDesktopPointingStickScrollMethod">
+      <default>'default'</default>
+      <summary>Scrolling method</summary>
+      <description>Scrolling method used for pointing sticks. The scrolling method can be set to either default (“default”) which uses the default method, none (“none”), which disables scrolling, or middle-button (“on-button-down”) which enables scrolling whilst the middle button is held down.</description>
     </key>
   </schema>
 </schemalist>

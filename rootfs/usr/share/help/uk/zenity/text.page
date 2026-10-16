@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="text" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--text-info</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Текстовий інформаційний діалог</title>
+    <p>Для створення текстового інформаційного вікна використовується параметр <cmd>--text-info</cmd>.</p>
+	
+    <p>Текстовий інформаційний діалог підтримує наступні параметри:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--filename</cmd>=<var>назва_файла</var></title>
+	<p>Вказує файл, який завантажується у текстовий інформаційний діалог.</p>
+      </item>
+
+      <item>
+        <title><cmd>--editable</cmd></title>
+        <p>Дозволяє редагувати текст, що виводиться. Редагований текст повертається через стандартний потік виводу при закриванні вікна. </p>
+      </item>
+
+      <item>
+        <title><cmd>--font</cmd>=<var>ШРИФТ</var></title>
+	<p>Вказує шрифт тексту.</p>
+      </item>
+
+      <item>
+        <title><cmd>--checkbox</cmd>=<var>ТЕКСТ</var></title>
+	<p>Увімкнути поле для позначки із міткою, подібною до «Мною прочитано умови. Я з ними погоджуюся.»</p>
+      </item>
+
+      <item>
+        <title><cmd>--html</cmd></title>
+        <p>Увімкнути підтримку HTML.</p>
+      </item>
+
+      <item>
+        <title><cmd>--url</cmd>=<var>АДРЕСА</var></title>
+	<p>Встановлює адресу замість файла. Працює лише за використання параметра --html.</p>
+      </item>
+
+    </terms>
+
+    <p>У наступному сценарії продемонстровано створення текстового інформаційного вікна:</p>
+
+<code>
+#!/bin/sh
+
+# Вам слід зберегти файл "COPYING" до тієї самої теки, що і сценарій.
+FILE=`dirname $0`/COPYING
+
+zenity --text-info \
+       --title="Ліцензування" \
+       --filename=$FILE \
+       --checkbox="Мною прочитано умови. Я з ними погоджуюся."
+
+case $? in
+    0)
+        echo "Почати встановлення!"
+	# next step
+	;;
+    1)
+        echo "Припинити встановлення!"
+	;;
+    -1)
+        echo "Сталася неочікувана помилка."
+	;;
+esac
+</code>
+
+    <figure>
+      <title>Приклад текстового інформаційного вікна</title>
+      <desc>Приклад вікна інформації <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-text-screenshot.png"/>
+    </figure>
+</page>

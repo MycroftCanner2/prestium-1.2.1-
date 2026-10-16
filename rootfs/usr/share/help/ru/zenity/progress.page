@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="progress" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--progress</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно хода выполнения</title>
+    <p>Используйте параметр <cmd>--progress</cmd>, чтобы создать диалоговое окно хода выполнения.</p>
+
+    <p><app>Zenity</app> считывает данные из стандартного ввода строка за строкой. Если строка начинается с #, то текст, следующий за этим префиксом, размещается в диалоговом окне. Если строка содержит только число, то индикатор хода выполнения устанавливается на этот процент выполнения.</p>
+	
+    <p>Диалоговое окно индикатора хода выполнения поддерживает следующие параметры:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>текст</var></title>
+	  <p>Указывает текст, который будет изображён в диалоговом окне.</p>
+      </item>
+
+      <item>
+        <title><cmd>--percentage</cmd>=<var>процент</var></title>
+	  <p>Указывает начальное состояние индикатора хода выполнения.</p>
+      </item>
+
+      <item>
+	<title><cmd>--auto-close</cmd></title>
+	  <p>Диалоговое окно закрывается, когда процент выполнения достигает 100%.</p>
+      </item>
+
+      <item>
+        <title><cmd>--pulsate</cmd></title>
+	  <p>Указывает, что индикатор хода выполнения пульсирует до тех пор, пока из стандартного ввода не будет прочитан символ конца файла EOF.</p>
+      </item>
+
+    </terms>
+
+    <p>Следующий сценарий является примером того, как можно создавать диалоговое окно индикатора хода выполнения:</p>
+
+<code>
+#!/bin/sh
+(
+echo "10" ; sleep 1
+echo "# Обновление журнала почты" ; sleep 1
+echo "20" ; sleep 1
+echo "# Сброс задачи cron" ; sleep 1
+echo "50" ; sleep 1
+echo "Это строка будет просто проигнорирована" ; sleep 1
+echo "75" ; sleep 1
+echo "# Перезагрузка системы" ; sleep 1
+echo "100" ; sleep 1
+) |
+zenity --progress \
+  --title="Обновление системного журнала" \
+  --text="Просмотр журналы почты..." \
+  --percentage=0
+
+if [ "$?" = -1 ] ; then
+        zenity --error \
+          --text="Обновление отменено."
+fi
+</code>
+
+
+    <figure>
+      <title>Пример диалогового окна индикатора хода выполнения</title>
+      <desc>Пример диалогового окна индикатора хода выполнения <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-progress-screenshot.png"/>
+    </figure>
+</page>

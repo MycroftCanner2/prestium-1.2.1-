@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="intro" xml:lang="uk">
+<info>
+  <link type="guide" xref="index"/>
+  <desc><app>Zenity</app> надає змогу створювати різні типи простих вікон.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+</info>
+<title>Вступ</title>
+<p><app>Zenity</app> надає змогу створювати наступні типи простих вікон:</p>
+
+<list>
+    <item><p>Календар</p></item>
+    <item><p>Вибір файлів</p></item>
+    <item><p>Форми</p></item>
+    <item><p>Список</p></item>
+    <item><p>Значок області сповіщення</p></item>
+    <item><p>Повідомлення</p>
+        <list>
+            <item><p>Помилка</p></item>
+    	<item><p>Інформація</p></item>
+    	<item><p>Запитання</p></item>
+    	<item><p>Попередження</p></item>
+        </list>
+    </item>
+    <item><p>Введення пароля</p></item>
+    <item><p>Індикатор поступу</p></item>
+    <item><p>Поле вводу тексту</p></item>
+    <item><p>Текстова інформація</p></item>
+    <item><p>Шкала</p></item>
+    <item><p>Вибір кольору</p></item>
+</list>
+</page>

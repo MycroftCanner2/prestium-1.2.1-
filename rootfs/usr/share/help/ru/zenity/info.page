@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="info" xml:lang="ru">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Использования параметра <cmd>--info</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно информации</title>
+      <p>Используйте параметр <cmd>--info</cmd>, чтобы создать диалоговое окно информации.</p>
+
+      <p>Следующий сценарий является примером того, как создавать диалоговое окно информации:</p>
+
+<code>
+#!/bin/bash
+
+zenity --info \
+--text="Слияние завершено. Обновлено 3 из 10 файлов."
+</code>
+
+
+      <figure>
+        <title>Пример диалогового окна информации</title>
+        <desc>Пример диалогового окна информации <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-information-screenshot.png"/>
+      </figure>
+</page>

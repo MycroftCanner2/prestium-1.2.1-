@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="color-selection" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--color-selection</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно вибору кольору</title>
+  <p>Використання параметра <cmd>--color-selection</cmd> для створення діалогового вікна вибору кольору.</p>
+  <p>У вікні вибору кольору передбачено підтримку таких параметрів:</p>
+
+  <terms>
+
+    <item>
+      <title><cmd>--color</cmd>=<var>ЗНАЧЕННЯ</var></title>
+      <p>Встановити початковий колір (наприклад #FF0000).</p>
+    </item>
+
+    <item>
+      <title><cmd>--show-palette</cmd></title>
+      <p>Показати палітру.</p>
+    </item>
+
+  </terms>
+
+  <p>У наступному прикладі показано створення вікна вибору кольору:</p>
+
+<code>
+#!/bin/sh
+
+COLOR=`zenity --color-selection --show-palette`
+
+case $? in
+         0)
+		echo "Вами вибрано колір $COLOR.";;
+         1)
+                echo "Колір не вибрано.";;
+        -1)
+                echo "Сталася неочікувана помилка.";;
+esac
+</code>
+
+  <figure>
+    <title>Приклад вікна вибору кольору</title>
+    <desc>Приклад вікна вибору кольору <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-colorselection-screenshot.png"/>
+  </figure>
+
+</page>

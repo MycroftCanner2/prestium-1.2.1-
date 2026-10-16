@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="message" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs" group="message"/>
+    <desc><link xref="error">Error</link>, <link xref="info">Informació</link>, <link xref="question">Pregunta</link>, <link xref="warning">Avís</link></desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de missatge</title>
+  <p>Per cada tipus, utilitzeu l'opció <cmd>--text</cmd> per a especificar el text que es mostra al diàleg.</p>
+  <links type="topic" style="2column"/>
+</page>

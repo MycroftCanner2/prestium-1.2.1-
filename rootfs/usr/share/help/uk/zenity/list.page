@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="list" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--list</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно списку</title>
+    <p>Для створення вікна списку використовують параметр <cmd>--list</cmd>. <app>Zenity</app> повертає елементи вибраних рядків у першому стовпчику тексту у стандартному потоці виводу.</p>
+
+    <p>Дані для вікна мають вказуватись стовпчик за стовпчиком. Дані можуть передаватись вікна через стандартний потік вводу. Кожен елемент має відокремлюватись символом нового рядка.</p>
+
+    <p>Якщо ви використовуєте параметри <cmd>--checklist</cmd> чи <cmd>--radiolist</cmd>, кожен рядок має починатись з 'TRUE' чи 'FALSE'.</p>
+
+    <p>Вікно списку підтримує наступні параметри:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--column</cmd>=<var>стовпчик</var></title>
+	  <p>Вказує заголовки стовпчиків, які буде показано у вікні списку. Треба вказати параметр <cmd>--column</cmd> для кожного рядка, який ви хочете побачити у вікні.</p>
+      </item>
+
+      <item>
+        <title><cmd>--checklist</cmd></title>
+	  <p>Вказує, що перший стовпчик списку містить поля для відмітки.</p>
+      </item>
+
+      <item>
+        <title><cmd>--radiolist</cmd></title>
+	  <p>Вказує, що перший стовпчик списку містить поля радіо-перемикачі. </p>
+      </item>
+
+      <item>
+        <title><cmd>--editable</cmd></title>
+	  <p>Надає змогу редагувати показані елементи.</p>
+      </item>
+
+      <item>
+        <title><cmd>--separator</cmd>=<var>роздільник</var></title>
+	  <p>Вказує який рядок використовується, коли діалог списку повертає виділені елементи.</p>
+      </item>
+
+      <item>
+        <title><cmd>--print-column</cmd>=<var>стовпчик</var></title>
+	  <p>Вказує стовпчик, виділені елементи з якого будуть виводитись. Типове значення '1'. Щоб виводити елементи з усіх стовпчиків, можна вказати 'ALL'.</p>
+      </item>
+
+    </terms>
+
+    <p>У наступному прикладі продемонстровано сценарій створення вікна списку:</p>
+<code>
+#!/bin/sh
+
+zenity --list \
+  --title="Виберіть помилки, які хочете переглянути" \
+  --column="номер помилки" --column="Важливість" --column="Опис" \
+    992383 Normal "GtkTreeView crashes on multiple selections" \
+    293823 High "GNOME Dictionary does not handle proxy" \
+    393823 Critical "Menu editing does not work in GNOME 2.0"
+</code>
+
+
+    <figure>
+      <title>Приклад вікна списку</title>
+      <desc>Приклад вікна списку <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-list-screenshot.png"/>
+    </figure>
+</page>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="info" xml:lang="ca">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Utilitzeu l'opció <cmd>--info</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg d'informació</title>
+      <p>Utilitzeu l'opció <cmd>--info</cmd> per a crear un diàleg d'informació.</p>
+
+      <p>L'script d'exemple següent mostra com crear un diàleg d'informació:</p>
+
+<code>
+#!/bin/bash
+
+zenity --info \
+--text="S'ha finalitzat la fusió. S'han actualitzat 3 fitxers de 10."
+</code>
+
+
+      <figure>
+        <title>Exemple de diàleg d'informació</title>
+        <desc>Exemple de diàleg d'informació del <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-information-screenshot.png"/>
+      </figure>
+</page>

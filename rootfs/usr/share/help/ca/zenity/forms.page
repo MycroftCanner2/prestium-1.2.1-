@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="forms" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--forms</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de formularis</title>
+    <p>Utilitzeu l'opció <cmd>--forms</cmd> per a crear un diàleg de formularis.</p>
+	
+    <p>El diàleg de formularis admet les opcions següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--add-entry</cmd>=<var>Fitxer</var></title>
+	<p>Afegiu una entrada nova al diàleg de formularis.</p>
+      </item>
+
+      <item>
+        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+	<p>Afegiu una entrada de contrasenya nova al diàleg de formularis (oculta el text).</p>
+      </item>
+
+      <item>
+        <title><cmd>--add-calendar</cmd>=<var>Camp</var></title>
+	<p>Afegiu un calendari nou al diàleg de formularis.</p>
+      </item>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>TEXT</var></title>
+	<p>Especifiqueu el text del diàleg.</p>
+      </item>
+
+      <item>
+        <title><cmd>--separator</cmd>=<var>SEPARADOR</var></title>
+	<p>Especifiqueu el caràcter separador de sortida (per defecte: |).</p>
+      </item>
+
+      <item>
+        <title><cmd>--forms-date-format</cmd>=<var>PATRÓ</var></title>
+	<p>Especifiqueu el format de la data retornada. El format predeterminat depèn de la configuració regional. El format ha de ser un format acceptable per la funció <cmd>strftime</cmd>, per exemple: <var>%A %d/%m/%y</var>.</p>
+      </item>
+
+    </terms>
+
+    <p>L'script d'exemple següent mostra com crear un diàleg de formularis:</p>
+
+<code>
+#!/bin/sh
+
+zenity --forms --title="Afegeix un amic" \
+	--text="Introduïu informació sobre l'amic." \
+	--separator="," \
+	--add-entry="Nom" \
+	--add-entry="Cognoms" \
+	--add-entry="Correu electrònic" \
+	--add-calendar="Aniversari" &gt;&gt; addr.csv
+
+case $? in
+    0)
+        echo "S'ha afegit l'amic.";;
+    1)
+        echo "No s'ha afegit cap amic."
+	;;
+    -1)
+        echo "S'ha produït un error inesperat."
+	;;
+esac
+</code>
+
+    <figure>
+      <title>Exemple de diàleg de formularis</title>
+      <desc>Exemple de diàleg de formularis del <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-forms-screenshot.png"/>
+    </figure>
+</page>

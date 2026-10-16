@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="calendar" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Користування параметром <cmd>--calendar</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно календаря</title>
+    <p>Для створення вікна календаря використовується параметр <cmd>--calendar</cmd>. Zenity повертає вибрану дату у стандартний потік. Якщо дату не було вказано у командному рядку, використовується поточна дата.</p>
+    <p>Вікно календаря підтримує наступні параметри:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>текст</var></title>
+	<p>Вказує текст, який буде показано у вікні календаря.</p>
+      </item>
+     	
+      <item>
+        <title><cmd>--day</cmd>=<var>день</var></title>
+	<p>Вказує день, який виділяється у вікні календаря. День має бути числом від 1 до 31.</p>
+      </item>
+
+      <item>
+        <title><cmd>--month</cmd>=<var>місяць</var></title>
+	<p>Вказує місяць, який виділяється у вікні календаря. Місяць має бути числом від 1 до 12.</p>
+      </item>
+
+      <item>
+        <title><cmd>--year</cmd>=<var>рік</var></title>
+	<p>Вказує рік, який виділяється у вікні календаря.</p>
+      </item>
+
+      <item>
+        <title><cmd>--date-format</cmd>=<var>формат</var></title>
+	<p>Вказує формат дати, яку буде повернуто після вибору дати. Типовий формат залежить від локалі. Формат має бути допустимим виразом для функції <cmd>strftime</cmd>, наприклад <var>%A %d/%m/%y</var>.</p>
+      </item>
+
+    </terms>
+
+    <p>У наступному прикладі сценарію показано створення вікна календаря:</p>
+
+<code>
+#!/bin/sh
+
+
+if zenity --calendar \
+--title="Виберіть дату" \
+--text="Клацніть на даті для її вибору." \
+--day=10 --month=8 --year=2004
+  then echo $?
+  else echo "Дату не вибрано"
+fi
+</code>
+
+
+    <figure>
+      <title>Приклад вікна календаря</title>
+      <desc>Приклад вікна календаря Zenity</desc>
+      <media type="image" mime="image/png" src="figures/zenity-calendar-screenshot.png"/>
+   </figure>
+</page>

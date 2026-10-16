@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="warning" xml:lang="ru">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Использование параметра <cmd>--warning</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно предупреждения</title>
+      <p>Используйте параметр <cmd>--warning</cmd>, чтобы создать диалоговое окно предупреждения.</p>
+
+      <p>Следующий сценарий является примером того, как создавать диалоговое окно предупреждения:</p>
+
+<code>
+#!/bin/bash
+
+zenity --warning \
+--text="Отсоедините кабель питания, чтобы избежать удара током."
+</code>
+
+      <figure>
+        <title>Пример диалогового окна предупреждения</title>
+	<desc>Пример диалогового окна предупреждения <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-warning-screenshot.png"/>
+      </figure>
+</page>

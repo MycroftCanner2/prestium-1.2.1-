@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="scale" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--scale</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно шкалы</title>
+  <p>Используйте параметр <cmd>--scale</cmd>, чтобы создать диалоговое окно масштаба.</p>
+  <p>Диалоговое окно шкалы поддерживает следующие параметры:</p>
+
+  <terms>
+
+    <item>
+      <title><cmd>--text</cmd>=<var>ТЕКСТ</var></title>
+      <p>Устанавливает текст диалогового окна. (По умолчанию: Изменение значения шкалы)</p>
+    </item>
+
+    <item>
+      <title><cmd>--value</cmd>=<var>ЗНАЧЕНИЕ</var></title>
+      <p>Устанавливает начальное значение. (По умолчанию: 0). Необходимо указать значение между минимальным и максимальным.</p>
+    </item>
+
+    <item>
+      <title><cmd>--min-value</cmd>=<var>ЗНАЧЕНИЕ</var></title>
+      <p>Устанавливает минимальное значение. (По умолчанию: 0)</p>
+    </item>
+
+    <item>
+      <title><cmd>--max-value</cmd>=<var>ЗНАЧЕНИЕ</var></title>
+      <p>Устанавливает максимальное значение. (По умолчанию: 100)</p>
+    </item>
+
+    <item>
+      <title><cmd>--step</cmd>=<var>ЗНАЧЕНИЕ</var></title>
+      <p>Устанавливает размер шага. (По умолчанию: 1)</p>
+    </item>
+
+    <item>
+      <title><cmd>--print-partial</cmd></title>
+      <p>Выводит значение на стандартный вывод всякий раз, когда оно меняется.</p>
+    </item>
+
+    <item>
+      <title><cmd>--hide-value</cmd></title>
+      <p>Скрывает значение в диалоговом окне.</p>
+    </item>
+
+  </terms>
+
+  <p>Следующий сценарий является примером того, как создавать диалоговое окно шкалы:</p>
+
+<code>
+#!/bin/sh
+
+VALUE=`zenity --scale --text="Выбрана прозрачность окна." --value=50`
+
+case $? in
+         0)
+		echo "Выбрано значение $VALUE%.";;
+         1)
+                echo "Значение не выбрано.";;
+        -1)
+                echo "Возникла непредвиденная ошибка.";;
+esac
+</code>
+
+  <figure>
+    <title>Пример диалогового окна шкалы</title>
+    <desc>Пример диалогового окна шкалы <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-scale-screenshot.png"/>
+  </figure>
+
+</page>

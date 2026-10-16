@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="text" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--text-info</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно текстовой информации</title>
+    <p>Используйте параметр <cmd>--text-info</cmd>, чтобы создать диалоговое окно текстовой информации.</p>
+	
+    <p>Диалоговое окно текстовой информации поддерживает следующие параметры:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--filename</cmd>=<var>название файла</var></title>
+	<p>Указывает имя файла, который будет загружен в окно текстовой информации.</p>
+      </item>
+
+      <item>
+        <title><cmd>--editable</cmd></title>
+        <p>Позволяет редактирование изображённого текста. Отредактированный текст возвращается в стандартный поток вывода, после того, как диалоговое окно будет закрыто.</p>
+      </item>
+
+      <item>
+        <title><cmd>--font</cmd>=<var>ШРИФТ</var></title>
+	<p>Указывает шрифт текста.</p>
+      </item>
+
+      <item>
+        <title><cmd>--checkbox</cmd>=<var>ТЕКСТ</var></title>
+	<p>Устанавливает кнопку с флагом, например для использования: «Я прочитал(а) и согласен(на)».</p>
+      </item>
+
+      <item>
+        <title><cmd>--html</cmd></title>
+        <p>Включает поддержку html.</p>
+      </item>
+
+      <item>
+        <title><cmd>--url</cmd>=<var>URL</var></title>
+	<p>Устанавливает URL вместо файла. Работает, только если вы используете параметр --html.</p>
+      </item>
+
+    </terms>
+
+    <p>Следующий сценарий является примером того, как можно создавать диалоговое окно текстовой информации:</p>
+
+<code>
+#!/bin/sh
+
+# Вы должны поместить файл "COPYING" в одну папку с этим скриптом.
+FILE=`dirname $0`/COPYING
+
+zenity --text-info \
+       --title="Лицензия" \
+       --filename=$FILE \
+       --checkbox="Я прочитал и принимаю условия."
+
+case $? in
+    0)
+        echo "Начать установку!"
+	# next step
+	;;
+    1)
+        echo "Остановить установку!"
+	;;
+    -1)
+        echo "Возникла непредвиденная ошибка."
+	;;
+esac
+</code>
+
+    <figure>
+      <title>Пример диалогового окна текстовой информации</title>
+      <desc>Пример диалогового окна текстовой информации <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-text-screenshot.png"/>
+    </figure>
+</page>

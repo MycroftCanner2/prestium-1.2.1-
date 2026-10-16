@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="usage" xml:lang="ca">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Podeu utilitzar el <app>Zenity</app> per a crear diàlegs senzills que interactuen gràficament amb l'usuari.</desc>
+  <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+<title>Ús</title>
+    <p>Quan escriviu scripts, podeu utilitzar el <app>Zenity</app> per a crear diàlegs senzills que interactuen gràficament amb l'usuari com segueix:</p>
+    <list>
+      <item>
+        <p>Podeu crear un diàleg per a obtenir informació de l'usuari. Per exemple, podeu sol·licitar a l'usuari que seleccioni una data d'un diàleg de calendari o que seleccioni un fitxer d'un diàleg de selecció de fitxers.</p>
+      </item>
+      <item>
+        <p>Podeu crear un diàleg per a proporcionar informació a l'usuari. Per exemple, podeu utilitzar un diàleg de progrés per a indicar l'estat actual d'una operació o utilitzar el diàleg de missatge d'avís per a alertar a l'usuari.</p>
+      </item>
+    </list>
+    <p>Quan l'usuari tanca el diàleg, el <app>Zenity</app> imprimeix el text produït pel diàleg a la sortida estàndard.</p>
+
+    <note>
+      <p>Quan escriviu ordres del <app>Zenity</app>, assegureu-vos de posar cometes al voltant de cada argument.</p>
+      <p>Per exemple, utilitzeu:</p>
+      <screen>zenity --calendar --title="Planificador de vacances"</screen>
+      <p>No utilitzeu pas:</p>
+      <screen>zenity --calendar --title=Planificador de vacances</screen>
+      <p>Si no utilitzeu les cometes no obtindreu els resultats esperats.</p>
+    </note>
+
+    <section id="zenity-usage-mnemonics">
+      <title>Tecles d'accés</title>
+	<p>Una tecla d'accés és una tecla que us permet realitzar una acció des del teclat en lloc d'utilitzar el ratolí per a seleccionar una ordre des d'un menú o diàleg. Cada tecla d'accés està identificada per una lletra subratllada en l'opció d'un menú o d'un diàleg.</p>
+	<p>Alguns diàlegs del <app>Zenity</app> admeten l'ús de tecles d'accés. Per a especificar el caràcter a utilitzar com a tecla d'accés, col·loqueu un subratllat abans del caràcter al text del diàleg. L'exemple següent mostra com especificar la lletra «T» com a tecla d'accés:</p>
+	<screen><input>«_Trieu un nom».</input></screen>
+    </section>
+
+    <section id="zenity-usage-exitcodes">
+      <title>Codis de sortida</title>
+    <p>El Zenity retorna els codis de sortida següents:</p>
+
+    <table frame="all" rules="all">
+        <thead>
+          <tr>
+            <td>
+              <p>Codi de sortida</p></td>
+            <td>
+              <p>Descripció</p></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p><var>0</var></p>
+            </td>
+            <td>
+              <p>L'usuari ha premut <gui style="button">D'acord</gui> o <gui style="button">Tanca</gui>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><var>1</var></p>
+            </td>
+            <td>
+              <p>L'usuari ha premut <gui style="button">Cancel·la</gui> o ha utilitzat les funcions de la finestra per a tancar el diàleg.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><var>-1</var></p>
+            </td>
+            <td>
+              <p>S'ha produït un error inesperat.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><var>5</var></p>
+            </td>
+            <td>
+              <p>S'ha tancat el diàleg perquè s'ha acabat el temps d'espera.</p>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+    </section>
+
+
+  <!-- ==== General Options ====== -->
+
+  <section id="zenity-usage-general-options">
+    <title>Opcions generals</title>
+
+    <p>Tots els diàlegs del Zenity admeten les opcions generals següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--title</cmd>=<var>títol</var></title>
+	<p>Especifica el títol d'un diàleg.</p>
+      </item>
+
+      <item>
+        <title><cmd>--window-icon</cmd>=<var>camí</var></title>
+	<p>Especifica la icona que es mostrarà al marc de la finestra del diàleg. També podeu utilitzar 4 icones predefinides si proporcioneu les paraules clau següents: «info» (informació), «warning» (avís), «question» (pregunta) i «error» (error).</p>
+      </item>
+
+      <item>
+        <title><cmd>--width</cmd>=<var>amplada</var></title>
+	<p>Especifica l'amplada del diàleg.</p>
+      </item>
+
+      <item>
+        <title><cmd>--height</cmd>=<var>alçada</var></title>
+	<p>Especifica l'alçada del diàleg.</p>
+      </item>
+
+      <item>
+        <title><cmd>--timeout</cmd>=<var>temps</var></title>
+	<p>Especifica el temps d'espera, en segons, passats els quals es tancarà el diàleg.</p>
+      </item>
+
+    </terms>
+
+  </section>
+
+<!-- ==== Miscellaneous Options ====== -->
+
+  <section id="zenity-help-options">
+    <title>Opcions d'ajuda</title>
+
+    <p>El Zenity proporciona les opcions d'ajuda següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--help</cmd></title>
+	<p>Mostra el text d'ajuda abreviat.</p>
+      </item>
+
+      <item>
+        <title><cmd>--help-all</cmd></title>
+	<p>Mostra el text d'ajuda complet per tots els diàlegs.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-general</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions generals dels diàlegs.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-calendar</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg de calendari.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-entry</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg d'entrada de text.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-error</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg d'error.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-info</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg informatiu.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-file-selection</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg de selecció de fitxers.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-list</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg de llista.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-notification</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions de la icona de notificació.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-progress</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg de progrés.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-question</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg de pregunta.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-warning</cmd></title>
+	<p>Mostra el text d'ajuda de les opcions del diàleg d'avís.</p>
+      </item>
+ 
+      <item>
+	<title><cmd>--help-text-info</cmd></title>
+	<p>Mostra l'ajuda de les opcions del diàleg de text informatiu.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-misc</cmd></title>
+	<p>Mostra l'ajuda de les opcions miscel·lànies.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-gtk</cmd></title>
+	<p>Mostra l'ajuda de les opcions de la GTK+.</p>
+      </item>
+ 
+    </terms>
+
+  </section>
+
+<!-- ==== Miscellaneous Options ====== -->
+
+  <section id="zenity-miscellaneous-options">
+    <title>Opcions miscel·lànies</title>
+
+    <p>El Zenity també proporciona les opcions diverses següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--about</cmd></title>
+	<p>Mostra el diàleg <gui>Quant al Zenity</gui>, que conté informació de la versió, del copyright i de desenvolupament del Zenity.</p>
+      </item>
+
+      <item>
+        <title><cmd>--version</cmd></title>
+	<p>Mostra el número de versió del Zenity.</p>
+      </item>
+
+    </terms>
+
+  </section>
+
+<!-- ==== GTK+ Options ====== -->
+
+  <section id="zenity-gtk-options">
+    <title>Opcions de la GTK+</title>
+
+    <p>El Zenity admet les opcions estàndard de la GTK+. Per a obtenir més informació sobre les opcions de la GTK+, executeu l'ordre <cmd>zenity --help-gtk</cmd>.</p>
+
+  </section>
+
+<!-- ==== Environment variables ==== -->
+
+  <section id="zenity-environment-variables">
+    <title>Variables d'entorn</title>
+
+    <p>Normalment, el Zenity detecta la finestra del terminal des d'on s'ha executat i es manté sobre aquesta finestra. Aquest comportament es pot desactivar inhabilitant la variable d'entorn <var>WINDOWID</var>.</p>
+
+  </section>
+</page>

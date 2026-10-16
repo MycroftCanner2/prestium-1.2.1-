@@ -139,6 +139,15 @@ then
 	manual_add_modules ntfs
 fi
 
+# dm-verity support
+if [ "${DISABLE_DM_VERITY:-}" != "true" ] && [ "${DISABLE_DM_VERITY:-}" != "yes" ]
+then
+	[ "${QUIET}" ] || echo -n " dm-verity"
+	manual_add_modules dm-verity
+	# The BusyBox mount does not support dm-verity so we use the util-linux version.
+	copy_exec /bin/mount /bin
+fi
+
 [ "${QUIET}" ] || echo -n " devices"
 # Hardware: cdrom
 if [ "${DISABLE_CDROM:-}" != "true" ] && [ "${DISABLE_CDROM:-}" != "yes" ]

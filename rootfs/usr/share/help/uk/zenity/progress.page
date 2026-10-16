@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="progress" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--progress</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно поступу</title>
+    <p>Для створення діалогового вікна поступу скористайтеся параметром <cmd>--progress</cmd>.</p>
+
+    <p><app>Zenity</app> читає дані зі стандартного потоку введення рядок за рядком. Якщо рядок починається з #, текст оновлюється на текст цього рядка. Якщо рядок містить лише число, оновлюється відсоток поступу.</p>
+	
+    <p>У вікні поступу передбачено підтримку таких параметрів:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>текст</var></title>
+	  <p>Вказує текст, який буде показано у вікні поступу.</p>
+      </item>
+
+      <item>
+        <title><cmd>--percentage</cmd>=<var>відсоток</var></title>
+	  <p>Вказує початковий відсоток, який виставляється у вікні поступу.</p>
+      </item>
+
+      <item>
+	<title><cmd>--auto-close</cmd></title>
+	  <p>Закриває діалог поступу при досяганні 100%</p>
+      </item>
+
+      <item>
+        <title><cmd>--pulsate</cmd></title>
+	  <p>Вказує, що індикатор поступу пульсує доки зі стандартного вводу не буде прочитано символ EOF.</p>
+      </item>
+
+    </terms>
+
+    <p>У наступному сценарії продемонстровано створення вікна поступу:</p>
+
+<code>
+#!/bin/sh
+(
+echo "10" ; sleep 1
+echo "# Оновлення поштових журналів" ; sleep 1
+echo "20" ; sleep 1
+echo "# Скидання завдань cron" ; sleep 1
+echo "50" ; sleep 1
+echo "Цей рядок просто ігнорується" ; sleep 1
+echo "75" ; sleep 1
+echo "# Перезавантаження системи" ; sleep 1
+echo "100" ; sleep 1
+) |
+zenity --progress \
+  --title="Оновлення системних журналів" \
+  --text="Сканування поштових журналів..." \
+  --percentage=0
+
+if [ "$?" = -1 ] ; then
+        zenity --error \
+          --text="Оновлення скасовано."
+fi
+</code>
+
+
+    <figure>
+      <title>Приклад вікна поступу</title>
+      <desc>Приклад вікна поступу <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-progress-screenshot.png"/>
+    </figure>
+</page>

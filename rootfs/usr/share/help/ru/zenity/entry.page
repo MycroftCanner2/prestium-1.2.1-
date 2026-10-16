@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="entry" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--entry</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно ввода текста</title>
+    <p>Используйте параметр <cmd>--entry</cmd>, чтобы создать диалоговое окно ввода текста. <app>Zenity</app> возвращает введённый текст в стандартный поток вывода.</p>	
+    <p>Диалоговое окно ввода текста поддерживает следующие параметры:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>текст</var></title>
+	<p>Указывает текст, который будет изображён в диалоговом окне (но не в поле ввода).</p>
+      </item>
+
+      <item>
+        <title><cmd>--entry-text</cmd>=<var>текст</var></title>
+	<p>Указывает текст, который будет изображён в поле ввода диалогового окна.</p>
+      </item>
+
+      <item>
+        <title><cmd>--hide-text</cmd></title>
+	<p>Скрывает текст в поле ввода диалогового окна.</p>
+      </item>
+
+    </terms>
+
+    <p>Следующий сценарий является примером того, как можно создать диалоговое окно ввода текста:</p>
+
+<code>
+#!/bin/sh
+
+if zenity --entry \
+--title="Добавить новый профиль" \
+--text="Введите название нового профиля:" \
+--entry-text "NewProfile"
+  then echo $?
+  else echo "Название не введено"
+fi
+</code>
+
+
+    <figure>
+      <title>Пример диалогового окна ввода текста</title>
+      <desc>Пример диалогового окна ввода текста <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-entry-screenshot.png"/>
+    </figure>
+</page>

@@ -97,8 +97,8 @@ manual_add_modules()
 	# configuration lines and embedded softdep information is not
 	# processed.  So we run twice, with and without this option.
 	# shellcheck disable=SC2034
-	{ modprobe --all --set-version="${version?}" --ignore-install --quiet --show-depends "$@";
-	  modprobe --all --set-version="${version}" --quiet --show-depends "$@"; } |
+	{ /sbin/modprobe --all --set-version="${version?}" --ignore-install --quiet --show-depends "$@";
+	  /sbin/modprobe --all --set-version="${version}" --quiet --show-depends "$@"; } |
 	while read -r prefix kmod options ; do
 		if [ "${prefix}" != "insmod" ]; then
 			continue
@@ -153,12 +153,28 @@ add_builtin_firmware()
 	done
 }
 
-# $1 = file type (for logging)
-# $2 = file to copy to initramfs
-# $3 (optional) Name for the file on the initramfs
-# Location of the image dir is assumed to be $DESTDIR
-# If the target exists, we leave it and return 1.
-# On any other error, we return >1.
+# Copy a file to the initramfs:
+# $1 = file type, for debug logging
+# $2 = source file name
+# $3 (optional) = target file or directory name in the initramfs
+#
+# * If the target is not specified, it defaults to the source file
+#   name.
+# * If the target is specified and exists as a directory under
+#   $DESTDIR or ends in a slash, the basename of the source is
+#   appended to it.
+#
+# The target file's containing directories are created if necessary.
+#
+# If the source file name includes a symlink, other than usr-merge
+# symlinks, and the canonical name of the source is not the same as
+# the target, the source file is copied to its canonical name in the
+# initramfs and the target is created as a symlink.
+#
+# Returns:
+# * If the file was copied successfully, 0
+# * If the target file already existed, 1
+# * On error, >1
 copy_file() {
 	local type src target link_target
 
@@ -168,11 +184,20 @@ copy_file() {
 
 	[ -f "${src}" ] || return 2
 
-	if [ -d "${DESTDIR}/${target}" ]; then
+	if [ -d "${DESTDIR}/${target}" ] || [ "${target%/}" != "$target" ]; then
 		target="${target}/${src##*/}"
 	fi
 
-	# Canonicalise usr-merged target directories
+	# Canonicalise target to be absolute, so the comparisons below
+	# will work
+	target="$(realpath -ms "/${target}")" || return 2
+
+	# Canonicalise usr-merged directories
+	case "${src}" in
+	/bin/* | /lib* | /sbin/*)
+		[ "$(readlink -f /bin)" = /usr/bin ] && src="/usr${src}"
+		;;
+	esac
 	case "${target}" in
 	/bin/* | /lib* | /sbin/*) target="/usr${target}" ;;
 	esac
@@ -182,11 +207,12 @@ copy_file() {
 
 	mkdir -p "${DESTDIR}/${target%/*}"
 
-	if [ -h "${src}" ]; then
-		# We don't need to replicate a chain of links completely;
-		# just link directly to the ultimate target
-		link_target="$(readlink -f "${src}")" || return $(($? + 1))
-
+	# Check whether source or one of its ancestors is a symlink.
+	# If so, copy the symlink target and make the target a symlink
+	# too.  We don't need to replicate a chain of links completely;
+	# just link directly to the ultimate target.
+	link_target="$(readlink -f "${src}")" || return $(($? + 1))
+	if [ "${link_target}" != "$(realpath -s "$src")" ]; then
 		# Update source for the copy
 		src="${link_target}"
 
@@ -214,10 +240,16 @@ copy_file() {
 	cp -pP "${src}" "${DESTDIR}/${target}" || return $(($? + 1))
 }
 
-# $1 = executable/shared library to copy to initramfs, with dependencies
-# $2 (optional) Name for the file on the initramfs
-# Location of the image dir is assumed to be $DESTDIR
-# We never overwrite the target if it exists.
+# Copy an executable or shared library to the initramfs:
+# $1 = source file name
+# $2 (optional) = target file or directory name in the initramfs
+#
+# The source and all its shared library dependencies are copied
+# using copy_file.
+#
+# Returns:
+# * If the files were copied successfully or already exited, 0
+# * On error, >0
 copy_exec() {
 	local src target x nonoptlib ret
 
@@ -523,11 +555,12 @@ dep_add_modules()
 		class_add_modules "$class"
 	done
 
-	# clk, USB-PHY and pinctrl devices are outside the device model (!) so
-	# match loaded modules by name
+	# clk, USB-PHY, pinctrl and reset devices are outside the device
+	# model (!) so match loaded modules by name
 	add_loaded_modules 'clk[-_]*'
 	add_loaded_modules 'phy[-_]*'
 	add_loaded_modules 'pinctrl[-_]*'
+	add_loaded_modules 'reset[-_]*'
 
 	# Sys walk keyboards.  We identify keyboards as input devices
 	# that can generate at least key events 1-31; udev has the
@@ -575,11 +608,6 @@ dep_add_modules()
 		modules="$modules virtio_pci virtio_mmio"
 	fi
 
-	if [ -e /sys/bus/i2o/devices/ ]; then
-		force_load i2o_block
-		force_load i2o_config
-	fi
-
 	if [ -e /sys/bus/ps3_system_bus/ ]; then
 		modules="$modules ps3disk ps3rom ps3-gelic ps3_sys_manager"
 	fi
@@ -603,7 +631,7 @@ auto_add_modules()
 	local modules=
 
 	if [ "$#" -eq 0 ] ; then
-		set -- base net ide scsi block ata i2o dasd ieee1394 firewire mmc usb_storage fb
+		set -- base net ide scsi block ata dasd firewire mmc usb_storage fb
 	fi
 
 	for arg in "$@" ; do
@@ -626,12 +654,17 @@ auto_add_modules()
 			copy_modules_dir kernel/drivers/usb/isp1760
 			copy_modules_dir kernel/drivers/usb/musb
 			copy_modules_dir kernel/drivers/usb/renesas_usbhs
+			copy_modules_dir kernel/drivers/usb/typec/tcpm
 			# and any extcon drivers for USB
 			modules="$modules extcon-usb-gpio extcon-usbc-cros-ec"
 			# Add the axp20x_usb_power power supply driver,
 			# required to initialize the USB host controllers
 			# on a number of armhf systems
 			modules="$modules axp20x_usb_power"
+			# Add onboard_usb_hub so it can be probed before
+			# mounts, otherwise it might reset power to a
+			# USB disk already mounted as root
+			modules="$modules onboard_usb_hub onboard_usb_dev"
 
 			# Include all keyboard drivers and all HID drivers
 			# unless we're sure they don't support keyboards.
@@ -642,8 +675,7 @@ auto_add_modules()
 				'hid-*ff.ko' hid-a4tech.ko hid-cypress.ko \
 				hid-dr.ko hid-elecom.ko hid-gyration.ko \
 				hid-icade.ko hid-kensington.ko hid-kye.ko \
-				hid-lcpower.ko hid-magicmouse.ko \
-				hid-multitouch.ko hid-ntrig.ko \
+				hid-lcpower.ko hid-magicmouse.ko hid-ntrig.ko \
 				hid-petalynx.ko hid-picolcd.ko hid-pl.ko \
 				hid-ps3remote.ko hid-quanta.ko \
 				'hid-roccat-ko*.ko' hid-roccat-pyra.ko \
@@ -653,6 +685,9 @@ auto_add_modules()
 				hid-wiimote.ko hid-zydacron.ko
 			# needed to access keyboard on some ChromeOS devices
 			modules="$modules cros_ec_spi"
+			# needed to access keyboard in Gen2 Hyper-V virtual
+			# machines (e.g. full disk encryption scenarios)
+			modules="$modules hyperv-keyboard"
 
 			# Any of these might be needed by other drivers
 			copy_modules_dir kernel/drivers/bus
@@ -674,11 +709,19 @@ auto_add_modules()
 		;;
 		net)
 			copy_modules_dir kernel/drivers/net \
-				appletalk arcnet bonding can dummy.ko \
-				hamradio hippi ifb.ko irda macvlan.ko \
-				macvtap.ko pcmcia sb1000.ko team tokenring \
-				tun.ko usb veth.ko wan wimax wireless \
-				xen-netback.ko
+				appletalk arcnet bonding can cdc-phonet.ko \
+				cdc_mbim.ko cdc_subset.ko cx82310_eth.ko \
+				dummy.ko gl620a.ko hamradio hippi hso.ko \
+				huawei_cdc_ncm.ko ifb.ko ipheth.ko irda \
+				kalmia.ko lg-vl600.ko macvlan.ko macvtap.ko \
+				net1080.ko pcmcia plusb.ko qmi_wwan.ko \
+				sb1000.ko sierra_net.ko team tokenring tun.ko \
+				veth.ko wan wimax wireless xen-netback.ko \
+				zaurus.ko
+
+			# Required to initialize Ethernet (FEC) on ARM64 iMX8M
+			# devices.
+			modules="$modules nvmem-imx-ocotp"
 		;;
 		ide)
 			copy_modules_dir kernel/drivers/ide
@@ -688,6 +731,7 @@ auto_add_modules()
 		;;
 		scsi)
 			copy_modules_dir kernel/drivers/scsi
+			copy_modules_dir kernel/drivers/ufs
 			modules="$modules mptfc mptsas mptscsih mptspi zfcp"
 		;;
 		ata)
@@ -701,14 +745,8 @@ auto_add_modules()
 		ubi)
 			modules="$modules deflate zlib lzo ubi ubifs"
 		;;
-		ieee1394)
-			modules="$modules ohci1394 sbp2"
-		;;
 		firewire)
 			modules="$modules firewire-ohci firewire-sbp2"
-		;;
-		i2o)
-			modules="$modules i2o_block"
 		;;
 		dasd)
 			modules="$modules dasd_diag_mod dasd_eckd_mod dasd_fba_mod"
@@ -718,8 +756,11 @@ auto_add_modules()
 		;;
 		fb)
 			# For machines that don't have a generic framebuffer device.
-			modules="$modules rockchipdrm pwm-cros-ec pwm_bl panel-simple"
-			modules="$modules analogix-anx6345 pwm-sun4i sun4i-drm sun8i-mixer"
+			modules="$modules rockchipdrm pwm-cros-ec pwm_bl pwm-rockchip panel-simple"
+			modules="$modules analogix-anx6345 pwm-sun4i sun4i-drm sun8i-mixer panel-edp"
+			# For panel/backlight on MNT Reform 2
+			modules="$modules pwm_imx27 nwl-dsi ti-sn65dsi86 imx-dcss"
+			modules="$modules mux-mmio mxsfb imx8mq-interconnect"
 		;;
 		esac
 	done
@@ -739,7 +780,9 @@ hidden_dep_add_modules()
 	manual_add_modules $(
 		{
 			cat "${DESTDIR}/lib/modules/${version}/modules.builtin"
-			find "${DESTDIR}/lib/modules/${version}/kernel" -name '*.ko*'
+			if [ -d "${DESTDIR}/lib/modules/${version}/kernel" ]; then
+				find "${DESTDIR}/lib/modules/${version}/kernel" -name '*.ko*'
+			fi
 		} |
 		while read -r module; do
 			module="${module##*/}"
@@ -773,7 +816,7 @@ hidden_dep_add_modules()
 				echo pl330
 				;;
 			dw_mmc-rockchip)
-				echo rockchip-io-domain
+				echo rockchip-io-domain io-domain
 				;;
 			esac
 		done
@@ -802,7 +845,7 @@ set_initlist()
 		[ "${si_x}" = "${initdir}/*" ] && return
 
 		# only allow variable name chars
-		case ${si_x#${initdir}/} in
+		case "${si_x#"${initdir}"/}" in
 		*[![:alnum:]\._-]*)
 			[ "${verbose}" = "y" ] \
 			&& echo "$si_x ignored: not alphanumeric or '_' file" >&2
@@ -817,7 +860,7 @@ set_initlist()
 			continue
 		fi
 
-		si_x="$(get_source "${si_x#${initdir}/}")"
+		si_x="$(get_source "${si_x#"${initdir}"/}")"
 
 		# skip non executable scripts
 		if [ ! -x "${si_x}" ]; then
@@ -881,7 +924,7 @@ call_scripts()
 		if [ "$ec" -ne 0 ]; then
 			echo "E: ${initdir}/${cs_x} failed with return $ec." >&2
 			# only errexit on mkinitramfs
-			[ -n "${version}" ] && exit $ec
+			[ -n "${version}" ] && exit "$ec"
 		fi
 		# allow boot scripts to modify exported boot parameters
 		if [ -e /conf/param.conf ]; then

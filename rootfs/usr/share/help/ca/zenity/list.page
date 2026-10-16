@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="list" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--llista</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de llista</title>
+    <p>Utilitzeu l'opció <cmd>--list</cmd> per a crear un diàleg de llista. El <app>Zenity</app> retorna les entrades de la primera columna de text de les files seleccionades a la sortida estàndard.</p>
+
+    <p>Les dades del diàleg s'han d'especificar columna per columna, fila per fila. Les dades es poden proporcionar al diàleg a través de l'entrada estàndard. Cada entrada s'ha de separar per un caràcter de línia nova.</p>
+
+    <p>Si utilitzeu les opcions <cmd>--checklist</cmd> o <cmd>--radiolist</cmd>, cada fila ha de començar amb «TRUE» o «FALSE».</p>
+
+    <p>El diàleg de llista admet les opcions següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--column</cmd>=<var>columna</var></title>
+	  <p>Especifica les capçaleres de columna que es mostren al diàleg de llista. Heu d'especificar una opció <cmd>--column</cmd> per cada columna que voleu mostrar al diàleg.</p>
+      </item>
+
+      <item>
+        <title><cmd>--checklist</cmd></title>
+	  <p>Especifica que la primera columna del diàleg de llista conté caselles de selecció.</p>
+      </item>
+
+      <item>
+        <title><cmd>--radiolist</cmd></title>
+	  <p>Especifica que la primera columna del diàleg de llista conté botons d'opció.</p>
+      </item>
+
+      <item>
+        <title><cmd>--editable</cmd></title>
+	  <p>Permet que s'editin els elements mostrats.</p>
+      </item>
+
+      <item>
+        <title><cmd>--separator</cmd>=<var>separator</var></title>
+	  <p>Especifica quina cadena s'utilitza quan el diàleg de llista retorna les entrades seleccionades.</p>
+      </item>
+
+      <item>
+        <title><cmd>--print-column</cmd>=<var>columna</var></title>
+	  <p>Especifica quina columna s'hauria d'imprimir si se selecciona. La columna per defecte és «1». Es pot utilitzar «ALL» (totes) per a imprimir totes les columnes de la llista.</p>
+      </item>
+
+    </terms>
+
+    <p>L'script d'exemple següent mostra com crear un diàleg de llista:</p>
+<code>
+#!/bin/sh
+
+zenity --list \
+  --title="Trieu els errors que voleu visualitzar" \
+  --column="Número d'error" --column="Gravetat" --column="Descripció" \
+    992383 Normal "El GtkTreeView falla en seleccions múltiples" \
+    293823 Alta "El diccionari del GNOME no gestiona servidors intermediaris" \
+    393823 Crítica "L'edició del menú no funciona al GNOME 2.0"
+</code>
+
+
+    <figure>
+      <title>Exemple de diàleg de llista</title>
+      <desc>Exemple de diàleg de llista del <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-list-screenshot.png"/>
+    </figure>
+</page>

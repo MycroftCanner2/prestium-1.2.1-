@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="notification" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--notification</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Значок уведомления</title>
+    <p>Используйте параметр <cmd>--notification</cmd>, чтобы создать значок уведомления.</p>
+
+  <terms>
+    <item>
+      <title><cmd>--text</cmd>=<var>текст</var></title>
+      <p>Указывает текст, который будет изображён в области уведомления.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd>=icon: '<var>текст</var>', message: '<var>текст</var>', tooltip: '<var>текст</var>', visible: '<var>текст</var>',</title>
+      <p>Ожидает команды по стандартному вводу. Должна быть указана хотя бы одна команда. Команды следует отделять запятыми. После команды следует указывать двоеточие и значение.</p>
+      <note style="tip">
+        <p>Команда <cmd>icon</cmd> также принимает значение четырёх стандартных значков, таких как <var>error</var>, <var>info</var>, <var>question</var> и <var>warning</var>.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>Следующий сценарий является примером того, как создавать значок уведомлений:</p>
+  <code>
+  #!/bin/sh
+
+  zenity --notification\
+    --window-icon="info" \
+    --text="Необходимо обновить систему!"
+  </code>
+
+  <figure>
+    <title>Пример значка уведомления</title>
+    <desc>Пример значка уведомления <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-notification-screenshot.png"/>
+  </figure>
+
+  <p>Следующий сценарий является примером того, как создать значок уведомлений с <cmd>--listen</cmd>:</p>
+  <code>
+  #!/bin/sh
+  cat &lt;&lt;EOH| zenity --notification --listen
+  message: текст сообщения
+  EOH
+  </code>
+
+  <figure>
+    <title>Пример значка уведомления с <cmd>--listen</cmd></title>
+    <desc>Пример значка уведомления <app>Zenity</app> с <cmd>--listen</cmd></desc>
+    <media type="image" mime="image/png" src="figures/zenity-notification-listen-screenshot.png"/>
+  </figure>
+
+</page>

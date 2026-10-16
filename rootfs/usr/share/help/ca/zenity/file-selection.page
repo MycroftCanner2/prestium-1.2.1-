@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="file-selection" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--file-selection</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de selecció de fitxers</title>
+    <p>Utilitzeu l'opció <cmd>--file-selection</cmd> per a crear un diàleg de selecció de fitxers. El <app>Zenity</app> retorna els fitxers o directoris seleccionats a la sortida estàndard. El mode per defecte del diàleg de selecció de fitxers és obrir.</p>
+    <p>El diàleg de selecció de fitxers admet les opcions següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--filename</cmd>=<var>fitxer</var></title>
+	<p>Especifica el fitxer o directori que està seleccionat al diàleg de selecció de fitxers quan es mostra el diàleg per primer cop.</p>
+      </item>
+
+      <item>
+	<title><cmd>--multiple</cmd></title>
+	<p>Permet la selecció de diversos noms de fitxer al diàleg de selecció de fitxers.</p>
+      </item>
+
+      <item>
+	<title><cmd>--directory</cmd></title>
+	<p>Només permet la selecció de directoris al diàleg de selecció de fitxers.</p>
+      </item>
+
+      <item>
+	<title><cmd>--save</cmd></title>
+	<p>Estableix el diàleg de selecció de fitxers al mode de desar.</p>
+      </item>
+
+      <item>
+	<title><cmd>--separator</cmd>=<var>separator</var></title>
+	<p>Especifica la cadena que s'utilitza per a dividir la llista de noms de fitxers retornada.</p>
+      </item>
+
+    </terms>
+
+    <p>L'script d'exemple següent mostra com crear un diàleg de selecció de fitxers:</p>
+
+<code>
+#!/bin/sh
+
+FILE=`zenity --file-selection --title="Seleccioneu un fitxer"`
+
+case $? in
+         0)
+                echo "S'ha seleccionat \"$FILE\".";;
+         1)
+                echo "No s'ha seleccionat cap fitxer.";;
+         -1)
+                echo "S'ha produït un error inesperat.";;
+esac
+</code>
+
+    <figure>
+      <title>Exemple de diàleg de selecció de fitxers</title>
+      <desc>Exemple de diàleg de selecció de fitxers del <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-fileselection-screenshot.png"/>
+    </figure>
+</page>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="color-selection" xml:lang="eu">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Erabili <cmd>--color-selection</cmd> aukera.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Kolorea hautatzeko elkarrizketa-koadroa</title>
+  <p>Erabili <option>--color-selection</option> aukera kolorea hautatzeko elkarrizketa-koadroa sortzeko.</p>
+  <p>Kolorea hautatzeko elkarrizketa-koadroak aukera hauek onartzen ditu:</p>
+
+  <terms>
+
+    <item>
+      <title><cmd>--color</cmd>=<var>BALIOA</var></title>
+      <p>Ezarri hasierako kolorea.(ex: #FF0000)</p>
+    </item>
+
+    <item>
+      <title><cmd>--show-palette</cmd></title>
+      <p>Erakutsi paleta.</p>
+    </item>
+
+  </terms>
+
+  <p>Adibideko hurrengo scriptak erakusten du nola sortu kolorea hautatzeko elkarrizketa-koadroa:</p>
+
+<code>
+#!/bin/sh
+
+COLOR=`zenity --color-selection --show-palette`
+
+case $? in
+         0)
+		echo "$COLOR hautatu duzu.";;
+         1)
+                echo "Ez da kolorerik hautatu.";;
+        -1)
+                echo "Espero ez zen errorea gertatu da.";;
+esac
+</code>
+
+  <figure>
+    <title>Kolorea hautatzeko elkarrizketa-koadroaren adibidea</title>
+    <desc><app>Zenity</app> color selection dialog example</desc>
+    <media type="image" mime="image/png" src="figures/zenity-colorselection-screenshot.png"/>
+  </figure>
+
+</page>

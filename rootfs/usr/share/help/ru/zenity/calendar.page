@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="calendar" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--calendar</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно календаря</title>
+    <p>Используйте параметр <cmd>--calendar</cmd>, чтобы создать диалоговое окно с календарём. Zenity возвращает выбранную дату в стандартный поток вывода. Если в командной строке не указана дата, то диалоговое окно будет использовать текущую дату.</p>
+    <p>Диалоговое окно календаря поддерживает следующие параметры:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>текст</var></title>
+	<p>Указывает текст, который будет изображён в диалоговом окне календаря.</p>
+      </item>
+     	
+      <item>
+        <title><cmd>--day</cmd>=<var>день</var></title>
+	<p>Указывает день, который будет выделен в диалоговом окне календаря. День должен быть числом от 1 до 31 включительно.</p>
+      </item>
+
+      <item>
+        <title><cmd>--month</cmd>=<var>месяц</var></title>
+	<p>Указывает месяц, который будет выделен в диалоговом окне календаря. Месяц должен быть числом от 1 до 12 включительно.</p>
+      </item>
+
+      <item>
+        <title><cmd>--year</cmd>=<var>год</var></title>
+	<p>Указывает год, который будет выбран в диалоговом окне календаря.</p>
+      </item>
+
+      <item>
+        <title><cmd>--date-format</cmd>=<var>формат_даты</var></title>
+	<p>Указывает формат даты, в котором она будет возвращена после выбора из диалогового окна. Формат даты по умолчанию зависит от локали. Формат должен иметь вид, приемлемый для функции <cmd>strftime</cmd>, например <var>%A %d/%m/%y</var>.</p>
+      </item>
+
+    </terms>
+
+    <p>Следующий сценарий является примером того, как создавать диалоговое окно календаря:</p>
+
+<code>
+#!/bin/sh
+
+
+if zenity --calendar \
+--title="Выберите дату" \
+--text="Щёлкните на дате, чтобы выбрать её." \
+--day=10 --month=8 --year=2004
+  then echo $?
+  else echo "Дата не выбрана"
+fi
+</code>
+
+
+    <figure>
+      <title>Пример диалогового окна календаря</title>
+      <desc>Пример диалогового окна календаря Zenity</desc>
+      <media type="image" mime="image/png" src="figures/zenity-calendar-screenshot.png"/>
+   </figure>
+</page>

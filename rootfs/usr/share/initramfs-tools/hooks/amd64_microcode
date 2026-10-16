@@ -74,7 +74,7 @@ fi
 verbose "installing AMD64 microcode into the early initramfs..."
 
 # set during package build to the date from the package *version*
-CHANGELOG_TS=1576627200
+CHANGELOG_TS=1741651200
 
 EFWD=$(mktemp -d "${TMPDIR:-/var/tmp}/mkinitramfs-EFW_XXXXXXXXXX") || {
     echo "E: amd64-microcode: cannot create temporary directory" >&2

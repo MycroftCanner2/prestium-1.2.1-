@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="usage" xml:lang="uk">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Ви можете скористатися <app>Zenity</app> для створення простих діалогових вікон графічної взаємодії з користувачем.</desc>
+  <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+</info>
+<title>Використання</title>
+    <p>Коли ви пишете сценарій, можете використовувати <app>Zenity</app> для створення простих діалогових вікон графічної взаємодії з користувачем, а саме:</p>
+    <list>
+      <item>
+        <p>Можна створити діалогове вікно для отримання інформації від користувача. Наприклад, можна спитати у користувача дату у діалоговому вікні календаря, або вибрати файл у вікні вибору файлів.</p>
+      </item>
+      <item>
+        <p>Можна створити діалогове вікно для виводу інформації користувачу. Наприклад, можна створити діалогове вікно з індикатором поступу поточної операції, або вивести попереджувальне повідомлення.</p>
+      </item>
+    </list>
+    <p>Коли користувач закриває вікно, <app>Zenity</app> виводить створений діалоговим вікном текст у стандартний потік виводу.</p>
+
+    <note>
+      <p>Коли ви пишете команди <app>Zenity</app>, перевірте, що ви ставите лапки навколо кожного аргументу.</p>
+      <p>Наприклад, використовуйте:</p>
+      <screen>zenity --calendar --title="Планувальник вихідних"</screen>
+      <p>Не використовуйте:</p>
+      <screen>zenity --calendar --title=Планувальник вихідних</screen>
+      <p>Якщо ви пропустите липки можете отримати несподіваний результат.</p>
+    </note>
+
+    <section id="zenity-usage-mnemonics">
+      <title>Комбінації клавіш</title>
+	<p>Клавіші доступу - клавіші, які дозволяють виконати дію з клавіатури, а не через вибір команд мишею. Кожен символ, що утворює комбінацію виділяється підкресленням у меню чи вікні. </p>
+	<p>У деяких вікнах <app>Zenity</app> передбачено підтримку клавіатурних скорочень. Щоб вказати, що символ використовується для комбінації клавіш, вставте перед ним символ підкреслення. У наступному прикладі показано, як це зробити для літери «В»:</p>
+	<screen><input>"_Виберіть ім'я".</input></screen>
+    </section>
+
+    <section id="zenity-usage-exitcodes">
+      <title>Коди завершення</title>
+    <p>Zenity повертає наступні коди завершення:</p>
+
+    <table frame="all" rules="all">
+        <thead>
+          <tr>
+            <td>
+              <p>Код завершення</p></td>
+            <td>
+              <p>Опис</p></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p><var>0</var></p>
+            </td>
+            <td>
+              <p>Користувач натиснув <gui style="button">Гаразд</gui> або <gui style="button">Закрити</gui>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><var>1</var></p>
+            </td>
+            <td>
+              <p>Користувач або натиснув <gui style="button">Скасувати</gui>, або закрив вікно, використовуючи кнопку вікна.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><var>-1</var></p>
+            </td>
+            <td>
+              <p>Несподівана помилка.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><var>5</var></p>
+            </td>
+            <td>
+              <p>Вікно закрито через вичерпання часу очікування.</p>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+    </section>
+
+
+  <!-- ==== General Options ====== -->
+
+  <section id="zenity-usage-general-options">
+    <title>Загальні параметри</title>
+
+    <p>У всіх вікнах Zenity передбачено підтримку таких загальних параметрів:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--title</cmd>=<var>заголовок</var></title>
+	<p>Вказує заголовок діалогового вікна.</p>
+      </item>
+
+      <item>
+        <title><cmd>--window-icon</cmd>=<var>шлях_до_піктограми</var></title>
+	<p>Вказує значок, який буде показано у рамці діалогового вікна. Є 4 вбудовані значки, які вказуються ключовими словами «info», «warning», «question» та «error».</p>
+      </item>
+
+      <item>
+        <title><cmd>--width</cmd>=<var>ширина</var></title>
+	<p>Вказує ширину вікна.</p>
+      </item>
+
+      <item>
+        <title><cmd>--height</cmd>=<var>висота</var></title>
+	<p>Вказує висоту вікна.</p>
+      </item>
+
+      <item>
+        <title><cmd>--timeout</cmd>=<var>час_очікування</var></title>
+	<p>Вказує час очікування у секундах, після якого діалогове вікно буде закрите.</p>
+      </item>
+
+    </terms>
+
+  </section>
+
+<!-- ==== Miscellaneous Options ====== -->
+
+  <section id="zenity-help-options">
+    <title>Параметри довідки</title>
+
+    <p>У Zenity передбачено такі параметри довідки:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--help</cmd></title>
+	<p>Показує коротку довідку.</p>
+      </item>
+
+      <item>
+        <title><cmd>--help-all</cmd></title>
+	<p>Показує повну довідку з усіх вікон.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-general</cmd></title>
+	<p>Показує довідку із загальних параметрів вікон.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-calendar</cmd></title>
+	<p>Показує довідку про параметри вікна календаря.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-entry</cmd></title>
+	<p>Показує довідку про параметри вікна вводу тексту.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-error</cmd></title>
+	<p>Показує довідку про параметри вікна сповіщення про помилку.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-info</cmd></title>
+	<p>Показує довідку про параметри вікна з інформацією.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-file-selection</cmd></title>
+	<p>Показує довідку про параметри вікна вибору файлів.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-list</cmd></title>
+	<p>Показує довідку про параметри вікна списку.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-notification</cmd></title>
+	<p>Показує довідку про параметри значка в області сповіщення.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-progress</cmd></title>
+	<p>Показує довідку про параметри вікна поступу.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-question</cmd></title>
+	<p>Показує довідку про параметри вікна запитання.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-warning</cmd></title>
+	<p>Показує довідку про параметри вікна попередження.</p>
+      </item>
+ 
+      <item>
+	<title><cmd>--help-text-info</cmd></title>
+	<p>Показує довідку про параметри вікна інформаційного тексту.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-misc</cmd></title>
+	<p>Показує довідку про різні параметри.</p>
+      </item>
+ 
+      <item>
+        <title><cmd>--help-gtk</cmd></title>
+	<p>Показує довідку про параметри GTK+.</p>
+      </item>
+ 
+    </terms>
+
+  </section>
+
+<!-- ==== Miscellaneous Options ====== -->
+
+  <section id="zenity-miscellaneous-options">
+    <title>Інші параметри</title>
+
+    <p>Крім того, Zenity має наступні інші параметри:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--about</cmd></title>
+	<p>Показує діалогове вікно <gui>Про Zenity</gui>, яке містить інформацію про версію Zenity, авторські права та інформацію про розробників.</p>
+      </item>
+
+      <item>
+        <title><cmd>--version</cmd></title>
+	<p>Показує номер версії програми Zenity.</p>
+      </item>
+
+    </terms>
+
+  </section>
+
+<!-- ==== GTK+ Options ====== -->
+
+  <section id="zenity-gtk-options">
+    <title>Параметри GTK+</title>
+
+    <p>У Zenity передбачено підтримку стандартних параметрів GTK+. Докладніше про параметри GTK+, можна дізнатись виконавши <cmd>zenity --help-gtk</cmd>.</p>
+
+  </section>
+
+<!-- ==== Environment variables ==== -->
+
+  <section id="zenity-environment-variables">
+    <title>Змінні оточення</title>
+
+    <p>Звичайно, Zenity визначає вікно термінала, з якого її запущено та тримає своє вікно над вікном термінала. Цю поведінку можна вимкнути, знявши змінну оточення <var>WINDOWID</var>.</p>
+
+  </section>
+</page>

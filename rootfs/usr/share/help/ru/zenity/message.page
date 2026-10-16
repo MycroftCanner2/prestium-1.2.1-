@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="message" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs" group="message"/>
+    <desc><link xref="error">Ошибка</link>, <link xref="info">Информация</link>, <link xref="question">Вопрос</link>, <link xref="warning">Предупреждение</link></desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно сообщения</title>
+  <p>Для каждого типа используйте параметр <cmd>--text</cmd>, чтобы задать текст в диалоге.</p>
+  <links type="topic" style="2column"/>
+</page>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="color-selection" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--color-selection</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно выбора цвета</title>
+  <p>Используйте параметр <cmd>--color-selection</cmd>, чтобы создать диалоговое окно выбора цвета.</p>
+  <p>Диалоговое окно выбора цвета поддерживает следующие параметры:</p>
+
+  <terms>
+
+    <item>
+      <title><cmd>--color</cmd>=<var>ЗНАЧЕНИЕ</var></title>
+      <p>Устанавливает начальный цвет (например, #FF0000)</p>
+    </item>
+
+    <item>
+      <title><cmd>--show-palette</cmd></title>
+      <p>Отображает палитру.</p>
+    </item>
+
+  </terms>
+
+  <p>Следующий сценарий является примером того, как создавать диалоговое окно выбора цвета:</p>
+
+<code>
+#!/bin/sh
+
+COLOR=`zenity --color-selection --show-palette`
+
+case $? in
+         0)
+		echo "Вы выбрали $COLOR.";;
+         1)
+                echo "Цвет не выбран.";;
+        -1)
+                echo "Возникла непредвиденная ошибка.";;
+esac
+</code>
+
+  <figure>
+    <title>Пример диалогового окна выбора цвета</title>
+    <desc>Пример диалогового окна выбора цвета <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-colorselection-screenshot.png"/>
+  </figure>
+
+</page>

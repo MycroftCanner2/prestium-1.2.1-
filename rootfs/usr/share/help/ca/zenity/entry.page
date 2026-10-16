@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="entry" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--entry</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg d'entrada de text</title>
+    <p>Utilitzeu l'opció <cmd>-entry</cmd> per a crear un diàleg d'entrada de text. El <app>Zenity</app> retorna el contingut de l'entrada de text a la sortida estàndard.</p>	
+    <p>El diàleg d'entrada de text admet les opcions següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>text</var></title>
+	<p>Especifica el text que es mostra al diàleg d'entrada de text.</p>
+      </item>
+
+      <item>
+        <title><cmd>--entry-text</cmd>=<var>text</var></title>
+	<p>Especifica el text que es mostra al camp d'entrada del diàleg d'entrada de text.</p>
+      </item>
+
+      <item>
+        <title><cmd>--hide-text</cmd></title>
+	<p>Amaga el text del camp d'entrada del diàleg d'entrada de text.</p>
+      </item>
+
+    </terms>
+
+    <p>L'script d'exemple següent mostra com crear un diàleg d'entrada de text:</p>
+
+<code>
+#!/bin/sh
+
+if zenity --entry \
+--title="Afegeix un perfil nou" \
+--text="Introduïu el nom del perfil nou:" \
+--entry-text "PerfilNou" \
+  then echo $?
+  else echo "No s'ha introduït cap nom"
+fi
+</code>
+
+
+    <figure>
+      <title>Exemple de diàleg d'entrada de text</title>
+      <desc>Exemple de diàleg d'entrada de text del <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-entry-screenshot.png"/>
+    </figure>
+</page>

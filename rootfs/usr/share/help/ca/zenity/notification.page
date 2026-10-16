@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="notification" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--notification</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Icona de notificació</title>
+    <p>Utilitzeu l'opció <cmd>--notification</cmd> per a crear una icona de notificació.</p>
+
+  <terms>
+    <item>
+      <title><cmd>--text</cmd>=<var>text</var></title>
+      <p>Especifica el text que es mostra a l'àrea de notificació.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd>=icon: '<var>text</var>', message: '<var>text</var>', tooltip: '<var>text</var>', visible: '<var>text</var>',</title>
+      <p>Escolta ordres a l'entrada estàndard. Cal especificar com a mínim una ordre. Les ordres van separades per comes. Una ordre ha d'anar seguida per dos punts i un valor.</p>
+      <note style="tip">
+        <p>L'ordre <cmd>icon</cmd> també accepta quatre valors d'icona d'estoc com ara <var>error</var>, <var>informació</var>, <var>pregunta</var> i <var>avís</var>.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>L'script d'exemple següent mostra com crear una icona de notificació:</p>
+  <code>
+  #!/bin/sh
+
+  zenity --notification\
+    --window-icon="informació" \
+    --text="Hi ha actualitzacions necessàries per al sistema."
+  </code>
+
+  <figure>
+    <title>Exemple d'icona de notificació</title>
+    <desc>Exemple d'icona de notificació del <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-notification-screenshot.png"/>
+  </figure>
+
+  <p>L'script d'exemple següent mostra com crear una icona de notificació juntament amb <cmd>--listen</cmd>:</p>
+  <code>
+  #!/bin/sh
+  cat &lt;&lt;EOH| zenity --notification --listen
+  message: aquest és el text del missatge
+  EOH
+  </code>
+
+  <figure>
+    <title>Exemple d'icona de notificació amb <cmd>--listen</cmd></title>
+    <desc>Exemple de notificació del <app>Zenity</app> amb <cmd>--listen</cmd></desc>
+    <media type="image" mime="image/png" src="figures/zenity-notification-listen-screenshot.png"/>
+  </figure>
+
+</page>

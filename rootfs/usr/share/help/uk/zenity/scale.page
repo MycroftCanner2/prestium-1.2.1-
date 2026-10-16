@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="scale" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--scale</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно шкали</title>
+  <p>Використання параметра <cmd>--scale</cmd> для створення вікна шкали.</p>
+  <p>У вікні шкали передбачено підтримку таких параметрів:</p>
+
+  <terms>
+
+    <item>
+      <title><cmd>--text</cmd>=<var>ТЕКСТ</var></title>
+      <p>Встановити текст діалогового вікна (типовим є «Adjust the scale value»)</p>
+    </item>
+
+    <item>
+      <title><cmd>--value</cmd>=<var>ЗНАЧЕННЯ</var></title>
+      <p>Встановити початкове значення (типовим є 0). Вам слід вказати значення між мінімальним і максимальним.</p>
+    </item>
+
+    <item>
+      <title><cmd>--min-value</cmd>=<var>ЗНАЧЕННЯ</var></title>
+      <p>Встановити мінімальне значення (типовим є 0).</p>
+    </item>
+
+    <item>
+      <title><cmd>--max-value</cmd>=<var>ЗНАЧЕННЯ</var></title>
+      <p>Встановити максимальне значення (типовим є 100)</p>
+    </item>
+
+    <item>
+      <title><cmd>--step</cmd>=<var>ЗНАЧЕННЯ</var></title>
+      <p>Встановити розмір кроку (типовим є 1).</p>
+    </item>
+
+    <item>
+      <title><cmd>--print-partial</cmd></title>
+      <p>Виводити значення до стандартного виведення кожного разу, коли значення змінюється.</p>
+    </item>
+
+    <item>
+      <title><cmd>--hide-value</cmd></title>
+      <p>Сховати значення у діалоговому вікні.</p>
+    </item>
+
+  </terms>
+
+  <p>У наступному прикладі сценарію показано створення вікна шкали:</p>
+
+<code>
+#!/bin/sh
+
+VALUE=`zenity --scale --text="Виберіть прозорість вікна." --value=50`
+
+case $? in
+         0)
+		echo "Вами вибрано $VALUE%.";;
+         1)
+                echo "Значення не вибрано.";;
+        -1)
+                echo "Сталася неочікувана помилка.";;
+esac
+</code>
+
+  <figure>
+    <title>Приклад вікна шкали</title>
+    <desc>Приклад вікна шкали <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-scale-screenshot.png"/>
+  </figure>
+
+</page>

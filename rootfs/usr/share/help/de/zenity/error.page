@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="error" xml:lang="de">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Die Option <cmd>--error</cmd> verwenden.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Christian Kirbach</mal:name>
+      <mal:email>Christian.Kirbach@gmail.com</mal:email>
+      <mal:years>2012, 2019</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Tim Sabsch</mal:name>
+      <mal:email>tim@sabsch.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Fehlerdialog</title>
+      <p>Verwenden Sie die Option <cmd>--error</cmd>, um einen Fehlerdialog zu erzeugen.</p>
+
+      <p>Das folgende Beispielskript zeigt, wie Sie einen Fehlerdialog erzeugen:</p>
+
+<code>
+#!/bin/bash
+
+zenity --error \
+--text="/var/log/syslog wurde nicht gefunden."
+</code>
+
+
+      <figure>
+        <title>Beispiel für einen Fehlerdialog</title>
+        <desc>Beispiel für einen Fehlerdialog in <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-error-screenshot.png"/>
+      </figure>
+</page>

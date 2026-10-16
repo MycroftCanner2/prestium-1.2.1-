@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="text" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--text-info</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de text informatiu</title>
+    <p>Utilitzeu l'opció <cmd>--text-info</cmd> per a crear un diàleg de text informatiu.</p>
+	
+    <p>El diàleg de text informatiu admet les opcions següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--filename</cmd>=<var>fitxer</var></title>
+	<p>Especifica el fitxer que es carrega al diàleg de text informatiu.</p>
+      </item>
+
+      <item>
+        <title><cmd>--editable</cmd></title>
+        <p>Permet que el text mostrat es pugui editar. El text editat es retorna a la sortida estàndard quan es tanca el diàleg.</p>
+      </item>
+
+      <item>
+        <title><cmd>--font</cmd>=<var>LLETRA</var></title>
+	<p>Especifica el tipus de lletra del text.</p>
+      </item>
+
+      <item>
+        <title><cmd>--checkbox</cmd>=<var>TEXT</var></title>
+	<p>Activeu una casella de selecció com ara «Llegeixo i accepto els termes».</p>
+      </item>
+
+      <item>
+        <title><cmd>--html</cmd></title>
+        <p>Habiliteu el suport HTML.</p>
+      </item>
+
+      <item>
+        <title><cmd>--url</cmd>=<var>URL</var></title>
+	<p>Estableix un URL en lloc d'un fitxer. Només funciona si utilitzeu l'opció --html.</p>
+      </item>
+
+    </terms>
+
+    <p>L'script d'exemple següent mostra com crear un diàleg de text informatiu:</p>
+
+<code>
+#!/bin/sh
+
+# Heu de col·locar el fitxer «COPYING» a la mateixa carpeta que aquest script.
+FILE=`dirname $0`/COPYING
+
+zenity --text-info \
+       --title="Llicència" \
+       --filename=$FILE \
+       --checkbox="He llegit i accepto les condicions."
+
+case $? in
+    0)
+        echo "Inicia la instal·lació."
+	# pas següent
+	;;
+    1)
+        echo "Atura la instal·lació."
+	;;
+    -1)
+        echo "S'ha produït un error inesperat."
+	;;
+esac
+</code>
+
+    <figure>
+      <title>Exemple de diàleg de text informatiu</title>
+      <desc>Exemple de diàleg de text informatiu del <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-text-screenshot.png"/>
+    </figure>
+</page>

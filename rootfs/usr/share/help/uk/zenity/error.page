@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="error" xml:lang="uk">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Використання параметра <cmd>--error</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Вікно помилки</title>
+      <p>Для створення вікна помилки скористайтеся <cmd>--error</cmd>.</p>
+
+      <p>У наступному сценарії продемонстровано створення вікна помилки:</p>
+
+<code>
+#!/bin/bash
+
+zenity --error \
+--text="Не вдається знайти /var/log/syslog."
+</code>
+
+
+      <figure>
+        <title>Приклад вікна помилки</title>
+        <desc>Приклад вікна помилки <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-error-screenshot.png"/>
+      </figure>
+</page>

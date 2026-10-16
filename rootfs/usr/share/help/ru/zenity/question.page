@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="question" xml:lang="ru">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Использование параметра <cmd>--question</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно вопроса</title>
+      <p>Используйте параметр <cmd>--question</cmd>, чтобы создать диалоговое окно вопроса.</p>
+
+      <p>Следующий сценарий является примером того, как создавать диалоговое окно вопроса:</p>
+
+<code>
+#!/bin/bash
+
+zenity --question \
+--text="Вы уверены, что хотите продолжить?"
+</code>
+
+
+      <figure>
+        <title>Пример диалогового окна вопроса</title>
+	<desc>Пример диалогового окна вопроса <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-question-screenshot.png"/>
+      </figure>
+</page>

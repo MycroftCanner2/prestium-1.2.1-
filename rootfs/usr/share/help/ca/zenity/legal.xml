@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<license xmlns="http://projectmallard.org/1.0/" href="https://www.gnu.org/licenses/old-licenses/fdl-1.1.txt">
+
+  <p>Aquesta obra està llicenciada sota una <link href="https://www.gnu.org/licenses/old-licenses/fdl-1.1.txt">Llicència de documentació lliure de GNU versió 1.1</link> o qualsevol versió posterior.</p>
+
+	<p>Teniu permís per a copiar, distribuir i/o modificar aquest document sota els termes de la Llicència de documentació lliure GNU (GFDL) versió 1.1 o qualsevol versió publicada posteriorment per la Free Software Foundation sense seccions invariants, texts de portada ni texts de contraportada. Podeu trobar una còpia de la GFDL en aquest <link href="https://www.gnu.org/licenses/old-licenses/fdl-1.1.txt">enllaç</link>.</p>
+         <p>Aquest manual forma part d'una col·lecció de manuals del GNOME distribuïts sota la GFDL. Si voleu distribuir aquest manual independentment de la col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal com es descriu a la secció 6 de la llicència.</p>
+
+	<p>Molts dels noms que les empreses utilitzen per a distingir els seus productes i serveis es consideren marques comercials. Quan aquests noms apareguin en qualsevol documentació del GNOME, si els membres del Projecte de documentació del GNOME han estat avisats pel que fa a les marques, els noms apareixeran en majúscules o amb les inicials en majúscules.</p>
+
+	<p>EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT ES FACILITEN SOTA ELS TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE:</p>
+	<list>
+		<item>
+		  <p>EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; I</p>
+		</item>
+		<item>
+		  <p>EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT (INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS.</p>
+		</item>
+	  </list>
+</license>

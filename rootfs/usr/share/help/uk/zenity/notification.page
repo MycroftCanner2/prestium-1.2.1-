@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="notification" xml:lang="uk">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Використання параметра <cmd>--notification</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+  <title>Значок області сповіщення</title>
+    <p>Для створення піктограми області сповіщення скористайтеся параметром <cmd>--notification</cmd>.</p>
+
+  <terms>
+    <item>
+      <title><cmd>--text</cmd>=<var>текст</var></title>
+      <p>Вказує текст, який буде показано у області сповіщення.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd>=icon: '<var>текст</var>', message: '<var>текст</var>', tooltip: '<var>текст</var>', visible: '<var>текст</var>',</title>
+      <p>Очікує команди зі стандартного введення. Має бути вказано принаймні одну команду. Команди слід відокремлювати комами. Після команди слід вказувати двокрапку і значення.</p>
+      <note style="tip">
+        <p>Команда <cmd>icon</cmd> також приймає значення чотирьох типових піктограм, зокрема <var>error</var>, <var>info</var>, <var>question</var> and <var>warning</var>.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>У наступному прикладі показано створення піктограми області сповіщення:</p>
+  <code>
+#!/bin/sh
+
+  zenity --notification\
+    --window-icon="info" \
+    --text="Є необхідні оновлення для системи!"
+  </code>
+
+  <figure>
+    <title>Приклад значка області сповіщення</title>
+    <desc>Приклад піктограми області сповіщення <app>Zenity</app></desc>
+    <media type="image" mime="image/png" src="figures/zenity-notification-screenshot.png"/>
+  </figure>
+
+  <p>У наступному прикладі показано створення значка області сповіщення за допомогою параметра <cmd>--listen</cmd>:</p>
+  <code>
+  #!/bin/sh
+  cat &lt;&lt;EOH| zenity --notification --listen
+  message: це текст повідомлення
+  EOH
+  </code>
+
+  <figure>
+    <title>Приклад створення значка області сповіщення за допомогою <cmd>--listen</cmd></title>
+    <desc>Сповіщення <app>Zenity</app> із прикладом <cmd>--listen</cmd></desc>
+    <media type="image" mime="image/png" src="figures/zenity-notification-listen-screenshot.png"/>
+  </figure>
+
+</page>

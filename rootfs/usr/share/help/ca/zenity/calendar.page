@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="calendar" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--calendar</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de calendari</title>
+    <p>Utilitzeu l'opció <cmd>--calendar</cmd> per a crear un diàleg de calendari. El Zenity retorna la data seleccionada a la sortida estàndard. Si no s'especifica cap data a la línia d'ordres, el diàleg utilitza la data actual.</p>
+    <p>El diàleg de calendari admet les opcions següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>text</var></title>
+	<p>Especifica el text que es mostra al diàleg del calendari.</p>
+      </item>
+     	
+      <item>
+        <title><cmd>--day</cmd>=<var>dia</var></title>
+	<p>Especifica el dia seleccionat al diàleg del calendari. El dia ha de ser un nombre entre l'1 i el 31 inclosos.</p>
+      </item>
+
+      <item>
+        <title><cmd>--month</cmd>=<var>mes</var></title>
+	<p>Especifica el mes seleccionat al diàleg del calendari. El mes ha de ser un nombre entre l'1 i el 12 inclosos.</p>
+      </item>
+
+      <item>
+        <title><cmd>--year</cmd>=<var>any</var></title>
+	<p>Especifica l'any que hi ha seleccionat al diàleg del calendari.</p>
+      </item>
+
+      <item>
+        <title><cmd>--date-format</cmd>=<var>format</var></title>
+	<p>Especifica el format que es retorna des del diàleg del calendari després de seleccionar la data. El format predeterminat depèn de la configuració regional. El format ha de ser un format acceptable per la funció <cmd>strftime</cmd>, per exemple: <var>%A %d/%m/%y</var>.</p>
+      </item>
+
+    </terms>
+
+    <p>L'script d'exemple següent mostra com crear un diàleg de calendari:</p>
+
+<code>
+#!/bin/sh
+
+
+if zenity --calendar \
+--title="Seleccioneu una data" \
+--text="Feu clic en una data per a seleccionar-la." \
+--day=10 --month=8 --year=2004
+  then echo $?
+  else echo "No s'ha seleccionat cap data"
+fi
+</code>
+
+
+    <figure>
+      <title>Exemple de diàleg de calendari</title>
+      <desc>Exemple de diàleg de calendari del Zenity</desc>
+      <media type="image" mime="image/png" src="figures/zenity-calendar-screenshot.png"/>
+   </figure>
+</page>

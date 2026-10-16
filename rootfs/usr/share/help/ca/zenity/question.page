@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="question" xml:lang="ca">
+  <info>
+    <link type="guide" xref="message"/>
+    <desc>Utilitzeu l'opció <cmd>--question</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de pregunta</title>
+      <p>Utilitzeu l'opció <cmd>--question</cmd> per a crear un diàleg de pregunta.</p>
+
+      <p>L'script d'exemple següent mostra com crear un diàleg de pregunta:</p>
+
+<code>
+#!/bin/bash
+
+zenity --question \
+--text="Segur que voleu continuar?"
+</code>
+
+
+      <figure>
+        <title>Exemple de diàleg de pregunta</title>
+	<desc>Exemple de diàleg de pregunta del <app>Zenity</app></desc>
+        <media type="image" mime="image/png" src="figures/zenity-question-screenshot.png"/>
+      </figure>
+</page>

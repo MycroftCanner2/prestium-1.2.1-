@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="forms" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--forms</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно форм</title>
+    <p>Используйте параметр <cmd>--forms</cmd>, чтобы создать диалоговое окно форм.</p>
+	
+    <p>Диалоговое окно форм поддерживает следующие параметры:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--add-entry</cmd>=<var>FieldName</var></title>
+	<p>Добавляет новую запись в диалоговое окно форм.</p>
+      </item>
+
+      <item>
+        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+	<p>Добавляет новое поле ввода пароля в диалоговое окно форм. (Скрытый текст)</p>
+      </item>
+
+      <item>
+        <title><cmd>--add-calendar</cmd>=<var>FieldName</var></title>
+	<p>Добавляет новый календарь в диалоговое окно форм.</p>
+      </item>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>ТЕКСТ</var></title>
+	<p>Задаёт текст диалогового окна.</p>
+      </item>
+
+      <item>
+        <title><cmd>--separator</cmd>=<var>РАЗДЕЛИТЕЛЬ</var></title>
+	<p>Задаёт символ-разделитель выводимых данных. (По умолчанию: | )</p>
+      </item>
+
+      <item>
+        <title><cmd>--forms-date-format</cmd>=<var>ШАБЛОН</var></title>
+	<p>Указывает формат даты, в котором она будет возвращена после выбора из диалогового окна. Формат даты по умолчанию зависит от локали. Формат должен иметь вид, приемлемый для функции <cmd>strftime</cmd>, например <var>%A %d/%m/%y</var>.</p>
+      </item>
+
+    </terms>
+
+    <p>Следующий сценарий является примером того, как можно создавать диалоговое окно форм:</p>
+
+<code>
+#!/bin/sh
+
+zenity --forms --title="Add Friend" \
+	--text="Enter information about your friend." \
+	--separator="," \
+	--add-entry="First Name" \
+	--add-entry="Family Name" \
+	--add-entry="Email" \
+	--add-calendar="Birthday" &gt;&gt; addr.csv
+
+case $? in
+    0)
+        echo "Друг добавлен.";;
+    1)
+        echo "Друг не добавлен."
+	;;
+    -1)
+        echo "Возникла непредвиденная ошибка."
+	;;
+esac
+</code>
+
+    <figure>
+      <title>Пример диалогового окна форм</title>
+      <desc>Пример диалогового окна форм <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-forms-screenshot.png"/>
+    </figure>
+</page>

@@ -3,6 +3,15 @@
 .\" This is tested by pic.
 .nr 0p 0
 .
+.\" for forward compatibility with a groff 1.23 feature
+.if !r .cp \{\
+.  \" Construct an equivalent of groff 1.23's .cp register.  Any
+.  \" unlikely two-character register name will do.
+.  nr }{ \n(.C
+.  do nr .cp \n(}{
+.  rr }{
+.\}
+.
 .\" Load composite mappings.
 .do mso composite.tmac
 .

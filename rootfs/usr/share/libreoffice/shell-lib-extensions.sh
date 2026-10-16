@@ -6,5 +6,7 @@ validate_extensions() {
 }
 
 make_lo_sync_extensions() {
-	touch /usr/lib/libreoffice/share/extensions
+	if [ -d /usr/lib/libreoffice/share/extensions ]; then
+		touch /usr/lib/libreoffice/share/extensions
+	fi
 }

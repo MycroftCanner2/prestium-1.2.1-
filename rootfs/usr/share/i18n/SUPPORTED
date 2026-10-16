@@ -76,6 +76,7 @@ brx_IN UTF-8
 bs_BA.UTF-8 UTF-8
 bs_BA ISO-8859-2
 byn_ER UTF-8
+C.UTF-8 UTF-8
 ca_AD.UTF-8 UTF-8
 ca_AD ISO-8859-15
 ca_ES.UTF-8 UTF-8
@@ -88,6 +89,7 @@ ca_IT.UTF-8 UTF-8
 ca_IT ISO-8859-15
 ce_RU UTF-8
 chr_US UTF-8
+ckb_IQ UTF-8
 cmn_TW UTF-8
 crh_UA UTF-8
 cs_CZ.UTF-8 UTF-8
@@ -380,6 +382,7 @@ pt_PT ISO-8859-1
 pt_PT@euro ISO-8859-15
 quz_PE UTF-8
 raj_IN UTF-8
+rif_MA UTF-8
 ro_RO.UTF-8 UTF-8
 ro_RO ISO-8859-2
 ru_RU.UTF-8 UTF-8
@@ -430,6 +433,7 @@ sv_SE ISO-8859-1
 sv_SE.ISO-8859-15 ISO-8859-15
 sw_KE UTF-8
 sw_TZ UTF-8
+syr UTF-8
 szl_PL UTF-8
 ta_IN UTF-8
 ta_LK UTF-8

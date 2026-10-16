@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="list" xml:lang="ru">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Использование параметра <cmd>--list</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Deshko Yury</mal:name>
+      <mal:email>deshko@tut.by</mal:email>
+      <mal:years>2007</mal:years>
+    </mal:credit>
+  </info>
+  <title>Диалоговое окно списка</title>
+    <p>Используйте параметр <cmd>--list</cmd>, чтобы создать диалоговое окно списка. <app>Zenity</app> возвращает элементы первого столбца текста из выбранных строк в стандартный поток вывода.</p>
+
+    <p>Данные для этого диалогового окна должны указываться столбец за столбцом, строка за строкой. Данные могут быть поданы диалоговому окну через стандартный ввод. Каждая запись должна быть отделена символом новой строки.</p>
+
+    <p>Если вы используете параметр <cmd>--checklist</cmd> или <cmd>--radiolist</cmd>, каждая строка должна начинаться либо с TRUE, либо с FALSE.</p>
+
+    <p>Диалоговое окно списка поддерживает следующие параметры:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--column</cmd>=<var>столбец</var></title>
+	  <p>Указывает заголовки столбцов, которые будут изображены в диалоговом окне списка. Вы должны указать параметр <cmd>--column</cmd> для каждого столбца, который вы хотите отобразить в диалоговом окне.</p>
+      </item>
+
+      <item>
+        <title><cmd>--checklist</cmd></title>
+	  <p>Указывает, что первый столбец в диалоговом окне списка содержит флажки.</p>
+      </item>
+
+      <item>
+        <title><cmd>--radiolist</cmd></title>
+	  <p>Указывает, что первый столбец в диалоговом окне содержит поля выбора.</p>
+      </item>
+
+      <item>
+        <title><cmd>--editable</cmd></title>
+	  <p>Позволяет редактирование отображаемых элементов.</p>
+      </item>
+
+      <item>
+        <title><cmd>--separator</cmd>=<var>разделитель</var></title>
+	  <p>Указывает строку-разделитель, используемую, когда диалоговое окно возвращает выбранные элементы.</p>
+      </item>
+
+      <item>
+        <title><cmd>--print-column</cmd>=<var>столбец</var></title>
+	  <p>Указывает, какой столбец нужно вывести при выборе элемента. По умолчания это 1-й столбец. Можно использовать ALL, чтобы вывести все столбцы из списка.</p>
+      </item>
+
+    </terms>
+
+    <p>Следующий сценарий является примером того, как создавать диалоговое окно списка:</p>
+<code>
+#!/bin/sh
+
+zenity --list \
+  --title="Выберите ошибки, которые Вы хотите просмотреть" \
+  --column="Номер ошибки" --column="Критичность" --column="Описание" \
+    992383 Normal "GtkTreeView падает при множественном выборе" \
+    293823 High "Словарь GNOME не умеет обращаться с прокси" \
+    393823 Critical "Редактирование Меню не работает в GNOME 2.0"
+</code>
+
+
+    <figure>
+      <title>Пример диалогового окна списка</title>
+      <desc>Пример диалогового окна списка <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-list-screenshot.png"/>
+    </figure>
+</page>

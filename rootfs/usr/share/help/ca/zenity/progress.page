@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="progress" xml:lang="ca">
+  <info>
+    <link type="guide" xref="index#dialogs"/>
+    <desc>Utilitzeu l'opció <cmd>--progress</cmd>.</desc>
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Joan Duran</mal:name>
+      <mal:email>jodufi@gmail.com</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Miquel-Àngel Burgos i Fradeja</mal:name>
+      <mal:email>miquel.angel.burgos@gmail.com</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  <title>Diàleg de progrés</title>
+    <p>Utilitzeu l'opció <cmd>--progress</cmd> per a crear un diàleg de progrés.</p>
+
+    <p>El <app>Zenity</app> llegeix les dades de l'entrada estàndard línia per línia. Si una línia conté el prefix #, el text s'actualitza amb el text de la línia. Si una línia només conté un nombre, el percentatge s'actualitza amb aquest nombre.</p>
+	
+    <p>El diàleg de progrés admet les opcions següents:</p>
+
+    <terms>
+
+      <item>
+        <title><cmd>--text</cmd>=<var>text</var></title>
+	  <p>Especifica el text que es mostrarà al diàleg de progrés.</p>
+      </item>
+
+      <item>
+        <title><cmd>--percentage</cmd>=<var>percentatge</var></title>
+	  <p>Especifica el percentatge inicial que s'estableix al diàleg de progrés.</p>
+      </item>
+
+      <item>
+	<title><cmd>--auto-close</cmd></title>
+	  <p>Tanca el diàleg de progrés quan s'arribi al 100%.</p>
+      </item>
+
+      <item>
+        <title><cmd>--pulsate</cmd></title>
+	  <p>Especifica que la barra de progrés parpellegi fins que es llegeixi un caràcter EOF (final de fitxer) de l'entrada estàndard.</p>
+      </item>
+
+    </terms>
+
+    <p>L'script d'exemple següent mostra com crear un diàleg de progrés:</p>
+
+<code>
+#!/bin/sh
+(
+echo "10" ; sleep 1
+echo "# S'estan actualitzant els registres del correu" ; sleep 1
+echo "20" ; sleep 1
+echo "# S'estan reiniciant les tasques del cron" ; sleep 1
+echo "50" ; sleep 1
+echo "Aquesta línia s'ignorarà" ; sleep 1
+echo "75" ; sleep 1
+echo "# S'està reiniciant el sistema" ; sleep 1
+echo "100" ; sleep 1
+) |
+zenity --progress \
+  --title="Actualització dels registres del sistema" \
+  --text="Comprovació dels registres del sistema..." \
+  --percentage=0
+
+if [ "$?" = -1 ] ; then
+        zenity --error \
+          --text="Actualització cancel·lada."
+fi
+</code>
+
+
+    <figure>
+      <title>Exemple de diàleg de progrés</title>
+      <desc>Exemple de diàleg de progrés del <app>Zenity</app></desc>
+      <media type="image" mime="image/png" src="figures/zenity-progress-screenshot.png"/>
+    </figure>
+</page>

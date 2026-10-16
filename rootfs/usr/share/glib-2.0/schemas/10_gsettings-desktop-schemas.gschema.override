@@ -6,3 +6,6 @@ exec-arg='-e'
 # See https://bugs.debian.org/736681 and https://bugs.debian.org/762252
 [org.gnome.desktop.interface]
 monospace-font-name = 'Monospace 11'
+
+[org.gnome.desktop.wm.keybindings]
+panel-main-menu = ['<Alt>F1']
