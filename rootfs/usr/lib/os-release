@@ -1,7 +1,7 @@
 PRETTY_NAME="Prestium"
 NAME="Prestium"
-VERSION_ID="1.6"
-VERSION="1.6 (bookworm)"
+VERSION_ID="1.7"
+VERSION="1.7 (bookworm)"
 ID=prestium
 ID_LIKE=debian
 VERSION_CODENAME=bookworm

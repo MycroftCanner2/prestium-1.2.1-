@@ -1,9 +1,9 @@
 Disclaimer: This project and all associated materials (including software, repositories, scripts, and ISO files) are provided strictly "as is" and "as available," for informational, educational, and experimental purposes only, without any express or implied warranties of any kind—including, but not limited to, fitness for a particular purpose, security, accuracy, or non-infringement. The creator and publisher make no claims regarding the safety, integrity, or audit status of any code or binaries, explicitly disclaim any expertise or maintenance obligations, and shall not be held liable for any direct, indirect, incidental, or consequential damages, security breaches, data loss, or legal issues arising from downloading, compiling, or using this material. You assume all responsibility and risk for your use of this software, and you are solely responsible for ensuring compliance with all applicable local, state, and international laws.
 
-## Branch `prestium-1.6-update`: Prestium 1.6 rebuild (Debian 12)
+## Branch `prestium-1.6-update`: Prestium 1.7 (Debian 12)
 
 This branch is a rebuild of Prestium **1.6** on Debian 12 (bookworm). It follows the
-developer's 1.3–1.6 release notes and adds updates on top. The version is still 1.6, and the ISO is `Prestium-1.6-amd64.iso`.
+developer's 1.3–1.6 release notes and adds updates on top. The version is now 1.7, and the ISO is `Prestium-1.7-amd64.iso`.
 CHANGES-1.6-UPDATE.md has the full list of changes. The ISO itself is not in git.
 
 - Base: Debian 12, fully upgraded. Kernel 6.1.0-53-amd64 (6.1.187-1).

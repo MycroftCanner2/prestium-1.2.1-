@@ -188,3 +188,11 @@ The i2pd client tunnel "Monero SOCKS Proxy" (127.0.0.1:4448) is still in tunnels
     "Congratulations. This browser is configured to use Tor." The firewall would have blocked any direct connection.
   - No `librewolf-tor` file, desktop entry or `PRESTIUM_BROWSER` left; the menu shows "Tor Browser".
 - Note for testing: ferm lets only `user` (uid 1000) connect to localhost proxy ports, so tests as root get "connection refused".
+
+## Prestium 1.7 (2026-10-17)
+- Renamed the release to **1.7**: `/usr/lib/os-release` now has `VERSION_ID="1.7"`, `VERSION="1.7 (bookworm)"`; Prestium comments in
+  i2pd.conf, the i2pd service drop-in, `qbittorrent` and `prestium-tunnel-hops` say 1.7. No other change from the Tor Browser / hops-fix build.
+- `Prestium-1.7-amd64.iso`, 2,170,388,480 bytes, SHA-256 `405d43f086faa60cad0e2cc335c8c43aeb251578b6f2bb7420c37c96dfed22d1`.
+- QEMU boot check: os-release shows 1.7; ferm, NetworkManager, i2pd, tor@default, lightdm active; 0 failed units; 6 i2pd client tunnels; Tor Browser present.
+- `Prestium-1.7-amd64.iso.torrent` replaces the 1.6 torrent: same trackers, 256 KiB pieces, v1-only, 8,280 pieces,
+  info hash `5282f1eb6aaeb6f8fad30e2a7a82b2ffabd1e9cf`.
