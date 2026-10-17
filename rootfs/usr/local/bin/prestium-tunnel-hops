@@ -1,7 +1,12 @@
 #!/bin/bash
-# prestium-tunnel-hops: set the number of hops for i2pd tunnels.
-# Rebuilt for the Prestium 1.6-update branch (original script source is offline).
+# prestium-tunnel-hops: set the number of hops for Prestium's i2pd tunnels.
 # Usage: prestium-tunnel-hops [1-7]   (no argument: pick in a dialog)
+#
+# Changes inbound.length/outbound.length in every active tunnel of
+# /var/lib/i2pd/tunnels.conf, in [exploratory] and [socksproxy] of i2pd.conf,
+# then restarts i2pd. The new files are checked the way i2pd reads them
+# (no duplicate sections or keys) before they replace the old ones, and the old
+# files are restored if i2pd does not bring the browser proxy (4444) back up.
 set -e
 CONF=/var/lib/i2pd/tunnels.conf
 MAIN=/var/lib/i2pd/i2pd.conf
@@ -15,30 +20,83 @@ if [ -z "$N" ]; then
   fi
 fi
 [[ "$N" =~ ^[1-7]$ ]] || { echo "Hops must be 1-7" >&2; exit 1; }
-[ "$(id -u)" -eq 0 ] || exec sudo -n "$0" "$N"
-# Client/server tunnels: replace or add inbound/outbound.length in every section
-python3 - "$CONF" "$N" <<'PY'
-import re,sys
-path,n=sys.argv[1],sys.argv[2]
-out=[];sec=None;seen=set()
-def flush():
-    if sec is not None:
-        for k in ("inbound.length","outbound.length"):
-            if k not in seen: out.append(f"{k} = {n}")
-for line in open(path).read().splitlines():
-    m=re.match(r"\s*\[(.+)\]",line)
-    if m:
-        while out and out[-1].strip()=="" : out.pop()
-        flush(); out.append(""); sec=m.group(1); seen=set(); out.append(line); continue
-    k=re.match(r"\s*(inbound|outbound)\.length\s*=",line)
-    if k and sec is not None:
-        key=k.group(1)+".length"; seen.add(key); out.append(f"{key} = {n}"); continue
-    out.append(line)
-flush()
-open(path,"w").write("\n".join(out).lstrip("\n")+"\n")
+[ "$(id -u)" -eq 0 ] || exec sudo -n /usr/local/bin/prestium-tunnel-hops "$N"
+
+say() {
+  echo "$2"
+  command -v notify-send >/dev/null || return 0
+  sudo -u "${SUDO_USER:-user}" DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u "${SUDO_USER:-user}")/bus" \
+    notify-send ${1:+-u "$1"} "I2P tunnel hops" "$2" 2>/dev/null || true
+}
+
+T=$(mktemp -d /run/prestium-hops.XXXXXX)
+trap 'rm -rf "$T"' EXIT
+cp -a "$CONF" "$T/tunnels.conf.bak"; cp -a "$MAIN" "$T/i2pd.conf.bak"
+cp -a "$CONF" "$T/tunnels.conf.new"; cp -a "$MAIN" "$T/i2pd.conf.new"
+
+python3 - "$T/tunnels.conf.new" "$T/i2pd.conf.new" "$N" <<'PY'
+import re, sys
+tun, main, n = sys.argv[1], sys.argv[2], sys.argv[3]
+SEC = re.compile(r"^\s*\[([^\]]+)\]\s*$")
+KEY = re.compile(r"^\s*([^#;=\s][^=]*?)\s*=")
+LEN = re.compile(r"^\s*(inbound|outbound)\.length\s*=")
+
+def sections(lines):
+    """Split into (name, [lines]); name None = before the first section."""
+    out = [[None, []]]
+    for l in lines:
+        m = SEC.match(l)
+        if m: out.append([m.group(1).strip(), [l]])
+        else: out[-1][1].append(l)
+    return out
+
+def keys(body):
+    return [KEY.match(l).group(1) for l in body if KEY.match(l)]
+
+def setlen(body):
+    body = [l for l in body if not LEN.match(l)]
+    i = len(body)
+    while i > 1 and body[i-1].strip() == "": i -= 1   # insert before trailing blanks
+    return body[:i] + [f"inbound.length = {n}", f"outbound.length = {n}"] + body[i:]
+
+def check(lines, path):
+    seen = set()
+    for name, body in sections(lines):
+        if name is None: continue
+        if name in seen: sys.exit(f"{path}: duplicate section [{name}]")
+        seen.add(name)
+        k = keys(body)
+        d = {x for x in k if k.count(x) > 1}
+        if d: sys.exit(f"{path}: duplicate keys {sorted(d)} in [{name}]")
+
+# tunnels.conf: only real tunnels (sections that have a "type" key)
+secs = sections(open(tun).read().splitlines())
+res = []
+for name, body in secs:
+    if name is not None and "type" in keys(body): body = setlen(body)
+    res += body
+check(res, tun)
+open(tun, "w").write("\n".join(res) + "\n")
+
+# i2pd.conf: exploratory tunnels and the SOCKS proxy (4447, Feather)
+secs = sections(open(main).read().splitlines())
+res = []
+for name, body in secs:
+    if name in ("exploratory", "socksproxy"): body = setlen(body)
+    res += body
+check(res, main)
+open(main, "w").write("\n".join(res) + "\n")
 PY
-# Exploratory tunnels in i2pd.conf
-sed -i -E "s/^#?\s*inbound\.length\s*=.*/inbound.length = $N/; s/^#?\s*outbound\.length\s*=.*/outbound.length = $N/" "$MAIN"
-systemctl restart i2pd 2>/dev/null || service i2pd restart
-command -v notify-send >/dev/null && sudo -u "${SUDO_USER:-user}" DISPLAY=:0 notify-send "I2P" "Tunnels now use $N hops; i2pd restarted." 2>/dev/null || true
-echo "Tunnels set to $N hops; i2pd restarted."
+
+cat "$T/tunnels.conf.new" > "$CONF"; cat "$T/i2pd.conf.new" > "$MAIN"
+
+up() { for i in $(seq 1 45); do ss -ltn 2>/dev/null | grep -q '127.0.0.1:4444 ' && return 0; sleep 1; done; return 1; }
+systemctl restart i2pd
+if up; then
+  say "" "Tunnels now use $N hops; i2pd restarted. New tunnels take a minute or two to build."
+else
+  cat "$T/tunnels.conf.bak" > "$CONF"; cat "$T/i2pd.conf.bak" > "$MAIN"
+  systemctl restart i2pd
+  say critical "i2pd did not come back with $N hops, so the previous settings were restored."
+  exit 1
+fi

@@ -9,8 +9,8 @@
   <item label="Web Browser (I2P)">
     <action name="Execute"><execute>librewolf-i2p</execute></action>
   </item>
-  <item label="Web Browser (Tor)">
-    <action name="Execute"><execute>librewolf-tor</execute></action>
+  <item label="Tor Browser">
+    <action name="Execute"><execute>tor-browser</execute></action>
   </item>
   <item label="I2P WebConsole">
     <action name="Execute"><execute>librewolf-i2p "http://127.0.0.1:7070"</execute></action>

@@ -1,0 +1,19 @@
+#!/bin/sh
+# Prestium: official Tor Browser (/opt/tor-browser), using the system Tor
+# (tor@default, SOCKS 127.0.0.1:9050, control socket /run/tor/control) instead
+# of its own tor, so the ferm rule "only debian-tor and i2pd reach the network"
+# still holds and Nyx shows the browser's circuits.
+TB=/opt/tor-browser
+if [ "$(id -u)" -eq 0 ]; then echo "Tor Browser must not run as root." >&2; exit 1; fi
+if [ ! -w "$TB/Browser" ]; then
+  echo "$TB is not writable by $(id -un)." >&2; exit 1
+fi
+TOR_SKIP_LAUNCH=1
+TOR_SOCKS_HOST=127.0.0.1
+TOR_SOCKS_PORT=9050
+TOR_CONTROL_IPC_PATH=/run/tor/control
+TOR_CONTROL_COOKIE_AUTH_FILE=/run/tor/control.authcookie
+TOR_HIDE_UPDATE_CHECK_UI=1
+export TOR_SKIP_LAUNCH TOR_SOCKS_HOST TOR_SOCKS_PORT TOR_CONTROL_IPC_PATH TOR_CONTROL_COOKIE_AUTH_FILE TOR_HIDE_UPDATE_CHECK_UI
+cd "$TB/Browser" || exit 1
+exec ./start-tor-browser "$@"

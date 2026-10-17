@@ -1,9 +1,0 @@
-#!/bin/sh
-# Prestium: "Web Browser (Tor)" - separate LibreWolf profile (~/.librewolf-tor),
-# SOCKS5 127.0.0.1:9050 with remote DNS, no I2P proxy. Proxy prefs are set in
-# /usr/share/librewolf/librewolf.cfg when PRESTIUM_BROWSER=tor.
-PROFILE="$HOME/.librewolf-tor"
-[ -d "$PROFILE" ] || { mkdir -p "$PROFILE"; chmod 700 "$PROFILE"; }
-PRESTIUM_BROWSER=tor
-export PRESTIUM_BROWSER
-exec /usr/bin/librewolf --no-remote --profile "$PROFILE" --name librewolf-tor --class librewolf-tor "$@"

@@ -117,13 +117,11 @@ The i2pd client tunnel "Monero SOCKS Proxy" (127.0.0.1:4448) is still in tunnels
 - Everything else still uses `/etc/environment` http(s)_proxy = 127.0.0.1:4450 (I2P).
 
 ### Web browsers
-- Menu: **Web Browser (I2P)** (`librewolf-i2p`, default profile, HTTP proxy 127.0.0.1:4444) and
-  **Web Browser (Tor)** (`librewolf-tor`, separate profile `~/.librewolf-tor`, SOCKS5 127.0.0.1:9050,
-  `network.proxy.socks_remote_dns=true`, no I2P proxy). The I2P WebConsole entry uses the I2P browser.
-- `librewolf.cfg` Prestium block chooses the proxy from `PRESTIUM_BROWSER` (set by librewolf-tor).
-  The block and policies.json (NoScript + uBlock forced, HTTPS-only off, DoH off) were re-applied after the 158 upgrade overwrote them.
+- Menu: **Web Browser (I2P)** (`librewolf-i2p`, default profile, HTTP proxy 127.0.0.1:4444) and **Tor Browser**.
+  The I2P WebConsole entry uses the I2P browser.
+- `librewolf.cfg` Prestium block sets the I2P proxy only. The policies.json (NoScript + uBlock forced, HTTPS-only off, DoH off) is unchanged.
 - Desktop files: `/usr/local/share/applications/librewolf.desktop` ("Web Browser (I2P)", also the http/https handler)
-  and `librewolf-tor.desktop`. The default tint2 launcher (/etc/xdg) now lists both instead of non-existent firefox/chromium entries.
+  and `torbrowser.desktop`. The default tint2 launcher (/etc/xdg) lists both.
 - ferm unchanged: uid 1000 may already open TCP to any 127.0.0.1 port ≥1024, which covers 9050, 4444, 4447 and 7656.
 
 ### i2pd reseed: bundled StormyCloud su3 only
@@ -150,3 +148,43 @@ The i2pd client tunnel "Monero SOCKS Proxy" (127.0.0.1:4448) is still in tunnels
   - qBittorrent 5.2.4 connected to SAM 7656 and listens only on 127.0.0.1.
   - No Monero GUI remnants.
   - The only firewall drops were IPv6 router solicitations.
+
+## Tor Browser and tunnel-hops fix (2026-10-16, still 1.6)
+
+### Tor Browser replaces "Web Browser (Tor)"
+- Removed: `librewolf-tor`, `librewolf-tor.desktop`, the `PRESTIUM_BROWSER` switch in `librewolf.cfg`. LibreWolf is I2P-only.
+- Added: official **Tor Browser 15.0.25** (`tor-browser-linux-x86_64-15.0.25.tar.xz`, 137,994,120 bytes,
+  SHA-256 `37432d6f4d9b1f1190ba2cfbbd4ab9dad5ccd52c14aa47a21795d08273f4a165`), from dist.torproject.org.
+  Its signature verifies with the Tor Browser Developers key `EF6E 286D DA85 EA2A 4BA7 DE68 4E2C 6E87 9329 8290`
+  (signing subkey 022DA248432D2A0E0F54E65E316C1FACD62D07D9), and the hash matches `sha256sums-signed-build.txt`.
+- Unpacked unmodified to `/opt/tor-browser`, owned by `user` so the browser can write its profile.
+  The only addition is `Browser/distribution/policies.json` with `DisableAppUpdate` (a live image cannot keep updates; update by rebuilding).
+- `/usr/local/bin/tor-browser` starts it with `TOR_SKIP_LAUNCH=1`, SOCKS 127.0.0.1:9050 and control socket `/run/tor/control`
+  (cookie `/run/tor/control.authcookie`; `user` is in `debian-tor`). So the system Tor 0.4.9.14 carries the traffic,
+  the bundled tor never runs, the ferm rule (only i2pd and debian-tor reach the network) still holds, and Nyx sees the circuits.
+  New Identity and the circuit display work through the control socket.
+- Menu "Tor Browser" and tint2 launcher `/usr/local/share/applications/torbrowser.desktop`.
+- `Browser/libxul.so` (156,454,456 bytes) is over GitHub's limit and is in LARGE_FILES.md; take it from the tarball above.
+
+### Changing tunnel hops broke the I2P proxy (fixed)
+- Cause: `/var/lib/i2pd/tunnels.conf` had a stray uncommented `[SMTP]` header above the commented-out example, plus the real `[SMTP]` tunnel.
+  i2pd tolerated the empty duplicate, but `prestium-tunnel-hops` wrote `inbound/outbound.length` into every section, including the empty one.
+  i2pd then refused the whole file ("tunnels.conf(67): duplicate section name", 0 client tunnels), so the 4444 browser proxy,
+  4449 HexChat, 4450 system proxy and the postman tunnels all vanished until the file was fixed by hand.
+- Fix: the stray header is commented out (`#[SMTP]`).
+- `prestium-tunnel-hops` rewritten: it changes only real tunnels (sections with a `type`), plus `[exploratory]` and `[socksproxy]` in i2pd.conf;
+  checks the result for duplicate sections and keys the way i2pd reads it before replacing anything; keeps owner and mode;
+  restarts i2pd and waits for 4444, and if it does not come back it restores the old files and says so.
+
+### Build and test (Tor Browser / hops fix)
+- `Prestium-1.6-amd64.iso`, 2,170,388,480 bytes, SHA-256 `eb9426b7a5d2c53881652fc82686e971caad9cef2532fe4757b32aa0ad7e4ca5`.
+  Same 12 live layers; only 95-update changed. No test layer.
+- QEMU (IDE CD, e1000, user-mode network), with a test-only layer:
+  - All units active, no failed units. i2pd: 6 client tunnels; 4444, 4447, 4449, 4450, 7656, 7659, 7660 listening.
+  - `prestium-tunnel-hops 5`, then 7, then 3, run as `user` through sudo like the menu: each time i2pd restarted with 6 client tunnels,
+    no duplicate sections, all proxy ports back.
+  - Through the 4444 proxy as `user`, after switching to 5 hops: `http://stats.i2p/` returned 200 (stats.i2p page).
+  - Tor Browser (headless, as `user`): opened a control connection to the system Tor and loaded https://check.torproject.org/ —
+    "Congratulations. This browser is configured to use Tor." The firewall would have blocked any direct connection.
+  - No `librewolf-tor` file, desktop entry or `PRESTIUM_BROWSER` left; the menu shows "Tor Browser".
+- Note for testing: ferm lets only `user` (uid 1000) connect to localhost proxy ports, so tests as root get "connection refused".

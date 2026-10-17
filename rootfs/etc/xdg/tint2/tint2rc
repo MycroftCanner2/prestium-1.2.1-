@@ -150,7 +150,7 @@ startup_notifications = 1
 launcher_tooltip = 1
 launcher_item_app = tint2conf.desktop
 launcher_item_app = librewolf.desktop
-launcher_item_app = librewolf-tor.desktop
+launcher_item_app = /usr/local/share/applications/torbrowser.desktop
 
 #-------------------------------------
 # Clock
