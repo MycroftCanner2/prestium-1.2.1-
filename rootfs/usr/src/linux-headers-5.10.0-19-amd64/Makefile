@@ -1,1 +1,0 @@
-include /usr/src/linux-headers-5.10.0-19-common/Makefile
