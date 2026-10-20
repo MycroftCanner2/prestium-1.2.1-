@@ -1,0 +1,7 @@
+#!/bin/sh
+# Prestium 1.8: disarm the boot-medium watchdog during suspend (as Tails does,
+# a resume can briefly re-enumerate USB devices and would trigger a false shutdown).
+case "$1" in
+  pre)  systemctl stop prestium-usb-watchdog.service ;;
+  post) sleep 3; systemctl start prestium-usb-watchdog.service ;;
+esac

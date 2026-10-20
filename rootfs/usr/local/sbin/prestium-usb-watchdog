@@ -1,0 +1,41 @@
+#!/bin/bash
+# Prestium 1.8: emergency shutdown when the boot medium is removed (Tails-style).
+# Pulling the USB stick (or ejecting the DVD) powers the machine off at once.
+# "systemctl --force poweroff" kills every process without running the normal
+# shutdown units; the freed RAM is zeroed by the kernel (init_on_free=1 on the
+# boot line), which is the same memory-erasure mechanism Tails relies on.
+# Only bash builtins run in the polling loop, and memlockd keeps bash,
+# systemctl and sleep locked in RAM, so this still works once the medium is gone.
+# Not armed when booted with "toram" (the medium may then be removed safely).
+
+grep -qw toram /proc/cmdline && { echo "toram boot: watchdog not armed"; exit 0; }
+
+src=$(findmnt -n -o SOURCE /run/live/medium 2>/dev/null)
+[ -n "$src" ] || { echo "no live medium found: watchdog not armed"; exit 0; }
+dev=${src#/dev/}
+disk=$(lsblk -ndo PKNAME "$src" 2>/dev/null)
+[ -n "$disk" ] || disk=$dev
+[ -e "/sys/block/$disk" ] || { echo "cannot resolve $src: watchdog not armed"; exit 0; }
+case $disk in sr*) optical=1 ;; *) optical= ;; esac
+echo "armed on /dev/$disk (live medium $src)"
+
+emergency() {
+  echo "<0>prestium: boot medium removed, emergency shutdown" > /dev/kmsg 2>/dev/null
+  systemctl --force poweroff &
+  sleep 20
+  echo o > /proc/sysrq-trigger
+}
+
+exec 3<> <(:)   # a pipe nothing writes to: "read -t" on it is a builtin sleep
+while :; do
+  if [ ! -e "/sys/block/$disk" ]; then emergency; fi
+  # DVD: the kernel only notices an ejected disc when the drive is opened, so
+  # open it each second (": <" is a builtin; it opens without reading).
+  if [ -n "$optical" ] && ! : < "/dev/$disk" 2>/dev/null; then emergency; fi
+  if read -r size < "/sys/block/$disk/size" 2>/dev/null; then
+    [ "$size" = 0 ] && emergency
+  else
+    emergency
+  fi
+  read -r -t 1 -u 3 || true
+done
