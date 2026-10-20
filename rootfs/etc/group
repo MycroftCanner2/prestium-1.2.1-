@@ -54,3 +54,5 @@ polkitd:x:999:
 debian-tor:x:112:user
 lightdm:x:113:
 autologin:x:998:user
+memlockd:x:114:
+prestium-htp:x:115:

@@ -1,1 +1,4 @@
-%veracrypt_grp  ALL=(root) NOPASSWD:/usr/bin/veracrypt, /usr/bin/mount, /usr/bin/uptime
+# Prestium 1.8: VeraCrypt only. The old rule also allowed passwordless
+# "sudo mount" with any arguments, which any program could use to become root
+# (and root can bypass the firewall). /usr/bin/uptime was never needed.
+%veracrypt_grp  ALL=(root) NOPASSWD:/usr/bin/veracrypt

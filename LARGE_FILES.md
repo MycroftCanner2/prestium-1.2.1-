@@ -17,11 +17,10 @@ Files over GitHub's 100 MB limit, left out of git (they are in Prestium-1.6-amd6
 | rootfs/usr/share/librewolf/libxul.so | 204882368 | 24d4eaadbb865c1447089b96e244706ab83396109d2cd5b6049a1402d6eae277 |
 | rootfs/usr/share/librewolf/omni.ja | 118365120 | 56fd27a3d0877270c67b41b5b7c8e247c1273f44a9178eca7e42d0c5e9536554 |
 | rootfs/opt/tor-browser/Browser/libxul.so (Tor Browser 15.0.25) | 156454456 | d65e28d0bb991d96a3b2b68dfb28171936376176db9a9b7d422b11ed661d13e5 |
-| rootfs/opt/qbittorrent/usr/bin/qbittorrent | 186677944 | 58544a9c261e9e1e052adf23426b9cee28ef48c260056a1bec622af6f4d75c8c |
+| rootfs/opt/qbittorrent/usr/bin/qbittorrent (5.3.0, Prestium 1.8) | 209216728 | 2b5b9a1f5bd2ebc6b364f8396d8d0aa61a1cfb443f353248bbd6f28c846c59f7 |
 
 The LibreWolf rows are for LibreWolf 158.0-1. qbittorrent comes from the signed upstream AppImage
-qbittorrent-5.2.4_lt20_x86_64.AppImage (SHA-256 eda6c0ca39f9befb0cd111b76a3d8b8bf3fd859323f2d4aac8c18f63766c2a1a),
-with the squashfs at offset 944632.
+qbittorrent-5.3.0_x86_64.AppImage (SHA-256 1c64f2e95740be41f2822f909f56e4dd0da2637f312098a06da113d7add7418b), Prestium 1.8.
 
 Monero Wallet GUI (`monero-wallet-gui`) is not on this branch or in its ISO. It was removed;
 Feather is the only wallet. The `monero-wallet-gui` row above applies to `main` (1.2.1) only.
