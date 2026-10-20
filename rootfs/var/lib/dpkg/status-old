@@ -1094,26 +1094,6 @@ Description: GNU C preprocessor (cpp)
  .
  This is a dependency package providing the default GNU C preprocessor.
 
-Package: cpp-10
-Status: install ok installed
-Priority: optional
-Section: interpreters
-Installed-Size: 25613
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Source: gcc-10
-Version: 10.2.1-6
-Depends: gcc-10-base (= 10.2.1-6), libc6 (>= 2.14), libgmp10 (>= 2:5.0.1~), libisl23 (>= 0.15), libmpc3 (>= 1.1.0), libmpfr6 (>= 3.1.3), libzstd1 (>= 1.3.2), zlib1g (>= 1:1.1.4)
-Suggests: gcc-10-locales (>= 10)
-Breaks: hardening-wrapper (<< 2.8+nmu3), libmagics++-dev (<< 2.28.0-4)
-Description: GNU C preprocessor
- A macro processor that is used automatically by the GNU C compiler
- to transform programs before actual compilation.
- .
- This package has been separated from gcc for the benefit of those who
- require the preprocessor but not the compiler.
-Homepage: http://gcc.gnu.org/
-
 Package: cpp-12
 Status: install ok installed
 Priority: optional
@@ -1484,44 +1464,21 @@ Description: simple configuration storage system - D-Bus service
  GSettings backend.
 Homepage: https://wiki.gnome.org/Projects/dconf
 
-Package: dctrl-tools
-Status: purge ok config-files
-Priority: optional
-Section: utils
-Installed-Size: 422
-Maintainer: Rhonda D'Vine <rhonda@debian.org>
-Architecture: amd64
-Multi-Arch: foreign
-Source: dctrl-tools (2.24-3)
-Version: 2.24-3+b1
-Config-Version: 2.24-3+b1
-Replaces: grep-dctrl
-Provides: grep-dctrl
-Depends: libc6 (>= 2.14)
-Suggests: apt, debtags
-Conflicts: grep-dctrl
-Description: Command-line tools to process Debian package information
- Debian package information is generally stored in files having a
- special file format, dubbed the Debian control file format (the dctrl
- format), a special case of the record jar file format.  These tools
- operate on any files conforming in a general sense to that format and
- are therefore widely applicable whenever those formats are in play.
- .
- Included are:
- .
-   grep-dctrl     - Grep dctrl-format files
-   grep-available - Grep the DPKG available database
-   grep-status    - Grep the DPKG status database
-   grep-aptavail  - Grep the APT available database
-   grep-debtags   - Grep the Debtags package database
- .
-   sort-dctrl     - Sort dctrl-format files
- .
-   tbl-dctrl      - Tabulate dctrl-format files
- .
-   sync-available - Sync the dpkg available database with
-                    the apt database
-Homepage: https://github.com/ajkaijanaho/dctrl-tools
+Package: deb.torproject.org-keyring
+Status: install ok installed
+Priority: important
+Section: misc
+Installed-Size: 20
+Maintainer: Peter Palfrader <weasel@debian.org>
+Architecture: all
+Version: 2025.08.08
+Conffiles:
+ /etc/apt/trusted.gpg.d/deb.torproject.org-keyring.gpg 0dea6eb91fba670db5a6ff824d40552a
+Description: GnuPG archive key of the deb.torproject.org repository
+ The deb.torproject.org repository digitally signs its Release
+ files. This package contains the current repository key used for
+ that, and upon installation configures your system to accept archives
+ signed with this key.
 
 Package: debconf
 Status: install ok installed
@@ -1689,52 +1646,6 @@ Description: GNU privacy guard - network certificate management service
  the GnuPG suite that try to interact with the network will fail.
 Homepage: https://www.gnupg.org/
 
-Package: dkms
-Status: deinstall ok config-files
-Priority: optional
-Section: kernel
-Installed-Size: 295
-Maintainer: Dynamic Kernel Modules Support Team <dkms@packages.debian.org>
-Architecture: all
-Multi-Arch: foreign
-Version: 2.8.4-3
-Config-Version: 2.8.4-3
-Provides: dh-sequence-dkms
-Depends: kmod | kldutils, gcc | c-compiler, dpkg-dev, make | build-essential, coreutils (>= 7.4), patch, dctrl-tools
-Pre-Depends: lsb-release
-Recommends: fakeroot, sudo, linux-headers-686-pae | linux-headers-amd64 | linux-headers-generic | linux-headers
-Suggests: menu, e2fsprogs
-Conffiles:
- /etc/dkms/framework.conf f44a28b71e08459f06969b44fd1c0879
- /etc/dkms/kernel_install.d_dkms 611c0a2f69fc20dca5c3c9e0c5fd640d
- /etc/dkms/sign_helper.sh ce5c87eb5b88e4273d6d812040a14a19
- /etc/dkms/template-dkms-mkbmdeb/Makefile 4f97af9157f9723cabc53bccb66c767f
- /etc/dkms/template-dkms-mkbmdeb/debian/README.Debian 6707f5716bc3a2d65fa1b05d81ba8add
- /etc/dkms/template-dkms-mkbmdeb/debian/changelog c23b6a31473b7bb42c04eb1bbe338ebd
- /etc/dkms/template-dkms-mkbmdeb/debian/compat 84bc3da1b3e33a18e8d5e1bdd7a18d7a
- /etc/dkms/template-dkms-mkbmdeb/debian/control ec2a4fe135bde547450c93f322691506
- /etc/dkms/template-dkms-mkbmdeb/debian/copyright de471e376ba2c3886424b5c4649c42d6
- /etc/dkms/template-dkms-mkbmdeb/debian/rules 00da363e68dd8894b525e569ded30024
- /etc/dkms/template-dkms-mkdeb/Makefile d97acaeba72f667d3eb69695e9018243
- /etc/dkms/template-dkms-mkdeb/debian/README.Debian 6707f5716bc3a2d65fa1b05d81ba8add
- /etc/dkms/template-dkms-mkdeb/debian/changelog f14e36c92f14270163eb20fa883d463e
- /etc/dkms/template-dkms-mkdeb/debian/compat 84bc3da1b3e33a18e8d5e1bdd7a18d7a
- /etc/dkms/template-dkms-mkdeb/debian/control 31ba1d3f0eb07d2c5f7dbc774aff0a09
- /etc/dkms/template-dkms-mkdeb/debian/copyright de471e376ba2c3886424b5c4649c42d6
- /etc/dkms/template-dkms-mkdeb/debian/dirs ea7a90f4a1be2e0054c3d4920c29e33f
- /etc/dkms/template-dkms-mkdeb/debian/postinst 59aaa9bedf0ed610a6842986afad3fe1
- /etc/dkms/template-dkms-mkdeb/debian/prerm e7c0c39003edb2255d22a775efa907e5
- /etc/dkms/template-dkms-mkdeb/debian/rules c385ec9e8f6c6745ad9b9665c38cbd84
- /etc/kernel/header_postinst.d/dkms 7b7f8862aef036b138330a98bb17c2a2
- /etc/kernel/postinst.d/dkms 7b7f8862aef036b138330a98bb17c2a2
- /etc/kernel/prerm.d/dkms d48e71ca76901a350d752c6e31e499f2
- /etc/modprobe.d/dkms.conf 74452a1f23577a0bb30d764a895429d0
-Description: Dynamic Kernel Module Support Framework
- DKMS is a framework designed to allow individual kernel modules to be upgraded
- without changing the whole kernel. It is also very easy to rebuild modules as
- you upgrade kernels.
-Homepage: https://github.com/dell-oss/dkms
-
 Package: dmidecode
 Status: install ok installed
 Priority: important
@@ -1841,32 +1752,6 @@ Description: Debian package management system
  installation and removal of Debian software packages.
  .
  For Debian package development tools, install dpkg-dev.
-Homepage: https://wiki.debian.org/Teams/Dpkg
-
-Package: dpkg-dev
-Status: deinstall ok config-files
-Priority: optional
-Section: utils
-Installed-Size: 2616
-Maintainer: Dpkg Developers <debian-dpkg@lists.debian.org>
-Architecture: all
-Multi-Arch: foreign
-Source: dpkg
-Version: 1.20.12
-Config-Version: 1.20.12
-Depends: perl:any, libdpkg-perl (= 1.20.12), tar (>= 1.28-1), bzip2, xz-utils, patch (>= 2.7), make, binutils
-Recommends: build-essential, gcc | c-compiler, fakeroot, gnupg, gpgv, libalgorithm-merge-perl
-Suggests: debian-keyring
-Breaks: debhelper (<< 10.10.1~)
-Conffiles:
- /etc/dpkg/shlibs.default 1a2b9d0a869e2aa885ae3621c557fb95
- /etc/dpkg/shlibs.override 84b1e69080569cc5c613a50887af5200
-Description: Debian package development tools
- This package provides the development tools (including dpkg-source)
- required to unpack, build and upload Debian source packages.
- .
- Most Debian source packages will require additional tools to build;
- for example, most packages need make and the C compiler gcc.
 Homepage: https://wiki.debian.org/Teams/Dpkg
 
 Package: e2fsprogs
@@ -5032,42 +4917,6 @@ Description: configure Gajim's behaviour for each contact
  contact.
 Homepage: https://dev.gajim.org/gajim/gajim-plugins/wikis/TriggersPlugin
 
-Package: gcc
-Status: install ok installed
-Priority: optional
-Section: devel
-Installed-Size: 47
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Source: gcc-defaults (1.203)
-Version: 4:12.2.0-3
-Provides: c-compiler, gcc-x86-64-linux-gnu (= 4:12.2.0-3)
-Depends: cpp (= 4:12.2.0-3), gcc-12 (>= 12.2.0-1~)
-Recommends: libc6-dev | libc-dev
-Suggests: gcc-multilib, make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb, gcc-doc
-Conflicts: gcc-doc (<< 1:2.95.3)
-Description: GNU C compiler
- This is the GNU C compiler, a fairly portable optimizing compiler for C.
- .
- This is a dependency package providing the default GNU C compiler.
-
-Package: gcc-10
-Status: install ok installed
-Priority: optional
-Section: devel
-Installed-Size: 51125
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Version: 10.2.1-6
-Replaces: cpp-10 (<< 7.1.1-8)
-Provides: c-compiler
-Depends: cpp-10 (= 10.2.1-6), gcc-10-base (= 10.2.1-6), libcc1-0 (>= 10.2.1-6), binutils (>= 2.35.1), libgcc-10-dev (= 10.2.1-6), libc6 (>= 2.14), libgcc-s1 (>= 3.0), libgmp10 (>= 2:5.0.1~), libisl23 (>= 0.15), libmpc3 (>= 1.1.0), libmpfr6 (>= 3.1.3), libstdc++6 (>= 5), libzstd1 (>= 1.3.2), zlib1g (>= 1:1.1.4)
-Recommends: libc6-dev (>= 2.30-1~)
-Suggests: gcc-10-multilib, gcc-10-doc (>= 10), gcc-10-locales (>= 10)
-Description: GNU C compiler
- This is the GNU C compiler, a fairly portable optimizing compiler for C.
-Homepage: http://gcc.gnu.org/
-
 Package: gcc-10-base
 Status: install ok installed
 Priority: required
@@ -5082,39 +4931,6 @@ Breaks: gnat (<< 7)
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
  contained in the GNU Compiler Collection (GCC).
-Homepage: http://gcc.gnu.org/
-
-Package: gcc-11-base
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 102
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-11
-Version: 11.3.0-12
-Breaks: gnat (<< 7)
-Description: GCC, the GNU Compiler Collection (base package)
- This package contains files common to all languages and libraries
- contained in the GNU Compiler Collection (GCC).
-Homepage: http://gcc.gnu.org/
-
-Package: gcc-12
-Status: install ok installed
-Priority: optional
-Section: devel
-Installed-Size: 68236
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Version: 12.2.0-14+deb12u1
-Replaces: cpp-12 (<< 7.1.1-8)
-Provides: c-compiler
-Depends: cpp-12 (= 12.2.0-14+deb12u1), gcc-12-base (= 12.2.0-14+deb12u1), libcc1-0 (>= 12.2.0-14+deb12u1), binutils (>= 2.40), libgcc-12-dev (= 12.2.0-14+deb12u1), libc6 (>= 2.36), libgcc-s1 (>= 3.0), libgmp10 (>= 2:6.2.1+dfsg1), libisl23 (>= 0.15), libmpc3 (>= 1.1.0), libmpfr6 (>= 3.1.3), libstdc++6 (>= 5), libzstd1 (>= 1.5.2), zlib1g (>= 1:1.1.4)
-Recommends: libc6-dev (>= 2.23-1~)
-Suggests: gcc-12-multilib, gcc-12-doc (>= 12), gcc-12-locales (>= 12)
-Description: GNU C compiler
- This is the GNU C compiler, a fairly portable optimizing compiler for C.
 Homepage: http://gcc.gnu.org/
 
 Package: gcc-12-base
@@ -6171,7 +5987,7 @@ Description: userspace virtual filesystem - GIO module
 Homepage: https://wiki.gnome.org/Projects/gvfs
 
 Package: gvfs-backends
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: gnome
 Installed-Size: 1894
@@ -6582,7 +6398,7 @@ Description: helper tools for all init systems
  include their helpers in this package.
 
 Package: initramfs-tools
-Status: install ok triggers-pending
+Status: install ok installed
 Priority: optional
 Section: utils
 Installed-Size: 58
@@ -6603,7 +6419,6 @@ Description: generic modular initramfs generator (automation)
  This package builds a bootable initramfs for Linux kernel packages.  The
  initramfs is loaded along with the kernel and is responsible for
  mounting the root filesystem and starting the main init system.
-Triggers-Pending: update-initramfs
 
 Package: initramfs-tools-core
 Status: install ok installed
@@ -7246,38 +7061,6 @@ Description: library for ARIB STD-B24 decoding (runtime files)
  .
  This package contains the shared library.
 Homepage: https://github.com/nkoriyama/aribb24
-
-Package: libasan6
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 7468
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-11
-Version: 11.3.0-12
-Depends: gcc-11-base (= 11.3.0-12), libc6 (>= 2.34), libgcc-s1
-Description: AddressSanitizer -- a fast memory error detector
- AddressSanitizer (ASan) is a fast memory error detector.  It finds
- use-after-free and {heap,stack,global}-buffer overflow bugs in C/C++ programs.
-Homepage: http://gcc.gnu.org/
-
-Package: libasan8
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 8017
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-12
-Version: 12.2.0-14+deb12u1
-Depends: gcc-12-base (= 12.2.0-14+deb12u1), libc6 (>= 2.34), libgcc-s1 (>= 3.3)
-Description: AddressSanitizer -- a fast memory error detector
- AddressSanitizer (ASan) is a fast memory error detector.  It finds
- use-after-free and {heap,stack,global}-buffer overflow bugs in C/C++ programs.
-Homepage: http://gcc.gnu.org/
 
 Package: libasound2
 Status: install ok installed
@@ -8438,49 +8221,6 @@ Description: GNU C Library: Binaries
 Triggers-Pending: ldconfig
 Homepage: https://www.gnu.org/software/libc/libc.html
 
-Package: libc-dev-bin
-Status: install ok installed
-Priority: optional
-Section: libdevel
-Installed-Size: 94
-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: foreign
-Source: glibc
-Version: 2.36-9+deb12u14
-Depends: libc6 (>> 2.36), libc6 (<< 2.37)
-Recommends: manpages, manpages-dev, libc-devtools (>> 2.36)
-Description: GNU C Library: Development binaries
- This package contains utility programs related to the GNU C Library
- development package.
- .
-  * gencat: generate message catalogs
-Homepage: https://www.gnu.org/software/libc/libc.html
-
-Package: libc-devtools
-Status: install ok installed
-Priority: optional
-Section: devel
-Installed-Size: 138
-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: foreign
-Source: glibc
-Version: 2.36-9+deb12u14
-Replaces: libc-dev-bin (<< 2.31-8)
-Depends: libc6 (>= 2.34), libgd3 (>= 2.1.0~alpha~)
-Recommends: manpages, manpages-dev
-Breaks: libc-dev-bin (<< 2.31-8)
-Description: GNU C Library: Development tools
- This package contains development tools shipped by the GNU C
- Library.
- .
-  * memusage, memusagestat: profile a program's memory usage
-  * mtrace: interpret the malloc trace log
-  * sotruss: trace shared library calls
-  * sprof: display shared object profiling data
-Homepage: https://www.gnu.org/software/libc/libc.html
-
 Package: libc-l10n
 Status: install ok installed
 Priority: standard
@@ -8517,27 +8257,6 @@ Description: GNU C Library: Shared libraries
  Contains the standard libraries that are used by nearly all programs on
  the system. This package includes shared versions of the standard C library
  and the standard math library, as well as many others.
-Homepage: https://www.gnu.org/software/libc/libc.html
-
-Package: libc6-dev
-Status: install ok installed
-Priority: optional
-Section: libdevel
-Installed-Size: 11975
-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: glibc
-Version: 2.36-9+deb12u14
-Replaces: libc6 (<= 2.32-1)
-Provides: libc-dev (= 2.36-9+deb12u14)
-Depends: libc6 (= 2.36-9+deb12u14), libc-dev-bin (= 2.36-9+deb12u14), linux-libc-dev, libcrypt-dev, libnsl-dev, rpcsvc-proto
-Suggests: glibc-doc, manpages-dev
-Breaks: binutils (<< 2.38), catch (<< 1.12.2-0.1), heimdal-multidev (<= 7.7.0+dfsg-4), igblast (<= 1.19.0-1), libassimp-dev (<= 5.2.4~ds0-1), libasyncns-dev (<= 0.8-6+b2), libatm1-dev (<= 1:2.5.1-4), libaws20-dev (<= 20.2-2+b1), libboinc-app-dev (<= 7.20.2+dfsg-1), libbson-dev (<= 1.22.0-1), libc6-dev-amd64-cross (<< 2.36~), libcups2-dev (<= 2.4.2-1), libdeal.ii-dev (<= 9.4.0-1), libdkim-dev (<= 1:1.0.21-4+b2), libdolfin-dev-common (<= 2019.2.0~git20220407.d29e24d-5), libeckit-dev (<= 1.20.0-1), libfclib-dev (<= 3.1.0+dfsg-2), libfltk1.3-dev (<= 1.3.8-4+b1), libgcc-10-dev (<< 10-20200321-1~), libgcc-7-dev (<< 7.5.0-6~), libgcc-8-dev (<< 8.4.0-2~), libgcc-9-dev (<< 9.3.0-5~), libghc-resolv-dev (<= 0.1.2.0-3), libghc-resolv-prof (<= 0.1.2.0-3), libglib2.0-dev (<= 2.72.3-1), libgloox-dev (<= 1.0.24-2+b1), libhesiod-dev (<= 3.2.1-3.1+b1), libinfinity-0.7-dev (<= 0.7.2-1+b1), libinsighttoolkit4-dev (<= 4.13.3withdata-dfsg2-3+b1), libinsighttoolkit5-dev (<= 5.2.1-5+b1), libismrmrd-dev (<= 1.8.0-2), libldap-dev (<= 2.5.12+dfsg-2), liblog4cplus-dev (<= 2.0.7-1), libloudmouth1-dev (<= 1.5.4-1), libmgl-dev (<= 8.0.1-2), libmimalloc2.0 (<= 2.0.6+ds-1), libminc-dev (<= 2.4.03-5), libmongoc-dev (<= 1.22.1-1), libmrpt-ros1bridge-dev (<= 1:2.4.9+ds-4+b2), libmysqlclient-dev (<= 8.0.29-1), libnetcdf-dev (<= 1:4.9.0-3), libnetcdf-mpi-dev (<= 1:4.9.0-1), libnetcdf-pnetcdf-dev (<= 1:4.9.0-1), libnfsidmap-dev (<= 1:2.6.1-2), libns3-dev (<= 3.36.1+dfsg-4), libola-dev (<= 0.10.8.nojsmin-2), libopenafs-dev (<= 1.8.8.1-3), libopendkim-dev (<= 2.11.0~beta2-7), libopendmarc-dev (<= 1.4.2-1), libopenms-dev (<= 2.6.0+cleaned1-3+b1), libopenzwave1.6-dev (<= 1.6.1914+ds-1), libperl5.26 (<< 5.26.1-3), libpg-query-dev (<= 13-2.1.2-2), librbl-dev (<= 2.11.0~beta2-7), libre-dev (<= 1.1.0-1+b1), libshishi-dev (<= 1.0.2-11), libslurm-dev (<= 21.08.8.2-1), libsocksd0-dev (<= 1.4.2+dfsg-7+b4), libspf2-dev (<= 1.2.10-7.1+b1), libstrophe-dev (<= 0.12.1-2), libtaningia-dev (<= 0.2.2-2+b1), libtrilinos-amesos-dev (<= 13.2.0-3), libtrilinos-amesos2-dev (<= 13.2.0-3), libtrilinos-anasazi-dev (<= 13.2.0-3), libtrilinos-aztecoo-dev (<= 13.2.0-3), libtrilinos-belos-dev (<= 13.2.0-3), libtrilinos-epetra-dev (<= 13.2.0-3), libtrilinos-epetraext-dev (<= 13.2.0-3), libtrilinos-galeri-dev (<= 13.2.0-3), libtrilinos-ifpack-dev (<= 13.2.0-3), libtrilinos-ifpack2-dev (<= 13.2.0-3), libtrilinos-intrepid-dev (<= 13.2.0-3), libtrilinos-intrepid2-dev (<= 13.2.0-3), libtrilinos-isorropia-dev (<= 13.2.0-3), libtrilinos-kokkos-dev (<= 13.2.0-3), libtrilinos-kokkos-kernels-dev (<= 13.2.0-3), libtrilinos-komplex-dev (<= 13.2.0-3), libtrilinos-ml-dev (<= 13.2.0-3), libtrilinos-moertel-dev (<= 13.2.0-3), libtrilinos-muelu-dev (<= 13.2.0-3), libtrilinos-nox-dev (<= 13.2.0-3), libtrilinos-phalanx-dev (<= 13.2.0-3), libtrilinos-pike-dev (<= 13.2.0-3), libtrilinos-piro-dev (<= 13.2.0-3), libtrilinos-pliris-dev (<= 13.2.0-3), libtrilinos-rol-dev (<= 13.2.0-3), libtrilinos-rtop-dev (<= 13.2.0-3), libtrilinos-rythmos-dev (<= 13.2.0-3), libtrilinos-sacado-dev (<= 13.2.0-3), libtrilinos-shylu-dev (<= 13.2.0-3), libtrilinos-stokhos-dev (<= 13.2.0-3), libtrilinos-stratimikos-dev (<= 13.2.0-3), libtrilinos-teko-dev (<= 13.2.0-3), libtrilinos-teuchos-dev (<= 13.2.0-3), libtrilinos-thyra-dev (<= 13.2.0-3), libtrilinos-tpetra-dev (<= 13.2.0-3), libtrilinos-trilinoscouplings-dev (<= 13.2.0-3), libtrilinos-triutils-dev (<= 13.2.0-3), libtrilinos-xpetra-dev (<= 13.2.0-3), libtrilinos-zoltan2-dev (<= 13.2.0-3), libvbr-dev (<= 2.11.0~beta2-7), libvisp-dev (<= 3.5.0-2+b1), libvotca-dev (<= 2022-3), libvtk6-dev (<= 6.3.0+dfsg2-8.1+b1), libvtk7-dev (<= 7.1.1+dfsg2-10.2), open-vm-tools-dev (<= 2:12.0.5-2), pidgin-librvp (<= 0.9.7cvs-3), proftpd-dev (<= 1.3.7d+dfsg-2), python3.7 (<< 3.7.7-1+b1), python3.8 (<< 3.8.2-1+b1), slurm-wlm-basic-plugins-dev (<= 21.08.8.2-1)
-Conflicts: libc0.1-dev, libc0.3-dev, libc6.1-dev
-Description: GNU C Library: Development Libraries and Header Files
- Contains the symlinks, headers, and object files needed to compile
- and link programs which use the standard C library.
 Homepage: https://www.gnu.org/software/libc/libc.html
 
 Package: libcaca0
@@ -8784,21 +8503,6 @@ Description: library for parsing and generating CBOR (RFC 7049)
  .
  This package contains the runtime library.
 Homepage: https://github.com/PJK/libcbor
-
-Package: libcc1-0
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 136
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-12
-Version: 12.2.0-14+deb12u1
-Depends: gcc-12-base (= 12.2.0-14+deb12u1), libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 5.2)
-Description: GCC cc1 plugin for GDB
- libcc1 is a plugin for GDB.
-Homepage: http://gcc.gnu.org/
 
 Package: libccid
 Status: install ok installed
@@ -9255,7 +8959,7 @@ Description: Compress/decompress images for mailheaders, libc6 runtime
  like exmh will then display this image when the user is reading your mail.
 
 Package: libcrypt-dev
-Status: install ok installed
+Status: deinstall ok config-files
 Priority: optional
 Section: libdevel
 Installed-Size: 341
@@ -9264,6 +8968,7 @@ Architecture: amd64
 Multi-Arch: same
 Source: libxcrypt
 Version: 1:4.4.33-2
+Config-Version: 1:4.4.33-2
 Replaces: libc6-dev (<< 2.29-4), libcrypt1-dev, libcrypt2-dev, manpages-dev (<< 5.01-1)
 Provides: libcrypt1-dev
 Depends: libcrypt1 (= 1:4.4.33-2)
@@ -11074,44 +10779,6 @@ Description: generic buffer management API -- runtime
  GBM is intended to be used as a native platform for EGL on drm or openwfd.
 Homepage: https://mesa3d.org/
 
-Package: libgcc-10-dev
-Status: install ok installed
-Priority: optional
-Section: libdevel
-Installed-Size: 13474
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-10
-Version: 10.2.1-6
-Replaces: libgccjit-10-dev (<< 10-20200321-1)
-Depends: gcc-10-base (= 10.2.1-6), libgcc-s1 (>= 10.2.1-6), libgomp1 (>= 10.2.1-6), libitm1 (>= 10.2.1-6), libatomic1 (>= 10.2.1-6), libasan6 (>= 10.2.1-6), liblsan0 (>= 10.2.1-6), libtsan0 (>= 10.2.1-6), libubsan1 (>= 10.2.1-6), libquadmath0 (>= 10.2.1-6)
-Recommends: libc6-dev (>= 2.30-1~)
-Breaks: libgccjit-10-dev (<< 10-20200321-1)
-Description: GCC support library (development files)
- This package contains the headers and static library files necessary for
- building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
-Homepage: http://gcc.gnu.org/
-
-Package: libgcc-12-dev
-Status: install ok installed
-Priority: optional
-Section: libdevel
-Installed-Size: 14284
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-12
-Version: 12.2.0-14+deb12u1
-Replaces: libtsan2 (<< 12-20211113-2~)
-Depends: gcc-12-base (= 12.2.0-14+deb12u1), libgcc-s1 (>= 12.2.0-14+deb12u1), libgomp1 (>= 12.2.0-14+deb12u1), libitm1 (>= 12.2.0-14+deb12u1), libatomic1 (>= 12.2.0-14+deb12u1), libasan8 (>= 12.2.0-14+deb12u1), liblsan0 (>= 12.2.0-14+deb12u1), libtsan2 (>= 12.2.0-14+deb12u1), libubsan1 (>= 12.2.0-14+deb12u1), libquadmath0 (>= 12.2.0-14+deb12u1)
-Recommends: libc6-dev (>= 2.23-1~)
-Breaks: libtsan2 (<< 12-20211113-2~)
-Description: GCC support library (development files)
- This package contains the headers and static library files necessary for
- building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
-Homepage: http://gcc.gnu.org/
-
 Package: libgcc-s1
 Protected: yes
 Status: install ok installed
@@ -11256,7 +10923,7 @@ Description: Library for accessing GData webservices - common data files
 Homepage: https://wiki.gnome.org/Projects/libgdata
 
 Package: libgdata22
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: libs
 Installed-Size: 994
@@ -11899,7 +11566,7 @@ Description: GNU TLS library - main runtime library
 Homepage: https://www.gnutls.org/
 
 Package: libgoa-1.0-0b
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: libs
 Installed-Size: 356
@@ -13384,23 +13051,6 @@ Description: manipulating sets and relations of integer points bounded by linear
  This package contains the runtime library.
 Homepage: http://isl.gforge.inria.fr/
 
-Package: libitm1
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 115
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-12
-Version: 12.2.0-14+deb12u1
-Depends: gcc-12-base (= 12.2.0-14+deb12u1), libc6 (>= 2.34)
-Description: GNU Transactional Memory Library
- GNU Transactional Memory Library (libitm) provides transaction support for
- accesses to the memory of a process, enabling easy-to-use synchronization of
- accesses to shared memory by several threads.
-Homepage: http://gcc.gnu.org/
-
 Package: libiw30
 Status: install ok installed
 Priority: optional
@@ -14133,22 +13783,6 @@ Description: module using libc functions for internationalization in Perl
  bindtextdomain(), bind_textdomain_codeset(), ngettext(), dcngettext()
  and dngettext().
 Homepage: https://metacpan.org/release/gettext
-
-Package: liblsan0
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 2942
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-12
-Version: 12.2.0-14+deb12u1
-Depends: gcc-12-base (= 12.2.0-14+deb12u1), libc6 (>= 2.34), libgcc-s1 (>= 3.3)
-Description: LeakSanitizer -- a memory leak detector (runtime)
- LeakSanitizer (Lsan) is a memory leak detector which is integrated
- into AddressSanitizer.
-Homepage: http://gcc.gnu.org/
 
 Package: libltdl7
 Status: install ok installed
@@ -15550,24 +15184,6 @@ Description: replacement for GNU Pth using system threads
  implementation. Thus nPth allows the use of libraries which are not
  compatible to GNU Pth.
 Homepage: https://www.gnupg.org/
-
-Package: libnsl-dev
-Status: install ok installed
-Priority: optional
-Section: libdevel
-Installed-Size: 345
-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: libnsl
-Version: 1.3.0-2
-Replaces: libc6-dev (<< 2.31-4)
-Depends: libnsl2 (= 1.3.0-2), libtirpc-dev
-Breaks: libc6-dev (<< 2.31-4)
-Description: libnsl development files
- This package contains the files needed for developing applications that
- use libnsl.
-Homepage: https://github.com/thkukuk/libnsl
 
 Package: libnsl2
 Status: install ok installed
@@ -18234,10 +17850,10 @@ Package: librewolf
 Status: install ok installed
 Priority: optional
 Section: web
-Installed-Size: 468522
-Maintainer: <@16295e9aa054>
+Installed-Size: 473231
+Maintainer: <@bfbeacb0bb3a>
 Architecture: amd64
-Version: 157.0.1-1
+Version: 158.0-1
 Provides: www-browser, gnome-www-browser
 Depends: libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.28), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.6), libgcc1 (>= 1:4.5), libgdk-pixbuf-2.0-0 (>= 2.22.0) | libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.37.3), libgtk-3-0 (>= 3.13.7), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 5), libx11-6, libx11-xcb1, libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.3-1), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1
 Conffiles:
@@ -20024,25 +19640,6 @@ Description: transport-independent RPC library - common files
  associated manpage.
 Homepage: http://sourceforge.net/projects/libtirpc
 
-Package: libtirpc-dev
-Status: install ok installed
-Priority: optional
-Section: libdevel
-Installed-Size: 717
-Maintainer: Josue Ortega <josue@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: libtirpc
-Version: 1.3.3+ds-1
-Depends: libtirpc3 (= 1.3.3+ds-1)
-Description: transport-independent RPC library - development files
- This package contains a port of Sun's transport-independent RPC library to
- Linux. The library is intended as a replacement for the RPC code in the GNU C
- library, providing among others support for RPC (and in turn, NFS) over IPv6.
- .
- This package contains the files needed for development against libtirpc.
-Homepage: http://sourceforge.net/projects/libtirpc
-
 Package: libtirpc3
 Status: install ok installed
 Priority: optional
@@ -20060,30 +19657,6 @@ Description: transport-independent RPC library
  Linux. The library is intended as a replacement for the RPC code in the GNU C
  library, providing among others support for RPC (and in turn, NFS) over IPv6.
 Homepage: http://sourceforge.net/projects/libtirpc
-
-Package: libtorrent-rasterbar2.0
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 5047
-Maintainer: Christian Marillat <marillat@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: libtorrent-rasterbar (2.0.8-1)
-Version: 2.0.8-1+b1
-Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.4), libssl3 (>= 3.0.0), libstdc++6 (>= 12.2.0-12)
-Description: C++ bittorrent library by Rasterbar Software
- Bittorrent library by Rasterbar Software (Arvid Norberg).
- libtorrent-rasterbar is a C++ library that aims to be a good alternative to
- all the other bittorrent implementations around.
- .
- The main goals of libtorrent-rasterbar are:
-  * to be cpu efficient
-  * to be memory efficient
-  * to be very easy to use
- .
- This package contains libtorrent-rasterbar run time shared library.
-Homepage: https://libtorrent.org/
 
 Package: libtry-tiny-perl
 Status: install ok installed
@@ -20104,38 +19677,6 @@ Description: module providing minimalistic try/catch
  handling for those having a hard time installing TryCatch, but who still want
  to write correct eval blocks without 5 lines of boilerplate each time.
 Homepage: https://metacpan.org/release/Try-Tiny
-
-Package: libtsan0
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 7214
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-11
-Version: 11.3.0-12
-Depends: gcc-11-base (= 11.3.0-12), libc6 (>= 2.34), libgcc-s1
-Description: ThreadSanitizer -- a Valgrind-based detector of data races (runtime)
- ThreadSanitizer (Tsan) is a data race detector for C/C++ programs.
- The Linux and Mac versions are based on Valgrind.
-Homepage: http://gcc.gnu.org/
-
-Package: libtsan2
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 7815
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-12
-Version: 12.2.0-14+deb12u1
-Depends: gcc-12-base (= 12.2.0-14+deb12u1), libc6 (>= 2.34), libgcc-s1 (>= 3.3)
-Description: ThreadSanitizer -- a Valgrind-based detector of data races (runtime)
- ThreadSanitizer (Tsan) is a data race detector for C/C++ programs.
- The Linux and Mac versions are based on Valgrind.
-Homepage: http://gcc.gnu.org/
 
 Package: libtwolame0
 Status: install ok installed
@@ -20162,23 +19703,6 @@ Description: MPEG Audio Layer 2 encoding library
  .
  This package contains the shared library.
 Homepage: http://www.twolame.org
-
-Package: libubsan1
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 2652
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: gcc-12
-Version: 12.2.0-14+deb12u1
-Depends: gcc-12-base (= 12.2.0-14+deb12u1), libc6 (>= 2.34), libgcc-s1 (>= 3.3), libstdc++6 (>= 4.1.1)
-Description: UBSan -- undefined behaviour sanitizer (runtime)
- UndefinedBehaviorSanitizer can be enabled via -fsanitize=undefined.
- Various computations will be instrumented to detect undefined behavior
- at runtime. Available for C and C++.
-Homepage: http://gcc.gnu.org/
 
 Package: libuchardet0
 Status: install ok installed
@@ -20820,7 +20344,7 @@ Description: audio visualization framework
 Homepage: http://libvisual.org
 
 Package: libvlc-bin
-Status: install ok triggers-pending
+Status: install ok installed
 Priority: optional
 Section: video
 Installed-Size: 168
@@ -20836,7 +20360,6 @@ Description: tools for VLC's base library
  podcasts, and multimedia streams from various network sources.
  .
  This package contains the vlc-cache-gen binary.
-Triggers-Pending: /usr/lib/x86_64-linux-gnu/vlc/plugins
 Homepage: https://www.videolan.org/vlc/
 
 Package: libvlc5
@@ -23519,80 +23042,27 @@ Description: Linux image base package
  This package contains files and support scripts for all Linux
  images.
 
-Package: linux-compiler-gcc-10-x86
+Package: linux-image-6.1.0-54-amd64
 Status: install ok installed
 Priority: optional
 Section: kernel
-Installed-Size: 542
+Installed-Size: 400354
 Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
 Architecture: amd64
-Multi-Arch: foreign
-Source: linux
-Version: 5.10.158-2
-Depends: gcc-10
-Description: Compiler for Linux on x86 (meta-package)
- This package depends on GCC of the appropriate version and architecture
- for Linux on amd64, i386 and x32.
-Homepage: https://www.kernel.org/
-
-Package: linux-headers-5.10.0-19-amd64
-Status: install ok installed
-Priority: optional
-Section: kernel
-Installed-Size: 5553
-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
-Architecture: amd64
-Source: linux
-Version: 5.10.149-2
-Depends: linux-headers-5.10.0-19-common (= 5.10.149-2), linux-kbuild-5.10 (>= 5.10.149-2), linux-compiler-gcc-10-x86
-Description: Header files for Linux 5.10.0-19-amd64
- This package provides the architecture-specific kernel header files for
- Linux kernel 5.10.0-19-amd64, generally used for building out-of-tree
- kernel modules.  These files are going to be installed into
- /usr/src/linux-headers-5.10.0-19-amd64, and can be used for building
- modules that load into the kernel provided by the
- linux-image-5.10.0-19-amd64 package.
-Homepage: https://www.kernel.org/
-
-Package: linux-headers-5.10.0-19-common
-Status: install ok installed
-Priority: optional
-Section: kernel
-Installed-Size: 51978
-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
-Architecture: all
-Multi-Arch: foreign
-Source: linux
-Version: 5.10.149-2
-Description: Common header files for Linux 5.10.0-19
- This package provides the common kernel header files for Linux kernel
- version 5.10.0-19, generally used for building out-of-tree kernel modules.
- To obtain a complete set of headers you also need to install the
- linux-headers-5.10.0-19-(flavour) package, matching the flavour of the
- kernel you intend the build for.
-Homepage: https://www.kernel.org/
-
-Package: linux-image-6.1.0-53-amd64
-Status: install ok installed
-Priority: optional
-Section: kernel
-Installed-Size: 400189
-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
-Architecture: amd64
-Source: linux-signed-amd64 (6.1.187+1)
-Version: 6.1.187-1
-Replaces: linux-image-6.1.0-53-amd64-unsigned
+Source: linux-signed-amd64 (6.1.190+1)
+Version: 6.1.190-1
+Replaces: linux-image-6.1.0-54-amd64-unsigned
 Depends: kmod, linux-base (>= 4.3~), initramfs-tools (>= 0.120+deb8u2) | linux-initramfs-tool
 Recommends: firmware-linux-free, apparmor
 Suggests: linux-doc-6.1, debian-kernel-handbook, grub-pc | grub-efi-amd64 | extlinux
 Breaks: fwupdate (<< 12-7), initramfs-tools (<< 0.120+deb8u2), wireless-regdb (<< 2019.06.03-1~)
-Conflicts: linux-image-6.1.0-53-amd64-unsigned
+Conflicts: linux-image-6.1.0-54-amd64-unsigned
 Description: Linux 6.1 for 64-bit PCs (signed)
  The Linux kernel 6.1 and modules for use on PCs with AMD64, Intel 64 or
  VIA Nano processors.
  .
  The kernel image and modules are signed for use with Secure Boot.
-Built-Using: linux (= 6.1.187-1)
+Built-Using: linux (= 6.1.190-1)
 Homepage: https://www.kernel.org/
 
 Package: linux-image-amd64
@@ -23602,46 +23072,14 @@ Section: kernel
 Installed-Size: 13
 Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
 Architecture: amd64
-Source: linux-signed-amd64 (6.1.187+1)
-Version: 6.1.187-1
-Provides: linux-image-generic, linux-latest-modules-6.1.0-53-amd64, virtualbox-guest-modules, wireguard-modules (= 1.0.0)
-Depends: linux-image-6.1.0-53-amd64 (= 6.1.187-1)
+Source: linux-signed-amd64 (6.1.190+1)
+Version: 6.1.190-1
+Provides: linux-image-generic, linux-latest-modules-6.1.0-54-amd64, virtualbox-guest-modules, wireguard-modules (= 1.0.0)
+Depends: linux-image-6.1.0-54-amd64 (= 6.1.190-1)
 Description: Linux for 64-bit PCs (meta-package)
  This package depends on the latest Linux kernel and modules for use on PCs
  with AMD64, Intel 64 or VIA Nano processors.
-Built-Using: linux (= 6.1.187-1)
-Homepage: https://www.kernel.org/
-
-Package: linux-kbuild-5.10
-Status: install ok installed
-Priority: optional
-Section: kernel
-Installed-Size: 1642
-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
-Architecture: amd64
-Multi-Arch: foreign
-Source: linux
-Version: 5.10.158-2
-Depends: libc6 (>= 2.14), libelf1 (>= 0.142), libssl1.1 (>= 1.1.0)
-Description: Kbuild infrastructure for Linux 5.10
- This package provides the kbuild infrastructure for the headers packages
- for Linux kernel version 5.10.
-Homepage: https://www.kernel.org/
-
-Package: linux-libc-dev
-Status: install ok installed
-Priority: optional
-Section: devel
-Installed-Size: 7092
-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: linux
-Version: 6.1.187-1
-Description: Linux support headers for userspace development
- This package provides userspaces headers from the Linux kernel.  These
- headers are used by the installed headers for GNU libc and other system
- libraries.
+Built-Using: linux (= 6.1.190-1)
 Homepage: https://www.kernel.org/
 
 Package: live-boot
@@ -23968,34 +23406,8 @@ Description: Debian's mailcap system, and support programs
  This package also provides the "debian-view" utility to handle Debian packages
  interactively.
 
-Package: make
-Status: install ok installed
-Priority: optional
-Section: devel
-Installed-Size: 1592
-Maintainer: Manoj Srivastava <srivasta@debian.org>
-Architecture: amd64
-Multi-Arch: allowed
-Source: make-dfsg
-Version: 4.3-4.1
-Replaces: make-guile
-Depends: libc6 (>= 2.27)
-Suggests: make-doc
-Conflicts: make-guile
-Description: utility for directing compilation
- GNU Make is a utility which controls the generation of executables
- and other target files of a program from the program's source
- files. It determines automatically which pieces of a large program
- need to be (re)created, and issues the commands to (re)create
- them. Make can be used to organize any task in which targets (files)
- are to be automatically updated based on input files whenever the
- corresponding input is newer --- it is not limited to building
- computer programs. Indeed, Make is a general purpose dependency
- solver.
-Homepage: https://www.gnu.org/software/make/
-
 Package: man-db
-Status: install ok triggers-pending
+Status: install ok half-configured
 Priority: important
 Section: doc
 Installed-Size: 2963
@@ -24003,6 +23415,7 @@ Maintainer: Colin Watson <cjwatson@debian.org>
 Architecture: amd64
 Multi-Arch: foreign
 Version: 2.11.2-2
+Config-Version: 2.11.2-2
 Replaces: man, nlsutils
 Provides: man, man-browser
 Depends: bsdextrautils | bsdmainutils (<< 12.1.1~), groff-base, debconf (>= 0.5) | debconf-2.0, libc6 (>= 2.34), libgdbm6 (>= 1.16), libpipeline1 (>= 1.5.0), libseccomp2 (>= 2.1.0), zlib1g (>= 1:1.1.4)
@@ -24020,7 +23433,6 @@ Description: tools for reading manual pages
  manpath utility for determining the manual page search path, and the
  maintenance utilities mandb, catman and zsoelim. man-db uses the groff
  suite of programs to format and display the manual pages.
-Triggers-Pending: /usr/share/man
 Homepage: https://man-db.gitlab.io/man-db/
 
 Package: manpages
@@ -24047,28 +23459,6 @@ Description: Manual pages about using a GNU/Linux system
  pages from sections 1,6 and 8 are also provided.
  .
  The man pages describe syntaxes of several system files.
-Homepage: https://www.kernel.org/doc/man-pages/
-
-Package: manpages-dev
-Status: install ok installed
-Priority: optional
-Section: doc
-Installed-Size: 3732
-Maintainer: Dr. Tobias Quathamer <toddy@debian.org>
-Architecture: all
-Multi-Arch: foreign
-Source: manpages
-Version: 6.03-2
-Replaces: inn2-dev (<< 2.7.0-1)
-Depends: manpages
-Suggests: man-browser
-Breaks: inn2-dev (<< 2.7.0-1), manpages (<< 6.01-1)
-Description: Manual pages about using GNU/Linux for development
- These man pages describe the Linux programming interface, including
- these two sections:
-  2 = Linux system calls.
-  3 = Library calls (note that a more comprehensive source of information
-      may be found in the glibc-doc and glibc-doc-reference packages).
 Homepage: https://www.kernel.org/doc/man-pages/
 
 Package: mat2
@@ -24183,6 +23573,29 @@ Description: List of standard media types and their usual file extension
  .
  The /etc/mime.types file is compiled by hand using mostly information provided
  by the Internet Assigned Numbers Authority (IANA).
+
+Package: memlockd
+Status: install ok installed
+Priority: optional
+Section: admin
+Installed-Size: 57
+Maintainer: Russell Coker <russell@coker.com.au>
+Architecture: amd64
+Source: memlockd (1.3-2.1)
+Version: 1.3-2.1+b1
+Depends: libc6 (>= 2.34), adduser
+Conffiles:
+ /etc/default/memlockd 1c2dffc387da99a3646143858519bd07
+ /etc/init.d/memlockd e2e2b387b8aced7e99096e839da0af29
+ /etc/memlockd.cfg 829b25475bb483525cb00bbf5d4f68f3
+Description: daemon to lock files into RAM
+ When a system starts paging excessively it may be impossible for the sysadmin
+ to login for the purpose of killing the runaway processes (sometimes the
+ login program times out due to thrashing).  Memlockd allows important system
+ files (such as /bin/login, /bin/getty, and the admin shell) to be locked in
+ memory so that there will be no delay in accessing executable pages.  In my
+ tests this can decrease the time required for the administrator to login on a
+ thrashing system by a factor of more than 3.
 
 Package: mesa-vulkan-drivers
 Status: install ok installed
@@ -24412,7 +23825,7 @@ Description: network management framework (daemon and userspace tools)
 Homepage: https://wiki.gnome.org/Projects/NetworkManager
 
 Package: network-manager-gnome
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: gnome
 Installed-Size: 5570
@@ -24420,14 +23833,13 @@ Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.
 Architecture: amd64
 Source: network-manager-applet
 Version: 1.30.0-2
-Config-Version: 1.20.0-3
 Replaces: libnma-common (<< 1.10.4)
 Depends: libatk1.0-0 (>= 1.12.4), libayatana-appindicator3-1 (>= 0.4.90), libc6 (>= 2.34), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.43.2), libgtk-3-0 (>= 3.21.6), libjansson4 (>= 2.14), libmm-glib0 (>= 0.7.991), libnm0 (>= 1.16.0), libnma0 (>= 1.8.36), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libsecret-1-0 (>= 0.18), libselinux1 (>= 3.1~), dconf-gsettings-backend | gsettings-backend, network-manager, policykit-1-gnome | polkit-1-auth-agent, default-dbus-session-bus | dbus-session-bus
 Recommends: notification-daemon, gnome-keyring, gnome-icon-theme, mobile-broadband-provider-info, iso-codes
 Suggests: network-manager-openconnect-gnome, network-manager-openvpn-gnome, network-manager-vpnc-gnome, network-manager-pptp-gnome
 Breaks: libnma-common (<< 1.10.4)
 Conffiles:
- /etc/xdg/autostart/nm-applet.desktop d02815b63d0fc5cd3cb701a452de9807
+ /etc/xdg/autostart/nm-applet.desktop 14e33db3662dc8beecb604271729f243
 Description: network management framework (GNOME frontend)
  NetworkManager is a system network service that manages your network devices
  and connections, attempting to keep active network connectivity when
@@ -26247,28 +25659,6 @@ Description: Tor control library for Python 3 series
  This is Python 3 series module.
 Homepage: https://gitweb.torproject.org/stem.git
 
-Package: python3-uno
-Status: deinstall ok config-files
-Priority: optional
-Section: python
-Installed-Size: 644
-Maintainer: Debian LibreOffice Maintainers <debian-openoffice@lists.debian.org>
-Architecture: amd64
-Source: libreoffice
-Version: 1:7.0.4-4+deb11u4
-Config-Version: 1:7.0.4-4+deb11u4
-Replaces: libreoffice-common (<< 1:4.4.0~beta2), libreoffice-core (= 1:4.3.0~beta1-1)
-Depends: libreoffice-common (>= 1:7.0.0~alpha~), libreoffice-core-nogui (= 1:7.0.4-4+deb11u4) | libreoffice-core (= 1:7.0.4-4+deb11u4), ucf (>= 0.8), python3:any, python3 (<< 3.10), python3 (>= 3.9~), python3.9, libc6 (>= 2.14), libgcc-s1 (>= 3.0), libpython3.9 (>= 3.9.1), libstdc++6 (>= 5.2), libuno-cppu3 (>= 4.4.0~alpha), libuno-cppuhelpergcc3-3 (>= 5.3.0~alpha), libuno-sal3 (>= 5.4.0~alpha), libuno-salhelpergcc3-3 (>= 3.6.0~beta), uno-libs-private
-Conflicts: python-uno
-Enhances: libreoffice
-Description: Python-UNO bridge
- The Python-UNO bridge allows use of the standard LibreOffice API
- with the Python scripting language. It additionally allows
- others to develop UNO components in Python, thus Python UNO components
- may be run within the LibreOffice process and can be called from C++
- or the built in StarBasic scripting language.
-Homepage: http://udk.openoffice.org/python/python-bridge.html
-
 Package: python3-zbar
 Status: install ok installed
 Priority: optional
@@ -26344,36 +25734,6 @@ Description: Minimal subset of the Python language (version 3.11)
  See /usr/share/doc/python3.11-minimal/README.Debian for a list of the modules
  contained in this package.
 Cnf-Visible-Pkgname: python3.11
-
-Package: qbittorrent
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 12020
-Maintainer: Christian Marillat <marillat@debian.org>
-Architecture: amd64
-Version: 4.5.2-3+deb12u1
-Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.3), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.12.2) | libqt5gui5-gles (>= 5.12.2), libqt5network5 (>= 5.15.1), libqt5sql5 (>= 5.2.0), libqt5widgets5 (>= 5.15.1), libqt5xml5 (>= 5.2.0), libssl3 (>= 3.0.0), libstdc++6 (>= 11), libtorrent-rasterbar2.0 (>= 2.0.8), zlib1g (>= 1:1.2.0), libqt5sql5-sqlite
-Description: bittorrent client based on libtorrent-rasterbar with a Qt5 GUI
- BitTorrent client written in C++ and based on libtorrent-rasterbar with a
- Qt5 user interface. qBittorrent is a feature rich but lightweight client
- that is very similar to uTorrent. Its main features are:
- .
-  * Polished uTorrent-like user interface
-  * Well integrated and extensible search engine
-  * Remote control through a Web user interface
-  * Vuze-compatible protocol encryption
-  * uTorrent-compatible Peer eXchange (PeX)
-  * DHT (trackerless) support
-  * UPnP / NAT-PMP port forwarding
-  * IPv6 compliant
-  * RSS support with advanced download filters
-  * Advanced control over torrent content and trackers
-  * IP Filtering (eMule / Peer Guardian filters)
-  * Torrents queueing and prioritizing
-  * Good localization (~25 languages supported)
-  * Unicode support
-Homepage: https://www.qbittorrent.org/
 
 Package: qrencode
 Status: install ok installed
@@ -26461,38 +25821,6 @@ Description: QtWayland platform plugin
  binary.
 Homepage: https://doc.qt.io/qt-5/wayland-and-qt.html
 
-Package: r8168-dkms
-Status: deinstall ok config-files
-Priority: optional
-Section: non-free/kernel
-Installed-Size: 1356
-Maintainer: Andreas Beckmann <anbe@debian.org>
-Architecture: all
-Source: r8168
-Version: 8.048.03-3
-Config-Version: 8.048.03-3
-Depends: dkms (>= 2.1.0.0)
-Conffiles:
- /etc/modprobe.d/r8168-dkms.conf 5c1e04e15490158658d92fc6ddbd9d40
-Description: dkms source for the r8168 network driver
- r8168 is the Linux device driver released by RealTek for their network
- controllers with PCI-Express interface:
-  * 10/100/1000M Gigabit Ethernet: RTL8111B, RTL8111C, RTL8111D, RTL8111E,
-    RTL8111F, RTL8111G(S), RTL8111H(S), RTL8118(A)(S), RTL8119i, RTL8111L,
-    RTL8168B, RTL8168E, RTL8168H, RTL8111DP, RTL8111EP, RTL8111FP, RTL8411,
-    RTL8411B
- .
- This driver should only be used for devices not yet supported by the
- in-kernel driver r8169. Please see the README.Debian for instructions how
- to report bugs against r8169 that made it necessary to use r8168-dkms.
- .
- Installation of the r8168-dkms package will disable the in-kernel r8169
- module. To re-enable r8169, the r8168-dkms package must be purged.
- .
- This package provides the dkms source code for the r8168 kernel modules.
- Kernel source or headers are required to compile these modules.
-Homepage: https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software
-
 Package: readline-common
 Status: install ok installed
 Priority: optional
@@ -26530,27 +25858,6 @@ Description: lightweight picture-viewer for the Xfce desktop environment
  Ristretto is a fast and lightweight picture-viewer for the Xfce desktop
  environment.
 Homepage: https://docs.xfce.org/apps/ristretto/start
-
-Package: rpcsvc-proto
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 246
-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Architecture: amd64
-Multi-Arch: foreign
-Version: 1.4.3-1
-Replaces: libc-dev-bin (<< 2.31-14), libc6-dev (<< 2.31-14)
-Depends: libc6 (>= 2.34)
-Breaks: libc-dev-bin (<< 2.31-14), libc6-dev (<< 2.31-14)
-Description: RPC protocol compiler and definitions
- rpcgen is a tool that generates C code to implement an RPC protocol. The input
- to rpcgen is a language similar to C known as RPC Language (Remote Procedure
- Call Language).
- .
- This package also includes several rpcsvc header files and RPC protocol
- definitions from SunRPC sources that were previously shipped by glibc.
-Homepage: https://github.com/thkukuk/rpcsvc-proto
 
 Package: runit-helper
 Status: install ok installed
@@ -26937,18 +26244,18 @@ Package: tor
 Status: install ok installed
 Priority: optional
 Section: net
-Installed-Size: 5870
+Installed-Size: 5894
 Maintainer: Peter Palfrader <weasel@debian.org>
 Architecture: amd64
-Version: 0.4.9.11-0+deb12u1
+Version: 0.4.9.14-1~d12.bookworm+1
 Depends: libc6 (>= 2.34), libcap2 (>= 1:2.10), libevent-2.1-7 (>= 2.1.8-stable), liblzma5 (>= 5.1.1alpha+20120614), libseccomp2 (>= 0.0.0~20120605), libssl3 (>= 3.0.0), libsystemd0, libzstd1 (>= 1.5.2), zlib1g (>= 1:1.1.4), adduser, runit-helper (>= 2.14.0~), lsb-base
 Recommends: logrotate, tor-geoipdb, torsocks
 Suggests: mixmaster, torbrowser-launcher, socat, apparmor-utils, nyx, obfs4proxy
 Breaks: runit (<< 2.1.2-51~)
 Conflicts: libssl0.9.8 (<< 0.9.8g-9)
 Conffiles:
- /etc/apparmor.d/abstractions/tor 3765d32a2834004a1b5fb2c7360998da
- /etc/apparmor.d/system_tor 2920c5c9e0dac3172176b998e4894767
+ /etc/apparmor.d/abstractions/tor cb0014a9b59bc70dd122213ecc53abd8
+ /etc/apparmor.d/system_tor 32a7c411a6aa0bb5bf2b5c4fccf70201
  /etc/cron.weekly/tor 78214da84411cbfef01ed0c037514288
  /etc/default/tor 4eed467922fcd0eb49f8c2fa938d53c0
  /etc/init.d/tor 6cc688c9411c61015c3e4f91e61bc408
@@ -26987,6 +26294,32 @@ Description: anonymizing overlay network for TCP
  the Tor Browser Bundle, a standalone tarball that includes static
  builds of Tor, Torbutton, and a modified Firefox that is patched to fix
  a variety of privacy bugs.
+Homepage: https://www.torproject.org/
+
+Package: tor-geoipdb
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 26321
+Maintainer: Peter Palfrader <weasel@debian.org>
+Architecture: all
+Source: tor
+Version: 0.4.9.14-1~d12.bookworm+1
+Replaces: tor (<< 0.2.4.8)
+Depends: tor (>= 0.4.9.14-1~d12.bookworm+1)
+Breaks: tor (<< 0.2.4.8)
+Description: GeoIP database for Tor
+ This package provides a GeoIP database for Tor, i.e. it maps IPv4 addresses
+ to countries.
+ .
+ Bridge relays (special Tor relays that aren't listed in the main Tor
+ directory) use this information to report which countries they see
+ connections from.  These statistics enable the Tor network operators to
+ learn when certain countries start blocking access to bridges.
+ .
+ Clients can also use this to learn what country each relay is in, so
+ Tor controllers like arm or Vidalia can use it, or if they want to
+ configure path selection preferences.
 Homepage: https://www.torproject.org/
 
 Package: tzdata
