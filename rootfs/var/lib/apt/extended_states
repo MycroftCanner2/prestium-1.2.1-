@@ -2010,10 +2010,6 @@ Package: libayatana-indicator3-7
 Architecture: amd64
 Auto-Installed: 1
 
-Package: sudo
-Architecture: amd64
-Auto-Installed: 1
-
 Package: kbd
 Architecture: amd64
 Auto-Installed: 1

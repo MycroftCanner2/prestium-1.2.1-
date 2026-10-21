@@ -39,7 +39,15 @@ hardened in a qemu-x86_64 chroot, then re-split into zstd squashfs layers).
   network; `user` may only reach local proxy ports. One new rule: `prestium-htp` -> 127.0.0.1:9050.
   i2pd's random inbound port kept.
 - `sudo`: passwordless `mount` and `uptime` removed (passwordless `mount` was a root escalation
-  that could bypass the firewall). Only VeraCrypt stays passwordless.
+  that could bypass the firewall).
+- VeraCrypt app removed. Its passwordless root helper (`sudo veracrypt --core-service`) accepted
+  any mount request, so any program could use it to become root and turn off the firewall.
+  It is replaced by **Unlock VeraCrypt Volume** (`/usr/local/bin/prestium-unlock-veracrypt`),
+  which unlocks VeraCrypt file containers, partitions and drives through udisks2 + cryptsetup,
+  like Tails. Volumes always mount under `/media/user` with `nosuid,nodev`; no root rule is needed.
+  Supports password, PIM, hidden volumes, Windows system volumes and keyfiles.
+  It cannot create new volumes. `veracrypt_grp`, `/etc/sudoers.d/veracrypt` and the unused
+  wxWidgets libraries are gone. A polkit rule lets the desktop user unlock internal-disk partitions.
 - root account locked.
 - sysctl: ptrace_scope 2, unprivileged BPF off, BPF JIT hardening, sysrq off, protected
   fifos/regular files, no ICMP redirects / source routing.
@@ -58,4 +66,4 @@ hardened in a qemu-x86_64 chroot, then re-split into zstd squashfs layers).
 ## Tested (QEMU, x86_64)
 Boots to LightDM; 0 failed units; ferm, NetworkManager, i2pd (5 client tunnels, reseed from file),
 Tor, memlockd, watchdog active; MAC randomized; DHCP works; `user` direct clearnet blocked,
-Tor SOCKS works; `sudo mount` denied; no DNS; clock set through Tor; root locked.
+Tor SOCKS works; `sudo mount` and `sudo veracrypt` denied; VeraCrypt container unlock/mount/lock as the desktop user (nosuid,nodev); no DNS; clock set through Tor; root locked.

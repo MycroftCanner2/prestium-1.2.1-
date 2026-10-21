@@ -320,7 +320,6 @@
 50:application/x-mimearchive:*.mht
 50:text/x-c++src:*.c++
 50:application/x-abiword:*.abw.gz
-50:application/x-veracrypt-volume:*.hc
 50:application/x-xz-compressed-tar:*.txz
 50:image/rle:*.rle
 50:application/vnd.sun.xml.calc:*.sxc
@@ -494,7 +493,6 @@
 50:application/vnd.ms-wpl:*.wpl
 50:video/mp2t:*.mts
 50:text/x-vhdl:*.vhdl
-50:application/x-truecrypt-volume:*.tc
 50:video/x-matroska-3d:*.mk3d
 50:audio/midi:*.midi
 50:video/x-mjpeg:*.mjpg

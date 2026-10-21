@@ -16213,28 +16213,6 @@ Description: New Perl Compatible Regular Expression Library - 16 bit runtime fil
  UTF-16 input.
 Homepage: https://pcre.org/
 
-Package: libpcre2-32-0
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 608
-Maintainer: Matthew Vernon <matthew@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: pcre2
-Version: 10.42-1+deb12u2
-Depends: libc6 (>= 2.34)
-Description: New Perl Compatible Regular Expression Library - 32 bit runtime files
- This is PCRE2, the new implementation of PCRE, a library of functions
- to support regular expressions whose syntax and semantics are as
- close as possible to those of the Perl 5 language. New projects
- should use this library in preference to the older library,
- confusingly called pcre3 in Debian.
- .
- This package contains the 32 bit runtime library, which operates on
- UTF-32 input.
-Homepage: https://pcre.org/
-
 Package: libpcre2-8-0
 Status: install ok installed
 Priority: optional
@@ -20971,57 +20949,6 @@ Description: database of robots.txt-derived permissions
  WWW::RobotRules object can be used for one or more parsed /robots.txt files
  on any number of hosts.
 Homepage: https://metacpan.org/release/WWW-RobotRules
-
-Package: libwxbase3.2-1
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 3344
-Maintainer: wxWidgets Maintainers <team+wx@tracker.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: wxwidgets3.2
-Version: 3.2.2+dfsg-2
-Replaces: libwxbase3.2-0
-Depends: libc6 (>= 2.34), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.0), libpcre2-32-0 (>= 10.22), libstdc++6 (>= 11), zlib1g (>= 1:1.1.4)
-Breaks: libwxbase3.2-0
-Description: wxBase library (runtime) - non-GUI support classes of wxWidgets toolkit
- wxBase is a collection of C++ classes providing basic data structures
- (strings, lists, arrays), powerful wxDateTime class for date manipulations,
- portable wrappers around many OS-specific functions allowing the same
- program to work for all supported platforms, wxThread class for writing
- multithreaded programs, and much more.
- .
- wxBase currently supports the following platforms: Generic Unix (Linux,
- FreeBSD, Solaris, HP-UX, ...), Microsoft Windows, and Mac OS X.
- .
- This package is only useful for non-GUI apps.  It offers a subset of the
- classes in libwx_gtk3.2 for use in console apps and daemons.  You do not need
- this package to build or use wxWidgets GUI apps.
-Homepage: https://www.wxwidgets.org/
-
-Package: libwxgtk3.2-1
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 17944
-Maintainer: wxWidgets Maintainers <team+wx@tracker.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: wxwidgets3.2
-Version: 3.2.2+dfsg-2
-Replaces: libwxgtk3.2-0
-Depends: libc6 (>= 2.33), libcairo2 (>= 1.12.0), libfontconfig1 (>= 2.12.6), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.49.3), libgtk-3-0 (>= 3.22.25), libjpeg62-turbo (>= 1.3.1), libnotify4 (>= 0.7.0), libpango-1.0-0 (>= 1.22.0), libpangocairo-1.0-0 (>= 1.14.0), libpangoft2-1.0-0 (>= 1.37.2), libpng16-16 (>= 1.6.2-1), libsm6, libstdc++6 (>= 11), libtiff6 (>= 4.0.3), libwxbase3.2-1 (>= 3.2.2+dfsg), libx11-6, libxtst6
-Breaks: libwxgtk3.2-0
-Description: wxWidgets Cross-platform C++ GUI toolkit (GTK 3 runtime)
- wxWidgets (formerly known as wxWindows) is a class library for C++ providing
- GUI components and other facilities on several popular platforms (and some
- unpopular ones as well).
- .
- This package provides the shared libraries needed to run programs linked
- against wxWidgets.  To use the (optional) glcanvas library you will need
- to have Mesa or OpenGL installed.
-Homepage: https://www.wxwidgets.org/
 
 Package: libx11-6
 Status: install ok installed
@@ -26653,19 +26580,6 @@ Description: interactive login tools
  Tools commonly found on systems where humans login interactively,
  or are needed with non-standard system configurations.
 Homepage: https://www.kernel.org/pub/linux/utils/util-linux/
-
-Package: veracrypt
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 34464
-Maintainer: VeraCrypt Team <veracrypt@amcrypto.jp>
-Architecture: amd64
-Version: 1.26.29-1~deb12-1
-Depends: libwxgtk3.2-1, libayatana-appindicator3-1, libfuse2, dmsetup, sudo
-Conflicts: veracrypt-console
-Description: Disk encryption with strong security based on TrueCrypt.
- Disk encryption with strong security based on TrueCrypt.
 
 Package: vlc
 Status: install ok installed

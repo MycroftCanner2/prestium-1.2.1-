@@ -1,7 +1,0 @@
-2026-10-20 20:40:02 startup packages configure
-2026-10-20 20:40:02 configure man-db:amd64 2.11.2-2 <none>
-2026-10-20 20:40:02 status half-configured man-db:amd64 2.11.2-2
-2026-10-20 20:41:16 status installed man-db:amd64 2.11.2-2
-2026-10-20 20:41:16 trigproc libc-bin:amd64 2.36-9+deb12u14 <none>
-2026-10-20 20:41:16 status half-configured libc-bin:amd64 2.36-9+deb12u14
-2026-10-20 20:41:16 status installed libc-bin:amd64 2.36-9+deb12u14

@@ -319,7 +319,6 @@ application/vnd.oasis.opendocument.text-master:*.odm
 application/x-mimearchive:*.mht
 text/x-c++src:*.c++
 application/x-abiword:*.abw.gz
-application/x-veracrypt-volume:*.hc
 application/x-xz-compressed-tar:*.txz
 image/rle:*.rle
 application/vnd.sun.xml.calc:*.sxc
@@ -493,7 +492,6 @@ application/x-gedcom:*.ged
 application/vnd.ms-wpl:*.wpl
 video/mp2t:*.mts
 text/x-vhdl:*.vhdl
-application/x-truecrypt-volume:*.tc
 video/x-matroska-3d:*.mk3d
 audio/midi:*.midi
 video/x-mjpeg:*.mjpg

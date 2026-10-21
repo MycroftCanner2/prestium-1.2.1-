@@ -70,8 +70,8 @@
     <item label="KeePassXC">
       <action name="Execute"><execute>keepassxc</execute></action>
     </item>
-    <item label="VeraCrypt">
-      <action name="Execute"><execute>veracrypt</execute></action>
+    <item label="Unlock VeraCrypt Volume">
+      <action name="Execute"><execute>/usr/local/bin/prestium-unlock-veracrypt</execute></action>
     </item>
     <item label="GPG Frontend">
       <action name="Execute"><execute>gpgfrontend</execute></action>

@@ -8191,7 +8191,7 @@ Homepage: https://sourceware.org/bzip2/
 
 Package: libc-bin
 Essential: yes
-Status: install ok triggers-pending
+Status: install ok installed
 Priority: required
 Section: libs
 Installed-Size: 2042
@@ -8218,7 +8218,6 @@ Description: GNU C Library: Binaries
   * ldd, ldconfig: print/configure shared library dependencies
   * locale, localedef: show/generate locale definitions
   * tzselect, zdump, zic: select/dump/compile time zones
-Triggers-Pending: ldconfig
 Homepage: https://www.gnu.org/software/libc/libc.html
 
 Package: libc-l10n
@@ -23407,7 +23406,7 @@ Description: Debian's mailcap system, and support programs
  interactively.
 
 Package: man-db
-Status: install ok half-configured
+Status: install ok installed
 Priority: important
 Section: doc
 Installed-Size: 2963
@@ -23415,7 +23414,6 @@ Maintainer: Colin Watson <cjwatson@debian.org>
 Architecture: amd64
 Multi-Arch: foreign
 Version: 2.11.2-2
-Config-Version: 2.11.2-2
 Replaces: man, nlsutils
 Provides: man, man-browser
 Depends: bsdextrautils | bsdmainutils (<< 12.1.1~), groff-base, debconf (>= 0.5) | debconf-2.0, libc6 (>= 2.34), libgdbm6 (>= 1.16), libpipeline1 (>= 1.5.0), libseccomp2 (>= 2.1.0), zlib1g (>= 1:1.1.4)
@@ -26655,19 +26653,6 @@ Description: interactive login tools
  Tools commonly found on systems where humans login interactively,
  or are needed with non-standard system configurations.
 Homepage: https://www.kernel.org/pub/linux/utils/util-linux/
-
-Package: veracrypt
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 34464
-Maintainer: VeraCrypt Team <veracrypt@amcrypto.jp>
-Architecture: amd64
-Version: 1.26.29-1~deb12-1
-Depends: libwxgtk3.2-1, libayatana-appindicator3-1, libfuse2, dmsetup, sudo
-Conflicts: veracrypt-console
-Description: Disk encryption with strong security based on TrueCrypt.
- Disk encryption with strong security based on TrueCrypt.
 
 Package: vlc
 Status: install ok installed

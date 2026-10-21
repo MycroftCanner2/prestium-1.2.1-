@@ -37,7 +37,6 @@ i2pd:x:2000:user
 user:x:1000:
 netdev:x:109:
 sudo:x:27:
-veracrypt_grp:x:2001:user
 systemd-timesync:x:110:
 sgx:x:111:
 lp:*:7:
