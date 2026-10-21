@@ -4,19 +4,18 @@ Disclaimer: This project and all associated materials (including software, repos
 
 This branch is a rebuild of Prestium **1.6** on Debian 12 (bookworm). It follows the
 developer's 1.3–1.6 release notes and adds updates on top. The version is now 1.8, and the ISO is `Prestium-1.8-amd64.iso`
-(SHA-256 6ef524659cfc8ed669d4341bafc144028eaaadf57c0eb9b8ab7f7e9371ceda2e).
+(SHA-256 a6a207ad3addd972c32273b064d398deb9e6a02bd22b2bb301620bb67eb53d66).
 CHANGES-1.8.md lists what 1.8 changed (updates, Tails-style emergency shutdown and memory wipe, time over Tor, hardening, clean-up);
 CHANGES-1.6-UPDATE.md has the earlier changes. The 1.7 torrent (`Prestium-1.7-amd64.iso.torrent`) is unchanged. The ISO itself is not in git.
 
 - Base: Debian 12, fully upgraded. Kernel 6.1.0-54-amd64 (6.1.190-1).
-- I2P: i2pd 2.61.0 from the official PurpleI2P repo (repo.i2pd.xyz). HTTP proxy 4444, SOCKS proxy 127.0.0.1:4447 and SAM 127.0.0.1:7656 are on.
+- I2P: i2pd 3.0.0 (official PurpleI2P bookworm package). HTTP proxy 4444, SOCKS proxy 127.0.0.1:4447 and SAM 127.0.0.1:7656 are on.
 - Tor 0.4.9.14 from deb.torproject.org, SOCKS 127.0.0.1:9050, with Nyx 2.1.0 as the monitor.
 - Browsers: **Web Browser (I2P)** is LibreWolf 158.0 through the i2pd HTTP proxy 127.0.0.1:4444.
   **Tor Browser** is the official Tor Browser 15.0.25 (signature-checked) in /opt/tor-browser, using the system Tor
   (SOCKS 127.0.0.1:9050, control socket /run/tor/control) instead of its own tor. LibreWolf no longer has a Tor profile.
 - Wallet: **Feather 2.8.1 is the only wallet**, preconfigured for I2P (SOCKS 127.0.0.1:4447). Monero Wallet GUI is removed.
-- qBittorrent 5.3.0: the official signed AppImage, extracted to /opt/qbittorrent. It uses native I2P via SAM 127.0.0.1:7656 and is I2P-only:
-  mixed mode, DHT, PeX, LSD, UPnP and NAT-PMP are all off.
+- Torrents: **I2P Torrents**, the i2pd 3.0 built-in client (I2P DHT, magnets, PEX, datagram trackers), saving to ~/Downloads/Torrents. Its web UI/RPC is on 127.0.0.1:7685 behind a random per-boot path. qBittorrent is removed.
 - Other network apps are set up for I2P. Gajim uses the i2pd HTTP proxy. HexChat uses the i2pd SOCKS tunnel 127.0.0.1:4449 and I2P IRC servers. Sylpheed uses the postman SMTP/POP3 tunnels.
   Everything else uses the `/etc/environment` proxy 127.0.0.1:4450.
 - Firewall (ferm): only i2pd (uid 2000) and Tor (uid 107) may reach the network. `user` may reach localhost proxy ports

@@ -6307,22 +6307,22 @@ Package: i2pd
 Status: install ok installed
 Priority: optional
 Section: net
-Installed-Size: 4986
+Installed-Size: 6595
 Maintainer: r4sas <r4sas@i2pmail.org>
 Architecture: amd64
-Version: 2.61.0-1bookworm1
-Depends: libboost-program-options1.74.0 (>= 1.74.0+ds1), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libminiupnpc17 (>= 1.9.20140610), libssl3 (>= 3.0.0), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
+Version: 3.0.0-1bookworm1
+Depends: libboost-json1.81.0 (>= 1.81.0), libboost-program-options1.81.0 (>= 1.81.0), libboost-url1.81.0 (>= 1.81.0), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libminiupnpc17 (>= 1.9.20140610), libssl3 (>= 3.0.0), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
 Pre-Depends: init-system-helpers (>= 1.54~), adduser
 Conffiles:
  /etc/apparmor.d/usr.bin.i2pd 9cc45384bf7b08210d9c4f2a5b03078b
  /etc/default/i2pd b619327ca30451310a833eff18e73b3e
- /etc/i2pd/i2pd.conf 595ea50b6e87a688df26b146c6d5f621
+ /etc/i2pd/i2pd.conf 52371134f0779a0593660f7ea7fe9623
  /etc/i2pd/tunnels.conf 83134cfc0538f7fe5e9d6cd1e871a8f5
  /etc/i2pd/tunnels.conf.d/README bb18ce646dfe466d2799c1ae040fdbf6
  /etc/init.d/i2pd 0104fc261cd11dc6c909378746642a98
  /etc/logrotate.d/i2pd 66fd7e7c2e894271cc58f7f062757d29
- /etc/i2pd/subscriptions.txt 0772be358311a2fd1c9cd7208d491620 obsolete
  /etc/apparmor.d/usr.sbin.i2pd 735f55d3838218d1a13534ba410a113f obsolete
+ /etc/i2pd/subscriptions.txt 0772be358311a2fd1c9cd7208d491620 obsolete
 Description: Full-featured C++ implementation of I2P client.
  I2P (Invisible Internet Protocol) is a universal anonymous network layer. All
  communications over I2P are anonymous and end-to-end encrypted, participants
@@ -7985,6 +7985,28 @@ Description: Boost.Iostreams Library
  and stream buffers.
 Homepage: http://www.boost.org/libs/iostreams/
 
+Package: libboost-json1.81.0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 2409
+Maintainer: Debian Boost Team <team+boost@tracker.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: boost1.81
+Version: 1.81.0-5+deb12u1
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 5.2)
+Description: C++ containers and algorithms that implement JSON
+ This library focuses on a common and popular use-case: parsing
+ and serializing to and from a container called value which holds
+ JSON types.
+ .
+ Any value which you build can be serialized and then deserialized,
+ guaranteeing that the result will be equal to the original value.
+ Whatever JSON output you produce with this library will be readable
+ by most common JSON implementations in any language.
+Homepage: https://www.boost.org/doc/libs/release/libs/json/
+
 Package: libboost-locale1.74.0
 Status: install ok installed
 Priority: optional
@@ -8039,6 +8061,25 @@ Description: program options library for C++
  command line and config file.
 Homepage: http://www.boost.org/libs/program_options/
 
+Package: libboost-program-options1.81.0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 2561
+Maintainer: Debian Boost Team <team+boost@tracker.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: boost1.81
+Version: 1.81.0-5+deb12u1
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 11)
+Description: program options library for C++
+ This package forms part of the Boost C++ Libraries collection.
+ .
+ Library to let program developers obtain program options, that is
+ (name, value) pairs from the user, via conventional methods such as
+ command line and config file.
+Homepage: http://www.boost.org/libs/program_options/
+
 Package: libboost-thread1.74.0
 Status: install ok installed
 Priority: optional
@@ -8059,6 +8100,30 @@ Description: portable C++ multi-threading
  own machine state including program instruction counter and
  registers.
 Homepage: http://www.boost.org/libs/thread/
+
+Package: libboost-url1.81.0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 2433
+Maintainer: Debian Boost Team <team+boost@tracker.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: boost1.81
+Version: 1.81.0-5+deb12u1
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 9)
+Description: C++ library that implements "URL"
+ C++ library which provides containers and algorithms which model a "URL,"
+ the Uniform Resource Identifier (URI) specification (henceforth referred to
+ as rfc3986).
+ .
+ A URL is a compact sequence of characters that identifies an abstract or
+ physical resource.
+ .
+ This library understands the grammars related to URLs and provides
+ functionality to validate, parse, examine, and modify urls, and apply
+ normalization or resolution algorithms.
+Homepage: https://www.boost.org/doc/libs/release/libs/url/
 
 Package: libbox2d2
 Status: install ok installed

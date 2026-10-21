@@ -1,3 +1,0 @@
-#!/bin/sh
-# Prestium 1.8: official qBittorrent 5.3.0 AppImage (extracted), see /opt/qbittorrent
-exec /opt/qbittorrent/AppRun "$@"

@@ -9,10 +9,10 @@ hardened in a qemu-x86_64 chroot, then re-split into zstd squashfs layers).
 |---|---|---|
 | Debian bookworm | full upgrade | full upgrade (2026-10-20), `dpkg --audit` clean |
 | Kernel | 6.1.0-53 (6.1.187-1) | **6.1.0-54 (6.1.190-1)**, new live initrd (live-boot `sr_mod`/SATA fallback kept) |
-| qBittorrent (official AppImage, GPG-verified, key D8F3 DA77 AAC6 7410 5359 9C13 6E4A 2D02 5B7C C9A2) | 5.2.4 | **5.3.0** (AppImage SHA-256 1c64f2e95740be41f2822f909f56e4dd0da2637f312098a06da113d7add7418b) |
+| qBittorrent | 5.2.4 | **removed** (replaced by the i2pd 3.0 built-in torrent client, see below) |
 | Tor | 0.4.9.14 | 0.4.9.14 (latest in deb.torproject.org) |
 | LibreWolf | 158.0-1 | 158.0-1 (latest in repo) |
-| i2pd | 2.61.0 | 2.61.0 (repo; upstream 3.0.0 was released today and is not packaged for bookworm yet) |
+| i2pd | 2.61.0 | **3.0.0** (official PurpleI2P `i2pd_3.0.0-1bookworm1_amd64.deb`, SHA-256 f314659ac70617a9cdf1424417b099c2be7022b800f364ef5699233f39b2929a; adds libboost-json/url/program-options 1.81) |
 | Tor Browser | 15.0.25 | 15.0.25 |
 | Feather | 2.8.1 | 2.8.1 (latest) |
 | StormyCloud reseed file | old | refreshed 2026-10-20 (SHA-256 8abb064e5490464bd211786fdc1d11bd288153a21a19a6a3941bad2bd0582795) |
@@ -67,3 +67,29 @@ hardened in a qemu-x86_64 chroot, then re-split into zstd squashfs layers).
 Boots to LightDM; 0 failed units; ferm, NetworkManager, i2pd (5 client tunnels, reseed from file),
 Tor, memlockd, watchdog active; MAC randomized; DHCP works; `user` direct clearnet blocked,
 Tor SOCKS works; `sudo mount` and `sudo veracrypt` denied; VeraCrypt container unlock/mount/lock as the desktop user (nosuid,nodev); no DNS; clock set through Tor; root locked.
+
+## i2pd 3.0.0 and the built-in torrent client
+- i2pd 3.0.0: full SAM 3.3, SAM reconnect fix, faster LeaseSet lookups, fewer datagram losses,
+  stalled UDP tunnel fixes, owner-only key files, stricter IPv4-mapped IPv6 rejection, updated reseed
+  certificates. Prestium's own `/var/lib/i2pd/i2pd.conf` and `tunnels.conf` are kept (the package
+  install had replaced them with symlinks to the stock `/etc/i2pd` files; restored), so reseeding is
+  still bundled-file only and all tunnels (4444, 4447, 4449, 4450, 7656, SMTP, POP3) are unchanged.
+- **qBittorrent removed** (/opt/qbittorrent, launcher, menu entry, MIME handlers; ~290 MB smaller).
+- **I2P Torrents** (menu: Internet, and the `magnet:` / `.torrent` handler): i2pd's own torrent
+  client (`type = torrents`) with I2P DHT, magnets, PEX and datagram trackers, which libtorrent-based
+  clients can't do. Downloads go to `~/Downloads/Torrents`.
+  - `prestium-i2pd-torrents` (i2pd `ExecStartPre`) writes the tunnel to
+    `/var/lib/i2pd/tunnels.conf.d/torrents.conf` each boot, with transient keys (a new I2P identity
+    every boot).
+  - The Transmission-compatible RPC and web UI listen on 127.0.0.1:7685 only, under a random
+    128-bit path generated each boot (`/run/prestium-torrents/url`, readable by `user` only).
+    i2pd answers RPC with `Access-Control-Allow-Origin: *`, so without the secret path any web page
+    open in a browser could add or delete torrents.
+  - `~/Downloads/Torrents` is `user:i2ptorrents 2770`; i2pd runs with `SupplementaryGroups=i2ptorrents`
+    and `UMask=0007`, so `user` can open, move and delete what i2pd downloads. AppArmor local rule
+    lets i2pd write only there.
+  - `prestium-torrents [magnet|file.torrent]` adds the torrent over RPC, then opens the web UI in
+    Web Browser (I2P). The web UI files are upstream `contrib/torrents/web` from the 3.0.0 tag.
+  - No firewall change: i2pd (uid 2000) already reaches the network, and `user` already reaches
+    localhost high ports.
+  - Downloads live in RAM like everything else; copy them to an unlocked encrypted volume to keep them.

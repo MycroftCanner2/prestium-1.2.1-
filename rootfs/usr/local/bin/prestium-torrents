@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+# Prestium: open i2pd's torrent client, optionally adding a magnet link or .torrent file.
+#   prestium-torrents [magnet:?...|file.torrent]
+import base64, json, os, subprocess, sys, time, urllib.request
+
+def base():
+    try:
+        return open("/run/prestium-torrents/url").read().strip()
+    except OSError:
+        return None
+
+def notify(msg):
+    subprocess.run(["zenity", "--title", "I2P Torrents", "--warning", "--no-wrap", "--text", msg])
+
+def add(b, item):
+    args = {"filename": item} if item.startswith("magnet:") else \
+           {"metainfo": base64.b64encode(open(item, "rb").read()).decode()}
+    req = urllib.request.Request(b + "rpc", json.dumps({"method": "torrent-add", "arguments": args}).encode(),
+                                 {"Content-Type": "application/json"})
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    for _ in range(30):
+        try:
+            return json.load(opener.open(req, timeout=10))
+        except OSError:
+            time.sleep(2)
+    raise OSError("i2pd torrent client is not answering")
+
+b = base()
+if not b:
+    notify("The torrent client isn't running yet. Wait for I2P to start, then try again.")
+    sys.exit(1)
+if len(sys.argv) > 1:
+    item = sys.argv[1]
+    if item.startswith("file://"):
+        item = urllib.request.url2pathname(item[7:])
+    try:
+        add(b, item)
+    except Exception as e:
+        notify("Couldn't add the torrent: %s" % e)
+os.execvp("librewolf-i2p", ["librewolf-i2p", b + "web/"])

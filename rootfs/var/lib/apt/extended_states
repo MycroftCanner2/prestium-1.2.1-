@@ -2886,18 +2886,6 @@ Package: python3-secretstorage
 Architecture: amd64
 Auto-Installed: 1
 
-Package: libwxgtk3.2-1
-Architecture: amd64
-Auto-Installed: 1
-
-Package: libwxbase3.2-1
-Architecture: amd64
-Auto-Installed: 1
-
-Package: libpcre2-32-0
-Architecture: amd64
-Auto-Installed: 1
-
 Package: xserver-xorg-video-nouveau
 Architecture: amd64
 Auto-Installed: 1
@@ -3691,6 +3679,18 @@ Architecture: amd64
 Auto-Installed: 1
 
 Package: linux-image-6.1.0-54-amd64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libboost-json1.81.0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libboost-url1.81.0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libboost-program-options1.81.0
 Architecture: amd64
 Auto-Installed: 1
 

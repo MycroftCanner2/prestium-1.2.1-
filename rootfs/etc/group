@@ -55,3 +55,4 @@ lightdm:x:113:
 autologin:x:998:user
 memlockd:x:114:
 prestium-htp:x:115:
+i2ptorrents:x:997:user,i2pd

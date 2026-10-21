@@ -84,8 +84,8 @@
     <item label="Gajim XMPP">
       <action name="Execute"><execute>gajim</execute></action>
     </item>
-    <item label="qBittorrent">
-      <action name="Execute"><execute>qbittorrent</execute></action>
+    <item label="I2P Torrents">
+      <action name="Execute"><execute>/usr/local/bin/prestium-torrents</execute></action>
     </item>
     <item label="HexChat IRC">
       <action name="Execute"><execute>hexchat</execute></action>

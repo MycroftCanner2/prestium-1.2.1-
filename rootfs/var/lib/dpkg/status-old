@@ -6304,14 +6304,15 @@ Description: English_american dictionary for hunspell
 Homepage: http://wordlist.sourceforge.net/
 
 Package: i2pd
-Status: install ok installed
+Status: install ok unpacked
 Priority: optional
 Section: net
-Installed-Size: 4986
+Installed-Size: 6595
 Maintainer: r4sas <r4sas@i2pmail.org>
 Architecture: amd64
-Version: 2.61.0-1bookworm1
-Depends: libboost-program-options1.74.0 (>= 1.74.0+ds1), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libminiupnpc17 (>= 1.9.20140610), libssl3 (>= 3.0.0), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
+Version: 3.0.0-1bookworm1
+Config-Version: 2.61.0-1bookworm1
+Depends: libboost-json1.81.0 (>= 1.81.0), libboost-program-options1.81.0 (>= 1.81.0), libboost-url1.81.0 (>= 1.81.0), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libminiupnpc17 (>= 1.9.20140610), libssl3 (>= 3.0.0), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
 Pre-Depends: init-system-helpers (>= 1.54~), adduser
 Conffiles:
  /etc/apparmor.d/usr.bin.i2pd 9cc45384bf7b08210d9c4f2a5b03078b
@@ -6321,8 +6322,8 @@ Conffiles:
  /etc/i2pd/tunnels.conf.d/README bb18ce646dfe466d2799c1ae040fdbf6
  /etc/init.d/i2pd 0104fc261cd11dc6c909378746642a98
  /etc/logrotate.d/i2pd 66fd7e7c2e894271cc58f7f062757d29
- /etc/i2pd/subscriptions.txt 0772be358311a2fd1c9cd7208d491620 obsolete
  /etc/apparmor.d/usr.sbin.i2pd 735f55d3838218d1a13534ba410a113f obsolete
+ /etc/i2pd/subscriptions.txt 0772be358311a2fd1c9cd7208d491620 obsolete
 Description: Full-featured C++ implementation of I2P client.
  I2P (Invisible Internet Protocol) is a universal anonymous network layer. All
  communications over I2P are anonymous and end-to-end encrypted, participants
@@ -7985,6 +7986,28 @@ Description: Boost.Iostreams Library
  and stream buffers.
 Homepage: http://www.boost.org/libs/iostreams/
 
+Package: libboost-json1.81.0
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 2409
+Maintainer: Debian Boost Team <team+boost@tracker.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: boost1.81
+Version: 1.81.0-5+deb12u1
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 5.2)
+Description: C++ containers and algorithms that implement JSON
+ This library focuses on a common and popular use-case: parsing
+ and serializing to and from a container called value which holds
+ JSON types.
+ .
+ Any value which you build can be serialized and then deserialized,
+ guaranteeing that the result will be equal to the original value.
+ Whatever JSON output you produce with this library will be readable
+ by most common JSON implementations in any language.
+Homepage: https://www.boost.org/doc/libs/release/libs/json/
+
 Package: libboost-locale1.74.0
 Status: install ok installed
 Priority: optional
@@ -8039,6 +8062,25 @@ Description: program options library for C++
  command line and config file.
 Homepage: http://www.boost.org/libs/program_options/
 
+Package: libboost-program-options1.81.0
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 2561
+Maintainer: Debian Boost Team <team+boost@tracker.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: boost1.81
+Version: 1.81.0-5+deb12u1
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 11)
+Description: program options library for C++
+ This package forms part of the Boost C++ Libraries collection.
+ .
+ Library to let program developers obtain program options, that is
+ (name, value) pairs from the user, via conventional methods such as
+ command line and config file.
+Homepage: http://www.boost.org/libs/program_options/
+
 Package: libboost-thread1.74.0
 Status: install ok installed
 Priority: optional
@@ -8059,6 +8101,30 @@ Description: portable C++ multi-threading
  own machine state including program instruction counter and
  registers.
 Homepage: http://www.boost.org/libs/thread/
+
+Package: libboost-url1.81.0
+Status: install ok unpacked
+Priority: optional
+Section: libs
+Installed-Size: 2433
+Maintainer: Debian Boost Team <team+boost@tracker.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: boost1.81
+Version: 1.81.0-5+deb12u1
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 9)
+Description: C++ library that implements "URL"
+ C++ library which provides containers and algorithms which model a "URL,"
+ the Uniform Resource Identifier (URI) specification (henceforth referred to
+ as rfc3986).
+ .
+ A URL is a compact sequence of characters that identifies an abstract or
+ physical resource.
+ .
+ This library understands the grammars related to URLs and provides
+ functionality to validate, parse, examine, and modify urls, and apply
+ normalization or resolution algorithms.
+Homepage: https://www.boost.org/doc/libs/release/libs/url/
 
 Package: libbox2d2
 Status: install ok installed
@@ -8191,7 +8257,7 @@ Homepage: https://sourceware.org/bzip2/
 
 Package: libc-bin
 Essential: yes
-Status: install ok installed
+Status: install ok triggers-pending
 Priority: required
 Section: libs
 Installed-Size: 2042
@@ -8218,6 +8284,7 @@ Description: GNU C Library: Binaries
   * ldd, ldconfig: print/configure shared library dependencies
   * locale, localedef: show/generate locale definitions
   * tzselect, zdump, zic: select/dump/compile time zones
+Triggers-Pending: ldconfig
 Homepage: https://www.gnu.org/software/libc/libc.html
 
 Package: libc-l10n
@@ -16213,28 +16280,6 @@ Description: New Perl Compatible Regular Expression Library - 16 bit runtime fil
  UTF-16 input.
 Homepage: https://pcre.org/
 
-Package: libpcre2-32-0
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 608
-Maintainer: Matthew Vernon <matthew@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: pcre2
-Version: 10.42-1+deb12u2
-Depends: libc6 (>= 2.34)
-Description: New Perl Compatible Regular Expression Library - 32 bit runtime files
- This is PCRE2, the new implementation of PCRE, a library of functions
- to support regular expressions whose syntax and semantics are as
- close as possible to those of the Perl 5 language. New projects
- should use this library in preference to the older library,
- confusingly called pcre3 in Debian.
- .
- This package contains the 32 bit runtime library, which operates on
- UTF-32 input.
-Homepage: https://pcre.org/
-
 Package: libpcre2-8-0
 Status: install ok installed
 Priority: optional
@@ -20972,57 +21017,6 @@ Description: database of robots.txt-derived permissions
  on any number of hosts.
 Homepage: https://metacpan.org/release/WWW-RobotRules
 
-Package: libwxbase3.2-1
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 3344
-Maintainer: wxWidgets Maintainers <team+wx@tracker.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: wxwidgets3.2
-Version: 3.2.2+dfsg-2
-Replaces: libwxbase3.2-0
-Depends: libc6 (>= 2.34), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.0), libpcre2-32-0 (>= 10.22), libstdc++6 (>= 11), zlib1g (>= 1:1.1.4)
-Breaks: libwxbase3.2-0
-Description: wxBase library (runtime) - non-GUI support classes of wxWidgets toolkit
- wxBase is a collection of C++ classes providing basic data structures
- (strings, lists, arrays), powerful wxDateTime class for date manipulations,
- portable wrappers around many OS-specific functions allowing the same
- program to work for all supported platforms, wxThread class for writing
- multithreaded programs, and much more.
- .
- wxBase currently supports the following platforms: Generic Unix (Linux,
- FreeBSD, Solaris, HP-UX, ...), Microsoft Windows, and Mac OS X.
- .
- This package is only useful for non-GUI apps.  It offers a subset of the
- classes in libwx_gtk3.2 for use in console apps and daemons.  You do not need
- this package to build or use wxWidgets GUI apps.
-Homepage: https://www.wxwidgets.org/
-
-Package: libwxgtk3.2-1
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 17944
-Maintainer: wxWidgets Maintainers <team+wx@tracker.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: wxwidgets3.2
-Version: 3.2.2+dfsg-2
-Replaces: libwxgtk3.2-0
-Depends: libc6 (>= 2.33), libcairo2 (>= 1.12.0), libfontconfig1 (>= 2.12.6), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.49.3), libgtk-3-0 (>= 3.22.25), libjpeg62-turbo (>= 1.3.1), libnotify4 (>= 0.7.0), libpango-1.0-0 (>= 1.22.0), libpangocairo-1.0-0 (>= 1.14.0), libpangoft2-1.0-0 (>= 1.37.2), libpng16-16 (>= 1.6.2-1), libsm6, libstdc++6 (>= 11), libtiff6 (>= 4.0.3), libwxbase3.2-1 (>= 3.2.2+dfsg), libx11-6, libxtst6
-Breaks: libwxgtk3.2-0
-Description: wxWidgets Cross-platform C++ GUI toolkit (GTK 3 runtime)
- wxWidgets (formerly known as wxWindows) is a class library for C++ providing
- GUI components and other facilities on several popular platforms (and some
- unpopular ones as well).
- .
- This package provides the shared libraries needed to run programs linked
- against wxWidgets.  To use the (optional) glcanvas library you will need
- to have Mesa or OpenGL installed.
-Homepage: https://www.wxwidgets.org/
-
 Package: libx11-6
 Status: install ok installed
 Priority: optional
@@ -23406,7 +23400,7 @@ Description: Debian's mailcap system, and support programs
  interactively.
 
 Package: man-db
-Status: install ok installed
+Status: install ok triggers-pending
 Priority: important
 Section: doc
 Installed-Size: 2963
@@ -23431,6 +23425,7 @@ Description: tools for reading manual pages
  manpath utility for determining the manual page search path, and the
  maintenance utilities mandb, catman and zsoelim. man-db uses the groff
  suite of programs to format and display the manual pages.
+Triggers-Pending: /usr/share/man
 Homepage: https://man-db.gitlab.io/man-db/
 
 Package: manpages
