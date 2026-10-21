@@ -4,7 +4,7 @@ Disclaimer: This project and all associated materials (including software, repos
 
 This branch is a rebuild of Prestium **1.6** on Debian 12 (bookworm). It follows the
 developer's 1.3–1.6 release notes and adds updates on top. The version is now 1.8, and the ISO is `Prestium-1.8-amd64.iso`
-(SHA-256 a6a207ad3addd972c32273b064d398deb9e6a02bd22b2bb301620bb67eb53d66).
+(SHA-256 b6762c95b389440135473d77e0a9b83caf3b7516c2e7922a44370f414d5bb96b).
 CHANGES-1.8.md lists what 1.8 changed (updates, Tails-style emergency shutdown and memory wipe, time over Tor, hardening, clean-up);
 CHANGES-1.6-UPDATE.md has the earlier changes. The 1.7 torrent (`Prestium-1.7-amd64.iso.torrent`) is unchanged. The ISO itself is not in git.
 
