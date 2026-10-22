@@ -1,0 +1,78 @@
+#!/opt/nodejs/bin/node
+"use strict";
+// Prestium: prepare The Lounge's single user "prestium" (run as root by thelounge.service
+// ExecStartPre=+ on every start).
+// - first start of a boot: user file from /usr/local/share/prestium-thelounge/prestium.json
+//   (IRC2P via 127.0.0.1:6668, Ilita via 127.0.0.1:6669) with a random nick
+// - a random password (bcrypt-hashed in the user file; plain copy in
+//   /run/prestium-thelounge/password, readable by "user" only, needed only after "Sign out")
+// - a new random login token on every start; only its SHA-512 is stored in the user file,
+//   the token itself goes to /run/prestium-thelounge/token (readable by "user" only) for
+//   the "IRC (The Lounge)" launcher
+const fs = require("fs");
+const crypto = require("crypto");
+const bcrypt = require("/opt/thelounge/node_modules/bcryptjs");
+
+const HOME = "/var/lib/thelounge";
+const USERS = HOME + "/users";
+const FILE = USERS + "/prestium.json";
+const TEMPLATE = "/usr/local/share/prestium-thelounge/prestium.json";
+const RUN = "/run/prestium-thelounge";
+
+function ids(file, name) {
+	for (const l of fs.readFileSync(file, "utf8").split("\n")) {
+		const f = l.split(":");
+		if (f[0] === name) return [Number(f[2]), Number(f[3])];
+	}
+	throw new Error(`${name} not found in ${file}`);
+}
+const [luid, lgid] = ids("/etc/passwd", "thelounge");
+const [ugid] = ids("/etc/group", "user");
+
+function writeAtomic(path, data, mode, uid, gid) {
+	const tmp = path + ".tmp-" + process.pid;
+	fs.writeFileSync(tmp, data, {mode});
+	fs.chownSync(tmp, uid, gid);
+	fs.chmodSync(tmp, mode);
+	fs.renameSync(tmp, path);
+}
+
+fs.mkdirSync(RUN, {recursive: true});
+fs.chownSync(RUN, 0, ugid);
+fs.chmodSync(RUN, 0o750);
+for (const d of [HOME, USERS]) {
+	fs.mkdirSync(d, {recursive: true});
+	fs.chownSync(d, luid, lgid);
+	fs.chmodSync(d, 0o700);
+}
+
+let password = "";
+try {
+	password = fs.readFileSync(RUN + "/password", "utf8").trim();
+} catch (e) {}
+if (!/^[A-Za-z0-9_-]{24,}$/.test(password)) password = crypto.randomBytes(24).toString("base64url");
+
+let user = null;
+try {
+	user = JSON.parse(fs.readFileSync(FILE, "utf8"));
+} catch (e) {}
+if (!user || !Array.isArray(user.networks)) {
+	user = JSON.parse(fs.readFileSync(TEMPLATE, "utf8"));
+	const nick = "anon" + crypto.randomInt(1000, 10000);
+	for (const n of user.networks) {
+		n.uuid = crypto.randomUUID();
+		n.nick = nick;
+	}
+}
+if (typeof user.password !== "string" || !user.password.startsWith("$2") ||
+    !bcrypt.compareSync(password, user.password)) {
+	user.password = bcrypt.hashSync(password, 10);
+}
+const token = crypto.randomBytes(64).toString("hex");
+const hash = crypto.createHash("sha512").update(token).digest("hex");
+user.sessions = {[hash]: {lastUse: Date.now(), ip: "127.0.0.1", agent: "Prestium launcher"}};
+
+writeAtomic(FILE, JSON.stringify(user, null, "\t") + "\n", 0o600, luid, lgid);
+writeAtomic(RUN + "/password", password + "\n", 0o640, 0, ugid);
+writeAtomic(RUN + "/token", token + "\n", 0o640, 0, ugid);
+console.log("prestium-thelounge-setup: user prestium ready, new login token issued");

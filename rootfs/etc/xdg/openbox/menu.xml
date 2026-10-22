@@ -12,8 +12,8 @@
   <item label="Tor Browser">
     <action name="Execute"><execute>tor-browser</execute></action>
   </item>
-  <item label="I2P WebConsole">
-    <action name="Execute"><execute>librewolf-i2p "http://127.0.0.1:7070"</execute></action>
+  <item label="I2P Router Console">
+    <action name="Execute"><execute>/usr/local/bin/prestium-i2p-console</execute></action>
   </item>
   <separator />
   <item label="Text Editor">
@@ -87,8 +87,8 @@
     <item label="I2P Torrents">
       <action name="Execute"><execute>/usr/local/bin/prestium-torrents</execute></action>
     </item>
-    <item label="HexChat IRC">
-      <action name="Execute"><execute>hexchat</execute></action>
+    <item label="IRC (The Lounge)">
+      <action name="Execute"><execute>/usr/local/bin/prestium-irc</execute></action>
     </item>
     <item label="Sylpheed E-mail">
       <action name="Execute"><execute>sylpheed</execute></action>

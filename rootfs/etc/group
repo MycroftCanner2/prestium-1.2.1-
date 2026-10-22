@@ -56,3 +56,5 @@ autologin:x:998:user
 memlockd:x:114:
 prestium-htp:x:115:
 i2ptorrents:x:997:user,i2pd
+thelounge:x:996:
+prestium-localweb:x:995:user

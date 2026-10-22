@@ -18,6 +18,8 @@ Files over GitHub's 100 MB limit, left out of git (they are in Prestium-1.6-amd6
 | rootfs/usr/share/librewolf/omni.ja | 118365120 | 56fd27a3d0877270c67b41b5b7c8e247c1273f44a9178eca7e42d0c5e9536554 |
 | rootfs/opt/tor-browser/Browser/libxul.so (Tor Browser 15.0.26) | 156454456 | e0159bb156321abb0ac174882645c75ff42a1e4ba1e0d2c70f19a600364b010e |
 | rootfs/opt/qbittorrent/usr/bin/qbittorrent (5.3.0, Prestium 1.8) | 209216728 | 2b5b9a1f5bd2ebc6b364f8396d8d0aa61a1cfb443f353248bbd6f28c846c59f7 |
+| rootfs/opt/firefox/libxul.so (Firefox 158.0.1, local-only browser, Prestium 1.8) | 188813968 | 5146807a20c1e8283330a1bf30996f5a05f91c5a4d840beda7c56038df8cb520 |
+| rootfs/opt/nodejs/bin/node (Node.js 24.22.1 for The Lounge, Prestium 1.8) | 126879696 | e32e2d16081cf644f88392934288086e7662529d0d43277c34f7aad2207cfafb |
 
 The LibreWolf rows are for LibreWolf 158.0-1. qbittorrent comes from the signed upstream AppImage
 qbittorrent-5.3.0_x86_64.AppImage (SHA-256 1c64f2e95740be41f2822f909f56e4dd0da2637f312098a06da113d7add7418b), Prestium 1.8.
