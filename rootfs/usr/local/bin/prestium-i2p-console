@@ -1,0 +1,3 @@
+#!/bin/sh
+# Prestium: i2pd web console (127.0.0.1:7070) in the local-only Firefox
+exec /usr/local/bin/prestium-localfox "http://127.0.0.1:7070/"

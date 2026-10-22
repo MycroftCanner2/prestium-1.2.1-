@@ -1,0 +1,71 @@
+2026-10-22 18:25:33 startup packages remove
+2026-10-22 18:25:33 status installed hexchat:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 remove hexchat:amd64 2.16.1-1+b3 <none>
+2026-10-22 18:26:29 status half-configured hexchat:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status half-installed hexchat:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status triggers-pending mailcap:all 3.70+nmu1
+2026-10-22 18:26:29 status triggers-pending desktop-file-utils:amd64 0.26-1
+2026-10-22 18:26:29 status config-files hexchat:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status not-installed hexchat:amd64 <none>
+2026-10-22 18:26:29 status installed hexchat-common:all 2.16.1-1
+2026-10-22 18:26:29 remove hexchat-common:all 2.16.1-1 <none>
+2026-10-22 18:26:29 status half-configured hexchat-common:all 2.16.1-1
+2026-10-22 18:26:29 status half-installed hexchat-common:all 2.16.1-1
+2026-10-22 18:26:29 status triggers-pending man-db:amd64 2.11.2-2
+2026-10-22 18:26:29 status triggers-pending hicolor-icon-theme:all 0.17-2
+2026-10-22 18:26:29 status config-files hexchat-common:all 2.16.1-1
+2026-10-22 18:26:29 status not-installed hexchat-common:all <none>
+2026-10-22 18:26:29 status installed hexchat-lua:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 remove hexchat-lua:amd64 2.16.1-1+b3 <none>
+2026-10-22 18:26:29 status half-configured hexchat-lua:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status half-installed hexchat-lua:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status config-files hexchat-lua:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status not-installed hexchat-lua:amd64 <none>
+2026-10-22 18:26:29 status installed hexchat-perl:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 remove hexchat-perl:amd64 2.16.1-1+b3 <none>
+2026-10-22 18:26:29 status half-configured hexchat-perl:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status half-installed hexchat-perl:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status config-files hexchat-perl:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status not-installed hexchat-perl:amd64 <none>
+2026-10-22 18:26:29 status installed hexchat-plugins:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 remove hexchat-plugins:amd64 2.16.1-1+b3 <none>
+2026-10-22 18:26:29 status half-configured hexchat-plugins:amd64 2.16.1-1+b3
+2026-10-22 18:26:29 status half-installed hexchat-plugins:amd64 2.16.1-1+b3
+2026-10-22 18:26:30 status config-files hexchat-plugins:amd64 2.16.1-1+b3
+2026-10-22 18:26:30 status not-installed hexchat-plugins:amd64 <none>
+2026-10-22 18:26:30 status installed hexchat-python3:amd64 2.16.1-1+b3
+2026-10-22 18:26:30 remove hexchat-python3:amd64 2.16.1-1+b3 <none>
+2026-10-22 18:26:30 status half-configured hexchat-python3:amd64 2.16.1-1+b3
+2026-10-22 18:26:30 status half-installed hexchat-python3:amd64 2.16.1-1+b3
+2026-10-22 18:26:30 status config-files hexchat-python3:amd64 2.16.1-1+b3
+2026-10-22 18:26:30 status not-installed hexchat-python3:amd64 <none>
+2026-10-22 18:26:30 startup packages configure
+2026-10-22 18:26:30 trigproc hicolor-icon-theme:all 0.17-2 <none>
+2026-10-22 18:26:30 status half-configured hicolor-icon-theme:all 0.17-2
+2026-10-22 18:26:32 status installed hicolor-icon-theme:all 0.17-2
+2026-10-22 18:26:32 trigproc man-db:amd64 2.11.2-2 <none>
+2026-10-22 18:26:32 status half-configured man-db:amd64 2.11.2-2
+2026-10-22 18:27:52 status installed man-db:amd64 2.11.2-2
+2026-10-22 18:31:10 startup packages configure
+2026-10-22 18:31:10 configure man-db:amd64 2.11.2-2 <none>
+2026-10-22 18:31:10 status half-configured man-db:amd64 2.11.2-2
+2026-10-22 18:31:18 status installed man-db:amd64 2.11.2-2
+2026-10-22 18:31:18 trigproc desktop-file-utils:amd64 0.26-1 <none>
+2026-10-22 18:31:18 status half-configured desktop-file-utils:amd64 0.26-1
+2026-10-22 18:31:18 status installed desktop-file-utils:amd64 0.26-1
+2026-10-22 18:31:18 trigproc mailcap:all 3.70+nmu1 <none>
+2026-10-22 18:31:18 status half-configured mailcap:all 3.70+nmu1
+2026-10-22 18:31:20 status installed mailcap:all 3.70+nmu1
+2026-10-22 18:31:24 startup packages remove
+2026-10-22 18:31:24 status installed liblua5.3-0:amd64 5.3.6-2
+2026-10-22 18:31:24 remove liblua5.3-0:amd64 5.3.6-2 <none>
+2026-10-22 18:31:24 status triggers-pending libc-bin:amd64 2.36-9+deb12u14
+2026-10-22 18:31:24 status half-configured liblua5.3-0:amd64 5.3.6-2
+2026-10-22 18:31:24 status half-installed liblua5.3-0:amd64 5.3.6-2
+2026-10-22 18:31:24 status config-files liblua5.3-0:amd64 5.3.6-2
+2026-10-22 18:31:24 status not-installed liblua5.3-0:amd64 <none>
+2026-10-22 18:31:25 startup packages configure
+2026-10-22 18:31:25 trigproc libc-bin:amd64 2.36-9+deb12u14 <none>
+2026-10-22 18:31:25 status half-configured libc-bin:amd64 2.36-9+deb12u14
+2026-10-22 18:32:36 status installed libc-bin:amd64 2.36-9+deb12u14
+2026-10-22 18:32:37 startup packages configure

@@ -37,4 +37,4 @@ if len(sys.argv) > 1:
         add(b, item)
     except Exception as e:
         notify("Couldn't add the torrent: %s" % e)
-os.execvp("librewolf-i2p", ["librewolf-i2p", b + "web/"])
+os.execvp("/usr/local/bin/prestium-localfox", ["prestium-localfox", b + "web/"])

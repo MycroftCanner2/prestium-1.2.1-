@@ -1,0 +1,17 @@
+
+Log started: 2026-10-22  18:25:33
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 69937 files and directories currently installed.)
+Removing hexchat (2.16.1-1+b3) ...
+Removing hexchat-common (2.16.1-1) ...
+Removing hexchat-lua:amd64 (2.16.1-1+b3) ...
+Removing hexchat-perl:amd64 (2.16.1-1+b3) ...
+Removing hexchat-plugins:amd64 (2.16.1-1+b3) ...
+Removing hexchat-python3:amd64 (2.16.1-1+b3) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for man-db (2.11.2-2) ...
+
+Log started: 2026-10-22  18:31:23
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 69825 files and directories currently installed.)
+Removing liblua5.3-0:amd64 (5.3.6-2) ...
+Processing triggers for libc-bin (2.36-9+deb12u14) ...
+Log ended: 2026-10-22  18:32:37

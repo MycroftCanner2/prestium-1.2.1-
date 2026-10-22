@@ -1,0 +1,11 @@
+
+Start-Date: 2026-10-22  18:25:33
+Commandline: /usr/bin/apt-get -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold -y purge hexchat*
+Requested-By: user (1000)
+Purge: hexchat-python3:amd64 (2.16.1-1+b3), hexchat-lua:amd64 (2.16.1-1+b3), hexchat-plugins:amd64 (2.16.1-1+b3), hexchat:amd64 (2.16.1-1+b3), hexchat-perl:amd64 (2.16.1-1+b3), hexchat-common:amd64 (2.16.1-1)
+
+Start-Date: 2026-10-22  18:31:23
+Commandline: /usr/bin/apt-get -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold -y purge liblua5.3-0
+Requested-By: user (1000)
+Purge: liblua5.3-0:amd64 (5.3.6-2)
+End-Date: 2026-10-22  18:32:37

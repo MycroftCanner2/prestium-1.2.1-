@@ -1,8 +1,0 @@
-8b986a7505adedf8f4d449c450a5f01d  usr/bin/hexchat
-b5d0f20ff1c370062fc9ad9726a3235d  usr/share/applications/io.github.Hexchat.desktop
-09c138eb63ab53d1ce65673725c326ea  usr/share/doc/hexchat/changelog.Debian.amd64.gz
-a0e3a1009675d4b2eb5435c30489b0c2  usr/share/doc/hexchat/changelog.Debian.gz
-d31ba8310bab8d83875e209329243465  usr/share/doc/hexchat/changelog.gz
-2d9f62dd8634d8dfc937dea0a6e88396  usr/share/doc/hexchat/copyright
-f3436b181242d1564d9b99cca2bf4055  usr/share/lintian/overrides/hexchat
-d881ba0d58ad21cd40f73d293f4df9e3  usr/share/metainfo/io.github.Hexchat.appdata.xml

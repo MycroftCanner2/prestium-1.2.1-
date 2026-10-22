@@ -1534,10 +1534,6 @@ Package: python3-cffi-backend
 Architecture: amd64
 Auto-Installed: 1
 
-Package: hexchat-python3
-Architecture: amd64
-Auto-Installed: 1
-
 Package: notification-daemon
 Architecture: amd64
 Auto-Installed: 1
@@ -1546,19 +1542,7 @@ Package: pci.ids
 Architecture: amd64
 Auto-Installed: 1
 
-Package: hexchat-plugins
-Architecture: amd64
-Auto-Installed: 1
-
 Package: libnotify4
-Architecture: amd64
-Auto-Installed: 1
-
-Package: hexchat-perl
-Architecture: amd64
-Auto-Installed: 1
-
-Package: hexchat-common
 Architecture: amd64
 Auto-Installed: 1
 
@@ -2202,10 +2186,6 @@ Package: libdav1d6
 Architecture: amd64
 Auto-Installed: 1
 
-Package: liblua5.3-0
-Architecture: amd64
-Auto-Installed: 1
-
 Package: libproc2-0
 Architecture: amd64
 Auto-Installed: 1
@@ -2287,10 +2267,6 @@ Architecture: amd64
 Auto-Installed: 1
 
 Package: libgav1-1
-Architecture: amd64
-Auto-Installed: 1
-
-Package: hexchat-lua
 Architecture: amd64
 Auto-Installed: 1
 

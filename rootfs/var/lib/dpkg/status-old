@@ -6118,118 +6118,6 @@ Description: GNU compression utilities
  in '.Z' created with 'compress'.
 Homepage: https://www.gnu.org/software/gzip/
 
-Package: hexchat
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 1000
-Maintainer: Mattia Rizzolo <mattia@debian.org>
-Architecture: amd64
-Source: hexchat (2.16.1-1)
-Version: 2.16.1-1+b3
-Provides: irc
-Depends: hexchat-common (= 2.16.1-1), libc6 (>= 2.34), libcanberra0 (>= 0.2), libdbus-glib-1-2 (>= 0.88), libgdk-pixbuf-2.0-0 (>= 2.25.2), libglib2.0-0 (>= 2.51.0), libgtk2.0-0 (>= 2.24.0), libpango-1.0-0 (>= 1.44.3), libssl3 (>= 3.0.0), libx11-6
-Recommends: ca-certificates, hexchat-lua, hexchat-perl, hexchat-plugins, hexchat-python3, libglib2.0-bin
-Suggests: hexchat-otr, unifont
-Description: IRC client for X based on X-Chat 2
- HexChat is a graphical IRC client with a GTK+ GUI. Features include Python,
- Perl and Lua scripting support, a plugin API, multiple server/channel
- windows, spell checking, multiple authentication methods including SASL, and
- customizable notifications. For more information on IRC, see
- http://irchelp.org/.
-Homepage: https://hexchat.github.io
-
-Package: hexchat-common
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 4186
-Maintainer: Mattia Rizzolo <mattia@debian.org>
-Architecture: all
-Multi-Arch: foreign
-Source: hexchat
-Version: 2.16.1-1
-Provides: irc
-Recommends: hexchat
-Description: Common files for HexChat
- This package includes documentation, headers, and locale files for the
- Debian HexChat packages that are common for all architectures. Hexchat is a
- popular and featureful IRC client with a GTK+ GUI. For more information on
- IRC, see http://irchelp.org/.
-Homepage: https://hexchat.github.io
-
-Package: hexchat-lua
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 75
-Maintainer: Mattia Rizzolo <mattia@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: hexchat (2.16.1-1)
-Version: 2.16.1-1+b3
-Depends: libc6 (>= 2.4), libglib2.0-0 (>= 2.35.9), liblua5.3-0
-Recommends: hexchat
-Description: Lua plugin for HexChat
- This package contains the Lua plugin for Hexchat.
- Previously included in the main HexChat package, it's now separate as it's not
- actually required for core functionality.
-Homepage: https://hexchat.github.io
-
-Package: hexchat-perl
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 106
-Maintainer: Mattia Rizzolo <mattia@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: hexchat (2.16.1-1)
-Version: 2.16.1-1+b3
-Depends: libc6 (>= 2.4), libglib2.0-0 (>= 2.24.0), libperl5.36 (>= 5.36.0)
-Recommends: hexchat
-Description: Perl plugin for HexChat
- This package contains the perl plugin for HexChat. Previously included in the
- main HexChat package, it's now separate as it's not actually required for core
- functionality.
-Homepage: https://hexchat.github.io
-
-Package: hexchat-plugins
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 118
-Maintainer: Mattia Rizzolo <mattia@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: hexchat (2.16.1-1)
-Version: 2.16.1-1+b3
-Depends: libc6 (>= 2.14), libglib2.0-0 (>= 2.39.4), libpci3 (>= 1:3.8.0), libssl3 (>= 3.0.0)
-Recommends: hexchat, pci.ids
-Description: Common plugins for HexChat
- This package contains the FiSHLiM, Sysinfo, Do At and Checksum plugins.
- Previously included in the main HexChat package, they're now separate as
- they're not actually required for core functionality.
-Homepage: https://hexchat.github.io
-
-Package: hexchat-python3
-Status: install ok installed
-Priority: optional
-Section: net
-Installed-Size: 127
-Maintainer: Mattia Rizzolo <mattia@debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: hexchat (2.16.1-1)
-Version: 2.16.1-1+b3
-Depends: python3-cffi-backend, libc6 (>= 2.34), libpython3.11 (>= 3.11.0)
-Recommends: hexchat
-Description: Python 3 plugin for HexChat
- This package contains the Python 3 plugin for HexChat. Previously included in
- the main HexChat package, it's now separate as it's not actually required for
- core functionality.
-Homepage: https://hexchat.github.io
-
 Package: hicolor-icon-theme
 Status: install ok installed
 Priority: optional
@@ -6304,20 +6192,19 @@ Description: English_american dictionary for hunspell
 Homepage: http://wordlist.sourceforge.net/
 
 Package: i2pd
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: net
 Installed-Size: 6595
 Maintainer: r4sas <r4sas@i2pmail.org>
 Architecture: amd64
 Version: 3.0.0-1bookworm1
-Config-Version: 2.61.0-1bookworm1
 Depends: libboost-json1.81.0 (>= 1.81.0), libboost-program-options1.81.0 (>= 1.81.0), libboost-url1.81.0 (>= 1.81.0), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libminiupnpc17 (>= 1.9.20140610), libssl3 (>= 3.0.0), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
 Pre-Depends: init-system-helpers (>= 1.54~), adduser
 Conffiles:
  /etc/apparmor.d/usr.bin.i2pd 9cc45384bf7b08210d9c4f2a5b03078b
  /etc/default/i2pd b619327ca30451310a833eff18e73b3e
- /etc/i2pd/i2pd.conf 595ea50b6e87a688df26b146c6d5f621
+ /etc/i2pd/i2pd.conf 52371134f0779a0593660f7ea7fe9623
  /etc/i2pd/tunnels.conf 83134cfc0538f7fe5e9d6cd1e871a8f5
  /etc/i2pd/tunnels.conf.d/README bb18ce646dfe466d2799c1ae040fdbf6
  /etc/init.d/i2pd 0104fc261cd11dc6c909378746642a98
@@ -7987,7 +7874,7 @@ Description: Boost.Iostreams Library
 Homepage: http://www.boost.org/libs/iostreams/
 
 Package: libboost-json1.81.0
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: libs
 Installed-Size: 2409
@@ -8063,7 +7950,7 @@ Description: program options library for C++
 Homepage: http://www.boost.org/libs/program_options/
 
 Package: libboost-program-options1.81.0
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: libs
 Installed-Size: 2561
@@ -8103,7 +7990,7 @@ Description: portable C++ multi-threading
 Homepage: http://www.boost.org/libs/thread/
 
 Package: libboost-url1.81.0
-Status: install ok unpacked
+Status: install ok installed
 Priority: optional
 Section: libs
 Installed-Size: 2433
@@ -8257,7 +8144,7 @@ Homepage: https://sourceware.org/bzip2/
 
 Package: libc-bin
 Essential: yes
-Status: install ok triggers-pending
+Status: install ok installed
 Priority: required
 Section: libs
 Installed-Size: 2042
@@ -8284,7 +8171,6 @@ Description: GNU C Library: Binaries
   * ldd, ldconfig: print/configure shared library dependencies
   * locale, localedef: show/generate locale definitions
   * tzselect, zdump, zic: select/dump/compile time zones
-Triggers-Pending: ldconfig
 Homepage: https://www.gnu.org/software/libc/libc.html
 
 Package: libc-l10n
@@ -13889,28 +13775,6 @@ Source: lua5.2
 Version: 5.2.4-3
 Depends: libc6 (>= 2.34), libstdc++6 (>= 4.1.1)
 Description: Shared library for the Lua interpreter version 5.2
- Lua is a powerful, light-weight programming language designed for extending
- applications.  The language engine is accessible as a library, having a C
- API which allows the application to exchange data with Lua programs and also
- to extend Lua with C functions.  Lua is also used as a general-purpose,
- stand-alone language through the simple command line interpreter provided.
- .
- This package contains runtime libraries.  You shouldn't need to install it
- explicitly.
-Homepage: https://www.lua.org
-
-Package: liblua5.3-0
-Status: install ok installed
-Priority: optional
-Section: libs
-Installed-Size: 495
-Maintainer: Debian Lua Team <pkg-lua-devel@lists.alioth.debian.org>
-Architecture: amd64
-Multi-Arch: same
-Source: lua5.3
-Version: 5.3.6-2
-Depends: libc6 (>= 2.34), libstdc++6 (>= 4.1.1)
-Description: Shared library for the Lua interpreter version 5.3
  Lua is a powerful, light-weight programming language designed for extending
  applications.  The language engine is accessible as a library, having a C
  API which allows the application to exchange data with Lua programs and also
@@ -23400,7 +23264,7 @@ Description: Debian's mailcap system, and support programs
  interactively.
 
 Package: man-db
-Status: install ok triggers-pending
+Status: install ok installed
 Priority: important
 Section: doc
 Installed-Size: 2963
@@ -23425,7 +23289,6 @@ Description: tools for reading manual pages
  manpath utility for determining the manual page search path, and the
  maintenance utilities mandb, catman and zsoelim. man-db uses the groff
  suite of programs to format and display the manual pages.
-Triggers-Pending: /usr/share/man
 Homepage: https://man-db.gitlab.io/man-db/
 
 Package: manpages

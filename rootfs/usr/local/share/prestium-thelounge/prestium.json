@@ -1,0 +1,68 @@
+{
+  "log": false,
+  "password": "",
+  "sessions": {},
+  "clientSettings": {
+    "media": false,
+    "links": false,
+    "uploadCanvas": false
+  },
+  "browser": {},
+  "networks": [
+    {
+      "name": "IRC2P",
+      "host": "127.0.0.1",
+      "port": 6668,
+      "tls": false,
+      "rejectUnauthorized": true,
+      "password": "",
+      "nick": "",
+      "username": "user",
+      "realname": "anon",
+      "leaveMessage": "",
+      "sasl": "",
+      "saslAccount": "",
+      "saslPassword": "",
+      "commands": [],
+      "ignoreList": [],
+      "proxyEnabled": false,
+      "proxyHost": "",
+      "proxyPort": 1080,
+      "proxyUsername": "",
+      "proxyPassword": "",
+      "userDisconnected": false,
+      "channels": [
+        {"name": "#i2p", "key": "", "muted": false},
+        {"name": "#i2p-chat", "key": "", "muted": false},
+        {"name": "#i2p-dev", "key": "", "muted": false},
+        {"name": "#i2p-help", "key": "", "muted": false}
+      ]
+    },
+    {
+      "name": "Ilita",
+      "host": "127.0.0.1",
+      "port": 6669,
+      "tls": false,
+      "rejectUnauthorized": true,
+      "password": "",
+      "nick": "",
+      "username": "user",
+      "realname": "anon",
+      "leaveMessage": "",
+      "sasl": "",
+      "saslAccount": "",
+      "saslPassword": "",
+      "commands": [],
+      "ignoreList": [],
+      "proxyEnabled": false,
+      "proxyHost": "",
+      "proxyPort": 1080,
+      "proxyUsername": "",
+      "proxyPassword": "",
+      "userDisconnected": false,
+      "channels": [
+        {"name": "#dev", "key": "", "muted": false}
+      ]
+    }
+  ]
+}
