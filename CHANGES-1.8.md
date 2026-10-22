@@ -3,6 +3,8 @@
 Built 2026-10-20 from the 1.7 image (all live layers merged into one tree, upgraded and
 hardened in a qemu-x86_64 chroot, then re-split into zstd squashfs layers).
 `Prestium-1.7-amd64.iso.torrent` is unchanged.
+`Prestium-1.8-amd64.iso.torrent` (added 2026-10-22) is for this ISO (SHA-256 503414e4ba5e437eaf2fdcd28ba9986cd1d1aeef34f150d0f953c505941f2d41):
+same trackers as the 1.7 torrent, 256 KiB pieces, v1-only, 7,424 pieces, info hash `195ec3cd35556fc279d5b1c119d4bba69f3d68dd`.
 
 ## Updates
 | Component | 1.7 | 1.8 |

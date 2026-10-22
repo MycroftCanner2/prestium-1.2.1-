@@ -6,7 +6,8 @@ This branch is a rebuild of Prestium **1.6** on Debian 12 (bookworm). It follows
 developer's 1.3–1.6 release notes and adds updates on top. The version is now 1.8, and the ISO is `Prestium-1.8-amd64.iso`
 (SHA-256 503414e4ba5e437eaf2fdcd28ba9986cd1d1aeef34f150d0f953c505941f2d41).
 CHANGES-1.8.md lists what 1.8 changed (updates, Tails-style emergency shutdown and memory wipe, time over Tor, hardening, clean-up);
-CHANGES-1.6-UPDATE.md has the earlier changes. The 1.7 torrent (`Prestium-1.7-amd64.iso.torrent`) is unchanged. The ISO itself is not in git.
+CHANGES-1.6-UPDATE.md has the earlier changes. The 1.8 torrent is `Prestium-1.8-amd64.iso.torrent` (info hash `195ec3cd35556fc279d5b1c119d4bba69f3d68dd`);
+the 1.7 torrent (`Prestium-1.7-amd64.iso.torrent`) is unchanged. The ISO itself is not in git.
 
 - Base: Debian 12, fully upgraded. Kernel 6.1.0-54-amd64 (6.1.190-1).
 - I2P: i2pd 3.0.0 (official PurpleI2P bookworm package). HTTP proxy 4444, SOCKS proxy 127.0.0.1:4447 and SAM 127.0.0.1:7656 are on.
