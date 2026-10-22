@@ -13,9 +13,9 @@ hardened in a qemu-x86_64 chroot, then re-split into zstd squashfs layers).
 | Tor | 0.4.9.14 | 0.4.9.14 (latest in deb.torproject.org) |
 | LibreWolf | 158.0-1 | 158.0-1 (latest in repo) |
 | i2pd | 2.61.0 | **3.0.0** (official PurpleI2P `i2pd_3.0.0-1bookworm1_amd64.deb`, SHA-256 f314659ac70617a9cdf1424417b099c2be7022b800f364ef5699233f39b2929a; adds libboost-json/url/program-options 1.81) |
-| Tor Browser | 15.0.25 | 15.0.25 |
+| Tor Browser | 15.0.25 | **15.0.26** (2026-10-22, signature-checked) |
 | Feather | 2.8.1 | 2.8.1 (latest) |
-| StormyCloud reseed file | old | refreshed 2026-10-20 (SHA-256 8abb064e5490464bd211786fdc1d11bd288153a21a19a6a3941bad2bd0582795) |
+| StormyCloud reseed file | old | refreshed 2026-10-22 (SHA-256 1678013ff0a607e61667804c18bd9cfeb5c8456cd38a0d77c076ba801ee375b0) |
 
 ## Amnesic protections (modelled on Tails)
 - **Emergency shutdown** (`prestium-usb-watchdog.service`): pulling the USB stick or ejecting the
@@ -93,3 +93,12 @@ Tor SOCKS works; `sudo mount` and `sudo veracrypt` denied; VeraCrypt container u
   - No firewall change: i2pd (uid 2000) already reaches the network, and `user` already reaches
     localhost high ports.
   - Downloads live in RAM like everything else; copy them to an unlocked encrypted volume to keep them.
+
+## Tor Browser 15.0.26 (2026-10-22, still 1.8)
+- `/opt/tor-browser` replaced with the official **Tor Browser 15.0.26** (`tor-browser-linux-x86_64-15.0.26.tar.xz`,
+  137,985,168 bytes, SHA-256 `327ac7443724b9eb6d3697506391b110ee159739bdc14bd731caa6fc16ffbf74`) from dist.torproject.org.
+  Its `.asc` verifies with the Tor Browser Developers key `EF6E 286D DA85 EA2A 4BA7 DE68 4E2C 6E87 9329 8290`
+  (signing subkey 022DA248432D2A0E0F54E65E316C1FACD62D07D9), and the hash matches the signed `sha256sums-signed-build.txt`.
+- Unpacked unmodified, owned by `user`; `Browser/distribution/policies.json` (`DisableAppUpdate`) and the
+  `/usr/local/bin/tor-browser` launcher (system Tor: `TOR_SKIP_LAUNCH=1`, SOCKS 127.0.0.1:9050, `/run/tor/control`) kept.
+- Bundled StormyCloud reseed file refreshed. Nothing else changed (only the `00-system` and `30-opt` layers were rebuilt).
