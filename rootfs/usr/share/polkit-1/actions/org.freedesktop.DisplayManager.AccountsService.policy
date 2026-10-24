@@ -2,7 +2,9 @@
 <policyconfig>
         <action id="org.freedesktop.DisplayManager.AccountsService.ModifyOwn">
                 <description>Set properties of own user</description>
+                <description xml:lang="zh_TW">設定使用者自己的屬性</description>
                 <message>Authentication is required to set one's own greeter properties.</message>
+                <message xml:lang="zh_TW">設定某人自己的 greeter 屬性需要身份核對。</message>
                 <defaults>
                         <allow_any>yes</allow_any>
                         <allow_inactive>yes</allow_inactive>
@@ -12,7 +14,9 @@
 
         <action id="org.freedesktop.DisplayManager.AccountsService.ReadAny">
                 <description>Set properties of any user</description>
+                <description xml:lang="zh_TW">設定任何使用者的屬性</description>
                 <message>Authentication is required to get another user's greeter properties.</message>
+                <message xml:lang="zh_TW">取得其他使用者的 greeter 屬性需要身份核對。</message>
                 <defaults>
                         <allow_any>yes</allow_any>
                         <allow_inactive>yes</allow_inactive>
@@ -22,7 +26,9 @@
 
         <action id="org.freedesktop.DisplayManager.AccountsService.ModifyAny">
                 <description>Set properties of any user</description>
+                <description xml:lang="zh_TW">設定任何使用者的屬性</description>
                 <message>Authentication is required to set another user's greeter properties.</message>
+                <message xml:lang="zh_TW">設定其他使用者的 greeter 屬性需要身份核對。</message>
                 <defaults>
                         <allow_any>no</allow_any>
                         <allow_inactive>no</allow_inactive>

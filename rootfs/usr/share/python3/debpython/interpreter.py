@@ -230,7 +230,7 @@ class Interpreter:
         version = Version(version or self.version)
         if self.impl == 'cpython' and version << Version('3'):
             return ''
-        result = self._execute('import imp; print(imp.get_magic())', version)
+        result = self._execute('import importlib.util; print(importlib.util.MAGIC_NUMBER)', version)
         return eval(result)
 
     def magic_tag(self, version=None):
@@ -243,7 +243,7 @@ class Interpreter:
         version = Version(version or self.version)
         if self.impl == 'cpython' and version << Version('3.2'):
             return ''
-        return self._execute('import imp; print(imp.get_tag())', version)
+        return self._execute('import sys; print(sys.implementation.cache_tag)', version)
 
     def multiarch(self, version=None):
         """Return multiarch tag."""

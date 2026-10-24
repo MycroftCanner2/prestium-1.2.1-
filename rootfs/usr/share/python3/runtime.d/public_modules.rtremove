@@ -13,7 +13,7 @@ else
 	if [ "$VERSION" = 3.1 ]; then
 		find /usr/lib/python3.1/dist-packages -name '*.py[co]' -delete
 	else
-		TAG=`python$VERSION -c "import imp; print(imp.magic_tags[imp.get_magic()])"` \
+		TAG=`python$VERSION -c "import sys; print(sys.implementation.cache_tag)"` \
 		find /usr/lib/python3/dist-packages -name "*.$TAG.py[co]" -delete
 		find /usr/lib/python3/dist-packages -depth -empty -name '__pycache__' -delete
 	fi

@@ -1,6 +1,4 @@
-Name: gnome-icon-theme
+
+Name: adwaita-icon-theme
 Description: A collection of icons used as the basis for GNOME themes
-Version: 43
-Requires:
-Libs:
-Cflags:
+Version: 48.1

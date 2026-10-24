@@ -4,7 +4,7 @@ Description=Corporate theme with pie chart boot progress followed by a glowing e
 ModuleName=two-step
 
 [two-step]
-ImageDir=/usr/share/plymouth/themes/glow
+ImageDir=/usr/share/plymouth/themes//glow
 HorizontalAlignment=.25
 VerticalAlignment=.5
 Transition=merge-fade

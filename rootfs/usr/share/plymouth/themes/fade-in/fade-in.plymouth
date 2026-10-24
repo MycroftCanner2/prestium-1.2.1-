@@ -4,4 +4,4 @@ Description=Simple theme that fades in and out with shimmering stars
 ModuleName=fade-throbber
 
 [fade-throbber]
-ImageDir=/usr/share/plymouth/themes/fade-in
+ImageDir=/usr/share/plymouth/themes//fade-in
