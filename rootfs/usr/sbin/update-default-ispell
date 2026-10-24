@@ -233,9 +233,11 @@ update-default-ispell - update default ispell dictionary
 
 =head1 DESCRIPTION
 
-WARNING: Not to be used from the command line unless you know very well what you are doing.
+WARNING: Not to be used from the command line unless you know very well
+what you are doing.
 
-This program is intended to be called from ispell dictionary package postinst,
+This program is intended to be called from
+ispell dictionary package postinst,
 from B<select-default-ispell> or
 from dictionaries-common postinst.
 

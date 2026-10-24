@@ -79,10 +79,12 @@ for f in "$TEMPLATE_ETC_FILE" "$PKG_DIR/"*; do
 	test -f "$f" || continue
 	while IFS='#' read -r line _; do
 		[ -n "$line" ] || continue
-		PKG_SHELLS="$PKG_SHELLS$line#"
+		if ! hashset_contains "$PKG_SHELLS" "$line"; then
+			PKG_SHELLS="$PKG_SHELLS$line#"
+		fi
 		realshell=$(dpkg-realpath --root "$ROOT" "$(dirname "$line")")/$(basename "$line")
-		if [ "$line" != "$realshell" ]; then
-			PKG_SHELLS="$PKG_SHELLS$realshell#"
+		if ! hashset_contains "$PKG_SHELLS" "$realshell"; then
+		       PKG_SHELLS="$PKG_SHELLS$realshell#"
 		fi
 	done < "$f"
 done

@@ -21,16 +21,17 @@ use warnings;
 
 #
 # Program Constants
+# They can be overridden in $conffile, except of course $conffile itself
 #
-my $debug	= 0;
-my $conffile	= "/etc/update-mime.conf";
-my $mailcap	= "/etc/mailcap";
-my $mailcapdef	= "/usr/lib/mime/mailcap";
-my $mimedir	= "/usr/lib/mime/packages";
-my $appsdir	= "/usr/share/applications";
-my $orderfile	= "/etc/mailcap.order";
-my $defpriority	= 5;
-my $localgen	= 0;
+our $debug       = 0;
+my  $conffile    = "/etc/update-mime.conf";
+our $mailcap     = "/etc/mailcap";
+our $mailcapdef  = "/usr/lib/mime/mailcap";
+our $mimedir     = "/usr/lib/mime/packages";
+our $appsdir     = "/usr/share/applications";
+our $orderfile   = "/etc/mailcap.order";
+our $defpriority = 5;
+our $localgen    = 0;
 
 
 # If the call comes from dpkg, only accept it if --triggered is passed
@@ -141,7 +142,7 @@ sub ReadDesktopEntries
 		$packages{$pkg} = [];
 
 		if (open(FILE,"<$file")) {
-			my($terminal, $name, $icon, $exec, @types) = ("test=test -n \"\$DISPLAY\"", $pkg);
+			my($name, $icon, $exec, $terminal, $test, @types) = ($pkg);
 			my $in_desktop_group = 0;
 			while (<FILE>) {
 				chomp;
@@ -164,10 +165,14 @@ sub ReadDesktopEntries
 				elsif (m/^Icon=(.+)/i) {
 					$icon = $1;
 				}
-				elsif (m/Exec=(.*)$/i) {
+				elsif (m/^Exec=(.*)$/i) {
 					$exec = $1;
+					$exec =~ s/((?:\\\\)*)\\?(;)/$1\\$2/g;
 					$exec =~ s/%[fFuU]/%s/g;
 					$exec .= " %s" if ($exec !~ m/%s/);
+				}
+				elsif (m/^TryExec=(.*)/i) {
+					$test = "test=command -v $1 > /dev/null 2>&1";
 				}
 				elsif (m/MimeType=(.*)/i) {
 					my $err = 0;
@@ -179,6 +184,15 @@ sub ReadDesktopEntries
 			if (!defined($exec) || !scalar(@types)) {
 				close(FILE);
 				next;
+			}
+			if (!defined($terminal)) {
+				if (defined($test)) {
+					$terminal = "$test && test -n \"\$DISPLAY\"";
+				} else {
+					$terminal = "test=test -n \"\$DISPLAY\"";
+				}
+			} elsif (defined($test)) {
+				$terminal .= "; $test";
 			}
 			$exec =~ s/%c/$name/g;
 			$exec =~ s/%i/--icon $icon/g;

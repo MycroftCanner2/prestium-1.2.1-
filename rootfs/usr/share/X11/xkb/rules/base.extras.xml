@@ -5,6 +5,47 @@
   <layoutList>
     <layout>
       <configItem popularity="exotic">
+        <name>ancient</name>
+        <shortDescription>xx</shortDescription>
+        <description>Ancient</description>
+        <languageList>
+          <iso639Id>got</iso639Id>
+          <iso639Id>uga</iso639Id>
+          <iso639Id>ave</iso639Id>
+        </languageList>
+      </configItem>
+      <variantList>
+        <variant>
+          <configItem popularity="exotic">
+            <name>got</name>
+            <description>Gothic</description>
+            <languageList>
+              <iso639Id>got</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>uga</name>
+            <description>Ugaritic</description>
+            <languageList>
+              <iso639Id>uga</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>ave</name>
+            <description>Avestan</description>
+            <languageList>
+              <iso639Id>ave</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+      </variantList>
+    </layout>
+    <layout>
+      <configItem popularity="exotic">
         <name>apl</name>
         <shortDescription>apl</shortDescription>
         <description>APL</description>
@@ -56,6 +97,16 @@
           </configItem>
         </variant>
       </variantList>
+    </layout>
+    <layout>
+      <configItem popularity="exotic">
+        <name>bqn</name>
+        <shortDescription>bqn</shortDescription>
+        <description>BQN</description>
+        <languageList>
+          <iso639Id>eng</iso639Id>
+        </languageList>
+      </configItem>
     </layout>
     <layout>
       <configItem popularity="exotic">
@@ -189,32 +240,32 @@
             </languageList>
           </configItem>
         </variant>
-        <variant>
-          <configItem popularity="exotic">
-            <name>lld</name>
-            <shortDescription>de_lld</shortDescription>
-            <description>German (Ladin)</description>
-            <languageList>
-              <iso639Id>deu</iso639Id>
-              <iso639Id>lld</iso639Id>
-            </languageList>
-          </configItem>
-        </variant>
       </variantList>
     </layout>
     <layout>
       <configItem popularity="exotic">
         <name>eg</name>
-        <shortDescription>cop</shortDescription>
-        <description>Coptic</description>
+        <shortDescription>ar</shortDescription>
+        <description>Arabic (Egypt)</description>
         <countryList>
           <iso3166Id>EG</iso3166Id>
         </countryList>
         <languageList>
-          <iso639Id>cop</iso639Id>
-          <iso639Id>egy</iso639Id>
+          <iso639Id>ara</iso639Id>
         </languageList>
       </configItem>
+      <variantList>
+        <variant>
+          <configItem popularity="exotic">
+            <name>cop</name>
+            <shortDescription>cop</shortDescription>
+            <description>Coptic</description>
+            <languageList>
+              <iso639Id>cop</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+      </variantList>
     </layout>
     <layout>
       <configItem popularity="exotic">
@@ -231,40 +282,30 @@
       <variantList>
         <variant>
           <configItem popularity="exotic">
-            <name>oldhun</name>
-            <shortDescription>oldhun</shortDescription>
-            <description>Old Hungarian</description>
-          </configItem>
-        </variant>
-        <variant>
-          <configItem popularity="exotic">
             <name>oldhunlig</name>
             <shortDescription>oldhun(lig)</shortDescription>
             <description>Old Hungarian (for ligatures)</description>
           </configItem>
         </variant>
-      </variantList>
-    </layout>
-    <layout>
-      <configItem popularity="exotic">
-        <name>ir</name>
-        <shortDescription>fa</shortDescription>
-        <description>Persian</description>
-        <countryList>
-          <iso3166Id>IR</iso3166Id>
-        </countryList>
-        <languageList>
-          <iso639Id>fas</iso639Id>
-        </languageList>
-      </configItem>
-      <variantList>
         <variant>
           <configItem popularity="exotic">
-            <name>ave</name>
-            <description>Avestan</description>
-            <languageList>
-              <iso639Id>ave</iso639Id>
-            </languageList>
+            <name>oldhun_sk_sh</name>
+            <shortDescription>oldhun(SK,Sh)</shortDescription>
+            <description>Old Hungarian (Carpathian Highlands, S as Sh)</description>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>oldhun_sk_sz</name>
+            <shortDescription>oldhun(SK,Sz)</shortDescription>
+            <description>Old Hungarian (Carpathian Highlands, S as Sz)</description>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>us</name>
+            <shortDescription>us</shortDescription>
+            <description>Hungarian (US)</description>
           </configItem>
         </variant>
       </variantList>
@@ -415,7 +456,7 @@
         <variant>
           <configItem popularity="exotic">
             <name>cz_sk_de</name>
-            <description>Czech Slovak and German (US)</description>
+            <description>Czech, Slovak and German (US)</description>
             <languageList>
               <iso639Id>eng</iso639Id>
               <iso639Id>ces</iso639Id>
@@ -526,6 +567,16 @@
         </variant>
         <variant>
           <configItem popularity="exotic">
+            <name>workman-p</name>
+            <shortDescription>workman-p</shortDescription>
+            <description>English (Workman-P)</description>
+            <languageList>
+              <iso639Id>eng</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
             <name>scn</name>
             <description>Sicilian (US keyboard)</description>
             <languageList>
@@ -539,17 +590,18 @@
           <configItem popularity="exotic">
             <name>altgr-weur</name>
             <description>English (Western European AltGr dead keys)</description>
-            <languageList><iso639Id>dan</iso639Id>
-                          <iso639Id>nld</iso639Id>
-                          <iso639Id>eng</iso639Id>
-                          <iso639Id>fin</iso639Id>
-                          <iso639Id>fra</iso639Id>
-                          <iso639Id>deu</iso639Id>
-                          <iso639Id>ita</iso639Id>
-                          <iso639Id>nor</iso639Id>
-                          <iso639Id>por</iso639Id>
-                          <iso639Id>spa</iso639Id>
-                          <iso639Id>swe</iso639Id>
+            <languageList>
+              <iso639Id>eng</iso639Id>
+              <iso639Id>dan</iso639Id>
+              <iso639Id>deu</iso639Id>
+              <iso639Id>fin</iso639Id>
+              <iso639Id>fra</iso639Id>
+              <iso639Id>ita</iso639Id>
+              <iso639Id>nld</iso639Id>
+              <iso639Id>nor</iso639Id>
+              <iso639Id>por</iso639Id>
+              <iso639Id>spa</iso639Id>
+              <iso639Id>swe</iso639Id>
             </languageList>
           </configItem>
         </variant>
@@ -582,8 +634,14 @@
         </variant>
 	<variant>
           <configItem popularity="exotic">
-            <name>colemak_dh</name>
+            <name>colemak_dh_ansi</name>
             <description>Polish (Colemak-DH)</description>
+          </configItem>
+        </variant>
+	<variant>
+          <configItem popularity="exotic">
+            <name>colemak_dh</name>
+            <description>Polish (Colemak-DH ISO)</description>
           </configItem>
         </variant>
         <variant>
@@ -690,7 +748,7 @@
           <configItem popularity="exotic">
             <name>ruu</name>
             <shortDescription>ru</shortDescription>
-            <description>Russian (with Ukrainian-Belorussian layout)</description>
+            <description>Russian (plus Ukrainian and Belarusian letters)</description>
             <languageList>
               <iso639Id>rus</iso639Id>
               <iso639Id>ukr</iso639Id>
@@ -707,7 +765,7 @@
         <variant>
           <configItem popularity="exotic">
             <name>phonetic_mac</name>
-            <description>Russian (phonetic Macintosh)</description>
+            <description>Russian (phonetic, Macintosh)</description>
           </configItem>
         </variant>
         <variant>
@@ -807,6 +865,43 @@
             </languageList>
           </configItem>
         </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>winkeys-p</name>
+            <shortDescription>winkeys-p</shortDescription>
+            <description>Russian (Programmer)</description>
+            <languageList>
+              <iso639Id>rus</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>typo</name>
+            <shortDescription>ru</shortDescription>
+            <description>Russian (plus typographic symbols)</description>
+            <countryList>
+              <iso3166Id>RU</iso3166Id>
+            </countryList>
+            <languageList>
+              <iso639Id>rus</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>rtu</name>
+            <shortDescription>ru</shortDescription>
+            <description>Russian (plus Tatar letters)</description>
+            <countryList>
+              <iso3166Id>RU</iso3166Id>
+            </countryList>
+            <languageList>
+              <iso639Id>rus</iso639Id>
+              <iso639Id>tat</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
       </variantList>
     </layout>
     <layout>
@@ -815,7 +910,7 @@
         <shortDescription>hy</shortDescription>
         <description>Armenian</description>
         <countryList>
-          <iso3166Id>AL</iso3166Id>
+          <iso3166Id>AM</iso3166Id>
         </countryList>
         <languageList>
           <iso639Id>hye</iso639Id>
@@ -903,12 +998,6 @@
             <description>Arabic (Eastern Arabic numerals, extensions in the 4th level)</description>
           </configItem>
         </variant>
-        <variant>
-          <configItem popularity="exotic">
-            <name>uga</name>
-            <description>Ugaritic instead of Arabic</description>
-          </configItem>
-        </variant>
 	<variant>
           <configItem popularity="exotic">
             <name>ergoarabic</name>
@@ -988,8 +1077,8 @@
         </variant>
         <variant>
           <configItem popularity="exotic">
-            <name>typo</name>
-            <description>Czech (typographic)</description>
+            <name>prog_typo</name>
+            <description>Czech (programming, typographic)</description>
           </configItem>
         </variant>
         <variant>
@@ -1000,8 +1089,8 @@
         </variant>
         <variant>
           <configItem popularity="exotic">
-            <name>prog_typo</name>
-            <description>Czech (programming, typographic)</description>
+            <name>colemak-ucw</name>
+            <description>Czech (US, Colemak, UCW support)</description>
           </configItem>
         </variant>
       </variantList>
@@ -1185,9 +1274,20 @@
           <configItem popularity="exotic">
             <name>lld</name>
             <shortDescription>it_lld</shortDescription>
-            <description>Italian (Ladin)</description>
+            <description>Ladin (Italian keyboard)</description>
             <languageList>
               <iso639Id>ita</iso639Id>
+              <iso639Id>lld</iso639Id>
+            </languageList>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>lldde</name>
+            <shortDescription>de_lld</shortDescription>
+            <description>Ladin (German keyboard)</description>
+            <languageList>
+              <iso639Id>deu</iso639Id>
               <iso639Id>lld</iso639Id>
             </languageList>
           </configItem>
@@ -1274,9 +1374,9 @@
       <variantList>
         <variant>
           <configItem popularity="exotic">
-          <name>urd-navees</name>
-          <description>Urdu (Pakistan, Navees)</description>
-          <languageList>
+            <name>urd-navees</name>
+            <description>Urdu (Pakistan, Navees)</description>
+            <languageList>
               <iso639Id>urd</iso639Id>
             </languageList>
           </configItem>
@@ -1386,7 +1486,7 @@
         <variant>
           <configItem popularity="exotic">
             <name>ovd</name>
-            <description>Elfdalian (Swedish, with combining ogonek)</description>
+            <description>Elfdalian (Sweden, with combining ogonek)</description>
             <languageList>
               <iso639Id>ovd</iso639Id>
             </languageList>
@@ -1443,14 +1543,32 @@
         </variant>
         <variant>
           <configItem popularity="exotic">
+            <name>us</name>
+            <description>Turkish (i and ı swapped)</description>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
             <name>otk</name>
             <description>Old Turkic</description>
           </configItem>
         </variant>
         <variant>
           <configItem popularity="exotic">
-            <name>us</name>
-            <description>Turkish (Turkey, Latin Q, Swap i and ı)</description>
+            <name>otkf</name>
+            <description>Old Turkic (F)</description>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>ot</name>
+            <description>Ottoman (Q)</description>
+          </configItem>
+        </variant>
+        <variant>
+          <configItem popularity="exotic">
+            <name>otf</name>
+            <description>Ottoman (F)</description>
           </configItem>
         </variant>
       </variantList>
@@ -1663,7 +1781,7 @@
           <configItem popularity="exotic">
             <name>modi-kagapa</name>
             <shortDescription>mr</shortDescription>
-            <description>Modi (KaGaPa phonetic)</description>
+            <description>Modi (KaGaPa, phonetic)</description>
             <languageList>
               <iso639Id>mar</iso639Id>
             </languageList>

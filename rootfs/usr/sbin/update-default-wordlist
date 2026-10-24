@@ -185,9 +185,11 @@ update-default-wordlist - update default wordlist
 
 =head1 DESCRIPTION
 
-WARNING: Not to be used from the command line unless you know very well what you are doing.
+WARNING: Not to be used from the command line unless you know very well
+what you are doing.
 
-This program is intended to be called from wordlist package postinst,
+This program is intended to be called from
+wordlist package postinst,
 from B<select-default-wordlist> or
 from dictionaries-common postinst.
 

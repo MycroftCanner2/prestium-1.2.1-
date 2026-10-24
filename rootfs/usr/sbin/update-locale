@@ -4,7 +4,7 @@ use strict;
 use Getopt::Long;
 
 my $progname     = "update-locale";
-my $locale_file  = "/etc/default/locale";
+my $locale_file  = "/etc/locale.conf";
 
 my $help         = 0;
 my $reset        = 0;
@@ -28,7 +28,7 @@ Options:
    --help              display this message and exit
    --reset             ignore variables defined in the locale file
    --locale-file=FILE  file containing locale variables
-                       (Default: /etc/default/locale)
+                       (Default: /etc/locale.conf)
    --no-checks         do not perform sanity checks on locale variables
 ";
 	exit $rc;
@@ -88,7 +88,7 @@ if ($no_checks == 0)
 {
 	#  Check that this locale does exist
 	my $charset = `LANG= LC_CTYPE= LC_NUMERIC= LC_TIME= LC_COLLATE= LC_MONETARY= LC_MESSAGES= LC_PAPER= LC_NAME= LC_ADDRESS= LC_TELEPHONE= LC_MEASUREMENT= LC_IDENTIFICATION= LC_ALL= $env locale charmap 2>&1`;
-	die "*** $progname: Error: invalid locale settings: $env\n"
+	die "*** $progname: Error: invalid locale settings: $env\n----------\n$charset----------\n"
 		if ($charset =~ m/Cannot set/);
 	#  If LANGUAGE is set, its first value must be compatible with LC_MESSAGES
 	if (defined $arg{LANGUAGE})

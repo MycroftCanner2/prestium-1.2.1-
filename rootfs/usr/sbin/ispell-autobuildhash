@@ -2,7 +2,7 @@
 #
 #  script for ispell hash autorebuild in Debian systems
 #
-# Copyright 2003-2022 Agustin Martin Domingo <agmartin@debian.org>
+# Copyright 2003-2024 Agustin Martin Domingo <agmartin@debian.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -361,11 +361,11 @@ B<ispell-autobuildhash> - Autobuilding the ispell hash file for some dicts
 
 B<ispell-autobuildhash> is a script that will manage ispell hash files
 autobuild, intended to be called from the dictionaries-common tools.
-Depending on the ispell
-compatibility level and on the compatibility level used for the hash file
-if present, will decide whether it must be rebuilt or not. This script will
-only work on ispell packages prepared to use it, it will do nothing for other
-ispell dict packages.
+Depending on the ispell compatibility level and on the compatibility
+level used for the hash file if present, will decide whether it must
+be rebuilt or not.
+This script will only work on ispell packages prepared to use it,
+it will do nothing for other ispell dict packages.
 
 =head1 OPTIONS
 
@@ -373,32 +373,36 @@ ispell dict packages.
  --dry-run    Show what would be done, but do nothing real.
  --force      Rebuild the hash file for all dicts providing a compat
               file regardless of the compatibility levels found.
- --triggered  Tell the script that is run in the triggers stage. When
-              run under dpkg control, do not try to set the
+ --triggered  Tell the script that is run in the triggers stage.
+              When run under dpkg control, do not try to set the
               'ispell-autobuildhash' trigger, but run real
-              B<ispell-autobuildhash> code. When not run under dpkg
-              control, real code will always be run and '--triggered'
-              option has no real effect.
+              B<ispell-autobuildhash> code.
+              When not run under dpkg control, real code will always
+              be run and '--triggered' option has no real effect.
 
 =head1 PACKAGE MAINTAINERS
 
 To use this system, B<ispell-autobuildhash> expects a F<$dict.compat> file
-in F</var/lib/ispell> (I<$dict> stands for the hash or affix file basename)
+in F</var/lib/ispell>
+(I<$dict> stands for the hash or affix file basename)
 containing ispell major or compatibility version for last successful build
 or "0" or en empty file if hash is to be rebuild, as is for dictionary
 installation and upgrades.
 
 When upgrading B<ispell>, script will check if version in I<$dict.compat>
 is different from I<ispell.compat> and rebuild if so, updating
-I<$dict.compat> with the new value. The particular way things are done depends
-on whether your dict has a single source or a multiple source like ipolish has.
+I<$dict.compat> with the new value.
+The particular way things are done depends on whether your dict
+has a single source or a multiple source like ipolish has.
 
-The most common case is having a single source. In this case you must put
-the F<$dict.aff> file at F</usr/lib/ispell/$dict.aff> as usual and the munched
+The most common case is having a single source.
+In this case you must put the F<$dict.aff> file at
+F</usr/lib/ispell/$dict.aff> as usual and the munched
 wordlist compressed with gzip at F</usr/share/ispell/$dict.mwl.gz>.
 
 This script supports the way ipolish allows selection of subdictionaries
-to be put in the hash file. It will detect the presence of  the main
+to be put in the hash file.
+It will detect the presence of the main
 language .desc file and call update-ipolish-hash as appropriate.
 
 Although this script looks for the existence of a update-ispell-hash script
@@ -410,17 +414,19 @@ If your package provides more than one ispell dictionary you will need to
 do the steps above for each dictionary.
 
 Dictionaries-common scripts will call internally this script and create a
-hash file at F</var/lib/ispell/$dict.hash>. You must set a symlink to that
+hash file at F</var/lib/ispell/$dict.hash>.
+You must set a symlink to that
 file from F</usr/lib/ispell/$dict.hash>.
 
 Ispell dictionary packages using this script must make sure that
 I<$dict.compat> is reset on every new install/upgrade, so hash is rebuilt.
-They must also make sure that I<$dict.compat> and F</var/lib/ispell/$dict.hash>
-are removed on package removal
+They must also make sure that I<$dict.compat> and
+F</var/lib/ispell/$dict.hash> are removed on package removal
 
 As of version C<1.10>, B<installdeb-ispell> script will understand
 C<'auto-compat'> field in F<$dict.info-ispell> file to help with this by
-adding needed debhelper snippets. Put in that entry the base name(s) of
+adding needed debhelper snippets.
+Put in that entry the base name(s) of
 your compat file(s) and check resulting maintainer scripts after build.
 
 Note that you are no longer suggested to ship empty files at
@@ -439,7 +445,7 @@ Agustin Martin <agmartin@debian.org>
 
 =head1 COPYRIGHT
 
-Copyright (C) 2003-2013 Agustin Martin <agmartin@debian.org>
+Copyright (C) 2003-2024 Agustin Martin <agmartin@debian.org>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

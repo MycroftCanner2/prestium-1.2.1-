@@ -63,11 +63,14 @@ updatever () {
   fi
 }
 
-if [ "$(basename $img)" = "vmlinux" ] ; then
-  img_dest=vmlinux
-else
-  img_dest=vmlinuz
-fi
+case "$(basename $img)" in
+  "vmlinux"|"Image")
+    img_dest=vmlinux
+    ;;
+  *)
+    img_dest=vmlinuz
+    ;;
+esac
 updatever $img_dest "$img"
 updatever System.map "$map"
 
@@ -83,7 +86,7 @@ fi
 if [ "$dir" = "/boot" ]; then
   PATH="$PATH:/usr/sbin:/sbin" \
     run-parts --verbose --exit-on-error --arg="$ver" --arg="$dir/$img_dest-$ver" \
-    /etc/kernel/postinst.d
+    /etc/kernel/postinst.d /usr/share/kernel/postinst.d
 fi
  
 exit 0

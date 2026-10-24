@@ -41,7 +41,7 @@ is_ignored_file() {
 	return 1
 }
 
-VERSION="`basename $0` ver. 1.65.2+deb12u1"
+VERSION="`basename $0` ver. 1.69~deb13u1"
 USAGE="Usage: `basename $0` < option > | --status-all | \
 [ service_name [ command | --full-restart ] ]"
 SERVICE=
@@ -140,6 +140,8 @@ run_via_sysvinit() {
 }
 
 update_openrc_started_symlinks() {
+   # Skip native openrc-run files
+   grep -q '^#! */\(usr/\)\?sbin/openrc-run' $SERVICEDIR/$SERVICE && return
    # maintain the symlinks of /run/openrc/started so that
    # rc-status works with the service command as well
    if [ -d /run/openrc/started ] ; then
