@@ -1,2 +1,0 @@
-libuno-cppuhelpergcc3-3: symbols-declares-dependency-on-other-package uno-libs-private (libuno_cppuhelpergcc3.so.3) [symbols]
-libuno-cppuhelpergcc3-3: symbols-declares-dependency-on-other-package libstdc++6 (>= 4.1.1) (libuno_cppuhelpergcc3.so.3) [symbols]

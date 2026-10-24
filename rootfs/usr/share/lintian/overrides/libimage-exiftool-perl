@@ -1,7 +1,6 @@
-# Optio is a Pentax camera model
+# This is a Pentax camera model
 libimage-exiftool-perl: typo-in-manual-page Optio Option [usr/share/man/man3/Image::ExifTool::Pentax.3pm.gz:*]
 libimage-exiftool-perl: typo-in-manual-page Optio Option [usr/share/man/man3/Image::ExifTool::TagNames.3pm.gz:*]
 
-
-# This is a bit unfortunate
-libimage-exiftool-perl: spelling-in-override-comment typo-in-manual-page Optio Option [usr/share/lintian/overrides/libimage-exiftool-perl:*]
+# Short for longitude
+libimage-exiftool-perl: typo-in-manual-page lon long [usr/share/man/man3/Image::ExifTool::Geolocation.3pm.gz:*]

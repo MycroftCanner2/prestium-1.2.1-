@@ -1,1 +1,5 @@
+# Many shared libraries evolving together are shipped in the same package.
 coinor-libclp1: package-name-doesnt-match-sonames libClp1 libClpSolver1 libOsiClp1
+
+# We won't provide symbols files for this C++ library, using shlibs instead.
+coinor-libclp1: no-symbols-control-file usr/lib/*/lib*Clp*.so.*

@@ -1,0 +1,8 @@
+# I could not find "retur" in the source code
+spelling-error-in-binary retur return *
+
+# Putting many shared libraries in the same binary package.
+coinor-libcbc3.1: package-name-doesnt-match-sonames libCbc3.1 libCbcSolver3.1 libOsiCbc3.1
+
+# We won't provide symbols file for these C++ libraries. Using shlibs instead.
+coinor-libcbc3.1: no-symbols-control-file usr/lib/*/lib*Cbc*.so*

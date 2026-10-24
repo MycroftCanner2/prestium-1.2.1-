@@ -1,1 +1,6 @@
+# The name of the package was chosen to ensure consistency with the other
+# packages of the coinor ecosystem.
 coinor-libcgl1: package-name-doesnt-match-sonames libCgl1
+
+# We won't provide a symbols file for this C++ library, using shlibs instead.
+coinor-libcgl1: no-symbols-control-file usr/lib/*/libCgl.so.*

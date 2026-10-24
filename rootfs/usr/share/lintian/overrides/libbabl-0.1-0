@@ -1,4 +1,4 @@
 # They're plugins, and many genuinely don't call libc functions
-libbabl-0.1-0: library-not-linked-against-libc usr/lib/x86_64-linux-gnu/babl-0.1/*
+libbabl-0.1-0: library-not-linked-against-libc [usr/lib/x86_64-linux-gnu/babl-0.1/*]
 # They're plugins, and some genuinely only do computation, not library calls
-libbabl-0.1-0: shared-library-lacks-prerequisites usr/lib/x86_64-linux-gnu/babl-0.1/*
+libbabl-0.1-0: shared-library-lacks-prerequisites [usr/lib/x86_64-linux-gnu/babl-0.1/*]

@@ -5,14 +5,12 @@
 [Device]
 Name=XP-Pen G430
 ModelName=
-DeviceMatch=usb:28bd:0075
-Class=Bamboo
+DeviceMatch=usb|28bd|0075
 Width=4
 Height=3
-Styli=0xffffd;
+Styli=@generic-no-eraser;
 
 [Features]
 Stylus=true
 Reversible=true
 Touch=false
-Buttons=0

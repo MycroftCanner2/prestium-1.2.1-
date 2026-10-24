@@ -1,4 +1,4 @@
-# Waltop 
+# Waltop
 # Slim Tablet 12.1"
 #
 # Also known/rebranded as: Genius G-Pen F610, Trust Slimline Widescreen Tablet, Medion Graphics Pad MD 85637
@@ -10,14 +10,13 @@
 [Device]
 Name=Waltop Slim Tablet 12.1"
 ModelName=
-DeviceMatch=usb:172f:0031
+DeviceMatch=usb|172f|0031
 Class=Bamboo
 Width=10
 Height=6
-Styli=0xffffd;
+Styli=@generic-no-eraser;
 
 [Features]
 Stylus=true
 Reversible=false
 Touch=false
-Buttons=0

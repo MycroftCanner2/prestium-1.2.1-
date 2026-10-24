@@ -1,2 +1,1 @@
-command-with-path-in-maintainer-script postinst:7 /usr/sbin/libgvc6-config-update
-
+command-with-path-in-maintainer-script /usr/sbin/libgvc6-config-update (in test syntax) [postinst:7]
