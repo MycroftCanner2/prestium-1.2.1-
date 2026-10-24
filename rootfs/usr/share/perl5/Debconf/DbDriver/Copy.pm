@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::DbDriver::Copy;
+use warnings;
 use strict;
 use Debconf::Log qw{:all};
 use base 'Debconf::DbDriver';
@@ -13,9 +14,9 @@ sub copy {
 	my $item=shift;
 	my $src=shift;
 	my $dest=shift;
-	
+
 	debug "db $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
-	
+
 	my @owners=$src->owners($item);
 	if (! @owners) {
 		@owners=("unknown");

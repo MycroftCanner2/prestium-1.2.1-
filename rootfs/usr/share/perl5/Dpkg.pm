@@ -11,8 +11,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg;
-
 =encoding utf8
 
 =head1 NAME
@@ -28,10 +26,11 @@ It is also the entry point to the Dpkg module hierarchy.
 
 =cut
 
+package Dpkg 2.00;
+
 use strict;
 use warnings;
 
-our $VERSION = '2.00';
 our @EXPORT_OK = qw(
     $PROGNAME
     $PROGVERSION
@@ -94,7 +93,7 @@ Contains the path to the dpkg architecture tables directory.
 our ($PROGNAME) = $0 =~ m{(?:.*/)?([^/]*)};
 
 # The following lines are automatically fixed at install time
-our $PROGVERSION = '1.21.23';
+our $PROGVERSION = '1.22.22';
 our $PROGMAKE = 'make';
 our $PROGTAR = 'tar';
 our $PROGPATCH = 'patch';

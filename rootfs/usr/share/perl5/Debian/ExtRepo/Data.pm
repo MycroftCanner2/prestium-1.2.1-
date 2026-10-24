@@ -1,5 +1,8 @@
 package Debian::ExtRepo::Data;
 
+use v5.28;
+use warnings;
+
 use Exporter;
 use YAML::XS qw/LoadFile/;
 use LWP::UserAgent;
@@ -13,8 +16,12 @@ sub fetch_config {
 	return LoadFile('/etc/extrepo/config.yaml');
 }
 
+my $repodata;
+
 sub fetch_repodata {
 	my $config = shift;
+
+	return $repodata if $repodata;
 
 	my $ua = LWP::UserAgent->new;
 	$ua->env_proxy;
@@ -31,7 +38,7 @@ sub fetch_repodata {
 
 	my $dir = tempdir(CLEANUP => 1);
 	my ($yaml_fh, $extrepo_yaml_file) = tempfile(DIR => $dir);
-	binmode $yaml_fh, ':utf8';
+	binmode $yaml_fh, ':encoding(UTF-8)';
 	print $yaml_fh $extrepo_yaml;
 	close $yaml_fh;
 
@@ -52,7 +59,7 @@ sub fetch_repodata {
 		close $gpg_fh;
 
 		my $validated = 0;
-		open my $gpgv, "gpgv --homedir /dev/null --keyring /etc/extrepo/keyring.gpg --status-fd 1 $extrepo_gpg_file $extrepo_yaml_file 2>/dev/null|";
+		open my $gpgv, "-|", "gpgv --homedir /dev/null --keyring /etc/extrepo/keyring.gpg --status-fd 1 $extrepo_gpg_file $extrepo_yaml_file 2>/dev/null";
 		while(<$gpgv>) {
 			if(/VALIDSIG/) {
 				$validated = 1;
@@ -63,5 +70,8 @@ sub fetch_repodata {
 		unlink($extrepo_gpg_file);
 	}
 
-	return LoadFile($extrepo_yaml_file);
+	$repodata = LoadFile($extrepo_yaml_file);
+	return $repodata;
 }
+
+1;

@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::FrontEnd::ScreenSize;
+use warnings;
 use strict;
 use Debconf::Gettext;
 use base qw(Debconf::FrontEnd);

@@ -1,6 +1,6 @@
 package Debian::ExtRepo::Commands::Search;
 
-use strict;
+use v5.28;
 use warnings;
 
 use Debian::ExtRepo::Data qw/fetch_repodata/;

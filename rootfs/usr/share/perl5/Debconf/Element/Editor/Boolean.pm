@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Editor::Boolean;
+use warnings;
 use strict;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
@@ -31,10 +32,10 @@ sub show {
 
 sub value {
 	my $this=shift;
-	
+
 	return $this->SUPER::value() unless @_;
 	my $value=shift;
-	
+
 	if ($value eq 'yes' || $value eq gettext("yes")) {
 		return $this->SUPER::value('true');
 	}

@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Noninteractive::Error;
+use warnings;
 use strict;
 use Text::Wrap;
 use Debconf::Gettext;
@@ -35,28 +36,28 @@ sub sendmail {
 	    	my $title=gettext("Debconf").": ".
 			$this->frontend->title." -- ".
 			$this->question->description;
-		unless (open(MAIL, "|-")) { # child
+		unless (open(my $mail, "|-")) { # child
 			exec("mail", "-s", $title, Debconf::Config->admin_email) or return '';
 		}
 		my $old_columns=$Text::Wrap::columns;
 		$Text::Wrap::columns=75;
 		if ($this->question->extended_description ne '') {
-			print MAIL wrap('', '', $this->question->extended_description);
+			print $mail wrap('', '', $this->question->extended_description);
 		}
 		else {
-			print MAIL wrap('', '', $this->question->description);
+			print $mail wrap('', '', $this->question->description);
 		}
-		print MAIL "\n\n";
+		print $mail "\n\n";
 		my $hostname=`hostname -f 2>/dev/null`;
 		if (! defined $hostname) {
 			$hostname="unknown system";
 		}
-		print MAIL "-- \n", sprintf(gettext("Debconf, running at %s"), $hostname, "\n");
-		print MAIL "[ ", wrap('', '', $footer), " ]\n" if $footer;
-		close MAIL or return '';
+		print $mail "-- \n", sprintf(gettext("Debconf, running at %s"), $hostname, "\n");
+		print $mail "[ ", wrap('', '', $footer), " ]\n" if $footer;
+		close $mail or return '';
 
 		$Text::Wrap::columns=$old_columns;
-	
+
 		$this->question->flag('seen', 'true');
 
 		return 1;

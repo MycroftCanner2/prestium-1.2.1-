@@ -3,6 +3,7 @@
 
 
 package Debconf::Path;
+use warnings;
 use strict;
 use File::Spec;
 

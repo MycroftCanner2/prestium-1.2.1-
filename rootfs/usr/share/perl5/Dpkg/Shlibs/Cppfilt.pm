@@ -14,12 +14,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Shlibs::Cppfilt;
+=encoding utf8
+
+=head1 NAME
+
+Dpkg::Shlibs::Cppfilt - C++ symbol mangling support via c++filt
+
+=head1 DESCRIPTION
+
+This module provides functions that wrap over c++filt for its easy and
+fast usage.
+
+B<Note>: This is a private module, its API can change at any time.
+
+=cut
+
+package Dpkg::Shlibs::Cppfilt 0.01;
 
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
 our @EXPORT = qw(
     cppfilt_demangle_cpp
 );
@@ -82,8 +96,16 @@ sub cppfilt_demangle {
 	my $demangled = readline($filt->{to});
 	chop $demangled;
 
-	# If the symbol was not demangled, return undef
-	$demangled = undef if $symbol eq $demangled;
+        # If the symbol was not demangled, return undef. Otherwise normalize
+        # it as llvm packs ending angle brackets with no intermediate spaces
+        # as allowed by C++11, contrary to GNU binutils.
+        if ($symbol eq $demangled) {
+            $demangled = undef;
+        } elsif ($demangled =~ m{operator>>}) {
+            # Special case operator>> and operator>>=.
+        } else {
+            $demangled =~ s{(?<=>)(?=>)}{ }g;
+        }
 
 	# Remember the last result
 	$filt->{last_symbol} = $symbol;
@@ -116,5 +138,13 @@ END {
     terminate_cppfilts();
     $? = $exitcode;
 }
+
+=head1 CHANGES
+
+=head2 Version 0.xx
+
+This is a private module.
+
+=cut
 
 1;

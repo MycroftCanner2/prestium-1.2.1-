@@ -15,24 +15,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Checksums;
-
-use strict;
-use warnings;
-
-our $VERSION = '1.04';
-our @EXPORT = qw(
-    checksums_is_supported
-    checksums_get_list
-    checksums_get_property
-);
-
-use Exporter qw(import);
-use Digest;
-
-use Dpkg::Gettext;
-use Dpkg::ErrorHandling;
-
 =encoding utf8
 
 =head1 NAME
@@ -44,6 +26,25 @@ Dpkg::Checksums - generate and manipulate file checksums
 This module provides a class that can generate and manipulate
 various file checksums as well as some methods to query information
 about supported checksums.
+
+=cut
+
+package Dpkg::Checksums 1.04;
+
+use strict;
+use warnings;
+
+our @EXPORT = qw(
+    checksums_is_supported
+    checksums_get_list
+    checksums_get_property
+);
+
+use Exporter qw(import);
+use Digest;
+
+use Dpkg::Gettext;
+use Dpkg::ErrorHandling;
 
 =head1 FUNCTIONS
 
@@ -75,7 +76,7 @@ Returns the list of supported checksums algorithms.
 
 =cut
 
-sub checksums_get_list() {
+sub checksums_get_list {
     my @list = sort keys %{$CHECKSUMS};
     return @list;
 }
@@ -87,7 +88,7 @@ supported. The checksum algorithm is case-insensitive.
 
 =cut
 
-sub checksums_is_supported($) {
+sub checksums_is_supported {
     my $alg = shift;
     return exists $CHECKSUMS->{lc($alg)};
 }
@@ -103,7 +104,7 @@ whether the checksum algorithm is considered cryptographically strong.
 
 =cut
 
-sub checksums_get_property($$) {
+sub checksums_get_property {
     my ($alg, $property) = @_;
 
     return unless checksums_is_supported($alg);
@@ -152,16 +153,30 @@ sub reset {
 =item $ck->add_from_file($filename, %opts)
 
 Add or verify checksums information for the file $filename. The file must
-exists for the call to succeed. If you don't want the given filename to
-appear when you later export the checksums you might want to set the "key"
-option with the public name that you want to use. Also if you don't want
-to generate all the checksums, you can pass an array reference of the
-wanted checksums in the "checksums" option.
+exists for the call to succeed. By default if the $filename is known and
+the checksums do not match, the function will error out.
 
-It the object already contains checksums information associated the
-filename (or key), it will error out if the newly computed information
-does not match what's stored, and the caller did not request that it be
-updated with the boolean "update" option.
+Options:
+
+=over
+
+=item B<key>
+
+Set to the public name to use when exporting the checksums,
+instead of using $filename.
+
+=item B<checksums>
+
+Set an array reference with the list of wanted checksums to generate instead
+of generating all of them.
+
+=item B<update>
+
+Set a boolean on whether the object should update the checksums information
+associated with the $filename (or key), instead of emitting an error if
+it does not match.
+
+=back
 
 =cut
 
@@ -207,10 +222,17 @@ $value can be multi-lines, each line should be a space separated list
 of checksum, file size and filename. Leading or trailing spaces are
 not allowed.
 
-It the object already contains checksums information associated to the
-filenames, it will error out if the newly read information does not match
-what's stored, and the caller did not request that it be updated with
-the boolean "update" option.
+Options:
+
+=over
+
+=item B<update>
+
+Set a boolean on whether the object should update the checksums information
+associated with the $filename (or key), instead of emitting an error if
+it does not match.
+
+=back
 
 =cut
 
@@ -227,6 +249,7 @@ sub add_from_string {
 	    error(g_('invalid line in %s checksums string: %s'),
 		  $alg, $checksum);
 	}
+        ## no critic (RegularExpressions::ProhibitCaptureWithoutTest)
 	my ($sum, $size, $file) = ($1, $2, $3);
 	if (not $opts{update} and exists($checksums->{$file}{$alg})
 	    and $checksums->{$file}{$alg} ne $sum) {
@@ -246,13 +269,21 @@ sub add_from_string {
 
 =item $ck->add_from_control($control, %opts)
 
-Read checksums from Checksums-* fields stored in the Dpkg::Control object
+Read checksums from Checksums-* fields stored in the L<Dpkg::Control> object
 $control. It uses $self->add_from_string() on the field values to do the
-actual work.
+actual work. The default field used is B<Checksums-Md5>.
 
-If the option "use_files_for_md5" evaluates to true, then the "Files"
-field is used in place of the "Checksums-Md5" field. By default the option
-is false.
+Options:
+
+=over
+
+=item B<use_files_for_md5>
+
+Set to true to use the B<Files> field instead of B<Checksums-Md5>.
+
+Defaults to false.
+
+=back
 
 =cut
 
@@ -358,7 +389,7 @@ sub has_strong_checksums {
 =item $ck->export_to_string($alg, %opts)
 
 Return a multi-line string containing the checksums of type $alg. The
-string can be stored as-is in a Checksum-* field of a Dpkg::Control
+string can be stored as-is in a Checksum-* field of a L<Dpkg::Control>
 object.
 
 =cut
@@ -377,8 +408,20 @@ sub export_to_string {
 
 =item $ck->export_to_control($control, %opts)
 
-Export the checksums in the Checksums-* fields of the Dpkg::Control
+Export the checksums in the Checksums-* fields of the L<Dpkg::Control>
 $control object.
+
+Options:
+
+=over
+
+=item B<use_files_for_md5>
+
+Set to true to use the B<Files> field instead of B<Checksums-Md5>.
+
+Defaults to false.
+
+=back
 
 =cut
 

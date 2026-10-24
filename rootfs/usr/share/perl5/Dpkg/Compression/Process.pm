@@ -14,20 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Compression::Process;
-
-use strict;
-use warnings;
-
-our $VERSION = '1.00';
-
-use Carp;
-
-use Dpkg::Compression;
-use Dpkg::ErrorHandling;
-use Dpkg::Gettext;
-use Dpkg::IPC;
-
 =encoding utf8
 
 =head1 NAME
@@ -39,24 +25,51 @@ Dpkg::Compression::Process - run compression/decompression processes
 This module provides an object oriented interface to run and manage
 compression/decompression processes.
 
+=cut
+
+package Dpkg::Compression::Process 1.00;
+
+use strict;
+use warnings;
+
+use Carp;
+
+use Dpkg::Compression;
+use Dpkg::ErrorHandling;
+use Dpkg::Gettext;
+use Dpkg::IPC;
+
 =head1 METHODS
 
 =over 4
 
 =item $proc = Dpkg::Compression::Process->new(%opts)
 
-Create a new instance of the object. Supported options are "compression"
-and "compression_level" (see corresponding set_* functions).
+Create a new instance of the object.
+
+Options:
+
+=over
+
+=item B<compression>
+
+See $proc->set_compression().
+
+=item B<compression_level>
+
+See $proc->set_compression_level().
+
+=back
 
 =cut
 
 sub new {
-    my ($this, %args) = @_;
+    my ($this, %opts) = @_;
     my $class = ref($this) || $this;
     my $self = {};
     bless $self, $class;
-    $self->set_compression($args{compression} || compression_get_default());
-    $self->set_compression_level($args{compression_level} ||
+    $self->set_compression($opts{compression} || compression_get_default());
+    $self->set_compression_level($opts{compression_level} ||
         compression_get_default_level());
     return $self;
 }
@@ -64,8 +77,8 @@ sub new {
 =item $proc->set_compression($comp)
 
 Select the compression method to use. It errors out if the method is not
-supported according to C<compression_is_supported> (of
-B<Dpkg::Compression>).
+supported according to compression_is_supported() (of
+L<Dpkg::Compression>).
 
 =cut
 
@@ -79,8 +92,8 @@ sub set_compression {
 =item $proc->set_compression_level($level)
 
 Select the compression level to use. It errors out if the level is not
-valid according to C<compression_is_valid_level> (of
-B<Dpkg::Compression>).
+valid according to compression_is_valid_level() (of
+L<Dpkg::Compression>).
 
 =cut
 
@@ -94,7 +107,7 @@ sub set_compression_level {
 
 =item @exec = $proc->get_uncompress_cmdline()
 
-Returns a list ready to be passed to C<exec>, its first element is the
+Returns a list ready to be passed to exec(), its first element is the
 program name (either for compression or decompression) and the following
 elements are parameters for the program.
 
@@ -136,10 +149,14 @@ sub _check_opts {
 Starts a compressor program. You must indicate where it will read its
 uncompressed data from and where it will write its compressed data to.
 This is accomplished by passing one parameter C<to_*> and one parameter
-C<from_*> as accepted by B<Dpkg::IPC::spawn>.
+C<from_*> as accepted by Dpkg::IPC::spawn().
 
-You must call C<wait_end_process> after having called this method to
+You must call wait_end_process() after having called this method to
 properly close the sub-process (and verify that it exited without error).
+
+Options:
+
+See Dpkg::IPC::spawn().
 
 =cut
 
@@ -159,10 +176,14 @@ sub compress {
 Starts a decompressor program. You must indicate where it will read its
 compressed data from and where it will write its uncompressed data to.
 This is accomplished by passing one parameter C<to_*> and one parameter
-C<from_*> as accepted by B<Dpkg::IPC::spawn>.
+C<from_*> as accepted by Dpkg::IPC::spawn().
 
-You must call C<wait_end_process> after having called this method to
+You must call wait_end_process() after having called this method to
 properly close the sub-process (and verify that it exited without error).
+
+Options:
+
+See Dpkg::IPC::spawn().
 
 =cut
 
@@ -179,11 +200,15 @@ sub uncompress {
 
 =item $proc->wait_end_process(%opts)
 
-Call B<Dpkg::IPC::wait_child> to wait until the sub-process has exited
+Call Dpkg::IPC::wait_child() to wait until the sub-process has exited
 and verify its return code. Any given option will be forwarded to
-the C<wait_child> function. Most notably you can use the "nocheck" option
-to verify the return code yourself instead of letting C<wait_child> do
+the wait_child() function. Most notably you can use the "nocheck" option
+to verify the return code yourself instead of letting wait_child() do
 it for you.
+
+Options:
+
+See Dpkg::IPC::wait_child().
 
 =cut
 

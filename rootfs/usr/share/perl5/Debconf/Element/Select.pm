@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Select;
+use warnings;
 use strict;
 use Debconf::Log ':all';
 use Debconf::Gettext;
@@ -12,7 +13,7 @@ use Debconf::Encoding qw(to_Unicode);
 
 sub visible {
 	my $this=shift;
-	
+
 	my @choices=$this->question->choices_split;
 
 	if (@choices > 1) {
@@ -52,7 +53,7 @@ sub translate_to_C {
 	$this->question->template->i18n('');
 	my @choices_c=$this->question->choices_split;
 	$this->question->template->i18n(1);
-	
+
 	for (my $x=0; $x <= $#choices; $x++) {
 		return $choices_c[$x] if $choices[$x] eq $value;
 	}

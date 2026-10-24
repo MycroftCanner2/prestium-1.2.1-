@@ -15,17 +15,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::BuildOptions;
-
-use strict;
-use warnings;
-
-our $VERSION = '1.02';
-
-use Dpkg::Gettext;
-use Dpkg::ErrorHandling;
-use Dpkg::BuildEnv;
-
 =encoding utf8
 
 =head1 NAME
@@ -38,6 +27,19 @@ This class can be used to manipulate options stored
 in environment variables like DEB_BUILD_OPTIONS and
 DEB_BUILD_MAINT_OPTIONS.
 
+=cut
+
+package Dpkg::BuildOptions 1.02;
+
+use strict;
+use warnings;
+
+use List::Util qw(any);
+
+use Dpkg::Gettext;
+use Dpkg::ErrorHandling;
+use Dpkg::BuildEnv;
+
 =head1 METHODS
 
 =over 4
@@ -45,8 +47,18 @@ DEB_BUILD_MAINT_OPTIONS.
 =item $bo = Dpkg::BuildOptions->new(%opts)
 
 Create a new Dpkg::BuildOptions object. It will be initialized based
-on the value of the environment variable named $opts{envvar} (or
-DEB_BUILD_OPTIONS if that option is not set).
+on the value of the environment variable named B<DEB_BUILD_OPTIONS>.
+
+Options:
+
+=over
+
+=item B<envvar>
+
+Set the environment variable name to use instead of B<DEB_BUILD_OPTIONS>
+to initialize the build flags.
+
+=back
 
 =cut
 
@@ -96,6 +108,7 @@ sub merge {
             warning(g_('invalid flag in %s: %s'), $source, $_);
             next;
         }
+        ## no critic (RegularExpressions::ProhibitCaptureWithoutTest)
 	$count += $self->set($1, $2, $source);
     }
     return $count;
@@ -118,7 +131,7 @@ sub set {
     my ($self, $key, $value, $source) = @_;
 
     # Sanity checks
-    if ($key =~ /^(terse|noopt|nostrip|nocheck)$/ && defined($value)) {
+    if (any { $_ eq $key } qw(terse noopt nostrip nocheck) and defined $value) {
 	$value = undef;
     } elsif ($key eq 'parallel')  {
 	$value //= '';
@@ -177,13 +190,11 @@ sub parse_features {
             my $value = ($1 eq '+') ? 1 : 0;
             if ($feature eq 'all') {
                 $use_feature->{$_} = $value foreach keys %{$use_feature};
+            } elsif (exists $use_feature->{$feature}) {
+                $use_feature->{$feature} = $value;
             } else {
-                if (exists $use_feature->{$feature}) {
-                    $use_feature->{$feature} = $value;
-                } else {
-                    warning(g_('unknown %s feature in %s variable: %s'),
-                            $option, $self->{envvar}, $feature);
-                }
+                warning(g_('unknown %s feature in %s variable: %s'),
+                        $option, $self->{envvar}, $feature);
             }
         } else {
             warning(g_('incorrect value in %s option of %s variable: %s'),

@@ -1,5 +1,8 @@
 package Debian::ExtRepo::Commands::Disable;
 
+use v5.28;
+use warnings;
+
 use Dpkg::Control::HashCore;
 
 sub run {

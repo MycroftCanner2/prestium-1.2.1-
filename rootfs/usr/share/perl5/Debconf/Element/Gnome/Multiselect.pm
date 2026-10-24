@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Gnome::Multiselect;
+use warnings;
 use strict;
 use Gtk3;
 use utf8;
@@ -25,7 +26,7 @@ sub init {
         $this->widget(Gtk3::ScrolledWindow->new);
         $this->widget->show;
         $this->widget->set_policy('automatic', 'automatic');
-	
+
 	my $list_store = Gtk3::ListStore->new('Glib::Boolean', 'Glib::String');
 	$this->list_view(Gtk3::TreeView->new($list_store));
 	$this->list_view->set_headers_visible(0);
@@ -71,12 +72,12 @@ sub value {
 	my $list_view = $this->list_view;
 	my $list_store = $list_view->get_model();
 	my ($ret, $val);
-	
+
 	my @vals;
 	$this->question->template->i18n('');
 	my @choices=$this->question->choices_split;
 	$this->question->template->i18n(1);
-	
+
 	my $iter = $list_store->get_iter_first();
 	for (my $i=0; $i <= $#choices; $i++) {
 		if ($list_store->get($iter, SELECTED_COLUMN)) {

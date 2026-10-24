@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::DbDriver::Directory;
+use warnings;
 use strict;
 use Debconf::Log qw(:all);
 use IO::File;
@@ -21,7 +22,7 @@ sub init {
 	$this->{extension} = "" unless exists $this->{extension};
 	$this->{format} = "822" unless exists $this->{format};
 	$this->{backup} = 1 unless exists $this->{backup};
-	
+
 	$this->error("No format specified") unless $this->{format};
 	eval "use Debconf::Format::$this->{format}";
 	if ($@) {
@@ -44,9 +45,9 @@ sub init {
 		$this->error($this->{directory}." does not exist");
 	}
 	debug "db $this->{name}" => "started; directory is $this->{directory}";
-	
+
 	if (! $this->{readonly}) {
-		open ($this->{lock}, ">".$this->{directory}."/.lock") or
+		open ($this->{lock}, ">", $this->{directory}."/.lock") or
 			$this->error("could not lock $this->{directory}: $!");
 		while (! flock($this->{lock}, LOCK_EX | LOCK_NB)) {
 			next if $! == &POSIX::EINTR;
@@ -66,7 +67,7 @@ sub load {
 	return unless -e $file;
 
 	my $fh=IO::File->new;
-	open($fh, $file) or $this->error("$file: $!");
+	open($fh, "<", $file) or $this->error("$file: $!");
 	$this->cacheadd($this->{format}->read($fh));
 	close $fh;
 }
@@ -76,11 +77,11 @@ sub save {
 	my $this=shift;
 	my $item=shift;
 	my $data=shift;
-	
+
 	return unless $this->accept($item);
 	return if $this->{readonly};
 	debug "db $this->{name}" => "saving $item";
-	
+
 	my $file=$this->{directory}.'/'.$this->filename($item);
 
 	my $fh=IO::File->new;
@@ -89,17 +90,17 @@ sub save {
 			or $this->error("$file-new: $!");
 	}
 	else {
-		open($fh, ">$file-new") or $this->error("$file-new: $!");
+		open($fh, ">", "$file-new") or $this->error("$file-new: $!");
 	}
 	$this->{format}->beginfile;
 	$this->{format}->write($fh, $data, $item)
 		or $this->error("could not write $file-new: $!");
 	$this->{format}->endfile;
-	
+
 	$fh->flush or $this->error("could not flush $file-new: $!");
 	$fh->sync or $this->error("could not sync $file-new: $!");
 	close $fh or $this->error("could not close $file-new: $!");
-	
+
 	if (-e $file && $this->{backup}) {
 		rename($file, $file."-old") or
 			debug "db $this->{name}" => "rename failed: $!";
@@ -110,7 +111,7 @@ sub save {
 
 sub shutdown {
 	my $this=shift;
-	
+
 	$this->SUPER::shutdown(@_);
 	delete $this->{lock};
 	return 1;
@@ -120,9 +121,9 @@ sub shutdown {
 sub exists {
 	my $this=shift;
 	my $name=shift;
-	
+
 	my $incache=$this->SUPER::exists($name);
-	return $incache if (!defined $incache or $incache);
+	return $incache if not defined $incache or $incache;
 
 	return -e $this->{directory}.'/'.$this->filename($name);
 }
@@ -135,9 +136,9 @@ sub remove {
 	return if $this->{readonly} or not $this->accept($name);
 	debug "db $this->{name}" => "removing $name";
 	my $file=$this->{directory}.'/'.$this->filename($name);
-	unlink $file or return undef;
+	unlink $file or return;
 	if (-e $file."-old") {
-		unlink $file."-old" or return undef;
+		unlink $file."-old" or return;
 	}
 	return 1;
 }

@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Dialog::Text;
+use warnings;
 use strict;
 use base qw(Debconf::Element);
 
@@ -13,7 +14,7 @@ sub show {
 	$this->frontend->showtext($this->question,
 		$this->question->description."\n\n".
 		$this->question->extended_description
-	);	
+	);
 	$this->value('');
 }
 

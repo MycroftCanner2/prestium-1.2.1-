@@ -560,10 +560,11 @@ sub dc_merge_installed_hunspell_dicts {
   # Get a list of emacsen and hash names declared in hunspell-info files.
   foreach my $lang ( keys %$main_dicts ){
     my $lang_entries = $main_dicts->{$lang};
-    $main_dicts_emacsen{$lang_entries->{'emacsen-name'}}++
-	if ( defined $lang_entries->{'emacsen-name'} );
-    $main_dicts_hashes{$lang_entries->{'hash-name'}}++
-	unless ( $lang_entries->{'emacsen-name'} eq "english_american" );
+    if ( defined $lang_entries->{'emacsen-name'} ) {
+        $main_dicts_emacsen{$lang_entries->{'emacsen-name'}}++;
+        $main_dicts_hashes{$lang_entries->{'hash-name'}}++
+            unless ( $lang_entries->{'emacsen-name'} eq "english_american" );
+    }
   }
   # Show some debugging code
   dico_debugprint "main-dicts: ". join(', ',sort keys %$main_dicts);
@@ -606,19 +607,53 @@ sub dc_merge_installed_hunspell_dicts {
 }
 
 # ------------------------------------------------------------------
+sub dico_loadenchantdb {
+# ------------------------------------------------------------------
+# Create enchant spellchecker dict info after hunspell and aspell
+# dicts info and return it in the load("$class") format.
+# ------------------------------------------------------------------
+  my $mergeddb      = {};
+  my %emacsen_names = ();
+
+  foreach my $class ( "hunspell", "aspell" ){
+    my $dictionaries = loaddb ($class);
+
+    foreach my $k (keys %$dictionaries) {
+      # Discard entry if already defined (by hunspell).
+      next if ( defined $mergeddb->{$k} );
+      # Process entry
+      my $lang = $dictionaries->{$k};
+      if ( defined $lang->{"${class}-locales"} ){
+	$lang->{'enchant-locales'} = $lang->{"${class}-locales"};
+      }
+
+      my $hash = $lang->{'hash-name'};
+      next unless $hash =~ /^[a-z]{2}(|_[A-Z]{2})$/ ;
+      my $emacsen = ( defined $lang->{'emacsen-name'} ) ?
+	$lang->{'emacsen-name'} : $hash;
+      next if ( defined $emacsen_names{$emacsen} );
+      $mergeddb->{$k} = $lang;
+      $emacsen_names{$emacsen}++;
+    }
+  }
+  return $mergeddb;
+}
+
+# ------------------------------------------------------------------
 sub build_emacsen_support {
 # ------------------------------------------------------------------
 # Put info from dicts info files into emacsen-ispell-dicts.el
 # ------------------------------------------------------------------
   my $elisp          = '';
-  my @classes        = ("aspell","hunspell","ispell");
+  my @classes        = ("ispell","aspell","hunspell","enchant");
   my %entries        = ();
   my %class_locales  = ();
 
   foreach my $class ( @classes ){
-    my $dictionaries = loaddb ($class);
+    my $dictionaries = ( "$class" eq "enchant" ) ?
+      dico_loadenchantdb : loaddb ($class);
 
-    foreach my $k (keys %$dictionaries) {
+    foreach my $k (sort keys %$dictionaries) {
       my $lang = $dictionaries->{$k};
 
       next if (exists $lang->{'emacs-display'}
@@ -665,15 +700,15 @@ sub build_emacsen_support {
 	   $extendedcharactermode,
 	   $codingsystem];
 
-	if ( $class eq "aspell" && exists $lang->{"aspell-locales"} ){
-	  foreach ( split(/\s*,\s*/,$lang->{"aspell-locales"}) ){
-	    $class_locales{"aspell"}{$_} = $emacsenname;
-	  }
-	} elsif ( $class eq "hunspell" && exists $lang->{"hunspell-locales"} ){
-	  foreach ( split(/\s*,\s*/,$lang->{"hunspell-locales"}) ){
-	    $class_locales{"hunspell"}{$_} = $emacsenname;
+	# Populate table with locales->emacsennames equivalences for relevant classes.
+	unless ( $class eq "ispell" ){
+	  if ( exists $lang->{"${class}-locales"} ){
+	    foreach ( split(/\s*,\s*/,$lang->{"${class}-locales"}) ){
+	      $class_locales{$class}{$_} = $emacsenname;
+	    }
 	  }
 	}
+
       }
     }
   }
@@ -694,7 +729,7 @@ sub build_emacsen_support {
 
   # Write a list of locales associated to each emacsen name
 
-  foreach my $class ("aspell", "hunspell"){
+  foreach my $class ("aspell", "hunspell", "enchant"){
     my $tmp_locales = $class_locales{$class};
     if ( defined $tmp_locales && scalar %$tmp_locales ){
       $elisp .= "\n\n;; An alist that will try to map $class locales to emacsen names";
@@ -704,7 +739,7 @@ sub build_emacsen_support {
       }
       $elisp .= "))\n";
 
-      # Obtain here debian-aspell-dictionary, after debian-aspell-equivs-alist
+      # Obtain here debian-$class-dictionary, after debian-$class-equivs-alist
       # is loaded
 
       $elisp .="
@@ -1095,7 +1130,9 @@ Return value for user default ispell dictionary.
 
 =item C<dico_get_spellchecker_params($class,\%language)>
 
-Get right params for $class (currently unused) and $language
+Get right params for $class
+(currently unused)
+and $language
 
 =item C<\%dictionaries = loaddb($class)>
 

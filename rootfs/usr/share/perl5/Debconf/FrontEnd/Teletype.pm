@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::FrontEnd::Teletype;
+use warnings;
 use strict;
 use Debconf::Encoding qw(width wrap);
 use Debconf::Gettext;
@@ -16,13 +17,15 @@ sub init {
 	$this->SUPER::init(@_);
 	$this->interactive(1);
 	$this->linecount(0);
+
+	-t STDIN || die gettext("This frontend requires a controlling tty.")."\n";
 }
 
 
 sub display {
 	my $this=shift;
 	my $text=shift;
-	
+
 	$Debconf::Encoding::columns=$this->screenwidth;
 	$this->display_nowrap(wrap('','',$text));
 }
@@ -36,7 +39,7 @@ sub display_nowrap {
 
 	my @lines=split(/\n/, $text);
 	push @lines, "" if $text=~/\n$/;
-	
+
 	my $title=$this->title;
 	if (length $title) {
 		unshift @lines, $title, ('-' x width $title), '';

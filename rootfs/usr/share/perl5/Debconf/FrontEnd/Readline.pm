@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::FrontEnd::Readline;
+use warnings;
 use strict;
 use Term::ReadLine;
 use Debconf::Gettext;
@@ -13,8 +14,6 @@ sub init {
 	my $this=shift;
 
 	$this->SUPER::init(@_);
-
-	-t STDIN || die gettext("This frontend requires a controlling tty.")."\n";
 
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
 	$this->readline(Term::ReadLine->new('debconf'));
@@ -28,8 +27,8 @@ sub init {
 		if (exists $ENV{TERM} && $ENV{TERM} =~ /emacs/i) {
 			die gettext("Term::ReadLine::GNU is incompatable with emacs shell buffers.")."\n";
 		}
-		
-		$this->readline->add_defun('previous-question',	
+
+		$this->readline->add_defun('previous-question',
 			sub {
 				if ($this->capb_backup) {
 					$this->_skip(1);
@@ -50,7 +49,7 @@ sub init {
 		$this->readline->parse_and_bind('"\e[6~": next-question');
 		$this->capb('backup');
 	}
-	
+
 	if (Term::ReadLine->ReadLine =~ /::Stub$/) {
 		$this->promptdefault(1);
 	}
@@ -65,13 +64,13 @@ sub elementtype {
 sub go {
 	my $this=shift;
 
-	foreach my $element (grep ! $_->visible, @{$this->elements}) {
+	foreach my $element (grep { ! $_->visible } @{$this->elements}) {
 		my $value=$element->show;
 		return if $this->backup && $this->capb_backup;
 		$element->question->value($value);
 	}
 
-	my @elements=grep $_->visible, @{$this->elements};
+	my @elements=grep { $_->visible } @{$this->elements};
 	unless (@elements) {
 		$this->_didbackup('');
 		return 1;
@@ -82,6 +81,10 @@ sub go {
 	$this->_direction(1);
 	for (; $current > -1 && $current < @elements; $current += $this->_direction) {
 		my $value=$elements[$current]->show;
+		if (not defined $value) {
+			$this->_didbackup(1);
+			return;
+		}
 	}
 
 	if ($current < 0) {
@@ -108,7 +111,7 @@ sub prompt {
 		$this->readline->Attribs->{completion_entry_function} = sub {
 			my $text=shift;
 			my $state=shift;
-			
+
 			if ($state == 0) {
 				@matches=();
 				foreach (@{$completions}) {
@@ -129,7 +132,7 @@ sub prompt {
 	else {
 		$this->readline->Attribs->{completion_append_character}='';
 	}
-	
+
 	$this->linecount(0);
 	my $ret;
 	$this->_skip(0);
@@ -154,7 +157,7 @@ sub prompt_password {
 	if (Term::ReadLine->ReadLine =~ /::Perl$/) {
 		return $this->SUPER::prompt_password(%params);
 	}
-	
+
 	delete $params{default};
 	system('stty -echo 2>/dev/null');
 	my $ret=$this->prompt(@_, noshowdefault => 1, completions => []);

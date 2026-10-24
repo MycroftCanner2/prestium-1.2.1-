@@ -14,8 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Source::Format;
-
 =encoding utf8
 
 =head1 NAME
@@ -29,10 +27,10 @@ package F<debian/source/format> files.
 
 =cut
 
+package Dpkg::Source::Format 1.00;
+
 use strict;
 use warnings;
-
-our $VERSION = '1.00';
 
 use Dpkg::Gettext;
 use Dpkg::ErrorHandling;
@@ -46,9 +44,22 @@ use parent qw(Dpkg::Interface::Storable);
 =item $f = Dpkg::Source::Format->new(%opts)
 
 Creates a new object corresponding to a source package's
-F<debian/source/format> file. When the key B<filename> is set, it will
-be used to parse and set the format. Otherwise if the B<format> key is
-set it will be validated and used to set the format.
+F<debian/source/format> file.
+
+Options:
+
+=over
+
+=item B<filename>
+
+Set the filename to use to parse and set the format.
+
+=item B<format>
+
+Set and validate the format to use instead of loading the default file,
+if no filename has been specified.
+
+=back
 
 =cut
 

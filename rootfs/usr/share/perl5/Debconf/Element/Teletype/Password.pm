@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Teletype::Password;
+use warnings;
 use strict;
 use base qw(Debconf::Element);
 
@@ -12,7 +13,7 @@ sub show {
 
 	$this->frontend->display(
 		$this->question->extended_description."\n");
-	
+
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 
@@ -26,7 +27,7 @@ sub show {
 	if ($value eq '') {
 		$value=$default;
 	}
-	
+
 	$this->frontend->display("\n");
 	$this->value($value);
 }

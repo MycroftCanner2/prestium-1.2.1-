@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::DbDriver::Stack;
+use warnings;
 use strict;
 use Debconf::Log qw{:all};
 use Debconf::Iterator;
@@ -48,7 +49,7 @@ sub iterator {
 				return $ret;
 			}
 			$i = pop @iterators;
-			return undef unless defined $i;
+			return unless defined $i;
 		}
 	});
 }
@@ -85,7 +86,7 @@ sub _query {
 	my $this=shift;
 	my $command=shift;
 	shift; # this again
-	
+
 	debug "db $this->{name}" => "trying to $command(@_) ..";
 	foreach my $driver (@{$this->{stack}}) {
 		if (wantarray) {
@@ -152,13 +153,13 @@ sub _change {
 			}
 		}
 	}
-	
+
 	unless ($writer) {
 		debug "db $this->{name}" => "FAILED $command";
 		return;
 	}
 
-	if ($src) {		
+	if ($src) {
 		$this->copy($item, $src, $writer);
 	}
 
@@ -181,7 +182,7 @@ sub _nochange {
 	}
 	elsif ($command eq 'removeowner') {
 		my $value=shift;
-		
+
 		foreach my $owner ($driver->owners($item)) {
 			return if $owner eq $value;
 		}
@@ -189,7 +190,7 @@ sub _nochange {
 	}
 	elsif ($command eq 'removefield') {
 		my $value=shift;
-		
+
 		foreach my $field ($driver->fields($item)) {
 			return if $field eq $value;
 		}
@@ -217,15 +218,18 @@ sub _nochange {
 	my $thing=shift;
 	my $value=shift;
 	my $currentvalue=$driver->$get($item, $thing);
-	
+
 	my $exists=0;
 	foreach my $i (@list) {
-		$exists=1, last if $thing eq $i;
+		if ($thing eq $i) {
+			$exists=1;
+			last;
+		}
 	}
 	return $currentvalue unless $exists;
 
 	return $currentvalue if $currentvalue eq $value;
-	return undef;
+	return;
 }
 
 sub addowner	{ $_[0]->_change('addowner', @_)	}

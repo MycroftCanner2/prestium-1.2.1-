@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Teletype::Boolean;
+use warnings;
 use strict;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
@@ -63,7 +64,7 @@ sub show {
 			last;
 		}
 	}
-	
+
 	$this->frontend->display("\n");
 	$this->value($value);
 }

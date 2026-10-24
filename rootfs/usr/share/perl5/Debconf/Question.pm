@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Question;
+use warnings;
 use strict;
 use Debconf::Db;
 use Debconf::Template;
@@ -41,7 +42,7 @@ sub get {
 		$this->{name}=$name;
 		return $question{$name}=$this;
 	}
-	return undef;
+	return;
 }
 
 
@@ -59,11 +60,11 @@ sub iterator {
 sub _expand_vars {
 	my $this=shift;
 	my $text=shift;
-		
+
 	return '' unless defined $text;
 
 	my @vars=$Debconf::Db::config->variables($this->{name});
-	
+
 	my $rest=$text;
 	my $result='';
 	my $variable;
@@ -83,7 +84,7 @@ sub _expand_vars {
 		}
 	}
 	$result.=$rest; # add on anything that's left.
-	
+
 	return $result;
 }
 
@@ -102,14 +103,14 @@ sub extended_description {
 
 sub choices {
 	my $this=shift;
-	
+
 	return $this->_expand_vars($this->template->choices);
 }
 
 
 sub choices_split {
 	my $this=shift;
-	
+
 	my @items;
 	my $item='';
 	for my $chunk (split /(\\[, ]|,\s+)/, $this->choices) {
@@ -130,7 +131,7 @@ sub choices_split {
 sub variable {
 	my $this=shift;
 	my $var=shift;
-	
+
 	if (@_) {
 		return $Debconf::Db::config->setvariable($this->{name}, $var, shift);
 	}
@@ -164,7 +165,7 @@ sub flag {
 
 sub value {
 	my $this = shift;
-	
+
 	unless (@_) {
 		my $ret=$Debconf::Db::config->getfield($this->{name}, 'value');
 		return $ret if defined $ret;
@@ -177,7 +178,7 @@ sub value {
 
 sub value_split {
 	my $this=shift;
-	
+
 	my $value=$this->value;
 	$value='' if ! defined $value;
 	my @items;
@@ -209,7 +210,7 @@ sub removeowner {
 
 	my $template=$Debconf::Db::config->getfield($this->{name}, 'template');
 	return unless $Debconf::Db::config->removeowner($this->{name}, shift);
-	if (length $template and 
+	if (length $template and
 	    not $Debconf::Db::config->exists($this->{name})) {
 		$Debconf::Db::templates->removeowner($template, $this->{name});
 		delete $question{$this->{name}};

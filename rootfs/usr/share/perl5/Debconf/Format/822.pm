@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Format::822;
+use warnings;
 use strict;
 use base 'Debconf::Format';
 
@@ -13,9 +14,9 @@ sub endfile {}
 sub read {
 	my $this=shift;
 	my $fh=shift;
-	
+
 	local $/="\n";
-	
+
 	my $name;
 	my %ret=(
 		owners => {},
@@ -56,7 +57,7 @@ sub read {
 			}
 		}
 		elsif ($key eq 'variables') {
-			$invars=1;	
+			$invars=1;
 		}
 		elsif ($key eq 'name') {
 			$name=$value;
@@ -77,31 +78,31 @@ sub write {
 	my %data=%{shift()};
 	my $name=shift;
 
-	print $fh "Name: $name\n" or return undef;
+	print $fh "Name: $name\n" or return;
 	foreach my $field (sort keys %{$data{fields}}) {
 		my $val=$data{fields}->{$field};
 		$val=~s/\n/\\n/g;
-		print $fh ucfirst($field).": $val\n" or return undef;
+		print $fh ucfirst($field).": $val\n" or return;
 	}
 	if (keys %{$data{owners}}) {
 		print $fh "Owners: ".join(", ", sort keys(%{$data{owners}}))."\n"
-			or return undef;
+			or return;
 	}
 	if (grep { $data{flags}->{$_} eq 'true' } keys %{$data{flags}}) {
 		print $fh "Flags: ".join(", ",
 			grep { $data{flags}->{$_} eq 'true' }
 				sort keys(%{$data{flags}}))."\n"
-			or return undef;
+			or return;
 	}
 	if (keys %{$data{variables}}) {
-		print $fh "Variables:\n" or return undef;
+		print $fh "Variables:\n" or return;
 		foreach my $var (sort keys %{$data{variables}}) {
 			my $val=$data{variables}->{$var};
 			$val=~s/\n/\\n/g;
-			print $fh " $var = $val\n" or return undef;
+			print $fh " $var = $val\n" or return;
 		}
 	}
-	print $fh "\n" or return undef; # end of record delimiter
+	print $fh "\n" or return; # end of record delimiter
 	return 1;
 }
 

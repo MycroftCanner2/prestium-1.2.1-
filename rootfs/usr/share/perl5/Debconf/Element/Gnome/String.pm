@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Gnome::String;
+use warnings;
 use strict;
 use Gtk3;
 use utf8;
@@ -20,7 +21,7 @@ sub init {
 
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
-	
+
 	$this->widget->set_text(to_Unicode($default));
 
 	$this->adddescription;

@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::DbDriver::Backup;
+use warnings;
 use strict;
 use Debconf::Log qw{:all};
 use base 'Debconf::DbDriver::Copy';
@@ -37,7 +38,7 @@ sub copy {
 
 sub shutdown {
 	my $this=shift;
-	
+
 	$this->{backupdb}->shutdown(@_);
 	$this->{db}->shutdown(@_);
 }
@@ -46,7 +47,7 @@ sub _query {
 	my $this=shift;
 	my $command=shift;
 	shift; # this again
-	
+
 	return $this->{db}->$command(@_);
 }
 

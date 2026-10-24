@@ -14,12 +14,22 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Index;
+=encoding utf8
+
+=head1 NAME
+
+Dpkg::Index - generic index of control information
+
+=head1 DESCRIPTION
+
+This class represent a set of L<Dpkg::Control> objects.
+
+=cut
+
+package Dpkg::Index 3.00;
 
 use strict;
 use warnings;
-
-our $VERSION = '3.00';
 
 use Dpkg::Gettext;
 use Dpkg::ErrorHandling;
@@ -30,16 +40,6 @@ use parent qw(Dpkg::Interface::Storable);
 use overload
     '@{}' => sub { return $_[0]->{order} },
     fallback => 1;
-
-=encoding utf8
-
-=head1 NAME
-
-Dpkg::Index - generic index of control information
-
-=head1 DESCRIPTION
-
-This class represent a set of Dpkg::Control objects.
 
 =head1 METHODS
 
@@ -74,35 +74,53 @@ sub new {
 
 =item $index->set_options(%opts)
 
-The "type" option is checked first to define default values for other
-options. Here are the relevant options: "get_key_func" is a function
-returning a key for the item passed in parameters, "unique_tuple_key" is
-a boolean requesting whether the default key should be the unique tuple
-(default to true), "item_opts" is a hash reference that will be passed to
-the item constructor in the new_item() method.
+Change the value of some options.
+
+Options:
+
+=over
+
+=item B<type>
+
+Set the deb822 control type, used to setup default values for other options.
+
+=item B<item_opts>
+
+Set a hash reference that will be passed to the item constructor in
+the $index->new_item() method.
 The index can only contain one item with a given key.
-The "get_key_func" function used depends on the type:
+
+=item B<unique_tuple_key>
+
+Set a boolean requesting whether the default key should be the unique tuple
+(default to true).
+
+=item B<get_key_func>
+
+Set a function returning a key for the item passed in parameters.
+
+The default depends on the type:
 
 =over
 
 =item *
 
-for CTRL_INFO_SRC, it is the Source field;
+for CTRL_TMPL_SRC, it is the Source field;
 
 =item *
 
-for CTRL_INDEX_SRC and CTRL_PKG_SRC it is the Package and Version fields
-(concatenated with "_") when "unique_tuple_key" is true (the default), or
+for CTRL_REPO_SRC and CTRL_DSC it is the Package and Version fields
+(concatenated with "_") when B<unique_tuple_key> is true (the default), or
 otherwise the Package field;
 
 =item *
 
-for CTRL_INFO_PKG it is simply the Package field;
+for CTRL_TMPL_PKG it is simply the Package field;
 
 =item *
 
-for CTRL_INDEX_PKG and CTRL_PKG_DEB it is the Package, Version and
-Architecture fields (concatenated with "_") when "unique_tuple_key" is
+for CTRL_REPO_PKG and CTRL_DEB it is the Package, Version and
+Architecture fields (concatenated with "_") when B<unique_tuple_key> is
 true (the default) or otherwise the Package field;
 
 =item *
@@ -135,6 +153,8 @@ otherwise it is the Package field by default.
 
 =back
 
+=back
+
 =cut
 
 sub set_options {
@@ -143,9 +163,9 @@ sub set_options {
     # Default values based on type
     if (exists $opts{type}) {
         my $t = $opts{type};
-        if ($t == CTRL_INFO_PKG) {
+        if ($t == CTRL_TMPL_PKG) {
 	    $self->{get_key_func} = sub { return $_[0]->{Package}; };
-        } elsif ($t == CTRL_INFO_SRC) {
+        } elsif ($t == CTRL_TMPL_SRC) {
 	    $self->{get_key_func} = sub { return $_[0]->{Source}; };
         } elsif ($t == CTRL_CHANGELOG) {
 	    $self->{get_key_func} = sub {
@@ -163,7 +183,7 @@ sub set_options {
             $self->{get_key_func} = sub {
                 return scalar @{$self->{order}};
             };
-        } elsif ($t == CTRL_INDEX_SRC or $t == CTRL_PKG_SRC) {
+        } elsif ($t == CTRL_REPO_SRC or $t == CTRL_DSC) {
             if ($opts{unique_tuple_key} // $self->{unique_tuple_key}) {
                 $self->{get_key_func} = sub {
                     return $_[0]->{Package} . '_' . $_[0]->{Version};
@@ -173,7 +193,7 @@ sub set_options {
                     return $_[0]->{Package};
                 };
             }
-        } elsif ($t == CTRL_INDEX_PKG or $t == CTRL_PKG_DEB) {
+        } elsif ($t == CTRL_REPO_PKG or $t == CTRL_DEB) {
             if ($opts{unique_tuple_key} // $self->{unique_tuple_key}) {
                 $self->{get_key_func} = sub {
                     return $_[0]->{Package} . '_' . $_[0]->{Version} . '_' .
@@ -261,7 +281,7 @@ parsed. Handles compressed files transparently based on their extensions.
 =item $item = $index->new_item()
 
 Creates a new item. Mainly useful for derived objects that would want
-to override this method to return something else than a Dpkg::Control
+to override this method to return something else than a L<Dpkg::Control>
 object.
 
 =cut
@@ -361,9 +381,19 @@ sub remove {
 =item $index->merge($other_index, %opts)
 
 Merge the entries of the other index. While merging, the keys of the merged
-index are used, they are not re-computed (unless you have set the options
-"keep_keys" to "0"). It's your responsibility to ensure that they have been
-computed with the same function.
+index are used, they are not re-computed. It's your responsibility to ensure
+that they have been computed with the same function.
+
+Options:
+
+=over
+
+=item B<keep_keys>
+
+Set whether to re-compute the keys from the other index.
+Defaults to 1.
+
+=back
 
 =cut
 

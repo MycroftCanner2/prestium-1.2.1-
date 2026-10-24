@@ -19,8 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Deps;
-
 =encoding utf8
 
 =head1 NAME
@@ -35,19 +33,14 @@ dependencies.
 The most important function is deps_parse(), it turns a dependency line in
 a set of Dpkg::Deps::{Simple,AND,OR,Union} objects depending on the case.
 
-=head1 FUNCTIONS
-
-All the deps_* functions are exported by default.
-
-=over 4
-
 =cut
+
+package Dpkg::Deps 1.07;
 
 use strict;
 use warnings;
 use feature qw(current_sub);
 
-our $VERSION = '1.07';
 our @EXPORT = qw(
     deps_concat
     deps_parse
@@ -70,17 +63,23 @@ use Dpkg::Deps::AND;
 use Dpkg::Deps::OR;
 use Dpkg::Deps::KnownFacts;
 
+=head1 FUNCTIONS
+
+All the deps_* functions are exported by default.
+
+=over 4
+
 =item deps_eval_implication($rel_p, $v_p, $rel_q, $v_q)
 
 ($rel_p, $v_p) and ($rel_q, $v_q) express two dependencies as (relation,
 version). The relation variable can have the following values that are
-exported by Dpkg::Version: REL_EQ, REL_LT, REL_LE, REL_GT, REL_GT.
+exported by L<Dpkg::Version>: REL_EQ, REL_LT, REL_LE, REL_GT, REL_GT.
 
 This functions returns 1 if the "p" dependency implies the "q"
 dependency. It returns 0 if the "p" dependency implies that "q" is
 not satisfied. It returns undef when there's no implication.
 
-The $v_p and $v_q parameter should be Dpkg::Version objects.
+The $v_p and $v_q parameter should be L<Dpkg::Version> objects.
 
 =cut
 
@@ -176,11 +175,11 @@ sub deps_concat {
     return join ', ', grep { defined } @dep_list;
 }
 
-=item $dep = deps_parse($line, %options)
+=item $dep = deps_parse($line, %opts)
 
 This function parses the dependency line and returns an object, either a
-Dpkg::Deps::AND or a Dpkg::Deps::Union. Various options can alter the
-behaviour of that function.
+L<Dpkg::Deps::AND> or a L<Dpkg::Deps::Union>. Various options can alter the
+behavior of that function.
 
 =over 4
 
@@ -233,8 +232,8 @@ them if set.
 
 =item union (defaults to 0)
 
-If set to 1, returns a Dpkg::Deps::Union instead of a Dpkg::Deps::AND. Use
-this when parsing non-dependency fields like Conflicts.
+If set to 1, returns a L<Dpkg::Deps::Union> instead of a L<Dpkg::Deps::AND>.
+Use this when parsing non-dependency fields like Conflicts.
 
 =item virtual (defaults to 0)
 
@@ -253,47 +252,53 @@ If set to 1, allow tests-specific package names in dependencies, that is
 "@" and "@builddeps@" (since dpkg 1.18.7). This should be set whenever
 working with dependency fields from F<debian/tests/control>.
 
+This option implicitly (and forcibly) enables C<build_dep> because test
+dependencies are based on build dependencies (since dpkg 1.22.1).
+
 =back
 
 =cut
 
 sub deps_parse {
-    my ($dep_line, %options) = @_;
+    my ($dep_line, %opts) = @_;
 
     # Validate arguments.
-    croak "invalid host_arch $options{host_arch}"
-        if defined $options{host_arch} and not defined debarch_to_debtuple($options{host_arch});
-    croak "invalid build_arch $options{build_arch}"
-        if defined $options{build_arch} and not defined debarch_to_debtuple($options{build_arch});
+    croak "invalid host_arch $opts{host_arch}"
+        if defined $opts{host_arch} and not defined debarch_to_debtuple($opts{host_arch});
+    croak "invalid build_arch $opts{build_arch}"
+        if defined $opts{build_arch} and not defined debarch_to_debtuple($opts{build_arch});
 
-    $options{use_arch} //= 1;
-    $options{reduce_arch} //= 0;
-    $options{use_profiles} //= 1;
-    $options{reduce_profiles} //= 0;
-    $options{reduce_restrictions} //= 0;
-    $options{union} //= 0;
-    $options{virtual} //= 0;
-    $options{build_dep} //= 0;
-    $options{tests_dep} //= 0;
+    $opts{use_arch} //= 1;
+    $opts{reduce_arch} //= 0;
+    $opts{use_profiles} //= 1;
+    $opts{reduce_profiles} //= 0;
+    $opts{reduce_restrictions} //= 0;
+    $opts{union} //= 0;
+    $opts{virtual} //= 0;
+    $opts{build_dep} //= 0;
+    $opts{tests_dep} //= 0;
 
-    if ($options{reduce_restrictions}) {
-        $options{reduce_arch} = 1;
-        $options{reduce_profiles} = 1;
+    if ($opts{reduce_restrictions}) {
+        $opts{reduce_arch} = 1;
+        $opts{reduce_profiles} = 1;
     }
-    if ($options{reduce_arch}) {
-        $options{host_arch} //= get_host_arch();
-        $options{build_arch} //= get_build_arch();
+    if ($opts{reduce_arch}) {
+        $opts{host_arch} //= get_host_arch();
+        $opts{build_arch} //= get_build_arch();
     }
-    if ($options{reduce_profiles}) {
-        $options{build_profiles} //= [ get_build_profiles() ];
+    if ($opts{reduce_profiles}) {
+        $opts{build_profiles} //= [ get_build_profiles() ];
+    }
+    if ($opts{tests_dep}) {
+        $opts{build_dep} = 1;
     }
 
     # Options for Dpkg::Deps::Simple.
     my %deps_options = (
-        host_arch => $options{host_arch},
-        build_arch => $options{build_arch},
-        build_dep => $options{build_dep},
-        tests_dep => $options{tests_dep},
+        host_arch => $opts{host_arch},
+        build_arch => $opts{build_arch},
+        build_dep => $opts{build_dep},
+        tests_dep => $opts{tests_dep},
     );
 
     # Merge in a single-line
@@ -311,21 +316,21 @@ sub deps_parse {
 		warning(g_("can't parse dependency %s"), $dep_or);
 		return;
 	    }
-            if ($options{virtual} && defined $dep_simple->{relation} &&
+            if ($opts{virtual} && defined $dep_simple->{relation} &&
                 $dep_simple->{relation} ne '=') {
                 warning(g_('virtual dependency contains invalid relation: %s'),
                         $dep_simple->output);
                 return;
             }
-	    $dep_simple->{arches} = undef if not $options{use_arch};
-            if ($options{reduce_arch}) {
-		$dep_simple->reduce_arch($options{host_arch});
-		next if not $dep_simple->arch_is_concerned($options{host_arch});
+            $dep_simple->{arches} = undef if not $opts{use_arch};
+            if ($opts{reduce_arch}) {
+                $dep_simple->reduce_arch($opts{host_arch});
+                next if not $dep_simple->arch_is_concerned($opts{host_arch});
 	    }
-	    $dep_simple->{restrictions} = undef if not $options{use_profiles};
-	    if ($options{reduce_profiles}) {
-		$dep_simple->reduce_profiles($options{build_profiles});
-		next if not $dep_simple->profile_is_concerned($options{build_profiles});
+            $dep_simple->{restrictions} = undef if not $opts{use_profiles};
+            if ($opts{reduce_profiles}) {
+                $dep_simple->reduce_profiles($opts{build_profiles});
+                next if not $dep_simple->profile_is_concerned($opts{build_profiles});
 	    }
 	    push @or_list, $dep_simple;
         }
@@ -339,13 +344,13 @@ sub deps_parse {
 	}
     }
     my $dep_and;
-    if ($options{union}) {
+    if ($opts{union}) {
 	$dep_and = Dpkg::Deps::Union->new();
     } else {
 	$dep_and = Dpkg::Deps::AND->new();
     }
     foreach my $dep (@dep_list) {
-        if ($options{union} and not $dep->isa('Dpkg::Deps::Simple')) {
+        if ($opts{union} and not $dep->isa('Dpkg::Deps::Simple')) {
             warning(g_('an union dependency can only contain simple dependencies'));
             return;
         }
@@ -433,19 +438,19 @@ sub deps_compare {
 
 =head1 CLASSES - Dpkg::Deps::*
 
-There are several kind of dependencies. A Dpkg::Deps::Simple dependency
+There are several kind of dependencies. A L<Dpkg::Deps::Simple> dependency
 represents a single dependency statement (it relates to one package only).
-Dpkg::Deps::Multiple dependencies are built on top of this class
-and combine several dependencies in different manners. Dpkg::Deps::AND
-represents the logical "AND" between dependencies while Dpkg::Deps::OR
-represents the logical "OR". Dpkg::Deps::Multiple objects can contain
-Dpkg::Deps::Simple object as well as other Dpkg::Deps::Multiple objects.
+L<Dpkg::Deps::Multiple> dependencies are built on top of this class
+and combine several dependencies in different manners. L<Dpkg::Deps::AND>
+represents the logical "AND" between dependencies while L<Dpkg::Deps::OR>
+represents the logical "OR". L<Dpkg::Deps::Multiple> objects can contain
+L<Dpkg::Deps::Simple> object as well as other L<Dpkg::Deps::Multiple> objects.
 
 In practice, the code is only meant to handle the realistic cases which,
 given Debian's dependencies structure, imply those restrictions: AND can
 contain Simple or OR objects, OR can only contain Simple objects.
 
-Dpkg::Deps::KnownFacts is a special class that is used while evaluating
+L<Dpkg::Deps::KnownFacts> is a special class that is used while evaluating
 dependencies and while trying to simplify them. It represents a set of
 installed packages along with the virtual packages that they might
 provide.
@@ -454,28 +459,28 @@ provide.
 
 =head2 Version 1.07 (dpkg 1.20.0)
 
-New option: Add virtual option to Dpkg::Deps::deps_parse().
+New option: Add virtual option to deps_parse().
 
 =head2 Version 1.06 (dpkg 1.18.7; module version bumped on dpkg 1.18.24)
 
-New option: Add tests_dep option to Dpkg::Deps::deps_parse().
+New option: Add tests_dep option to deps_parse().
 
 =head2 Version 1.05 (dpkg 1.17.14)
 
-New function: Dpkg::Deps::deps_iterate().
+New function: deps_iterate().
 
 =head2 Version 1.04 (dpkg 1.17.10)
 
 New options: Add use_profiles, build_profiles, reduce_profiles and
-reduce_restrictions to Dpkg::Deps::deps_parse().
+reduce_restrictions to deps_parse().
 
 =head2 Version 1.03 (dpkg 1.17.0)
 
-New option: Add build_arch option to Dpkg::Deps::deps_parse().
+New option: Add build_arch option to deps_parse().
 
 =head2 Version 1.02 (dpkg 1.17.0)
 
-New function: Dpkg::Deps::deps_concat()
+New function: deps_concat()
 
 =head2 Version 1.01 (dpkg 1.16.1)
 

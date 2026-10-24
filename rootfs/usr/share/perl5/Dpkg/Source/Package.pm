@@ -14,8 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Source::Package;
-
 =encoding utf8
 
 =head1 NAME
@@ -31,10 +29,11 @@ is the one that supports the extraction of the source package.
 
 =cut
 
+package Dpkg::Source::Package 2.03;
+
 use strict;
 use warnings;
 
-our $VERSION = '2.02';
 our @EXPORT_OK = qw(
     get_default_diff_ignore_regex
     set_default_diff_ignore_regex
@@ -166,36 +165,48 @@ sub get_default_tar_ignore_pattern {
 
 =item $p = Dpkg::Source::Package->new(%opts, options => {})
 
-Creates a new object corresponding to a source package. When the key
-B<filename> is set to a F<.dsc> file, it will be used to initialize the
-source package with its description. Otherwise if the B<format> key is
-set to a valid value, the object will be initialized for that format
-(since dpkg 1.19.3).
+Creates a new object corresponding to a source package.
 
-The B<options> key is a hash ref which supports the following options:
+Options:
+
+=over
+
+=item B<filename>
+
+When set to a F<.dsc> file, it will be used to initialize the
+source package with its description.
+
+=item B<format>
+
+If set to a valid value, and no filename has been specified,
+the object will be initialized for that format (since dpkg 1.19.3).
+
+=item B<options>
+
+A hash ref which supports the following source package format options:
 
 =over 8
 
-=item skip_debianization
+=item B<skip_debianization>
 
 If set to 1, do not apply Debian changes on the extracted source package.
 
-=item skip_patches
+=item B<skip_patches>
 
 If set to 1, do not apply Debian-specific patches. This options is
 specific for source packages using format "2.0" and "3.0 (quilt)".
 
-=item require_valid_signature
+=item B<require_valid_signature>
 
 If set to 1, the check_signature() method will be stricter and will error
 out if the signature can't be verified.
 
-=item require_strong_checksums
+=item B<require_strong_checksums>
 
 If set to 1, the check_checksums() method will be stricter and will error
 out if there is no strong checksum.
 
-=item copy_orig_tarballs
+=item B<copy_orig_tarballs>
 
 If set to 1, the extraction will copy the upstream tarballs next the
 target directory. This is useful if you want to be able to rebuild the
@@ -203,28 +214,30 @@ source package after its extraction.
 
 =back
 
+=back
+
 =cut
 
 # Class methods
 sub new {
-    my ($this, %args) = @_;
+    my ($this, %opts) = @_;
     my $class = ref($this) || $this;
     my $self = {
-        fields => Dpkg::Control->new(type => CTRL_PKG_SRC),
+        fields => Dpkg::Control->new(type => CTRL_DSC),
         format => Dpkg::Source::Format->new(),
         options => {},
         checksums => Dpkg::Checksums->new(),
         openpgp => Dpkg::OpenPGP->new(needs => { api => 'verify' }),
     };
     bless $self, $class;
-    if (exists $args{options}) {
-        $self->{options} = $args{options};
+    if (exists $opts{options}) {
+        $self->{options} = $opts{options};
     }
-    if (exists $args{filename}) {
-        $self->initialize($args{filename});
+    if (exists $opts{filename}) {
+        $self->initialize($opts{filename});
         $self->init_options();
-    } elsif ($args{format}) {
-        $self->{fields}{Format} = $args{format};
+    } elsif ($opts{format}) {
+        $self->{fields}{Format} = $opts{format};
         $self->upgrade_object_type(0);
         $self->init_options();
     }
@@ -306,7 +319,6 @@ sub upgrade_object_type {
     my $module = "Dpkg::Source::Package::V$major";
     $module .= '::' . ucfirst $variant if defined $variant;
     eval qq{
-        pop \@INC if \$INC[-1] eq '.';
         require $module;
         \$minor = \$${module}::CURRENT_MINOR_VERSION;
     };
@@ -389,6 +401,21 @@ sub get_basename {
     my $v = Dpkg::Version->new($f->{'Version'});
     my $vs = $v->as_string(omit_epoch => 1, omit_revision => !$with_revision);
     return $f->{'Source'} . '_' . $vs;
+}
+
+=item $p->get_basedirname()
+
+Returns the default base directory name for the package.
+
+=cut
+
+sub get_basedirname {
+    my $self = shift;
+
+    my $dirname = $self->get_basename();
+    $dirname =~ s/_/-/;
+
+    return $dirname;
 }
 
 sub find_original_tarballs {
@@ -621,9 +648,9 @@ sub before_build {
 }
 
 sub build {
-    my $self = shift;
+    my ($self, @args) = @_;
 
-    $self->do_build(@_);
+    $self->do_build(@args);
 }
 
 sub after_build {
@@ -652,9 +679,9 @@ sub add_file {
 }
 
 sub commit {
-    my $self = shift;
+    my ($self, @args) = @_;
 
-    $self->do_commit(@_);
+    $self->do_commit(@args);
 }
 
 sub do_commit {
@@ -701,17 +728,21 @@ sub write_dsc {
 
 =head1 CHANGES
 
+=head2 Version 2.03 (dpkg 1.22.7)
+
+New method: $p->get_basedirname().
+
 =head2 Version 2.02 (dpkg 1.21.10)
 
-New method: armor_original_tarball_signature().
+New method: $p->armor_original_tarball_signature().
 
 =head2 Version 2.01 (dpkg 1.20.1)
 
-New method: get_upstream_signing_key().
+New method: $p->get_upstream_signing_key().
 
 =head2 Version 2.00 (dpkg 1.20.0)
 
-New method: check_original_tarball_signature().
+New method: $p->check_original_tarball_signature().
 
 Remove variable: $diff_ignore_default_regexp.
 
@@ -723,12 +754,12 @@ New option: format in new().
 
 =head2 Version 1.02 (dpkg 1.18.7)
 
-New option: require_strong_checksums in check_checksums().
+New option: require_strong_checksums in $p->check_checksums().
 
 =head2 Version 1.01 (dpkg 1.17.2)
 
-New functions: get_default_diff_ignore_regex(), set_default_diff_ignore_regex(),
-get_default_tar_ignore_pattern()
+New functions: $p->get_default_diff_ignore_regex(),
+$p->set_default_diff_ignore_regex(), $p->get_default_tar_ignore_pattern().
 
 Deprecated variables: $diff_ignore_default_regexp, @tar_ignore_default_pattern
 

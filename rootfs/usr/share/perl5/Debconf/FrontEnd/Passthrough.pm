@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::FrontEnd::Passthrough;
+use warnings;
 use strict;
 use Carp;
 use IO::Socket;
@@ -58,7 +59,7 @@ sub init_fh_from_env {
 			or croak "Failed to open fd $writefd: $!";
 		return "fifo";
 	}
-	return undef;
+	return;
 }
 
 
@@ -67,19 +68,19 @@ sub talk_with_timeout {
 	my $timeout=shift;
 	my $command=join(' ', map { Debconf::Encoding::to_Unicode($_) } @_);
 	my $reply;
-	
+
 	my $readfh = $this->{readfh} || croak "Broken pipe";
 	my $writefh = $this->{writefh} || croak "Broken pipe";
-	
+
 	debug developer => "----> (passthrough) $command";
 	print $writefh $command."\n";
 	$writefh->flush;
 
 	if (defined $timeout) {
 		my $select = IO::Select->new($readfh);
-		return undef if !$select->can_read($timeout);
+		return if !$select->can_read($timeout);
 	}
-	return undef if ($readfh->eof());
+	return if ($readfh->eof());
 
 	$reply = <$readfh>;
 	chomp($reply);
@@ -177,7 +178,7 @@ sub settitle
 sub go {
 	my $this = shift;
 
-	my @elements=grep $_->visible, @{$this->elements};
+	my @elements=grep { $_->visible } @{$this->elements};
 	foreach my $element (@elements) {
 		my $question = $element->question;
 		my $tag = $question->template->template;
@@ -227,7 +228,7 @@ sub go {
 	if (@elements && (scalar($this->talk('GO')) eq "30") && $this->{capb_backup}) {
 		return;
 	}
-	
+
 	foreach my $element (@{$this->elements}) {
 		if ($element->visible) {
 			my $tag = $element->question->template->template;
@@ -324,4 +325,3 @@ sub shutdown {
 
 
 1
-

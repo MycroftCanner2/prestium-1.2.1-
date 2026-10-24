@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Template;
+use warnings;
 use strict;
 use POSIX;
 use FileHandle;
@@ -25,7 +26,7 @@ our %known_field = map { $_ => 1 }
 
 binmode(STDOUT);
 binmode(STDERR);
-	
+
 
 
 sub new {
@@ -33,7 +34,7 @@ sub new {
 	my $template=shift || die "no template name specified";
 	my $owner=shift || 'unknown';
 	my $type=shift || die "no template type specified";
-	
+
 	if ($Debconf::Db::templates->exists($template) and
 	    $Debconf::Db::templates->owners($template)) {
 		if ($Debconf::Db::config->exists($template)) {
@@ -53,7 +54,7 @@ sub new {
 				$newq->template($template);
 			}
 		}
-		
+
 		$this = fields::new($this);
 		$this->{template}=$template;
 		return $template{$template}=$this;
@@ -72,7 +73,7 @@ sub new {
 		my $q=Debconf::Question->new($template, $owner, $type);
 		$q->template($template);
 	}
-	
+
 	return unless $Debconf::Db::templates->addowner($template, $template, $type);
 
 	$Debconf::Db::templates->setfield($template, 'type', $type);
@@ -89,7 +90,7 @@ sub get {
 		$this->{template}=$template;
 		return $template{$template}=$this;
 	}
-	return undef;
+	return;
 }
 
 
@@ -115,7 +116,7 @@ sub load {
 	local $/="\n\n"; # read a template at a time.
 	while (<$fh>) {
 		my %data;
-		
+
 		my $save = sub {
 			my $field=shift;
 			my $value=shift;
@@ -188,7 +189,7 @@ sub load {
 
 	return @ret;
 }
-					
+
 
 sub template {
 	my $this=shift;
@@ -267,9 +268,9 @@ sub _getlocalelist {
 	     (\..+)?        #  Charset
 	     /x);
 	my (@ret) = ($lang);
-	@ret = map { $_.$modifier, $_} @ret if defined $modifier;
-	@ret = map { _addterritory($_,$territory), $_} @ret if defined $territory;
-	@ret = map { _addcharset($_,$charset), $_} @ret if defined $charset;
+	@ret = map { ($_.$modifier, $_) } @ret if defined $modifier;
+	@ret = map { (_addterritory($_,$territory), $_) } @ret if defined $territory;
+	@ret = map { (_addcharset($_,$charset), $_) } @ret if defined $charset;
 	return @ret;
 }
 
@@ -294,7 +295,7 @@ sub AUTOLOAD {
 		if (@_) {
 			return $Debconf::Db::templates->setfield($this->{template}, $field, shift);
 		}
-		
+
 		my $ret;
 		my $want_i18n = $Debconf::Template::i18n && Debconf::Config->c_values ne 'true';
 
@@ -304,7 +305,7 @@ sub AUTOLOAD {
 
 				$ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-'.$lang);
 				return $ret if defined $ret;
-				
+
 				if ($Debconf::Encoding::charmap) {
 					foreach my $f ($Debconf::Db::templates->fields($this->{template})) {
 						if ($f =~ /^\Q$field-$lang\E\.(.+)/) {
@@ -317,7 +318,7 @@ sub AUTOLOAD {
 
 				last if $lang eq 'en';
 			}
-		} elsif (not $want_i18n && $field !~ /-c$/i) {
+		} elsif (not $want_i18n and $field !~ /-c$/i) {
 			$ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-c');
 			return $ret if defined $ret;
 		}

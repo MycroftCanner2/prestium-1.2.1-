@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Teletype::Select;
+use warnings;
 use strict;
 use Debconf::Config;
 use POSIX qw(ceil);
@@ -14,11 +15,11 @@ sub expandabbrev {
 	my $input=shift;
 	my @choices=@_;
 
-	if (Debconf::Config->terse eq 'false' and 
+	if (Debconf::Config->terse eq 'false' and
 	    $input=~m/^[0-9]+$/ and $input ne '0' and $input <= @choices) {
 		return $choices[$input - 1];
 	}
-	
+
 	my @matches=();
 	foreach (@choices) {
 		return $_ if /^\Q$input\E$/;
@@ -33,7 +34,7 @@ sub expandabbrev {
 		}
 		return $matches[0] if @matches == 1;
 	}
-	
+
 	return '';
 }
 
@@ -90,26 +91,26 @@ COLUMN:	for ($num_cols = $max_cols; $num_cols >= 0; $num_cols--) {
 					$output[$l] .= ' ' x ($max_len - length $output[$l]);
 				}
 			}
-	
+
 			$line=0;
 			$max_len=0;
 		}
 	}
 
-	@output = map { s/\s+$//; $_ } @output;
+	for (@output) { s/\s+$//; }
 
 	map { $this->frontend->display_nowrap($_) } @output;
 }
 
 sub show {
 	my $this=shift;
-	
+
 	my $default=$this->translate_default;
-	my @choices=$this->question->choices_split;	
+	my @choices=$this->question->choices_split;
 	my @completions=@choices;
 
 	$this->frontend->display($this->question->extended_description."\n");
-	
+
 	if (Debconf::Config->terse eq 'false') {
 		for (my $choice=0; $choice <= $#choices; $choice++) {
 			if ($choices[$choice] eq $default) {
@@ -117,7 +118,7 @@ sub show {
 				last;
 			}
 		}
-		
+
 		$this->printlist(@choices);
 		$this->frontend->display("\n");
 

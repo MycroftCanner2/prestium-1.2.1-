@@ -13,12 +13,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Source::Functions;
+=encoding utf8
+
+=head1 NAME
+
+Dpkg::Source::Functions - miscellaneous source package handling functions
+
+=head1 DESCRIPTION
+
+This module provides a set of miscellaneous helper functions to handle
+source packages.
+
+B<Note>: This is a private module, its API can change at any time.
+
+=cut
+
+package Dpkg::Source::Functions 0.01;
 
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
 our @EXPORT_OK = qw(
     erasedir
     fixperms
@@ -91,7 +105,7 @@ sub chmod_if_needed {
 # Use this instead of time() when the timestamp is going to be
 # used to set file timestamps. This avoids confusion when an
 # NFS server and NFS client disagree about what time it is.
-sub fs_time($) {
+sub fs_time {
     my $file = shift;
     my $is_temp = 0;
     if (not -e $file) {
@@ -107,7 +121,7 @@ sub fs_time($) {
     return $mtime;
 }
 
-sub is_binary($) {
+sub is_binary {
     my $file = shift;
 
     # Perform the same check as diff(1), look for a NUL character in the first
@@ -120,5 +134,13 @@ sub is_binary($) {
 
     return $res >= 0;
 }
+
+=head1 CHANGES
+
+=head2 Version 0.xx
+
+This is a private module.
+
+=cut
 
 1;

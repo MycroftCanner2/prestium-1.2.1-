@@ -1,15 +1,16 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Gettext;
+use warnings;
 use strict;
 
 
 BEGIN {
 	eval 'use Locale::gettext';
 	if ($@) {
-		eval q{
+		eval {
 			sub gettext {
 				return shift;
 			}

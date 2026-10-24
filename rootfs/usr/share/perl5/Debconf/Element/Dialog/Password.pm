@@ -1,15 +1,16 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 package Debconf::Element::Dialog::Password;
+use warnings;
 use strict;
 use base qw(Debconf::Element);
 
 
 sub show {
 	my $this=shift;
-	
+
 	my ($text, $lines, $columns)=
 		$this->frontend->makeprompt($this->question);
 

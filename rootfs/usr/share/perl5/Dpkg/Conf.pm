@@ -13,12 +13,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package Dpkg::Conf;
+=encoding utf8
+
+=head1 NAME
+
+Dpkg::Conf - parse dpkg configuration files
+
+=head1 DESCRIPTION
+
+The Dpkg::Conf object can be used to read options from a configuration
+file. It can export an array that can then be parsed exactly like @ARGV.
+
+=cut
+
+package Dpkg::Conf 1.04;
 
 use strict;
 use warnings;
-
-our $VERSION = '1.04';
 
 use Carp;
 
@@ -31,27 +42,24 @@ use overload
     '@{}' => sub { return [ $_[0]->get_options() ] },
     fallback => 1;
 
-=encoding utf8
-
-=head1 NAME
-
-Dpkg::Conf - parse dpkg configuration files
-
-=head1 DESCRIPTION
-
-The Dpkg::Conf object can be used to read options from a configuration
-file. It can export an array that can then be parsed exactly like @ARGV.
-
 =head1 METHODS
 
 =over 4
 
 =item $conf = Dpkg::Conf->new(%opts)
 
-Create a new Dpkg::Conf object. Some options can be set through %opts:
-if allow_short evaluates to true (it defaults to false), then short
-options are allowed in the configuration file, they should be prepended
-with a single hyphen.
+Create a new Dpkg::Conf object.
+
+Options:
+
+=over
+
+=item B<allow_short>
+
+If set to true (it defaults to false), then short options are allowed in
+the configuration file, they should be prepended with a single hyphen.
+
+=back
 
 =cut
 
@@ -189,8 +197,25 @@ sub parse {
 
 =item $conf->filter(%opts)
 
-Filter the list of options, either removing or keeping all those that
-return true when $opts{remove}->($option) or $opts{keep}->($option) is called.
+Filter the list of configuration options.
+
+Options:
+
+=over
+
+=item B<remove>
+
+A function returning a boolean,
+used to decide whether to remove the configuration option,
+executed as $opts{remove}->($option).
+
+=item B<keep>
+
+A function returning a boolean,
+used to decide whether to keep the configuration option,
+executed as $opts{keep}->($option).
+
+=back
 
 =cut
 
