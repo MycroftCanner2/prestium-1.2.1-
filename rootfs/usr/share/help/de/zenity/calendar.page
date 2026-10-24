@@ -22,6 +22,12 @@
       <mal:email>tim@sabsch.com</mal:email>
       <mal:years>2020</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jürgen Benvenuti</mal:name>
+      <mal:email>gastornis@posteo.org</mal:email>
+      <mal:years>2023.</mal:years>
+    </mal:credit>
   </info>
   <title>Kalenderdialog</title>
     <p>Benutzen Sie die Option <cmd>--calendar</cmd> zur Erzeugung eines Kalenderdialogs. Zenity gibt das gewählte Datum an die Standardausgabe zurück. Wenn kein Datum auf der Befehlszeile angegeben wird, verwendet der Dialog das aktuelle Datum.</p>

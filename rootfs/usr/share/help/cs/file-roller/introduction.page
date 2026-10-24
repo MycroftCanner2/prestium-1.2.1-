@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="introduction" xml:lang="cs">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Introduction to the GNOME <app>File Roller</app>.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2009, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jakub Mach</mal:name>
+      <mal:email>jakub.m2011@ch.gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Úvod</title>
+
+  <p><app>File Roller</app> is an application for managing archive files,
+  for example, <file>.zip</file> or <file>.tar</file> files; it is designed to
+  be easy to use. <app>File Roller</app> provides all the tools that are
+  necessary for creating, modifying and extracting archives.</p>
+
+  <note style="advanced">
+    <p>Archiv je tvořen jedním nebo více soubory a složkami, společně s metadaty. Mohou být z části nebo úplně zašifrované. Díky zabalení více souborů do jednoho jsou archivy užitečné pro ukládání a pro přenos dat mezi počítači.</p>
+  </note>
+
+  <p>With <app>File Roller</app> you can:</p>
+  <list>
+    <item><p>vytvářet nové archivy</p></item>
+    <item><p>zobrazovat obsah stávajících archivů</p></item>
+    <item><p>zobrazovat soubory obsažené v archivu</p></item>
+    <item><p>upravovat stávající archivy</p></item>
+    <item><p>rozbalovat soubory z archivu</p></item>
+  </list>
+
+</page>

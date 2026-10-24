@@ -100,11 +100,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>ikonsti</var></title>
-	<p>Angiver det ikon, der skal vises i dialogens ramme. Der er fire standardikoner, der kan bruges ved at angive følgende nøgleord: "info", "warning", "question" eller "error".</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>bredde</var></title>
 	<p>Angiver dialogens bredde.</p>
       </item>

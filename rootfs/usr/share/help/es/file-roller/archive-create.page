@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="es">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Añadir archivos o carpetas al archivador nuevo.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Mustieles</mal:name>
+      <mal:email>daniel.mustieles@gmail.com</mal:email>
+      <mal:years>2011 - 2020</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jorge González</mal:name>
+      <mal:email>jorgegonz@svn.gnome.org</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Francisco Javier F. Serrador</mal:name>
+      <mal:email>serrador@tecknolabs.com</mal:email>
+      <mal:years>2006</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Crear un archivador nuevo</title>
+
+  <p>Create a new archive with <app>File Roller</app> by following these
+  steps:</p>
+
+  <steps>
+    <item>
+      <p>Pulse el botón de menú en la esquina superior derecha de la ventana y seleccione <gui style="menuitem">Nuevo archivador</gui>.</p>
+    </item>
+    <item>
+      <p>Asigne un nombre al nuevo archivador y seleccione el formato de archivo en el desplegable.</p>
+    </item>
+    <item>
+      <p>Elija la ubicación donde se guardará el archivador.</p>
+    </item>
+    <item>
+      <p>Pulse <gui>Crear</gui> para continuar.</p>
+      <note style="tip">
+	<p>Pulsando en <gui>Otras opciones</gui> puede establecer una contraseña o dividir el archivador en archivos más pequeños seleccionando la opción correcta y especificando el tamaño de cada parte en <gui>MB</gui>. Estas opciones sólo están disponibles si el formato de archivador seleccionado las soporta.</p>
+      </note>
+    </item>
+    <item>
+      <p>Añada los archivos y carpetas que quiera al archivador pulsando el botón <gui>+</gui> en la barra de cabecera. Marque la casilla junto a los archivos y carpetas que quiere añadir.</p>
+      <note style="tip">
+	<p>No todos los archivadores soportan carpetas; si el formato de archivo que está usando no las soporta, no se le advertirá. Se añadirán los archivos al archivador, pero no las carpetas como tales.</p>
+      </note>
+    </item>
+    <item>
+      <p>Una vez que haya terminado de añadir archivos, el archivador estará listo; no necesita guardarlo.</p>
+    </item>
+  </steps>
+
+</page>

@@ -30,7 +30,7 @@
     </mal:credit>
   </info>
   <title>Icono de notificación</title>
-    <p>Use la opción <cmd>--notification</cmd> para crear un icono de notificación.</p>
+    <p>Use the <cmd>--notification</cmd> option to create a passive desktop notification.</p>
 
   <terms>
     <item>
@@ -38,11 +38,20 @@
       <p>Especifica el texto que se mostrara en el área de la notificación.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: «<var>texto</var>», message: «<var>texto</var>», tooltip: «<var>texto</var>», visible: «<var>texto</var>»,</title>
+      <title><cmd>--icon</cmd>=<var>path</var></title>
+      <p>Set the notification icon using a string containing a path to a valid icon on the system.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Escucha comandos en la entrada estándar. Se debe especificar al menos un comando. Los comandos se separan mediante comas. Un comando debe ir seguido de dos puntos y un valor.</p>
       <note style="tip">
-        <p>El comando <cmd>icon</cmd> también acepta cuatro valores de iconos del almacén, tales como <var>error</var>, <var>info</var>, <var>question</var> y <var>warning</var>.</p>
+        <p>The <cmd>icon</cmd> command also accepts icon theme name values in accordance with the FreeDesktop.org Icon Naming Specification such as <var>dialog-error</var>, <var>dialog-information</var> and <var>security-high</var>.</p>
       </note>
+      <p>Examples include:</p>
+      <code>
+      message: Hello, my name is Joe
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -50,9 +59,9 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
-    --text="Hay actualizaciones necesarias para su sistema"
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
+    --text="There are system updates necessary!"
   </code>
 
   <figure>

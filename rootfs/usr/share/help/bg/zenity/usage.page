@@ -112,11 +112,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>icon_path</var></title>
-	<p>Определя иконата, която ще се показва в рамката на прозореца. Има 4 генерални икони, които са налични чрез доставяне на следните ключови думи - 'info', warning', 'question' и 'error'.</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>width</var></title>
 	<p>Определя ширината на прозореца.</p>
       </item>

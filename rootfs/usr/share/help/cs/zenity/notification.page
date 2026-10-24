@@ -12,7 +12,7 @@
     </mal:credit>
   </info>
   <title>Oznamovací ikona</title>
-    <p>K vytvoření oznamovací ikony použijte přepínač <cmd>--info</cmd>.</p>
+    <p>Use the <cmd>--notification</cmd> option to create a passive desktop notification.</p>
 
   <terms>
     <item>
@@ -20,11 +20,20 @@
       <p>Určuje text, který se zobrazí v oznamovací oblasti.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>text</var>', message: '<var>text</var>', tooltip: '<var>text</var>', visible: '<var>text</var>',</title>
+      <title><cmd>--icon</cmd>=<var>path</var></title>
+      <p>Set the notification icon using a string containing a path to a valid icon on the system.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Naslouchá příkazům ze standardního vstupu. Musí být určen nejméně jeden příkaz. Příkazy se oddělují čárkami. Za příkazem musí následovat dvojtečka a hodnota.</p>
       <note style="tip">
-        <p>Příkaz <cmd>icon</cmd> přijímá i čtyři hodnoty skladových ikon a to <var>error</var> (chyba), <var>info</var> (informace), <var>question</var> (dotaz) a <var>warning</var> (varování).</p>
+        <p>The <cmd>icon</cmd> command also accepts icon theme name values in accordance with the FreeDesktop.org Icon Naming Specification such as <var>dialog-error</var>, <var>dialog-information</var> and <var>security-high</var>.</p>
       </note>
+      <p>Examples include:</p>
+      <code>
+      message: Hello, my name is Joe
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -32,9 +41,9 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
-    --text="Jsou k dispozici důležité aktualizace!"
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
+    --text="There are system updates necessary!"
   </code>
 
   <figure>

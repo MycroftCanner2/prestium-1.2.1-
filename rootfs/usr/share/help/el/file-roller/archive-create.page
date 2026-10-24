@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="el">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Προσθήκη αρχείων ή φακέλων σε συμπιεσμένο αρχείο.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Μάριος Ζηντίλης</mal:name>
+      <mal:email>m.zindilis@dmajor.org</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Θάνος Τρυφωνίδης</mal:name>
+      <mal:email>tomtryf@gmail.com</mal:email>
+      <mal:years>2012, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Δημιουργία νέου συμπιεσμένου αρχείου</title>
+
+  <p>Create a new archive with <app>File Roller</app> by following these
+  steps:</p>
+
+  <steps>
+    <item>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">New Archive</gui>.</p>
+    </item>
+    <item>
+      <p>Name your new archive file and select the file format from the dropdown.</p>
+    </item>
+    <item>
+      <p>Choose the location where the archive file will be saved.</p>
+    </item>
+    <item>
+      <p>Click <gui>Create</gui> to continue.</p>
+      <note style="tip">
+	<p>By clicking <gui>Other Options</gui> you can set a password or
+	split your new archive into smaller, individual files by selecting the
+	relevant option and specifying the volume for each part in
+	<gui>MB</gui>. These options are only available if the chosen archive
+	file format supports them.</p>
+      </note>
+    </item>
+    <item>
+      <p>Add the desired files and folders to your archive by pressing
+      <gui>+</gui> in the header bar. Check the box next to the files and
+      folders that you want to add.</p>
+      <note style="tip">
+	<p>Δεν υποστηρίζουν όλοι οι τύποι αρχείων φακέλους — αν ο τύπος αρχείου που χρησιμοποιείτε δεν υποστηρίζει, τότε δεν θα προειδοποιηθείτε. Αν ο τύπος αρχείου που χρησιμοποιείτε δεν υποστηρίζει φακέλους, τα αρχεία του φακέλου θα προστεθούν, αλλά όχι ο ίδιος ο φάκελος.</p>
+      </note>
+    </item>
+    <item>
+      <p>Όταν τελειώσετε με την εισαγωγή των αρχείων, τότε το συμπιεσμένο αρχείο είναι έτοιμο και δεν χρειάζεται να το αποθηκεύσετε.</p>
+    </item>
+  </steps>
+
+</page>

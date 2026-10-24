@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="cs">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Jak zobrazit existující archiv a jeho obsah.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2009, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jakub Mach</mal:name>
+      <mal:email>jakub.m2011@ch.gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Prohlížení archivů</title>
+
+  <p>Existují dva způsoby, jak zobrazit archiv:</p>
+
+  <terms>
+    <item>
+      <title>Zobrazit všechny soubory</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>Hlavičky sloupců zmíněné výše (název, velikost, …) můžete použít k seřazení souborů v archivu. Stačí na hlavičku kliknout. Dalším kliknutím změníte směr řazení.</p>
+      </note>
+    </item>
+    <item>
+      <title>Zobrazit jako složku</title>
+      <p>Toto zobrazení zobrazuje klasickou strukturu složek. Když jej chcete použít, zmáčkněte tlačítko nabídky v pravém horním rohu okna a vyberte<gui style="menuitem">Zobrazovat jako složku</gui>.</p>
+      <note style="tip">
+	<p>Když zobrazujete svůj archiv tímto způsobem, můžete zmáčknout klávesu <key>F9</key>, nebo zmáčkněte tlačítko nabídky v pravém horním rohu okna a vyberte <gui style="menuitem">Postranní panel</gui> a zobrazí se strom složek v postranním panelu. Díky němu můžete složky jednoduše procházet.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Otevření souborů z vašeho archivu</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Otevřít jej pomocí jiné aplikace můžete následujícími kroky:</p>
+      <steps>
+        <item>
+          <p>Klikněte pravým tlačítkem na soubor.</p>
+        </item>
+        <item>
+          <p>Klikněte na <gui style="menuitem">Otevřít pomocí…</gui></p>
+        </item>
+        <item>
+          <p>Vyberte aplikaci, kterou chcete použít a klikněte na <gui style="menuitem">Vybrat</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

@@ -22,6 +22,12 @@
       <mal:email>tim@sabsch.com</mal:email>
       <mal:years>2020</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jürgen Benvenuti</mal:name>
+      <mal:email>gastornis@posteo.org</mal:email>
+      <mal:years>2023.</mal:years>
+    </mal:credit>
   </info>
 <title>Benutzung</title>
     <p>Wenn Sie Skripte schreiben, können Sie <app>Zenity</app> zur Erzeugung einfacher Dialoge zur Interaktion mit dem Benutzer verwenden, wie folgende:</p>
@@ -115,11 +121,6 @@
       <item>
         <title><cmd>--title</cmd>=<var>Titel</var></title>
 	<p>Damit legen Sie den Titel des Dialogs fest.</p>
-      </item>
-
-      <item>
-        <title><cmd>--window-icon</cmd>=<var>Symbolpfad</var></title>
-	<p>Damit legen Sie das Symbol fest, das im Fensterrahmen des Dialogs angezeigt wird. Es gibt 4 Standardsymbole, die auch über die Schlüsselwörter »info«, »warning«, »question« und »error« bereitgestellt werden.</p>
       </item>
 
       <item>

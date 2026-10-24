@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="da">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Tilføj filer eller mapper til et nyt arkiv.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Flemming Christensen</mal:name>
+      <mal:email>fc@stromata.dk</mal:email>
+      <mal:years>2011, 2012, 2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>scootergrisen</mal:name>
+      <mal:email/>
+      <mal:years>2015, 2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Opret et nyt arkiv</title>
+
+  <p>Create a new archive with <app>File Roller</app> by following these
+  steps:</p>
+
+  <steps>
+    <item>
+      <p>Tryk på menuknappen i øverste højre hjørne af vinduet og vælg <gui style="menuitem">Nyt arkiv</gui>.</p>
+    </item>
+    <item>
+      <p>Navngiv din nye arkivfil og vælg filformatet i rullegardinslisten.</p>
+    </item>
+    <item>
+      <p>Vælg den placering hvor arkivfilen gemmes.</p>
+    </item>
+    <item>
+      <p>Klik på <gui>Opret</gui> for at fortsætte.</p>
+      <note style="tip">
+	<p>Ved at klikke på <gui>Andre indstillinger</gui> kan du angive en adgangskode eller dele dit nye arkiv i mindre, individuelle filer ved at vælge den relevante indstilling og angive størrelsen på hver del i <gui>MB</gui>. Indstillingerne er kun tilgængelige hvis det valgte arkivfilformat understøtter dem.</p>
+      </note>
+    </item>
+    <item>
+      <p>Tilføj de ønskede filer og mapper til dit arkiv ved at trykke på <gui>+</gui> i titellinjen. Sæt mærke i boksen ved siden af de filer og mapper, du vil tilføje.</p>
+      <note style="tip">
+	<p>Ikke alle arkivfilformater understøtter mapper - hvis det filformat, som du bruger, ikke gør det, får du ingen advarsel. Hvis det filformat, som du bruger, ikke understøtter mapper, så bliver filerne i mappen tilføjet, medens selve mappen ikke gør det.</p>
+      </note>
+    </item>
+    <item>
+      <p>Når du er færdig med at tilføje filer, så er arkivet klar; du behøver ikke at gemme det.</p>
+    </item>
+  </steps>
+
+</page>

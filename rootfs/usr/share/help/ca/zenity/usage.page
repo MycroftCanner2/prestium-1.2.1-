@@ -112,11 +112,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>camí</var></title>
-	<p>Especifica la icona que es mostrarà al marc de la finestra del diàleg. També podeu utilitzar 4 icones predefinides si proporcioneu les paraules clau següents: «info» (informació), «warning» (avís), «question» (pregunta) i «error» (error).</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>amplada</var></title>
 	<p>Especifica l'amplada del diàleg.</p>
       </item>

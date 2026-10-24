@@ -18,7 +18,7 @@
     </mal:credit>
   </info>
   <title>Icona de notificació</title>
-    <p>Utilitzeu l'opció <cmd>--notification</cmd> per a crear una icona de notificació.</p>
+    <p>Use the <cmd>--notification</cmd> option to create a passive desktop notification.</p>
 
   <terms>
     <item>
@@ -26,11 +26,20 @@
       <p>Especifica el text que es mostra a l'àrea de notificació.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>text</var>', message: '<var>text</var>', tooltip: '<var>text</var>', visible: '<var>text</var>',</title>
+      <title><cmd>--icon</cmd>=<var>path</var></title>
+      <p>Set the notification icon using a string containing a path to a valid icon on the system.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Escolta ordres a l'entrada estàndard. Cal especificar com a mínim una ordre. Les ordres van separades per comes. Una ordre ha d'anar seguida per dos punts i un valor.</p>
       <note style="tip">
-        <p>L'ordre <cmd>icon</cmd> també accepta quatre valors d'icona d'estoc com ara <var>error</var>, <var>informació</var>, <var>pregunta</var> i <var>avís</var>.</p>
+        <p>The <cmd>icon</cmd> command also accepts icon theme name values in accordance with the FreeDesktop.org Icon Naming Specification such as <var>dialog-error</var>, <var>dialog-information</var> and <var>security-high</var>.</p>
       </note>
+      <p>Examples include:</p>
+      <code>
+      message: Hello, my name is Joe
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -38,9 +47,9 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="informació" \
-    --text="Hi ha actualitzacions necessàries per al sistema."
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
+    --text="There are system updates necessary!"
   </code>
 
   <figure>

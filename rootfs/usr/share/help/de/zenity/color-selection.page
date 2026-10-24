@@ -22,6 +22,12 @@
       <mal:email>tim@sabsch.com</mal:email>
       <mal:years>2020</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jürgen Benvenuti</mal:name>
+      <mal:email>gastornis@posteo.org</mal:email>
+      <mal:years>2023.</mal:years>
+    </mal:credit>
   </info>
   <title>Farbauswahldialog</title>
   <p>Verwenden Sie die Option <cmd>--color-selection</cmd>, um einen Farbauswahldialog zu erzeugen.</p>
@@ -35,7 +41,7 @@
     </item>
 
     <item>
-      <title>--show-palette</title>
+      <title><cmd>--show-palette</cmd></title>
       <p>Die Palette anzeigen.</p>
     </item>
 

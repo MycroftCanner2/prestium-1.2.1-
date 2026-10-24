@@ -124,11 +124,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>ruta_al_icono</var></title>
-	<p>Especifica el icono que se muestra en el marco de la ventana del diálogo. Hay 4 iconos disponibles, proporcionando las palabras claves siguientes - 'info', 'warning', 'question' y 'error'.</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>anchura</var></title>
 	<p>Especifica el ancho del diálogo.</p>
       </item>

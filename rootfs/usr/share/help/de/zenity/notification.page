@@ -22,9 +22,15 @@
       <mal:email>tim@sabsch.com</mal:email>
       <mal:years>2020</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jürgen Benvenuti</mal:name>
+      <mal:email>gastornis@posteo.org</mal:email>
+      <mal:years>2023.</mal:years>
+    </mal:credit>
   </info>
   <title>Benachrichtigungssymbol</title>
-    <p>Verwenden Sie die Option <cmd>--notification</cmd>, um ein Benachrichtigungssymbol zu erzeugen.</p>
+    <p>Use the <cmd>--notification</cmd> option to create a passive desktop notification.</p>
 
   <terms>
     <item>
@@ -32,21 +38,30 @@
       <p>Legt den Text fest, der im Benachrichtigungsfeld angezeigt wird.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>Text</var>', message: '<var>Text</var>', tooltip: '<var>Text</var>', visible: '<var>Text</var>',</title>
+      <title><cmd>--icon</cmd>=<var>path</var></title>
+      <p>Set the notification icon using a string containing a path to a valid icon on the system.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Horcht auf Befehle von der Standardeingabe. Es muss mindestens ein Befehl angegeben werden. Befehle werden durch Kommata getrennt. Auf einen Befehl muss ein Doppelpunkt und ein Wert folgen.</p>
       <note style="tip">
-        <p>Der Befehl <cmd>icon</cmd> akzeptiert auch vier Werte von Standard-Symbolen wie z.B. <var>error</var>, <var>info</var>, <var>question</var> und <var>warning</var>.</p>
+        <p>The <cmd>icon</cmd> command also accepts icon theme name values in accordance with the FreeDesktop.org Icon Naming Specification such as <var>dialog-error</var>, <var>dialog-information</var> and <var>security-high</var>.</p>
       </note>
+      <p>Examples include:</p>
+      <code>
+      message: Hello, my name is Joe
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
   <p>Das folgende Beispielskript zeigt, wie Sie ein Benachrichtigungssymbol erzeugen:</p>
   <code>
- #!/bin/sh
+  #!/bin/sh
 
- zenity --notification\
-  --window-icon="info" \
-  --text="Systemaktualisierungen sind erforderlich!"
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
+    --text="There are system updates necessary!"
   </code>
 
   <figure>

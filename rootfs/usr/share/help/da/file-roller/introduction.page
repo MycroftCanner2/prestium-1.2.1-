@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="introduction" xml:lang="da">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Introduction to the GNOME <app>File Roller</app>.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Flemming Christensen</mal:name>
+      <mal:email>fc@stromata.dk</mal:email>
+      <mal:years>2011, 2012, 2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>scootergrisen</mal:name>
+      <mal:email/>
+      <mal:years>2015, 2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Introduktion</title>
+
+  <p><app>File Roller</app> is an application for managing archive files,
+  for example, <file>.zip</file> or <file>.tar</file> files; it is designed to
+  be easy to use. <app>File Roller</app> provides all the tools that are
+  necessary for creating, modifying and extracting archives.</p>
+
+  <note style="advanced">
+    <p>Et arkiv består af en eller flere filer og mapper sammen med metadata. Det kan være helt eller delvis krypteret. Arkivfiler er nyttige til opbevaring af data og overførelse af dem mellem computere, da de lader dig samle mange filer i en enkelt fil.</p>
+  </note>
+
+  <p>With <app>File Roller</app> you can:</p>
+  <list>
+    <item><p>opret et nyt arkiv</p></item>
+    <item><p>gennemse indholdet af et eksisterende arkiv</p></item>
+    <item><p>vis en fil i et arkiv</p></item>
+    <item><p>ændr eksisterende arkiver</p></item>
+    <item><p>udpakke filer fra et arkiv</p></item>
+  </list>
+
+</page>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="da">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Deling på samme vilkår 3.0</p>
+    </license>
+    <desc>Gennemse et eksisterende arkiv og dets indhold.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Flemming Christensen</mal:name>
+      <mal:email>fc@stromata.dk</mal:email>
+      <mal:years>2011, 2012, 2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>scootergrisen</mal:name>
+      <mal:email/>
+      <mal:years>2015, 2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Gennemse et arkiv</title>
+
+  <p>Man kan gennemse et arkiv på to måder:</p>
+
+  <terms>
+    <item>
+      <title>Gennemse alle filer</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>Du kan bruge ovennævnte kolonnehoveder (navn, størrelse …) til sortering af filerne i dit arkiv. Gør det ved at klikke på dem; klik en gang til for at sortere i omvendt rækkefølge.</p>
+      </note>
+    </item>
+    <item>
+      <title>Vis som en mappe</title>
+      <p>Denne visning viser den klassiske mappestruktur. For at bruge den skal du trykke på menuknappen i øverste højre hjørne af vinduet og vælge <gui style="menuitem">Vis som en mappe</gui>.</p>
+      <note style="tip">
+	<p>Mens du ser på dit arkiv på denne måde, kan du trykke på <key>F9</key> eller trykke på menuknappen i øverste højre hjørne af vinduet og vælge <gui style="menu">Sidebjælke</gui> for at se en trævisning af mapperne i sideruden. Herved kan du let navigere mellem mapperne.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Åbn filer i dit arkiv</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Åbn filen med et andet program ved at følge disse trin:</p>
+      <steps>
+        <item>
+          <p>Højreklik på filen.</p>
+        </item>
+        <item>
+          <p>Klik på <gui style="menuitem">Åbn med …</gui>.</p>
+        </item>
+        <item>
+          <p>Vælg det program, som du vil bruge, og klik på <gui style="menuitem">Vælg</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

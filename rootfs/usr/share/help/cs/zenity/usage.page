@@ -106,11 +106,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>CESTA_K_IKONĚ</var></title>
-	<p>Určuje ikonu, která se zobrazí v záhlaví dialogového okna. K dispozici jsou také 4 předdefinované ikony dostupné pomocí klíčových slov „info“ (informace), „warning“ (varování), „question“ (dotaz) a „error“ (chyba).</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>ŠÍŘKA</var></title>
 	<p>Určuje šířku dialogového okna.</p>
       </item>

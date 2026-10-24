@@ -22,6 +22,12 @@
       <mal:email>tim@sabsch.com</mal:email>
       <mal:years>2020</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jürgen Benvenuti</mal:name>
+      <mal:email>gastornis@posteo.org</mal:email>
+      <mal:years>2023.</mal:years>
+    </mal:credit>
   </info>
   <title>Formulardialog</title>
     <p>Verwenden Sie die Option <cmd>--forms</cmd>, um einen Formulardialog zu erzeugen.</p>
@@ -36,7 +42,7 @@
       </item>
 
       <item>
-        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+        <title><cmd>--add-password</cmd>=<var>Feldname</var></title>
 	<p>Einen neuen Passworteintrag im Formulardialog hinzufügen (Text verbergen).</p>
       </item>
 

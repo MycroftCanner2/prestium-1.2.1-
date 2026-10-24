@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="ca">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+    <desc>Visualitzeu un arxiu existent i el seu contingut.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gil Forcada</mal:name>
+      <mal:email>gilforcada@guifi.net</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Manel Vidal</mal:name>
+      <mal:email>verduler@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jordi Mas i Herǹandez</mal:name>
+      <mal:email>jmas@softcatala.org</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Visualització d'arxius</title>
+
+  <p>Existeixen dues formes per a visualitzar un arxiu:</p>
+
+  <terms>
+    <item>
+      <title>Visualitzar tots els fitxers</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>Podeu utilitzar els encapçalaments de les columnes esmentades abans (nom, mida…) per a ordenar els fitxers de l'arxiu. Per a fer-ho, feu clic a l'encapçalament; torneu-hi a fer clic per a invertir l'ordre de la columna.</p>
+      </note>
+    </item>
+    <item>
+      <title>Visualitzar com una carpeta</title>
+      <p>Aquesta visualització mostra l'estructura clàssica de directoris. Per a usar-la, feu clic al botó del menú a la part superior dreta de la finestra i seleccioneu <gui style="menuitem">Visualitza-ho com una carpeta</gui>.</p>
+      <note style="tip">
+	<p>Mentre visualitzeu el vostre arxiu d'aquesta manera podeu prémer <key>F9</key> o prémer el botó de menú a la cantonada superior dreta de la finestra i seleccionar <gui style="menu">Barra lateral</gui> per a veure una vista en arbre de les carpetes a la subfinestra lateral. Permet navegar fàcilment entre carpetes.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Obrir els fitxers de l'arxiu</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Per a obrir el fitxer amb una aplicació diferent feu el següent:</p>
+      <steps>
+        <item>
+          <p>Feu clic al fitxer amb el botó secundari.</p>
+        </item>
+        <item>
+          <p>Feu clic a <gui style="menuitem">Obre amb…</gui>.</p>
+        </item>
+        <item>
+          <p>Seleccioneu l'aplicació que voleu utilitzar i feu clic a <gui style="menuitem">Seleccioneu</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

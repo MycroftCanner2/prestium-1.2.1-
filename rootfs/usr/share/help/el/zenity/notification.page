@@ -30,7 +30,7 @@
     </mal:credit>
   </info>
   <title>Εικονίδιο ειδοποίησης</title>
-    <p>Χρησιμοποιήστε την επιλογή <cmd>--notification</cmd> για να δημιουργήσετε ένα εικονίδιο ειδοποίησης</p>
+    <p>Use the <cmd>--notification</cmd> option to create a passive desktop notification.</p>
 
   <terms>
     <item>
@@ -38,11 +38,20 @@
       <p>Καθορίζει το κείμενο που προβάλλεται στην περιοχή ειδοποίησης.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>text</var>', message: '<var>text</var>', tooltip: '<var>text</var>', visible: '<var>text</var>',</title>
+      <title><cmd>--icon</cmd>=<var>path</var></title>
+      <p>Set the notification icon using a string containing a path to a valid icon on the system.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Αποκρίνεται σε εντολές στην τυπική είσοδο. Τουλάχιστον μια εντολή πρέπει να οριστεί. Οι εντολές χωρίζονται με κόμμα. Μια εντολή πρέπει να ακολουθείται από μια άνω και κάτω τελεία και μια τιμή.</p>
       <note style="tip">
-        <p>Η εντολή <cmd>icon</cmd> δέχεται επίσης τέσσερις τιμές έτοιμου εικονιδίου όπως <var>error</var>, <var>info</var>, <var>question</var> και <var>warning</var>.</p>
+        <p>The <cmd>icon</cmd> command also accepts icon theme name values in accordance with the FreeDesktop.org Icon Naming Specification such as <var>dialog-error</var>, <var>dialog-information</var> and <var>security-high</var>.</p>
       </note>
+      <p>Examples include:</p>
+      <code>
+      message: Hello, my name is Joe
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -50,9 +59,9 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
-    --text="Υπάρχουν ενημερώσεις συστήματος!"
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
+    --text="There are system updates necessary!"
   </code>
 
   <figure>

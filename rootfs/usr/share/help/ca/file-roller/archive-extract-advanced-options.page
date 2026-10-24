@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract-advanced-options" xml:lang="ca">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2012-03-06" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Especifiqueu les vostres preferències per a l'extracció d'arxius.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gil Forcada</mal:name>
+      <mal:email>gilforcada@guifi.net</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Manel Vidal</mal:name>
+      <mal:email>verduler@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jordi Mas i Herǹandez</mal:name>
+      <mal:email>jmas@softcatala.org</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Opcions avançades per a l'extracció d'arxius</title>
+
+  <p><app>File Roller</app> offers different options for
+  <link xref="archive-extract">extracting an archive</link>. You can see these
+  options in the <gui>Extract</gui> dialog. At the bottom of this dialog, you
+  can decide if you want to extract:</p>
+
+  <terms>
+    <item>
+      <title><gui>Tots els fitxers</gui></title>
+      <p>S'extrauran tots els fitxers i carpetes de l'arxiu.</p>
+    </item>
+    <item>
+      <title><gui>Fitxers seleccionats</gui></title>
+      <p><app>File Roller</app> extracts only the selected files.</p>
+      <note>
+        <p>Heu de seleccionar els fitxers que voleu extreure abans de fer clic a <gui style="button">Extreu</gui>. Feu-ho fent clic al nom del fitxer. Utilitzeu les tecles <key>Ctrl</key> i <key>Maj</key> per a seleccionar més d'un fitxer.</p>
+      </note>
+    </item>
+    <item>
+      <title><gui>Fitxers</gui></title>
+      <p>Podeu escriure el nom dels fitxers que voleu extreure. Separeu els noms de fitxers amb un punt i coma (<key>;</key>).</p>
+      <note>
+        <p>El nom del fitxer ha d'anar acompanyat d'una extensió de fitxer. Podeu utilitzar l'asterisc (<key>*</key>) com a comodí. Per exemple, per a seleccionar tots dels fitxers <file>.txt</file> escriviu <file>*.txt</file>.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>Al diàleg de selecció de fitxers podeu especificar si voleu:</p>
+  <terms>
+    <item>
+      <title><gui>Mantenir l'estructura de directoris</gui></title>
+      <p>Marqueu aquesta opció si voleu mantenir l'estructura dels directoris igual com a l'arxiu.</p>
+    </item>
+    <item>
+      <title><gui>No sobreescriguis els fitxers nous</gui></title>
+      <p>Aquesta opció farà que no se sobreescriguin els fitxers existents que tinguin el mateix nom i una data de modificació posterior a la data del fitxer inclòs en l'arxiu.</p>
+    </item>
+  </terms>
+
+  <p>Aquestes <gui>Accions</gui> es troben a la part inferior del diàleg.</p>
+
+</page>

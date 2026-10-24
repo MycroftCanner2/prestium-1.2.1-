@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="de">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Ein bestehendes Archiv und dessen Inhalt einsehen.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jan Arne Petersen</mal:name>
+      <mal:email>jpetersen@jpetersen.org</mal:email>
+      <mal:years>2006</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008, 2009, 2011-2013, 2020</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Christian Kirbach</mal:name>
+      <mal:email>christian.kirbach@gmail.com</mal:email>
+      <mal:years>2011, 2012, 2013, 2015</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Ein Archiv ansehen</title>
+
+  <p>Es gibt zwei Möglichkeiten, ein Archiv anzusehen:</p>
+
+  <terms>
+    <item>
+      <title>Alle Dateien ansehen</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>Verwenden Sie die zuvor genannten Spaltenbeschriftungen (Name, Größe usw.), um die Dateien in Ihrem Archiv zu sortieren. Klicken Sie dazu auf die Beschriftung. Ein weiterer Mausklick sortiert in umgekehrter Reihenfolge.</p>
+      </note>
+    </item>
+    <item>
+      <title>Als Ordner betrachten</title>
+      <p>Diese Ansicht stellt die klassische Ordnerstruktur dar. Aktivieren Sie diese, indem Sie auf den Menüknopf in der rechten oberen Ecke des Fensters klicken und <gui style="menuitem">Als Ordner anzeigen</gui> wählen.</p>
+      <note style="tip">
+	<p>Drücken Sie beim Anzeigen Ihres Archivs <gui style="button">F9</gui> oder klicken Sie auf den Menüknopf in der rechten oberen Ecke des Fensters und wählen Sie <gui style="menu">Seitenleiste</gui>. Daraufhin wird eine Baumansicht der Ordner in der Seitenleiste eingeblendet. Nutzen Sie diese, um bequem zwischen Ordnern zu wechseln.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Dateien in Ihrem Archiv öffnen</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Öffnen Sie die Datei mit einer anderen Anwendung wie folgt:</p>
+      <steps>
+        <item>
+          <p>Klicken Sie mit der rechten Maustaste auf die Datei.</p>
+        </item>
+        <item>
+          <p>Klicken Sie auf <gui style="menuitem">Öffnen mit …</gui>.</p>
+        </item>
+        <item>
+          <p>Wählen Sie die gewünschte Option aus und klicken Sie auf <gui style="menuitem">Auswählen</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

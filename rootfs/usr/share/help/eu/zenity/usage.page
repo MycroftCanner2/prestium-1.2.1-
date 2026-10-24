@@ -112,11 +112,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>ikono_bidea</var></title>
-	<p>Elkarrizketa-koadroaren leiho-markoetan bistaratu den ikonoa zehazten du. 4 ikono daude erabilgarri gako-hitz hauek sartuz gero - 'info', 'warning', 'question' eta 'error'.</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>zabalera</var></title>
 	<p>Elkarrizketa-koadroaren zabalera zehazten du.</p>
       </item>
