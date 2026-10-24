@@ -1,0 +1,14 @@
+61f1786d7a296c90f0ba86c5997ff67a  usr/lib/x86_64-linux-gnu/libdee-1.0.so.4.2.1
+088a2af50f844ef723b86a4db9308b24  usr/share/doc/libdee-1.0-4/changelog.Debian.amd64.gz
+34b46ae320d32813ad4accbe2b61c700  usr/share/doc/libdee-1.0-4/changelog.Debian.gz
+c015433374d6e2ec34eb3818baf2bfa4  usr/share/doc/libdee-1.0-4/changelog.gz
+d1236395565dbe015335405de76af82a  usr/share/doc/libdee-1.0-4/copyright
+45f6f33e51912d185db276fa191ad6df  usr/share/doc/libdee-1.0-4/examples/Makefile.am
+b99da2691c5245e7736ccd9b60530b58  usr/share/doc/libdee-1.0-4/examples/master-model.c
+47c58e2942908cded1db1746032e2e3b  usr/share/doc/libdee-1.0-4/examples/master-model.py
+b0d75ec7d60d915f46b127f658891a89  usr/share/doc/libdee-1.0-4/examples/master-model.vala
+b83d44ce8d0e8833d7fccd599f2bb924  usr/share/doc/libdee-1.0-4/examples/peers.c
+a8fbeefab551436f945c4ec8386de839  usr/share/doc/libdee-1.0-4/examples/pythontricks.py
+c0f17e805cfc190ade1bb9e680bf7d47  usr/share/doc/libdee-1.0-4/examples/slave-model.c
+43b6ac52758b019e65f5e093f03eb27e  usr/share/doc/libdee-1.0-4/examples/slave-model.py
+3a12d5d3f30f3f3569773a8e99f65c8b  usr/share/doc/libdee-1.0-4/examples/synced-lists.c

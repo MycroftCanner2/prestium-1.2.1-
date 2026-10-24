@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libcmis-0.6.so.6.1.1
+/usr/lib/x86_64-linux-gnu/libcmis-c-0.6.so.6.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libcmis-0.6-6t64
+/usr/share/doc/libcmis-0.6-6t64/changelog.Debian.amd64.gz
+/usr/share/doc/libcmis-0.6-6t64/changelog.Debian.gz
+/usr/share/doc/libcmis-0.6-6t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libcmis-0.6-6t64
+/usr/lib/x86_64-linux-gnu/libcmis-0.6.so.6
+/usr/lib/x86_64-linux-gnu/libcmis-c-0.6.so.6

@@ -1,8 +1,9 @@
-ba567ddd4199fe10e2947bcfc8a2b8c7  usr/lib/x86_64-linux-gnu/libdvdnav.so.4.3.0
+e725d3fe47702bbf8917db8575e4d43d  usr/lib/x86_64-linux-gnu/libdvdnav.so.4.3.0
 a18aef85e2b59b1200c4783ac5f08605  usr/share/bug/libdvdnav4/control
 7a049c1c7d283b59176a7afdb9ea73ef  usr/share/doc/libdvdnav4/AUTHORS
 0feeead5a567e4942eef20d3c4d75523  usr/share/doc/libdvdnav4/README
-9b4d5986fbf171e07a032ef572798489  usr/share/doc/libdvdnav4/changelog.Debian.gz
+ab0d4b3e106fdf835f77007fcb54a77b  usr/share/doc/libdvdnav4/changelog.Debian.amd64.gz
+5d5b9cfd381e9e5f480cc4c495363e6f  usr/share/doc/libdvdnav4/changelog.Debian.gz
 535cf980f314b25706fcd164b97db441  usr/share/doc/libdvdnav4/changelog.gz
 1d7bb4daa24c213994a1ff961d003741  usr/share/doc/libdvdnav4/copyright
 d6adc9865af43085d9e70f3a972ac43d  usr/share/lintian/overrides/libdvdnav4

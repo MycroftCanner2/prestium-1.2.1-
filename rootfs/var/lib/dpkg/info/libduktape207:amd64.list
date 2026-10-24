@@ -6,5 +6,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libduktape207
+/usr/share/doc/libduktape207/changelog.Debian.amd64.gz
 /usr/share/doc/libduktape207/changelog.Debian.gz
 /usr/share/doc/libduktape207/copyright

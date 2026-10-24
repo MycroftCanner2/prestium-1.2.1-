@@ -1,4 +1,5 @@
-48a7a0a374a62156e620c510134b22d0  usr/lib/x86_64-linux-gnu/libcjson.so.1.7.15
-2987ee1c64c39aea4994a299c38ec7c3  usr/share/doc/libcjson1/changelog.Debian.gz
-68793ffc4205a0216828449fdb98ca0d  usr/share/doc/libcjson1/changelog.gz
-aedc7890503e7752450ef2e0fd603975  usr/share/doc/libcjson1/copyright
+89d47822e358bf89a6c17dc2f3223bae  usr/lib/x86_64-linux-gnu/libcjson.so.1.7.18
+121ac1fc6ccef67ab2996ef685c67baf  usr/lib/x86_64-linux-gnu/libcjson_utils.so.1.7.18
+5bdf3732cf4fd0bfcc7f0c92a84c9ab5  usr/share/doc/libcjson1/changelog.Debian.gz
+b963259e426d3fd590382b9c37248a4e  usr/share/doc/libcjson1/changelog.gz
+ae4e121570be020e0730f5a06dad6bf4  usr/share/doc/libcjson1/copyright

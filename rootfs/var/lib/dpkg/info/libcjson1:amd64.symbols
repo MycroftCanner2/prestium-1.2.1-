@@ -1,4 +1,5 @@
 libcjson.so.1 libcjson1 #MINVER#
+* Build-Depends-Package: libcjson-dev
  cJSON_AddArrayToObject@Base 1.7.5
  cJSON_AddBoolToObject@Base 1.7.5
  cJSON_AddFalseToObject@Base 1.7.5
@@ -77,3 +78,19 @@ libcjson.so.1 libcjson1 #MINVER#
  cJSON_Version@Base 1.7.5
  cJSON_free@Base 1.7.5
  cJSON_malloc@Base 1.7.5
+libcjson_utils.so.1 libcjson1 #MINVER#
+* Build-Depends-Package: libcjson-dev
+ cJSONUtils_AddPatchToArray@Base 1.7.16-2~
+ cJSONUtils_ApplyPatches@Base 1.7.16-2~
+ cJSONUtils_ApplyPatchesCaseSensitive@Base 1.7.16-2~
+ cJSONUtils_FindPointerFromObjectTo@Base 1.7.16-2~
+ cJSONUtils_GenerateMergePatch@Base 1.7.16-2~
+ cJSONUtils_GenerateMergePatchCaseSensitive@Base 1.7.16-2~
+ cJSONUtils_GeneratePatches@Base 1.7.16-2~
+ cJSONUtils_GeneratePatchesCaseSensitive@Base 1.7.16-2~
+ cJSONUtils_GetPointer@Base 1.7.16-2~
+ cJSONUtils_GetPointerCaseSensitive@Base 1.7.16-2~
+ cJSONUtils_MergePatch@Base 1.7.16-2~
+ cJSONUtils_MergePatchCaseSensitive@Base 1.7.16-2~
+ cJSONUtils_SortObject@Base 1.7.16-2~
+ cJSONUtils_SortObjectCaseSensitive@Base 1.7.16-2~

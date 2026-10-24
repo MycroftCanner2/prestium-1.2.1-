@@ -1,0 +1,5 @@
+7c91deb7c924893710c2c307f4f02ffd  usr/lib/x86_64-linux-gnu/libclang-19.so.19
+f4c136dd1131cf27db7ce6127e23041c  usr/share/doc/libclang1-19/changelog.Debian.amd64.gz
+dd3d99cc7d64078fbd1476b4b1e0d40a  usr/share/doc/libclang1-19/changelog.Debian.gz
+5fc7b1e71cec374ec5f97eef467810cf  usr/share/doc/libclang1-19/copyright
+d85d6e85b2032379f7af78d9c08b989f  usr/share/lintian/overrides/libclang1-19

@@ -1,4 +1,5 @@
 libdrm_amdgpu.so.1 libdrm-amdgpu1 #MINVER#
+* Build-Depends-Package: libdrm-dev
  amdgpu_bo_alloc@Base 2.4.63
  amdgpu_bo_cpu_map@Base 2.4.63
  amdgpu_bo_cpu_unmap@Base 2.4.63
@@ -55,6 +56,7 @@ libdrm_amdgpu.so.1 libdrm-amdgpu1 #MINVER#
  amdgpu_cs_wait_semaphore@Base 2.4.67
  amdgpu_device_deinitialize@Base 2.4.63
  amdgpu_device_get_fd@Base 2.4.109
+ amdgpu_device_initialize2@Base 2.4.121
  amdgpu_device_initialize@Base 2.4.63
  amdgpu_find_bo_by_cpu_mapping@Base 2.4.94
  amdgpu_get_marketing_name@Base 2.4.73
@@ -63,6 +65,7 @@ libdrm_amdgpu.so.1 libdrm-amdgpu1 #MINVER#
  amdgpu_query_firmware_version@Base 2.4.63
  amdgpu_query_gds_info@Base 2.4.63
  amdgpu_query_gpu_info@Base 2.4.63
+ amdgpu_query_gpuvm_fault_info@Base 2.4.117
  amdgpu_query_heap_info@Base 2.4.63
  amdgpu_query_hw_ip_count@Base 2.4.63
  amdgpu_query_hw_ip_info@Base 2.4.63
@@ -71,6 +74,11 @@ libdrm_amdgpu.so.1 libdrm-amdgpu1 #MINVER#
  amdgpu_query_sw_info@Base 2.4.90
  amdgpu_query_video_caps_info@Base 2.4.105
  amdgpu_read_mm_registers@Base 2.4.63
+ amdgpu_va_get_start_addr@Base 2.4.119
+ amdgpu_va_manager_alloc@Base 2.4.121
+ amdgpu_va_manager_deinit@Base 2.4.121
+ amdgpu_va_manager_init@Base 2.4.121
+ amdgpu_va_range_alloc2@Base 2.4.121
  amdgpu_va_range_alloc@Base 2.4.63
  amdgpu_va_range_free@Base 2.4.63
  amdgpu_va_range_query@Base 2.4.63

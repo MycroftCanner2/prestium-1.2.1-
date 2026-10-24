@@ -2,7 +2,8 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libcjson.so.1.7.15
+/usr/lib/x86_64-linux-gnu/libcjson.so.1.7.18
+/usr/lib/x86_64-linux-gnu/libcjson_utils.so.1.7.18
 /usr/share
 /usr/share/doc
 /usr/share/doc/libcjson1
@@ -10,3 +11,4 @@
 /usr/share/doc/libcjson1/changelog.gz
 /usr/share/doc/libcjson1/copyright
 /usr/lib/x86_64-linux-gnu/libcjson.so.1
+/usr/lib/x86_64-linux-gnu/libcjson_utils.so.1

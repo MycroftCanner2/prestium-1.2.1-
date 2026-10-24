@@ -557,6 +557,7 @@ libcolord.so.2 libcolord2 #MINVER#
  cd_vec3_subtract@Base 1.4.3
  cd_vec3_to_string@Base 1.4.3
 libcolordprivate.so.2 libcolord2 #MINVER#
+* Build-Depends-Package: libcolord-dev
  cd_bitfield_from_enums@Base 0.1.29
  cd_buffer_debug@Base 0.1.29
  cd_buffer_read_uint16_be@Base 0.1.29

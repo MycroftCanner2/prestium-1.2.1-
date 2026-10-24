@@ -1,4 +1,5 @@
 libdrm.so.2 libdrm2 #MINVER#
+* Build-Depends-Package: libdrm-dev
  drmAddBufs@Base 2.3.1
  drmAddContextPrivateMapping@Base 2.3.1
  drmAddContextTag@Base 2.3.1
@@ -74,6 +75,7 @@ libdrm.so.2 libdrm2 #MINVER#
  drmGetLock@Base 2.3.1
  drmGetMagic@Base 2.3.1
  drmGetMap@Base 2.3.1
+ drmGetNodeTypeFromDevId@Base 2.4.119
  drmGetNodeTypeFromFd@Base 2.4.60
  drmGetPrimaryDeviceNameFromFd@Base 2.4.60
  drmGetRenderDeviceNameFromFd@Base 2.4.60
@@ -107,6 +109,7 @@ libdrm.so.2 libdrm2 #MINVER#
  drmModeAtomicMerge@Base 2.4.62
  drmModeAtomicSetCursor@Base 2.4.62
  drmModeAttachMode@Base 2.4.3
+ drmModeCloseFB@Base 2.4.119
  drmModeConnectorGetPossibleCrtcs@Base 2.4.112
  drmModeConnectorSetProperty@Base 2.4.3
  drmModeCreateDumbBuffer@Base 2.4.114
@@ -191,6 +194,7 @@ libdrm.so.2 libdrm2 #MINVER#
  drmSwitchToContext@Base 2.3.1
  drmSyncobjCreate@Base 2.4.82
  drmSyncobjDestroy@Base 2.4.82
+ drmSyncobjEventfd@Base 2.4.116
  drmSyncobjExportSyncFile@Base 2.4.82
  drmSyncobjFDToHandle@Base 2.4.82
  drmSyncobjHandleToFD@Base 2.4.82

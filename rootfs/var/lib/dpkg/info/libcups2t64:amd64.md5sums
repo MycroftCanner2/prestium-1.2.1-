@@ -1,0 +1,7 @@
+50ea84cf23c2e9a97ecaca2e6a07060b  usr/lib/x86_64-linux-gnu/libcups.so.2
+702214879c4bb2a6d9c1269ce477c0ac  usr/share/doc/libcups2t64/README.Debian.gz
+31a1460338e52d13d49ee619d8272a54  usr/share/doc/libcups2t64/changelog.Debian.gz
+b09d7a7fabe634807ca04c115625a3d7  usr/share/doc/libcups2t64/changelog.gz
+d5c9c7cdb14feef5f2f05d76462f1862  usr/share/doc/libcups2t64/copyright
+31d23e8da708edcf7193f0907ef0d19f  usr/share/doc/libcups2t64/examples/client.conf
+58a1290808ecfad3c579d3f11ce82eb3  usr/share/lintian/overrides/libcups2t64

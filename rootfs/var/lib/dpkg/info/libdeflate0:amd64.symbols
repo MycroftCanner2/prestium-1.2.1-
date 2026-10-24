@@ -2,7 +2,9 @@ libdeflate.so.0 libdeflate0 #MINVER#
 * Build-Depends-Package: libdeflate-dev
  libdeflate_adler32@Base 1.0
  libdeflate_alloc_compressor@Base 1.0
+ libdeflate_alloc_compressor_ex@Base 1.19
  libdeflate_alloc_decompressor@Base 1.0
+ libdeflate_alloc_decompressor_ex@Base 1.19
  libdeflate_crc32@Base 1.0
  libdeflate_deflate_compress@Base 1.0
  libdeflate_deflate_compress_bound@Base 1.0
