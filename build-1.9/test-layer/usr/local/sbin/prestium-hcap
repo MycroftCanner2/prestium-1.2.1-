@@ -1,0 +1,41 @@
+#!/bin/bash
+# Prestium hardening capture (TEST ISO ONLY): dumps the effective hardening state
+# so 1.8 and 1.9 can be diffed. Output between HCAP BEGIN/END markers on ttyS0.
+sleep ${HCAP_DELAY:-150}
+O=/dev/ttyS0
+{
+echo "=== HCAP BEGIN ==="
+s(){ echo "## $*"; }
+s cmdline; tr ' ' '\n' < /proc/cmdline | grep -vE '^(BOOT_IMAGE=|initrd=|console=|quiet$|splash$)' | sort
+s os; . /etc/os-release; echo "$PRETTY_NAME $VERSION_ID"; uname -r
+s sysctl
+KEYS="$(grep -hoE '^[a-z][a-z0-9_.]+' /etc/sysctl.d/*prestium-hardening.conf | sort -u) kernel.yama.ptrace_scope kernel.unprivileged_bpf_disabled net.core.bpf_jit_harden kernel.sysrq kernel.kptr_restrict kernel.dmesg_restrict kernel.perf_event_paranoid kernel.kexec_load_disabled fs.protected_fifos fs.protected_regular fs.protected_symlinks fs.protected_hardlinks fs.suid_dumpable kernel.randomize_va_space kernel.unprivileged_userns_clone user.max_user_namespaces kernel.io_uring_disabled dev.tty.ldisc_autoload vm.unprivileged_userfaultfd net.ipv4.ip_forward net.ipv6.conf.all.forwarding net.ipv6.conf.all.disable_ipv6"
+for k in $(echo $KEYS | tr ' ' '\n' | sort -u); do printf '%s = %s\n' "$k" "$(sysctl -n $k 2>&1 | tr '\t' ' ')"; done
+s modprobe
+for m in $( (grep -hoE '^install +[^ ]+' /etc/modprobe.d/*.conf | awk '{print $2}'; echo ahci libahci libata bluetooth btusb firewire_core firewire_ohci firewire_sbp2 dccp sctp rds tipc can atm cramfs freevxfs jffs2 vivid) | sort -u); do echo "$m: $(modprobe -n -v $m 2>&1 | tr '\n' ' ' | sed 's#/lib/modules/[^ ]*/##g;s#/usr/lib/modules/[^ ]*/##g') | loaded=$(lsmod | awk '{print $1}' | grep -cx "${m//-/_}")"; done
+s modprobe.d; for f in /etc/modprobe.d/*; do echo "$f $(md5sum < $f | cut -c1-12)"; done
+s blacklist-loaded; lsmod | awk '{print $1}' | grep -xE 'ahci|libahci|libata|bluetooth|btusb|firewire_core|dccp|sctp|rds|tipc|can|atm|cramfs|freevxfs|jffs2|vivid' || echo none
+s rfkill; ls /sys/class/bluetooth 2>/dev/null | head -3; echo "bt-dev-count=$(ls /sys/class/bluetooth 2>/dev/null | wc -l)"
+norm(){ sed -E 's/^(:[A-Z0-9_]+ [A-Z-]+) \[[0-9]+:[0-9]+\]/\1/; s/^# .*//; s/--dport (1[0-9]{4}|2[0-9]{4}|30000) /--dport RANDPORT /' | grep -v '^$'; }
+for t in iptables-legacy ip6tables-legacy iptables-nft ip6tables-nft; do s "$t-save"; command -v $t-save >/dev/null && $t-save 2>/dev/null | norm || echo "($t-save absent)"; done
+s nft-ruleset-tables; nft list tables 2>/dev/null
+s apparmor; echo "aa-enabled: $(aa-enabled 2>&1)"; echo "apparmor.service: $(systemctl is-active apparmor)"; echo "profiles loaded: $(wc -l < /sys/kernel/security/apparmor/profiles 2>/dev/null)"; sort /sys/kernel/security/apparmor/profiles 2>/dev/null; journalctl -b -u apparmor --no-pager -o cat | tail -5; s aa-status; aa-status 2>&1 | sed -E 's/ \([0-9]+\)//' | grep -vE '^ +/(proc|sys)' | sed -E 's/[0-9]+ processes/N processes/'
+s aa-denials; journalctl -b -k --no-pager -o cat | grep -c 'apparmor="DENIED"'; journalctl -b -k --no-pager -o cat | grep 'apparmor="DENIED"' | sed -E 's/.*operation="([^"]*)".*profile="([^"]*)".*name="([^"]*)".*/\1 \2 \3/' | sort | uniq -c | head -20
+s timers; systemctl list-timers --all --no-legend --plain | awk '{for(i=1;i<=NF;i++) if($i ~ /\.timer$/) print $i}' | sort -u
+s enabled-units; for i in 1 2 3 4 5 6; do systemctl list-unit-files >/dev/null 2>&1 && break; sleep 15; done; systemctl list-unit-files --state=enabled,masked --no-legend --plain | awk '{print $1, $2}' | sort
+s wants-links; ls /etc/systemd/system/*.wants/ | sort; s failed; systemctl --failed --no-legend --plain
+s users; getent passwd root user i2pd debian-tor prestium-htp thelounge | cut -d: -f1,6,7; passwd -S root | awk '{print $1,$2}'; passwd -S user | awk '{print $1,$2}'; echo "user groups: $(id -Gn user | tr ' ' '\n' | sort | tr '\n' ' ')"
+s sudo; sudo -l -U user 2>&1 | sed -n '/may run/,$p'
+s sudo-mount; runuser -u user -- sudo -n /usr/bin/mount -t tmpfs x /mnt 2>&1 | head -1
+s polkit-rules; ls /etc/polkit-1/rules.d/ /usr/share/polkit-1/rules.d/ 2>/dev/null | grep -i prestium
+s i2pcontrol; awk '/^\[i2pcontrol\]/{f=1;next} /^\[/{f=0} f&&/enabled/' /var/lib/i2pd/i2pd.conf; ss -ltn | grep -c ':7650 '
+s sandbox
+for u in i2pd tor@default thelounge prestium-timesync prestium-usb-watchdog memlockd ferm NetworkManager lightdm; do echo "[$u]"; systemctl show $u -p User -p NoNewPrivileges -p ProtectSystem -p ProtectHome -p PrivateTmp -p PrivateDevices -p ProtectKernelTunables -p ProtectKernelModules -p ProtectControlGroups -p CapabilityBoundingSet -p AmbientCapabilities -p AppArmorProfile -p IPAddressDeny -p IPAddressAllow -p RestrictAddressFamilies -p MemoryDenyWriteExecute -p UMask -p SupplementaryGroups 2>/dev/null | sed 's/^/  /'; echo "  SystemCallFilter-md5=$(systemctl show $u -p SystemCallFilter | md5sum | cut -c1-8)"; done
+s lockdown; cat /sys/kernel/security/lockdown 2>/dev/null
+s mounts; findmnt -no TARGET,OPTIONS /tmp /dev/shm /run /home 2>/dev/null
+s coredump; ulimit -c; cat /proc/sys/kernel/core_pattern
+s network-conf; grep -h . /etc/NetworkManager/conf.d/*.conf | grep -v '^#'; cat /etc/resolv.conf | grep -v '^#'
+s hostname; hostname; cat /etc/hostname
+s ipv6; ip -6 addr show scope global | grep -c inet6
+echo "=== HCAP END ==="
+} > $O 2>&1

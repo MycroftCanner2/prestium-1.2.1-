@@ -1,0 +1,8 @@
+[Unit]
+Description=Prestium QEMU self-test (test ISO only)
+After=multi-user.target graphical.target
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/prestium-selftest
+[Install]
+WantedBy=multi-user.target

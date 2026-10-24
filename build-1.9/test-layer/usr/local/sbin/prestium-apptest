@@ -1,0 +1,38 @@
+#!/bin/sh
+# TEST ISO ONLY: runs in the autologin desktop session as "user": archive manager + app launches + OnionShare GUI
+L=/tmp/apptest.log
+exec >$L 2>&1
+for i in $(seq 1 900); do [ -e /tmp/app-go ] && break; sleep 2; done
+echo "start $(date +%T) DISPLAY=$DISPLAY uid=$(id -u)"
+cd /tmp; rm -rf ar; mkdir -p ar/src ar/zip ar/rar ar/rar5
+echo "prestium zip test" > ar/src/hello.txt
+python3 -c "import zipfile; z=zipfile.ZipFile('/tmp/ar/test.zip','w',zipfile.ZIP_DEFLATED); z.write('/tmp/ar/src/hello.txt','hello.txt'); z.close()"
+cp /usr/local/share/test_read_format_rar.rar ar/test.rar; cp /usr/local/share/test_read_format_rar5_stored.rar ar/test5.rar
+echo "## mime defaults: zip=$(xdg-mime query default application/zip) rar=$(xdg-mime query default application/vnd.rar) rarfile=$(xdg-mime query filetype ar/test.rar)"
+timeout 120 file-roller --extract-to=/tmp/ar/zip --force /tmp/ar/test.zip; echo "file-roller zip rc=$? -> $(cat /tmp/ar/zip/hello.txt 2>&1)"
+timeout 120 file-roller --extract-to=/tmp/ar/rar --force /tmp/ar/test.rar; echo "file-roller rar(v4) rc=$? -> $(find /tmp/ar/rar -type f | wc -l) files: $(find /tmp/ar/rar -type f | head -5 | tr '\n' ' ')"
+timeout 120 file-roller --extract-to=/tmp/ar/rar5 --force /tmp/ar/test5.rar; echo "file-roller rar5 rc=$? -> $(find /tmp/ar/rar5 -type f | wc -l) files: $(find /tmp/ar/rar5 -type f | head -5 | tr '\n' ' ')"
+7z l /tmp/ar/test.rar 2>&1 | tail -3 | tr '\n' ' '; echo
+win(){ xdotool search --onlyvisible --name "$1" 2>/dev/null | head -1; }
+launch(){ name=$1; pat=$2; shift 2; "$@" >/tmp/launch-$name.log 2>&1 & p=$!; for i in $(seq 1 100); do w=$(win "$pat"); [ -n "$w" ] && break; sleep 3; done; echo "launch $name: window=$( [ -n "$w" ] && xdotool getwindowname $w || echo NONE)"; [ -z "$w" ] && { echo "   alive=$(kill -0 $p 2>/dev/null && echo yes || echo no) windows-of-pid: $(xdotool search --pid $p 2>/dev/null | while read x; do xdotool getwindowname $x; done | tr '\n' '|')"; tail -n 6 /tmp/launch-$name.log | cut -c1-200 | sed 's/^/   log: /'; }; kill $p 2>/dev/null; pkill -u user -f "$name" 2>/dev/null; sleep 2; }
+launch file-roller "Archive Manager|File Roller|test" file-roller /tmp/ar/test.zip
+launch soffice "LibreOffice" libreoffice --writer
+launch gimp "GNU Image|GIMP" gimp
+launch vlc "VLC" vlc
+launch feather "Feather" feather
+launch keepassxc "KeePassXC" keepassxc
+launch speedcrunch "SpeedCrunch" speedcrunch
+launch sylpheed "Sylpheed|Setup" sylpheed
+launch gajim "Gajim|Welcome" gajim
+launch qtqr "QtQR" qtqr
+launch featherpad "FeatherPad|Untitled" featherpad
+launch xterm "xterm|user@" x-terminal-emulator
+launch nyx "Nyx" xterm -T Nyx -e nyx
+launch gpgfrontend "GpgFrontend" gpgfrontend
+launch audacity "Audacity" audacity
+launch librewolf "LibreWolf|Mozilla" librewolf-i2p
+launch onionshare "OnionShare" onionshare
+echo "volumeicon running: $(pgrep -c -u user volumeicon)"; timeout 15 volumeicon > /tmp/volumeicon.log 2>&1; echo "volumeicon rc=$? out: $(head -c 400 /tmp/volumeicon.log)"
+echo "diodon running: $(pgrep -c -u user diodon)  clipit dialog: $(xdotool search --name ClipIt 2>/dev/null | wc -l)"
+echo "tray/session procs: $(ps -u user -o comm= | sort -u | tr '\n' ' ')"
+echo APPTEST-DONE; touch /tmp/app-done

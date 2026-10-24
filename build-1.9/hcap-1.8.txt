@@ -1,0 +1,481 @@
+prestium login: === HCAP BEGIN ===
+## cmdline
+block.events_dfl_poll_msecs=1000
+boot=live
+init_on_alloc=1
+init_on_free=1
+loop.max_loop=64
+mce=0
+mds=full,nosmt
+modprobe.blacklist=ahci
+modprobe.blacklist=libahci
+modprobe.blacklist=libata
+noprompt
+page_alloc.shuffle=1
+page_poison=1
+pti=on
+randomize_kstack_offset=on
+slab_nomerge
+slub_debug=FZP
+vsyscall=none
+## os
+Prestium 1.8
+6.1.0-54-amd64
+## sysctl
+dev.tty.ldisc_autoload = 0
+fs.protected_fifos = 1
+fs.protected_hardlinks = 1
+fs.protected_regular = 2
+fs.protected_symlinks = 1
+fs.suid_dumpable = 0
+kernel.core_pattern = |/bin/false
+kernel.dmesg_restrict = 1
+kernel.io_uring_disabled = sysctl: cannot stat /proc/sys/kernel/io_uring_disabled: No such file or directory
+kernel.kexec_load_disabled = 1
+kernel.kptr_restrict = 2
+kernel.perf_event_paranoid = 3
+kernel.printk = 3 3 3 3
+kernel.randomize_va_space = 2
+kernel.sysrq = 0
+kernel.unprivileged_bpf_disabled = 1
+kernel.unprivileged_userns_clone = 1
+kernel.yama.ptrace_scope = 2
+net.core.bpf_jit_harden = 2
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.all.secure_redirects = 0
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0
+net.ipv4.conf.default.accept_source_route = 0
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.conf.default.secure_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+net.ipv4.ip_forward = 0
+net.ipv4.tcp_rfc1337 = 1
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_timestamps = 0
+net.ipv6.conf.all.accept_ra = 0
+net.ipv6.conf.all.accept_redirects = 0
+net.ipv6.conf.all.accept_source_route = 0
+net.ipv6.conf.all.disable_ipv6 = 0
+net.ipv6.conf.all.forwarding = 0
+net.ipv6.conf.default.accept_ra = 0
+net.ipv6.conf.default.accept_redirects = 0
+net.ipv6.conf.default.accept_source_route = 0
+user.max_user_namespaces = 9530
+vm.mmap_rnd_bits = 32
+vm.mmap_rnd_compat_bits = 16
+vm.swappiness = 1
+vm.unprivileged_userfaultfd = 0
+## modprobe
+af_802154: install /bin/false   | loaded=0
+ahci: insmod libahci.ko  insmod ahci.ko   | loaded=0
+libahci: insmod libahci.ko   | loaded=0
+libata:  | loaded=1
+bluetooth: insmod crc16.ko  insmod ecc.ko  insmod ecdh_generic.ko  install /bin/true   | loaded=0
+btusb: insmod crc16.ko  insmod ecc.ko  insmod usb-common.ko  insmod usbcore.ko  insmod ecdh_generic.ko  install /bin/true  insmod btmtk.ko  insmod btintel.ko  insmod btbcm.ko  insmod btrtl.ko  install /bin/true   | loaded=0
+firewire_core: insmod crc-itu-t.ko  install /bin/false   | loaded=0
+firewire_ohci: insmod crc-itu-t.ko  install /bin/false  install /bin/false   | loaded=0
+firewire_sbp2: insmod crc-itu-t.ko  install /bin/false  install /bin/false   | loaded=0
+dccp: install /bin/false   | loaded=0
+sctp: insmod crc32c-intel.ko  insmod udp_tunnel.ko  insmod ip6_udp_tunnel.ko  install /bin/false   | loaded=0
+rds: install /bin/false   | loaded=0
+tipc: insmod udp_tunnel.ko  insmod ip6_udp_tunnel.ko  install /bin/false   | loaded=0
+can: install /bin/false   | loaded=0
+atm: install /bin/false   | loaded=0
+cramfs: install /bin/false   | loaded=0
+freevxfs: install /bin/false   | loaded=0
+jffs2: insmod mtd.ko  install /bin/false   | loaded=0
+vivid: insmod rc-core.ko  insmod cec.ko  insmod mc.ko  insmod videodev.ko  insmod videobuf2-common.ko  insmod videobuf2-v4l2.ko  insmod videobuf2-memops.ko  insmod videobuf2-vmalloc.ko  insmod videobuf2-dma-contig.ko  insmod v4l2-dv-timings.ko  insmod v4l2-tpg.ko  install /bin/false   | loaded=0
+appletalk: insmod llc.ko  install /bin/false  install /bin/false   | loaded=0
+atm: install /bin/false   | loaded=0
+ax25: install /bin/false   | loaded=0
+bluetooth: insmod crc16.ko  insmod ecc.ko  insmod ecdh_generic.ko  install /bin/true   | loaded=0
+bnep: insmod crc16.ko  insmod ecc.ko  insmod ecdh_generic.ko  install /bin/true  install /bin/true   | loaded=0
+btusb: insmod crc16.ko  insmod ecc.ko  insmod usb-common.ko  insmod usbcore.ko  insmod ecdh_generic.ko  install /bin/true  insmod btmtk.ko  insmod btintel.ko  insmod btbcm.ko  insmod btrtl.ko  install /bin/true   | loaded=0
+can: install /bin/false   | loaded=0
+cramfs: install /bin/false   | loaded=0
+dccp: install /bin/false   | loaded=0
+decnet: install /bin/false   | loaded=0
+econet: install /bin/false   | loaded=0
+firewire-core: insmod crc-itu-t.ko  install /bin/false   | loaded=0
+firewire-ohci: insmod crc-itu-t.ko  install /bin/false  install /bin/false   | loaded=0
+firewire-sbp2: insmod crc-itu-t.ko  install /bin/false  install /bin/false   | loaded=0
+freevxfs: install /bin/false   | loaded=0
+ipx: install /bin/false   | loaded=0
+jffs2: insmod mtd.ko  install /bin/false   | loaded=0
+netrom: install /bin/false  install /bin/false   | loaded=0
+n-hdlc: install /bin/false   | loaded=0
+ohci1394: install /bin/false   | loaded=0
+p8022: insmod llc.ko  install /bin/false   | loaded=0
+p8023: install /bin/false   | loaded=0
+psnap: insmod llc.ko  install /bin/false   | loaded=0
+rds: install /bin/false   | loaded=0
+rose: install /bin/false  install /bin/false   | loaded=0
+sctp: insmod crc32c-intel.ko  insmod udp_tunnel.ko  insmod ip6_udp_tunnel.ko  install /bin/false   | loaded=0
+tipc: insmod udp_tunnel.ko  insmod ip6_udp_tunnel.ko  install /bin/false   | loaded=0
+vivid: insmod rc-core.ko  insmod cec.ko  insmod mc.ko  insmod videodev.ko  insmod videobuf2-common.ko  insmod videobuf2-v4l2.ko  insmod videobuf2-memops.ko  insmod videobuf2-vmalloc.ko  insmod videobuf2-dma-contig.ko  insmod v4l2-dv-timings.ko  insmod v4l2-tpg.ko  install /bin/false   | loaded=0
+x25: install /bin/false   | loaded=0
+## modprobe.d
+/etc/modprobe.d/amd64-microcode-blacklist.conf 71327241f658
+/etc/modprobe.d/intel-microcode-blacklist.conf 71327241f658
+/etc/modprobe.d/iwlwifi.conf 700253780385
+/etc/modprobe.d/no-bluetooth.conf 71d1a5915f98
+/etc/modprobe.d/prestium-blacklist.conf c1b4d5c1ae17
+## blacklist-loaded
+libata
+## rfkill
+bt-dev-count=0
+## iptables-legacy-save
+*nat
+:PREROUTING ACCEPT
+:INPUT ACCEPT
+:OUTPUT ACCEPT
+:POSTROUTING ACCEPT
+COMMIT
+*filter
+:INPUT DROP
+:FORWARD DROP
+:OUTPUT DROP
+-A INPUT -m state --state ESTABLISHED -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A OUTPUT -m state --state ESTABLISHED -j ACCEPT
+-A OUTPUT -d 127.0.0.1/32 -o lo -p tcp -m owner --gid-owner 995 -m tcp --dport 7070 --tcp-flags FIN,SYN,RST,ACK SYN -j ACCEPT
+-A OUTPUT -d 127.0.0.1/32 -o lo -p tcp -m owner --gid-owner 995 -m tcp --dport 7685 --tcp-flags FIN,SYN,RST,ACK SYN -j ACCEPT
+-A OUTPUT -d 127.0.0.1/32 -o lo -p tcp -m owner --gid-owner 995 -m tcp --dport 9000 --tcp-flags FIN,SYN,RST,ACK SYN -j ACCEPT
+-A OUTPUT -o lo -p icmp -m owner --gid-owner 995 -m state --state RELATED -j ACCEPT
+-A OUTPUT -m owner --gid-owner 995 -j LOG --log-prefix "Dropped localweb packet: " --log-level 7 --log-uid
+-A OUTPUT -m owner --gid-owner 995 -j REJECT --reject-with icmp-port-unreachable
+-A OUTPUT -d 127.0.0.1/32 -o lo -p tcp -m owner --uid-owner 998 -m tcp --dport 6665:6672 --tcp-flags FIN,SYN,RST,ACK SYN -j ACCEPT
+-A OUTPUT -o lo -p icmp -m owner --uid-owner 998 -m state --state RELATED -j ACCEPT
+-A OUTPUT -m owner --uid-owner 998 -j LOG --log-prefix "Dropped thelounge packet: " --log-level 7 --log-uid
+-A OUTPUT -m owner --uid-owner 998 -j REJECT --reject-with icmp-port-unreachable
+-A OUTPUT -o lo -p icmp -m state --state RELATED -j ACCEPT
+-A OUTPUT -d 127.0.0.1/32 -o lo -p tcp -m tcp --dport 1024:65535 --tcp-flags FIN,SYN,RST,ACK SYN -m owner --uid-owner 1000 -j ACCEPT
+-A OUTPUT -d 127.0.0.1/32 -o lo -p tcp -m tcp --dport 631 --tcp-flags FIN,SYN,RST,ACK SYN -m owner --uid-owner 1000 -j ACCEPT
+-A OUTPUT -d 127.0.0.1/32 -o lo -p tcp -m tcp --dport 9050 --tcp-flags FIN,SYN,RST,ACK SYN -m owner --uid-owner 110 -j ACCEPT
+-A OUTPUT -m owner --uid-owner 2000 -j ACCEPT
+-A OUTPUT -m owner --uid-owner 107 -j ACCEPT
+-A OUTPUT -j LOG --log-prefix "Dropped outbound packet: " --log-level 7 --log-uid
+-A OUTPUT -j REJECT --reject-with icmp-port-unreachable
+COMMIT
+## ip6tables-legacy-save
+*filter
+:INPUT DROP
+:FORWARD DROP
+:OUTPUT DROP
+-A INPUT -m state --state ESTABLISHED -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A OUTPUT -m state --state ESTABLISHED -j ACCEPT
+-A OUTPUT -m owner --gid-owner 995 -j REJECT --reject-with icmp6-port-unreachable
+-A OUTPUT -m owner --uid-owner 998 -j REJECT --reject-with icmp6-port-unreachable
+-A OUTPUT -o lo -j ACCEPT
+-A OUTPUT -m owner --uid-owner 2000 -j ACCEPT
+-A OUTPUT -m owner --uid-owner 107 -j ACCEPT
+-A OUTPUT -j LOG --log-prefix "Dropped outbound packet: " --log-level 7 --log-uid
+-A OUTPUT -j REJECT --reject-with icmp6-port-unreachable
+COMMIT
+## iptables-nft-save
+*filter
+:INPUT ACCEPT
+:FORWARD ACCEPT
+:OUTPUT ACCEPT
+:PRESTIUM_I2PD -
+-A INPUT -j PRESTIUM_I2PD
+-A PRESTIUM_I2PD -p tcp -m tcp --dport RANDPORT -j ACCEPT
+-A PRESTIUM_I2PD -p udp -m udp --dport RANDPORT -j ACCEPT
+COMMIT
+## ip6tables-nft-save
+*filter
+:INPUT ACCEPT
+:FORWARD ACCEPT
+:OUTPUT ACCEPT
+:PRESTIUM_I2PD -
+-A INPUT -j PRESTIUM_I2PD
+-A PRESTIUM_I2PD -p tcp -m tcp --dport RANDPORT -j ACCEPT
+-A PRESTIUM_I2PD -p udp -m udp --dport RANDPORT -j ACCEPT
+COMMIT
+## nft-ruleset-tables
+table ip filter
+table ip6 filter
+## apparmor
+aa-enabled: Yes
+apparmor.service: inactive
+profiles loaded: 0
+apparmor.service - Load AppArmor profiles was skipped because of an unmet condition check (ConditionPathExists=!/run/live/overlay/work).
+## aa-status
+apparmor module is loaded.
+## aa-denials
+1
+      1 change_onexec unconfined system_tor
+## timers
+systemd-tmpfiles-clean.timer
+## enabled-units
+Failed to list unit files: Connection timed out
+## wants-links
+
+
+
+
+apparmor.service
+console-setup.service
+/etc/systemd/system/graphical.target.wants/:
+/etc/systemd/system/multi-user.target.wants/:
+/etc/systemd/system/network-online.target.wants/:
+/etc/systemd/system/sockets.target.wants/:
+/etc/systemd/system/sysinit.target.wants/:
+ferm.service
+i2pd.service
+ifupdown-wait-online.service
+keyboard-setup.service
+memlockd.service
+ModemManager.service
+networking.service
+networking.service
+NetworkManager.service
+NetworkManager-wait-online.service
+pcscd.socket
+prestium-hcap.service
+prestium-timesync.service
+prestium-usb-watchdog.service
+remote-fs.target
+systemd-pstore.service
+thelounge.service
+tor.service
+udisks2.service
+wpa_supplicant.service
+## failed
+## users
+root:/root:/usr/sbin/nologin
+user:/home/user:/bin/bash
+i2pd:/var/lib/i2pd:/usr/sbin/nologin
+debian-tor:/var/lib/tor:/bin/false
+prestium-htp:/nonexistent:/usr/sbin/nologin
+thelounge:/var/lib/thelounge:/usr/sbin/nologin
+root L
+user NP
+user groups: autologin debian-tor i2pd i2ptorrents prestium-localweb user 
+## sudo
+User user may run the following commands on localhost:
+    (root) NOPASSWD: /usr/bin/date
+    (root) NOPASSWD: /usr/bin/systemctl poweroff, /usr/bin/systemctl reboot, /usr/sbin/poweroff, /usr/sbin/reboot, /usr/bin/systemctl restart i2pd, /usr/local/bin/prestium-tunnel-hops
+## sudo-mount
+sudo: a password is required
+## polkit-rules
+49-prestium-power.rules
+49-prestium-veracrypt.rules
+## i2pcontrol
+enabled = false
+0
+## sandbox
+[i2pd]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0007
+  CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+  AmbientCapabilities=
+  User=i2pd
+  SupplementaryGroups=i2ptorrents
+  PrivateTmp=no
+  PrivateDevices=no
+  ProtectKernelTunables=yes
+  ProtectKernelModules=yes
+  ProtectControlGroups=yes
+  ProtectHome=no
+  ProtectSystem=full
+  AppArmorProfile=
+  NoNewPrivileges=yes
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[tor@default]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0022
+  CapabilityBoundingSet=cap_dac_read_search cap_setgid cap_setuid cap_net_bind_service
+  AmbientCapabilities=
+  User=
+  SupplementaryGroups=
+  PrivateTmp=yes
+  PrivateDevices=yes
+  ProtectKernelTunables=no
+  ProtectKernelModules=no
+  ProtectControlGroups=no
+  ProtectHome=yes
+  ProtectSystem=full
+  AppArmorProfile=-system_tor
+  NoNewPrivileges=yes
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[thelounge]
+  IPAddressAllow=127.0.0.0/8 ::1/128
+  IPAddressDeny=::/0 0.0.0.0/0
+  UMask=0077
+  CapabilityBoundingSet=
+  AmbientCapabilities=
+  User=thelounge
+  SupplementaryGroups=
+  PrivateTmp=yes
+  PrivateDevices=yes
+  ProtectKernelTunables=yes
+  ProtectKernelModules=yes
+  ProtectControlGroups=yes
+  ProtectHome=yes
+  ProtectSystem=strict
+  AppArmorProfile=
+  NoNewPrivileges=yes
+  RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[prestium-timesync]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0022
+  CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+  AmbientCapabilities=
+  User=
+  SupplementaryGroups=
+  PrivateTmp=no
+  PrivateDevices=no
+  ProtectKernelTunables=no
+  ProtectKernelModules=no
+  ProtectControlGroups=no
+  ProtectHome=no
+  ProtectSystem=no
+  AppArmorProfile=
+  NoNewPrivileges=no
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[prestium-usb-watchdog]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0022
+  CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+  AmbientCapabilities=
+  User=
+  SupplementaryGroups=
+  PrivateTmp=no
+  PrivateDevices=no
+  ProtectKernelTunables=no
+  ProtectKernelModules=no
+  ProtectControlGroups=no
+  ProtectHome=no
+  ProtectSystem=no
+  AppArmorProfile=
+  NoNewPrivileges=no
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[memlockd]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0022
+  CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+  AmbientCapabilities=
+  User=
+  SupplementaryGroups=
+  PrivateTmp=no
+  PrivateDevices=no
+  ProtectKernelTunables=no
+  ProtectKernelModules=no
+  ProtectControlGroups=no
+  ProtectHome=no
+  ProtectSystem=no
+  AppArmorProfile=
+  NoNewPrivileges=no
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[ferm]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0022
+  CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+  AmbientCapabilities=
+  User=
+  SupplementaryGroups=
+  PrivateTmp=no
+  PrivateDevices=no
+  ProtectKernelTunables=no
+  ProtectKernelModules=no
+  ProtectControlGroups=no
+  ProtectHome=no
+  ProtectSystem=no
+  AppArmorProfile=
+  NoNewPrivileges=no
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[NetworkManager]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0022
+  CapabilityBoundingSet=cap_dac_override cap_kill cap_setgid cap_setuid cap_net_bind_service cap_net_admin cap_net_raw cap_sys_module cap_sys_chroot cap_audit_write
+  AmbientCapabilities=
+  User=
+  SupplementaryGroups=
+  PrivateTmp=no
+  PrivateDevices=no
+  ProtectKernelTunables=no
+  ProtectKernelModules=no
+  ProtectControlGroups=no
+  ProtectHome=read-only
+  ProtectSystem=yes
+  AppArmorProfile=
+  NoNewPrivileges=no
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+[lightdm]
+  IPAddressAllow=
+  IPAddressDeny=
+  UMask=0022
+  CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+  AmbientCapabilities=
+  User=
+  SupplementaryGroups=
+  PrivateTmp=no
+  PrivateDevices=no
+  ProtectKernelTunables=no
+  ProtectKernelModules=no
+  ProtectControlGroups=no
+  ProtectHome=no
+  ProtectSystem=no
+  AppArmorProfile=
+  NoNewPrivileges=no
+  RestrictAddressFamilies=~
+  MemoryDenyWriteExecute=no
+  SystemCallFilter-md5=b01d7935
+## lockdown
+[none] integrity confidentiality
+## mounts
+## coredump
+0
+|/bin/false
+## network-conf
+[device]
+wifi.scan-rand-mac-address=yes
+[connection]
+wifi.cloned-mac-address=random
+ethernet.cloned-mac-address=random
+connection.stable-id=${CONNECTION}/${BOOT}
+[connectivity]
+enabled=false
+[connection]
+ipv6.ip6-privacy=2
+[main]
+hostname-mode=none
+dns=none
+rc-manager=unmanaged
+nameserver 127.0.0.1
+## hostname
+prestium
+prestium
+## ipv6
+0
+=== HCAP END ===

@@ -1,0 +1,8 @@
+[Unit]
+Description=Prestium hardening capture (test ISO only)
+After=multi-user.target
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/prestium-hcap
+[Install]
+WantedBy=multi-user.target

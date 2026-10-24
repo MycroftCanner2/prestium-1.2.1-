@@ -1,0 +1,18 @@
+#!/bin/sh
+# runs inside the autologin desktop session as "user"
+L=/tmp/vctest.log; U=/usr/local/bin/prestium-unlock-veracrypt
+exec >$L 2>&1
+echo "whoami=$(id -un) session=$XDG_SESSION_ID"; loginctl show-session "$XDG_SESSION_ID" -p Active -p Remote 2>&1
+cp /usr/local/share/vc-test.hc ~/vc-test.hc
+echo "## wrong password"; echo wrong | $U --cli ~/vc-test.hc; echo rc=$?
+echo "## unlock (no fs yet)"; echo Prestium-test-1 | $U --cli ~/vc-test.hc; echo rc=$?
+lsblk -rno NAME,TYPE,FSTYPE | grep -E 'loop|crypt|dm'
+touch /tmp/vc-step1
+for i in $(seq 1 400); do [ -e /tmp/vc-step2 ] && break; sleep 2; done
+echo "## lock"; $U --cli --lock
+echo "## unlock + mount"; echo Prestium-test-1 | $U --cli ~/vc-test.hc; echo rc=$?
+M=$(findmnt -rno TARGET,OPTIONS | grep /media/user); echo "mount: $M"
+D=$(echo "$M" | cut -d' ' -f1); echo hello > "$D/hello.txt" && echo "write ok: $(cat "$D/hello.txt")"
+echo "## lock again"; $U --cli --lock; findmnt -rno TARGET | grep -c /media/user
+echo "## sudo for user"; sudo -n -l 2>&1 | tail -4; command -v veracrypt || echo "veracrypt: absent"
+echo VCTEST-DONE; touch /tmp/vc-done

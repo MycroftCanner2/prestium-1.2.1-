@@ -1,0 +1,136 @@
+#!/bin/bash
+# TEST ISO ONLY: user-priority checks (i2pd config migration, live tunnels,
+# tunnel hops via the menu path, firewall). Output goes to stdout (selftest
+# redirects it to ttyS0). Restarts i2pd several times, so run it last.
+echo "=== PRIORITY BEGIN ==="
+P=/var/lib/i2pd
+PORTS="4444 4447 4450 7656 7659 7660 6665 6666 6668 6669 6670 6671 6672 7685"
+lw() { runuser -u user -- sg prestium-localweb -c "curl -s -m 15 $*" 2>/dev/null; }
+allup() { for i in $(seq 1 ${1:-90}); do miss=""; for p in $PORTS; do ss -ltn | grep -q "127.0.0.1:$p " || miss="$miss $p"; done; [ -z "$miss" ] && return 0; sleep 2; done; echo "   missing after wait:$miss"; return 1; }
+
+echo "##P1 i2pd config (parse + headers)"
+echo "i2pd: $(/usr/bin/i2pd --version 2>&1 | head -1)"
+for f in $P/i2pd.conf $P/tunnels.conf $P/tunnels.conf.d/*.conf; do
+  echo "$f sha=$(sha256sum < $f | cut -c1-16) dup-sections=[$(grep -E '^\s*\[' $f | sort | uniq -d | tr '\n' ' ')] empty-sections=[$(awk '/^\s*\[/{if(s!="" && n==0) printf "%s ", s; s=$0; n=0; next} /^\s*[^#;[:space:]]/{n++} END{if(s!="" && n==0) printf "%s", s}' $f)]"
+done
+echo "log warnings/errors this boot (i2pd info log): $(grep -acE '/(warn|error|critical) - ' /var/log/i2pd/i2pd.log)"
+grep -aE '/(warn|error|critical) - ' /var/log/i2pd/i2pd.log | sed -E 's/^[0-9:@.]+//' | cut -c1-160 | sort | uniq -c | sort -rn | head -15
+echo "config-parse lines: $(grep -aciE 'unknown|unrecognised|unrecognized|can.t parse|invalid|duplicate' /var/log/i2pd/i2pd.log)"
+grep -aiE 'unknown|unrecognised|unrecognized|can.t parse|invalid|duplicate' /var/log/i2pd/i2pd.log | head -5 | cut -c1-200
+
+echo "##P2 live tunnels"
+allup 150 && echo "all client ports listening"
+for p in $PORTS; do printf '%s:%s ' $p "$(ss -ltn | grep -c "127.0.0.1:$p ")"; done; echo
+lw -o /tmp/tun.html http://127.0.0.1:7070/?page=i2p_tunnels
+python3 - <<'PY'
+import re,html
+t=open('/tmp/tun.html',errors='replace').read()
+t=re.sub(r'<br\s*/?>|</div>|</tr>','\n',t); t=html.unescape(re.sub(r'<[^>]+>',' ',t))
+for l in t.splitlines():
+    l=' '.join(l.split())
+    if l and ('.b32.i2p' in l or ':' in l or 'unnel' in l): print('  console:', l[:200])
+PY
+lw -o /tmp/main.html http://127.0.0.1:7070/
+python3 - <<'PY'
+import re,html
+t=html.unescape(re.sub(r'<[^>]+>',' ',open('/tmp/main.html',errors='replace').read()))
+for k in ['Network status','Tunnel creation success rate','Client Tunnels','Transit Tunnels','Routers','Floodfills','LeaseSets']:
+    m=re.search(re.escape(k)+r'[^A-Za-z]{0,3}\s*([^\n]{0,60})',t)
+    print('  main:',k,'=',' '.join(m.group(1).split())[:60] if m else '?')
+PY
+# per-destination tunnel pools (state of inbound/outbound tunnels)
+for b in $(grep -oE '[a-z2-7]{52}\.b32\.i2p' /tmp/tun.html | sort -u); do
+  lw -o /tmp/d.html "'http://127.0.0.1:7070/?page=local_destination&b32=${b%.b32.i2p}'"
+  st=$(python3 -c "
+import re,html,collections
+t=html.unescape(re.sub(r'<[^>]+>',' ',open('/tmp/d.html',errors='replace').read()))
+c=collections.Counter(re.findall(r'\b(established|building|failed|expiring)\b',t))
+print(dict(c))")
+  echo "  dest ${b:0:12}… pools: $st"
+done
+echo "keys: irc2p=$(sha256sum < $P/irc2p-keys.dat 2>/dev/null | cut -c1-12) ilita=$(sha256sum < $P/ilita-keys.dat 2>/dev/null | cut -c1-12) (must differ)"
+python3 - <<'PY'
+import re
+t=open('/tmp/tun.html',errors='replace').read()
+rows=re.findall(r'>([^<>]{2,40})</a>\s*(?:&#8656;|&lArr;|⇐)\s*.*?([a-z2-7]{52}\.b32\.i2p)',t)
+d={n.strip():b for n,b in rows}
+irc2p={d[k] for k in d if k.startswith('IRC2P')}; ilita={d[k] for k in d if k.startswith('IRC-Ilita')}
+print('  IRC2P identities:',len(irc2p),[x[:10] for x in irc2p],' Ilita identities:',len(ilita),[x[:10] for x in ilita],' overlap:',len(irc2p&ilita))
+for n,b in sorted(d.items()): print('  tunnel', n, '->', b[:16]+'…')
+PY
+echo "tcp connect per client tunnel (as root, lo):"; for p in $PORTS; do timeout 3 bash -c "exec 3<>/dev/tcp/127.0.0.1/$p" 2>/dev/null && printf '%s:ok ' $p || printf '%s:FAIL ' $p; done; echo
+
+echo "##P3 tunnel hops (as user via the menu command)"
+grep -c 'prestium-tunnel-hops [1-7]</execute>' /etc/xdg/openbox/menu.xml | sed 's/^/menu entries pointing to script: /'
+grep -o '<item label="[^"]*">' /etc/xdg/openbox/menu.xml | grep -i hop | tr '\n' ' '; echo
+cp -a $P/tunnels.conf /tmp/tun.orig; cp -a $P/i2pd.conf /tmp/main.orig
+cmpsec() { python3 - "$@" <<'PY'
+import re,sys
+def secs(p):
+    out={}; cur=None
+    for l in open(p).read().splitlines():
+        m=re.match(r'^\s*\[([^\]]+)\]',l)
+        if m: cur=m.group(1); out[cur]=[]; continue
+        out.setdefault(cur,[]).append(l)
+    return out
+def norm(b): return [l for l in b if l.strip() and not re.match(r'\s*(inbound|outbound)\.length\s*=',l)]
+def lens(b): return sorted(set(re.sub(r'\s','',l) for l in b if re.match(r'\s*(inbound|outbound)\.length\s*=',l)))
+n=sys.argv[5]
+for tag,a,b in (('tunnels.conf',sys.argv[1],sys.argv[2]),('i2pd.conf',sys.argv[3],sys.argv[4])):
+    A,B=secs(a),secs(b); changed=[s for s in B if A.get(s)!=B.get(s)]
+    other=[s for s in B if norm(A.get(s,[]))!=norm(B.get(s,[]))]
+    typed=[s for s in B if s and any(re.match(r'\s*type\s*=',l) for l in B[s])]
+    want=typed if tag=='tunnels.conf' else ['exploratory','socksproxy']
+    bad=[s for s in want if lens(B[s])!=[f'inbound.length={n}',f'outbound.length={n}']]
+    print(f'   {tag}: sections changed={sorted(map(str,changed))} | non-length edits={other} | expected={sorted(want)} | wrong-length={bad} | same-set={sorted(map(str,changed))==sorted(want) or (not changed and not bad)}')
+PY
+}
+for n in 5 7 1 3; do
+  pid0=$(systemctl show i2pd -p MainPID --value); cp $P/tunnels.conf /tmp/t.before; cp $P/i2pd.conf /tmp/m.before
+  out=$(runuser -u user -- env DISPLAY= prestium-tunnel-hops $n 2>&1); rc=$?
+  pid1=$(systemctl show i2pd -p MainPID --value)
+  echo "hops $n: rc=$rc out=[$(echo $out | cut -c1-120)] i2pd pid $pid0->$pid1 restarted=$([ "$pid0" != "$pid1" ] && echo yes || echo NO) active=$(systemctl is-active i2pd)"
+  cmpsec /tmp/t.before $P/tunnels.conf /tmp/m.before $P/i2pd.conf $n
+  allup 120 && echo "   all client tunnels back: yes"
+done
+echo "bad input:"
+for bad in 0 8 abc "3;id"; do b1=$(cat $P/tunnels.conf $P/i2pd.conf | sha256sum | cut -c1-12); pid0=$(systemctl show i2pd -p MainPID --value)
+  out=$(runuser -u user -- env DISPLAY= prestium-tunnel-hops "$bad" 2>&1); rc=$?
+  echo "   '$bad': rc=$rc [$out] files-unchanged=$([ "$b1" = "$(cat $P/tunnels.conf $P/i2pd.conf | sha256sum | cut -c1-12)" ] && echo yes || echo NO) i2pd-not-restarted=$([ "$pid0" = "$(systemctl show i2pd -p MainPID --value)" ] && echo yes || echo NO)"; done
+echo "validation (duplicate section injected):"
+cp -a $P/tunnels.conf /tmp/t.good; printf '\n[IRC2P]\ntype = client\naddress = 127.0.0.1\nport = 6699\ndestination = x.b32.i2p\n' >> $P/tunnels.conf; b1=$(sha256sum < $P/tunnels.conf)
+out=$(runuser -u user -- env DISPLAY= prestium-tunnel-hops 5 2>&1); rc=$?
+echo "   rc=$rc [$(echo $out | cut -c1-150)] file-untouched=$([ "$b1" = "$(sha256sum < $P/tunnels.conf)" ] && echo yes || echo NO)"; cat /tmp/t.good > $P/tunnels.conf
+echo "rollback (i2pd forced to fail start):"
+mkdir -p /run/systemd/system/i2pd.service.d; printf '[Service]\nExecStartPre=/bin/false\n' > /run/systemd/system/i2pd.service.d/zzz-fail.conf; systemctl daemon-reload
+b1=$(cat $P/tunnels.conf $P/i2pd.conf | sha256sum | cut -c1-12)
+out=$(runuser -u user -- env DISPLAY= prestium-tunnel-hops 6 2>&1); rc=$?
+echo "   rc=$rc [$(echo $out | cut -c1-150)] restored=$([ "$b1" = "$(cat $P/tunnels.conf $P/i2pd.conf | sha256sum | cut -c1-12)" ] && echo yes || echo NO) has-6=$(grep -c 'length = 6' $P/tunnels.conf)"
+rm -f /run/systemd/system/i2pd.service.d/zzz-fail.conf; systemctl daemon-reload; systemctl restart i2pd; allup 120 && echo "   i2pd back after removing forced failure: yes"
+echo "final effective hops: tunnels.conf lengths=$(grep -oE '(in|out)bound.length = [0-9]' $P/tunnels.conf | sort | uniq -c | tr '\n' ' ') i2pd.conf=$(grep -oE '(in|out)bound.length = [0-9]' $P/i2pd.conf | sort | uniq -c | tr '\n' ' ')"
+echo "diff vs boot config (ignoring explicit length=3 lines): $(diff <(grep -vE '^(in|out)bound.length = 3$' $P/tunnels.conf | grep -v '^$') <(grep -v '^$' /tmp/tun.orig) >/dev/null && echo none || echo DIFFERS) / $(diff <(grep -vE '^(in|out)bound.length = 3$' $P/i2pd.conf | grep -v '^$') <(grep -v '^$' /tmp/main.orig) >/dev/null && echo none || echo DIFFERS)"
+
+echo "##P4 firewall"
+echo "[iptables-legacy-save]"; iptables-legacy-save | grep -v '^#' | sed -E 's/^(:[A-Z0-9_]+ [A-Z-]+) \[[0-9]+:[0-9]+\]/\1/'
+echo "[ip6tables-legacy-save]"; ip6tables-legacy-save | grep -v '^#' | sed -E 's/^(:[A-Z0-9_]+ [A-Z-]+) \[[0-9]+:[0-9]+\]/\1/'
+echo "[nft tables (should hold no Prestium rules)]"; nft list tables 2>/dev/null; iptables-nft -S 2>/dev/null | grep -c -- '-A ' | sed 's/^/iptables-nft rules: /'
+eg() { r=$(runuser -u $1 -- curl -s -m 10 -o /dev/null -w '%{http_code}' http://1.1.1.1/ 2>/dev/null); echo "$1 -> 1.1.1.1:80 = ${r:-000} ($([ "${r:-000}" = 000 ] && echo blocked || echo ALLOWED))"; }
+for u in user debian-tor i2pd thelounge prestium-htp nobody; do eg $u; done
+r=$(curl -s -m 10 -o /dev/null -w '%{http_code}' http://1.1.1.1/ 2>/dev/null); echo "root -> 1.1.1.1:80 = ${r:-000}"
+echo "user tcp 443 to IP: $(runuser -u user -- curl -s -m 8 -o /dev/null -w '%{http_code}' https://1.1.1.1/ 2>/dev/null || echo blocked)"
+echo "user udp/53 to 1.1.1.1 (python, expect EPERM/timeout): $(runuser -u user -- python3 -c "
+import socket;s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);s.settimeout(4)
+try:
+  s.sendto(b'\x12\x34\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x07example\x03com\x00\x00\x01\x00\x01',('1.1.1.1',53)); s.recvfrom(512); print('ANSWER (leak)')
+except Exception as e: print('blocked:',type(e).__name__)
+")"
+echo "dns: resolv=$(grep -v '^#' /etc/resolv.conf | tr '\n' ' ') listeners-53=$(ss -lnu | grep -c ':53 ')$(ss -lnt | grep -c ':53 ') getent=$(getent hosts example.com || echo none)"
+echo "ipv6: global addrs=$(ip -6 addr show scope global | grep -c inet6) OUTPUT policy=$(ip6tables-legacy -S OUTPUT | head -1) INPUT policy=$(ip6tables-legacy -S INPUT | head -1) user->[2606:4700:4700::1111]=$(runuser -u user -- curl -s -m 6 -o /dev/null -w '%{http_code}' 'http://[2606:4700:4700::1111]/' 2>/dev/null || echo blocked)"
+IP=$(awk -F'= *' '/^port *=/{print $2; exit}' $P/i2pd.conf)
+echo "i2pd random port=$IP; PRESTIUM_I2PD: $(iptables-legacy -S PRESTIUM_I2PD | tr '\n' ' ')"
+echo "INPUT ACCEPT rules other than lo/established/PRESTIUM_I2PD: $(iptables-legacy -S INPUT | grep -E -- '-j (ACCEPT|PRESTIUM_I2PD)' | grep -vE -- '-i lo|ESTABLISHED|RELATED|-j PRESTIUM_I2PD' | tr '\n' ';')"
+echo "INPUT rules mentioning the port outside PRESTIUM_I2PD: $(iptables-legacy-save | grep -- "--dport $IP" | grep -vc PRESTIUM_I2PD)"
+echo "localweb group (Firefox local-only):"
+for u in http://127.0.0.1:7070/ http://127.0.0.1:9000/ "$(cat /run/prestium-torrents/url)web/" http://127.0.0.1:4444/ http://127.0.0.1:9050/ http://127.0.0.1:7656/ http://1.1.1.1/; do echo "   $u -> $(lw -o /dev/null -w '%{http_code}' "$u" || true)" | sed -E 's#7685/[0-9a-f]{32}/#7685/(secret)/#'; done
+echo "onionshare: runs as user (direct net blocked above); tor control socket: $(stat -c '%U:%G %a' /run/tor/control 2>/dev/null) user in debian-tor: $(id -nG user | grep -c debian-tor)"
+echo "=== PRIORITY END ==="

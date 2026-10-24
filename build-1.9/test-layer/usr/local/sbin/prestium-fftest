@@ -1,0 +1,16 @@
+#!/bin/sh
+# TEST ISO ONLY: runs inside the autologin desktop session as "user";
+# uses the real menu commands, then records the Firefox window titles and its TCP connections.
+L=/tmp/fftest.log
+exec >$L 2>&1
+for i in $(seq 1 900); do [ -e /tmp/ff-go ] && break; sleep 2; done
+title() { echo "## $1: windows: $(xdotool search --class PrestiumLocalFirefox getwindowname %@ 2>/dev/null | tr '\n' '|')"; }
+conns() { echo "   firefox TCP: $(ss -tnp 2>/dev/null | grep -E 'firefox|Socket' | grep -o -E '127.0.0.1:(7070|7685|9000)[^0-9]' | sort | uniq -c | tr '\n' ' ' | tr -s ' ')"; }
+echo "start $(date +%T) DISPLAY=$DISPLAY uid=$(id -u) groups=$(id -Gn)"
+/usr/local/bin/prestium-i2p-console & sleep 180; title "I2P Router Console"; conns
+/usr/local/bin/prestium-torrents & sleep 120; title "I2P Torrents"; conns
+/usr/local/bin/prestium-irc & sleep 180; title "IRC (The Lounge)"; conns
+echo "firefox processes: $(pgrep -u user -c -f /opt/firefox/)"
+ps -o pid,fsgroup:20,egroup:20,args -u user | grep '/opt/firefox/firefox' | grep -v grep | head -3 | cut -c1-160
+echo "launcher refuses other URLs: $(/usr/local/bin/prestium-localfox http://example.com/ 2>&1; echo rc=$?)"
+echo FFTEST-DONE; touch /tmp/ff-done

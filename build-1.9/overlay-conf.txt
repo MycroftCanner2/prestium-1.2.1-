@@ -1,0 +1,13 @@
+# 1.8 conffiles modified by Prestium (copied as-is; checked against trixie defaults)
+/etc/ferm/ferm.conf
+/etc/i2pd/i2pd.conf
+/etc/i2pd/tunnels.conf
+/etc/initramfs-tools/update-initramfs.conf
+/etc/security/limits.conf
+/etc/xdg/openbox/autostart
+/etc/xdg/openbox/menu.xml
+/etc/xdg/openbox/rc.xml
+/etc/xdg/pcmanfm/default/pcmanfm.conf
+/etc/xdg/tint2/tint2rc
+/etc/wgetrc
+/etc/xdg/user-dirs.defaults

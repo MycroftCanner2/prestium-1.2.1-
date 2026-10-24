@@ -1,0 +1,171 @@
+#!/bin/sh
+sleep 200
+HCAP_DELAY=0 /usr/local/sbin/prestium-hcap
+touch /tmp/app-go
+{
+echo "=== SELFTEST5 BEGIN ==="
+grep VERSION= /etc/os-release; uname -r
+for u in ferm NetworkManager i2pd tor@default lightdm memlockd prestium-usb-watchdog prestium-timesync thelounge apparmor; do echo "unit $u: $(systemctl is-active $u)"; done
+echo "failed units:"; systemctl --failed --no-legend --plain
+echo "--- firewall"; for t in iptables-legacy iptables-nft; do echo "[$t]"; $t -S OUTPUT 2>/dev/null | head -30; $t -S INPUT 2>/dev/null | head -6; done; ip6tables-legacy -S OUTPUT | head -3; ip6tables-nft -S OUTPUT 2>/dev/null | head -3
+echo "--- i2pd inbound port (legacy backend = ferm backend)"; iptables-legacy -S PRESTIUM_I2PD; ip6tables-legacy -S PRESTIUM_I2PD; iptables-legacy -S INPUT | head -3; echo "nft PRESTIUM_I2PD (should be absent): $(iptables-nft -S PRESTIUM_I2PD 2>&1 | head -1)"
+echo "--- fifos"; sysctl fs.protected_fifos fs.protected_regular; ls /etc/sysctl.d /usr/lib/sysctl.d
+echo "--- mac"; ip -d link show | grep -E 'link/ether|permaddr'
+echo "--- addr"; ip -4 -br addr
+echo "--- resolv"; cat /etc/resolv.conf | grep -v '^#'
+echo "--- watchdog"; journalctl -b -u prestium-usb-watchdog --no-pager -o cat | tail -3
+echo "--- timesync"; journalctl -b -u prestium-timesync --no-pager -o cat | tail -4
+echo "--- sysctl"; sysctl kernel.yama.ptrace_scope kernel.unprivileged_bpf_disabled kernel.sysrq net.ipv4.conf.all.accept_redirects
+echo "--- leak tests (user)"
+runuser -u user -- curl -s -m 8 -o /dev/null -w "clearnet direct: %{http_code}\n" http://1.1.1.1/ || echo "clearnet direct: blocked"
+runuser -u user -- curl -s -m 60 -o /dev/null -w "tor socks: %{http_code}\n" --proxy socks5h://127.0.0.1:9050 https://check.torproject.org/ || echo "tor socks: failed"
+runuser -u user -- sudo -n /usr/bin/mount -t tmpfs x /mnt 2>&1 | head -1; runuser -u user -- sudo -n /usr/bin/veracrypt --version 2>&1 | head -1
+runuser -u prestium-htp -- curl -s -m 8 -o /dev/null -w "htp clearnet: %{http_code}\n" http://1.1.1.1/ || echo "htp clearnet: blocked"
+getent hosts example.com || echo "dns: none (expected)"
+echo "--- i2p"; grep -a -E "client tunnels created|Reseed" /var/log/i2pd/i2pd.log | tail -3
+ss -ltn | grep -c -E '127.0.0.1:(4444|4447|4450|7656|9050|6668|6669) '; ss -ltn | grep -o -E '127.0.0.1:[0-9]+' | sort -u | tr '\n' ' '; echo
+echo "--- apps"; ls /opt; ls /opt/tor-browser/Browser/firefox /usr/bin/librewolf /usr/local/bin/feather
+dpkg-query -W tor i2pd librewolf linux-image-6.12.113+deb13-amd64 nyx onionshare onionshare-cli file-roller 7zip p7zip-full live-boot ferm apparmor
+passwd -S root
+echo "--- i2pd torrents"
+for i in $(seq 1 30); do ss -ltn | grep -q "127.0.0.1:7685 " && break; sleep 10; done; echo "7685 listening: $(ss -ltn | grep -c "127.0.0.1:7685 ")"
+ls -la /var/lib/i2pd/tunnels.conf.d/; sed "s/rpcpath = .*/rpcpath = (secret)/" /var/lib/i2pd/tunnels.conf.d/torrents.conf
+grep -a -i -E "torrent|rpc|7685" /var/log/i2pd/i2pd.log | head -15 | cut -c1-220
+journalctl -b -u i2pd --no-pager -o cat | tail -8
+U=$(cat /run/prestium-torrents/url); echo "url ok: $(echo $U | grep -cE '^http://127.0.0.1:7685/[0-9a-f]{32}/$')"
+ls -ld /home/user/Downloads/Torrents; id user | grep -o i2ptorrents; id i2pd | grep -o i2ptorrents
+runuser -u user -- curl -s -m 10 -o /dev/null -w "web: %{http_code}\n" ${U}web/
+runuser -u user -- curl -s -m 10 -o /dev/null -w "rpc without token: %{http_code}\n" -X POST -d '{"method":"session-get"}' http://127.0.0.1:7685/rpc
+runuser -u user -- curl -s -m 10 -X POST -H 'Content-Type: application/json' -d '{"method":"session-get","arguments":{}}' ${U}rpc | head -c 300; echo
+runuser -u user -- curl -s -m 10 -X POST -H 'Content-Type: application/json' -d '{"method":"torrent-add","arguments":{"filename":"magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567&dn=prestium-test"}}' ${U}rpc | head -c 300; echo
+sleep 5
+runuser -u user -- curl -s -m 10 -X POST -H 'Content-Type: application/json' -d '{"method":"torrent-get","arguments":{"fields":["id","name","status"]}}' ${U}rpc | head -c 300; echo
+runuser -u user -- curl -s -m 10 -X POST -H 'Content-Type: application/json' -d '{"method":"dht-stats","arguments":{}}' ${U}rpc | head -c 300; echo
+ls -la /home/user/Downloads/Torrents | head -5
+journalctl -b -k --no-pager -o cat | grep -i 'apparmor="DENIED"' | grep i2pd | head -3
+echo "--- tor browser"
+cat /opt/tor-browser/Browser/tbb_version.json; echo
+grep -E '^(Version|BuildID)=' /opt/tor-browser/Browser/application.ini | tr '\n' ' '; echo
+ls -l /opt/tor-browser/Browser/distribution/policies.json; stat -c 'owner %u:%g %a' /opt/tor-browser /opt/tor-browser/Browser
+runuser -u user -- sh -c 'cd /tmp && /usr/local/bin/tor-browser --headless --verbose https://check.torproject.org/ >/tmp/tb.log 2>&1 &'
+sleep 75
+echo "tb processes: $(pgrep -u user -c -f firefox.real)"; echo "bundled tor running: $(pgrep -c -f 'TorBrowser/Tor/tor' || true)"
+echo "tb->9050 conns: $(ss -tnp | grep '127.0.0.1:9050' | grep -c firefox)"; ss -tnp | grep '127.0.0.1:9050' | grep firefox | head -2
+echo "tor control sockets (listener+clients): $(ss -xp | grep -c /run/tor/control)"
+tail -n 8 /tmp/tb.log
+for f in /opt/tor-browser/Browser/TorBrowser/Data/Browser/profile.default/places.sqlite; do ls -l $f 2>/dev/null; done
+pkill -u user -f firefox.real; sleep 3
+echo "--- veracrypt (udisks2)"
+for i in $(seq 1 90); do [ -e /tmp/vc-step1 ] && break; sleep 2; done
+DM=$(lsblk -rnpo NAME,TYPE | awk '$2=="crypt"{print $1; exit}'); echo "cleartext=$DM"
+if [ -n "$DM" ]; then mkfs.ext4 -q -F "$DM" && mkdir -p /mnt/t && mount "$DM" /mnt/t && chown 1000:1000 /mnt/t && umount /mnt/t && echo "mkfs ok"; fi
+touch /tmp/vc-step2
+for i in $(seq 1 60); do [ -e /tmp/vc-done ] && break; sleep 2; done
+cat /tmp/vctest.log
+echo "--- hexchat removed"
+command -v hexchat || echo "hexchat binary: absent"; echo "hexchat pkgs: $(dpkg -l | grep -c hexchat)"
+ls -d /home/user/.config/hexchat /etc/skel/.config/hexchat 2>&1 | sed 's/^/  /'
+echo "hexchat in menu/apps/dbus: $(grep -ci hexchat /etc/xdg/openbox/menu.xml) $(ls /usr/share/applications /usr/share/dbus-1/services | grep -ci hexchat) $(grep -ci hexchat /usr/share/applications/mimeinfo.cache)"
+echo "4449 listening: $(ss -ltn | grep -c '127.0.0.1:4449 ')"; grep -c 'HexChat' /var/lib/i2pd/tunnels.conf
+echo "--- menu"; grep -E 'I2P Router Console|I2P Torrents|IRC \(The Lounge\)' -A1 /etc/xdg/openbox/menu.xml | grep -o '<execute>[^<]*' 
+echo "--- firefox"
+grep -E '^(Version|BuildID)=' /opt/firefox/application.ini | tr '\n' ' '; echo
+runuser -u user -- /opt/firefox/firefox --version 2>&1 | tail -1
+stat -c '%U:%G %a %n' /opt/firefox /opt/firefox/distribution/policies.json
+python3 -c "import json;print('policies ok', len(json.load(open('/opt/firefox/distribution/policies.json'))['policies']))"
+echo "user groups: $(id -Gn user)"
+echo "--- local-only firewall (as user, group prestium-localweb = the local Firefox's group)"
+TU=$(cat /run/prestium-torrents/url)
+lw() { runuser -u user -- sg prestium-localweb -c "curl -s -m 10 -o /dev/null -w '%{http_code}' $1; echo \" rc=\$?\"" 2>&1 | tr '\n' ' '; }
+echo "localweb 7070 console: $(lw http://127.0.0.1:7070/)"
+echo "localweb 7685 torrents: $(lw ${TU}web/)"
+echo "localweb 9000 lounge: $(lw http://127.0.0.1:9000/)"
+echo "localweb clearnet 1.1.1.1: $(lw http://1.1.1.1/)"
+echo "localweb http proxy 4444: $(lw '--proxy http://127.0.0.1:4444 http://stats.i2p/')"
+echo "localweb i2p socks 4447: $(lw '--proxy socks5h://127.0.0.1:4447 http://stats.i2p/')"
+echo "localweb tor socks 9050: $(lw '--proxy socks5h://127.0.0.1:9050 https://check.torproject.org/')"
+echo "localweb system proxy 4450: $(lw '--proxy http://127.0.0.1:4450 http://stats.i2p/')"
+echo "localweb SAM 7656: $(lw http://127.0.0.1:7656/)"
+echo "localweb irc tunnel 6668: $(lw telnet://127.0.0.1:6668)"
+echo "localweb ipv6 ::1:9000: $(lw 'http://[::1]:9000/')"
+echo "(contrast) plain user to 4444: $(runuser -u user -- curl -s -m 20 -o /dev/null -w '%{http_code}' --proxy http://127.0.0.1:4444 http://127.0.0.1:1/ || true)"
+{ iptables-legacy -S OUTPUT; iptables-nft -S OUTPUT; } 2>/dev/null | grep -E 'gid-owner|uid-owner (995|996|998|thelounge)' | head -8
+{ ip6tables-legacy -S OUTPUT; ip6tables-nft -S OUTPUT; } 2>/dev/null | grep -E 'gid-owner|uid-owner 998'
+echo "--- the lounge"
+for i in $(seq 1 60); do ss -ltn | grep -q "127.0.0.1:9000 " && break; sleep 2; done
+echo "unit thelounge: $(systemctl is-active thelounge)"; ss -ltnp | grep ':9000 '
+echo "thelounge restarts: $(systemctl show thelounge -p NRestarts --value)"; echo "lounge external fetch attempts logged: $(journalctl -b -u thelounge --no-pager -o cat | grep -c -E 'changelog|api.github|registry')"
+echo "listeners on 9000 (all addrs): $(ss -ltn | grep -c ':9000 ')"
+/opt/nodejs/bin/node --version; grep '"version"' /opt/thelounge/node_modules/thelounge/package.json
+stat -c '%U:%G %a %n' /run/prestium-thelounge /run/prestium-thelounge/token /run/prestium-thelounge/password /var/lib/thelounge /var/lib/thelounge/users/prestium.json
+echo "token readable by user: $(runuser -u user -- cat /run/prestium-thelounge/token | grep -cE '^[0-9a-f]{128}$')"
+echo "token readable by thelounge: $(runuser -u thelounge -- cat /run/prestium-thelounge/token 2>/dev/null | grep -c . || true)"
+echo "autologin page: $(runuser -u user -- curl -s -m 10 -o /dev/null -w '%{http_code}' http://127.0.0.1:9000/packages/thelounge-prestium-autologin/autologin.html)"
+echo "lounge as thelounge -> clearnet: $(runuser -u thelounge -- curl -s -m 8 -o /dev/null -w '%{http_code}' http://1.1.1.1/ 2>/dev/null || echo blocked)"
+echo "lounge as thelounge -> 4444: $(runuser -u thelounge -- curl -s -m 8 -o /dev/null -w '%{http_code}' --proxy http://127.0.0.1:4444 http://stats.i2p/ 2>/dev/null || echo blocked)"
+echo "lounge as thelounge -> 9050: $(runuser -u thelounge -- curl -s -m 8 -o /dev/null -w '%{http_code}' --proxy socks5h://127.0.0.1:9050 https://check.torproject.org/ 2>/dev/null || echo blocked)"
+echo "lounge as thelounge -> tunnel 6668 tcp: $(runuser -u thelounge -- timeout 5 bash -c 'exec 3<>/dev/tcp/127.0.0.1/6668 && echo connected' 2>&1 | tail -1)"
+journalctl -b -u thelounge --no-pager -o cat | grep -v -E '^\[RAW|^2026.*\[RAW' | head -12
+echo "--- i2pd irc tunnels"
+ss -ltn | grep -o -E '127.0.0.1:66(65|66|68|69|70|71|72) ' | sort | tr '\n' ' '; echo
+echo "--- firefox menu entries (desktop session as user)"
+touch /tmp/ff-go
+for i in $(seq 1 300); do [ -e /tmp/ff-done ] && break; sleep 2; done
+cat /tmp/fftest.log
+python3 - <<'PY'
+import json
+u=json.load(open('/var/lib/thelounge/users/prestium.json'))
+for h,s in u['sessions'].items(): print('lounge session:', s.get('agent'), s.get('ip'))
+print('lounge networks:', [(n['name'], n['host'], n['port'], [c['name'] for c in n['channels']]) for n in u['networks']])
+PY
+echo "--- the lounge IRC over I2P (waiting up to 15 min for registration)"
+for i in $(seq 1 90); do
+  n=$(journalctl -b -u thelounge --no-pager -o cat | grep -c -E ' 001 | 366 ')
+  [ "$n" -ge 2 ] && break; sleep 10
+done
+ss -tnp | grep -E '127.0.0.1:66(68|69) ' | head -4
+journalctl -b -u thelounge --no-pager -o cat | grep -E 'NICK |USER | 001 | 433 | JOIN | 366 |ERROR|Connection|connect|timed out|closed' | cut -c1-200 | head -40
+grep -a -E 'IRC2P|Ilita|irc2p-keys|ilita-keys|6668|6669' /var/log/i2pd/i2pd.log | tail -6 | cut -c1-200
+
+echo "--- kernel/firmware/hardware"
+uname -a; cat /proc/cmdline
+dpkg-query -W -f='${Package} ${Version}\n' 'firmware-*' amd64-microcode intel-microcode linux-image-amd64 2>/dev/null
+for d in brcm intel/sof intel/sof-ipc4 intel/sof-ace-tplg mediatek i915 xe amdgpu rtw89 rtl_bt iwlwifi-so-a0-gf-a0-89.ucode ath11k ath12k; do echo "fw $d: $(ls -d /lib/firmware/$d* 2>/dev/null | wc -l) entries"; done
+for m in surface_aggregator surface_aggregator_registry surface_aggregator_hub surface_hid surface_hid_core surface_kbd surface_acpi_notify surface_battery surface_charger surface_platform_profile surface_dtx surface_gpe surfacepro3_button surface3_power intel_ipts ithc pinctrl_sunrisepoint snd_sof_pci_intel_tgl snd_sof_pci_intel_mtl brcmfmac mt7921e mt7925e iwlwifi i915 xe amdgpu; do printf '%s: %s\n' $m "$(modinfo -F filename $m 2>/dev/null | sed 's#.*/kernel/##' || true)"; done
+echo "--- i2pd ports / tor"
+ss -ltn | awk '{print $4}' | grep -oE '127.0.0.1:[0-9]+' | sort -t: -k2 -n -u | tr '\n' ' '; echo
+for p in 4444 4447 4450 7656 7659 7660 6665 6666 6667 6668 6669 6670 6671 6672 7070 7685 9050 9000; do printf '%s:%s ' $p $(ss -ltn | grep -c "127.0.0.1:$p "); done; echo
+echo "i2pd random port: $(awk -F'= *' '/^port *=/{print $2; exit}' /var/lib/i2pd/i2pd.conf) listening: $(ss -lnu | grep -c ":$(awk -F'= *' '/^port *=/{print $2; exit}' /var/lib/i2pd/i2pd.conf) ")"
+/usr/bin/i2pd --version 2>&1 | head -1
+grep -aE 'Reseed|reseed|su3' /var/log/i2pd/i2pd.log | head -5
+echo "reseed https connections: $(grep -acE 'Reseed: Downloading|https://' /var/log/i2pd/i2pd.log)"
+echo "tor bootstrap: $(journalctl -b -u tor@default --no-pager -o cat | grep -o 'Bootstrapped [0-9]*%[^)]*' | tail -1)"
+command -v nyx && nyx --version 2>&1 | head -1
+echo "time sync: $(journalctl -b -u prestium-timesync --no-pager -o cat | tail -2 | tr '\n' ' ')"
+echo "i2p http proxy as user (stats.i2p): $(runuser -u user -- curl -s -m 120 -o /dev/null -w '%{http_code}' --proxy http://127.0.0.1:4444 http://stats.i2p/ || echo fail)"
+echo "--- librewolf"
+V=$(dpkg-query -W -f='${Version}' librewolf 2>/dev/null); if dpkg --compare-versions "$V" ge 158.0.1-2; then echo "librewolf version check: PASS ($V >= 158.0.1-2, eMudhra distrust built into package NSS)"; else echo "librewolf version check: FAIL ($V)"; fi
+echo "librewolf headless launch: $(runuser -u user -- sh -c 'HOME=/tmp/lwhome timeout 240 librewolf --headless --screenshot /tmp/lw.png about:blank >/tmp/lw.log 2>&1; echo rc=$?'; ls -s /tmp/lw.png 2>/dev/null | cut -d" " -f1)"
+dpkg-query -W librewolf; grep -c 'PRESTIUM BEGIN' /usr/share/librewolf/librewolf.cfg; grep -E 'network.proxy.http_port|javascript.enabled|https_only_mode"' /usr/share/librewolf/librewolf.cfg | tail -3
+python3 -c "import json;p=json.load(open('/usr/share/librewolf/distribution/policies.json'))['policies'];print('HttpsOnlyMode',p.get('HttpsOnlyMode'),'ext',list(p.get('ExtensionSettings',{}).keys()))"
+ls -l /usr/share/librewolf/distribution/extensions/
+echo "--- onionshare (system Tor control socket)"
+onionshare-cli --version 2>&1 | head -2
+cat /home/user/.config/onionshare/onionshare.json
+runuser -u user -- python3 -c "from stem.control import Controller; c=Controller.from_socket_file('/run/tor/control'); c.authenticate(); print('control ok, tor', c.get_version(), 'bootstrap', c.get_info('status/bootstrap-phase'))" 2>&1 | tail -1
+echo "share test" > /tmp/os-share.txt; chmod 644 /tmp/os-share.txt
+runuser -u user -- sh -c 'cd /tmp; timeout 420 onionshare-cli --public --auto-stop-timer 400 /tmp/os-share.txt > /tmp/os.log 2>&1 &'
+for i in $(seq 1 80); do grep -qE 'http://[a-z2-7]{56}\.onion' /tmp/os.log && break; sleep 5; done
+U=$(grep -oE 'http://[a-z2-7]{56}\.onion[^ ]*' /tmp/os.log | head -1); echo "onionshare url: ${U:-NONE}"
+grep -iE 'error|denied|connect' /tmp/os.log | head -5
+if [ -n "$U" ]; then for i in 1 2 3 4; do r=$(runuser -u user -- curl -s -m 120 -o /dev/null -w '%{http_code}' --socks5-hostname 127.0.0.1:9050 "$U"); echo "fetch via tor try $i: $r"; [ "$r" = 200 ] && break; sleep 20; done; fi
+pkill -u user -f onionshare-cli; sleep 2
+echo "onionshare firewall drops: $(journalctl -b -k --no-pager -o cat | grep 'Dropped' | grep -c 'UID=1000')"
+echo "--- desktop app tests"
+for i in $(seq 1 360); do [ -e /tmp/app-done ] && break; sleep 3; done
+cat /tmp/apptest.log
+echo "--- apparmor after tests"; aa-status 2>&1 | head -8; journalctl -b -k --no-pager -o cat | grep 'apparmor="DENIED"' | sed -E 's/.*operation="([^"]*)".*profile="([^"]*)".*name="([^"]*)".*/\1 \2 \3/' | sort | uniq -c | head -20
+/usr/local/sbin/prestium-prioritytest
+echo "--- absent"; command -v hexchat qbittorrent veracrypt || echo "hexchat/qbittorrent/veracrypt: absent"; ls /opt
+echo "=== SELFTEST5 END ==="
+} > /dev/ttyS0 2>&1
