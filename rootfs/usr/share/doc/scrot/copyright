@@ -15,7 +15,7 @@ Copyright: 1999-2000 Tom Gilbert <tom@linuxbrit.co.uk,
            2016-2023 Joao Eriberto Mota Filho <eriberto@eriberto.pro.br>
            2017      Stoney Sauce <stoneysauce@gmail.com>
            2019      Daniel Lublin <daniel@lublin.se>
-           2019-2022 Daniel T. Borelli <danieltborelli@gmail.com>
+           2019-2023 Daniel T. Borelli <danieltborelli@gmail.com>
            2019      Jade Auer <jade@trashwitch.dev>
            2020      blockparole
            2020      Cungsten Tarbide <ctarbide@tuta.io>
@@ -26,29 +26,34 @@ Copyright: 1999-2000 Tom Gilbert <tom@linuxbrit.co.uk,
            2020      Sean Brennan <zettix1@gmail.com>
            2021      c0dev0id <sh+github@codevoid.de>
            2021      Christopher R. Nelson <christopher.nelson@languidnights.com>
-           2021-2023 Guilherme Janczak <guilherme.janczak@yandex.com>
+           2021-2024 Guilherme Janczak <guilherme.janczak@yandex.com>
            2021      IFo Hancroft <contact@ifohancroft.com>
            2021      Martin C <martincation@protonmail.com>
            2021      Peter Wu <peterwu@hotmail.com>
            2021      Wilson Smith <01wsmith+gh@gmail.com>
-           2022      NRK <nrk@disroot.org>
+           2022-2025 NRK <nrk@disroot.org>
            2022      Sam James <sam@cmpct.info>
            2022      Zev Weiss <zev@bewilderbeest.net>
-License: MIT-advertising
+           2024      7xnl <7xnl@proton.me>
+License: MIT-feh
 
-Files: autogen.sh
-       man/create-man.sh
+Files: etc/bash-completion/scrot
+       etc/zsh-completion/_scrot
+Copyright: 2024 NRK <nrk@disroot.org>
+License: The-Unlicense
+
+Files: man/create-man.sh
 Copyright: 2015-2020 Joao Eriberto Mota Filho <eriberto@eriberto.pro.br>
 License: BSD-3-Clause
 
 Files: debian/*
 Copyright: 2000-2006 Laurence J. Lane <ljlane@debian.org>
            2008-2010 William Vera <billy@billy.com.mx>
-           2015-2023 Joao Eriberto Mota Filho <eriberto@debian.org>
+           2015-2025 Joao Eriberto Mota Filho <eriberto@debian.org>
            2018      Ondřej Nový <onovy@debian.org>
 License: BSD-3-Clause
 
-License: MIT-advertising
+License: MIT-feh
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to
  deal in the Software without restriction, including without limitation the
@@ -67,6 +72,32 @@ License: MIT-advertising
  THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+License: The-Unlicense
+ This is free and unencumbered software released into the public domain.
+ .
+ Anyone is free to copy, modify, publish, use, compile, sell, or
+ distribute this software, either in source code form or as a compiled
+ binary, for any purpose, commercial or non-commercial, and by any
+ means.
+ .
+ In jurisdictions that recognize copyright laws, the author or authors
+ of this software dedicate any and all copyright interest in the
+ software to the public domain. We make this dedication for the benefit
+ of the public at large and to the detriment of our heirs and
+ successors. We intend this dedication to be an overt act of
+ relinquishment in perpetuity of all present and future rights to this
+ software under copyright law.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+ .
+ For more information, please refer to <http://unlicense.org/>
 
 License: BSD-3-Clause
  Redistribution and use in source and binary forms, with or without

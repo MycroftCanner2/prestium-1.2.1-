@@ -1,0 +1,63 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: simple-websocket
+Upstream-Contact: miguel.grinberg@gmail.com
+Source: https://pypi.org/project/simple-websocket
+Comment: Repository on GitHub: https://github.com/miguelgrinberg/simple-websocket
+
+Files: MANIFEST.in
+       README.md
+       PKG-INFO
+       docs/Makefile
+       docs/_static/css/custom.css
+       docs/api.rst
+       docs/conf.py
+       docs/index.rst
+       docs/intro.rst
+       docs/make.bat
+       pyproject.toml
+       setup.cfg
+       src/simple_websocket.egg-info/SOURCES.txt
+       src/simple_websocket.egg-info/dependency_links.txt
+       src/simple_websocket.egg-info/not-zip-safe
+       src/simple_websocket.egg-info/requires.txt
+       src/simple_websocket.egg-info/top_level.txt
+       src/simple_websocket/__init__.py
+       src/simple_websocket/aiows.py
+       src/simple_websocket/asgi.py
+       src/simple_websocket/errors.py
+       src/simple_websocket/ws.py
+       src/simple_websocket.egg-info/PKG-INFO
+       tests/__init__.py
+       tests/helpers.py
+       tests/test_aioclient.py
+       tests/test_aioserver.py
+       tests/test_client.py
+       tests/test_server.py
+       tox.ini
+Copyright: 2023-2024 Miguel Grinberg <miguel.grinberg@gmail.com>
+License: MIT
+Comment:
+ Using license as found in LICENSE file.
+
+Files: debian/*
+Copyright:  2025 Paulo Henrique de Lima Santana (phls) <phls@debian.org>
+License: MIT
+
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

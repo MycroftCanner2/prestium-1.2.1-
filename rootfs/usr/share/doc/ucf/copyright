@@ -1,12 +1,14 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: https://salsa.debian.org/srivasta/ucf
+Source: https://salsa.debian.org/debian/ucf
 Upstream-Name: ucf
-Upstream-Contact:  Manoj Srivastava <srivasta@debian.org>
+Upstream-Contact:  Mark Hindley <leepen@debian.org>
 Copyright: 2002, 2003, 2003, 2004, 2005, 2006, 2015 Manoj Srivastava <srivasta@debian.org>
+	   2024 Mark Hindley <leepen@debian.org>
 License: GPL-2
 
 Files: *
 Copyright: 2002, 2003, 2003, 2004, 2005, 2006, 2015 Manoj Srivastava <srivasta@debian.org>
+	   2024 Mark Hindley <leepen@debian.org>
 License: GPL-2
 
 Files: debian/po/ca.po

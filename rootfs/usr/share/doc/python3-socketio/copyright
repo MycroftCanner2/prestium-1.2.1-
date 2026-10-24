@@ -1,0 +1,117 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: python-socketio
+Upstream-Contact: miguel.grinberg@gmail.com
+Source: https://pypi.python.org/pypi/python_socketio
+Comment: Repository on GitHub: https://github.com/miguelgrinberg/python-socketio
+
+Files: MANIFEST.in
+       PKG-INFO
+       docs/api.rst
+       docs/client.rst
+       docs/conf.py
+       docs/index.rst
+       docs/intro.rst
+       docs/make.bat
+       docs/Makefile
+       docs/server.rst
+       docs/_static/custom.css
+       docs/_static/README.md
+       src/python_socketio.egg-info/dependency_links.txt
+       src/python_socketio.egg-info/not-zip-safe
+       src/python_socketio.egg-info/PKG-INFO
+       src/python_socketio.egg-info/requires.txt
+       src/python_socketio.egg-info/SOURCES.txt
+       src/python_socketio.egg-info/top_level.txt
+       pyproject.toml
+       README.md
+       setup.cfg
+       src/socketio/admin.py
+       src/socketio/async_admin.py
+       src/socketio/async_aiopika_manager.py
+       src/socketio/async_client.py
+       src/socketio/async_manager.py
+       src/socketio/async_namespace.py
+       src/socketio/async_pubsub_manager.py
+       src/socketio/async_redis_manager.py
+       src/socketio/async_server.py
+       src/socketio/async_simple_client.py
+       src/socketio/base_client.py
+       src/socketio/base_namespace.py
+       src/socketio/base_server.py
+       src/socketio/manager.py
+       src/socketio/simple_client.py
+       src/socketio/asgi.py
+       src/socketio/base_manager.py
+       src/socketio/client.py
+       src/socketio/exceptions.py
+       src/socketio/__init__.py
+       src/socketio/kafka_manager.py
+       src/socketio/kombu_manager.py
+       src/socketio/middleware.py
+       src/socketio/msgpack_packet.py
+       src/socketio/namespace.py
+       src/socketio/packet.py
+       src/socketio/pubsub_manager.py
+       src/socketio/redis_manager.py
+       src/socketio/server.py
+       src/socketio/tornado.py
+       src/socketio/zmq_manager.py
+       tests/async/__init__.py
+       tests/asyncio_web_server.py
+       tests/async/test_admin.py
+       tests/async/test_client.py
+       tests/async/test_manager.py
+       tests/async/test_namespace.py
+       tests/async/test_pubsub_manager.py
+       tests/async/test_server.py
+       tests/async/test_simple_client.py
+       tests/common/__init__.py
+       tests/common/test_admin.py
+       tests/common/test_client.py
+       tests/common/test_manager.py
+       tests/common/test_middleware.py
+       tests/common/test_msgpack_packet.py
+       tests/common/test_namespace.py
+       tests/common/test_packet.py
+       tests/common/test_pubsub_manager.py
+       tests/common/test_server.py
+       tests/common/test_simple_client.py
+       tests/__init__.py
+       tests/performance/binary_packet.py
+       tests/performance/json_packet.py
+       tests/performance/namespace_packet.py
+       tests/performance/README.md
+       tests/performance/run.sh
+       tests/performance/server_receive.py
+       tests/performance/server_send_broadcast.py
+       tests/performance/server_send.py
+       tests/performance/text_packet.py
+       tests/web_server.py
+       tox.ini
+Copyright: 2015-2024, Miguel Grinberg <miguel.grinberg@gmail.com>
+License: MIT
+Comment:
+ Using license as found in LICENSE file.
+
+Files: debian/*
+Copyright: 2019-2025, Paulo Henrique de Lima Santana (phls) <phls@debian.org>
+License: MIT
+
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

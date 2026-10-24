@@ -48,30 +48,10 @@ run a program at the wrong time. I recommend to not worry about this.
 * The conversion program has failed with an error, now what?
 Fix the error and run it again. Repeat until no more errors are reported.
 
-* What about the new empty directories like /usr/libx32/?
-They must be created to be ready for the possible future installation of
-multilib library packages (like e.g. libc6-i386 on amd64 systems) or
-foreign multiarch library packages (e.g. libc6:amd64 on i386 systems) that
-would install files in directories like /libx32/.
-If you know that such a package will never be installed, then the
-directories and the associated symlinks can be safely deleted.
-
 Removal of this package
 ~~~~~~~~~~~~~~~~~~~~~~~
 The usrmerge package can be removed once the system has been converted,
 and it will be replaced by the empty usr-is-merged package.
-
-Skipping the conversion (UNSUPPORTED)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If a dependency on the usr-is-merged package is satisfied (either directly
-or via the Provides of the usrmerge package), then it is guaranteed that
-the system has a merged-/usr layout.
-As an exception, the automatic conversion to the merged-/usr layout will be
-skipped if the file /etc/unsupported-skip-usrmerge-conversion exists
-and contains the text "this system will not be supported in the future".
-This is only intended to be used on special-purpose systems such as
-buildds, and will result in a system no longer supported past the Debian
-12 "bookworm" release.
 
 Other documentation
 ~~~~~~~~~~~~~~~~~~~

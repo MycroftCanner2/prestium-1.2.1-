@@ -76,6 +76,10 @@ The following options were used to configure sudo for Debian GNU/Linux.
 
 	Create a Ubuntu-style admin flag file
 
+  --with-apparmor
+
+	enable AppArmor support
+
   --with-selinux
 
 	enable SELinux support

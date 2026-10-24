@@ -52,12 +52,12 @@ Copyright: 2012,  Michal Simunek
 License: GPL-2+
 
 Files: man/po4a/de*
-Copyright: 2011, Helge Kreutzmann <debian@helgefjell.de>
+Copyright: 2011, 2017, 2021, 2023, Helge Kreutzmann <debian@helgefjell.de>
 License: GPL-2+
 
 Files: man/po4a/fr*
-Copyright: Nicolas François <nicolas.francois@centraliens.net>
- 2017- Bastien Roucariès
+Copyright: 2004 Nicolas François <nicolas.francois@centraliens.net>
+ 2017-2022, 2024 Bastien Roucariès
 License: GPL-2+
 
 Files: man/po4a/es*
@@ -77,7 +77,7 @@ Copyright: 2004, 2010, Robert Luberda <robert@debian.org>.
 License: GPL-2+
 
 Files: man/po4a/pt*
-Copyright: 2014, Américo Monteiro <a_monteiro@gmx.com>
+Copyright: 2014-2021, Américo Monteiro <a_monteiro@gmx.com>
 License: GPL-2+
 
 Files: aclocal.m4

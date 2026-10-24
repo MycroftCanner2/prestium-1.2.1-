@@ -37,6 +37,7 @@ License: BSD-2-clause
 
 Files: debian/*
 Copyright: 2009-2018 Didier Raboud <odyx@debian.org>
+           2021-2024 Thorsten Alteholz <debian@alteholz.de>
 License: GPL-2+
 
 License: GPL-2+
