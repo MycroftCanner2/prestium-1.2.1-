@@ -87,6 +87,7 @@
       <menu:menuitem menu:id=".uno:AvailableToolbars"/>
       <menu:menuitem menu:id=".uno:StatusBarVisible"/>
       <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:CommandWindow"/>
       <menu:menuitem menu:id=".uno:Sidebar"/>
       <menu:menuitem menu:id=".uno:ElementsDockingWindow"/>
       <menu:menuseparator/>
@@ -121,11 +122,15 @@
   <menu:menu menu:id=".uno:ToolsMenu">
     <menu:menupopup>
       <menu:menuitem menu:id=".uno:SymbolCatalogue"/>
+      <menu:menuitem menu:id=".uno:InsertSymbol"/>
       <menu:menuitem menu:id=".uno:ImportFormula"/>
       <menu:menuitem menu:id=".uno:ImportMathMLClipboard"/>
+      <menu:menuitem menu:id=".uno:SaveFormula"/>
       <menu:menuseparator/>
       <menu:menu menu:id=".uno:MacrosMenu">
         <menu:menupopup>
+          <menu:menuitem menu:id=".uno:MacroManager"/>
+          <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroRecorder"/>
           <menu:menuitem menu:id=".uno:RunMacro"/>
           <menu:menuitem menu:id=".uno:BasicIDEAppear"/>
@@ -133,10 +138,9 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroSignature"/>
           <menu:menuitem menu:id=".uno:MacroOrganizer?TabId:short=1"/>
-          <menu:menuseparator/>
-          <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>

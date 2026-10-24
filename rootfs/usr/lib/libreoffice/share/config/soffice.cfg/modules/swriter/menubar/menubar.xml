@@ -151,6 +151,7 @@
           <menu:menuitem menu:id=".uno:ReplyComment" menu:style="text"/>
           <menu:menuitem menu:id=".uno:ResolveComment" menu:style="text"/>
           <menu:menuitem menu:id=".uno:ResolveCommentThread" menu:style="text"/>
+          <menu:menuitem menu:id=".uno:PromoteComment" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteComment" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteCommentThread" menu:style="text"/>
           <menu:menuitem menu:id=".uno:DeleteAuthor" menu:style="text"/>
@@ -179,6 +180,13 @@
     <menu:menupopup>
       <menu:menuitem menu:id=".uno:PrintLayout" menu:style="radio"/>
       <menu:menuitem menu:id=".uno:BrowseView" menu:style="radio"/>
+      <menu:menu menu:id=".uno:PagesLayout">
+        <menu:menupopup>
+          <menu:menuitem menu:id=".uno:SinglePagePerRow" menu:style="radio"/>
+          <menu:menuitem menu:id=".uno:MultiplePagesPerRow" menu:style="radio"/>
+          <menu:menuitem menu:id=".uno:BookView" menu:style="radio"/>
+        </menu:menupopup>
+      </menu:menu>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:ToolbarModeUI"/>
       <menu:menuitem menu:id=".uno:AvailableToolbars" menu:style="text"/>
@@ -205,8 +213,7 @@
       </menu:menu>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:ControlCodes"/>
-      <menu:menuitem menu:id=".uno:ViewBounds" menu:style="text"/>
-      <menu:menuitem menu:id=".uno:TableBoundaries" menu:style="text"/>
+      <menu:menuitem menu:id=".uno:ShowBoundaries" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ShowGraphics" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ShowWhitespace"/>
       <menu:menuseparator/>
@@ -307,7 +314,6 @@
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:InsertFrameInteract"/>
           <menu:menuitem menu:id=".uno:InsertFrame"/>
-          <menu:menuitem menu:id=".uno:InsertObjectFloatingFrame"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuitem menu:id=".uno:FontworkGalleryFloater"/>
@@ -347,7 +353,7 @@
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
-      <menu:menuitem menu:id=".uno:InsertPageNumberField"/>
+      <menu:menuitem menu:id=".uno:PageNumberWizard"/>
       <menu:menuitem menu:id=".uno:InsertFieldCtrl" menu:style="text"/>
       <menu:menu menu:id=".uno:InsertHeaderFooterMenu">
         <menu:menupopup>
@@ -426,6 +432,13 @@
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:FormatPaintbrush"/>
       <menu:menuitem menu:id=".uno:ResetAttributes"/>
+      <menu:menu menu:id=".uno:SpotlightMenu">
+        <menu:menupopup>
+          <menu:menuitem menu:id=".uno:HighlightCharDF"/>
+          <menu:menuitem menu:id=".uno:SpotlightParaStyles"/>
+          <menu:menuitem menu:id=".uno:SpotlightCharStyles"/>
+        </menu:menupopup>
+      </menu:menu>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:FontDialog"/>
       <menu:menuitem menu:id=".uno:ParagraphDialog"/>
@@ -454,6 +467,7 @@
         </menu:menupopup>
       </menu:menu>
       <menu:menuitem menu:id=".uno:OutlineBullet"/>
+      <menu:menuitem menu:id=".uno:ThemeDialog"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:PageDialog"/>
       <menu:menuitem menu:id=".uno:TitlePageDialog"/>
@@ -713,8 +727,10 @@
       <menu:menu menu:id=".uno:ContentControlsMenu">
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:InsertContentControl"/>
+          <menu:menuitem menu:id=".uno:InsertPlainTextContentControl"/>
           <menu:menuitem menu:id=".uno:InsertPictureContentControl"/>
           <menu:menuitem menu:id=".uno:InsertCheckboxContentControl"/>
+          <menu:menuitem menu:id=".uno:InsertComboBoxContentControl"/>
           <menu:menuitem menu:id=".uno:InsertDropdownContentControl"/>
           <menu:menuitem menu:id=".uno:InsertDateContentControl"/>
           <menu:menuitem menu:id=".uno:ContentControlProperties"/>
@@ -742,6 +758,9 @@
       </menu:menu>
       <menu:menuitem menu:id=".uno:WordCountDialog"/>
       <menu:menuitem menu:id=".uno:AccessibilityCheck"/>
+      <menu:menuitem menu:id=".uno:AccessibilityCheckOnline"/>
+      <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:Translate"/>
       <menu:menuseparator/>
       <menu:menu menu:id=".uno:AutoFormatMenu">
         <menu:menupopup>
@@ -771,6 +790,7 @@
           <menu:menuitem menu:id=".uno:UpdateAll"/>
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:Repaginate"/>
+          <menu:menuitem menu:id=".uno:UpdateSelectedField"/>
           <menu:menuitem menu:id=".uno:UpdateFields"/>
           <menu:menuitem menu:id=".uno:UpdateAllIndexes"/>
           <menu:menuitem menu:id=".uno:UpdateCurIndex"/>
@@ -789,6 +809,8 @@
       <menu:menuseparator/>
       <menu:menu menu:id=".uno:MacrosMenu">
         <menu:menupopup>
+          <menu:menuitem menu:id=".uno:MacroManager"/>
+          <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroRecorder"/>
           <menu:menuitem menu:id=".uno:RunMacro"/>
           <menu:menuitem menu:id=".uno:BasicIDEAppear"/>
@@ -796,12 +818,11 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroSignature"/>
           <menu:menuitem menu:id=".uno:MacroOrganizer?TabId:short=1"/>
-          <menu:menuseparator/>
-          <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuitem menu:id=".uno:DevelopmentToolsDockingWindow"/>
       <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>

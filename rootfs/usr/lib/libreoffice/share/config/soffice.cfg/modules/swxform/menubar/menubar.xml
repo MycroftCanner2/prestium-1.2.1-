@@ -196,8 +196,7 @@
       </menu:menu>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:ControlCodes"/>
-      <menu:menuitem menu:id=".uno:ViewBounds" menu:style="text"/>
-      <menu:menuitem menu:id=".uno:TableBoundaries" menu:style="text"/>
+      <menu:menuitem menu:id=".uno:ShowBoundaries" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ShowGraphics" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ShowWhitespace"/>
       <menu:menuseparator/>
@@ -297,7 +296,6 @@
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:InsertFrameInteract"/>
           <menu:menuitem menu:id=".uno:InsertFrame"/>
-          <menu:menuitem menu:id=".uno:InsertObjectFloatingFrame"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuitem menu:id=".uno:FontworkGalleryFloater" menu:style="text"/>
@@ -752,6 +750,8 @@
       <menu:menuseparator/>
       <menu:menu menu:id=".uno:MacrosMenu">
         <menu:menupopup>
+          <menu:menuitem menu:id=".uno:MacroManager"/>
+          <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroRecorder"/>
           <menu:menuitem menu:id=".uno:RunMacro"/>
           <menu:menuitem menu:id=".uno:BasicIDEAppear"/>
@@ -759,10 +759,9 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroSignature"/>
           <menu:menuitem menu:id=".uno:MacroOrganizer?TabId:short=1"/>
-          <menu:menuseparator/>
-          <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>
