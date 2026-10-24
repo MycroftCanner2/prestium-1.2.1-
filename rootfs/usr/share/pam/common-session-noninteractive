@@ -20,6 +20,8 @@ session	requisite			pam_deny.so
 # this avoids us returning an error just because nothing sets a success code
 # since the modules above will each just jump around
 session	required			pam_permit.so
+# reset the umask for new sessions
+session optional			pam_umask.so
 # and here are more per-package modules (the "Additional" block)
 $session_nonint_additional
 # end of pam-auth-update config
