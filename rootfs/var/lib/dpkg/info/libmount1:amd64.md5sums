@@ -1,5 +1,6 @@
-498170ea67391440baeecf41a8ddab99  usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
-7d7f416423c67d7ad29ea64aa541189c  usr/share/doc/libmount1/changelog.Debian.gz
-0bb7fd1ae3732779966184f543b8a91e  usr/share/doc/libmount1/changelog.gz
-353888f385cfb82eb97a693e78f3cc9b  usr/share/doc/libmount1/copyright
-e62223379c0953ef618cf04779628297  usr/share/lintian/overrides/libmount1
+3e269006427c1d27a7eb9dfecb0731b1  usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+1e30d61b028710436ab4de578d40b422  usr/share/doc/libmount1/NEWS.Debian.gz
+dc27ffdfdaec68c90820e422bd479ba4  usr/share/doc/libmount1/changelog.Debian.gz
+0a5d976f1a8794ba41174c80bfd047d5  usr/share/doc/libmount1/changelog.gz
+e2343d5239d28086275d9d5375c5a66f  usr/share/doc/libmount1/copyright
+a7ab388dcf6d6e6af43761ec8e982d94  usr/share/lintian/overrides/libmount1

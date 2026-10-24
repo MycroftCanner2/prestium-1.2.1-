@@ -4,6 +4,7 @@ libnetfilter_conntrack.so.3 libnetfilter-conntrack3 #MINVER#
  __build_conntrack@Base 1.0.1
  __build_expect@Base 1.0.1
  __build_filter_dump@Base 1.0.1
+ __build_filter_flush@Base 1.1.0
  __callback@Base 1.0.1
  __cmp_expect@Base 1.0.1
  __cmp_orig@Base 1.0.1
@@ -82,6 +83,7 @@ libnetfilter_conntrack.so.3 libnetfilter-conntrack3 #MINVER#
  nfct_filter_dump_create@Base 1.0.1
  nfct_filter_dump_destroy@Base 1.0.1
  nfct_filter_dump_set_attr@Base 1.0.1
+ nfct_filter_dump_set_attr_u16@Base 1.1.0
  nfct_filter_dump_set_attr_u8@Base 1.0.1
  nfct_filter_set_logic@Base 1.0.1
  nfct_get_attr@Base 1.0.1

@@ -1,0 +1,6 @@
+a41ca3efbef8988a4721adf9cf90d366  usr/lib/x86_64-linux-gnu/libmtdev.so.1.0.0
+77fa9ca780d9f1feaf1d371d28c35013  usr/share/apport/package-hooks/source_mtdev.py
+d31a305981331d0e7e33c429bec74e3d  usr/share/doc/libmtdev1t64/changelog.Debian.gz
+98f2a7506ebd27610a2b8b56251c7826  usr/share/doc/libmtdev1t64/changelog.gz
+60a5cd79f44128976aa08fff03b652c8  usr/share/doc/libmtdev1t64/copyright
+6ac126e6189160aa8c22cae75c1651c2  usr/share/lintian/overrides/libmtdev1t64

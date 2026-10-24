@@ -1,5 +1,5 @@
-b4daf4afcbb5257508ce89a13709ae62  usr/lib/x86_64-linux-gnu/libmbim-glib.so.4.7.0
-fd89b8e1708647cd1db0e7b8e31ec1f4  usr/share/doc/libmbim-glib4/NEWS.gz
-5ac0fe246838c72e0e948b9b7372c394  usr/share/doc/libmbim-glib4/changelog.Debian.gz
+edc92aa1bc55aee0d645c4d5b5ffaf63  usr/lib/x86_64-linux-gnu/libmbim-glib.so.4.9.0
+905df3ea21df67b57501c7b4dc07160d  usr/share/doc/libmbim-glib4/NEWS.gz
+ef5e7fc70ef7c0be2e6c9b36f3b04591  usr/share/doc/libmbim-glib4/changelog.Debian.gz
 66741ac31975f586ef65141b996f1dfa  usr/share/doc/libmbim-glib4/copyright
 c9a7c64fc1ab35c4dd0efe70e839b3bd  usr/share/lintian/overrides/libmbim-glib4

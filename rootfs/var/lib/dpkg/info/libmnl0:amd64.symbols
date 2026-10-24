@@ -1,4 +1,5 @@
 libmnl.so.0 libmnl0 #MINVER#
+* Build-Depends-Package: libmnl-dev
  LIBMNL_1.0@LIBMNL_1.0 1.0.3-4~
  LIBMNL_1.1@LIBMNL_1.1 1.0.3-4~
  LIBMNL_1.2@LIBMNL_1.2 1.0.4-1~

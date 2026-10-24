@@ -1,4 +1,4 @@
-f0ac85f3e234c2083dfc8d683a03fb3d  usr/share/doc/libmypaint-common/changelog.Debian.gz
+225ccb21695b6ede1d36166435f49671  usr/share/doc/libmypaint-common/changelog.Debian.gz
 815cd42f1ab145df92d0415c1efec073  usr/share/doc/libmypaint-common/copyright
 a4129a0258b1bd64edf1ca8bdf9dd2fd  usr/share/locale/af/LC_MESSAGES/libmypaint.mo
 2cbc90e656fa705379c0982abfd98d7f  usr/share/locale/ar/LC_MESSAGES/libmypaint.mo
@@ -39,7 +39,7 @@ cf376047b430e00ab6344592341ddcc3  usr/share/locale/hu/LC_MESSAGES/libmypaint.mo
 982d230359d086a34a8401145d7e1b79  usr/share/locale/id/LC_MESSAGES/libmypaint.mo
 29c3683f667231f87fb6ad7333a32d92  usr/share/locale/is/LC_MESSAGES/libmypaint.mo
 23759c959f3b8ae15e97ba931ef2f24e  usr/share/locale/it/LC_MESSAGES/libmypaint.mo
-149ff2dd21e7f6dca0b20595210060b6  usr/share/locale/ja/LC_MESSAGES/libmypaint.mo
+7f7709252fd95e00c2ddbe7ababdce3f  usr/share/locale/ja/LC_MESSAGES/libmypaint.mo
 c0af120cd3f1f82880144381a872b2f3  usr/share/locale/ka/LC_MESSAGES/libmypaint.mo
 aa88308ca2ed3c80c54dc00045bfb32f  usr/share/locale/kab/LC_MESSAGES/libmypaint.mo
 62ad448c7eae81d4979ba557ca2f739d  usr/share/locale/kk/LC_MESSAGES/libmypaint.mo

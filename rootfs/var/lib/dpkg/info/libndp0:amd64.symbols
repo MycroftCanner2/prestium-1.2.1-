@@ -15,6 +15,9 @@ libndp.so.0 libndp0 #MINVER#
  ndp_msg_opt_dnssl_domain@Base 1.2
  ndp_msg_opt_dnssl_lifetime@Base 1.2
  ndp_msg_opt_mtu@Base 1.2
+ ndp_msg_opt_pref64_lifetime@Base 1.9
+ ndp_msg_opt_pref64_prefix@Base 1.9
+ ndp_msg_opt_pref64_prefix_length@Base 1.9
  ndp_msg_opt_prefix@Base 1.2
  ndp_msg_opt_prefix_flag_auto_addr_conf@Base 1.2
  ndp_msg_opt_prefix_flag_on_link@Base 1.2

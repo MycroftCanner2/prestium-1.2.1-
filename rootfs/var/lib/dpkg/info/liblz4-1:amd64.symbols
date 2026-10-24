@@ -1,6 +1,7 @@
 liblz4.so.1 liblz4-1 #MINVER#
  LZ4F_compressBegin@Base 0.0~r127
  LZ4F_compressBegin_usingCDict@Base 1.8.1.2
+ LZ4F_compressBegin_usingDict@Base 1.10.0
  LZ4F_compressBound@Base 0.0~r127
  LZ4F_compressEnd@Base 0.0~r127
  LZ4F_compressFrame@Base 0.0~r127
@@ -35,6 +36,8 @@ liblz4.so.1 liblz4-1 #MINVER#
  LZ4F_write@Base 1.9.4
  LZ4F_writeClose@Base 1.9.4
  LZ4F_writeOpen@Base 1.9.4
+ LZ4_attach_HC_dictionary@Base 1.10.0
+ LZ4_attach_dictionary@Base 1.10.0
  LZ4_compress@Base 0.0~r113
  LZ4_compressBound@Base 0.0~r114
  LZ4_compressHC2@Base 0.0~r113
@@ -88,6 +91,7 @@ liblz4.so.1 liblz4-1 #MINVER#
  LZ4_initStreamHC@Base 1.9.1
  LZ4_loadDict@Base 0.0~r119
  LZ4_loadDictHC@Base 0.0~r127
+ LZ4_loadDictSlow@Base 1.10.0
  LZ4_resetStream@Base 0.0~r122
  LZ4_resetStreamHC@Base 0.0~r127
  LZ4_resetStreamHC_fast@Base 1.9.1

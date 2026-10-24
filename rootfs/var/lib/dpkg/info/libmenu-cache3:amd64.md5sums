@@ -1,5 +1,5 @@
-3be51fe9ab0217464eb8213f73f4a2aa  usr/lib/x86_64-linux-gnu/libmenu-cache.so.3.2.0
-5008a88d7f64c0d305e03acbb8a2d809  usr/share/doc/libmenu-cache3/changelog.Debian.gz
-6afa4ba39f094bca7ca73574dd1edea4  usr/share/doc/libmenu-cache3/changelog.gz
-eafbba20e82e55399ee177451dfabe26  usr/share/doc/libmenu-cache3/copyright
+e7623d3bc8a0ac0fba6c1fe00da868f4  usr/lib/x86_64-linux-gnu/libmenu-cache.so.3.2.1
+f93f5f223135b09be1085d76cd1709a0  usr/share/doc/libmenu-cache3/changelog.Debian.gz
+6a3208c5b1b91468b00149fc88f4daf8  usr/share/doc/libmenu-cache3/changelog.gz
+f8d691e6a9b354b041ba0cabc76a38a5  usr/share/doc/libmenu-cache3/copyright
 0789c018fa6933e5e86641e6aad4272a  usr/share/lintian/overrides/libmenu-cache3

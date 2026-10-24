@@ -1,4 +1,5 @@
-c779c40bb141340264eda5aaa44a3916  usr/lib/x86_64-linux-gnu/libmd4c.so.0.4.8
-f9250ac00a252aeb7833e308fd3c5b7c  usr/share/doc/libmd4c0/changelog.Debian.gz
-b1375eb9f89ad31c47bd4ebd887747b3  usr/share/doc/libmd4c0/changelog.gz
-b11690eadc0a721deedad012348f60fe  usr/share/doc/libmd4c0/copyright
+c51adb17a47c512cfda9200328af0788  usr/lib/x86_64-linux-gnu/libmd4c.so.0.5.2
+ec4e6dabc6f7a5b08d5430aafa12f093  usr/share/doc/libmd4c0/changelog.Debian.amd64.gz
+72effa741789e27f1d9568586d7842c8  usr/share/doc/libmd4c0/changelog.Debian.gz
+feae5639a0738d27569b4f70cc1ebba6  usr/share/doc/libmd4c0/changelog.gz
+130f750b71c05a0cde23d9724e50c17c  usr/share/doc/libmd4c0/copyright

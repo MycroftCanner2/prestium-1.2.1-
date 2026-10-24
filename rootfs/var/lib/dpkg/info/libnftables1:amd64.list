@@ -8,6 +8,9 @@
 /usr/share/doc/libnftables1
 /usr/share/doc/libnftables1/changelog.Debian.gz
 /usr/share/doc/libnftables1/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libnftables1
 /usr/share/man
 /usr/share/man/man3
 /usr/share/man/man3/libnftables.3.gz

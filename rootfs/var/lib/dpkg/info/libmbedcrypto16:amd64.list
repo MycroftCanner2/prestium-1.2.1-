@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libmbedcrypto.so.3.6.6
+/usr/share
+/usr/share/doc
+/usr/share/doc/libmbedcrypto16
+/usr/share/doc/libmbedcrypto16/changelog.Debian.gz
+/usr/share/doc/libmbedcrypto16/changelog.gz
+/usr/share/doc/libmbedcrypto16/copyright
+/usr/lib/x86_64-linux-gnu/libmbedcrypto.so.16

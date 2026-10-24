@@ -20,6 +20,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_3gpp_profile_new@Base 1.18.2
  mm_3gpp_profile_new_from_dictionary@Base 1.18.2
  mm_3gpp_profile_new_from_string@Base 1.18.2
+ mm_3gpp_profile_print@Base 1.22.0
  mm_3gpp_profile_set_access_type_preference@Base 1.20.0
  mm_3gpp_profile_set_allowed_auth@Base 1.18.2
  mm_3gpp_profile_set_apn@Base 1.18.2
@@ -99,6 +100,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_bearer_properties_get_apn@Base 0.7.991
  mm_bearer_properties_get_apn_type@Base 1.18.2
  mm_bearer_properties_get_dictionary@Base 0.7.991
+ mm_bearer_properties_get_force@Base 1.23.12
  mm_bearer_properties_get_ip_type@Base 0.7.991
  mm_bearer_properties_get_multiplex@Base 1.18.2
  mm_bearer_properties_get_number@Base 0.7.991
@@ -114,11 +116,13 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_bearer_properties_new_from_profile@Base 1.18.2
  mm_bearer_properties_new_from_string@Base 0.7.991
  mm_bearer_properties_peek_3gpp_profile@Base 1.18.2
+ mm_bearer_properties_print@Base 1.22.0
  mm_bearer_properties_set_access_type_preference@Base 1.20.0
  mm_bearer_properties_set_allow_roaming@Base 0.7.991
  mm_bearer_properties_set_allowed_auth@Base 0.7.991
  mm_bearer_properties_set_apn@Base 0.7.991
  mm_bearer_properties_set_apn_type@Base 1.18.2
+ mm_bearer_properties_set_force@Base 1.23.12
  mm_bearer_properties_set_ip_type@Base 0.7.991
  mm_bearer_properties_set_multiplex@Base 1.18.2
  mm_bearer_properties_set_number@Base 0.7.991
@@ -221,6 +225,19 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_call_state_get_type@Base 1.5.993
  mm_call_state_reason_get_string@Base 1.5.993
  mm_call_state_reason_get_type@Base 1.5.993
+ mm_carrier_lock_error_get_type@Base 1.23.12
+ mm_carrier_lock_error_quark@Base 1.23.12
+ mm_cbm_dup_path@Base 1.23.95
+ mm_cbm_dup_text@Base 1.23.95
+ mm_cbm_get_channel@Base 1.23.95
+ mm_cbm_get_message_code@Base 1.23.95
+ mm_cbm_get_path@Base 1.23.95
+ mm_cbm_get_state@Base 1.23.95
+ mm_cbm_get_text@Base 1.23.95
+ mm_cbm_get_type@Base 1.23.95
+ mm_cbm_get_update@Base 1.23.95
+ mm_cbm_state_get_string@Base 1.23.95
+ mm_cbm_state_get_type@Base 1.23.95
  mm_cdma_activation_error_get_type@Base 0.7.991
  mm_cdma_activation_error_quark@Base 0.7.991
  mm_cdma_manual_activation_properties_get_dictionary@Base 1.2.0
@@ -278,42 +295,50 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_cell_info_gsm_set_operator_id@Base 1.20.0
  mm_cell_info_gsm_set_rx_level@Base 1.20.0
  mm_cell_info_gsm_set_timing_advance@Base 1.20.0
+ mm_cell_info_lte_get_bandwidth@Base 1.22.0
  mm_cell_info_lte_get_ci@Base 1.20.0
  mm_cell_info_lte_get_earfcn@Base 1.20.0
  mm_cell_info_lte_get_operator_id@Base 1.20.0
  mm_cell_info_lte_get_physical_ci@Base 1.20.0
  mm_cell_info_lte_get_rsrp@Base 1.20.0
  mm_cell_info_lte_get_rsrq@Base 1.20.0
+ mm_cell_info_lte_get_serving_cell_type@Base 1.22.0
  mm_cell_info_lte_get_tac@Base 1.20.0
  mm_cell_info_lte_get_timing_advance@Base 1.20.0
  mm_cell_info_lte_get_type@Base 1.20.0
  mm_cell_info_lte_new_from_dictionary@Base 1.20.0
+ mm_cell_info_lte_set_bandwidth@Base 1.22.0
  mm_cell_info_lte_set_ci@Base 1.20.0
  mm_cell_info_lte_set_earfcn@Base 1.20.0
  mm_cell_info_lte_set_operator_id@Base 1.20.0
  mm_cell_info_lte_set_physical_ci@Base 1.20.0
  mm_cell_info_lte_set_rsrp@Base 1.20.0
  mm_cell_info_lte_set_rsrq@Base 1.20.0
+ mm_cell_info_lte_set_serving_cell_type@Base 1.22.0
  mm_cell_info_lte_set_tac@Base 1.20.0
  mm_cell_info_lte_set_timing_advance@Base 1.20.0
  mm_cell_info_new_from_dictionary@Base 1.20.0
+ mm_cell_info_nr5g_get_bandwidth@Base 1.22.0
  mm_cell_info_nr5g_get_ci@Base 1.20.0
  mm_cell_info_nr5g_get_nrarfcn@Base 1.20.0
  mm_cell_info_nr5g_get_operator_id@Base 1.20.0
  mm_cell_info_nr5g_get_physical_ci@Base 1.20.0
  mm_cell_info_nr5g_get_rsrp@Base 1.20.0
  mm_cell_info_nr5g_get_rsrq@Base 1.20.0
+ mm_cell_info_nr5g_get_serving_cell_type@Base 1.22.0
  mm_cell_info_nr5g_get_sinr@Base 1.20.0
  mm_cell_info_nr5g_get_tac@Base 1.20.0
  mm_cell_info_nr5g_get_timing_advance@Base 1.20.0
  mm_cell_info_nr5g_get_type@Base 1.20.0
  mm_cell_info_nr5g_new_from_dictionary@Base 1.20.0
+ mm_cell_info_nr5g_set_bandwidth@Base 1.22.0
  mm_cell_info_nr5g_set_ci@Base 1.20.0
  mm_cell_info_nr5g_set_nrarfcn@Base 1.20.0
  mm_cell_info_nr5g_set_operator_id@Base 1.20.0
  mm_cell_info_nr5g_set_physical_ci@Base 1.20.0
  mm_cell_info_nr5g_set_rsrp@Base 1.20.0
  mm_cell_info_nr5g_set_rsrq@Base 1.20.0
+ mm_cell_info_nr5g_set_serving_cell_type@Base 1.22.0
  mm_cell_info_nr5g_set_sinr@Base 1.20.0
  mm_cell_info_nr5g_set_tac@Base 1.20.0
  mm_cell_info_nr5g_set_timing_advance@Base 1.20.0
@@ -377,6 +402,8 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_common_build_bands_unknown@Base 0.7.991
  mm_common_build_capabilities_string@Base 0.7.991
  mm_common_build_capability_combinations_none@Base 0.7.991
+ mm_common_build_cell_broadcast_channels_default@Base 1.24.0
+ mm_common_build_channels_string@Base 1.24.0
  mm_common_build_mode_combinations_default@Base 0.7.991
  mm_common_build_mode_combinations_string@Base 0.7.991
  mm_common_build_oma_pending_network_initiated_sessions_default@Base 1.2.0
@@ -385,6 +412,9 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_common_capability_combinations_array_to_variant@Base 0.7.991
  mm_common_capability_combinations_garray_to_variant@Base 0.7.991
  mm_common_capability_combinations_variant_to_garray@Base 0.7.991
+ mm_common_cell_broadcast_channels_array_to_variant@Base 1.24.0
+ mm_common_cell_broadcast_channels_garray_to_variant@Base 1.24.0
+ mm_common_cell_broadcast_channels_variant_to_garray@Base 1.24.0
  mm_common_error_from_tuple@Base 1.18.2
  mm_common_error_to_tuple@Base 1.18.2
  mm_common_get_3gpp_drx_cycle_from_string@Base 1.20.0
@@ -401,6 +431,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_common_get_call_state_from_string@Base 1.5.993
  mm_common_get_call_state_reason_from_string@Base 1.5.993
  mm_common_get_capabilities_from_string@Base 0.7.991
+ mm_common_get_cell_broadcast_channels_from_string@Base 1.24.0
  mm_common_get_eps_ue_mode_operation_from_string@Base 1.7.990
  mm_common_get_ip_type_from_string@Base 0.7.991
  mm_common_get_modes_from_string@Base 0.7.991
@@ -427,6 +458,9 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_common_sms_storages_array_to_variant@Base 0.7.991
  mm_common_sms_storages_garray_to_variant@Base 0.7.991
  mm_common_sms_storages_variant_to_garray@Base 0.7.991
+ mm_common_str_array_human_keys@Base 1.22.0
+ mm_common_str_boolean@Base 1.22.0
+ mm_common_str_personal_info@Base 1.22.0
  mm_connection_error_get_type@Base 0.7.991
  mm_connection_error_quark@Base 0.7.991
  mm_core_error_get_type@Base 0.7.991
@@ -572,6 +606,29 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_call_set_state_reason@Base 1.5.993
  mm_gdbus_call_skeleton_get_type@Base 1.5.993
  mm_gdbus_call_skeleton_new@Base 1.5.993
+ mm_gdbus_cbm_dup_text@Base 1.23.95
+ mm_gdbus_cbm_get_channel@Base 1.23.95
+ mm_gdbus_cbm_get_message_code@Base 1.23.95
+ mm_gdbus_cbm_get_state@Base 1.23.95
+ mm_gdbus_cbm_get_text@Base 1.23.95
+ mm_gdbus_cbm_get_type@Base 1.23.95
+ mm_gdbus_cbm_get_update@Base 1.23.95
+ mm_gdbus_cbm_interface_info@Base 1.23.95
+ mm_gdbus_cbm_override_properties@Base 1.23.95
+ mm_gdbus_cbm_proxy_get_type@Base 1.23.95
+ mm_gdbus_cbm_proxy_new@Base 1.23.95
+ mm_gdbus_cbm_proxy_new_finish@Base 1.23.95
+ mm_gdbus_cbm_proxy_new_for_bus@Base 1.23.95
+ mm_gdbus_cbm_proxy_new_for_bus_finish@Base 1.23.95
+ mm_gdbus_cbm_proxy_new_for_bus_sync@Base 1.23.95
+ mm_gdbus_cbm_proxy_new_sync@Base 1.23.95
+ mm_gdbus_cbm_set_channel@Base 1.23.95
+ mm_gdbus_cbm_set_message_code@Base 1.23.95
+ mm_gdbus_cbm_set_state@Base 1.23.95
+ mm_gdbus_cbm_set_text@Base 1.23.95
+ mm_gdbus_cbm_set_update@Base 1.23.95
+ mm_gdbus_cbm_skeleton_get_type@Base 1.23.95
+ mm_gdbus_cbm_skeleton_new@Base 1.23.95
  mm_gdbus_modem3gpp_call_disable_facility_lock@Base 1.18.2
  mm_gdbus_modem3gpp_call_disable_facility_lock_finish@Base 1.18.2
  mm_gdbus_modem3gpp_call_disable_facility_lock_sync@Base 1.18.2
@@ -581,6 +638,9 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem3gpp_call_scan@Base 0.7.991
  mm_gdbus_modem3gpp_call_scan_finish@Base 0.7.991
  mm_gdbus_modem3gpp_call_scan_sync@Base 0.7.991
+ mm_gdbus_modem3gpp_call_set_carrier_lock@Base 1.22.0
+ mm_gdbus_modem3gpp_call_set_carrier_lock_finish@Base 1.22.0
+ mm_gdbus_modem3gpp_call_set_carrier_lock_sync@Base 1.22.0
  mm_gdbus_modem3gpp_call_set_eps_ue_mode_operation@Base 1.7.990
  mm_gdbus_modem3gpp_call_set_eps_ue_mode_operation_finish@Base 1.7.990
  mm_gdbus_modem3gpp_call_set_eps_ue_mode_operation_sync@Base 1.7.990
@@ -596,6 +656,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem3gpp_complete_disable_facility_lock@Base 1.18.2
  mm_gdbus_modem3gpp_complete_register@Base 0.7.991
  mm_gdbus_modem3gpp_complete_scan@Base 0.7.991
+ mm_gdbus_modem3gpp_complete_set_carrier_lock@Base 1.22.0
  mm_gdbus_modem3gpp_complete_set_eps_ue_mode_operation@Base 1.7.990
  mm_gdbus_modem3gpp_complete_set_initial_eps_bearer_settings@Base 1.10.0
  mm_gdbus_modem3gpp_complete_set_nr5g_registration_settings@Base 1.20.0
@@ -603,6 +664,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem3gpp_dup_imei@Base 0.7.991
  mm_gdbus_modem3gpp_dup_initial_eps_bearer@Base 1.10.0
  mm_gdbus_modem3gpp_dup_initial_eps_bearer_settings@Base 1.10.0
+ mm_gdbus_modem3gpp_dup_network_rejection@Base 1.23.12
  mm_gdbus_modem3gpp_dup_nr5g_registration_settings@Base 1.20.0
  mm_gdbus_modem3gpp_dup_operator_code@Base 0.7.991
  mm_gdbus_modem3gpp_dup_operator_name@Base 0.7.991
@@ -612,6 +674,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem3gpp_get_imei@Base 0.7.991
  mm_gdbus_modem3gpp_get_initial_eps_bearer@Base 1.10.0
  mm_gdbus_modem3gpp_get_initial_eps_bearer_settings@Base 1.10.0
+ mm_gdbus_modem3gpp_get_network_rejection@Base 1.23.12
  mm_gdbus_modem3gpp_get_nr5g_registration_settings@Base 1.20.0
  mm_gdbus_modem3gpp_get_operator_code@Base 0.7.991
  mm_gdbus_modem3gpp_get_operator_name@Base 0.7.991
@@ -662,6 +725,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem3gpp_set_imei@Base 0.7.991
  mm_gdbus_modem3gpp_set_initial_eps_bearer@Base 1.10.0
  mm_gdbus_modem3gpp_set_initial_eps_bearer_settings@Base 1.10.0
+ mm_gdbus_modem3gpp_set_network_rejection@Base 1.23.12
  mm_gdbus_modem3gpp_set_nr5g_registration_settings@Base 1.20.0
  mm_gdbus_modem3gpp_set_operator_code@Base 0.7.991
  mm_gdbus_modem3gpp_set_operator_name@Base 0.7.991
@@ -779,6 +843,38 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem_cdma_set_sid@Base 0.7.991
  mm_gdbus_modem_cdma_skeleton_get_type@Base 0.7.991
  mm_gdbus_modem_cdma_skeleton_new@Base 0.7.991
+ mm_gdbus_modem_cell_broadcast_call_delete@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_call_delete_finish@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_call_delete_sync@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_call_list@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_call_list_finish@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_call_list_sync@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_call_set_channels@Base 1.24.0
+ mm_gdbus_modem_cell_broadcast_call_set_channels_finish@Base 1.24.0
+ mm_gdbus_modem_cell_broadcast_call_set_channels_sync@Base 1.24.0
+ mm_gdbus_modem_cell_broadcast_complete_delete@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_complete_list@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_complete_set_channels@Base 1.24.0
+ mm_gdbus_modem_cell_broadcast_dup_cell_broadcasts@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_dup_channels@Base 1.24.0
+ mm_gdbus_modem_cell_broadcast_emit_added@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_emit_deleted@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_get_cell_broadcasts@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_get_channels@Base 1.24.0
+ mm_gdbus_modem_cell_broadcast_get_type@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_interface_info@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_override_properties@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_proxy_get_type@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_proxy_new@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_proxy_new_finish@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_proxy_new_for_bus@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_proxy_new_for_bus_finish@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_proxy_new_for_bus_sync@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_proxy_new_sync@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_set_cell_broadcasts@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_set_channels@Base 1.24.0
+ mm_gdbus_modem_cell_broadcast_skeleton_get_type@Base 1.23.95
+ mm_gdbus_modem_cell_broadcast_skeleton_new@Base 1.23.95
  mm_gdbus_modem_complete_command@Base 0.7.991
  mm_gdbus_modem_complete_create_bearer@Base 0.7.991
  mm_gdbus_modem_complete_delete_bearer@Base 0.7.991
@@ -805,6 +901,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem_dup_manufacturer@Base 0.7.991
  mm_gdbus_modem_dup_model@Base 0.7.991
  mm_gdbus_modem_dup_own_numbers@Base 0.7.991
+ mm_gdbus_modem_dup_physdev@Base 1.22.0
  mm_gdbus_modem_dup_plugin@Base 0.7.991
  mm_gdbus_modem_dup_ports@Base 1.0.0
  mm_gdbus_modem_dup_primary_port@Base 0.7.991
@@ -858,6 +955,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem_get_max_bearers@Base 0.7.991
  mm_gdbus_modem_get_model@Base 0.7.991
  mm_gdbus_modem_get_own_numbers@Base 0.7.991
+ mm_gdbus_modem_get_physdev@Base 1.22.0
  mm_gdbus_modem_get_plugin@Base 0.7.991
  mm_gdbus_modem_get_ports@Base 1.0.0
  mm_gdbus_modem_get_power_state@Base 0.7.991
@@ -937,9 +1035,13 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem_messaging_call_list@Base 0.7.991
  mm_gdbus_modem_messaging_call_list_finish@Base 0.7.991
  mm_gdbus_modem_messaging_call_list_sync@Base 0.7.991
+ mm_gdbus_modem_messaging_call_set_default_storage@Base 1.23.12
+ mm_gdbus_modem_messaging_call_set_default_storage_finish@Base 1.23.12
+ mm_gdbus_modem_messaging_call_set_default_storage_sync@Base 1.23.12
  mm_gdbus_modem_messaging_complete_create@Base 0.7.991
  mm_gdbus_modem_messaging_complete_delete@Base 0.7.991
  mm_gdbus_modem_messaging_complete_list@Base 0.7.991
+ mm_gdbus_modem_messaging_complete_set_default_storage@Base 1.23.12
  mm_gdbus_modem_messaging_dup_messages@Base 1.2.0
  mm_gdbus_modem_messaging_dup_supported_storages@Base 0.7.991
  mm_gdbus_modem_messaging_emit_added@Base 0.7.991
@@ -1050,6 +1152,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_modem_set_max_bearers@Base 0.7.991
  mm_gdbus_modem_set_model@Base 0.7.991
  mm_gdbus_modem_set_own_numbers@Base 0.7.991
+ mm_gdbus_modem_set_physdev@Base 1.22.0
  mm_gdbus_modem_set_plugin@Base 0.7.991
  mm_gdbus_modem_set_ports@Base 1.0.0
  mm_gdbus_modem_set_power_state@Base 0.7.991
@@ -1217,6 +1320,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_object_get_modem3gpp_ussd@Base 0.7.991
  mm_gdbus_object_get_modem@Base 0.7.991
  mm_gdbus_object_get_modem_cdma@Base 0.7.991
+ mm_gdbus_object_get_modem_cell_broadcast@Base 1.23.95
  mm_gdbus_object_get_modem_firmware@Base 0.7.991
  mm_gdbus_object_get_modem_location@Base 0.7.991
  mm_gdbus_object_get_modem_messaging@Base 0.7.991
@@ -1240,6 +1344,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_object_peek_modem3gpp_ussd@Base 0.7.991
  mm_gdbus_object_peek_modem@Base 0.7.991
  mm_gdbus_object_peek_modem_cdma@Base 0.7.991
+ mm_gdbus_object_peek_modem_cell_broadcast@Base 1.23.95
  mm_gdbus_object_peek_modem_firmware@Base 0.7.991
  mm_gdbus_object_peek_modem_location@Base 0.7.991
  mm_gdbus_object_peek_modem_messaging@Base 0.7.991
@@ -1258,6 +1363,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_gdbus_object_skeleton_set_modem3gpp_ussd@Base 0.7.991
  mm_gdbus_object_skeleton_set_modem@Base 0.7.991
  mm_gdbus_object_skeleton_set_modem_cdma@Base 0.7.991
+ mm_gdbus_object_skeleton_set_modem_cell_broadcast@Base 1.23.95
  mm_gdbus_object_skeleton_set_modem_firmware@Base 0.7.991
  mm_gdbus_object_skeleton_set_modem_location@Base 0.7.991
  mm_gdbus_object_skeleton_set_modem_messaging@Base 0.7.991
@@ -1538,6 +1644,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_3gpp_get_initial_eps_bearer_path@Base 1.10.0
  mm_modem_3gpp_get_initial_eps_bearer_settings@Base 1.10.0
  mm_modem_3gpp_get_initial_eps_bearer_sync@Base 1.10.0
+ mm_modem_3gpp_get_network_rejection@Base 1.23.12
  mm_modem_3gpp_get_nr5g_registration_settings@Base 1.20.0
  mm_modem_3gpp_get_operator_code@Base 0.7.991
  mm_modem_3gpp_get_operator_name@Base 0.7.991
@@ -1561,6 +1668,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_3gpp_packet_service_state_get_string@Base 1.20.0
  mm_modem_3gpp_packet_service_state_get_type@Base 1.20.0
  mm_modem_3gpp_peek_initial_eps_bearer_settings@Base 1.10.0
+ mm_modem_3gpp_peek_network_rejection@Base 1.23.12
  mm_modem_3gpp_peek_nr5g_registration_settings@Base 1.20.0
  mm_modem_3gpp_profile_manager_delete@Base 1.18.2
  mm_modem_3gpp_profile_manager_delete_finish@Base 1.18.2
@@ -1584,6 +1692,9 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_3gpp_scan@Base 0.7.991
  mm_modem_3gpp_scan_finish@Base 0.7.991
  mm_modem_3gpp_scan_sync@Base 0.7.991
+ mm_modem_3gpp_set_carrier_lock@Base 1.22.0
+ mm_modem_3gpp_set_carrier_lock_finish@Base 1.22.0
+ mm_modem_3gpp_set_carrier_lock_sync@Base 1.22.0
  mm_modem_3gpp_set_eps_ue_mode_operation@Base 1.7.990
  mm_modem_3gpp_set_eps_ue_mode_operation_finish@Base 1.7.990
  mm_modem_3gpp_set_eps_ue_mode_operation_sync@Base 1.7.990
@@ -1647,6 +1758,20 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_cdma_registration_state_get_type@Base 0.7.991
  mm_modem_cdma_rm_protocol_get_string@Base 0.7.991
  mm_modem_cdma_rm_protocol_get_type@Base 0.7.991
+ mm_modem_cell_broadcast_delete@Base 1.23.95
+ mm_modem_cell_broadcast_delete_finish@Base 1.23.95
+ mm_modem_cell_broadcast_delete_sync@Base 1.23.95
+ mm_modem_cell_broadcast_dup_path@Base 1.23.95
+ mm_modem_cell_broadcast_get_channels@Base 1.24.0
+ mm_modem_cell_broadcast_get_path@Base 1.23.95
+ mm_modem_cell_broadcast_get_type@Base 1.23.95
+ mm_modem_cell_broadcast_list@Base 1.23.95
+ mm_modem_cell_broadcast_list_finish@Base 1.23.95
+ mm_modem_cell_broadcast_list_sync@Base 1.23.95
+ mm_modem_cell_broadcast_peek_channels@Base 1.24.0
+ mm_modem_cell_broadcast_set_channels@Base 1.24.0
+ mm_modem_cell_broadcast_set_channels_finish@Base 1.24.0
+ mm_modem_cell_broadcast_set_channels_sync@Base 1.24.0
  mm_modem_command@Base 0.7.991
  mm_modem_command_finish@Base 0.7.991
  mm_modem_command_sync@Base 0.7.991
@@ -1673,6 +1798,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_dup_model@Base 0.7.991
  mm_modem_dup_own_numbers@Base 0.7.991
  mm_modem_dup_path@Base 0.7.991
+ mm_modem_dup_physdev@Base 1.22.0
  mm_modem_dup_plugin@Base 0.7.991
  mm_modem_dup_primary_port@Base 0.7.991
  mm_modem_dup_revision@Base 0.7.991
@@ -1720,6 +1846,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_get_own_numbers@Base 0.7.991
  mm_modem_get_path@Base 0.7.991
  mm_modem_get_pending_network_initiated_sessions@Base 1.2.0
+ mm_modem_get_physdev@Base 1.22.0
  mm_modem_get_plugin@Base 0.7.991
  mm_modem_get_ports@Base 1.0.0
  mm_modem_get_power_state@Base 0.7.991
@@ -1815,6 +1942,9 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_messaging_list_finish@Base 0.7.991
  mm_modem_messaging_list_sync@Base 0.7.991
  mm_modem_messaging_peek_supported_storages@Base 0.7.991
+ mm_modem_messaging_set_default_storage@Base 1.23.12
+ mm_modem_messaging_set_default_storage_finish@Base 1.23.12
+ mm_modem_messaging_set_default_storage_sync@Base 1.23.12
  mm_modem_mode_build_string_from_mask@Base 0.7.991
  mm_modem_mode_get_type@Base 0.7.991
  mm_modem_oma_accept_network_initiated_session@Base 1.2.0
@@ -1959,6 +2089,20 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_modem_voice_transfer@Base 1.12.6
  mm_modem_voice_transfer_finish@Base 1.12.6
  mm_modem_voice_transfer_sync@Base 1.12.6
+ mm_network_error_get_string@Base 1.23.12
+ mm_network_error_get_type@Base 1.23.12
+ mm_network_rejection_get_access_technology@Base 1.23.12
+ mm_network_rejection_get_dictionary@Base 1.23.12
+ mm_network_rejection_get_error@Base 1.23.12
+ mm_network_rejection_get_operator_id@Base 1.23.12
+ mm_network_rejection_get_operator_name@Base 1.23.12
+ mm_network_rejection_get_type@Base 1.23.12
+ mm_network_rejection_new@Base 1.23.12
+ mm_network_rejection_new_from_dictionary@Base 1.23.12
+ mm_network_rejection_set_access_technology@Base 1.23.12
+ mm_network_rejection_set_error@Base 1.23.12
+ mm_network_rejection_set_operator_id@Base 1.23.12
+ mm_network_rejection_set_operator_name@Base 1.23.12
  mm_network_timezone_get_dictionary@Base 0.7.991
  mm_network_timezone_get_dst_offset@Base 0.7.991
  mm_network_timezone_get_leap_seconds@Base 0.7.991
@@ -1987,6 +2131,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_object_get_modem_3gpp_profile_manager@Base 1.18.2
  mm_object_get_modem_3gpp_ussd@Base 0.7.991
  mm_object_get_modem_cdma@Base 0.7.991
+ mm_object_get_modem_cell_broadcast@Base 1.23.95
  mm_object_get_modem_firmware@Base 0.7.991
  mm_object_get_modem_location@Base 0.7.991
  mm_object_get_modem_messaging@Base 0.7.991
@@ -2003,6 +2148,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_object_peek_modem_3gpp_profile_manager@Base 1.18.2
  mm_object_peek_modem_3gpp_ussd@Base 0.7.991
  mm_object_peek_modem_cdma@Base 0.7.991
+ mm_object_peek_modem_cell_broadcast@Base 1.23.95
  mm_object_peek_modem_firmware@Base 0.7.991
  mm_object_peek_modem_location@Base 0.7.991
  mm_object_peek_modem_messaging@Base 0.7.991
@@ -2034,6 +2180,8 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_pco_to_variant@Base 1.10.0
  mm_serial_error_get_type@Base 0.7.991
  mm_serial_error_quark@Base 0.7.991
+ mm_serving_cell_type_get_string@Base 1.22.0
+ mm_serving_cell_type_get_type@Base 1.22.0
  mm_signal_get_dictionary@Base 1.2.0
  mm_signal_get_ecio@Base 1.2.0
  mm_signal_get_error_rate@Base 1.20.0
@@ -2044,6 +2192,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_signal_get_rssi@Base 1.2.0
  mm_signal_get_sinr@Base 1.2.0
  mm_signal_get_snr@Base 1.2.0
+ mm_signal_get_string@Base 1.22.0
  mm_signal_get_type@Base 1.2.0
  mm_signal_new@Base 1.2.0
  mm_signal_new_from_dictionary@Base 1.2.0
@@ -2145,6 +2294,7 @@ libmm-glib.so.0 libmm-glib0 #MINVER#
  mm_simple_connect_properties_new@Base 0.7.991
  mm_simple_connect_properties_new_from_dictionary@Base 0.7.991
  mm_simple_connect_properties_new_from_string@Base 0.7.991
+ mm_simple_connect_properties_print@Base 1.22.0
  mm_simple_connect_properties_set_allow_roaming@Base 0.7.991
  mm_simple_connect_properties_set_allowed_auth@Base 0.7.991
  mm_simple_connect_properties_set_apn@Base 0.7.991

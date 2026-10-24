@@ -2,10 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/ldb
-/usr/lib/x86_64-linux-gnu/ldb/modules
-/usr/lib/x86_64-linux-gnu/ldb/modules/ldb
-/usr/lib/x86_64-linux-gnu/libldb.so.2.6.2
+/usr/lib/x86_64-linux-gnu/libldb.so.2.11.0
 /usr/lib/x86_64-linux-gnu/samba
 /usr/lib/x86_64-linux-gnu/samba/ldb
 /usr/lib/x86_64-linux-gnu/samba/ldb/asq.so
@@ -18,10 +15,10 @@
 /usr/lib/x86_64-linux-gnu/samba/ldb/server_sort.so
 /usr/lib/x86_64-linux-gnu/samba/ldb/skel.so
 /usr/lib/x86_64-linux-gnu/samba/ldb/tdb.so
-/usr/lib/x86_64-linux-gnu/samba/libldb-key-value-samba4.so.0
-/usr/lib/x86_64-linux-gnu/samba/libldb-mdb-int-samba4.so.0
-/usr/lib/x86_64-linux-gnu/samba/libldb-tdb-err-map-samba4.so.0
-/usr/lib/x86_64-linux-gnu/samba/libldb-tdb-int-samba4.so.0
+/usr/lib/x86_64-linux-gnu/samba/libldb-key-value-private-samba.so.0
+/usr/lib/x86_64-linux-gnu/samba/libldb-mdb-int-private-samba.so.0
+/usr/lib/x86_64-linux-gnu/samba/libldb-tdb-err-map-private-samba.so.0
+/usr/lib/x86_64-linux-gnu/samba/libldb-tdb-int-private-samba.so.0
 /usr/share
 /usr/share/doc
 /usr/share/doc/libldb2
@@ -31,4 +28,3 @@
 /usr/share/lintian/overrides
 /usr/share/lintian/overrides/libldb2
 /usr/lib/x86_64-linux-gnu/libldb.so.2
-/usr/lib/x86_64-linux-gnu/samba/ldb/compat
