@@ -9,14 +9,19 @@
 #
 # ------------------------------------------------------------------
 
-  abi <abi/3.0>,
+  abi <abi/4.0>,
 
   # some services update wtmp, utmp, and lastlog with per-user
   # connection information
+  /var/lib/wtmpdb/  r,
+  /var/lib/wtmpdb/wtmp.db{,-journal} rwlk,
   /var/log/lastlog  rwk,
   /var/log/wtmp     rwk,
   /var/log/btmp     rwk,
   @{run}/utmp       rwk,
+
+  # Some read the list of sessions from systemd
+  /run/systemd/sessions/ r,
 
   # Include additions to the abstraction
   include if exists <abstractions/wutmp.d>

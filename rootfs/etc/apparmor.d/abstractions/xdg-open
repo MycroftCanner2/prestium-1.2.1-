@@ -1,6 +1,6 @@
 # vim:syntax=apparmor
 
-  abi <abi/3.0>,
+  abi <abi/4.0>,
 
 # This abstraction is designed to be used in a child profile to limit what
 # confined application can invoke via xdg-open helper. xdg-open abstraction
@@ -41,7 +41,7 @@
 
   include <abstractions/base>
 
-  # for openin with `exo-open`
+  # for opening with `exo-open`
   include <abstractions/exo-open>
 
   # for opening with `gio open <uri>`

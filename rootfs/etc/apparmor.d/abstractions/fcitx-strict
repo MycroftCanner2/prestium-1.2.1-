@@ -9,7 +9,7 @@
 #
 # ------------------------------------------------------------------
 
-  abi <abi/3.0>,
+  abi <abi/4.0>,
 
   include <abstractions/dbus-session-strict>
 
@@ -21,6 +21,19 @@
       peer=(name=org.freedesktop.DBus),
 
   owner @{HOME}/.config/fcitx/dbus/* r,
+
+  # Allow access to the Fcitx portal, supported by fcitx/fcitx5
+  dbus (send)
+      bus=session
+      path=/{,org/freedesktop/portal/}inputmethod
+      interface=org.fcitx.Fcitx.InputMethod1
+      member={CreateInputContext,Version}
+      peer=(name=org.freedesktop.portal.Fcitx),
+
+  dbus (send, receive)
+      bus=session
+      path=/{,org/freedesktop/portal/}inputcontext/**
+      interface=org.fcitx.Fcitx.InputContext1,
 
   # Include additions to the abstraction
   include if exists <abstractions/fcitx-strict.d>
