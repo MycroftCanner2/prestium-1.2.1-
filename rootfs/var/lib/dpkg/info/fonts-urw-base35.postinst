@@ -10,12 +10,12 @@ then
 	fi
 fi
 
-# Automatically added by dh_installxfonts/13.11.4
+# Automatically added by dh_installxfonts/13.14.1
 if command -v update-fonts-dir >/dev/null; then
 	update-fonts-scale Type1;update-fonts-dir --x11r7-layout Type1;update-fonts-alias --include /etc/X11/fonts/Type1/fonts-urw-base35.alias Type1
 fi
 # End automatically added section
-# Automatically added by dh_installdeb/13.11.4
+# Automatically added by dh_installdeb/13.14.1
 dpkg-maintscript-helper rm_conffile /etc/fonts/conf.d/31-fonts-urw-base35.conf 20170801-1\~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/fonts/conf.d/30-urw-bookman.conf 20170801-2\~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/fonts/conf.d/30-urw-c059.conf 20170801-2\~ -- "$@"

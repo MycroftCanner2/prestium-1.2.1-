@@ -7,6 +7,7 @@
 /usr/share/doc
 /usr/share/doc/gpgconf
 /usr/share/doc/gpgconf/NEWS.Debian.gz
+/usr/share/doc/gpgconf/changelog.Debian.amd64.gz
 /usr/share/doc/gpgconf/changelog.Debian.gz
 /usr/share/doc/gpgconf/changelog.gz
 /usr/share/doc/gpgconf/copyright
@@ -14,6 +15,9 @@
 /usr/share/doc/gpgconf/examples/gpgconf.conf
 /usr/share/gnupg
 /usr/share/gnupg/distsigkey.gpg
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/gpgconf
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/gpg-connect-agent.1.gz

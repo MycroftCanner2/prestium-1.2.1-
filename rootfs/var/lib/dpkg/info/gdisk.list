@@ -1,10 +1,10 @@
 /.
-/sbin
-/sbin/cgdisk
-/sbin/fixparts
-/sbin/gdisk
-/sbin/sgdisk
 /usr
+/usr/sbin
+/usr/sbin/cgdisk
+/usr/sbin/fixparts
+/usr/sbin/gdisk
+/usr/sbin/sgdisk
 /usr/share
 /usr/share/doc
 /usr/share/doc/gdisk

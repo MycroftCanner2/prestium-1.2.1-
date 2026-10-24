@@ -1,9 +1,9 @@
 29e8677d016556cb3ad8b104b024dc3f  usr/share/doc/fonts-urw-base35/NEWS.Debian.gz
-1284f0bcd8a0c6e14b1b4b4118969e95  usr/share/doc/fonts-urw-base35/changelog.Debian.gz
+972597f1899cd33d25f6ec2093f9ea5c  usr/share/doc/fonts-urw-base35/changelog.Debian.gz
 b5731ca754ab0e13b1dbb742275156e2  usr/share/doc/fonts-urw-base35/copyright
 4919c80d16900c7a74bd99b984e94c3d  usr/share/fontconfig/conf.avail/urw-bookman.conf
-c145d529891fd81a194fab0cef3954be  usr/share/fontconfig/conf.avail/urw-c059.conf
-df0583091b47c74bd894787c45e22b7c  usr/share/fontconfig/conf.avail/urw-d050000l.conf
+ea7d483860e06fb26172a6b82206063e  usr/share/fontconfig/conf.avail/urw-c059.conf
+4e51915dfefc7b5ff077f9c9cfdfb609  usr/share/fontconfig/conf.avail/urw-d050000l.conf
 fd55f1208085a7a6c9059a85f74026b2  usr/share/fontconfig/conf.avail/urw-fallback-backwards.conf
 4fe12712f1cbc9a3f210b70588989ac9  usr/share/fontconfig/conf.avail/urw-fallback-generics.conf
 962cb4e1b3c1072b98aa24c71954da6d  usr/share/fontconfig/conf.avail/urw-fallback-specifics.conf

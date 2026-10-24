@@ -11,7 +11,9 @@
 /usr/share/gajim/plugins/openpgp/__init__.py
 /usr/share/gajim/plugins/openpgp/backend
 /usr/share/gajim/plugins/openpgp/backend/__init__.py
+/usr/share/gajim/plugins/openpgp/backend/base.py
 /usr/share/gajim/plugins/openpgp/backend/gpgme.py
+/usr/share/gajim/plugins/openpgp/backend/gpgme_types.py
 /usr/share/gajim/plugins/openpgp/backend/pygpg.py
 /usr/share/gajim/plugins/openpgp/backend/sql.py
 /usr/share/gajim/plugins/openpgp/backend/util.py

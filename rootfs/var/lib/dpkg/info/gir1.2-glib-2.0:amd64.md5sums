@@ -1,7 +1,8 @@
-6cd66622bc82a0c09cc387f85465c856  usr/lib/x86_64-linux-gnu/girepository-1.0/GIRepository-2.0.typelib
-5d68700d92e2e2875096537a88be0321  usr/lib/x86_64-linux-gnu/girepository-1.0/GLib-2.0.typelib
-d25b0aaf8351f51896fc2432029e94dd  usr/lib/x86_64-linux-gnu/girepository-1.0/GModule-2.0.typelib
-ec95ea721a1b233ccaab29d83fe10a5e  usr/lib/x86_64-linux-gnu/girepository-1.0/GObject-2.0.typelib
-421d3430789adba2c28571d8b3ae3816  usr/lib/x86_64-linux-gnu/girepository-1.0/Gio-2.0.typelib
-fb518ff088971720a8c1a73a74fd037b  usr/share/doc/gir1.2-glib-2.0/changelog.Debian.gz
-6d825dba2ec2a7c4098e3207df623ad9  usr/share/doc/gir1.2-glib-2.0/copyright
+3dc08e1d3863d1cf45bb4ea3b4c18633  usr/lib/x86_64-linux-gnu/girepository-1.0/GLib-2.0.typelib
+052325b84b0b5e7593d1b7f4a2c88160  usr/lib/x86_64-linux-gnu/girepository-1.0/GLibUnix-2.0.typelib
+dd10372f5d14ccb6a7ca9709dde6af9b  usr/lib/x86_64-linux-gnu/girepository-1.0/GModule-2.0.typelib
+41c032ea73aff2135f64d1b01c619bda  usr/lib/x86_64-linux-gnu/girepository-1.0/GObject-2.0.typelib
+7d3aa37ff9407c72d665b0d7a7b1d2a2  usr/lib/x86_64-linux-gnu/girepository-1.0/Gio-2.0.typelib
+622916ef93287d7c3ac1a129112d0d63  usr/lib/x86_64-linux-gnu/girepository-1.0/GioUnix-2.0.typelib
+7acd61f3d6f4ec8c928368cf7eabe714  usr/share/doc/gir1.2-glib-2.0/changelog.Debian.gz
+532abcc1186e86119a7a33d43d86cc0b  usr/share/doc/gir1.2-glib-2.0/copyright

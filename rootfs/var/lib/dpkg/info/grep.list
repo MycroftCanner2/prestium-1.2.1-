@@ -1,10 +1,9 @@
 /.
-/bin
-/bin/egrep
-/bin/fgrep
-/bin/grep
 /usr
 /usr/bin
+/usr/bin/egrep
+/usr/bin/fgrep
+/usr/bin/grep
 /usr/bin/rgrep
 /usr/share
 /usr/share/doc

@@ -1,0 +1,14 @@
+86c2d2fae72e8921b510d7bd13be4c24  usr/lib/firmware/zd1211/zd1211_ub
+432ac12a108496ea074eac59ac36bbb3  usr/lib/firmware/zd1211/zd1211_uph
+a3d88304fcf81bf6e6723929f3cf5118  usr/lib/firmware/zd1211/zd1211_uphm
+491aeb0e0d558c9461445979fe9ef074  usr/lib/firmware/zd1211/zd1211_uphr
+24942601c03721fe605336a2facf4c15  usr/lib/firmware/zd1211/zd1211_ur
+0a8573604fa5ce9761b717610765f335  usr/lib/firmware/zd1211/zd1211b_ub
+432ac12a108496ea074eac59ac36bbb3  usr/lib/firmware/zd1211/zd1211b_uph
+8e20edaee2720dfa1d708376477e7613  usr/lib/firmware/zd1211/zd1211b_uphm
+49a37121bc78e930be618ee534d1dfa1  usr/lib/firmware/zd1211/zd1211b_uphr
+24942601c03721fe605336a2facf4c15  usr/lib/firmware/zd1211/zd1211b_ur
+1dd5d53ac842d861d894e150e8c4a9a6  usr/share/doc/firmware-zd1211/README
+d1b62ce937e785ada1a91ecc4316c7f8  usr/share/doc/firmware-zd1211/changelog.Debian.gz
+25b2cbff823e6d643c118a585bf8cc1a  usr/share/doc/firmware-zd1211/copyright
+fa6d5e5a8bef6161540b913117c5d603  usr/share/metainfo/net.sourceforge.projects.zd1211.metainfo.xml

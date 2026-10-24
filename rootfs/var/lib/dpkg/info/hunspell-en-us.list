@@ -9,6 +9,8 @@
 /usr/share/hunspell
 /usr/share/hunspell/en_US.aff
 /usr/share/hunspell/en_US.dic
+/usr/share/hunspell-bdic
+/usr/share/hunspell-bdic/en_US.bdic
 /var
 /var/lib
 /var/lib/dictionaries-common

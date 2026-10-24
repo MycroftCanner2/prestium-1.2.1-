@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installdeb/13.24.2
+dpkg-maintscript-helper dir_to_symlink /usr/lib/firmware/nvidia/ad103 ad102 20251021-1\~ firmware-nvidia-graphics -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/lib/firmware/nvidia/ad104 ad102 20251021-1\~ firmware-nvidia-graphics -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/lib/firmware/nvidia/ad106 ad102 20251021-1\~ firmware-nvidia-graphics -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/lib/firmware/nvidia/ad107 ad102 20251021-1\~ firmware-nvidia-graphics -- "$@"
+# End automatically added section

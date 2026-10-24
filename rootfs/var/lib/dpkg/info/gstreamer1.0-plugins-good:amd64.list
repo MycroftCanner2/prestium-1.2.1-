@@ -9,6 +9,8 @@
 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstalaw.so
 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstalpha.so
 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstalphacolor.so
+/usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstamrnb.so
+/usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstamrwbdec.so
 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstapetag.so
 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstaudiofx.so
 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstaudioparsers.so
@@ -83,6 +85,7 @@
 /usr/share/doc/gstreamer1.0-plugins-good/copyright
 /usr/share/gstreamer-1.0
 /usr/share/gstreamer-1.0/presets
+/usr/share/gstreamer-1.0/presets/GstAmrnbEnc.prs
 /usr/share/gstreamer-1.0/presets/GstIirEqualizer10Bands.prs
 /usr/share/gstreamer-1.0/presets/GstIirEqualizer3Bands.prs
 /usr/share/gstreamer-1.0/presets/GstQTMux.prs

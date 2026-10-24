@@ -1,8 +1,8 @@
-09242fd7e60d89624e473f9292b85504  usr/lib/x86_64-linux-gnu/girepository-1.0/Gst-1.0.typelib
-0d952ac1917b0bf287127888eb61fd20  usr/lib/x86_64-linux-gnu/girepository-1.0/GstBase-1.0.typelib
+b5b290a93faaf46f2d64f0c1da334be8  usr/lib/x86_64-linux-gnu/girepository-1.0/Gst-1.0.typelib
+30468c0228f387739f9a7af882874287  usr/lib/x86_64-linux-gnu/girepository-1.0/GstBase-1.0.typelib
 a56d4d29fdde78a2f07e9e44a1063dd5  usr/lib/x86_64-linux-gnu/girepository-1.0/GstCheck-1.0.typelib
 fb36471ab7c7656cf878574324097ee5  usr/lib/x86_64-linux-gnu/girepository-1.0/GstController-1.0.typelib
-dcd320899031da08bf255d1a611a6e9f  usr/lib/x86_64-linux-gnu/girepository-1.0/GstNet-1.0.typelib
-5ee63aa3227b350d1386837e62bed9e3  usr/share/doc/gir1.2-gstreamer-1.0/changelog.Debian.gz
-54bc375b686010743dc59dda3328c3e0  usr/share/doc/gir1.2-gstreamer-1.0/changelog.gz
-671f06bafc93d6ffbeb9cbedf403c6df  usr/share/doc/gir1.2-gstreamer-1.0/copyright
+9939ff4abed25cfb263cbe8cad25ec61  usr/lib/x86_64-linux-gnu/girepository-1.0/GstNet-1.0.typelib
+5ddc6f4033847b3d87e432e117881282  usr/share/doc/gir1.2-gstreamer-1.0/changelog.Debian.gz
+007fa72cda30b41ed49fffd7348621e6  usr/share/doc/gir1.2-gstreamer-1.0/changelog.gz
+92dfee0c83f75503c9266ee3fb74b8ed  usr/share/doc/gir1.2-gstreamer-1.0/copyright

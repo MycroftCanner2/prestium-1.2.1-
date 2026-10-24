@@ -1,0 +1,6 @@
+2bfc065e3e4a5c86be6aca430b98f92d  usr/lib/firmware/carl9170-1.fw
+1d50581f55d2d0700370ea1f0bc7851c  usr/share/bug/firmware-carl9170/control
+5516fa5d1fc8d5302768d180043183be  usr/share/bug/firmware-carl9170/presubj
+cc3d72b7378679dab5ee4cf7e7839862  usr/share/doc/firmware-carl9170/changelog.Debian.gz
+71082018c7cea173ac3c7a3f3291da4c  usr/share/doc/firmware-carl9170/copyright
+9694454a0d3d89eb4b76a346ae1181d4  usr/share/metainfo/com.qualcomm.qca.carl9170.firmware.metainfo.xml

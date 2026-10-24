@@ -6,7 +6,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/findutils
-/usr/share/doc/findutils/NEWS.Debian.gz
 /usr/share/doc/findutils/NEWS.gz
 /usr/share/doc/findutils/README.gz
 /usr/share/doc/findutils/TODO
@@ -17,8 +16,6 @@
 /usr/share/doc-base/findutils.findutils
 /usr/share/info
 /usr/share/info/find-maint.info.gz
-/usr/share/info/find.info-1.gz
-/usr/share/info/find.info-2.gz
 /usr/share/info/find.info.gz
 /usr/share/locale
 /usr/share/locale/be
@@ -78,6 +75,9 @@
 /usr/share/locale/ja
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/findutils.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/findutils.mo
 /usr/share/locale/ko
 /usr/share/locale/ko/LC_MESSAGES
 /usr/share/locale/ko/LC_MESSAGES/findutils.mo

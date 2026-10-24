@@ -3,6 +3,7 @@ Template: fontconfig/hinting_type
 Type: select
 Choices: Native, Autohinter, None
 Choices-ar.UTF-8: عادي, تشكيل آلي, بدون
+Choices-ca.UTF-8: Nadiu, Autocorrecció («autohinter»), Cap
 Choices-cs.UTF-8: Nativní, Autohinter, Nijak
 Choices-da.UTF-8: Indbygget, Autohinter, Ingen
 Choices-de.UTF-8: nativ, Autohinter, keine
@@ -23,12 +24,12 @@ Choices-no.UTF-8: Innebygd, Autohinter, ingen
 Choices-pl.UTF-8: natywna, autohinting, brak
 Choices-pt.UTF-8: Nativo, Desenho automático (Autohinter), Nenhum
 Choices-pt_BR.UTF-8: Nativo, Autohinter, Nenhum
-Choices-ro.UTF-8: nativ, autohinter, nici unul
+Choices-ro.UTF-8: nativă, autosugerată, niciuna
 Choices-ru.UTF-8: Родной, Автохинтование, Без подстройки
 Choices-sk.UTF-8: natívna, automatická rada, žiadna
 Choices-sv.UTF-8: Native, Autohinter, Ingen
 Choices-ta.UTF-8: இயல்பான, தானியங்கி குறிப்பி, ஒன்றுமில்லை
-Choices-tr.UTF-8: Yerel, Otomatik kaplayıcı, Hiçbiri
+Choices-tr.UTF-8: Native, Autohinter, Hiçbiri
 Choices-vi.UTF-8: Sở hữu riêng, Tự động gợi ý, Không có
 Choices-zh_TW.UTF-8: 原生, 自動微調, 無
 Default: Native
@@ -38,6 +39,10 @@ Description: Font tuning method for screen (system default):
  Select 'Native' if you mostly use DejaVu (the default in Debian) or
  any of the Microsoft fonts. Select 'Autohinter' if you mostly use other
  TrueType fonts. Select 'None' if you want blurry text.
+Description-ca.UTF-8: Mètode per a ajustar el tipus de lletra a la pantalla (predeterminat pel sistema):
+ Seleccioneu el mètode preferit per ajustar els tipus de lletra per renderitzar-los per pantalla.
+ .
+ Seleccioneu «Nadiu» si utilitzeu principalment els tipus de lletra DejaVu (que són els que hi ha per defecte a Debian) o qualsevol dels tipus de lletra de Microsoft. Seleccioneu «Autocorrecció» («Autohinter») si utilitzeu majoritàriament altres tipus de lletra TrueType. Seleccioneu «Cap» si voleu que el text es vegi borrós.
 Description-cs.UTF-8: Způsob vyladění písem pro obrazovku (výchozí pro celý systém):
  Zvolte prosím preferovaný způsob vyladění písem pro čtení na obrazovce.
  .
@@ -50,7 +55,7 @@ Description-de.UTF-8: Schriftabgleich-Methode für den Bildschirm (Systemvorgabe
  Bitte wählen Sie zur Bildschirmdarstellung die bevorzugte Methode zum Schriftabgleich (font tuning) aus.
  .
  Wählen Sie »nativ« aus, wenn Sie überwiegend DejaVu (Standard in Debian) oder Microsoft-Schriften verwenden. Wählen Sie »Autohinter« aus, wenn Sie überwiegend andere True-Type-Schriften verwenden. Wählen Sie »keine« aus, wenn Sie verschwommenen Text wollen.
-Description-es.UTF-8: Método para el ajuste de tipo de letra para pantalla (valorpredefinido del sistema):
+Description-es.UTF-8: Método para el ajuste de tipo de letra para pantalla (valor predefinido del sistema):
  Seleccione el método que prefiere para el ajuste de los tipos de letra para la reproducción en pantalla.
  .
  Elija «Nativo» si va a utilizar DejaVu (el predeterminado en Debian) o cualquiera de los tipos de letra de Microsoft. Elija «Autosugerido» si generalmente utiliza otros tipos de letra «TrueType». Elija «Ninguno» si desea texto difuso.
@@ -85,6 +90,10 @@ Description-pt_BR.UTF-8: Método de ajuste de fonte para tela (padrão do sistem
  Por favor, selecione o método preferido para ajustar as fontes para renderização em tela.
  .
  Selecione "Nativo" caso você utilize principalmente DejaVu (a fonte padrão no Debian) ou quaisquer fontes Microsoft. Selecione "Autohinter" caso você utilize principalmente outras fontes TrueType. Selecione "Nenhum" caso você queira texto borrado.
+Description-ro.UTF-8: Metoda de ajustare a fontului pentru ecran (implicită a sistemului):
+ Alegeți metoda preferată de ajustare a fonturilor pentru redarea lor pe ecran.
+ .
+ Alegeți „nativă” dacă folosiți în general fontul DejaVu (implicit în Debian) sau oricare din fonturile Microsoft. Alegeți „autosugerată” dacă utilizați mai ales alte fonturi TrueType. Alegeți „niciuna” dacă doriți text neclar, încețoșat.
 Description-ru.UTF-8: Способ подстройки шрифтов для экрана (системная настройка по умолчанию):
  Пожалуйста, выберите предпочтительный метод подстройки шрифтов при отрисовке на экране.
  .
@@ -93,14 +102,15 @@ Description-sv.UTF-8: Metod för justerings av typsnitt för skärm (systemstand
  Välj den metod som föredras för justering av skärmrendering av typsnitt.
  .
  Välj 'Native' om du mestadels använder DejaVu (standard i Debian) eller någon av Microsofts typsnitt. Välj 'Autohinter' om du mestadels använder andra TrueType-typsnitt. Välj 'Ingen' om du vill ha suddig text.
-Description-tr.UTF-8: Ekran için yazıtipi ince ayar yöntemi (öntanımlı sistem ayarı):
- Ekranda gösterilmesi için tercih edilen ayarlama font metodunu seçiniz.
+Description-tr.UTF-8: Ekran gösterimi için yazı tipi ayarlama yöntemi:
+ Yazı tiplerinin ekranınıza uyumunu iyileştirecek uyarlama yöntemini seçin.
  .
- Genellikle (Debian'da varsayılan) DejaVu yu kullanıyorsanız 'Yerel'i veya Microsoft fontlarından birini seçiniz.Çoğunlukla TrueType kullanıyorsanız'Autohinter'ı seçiniz.Bulanık metinler için 'Hiçbiri'ı seçiniz.
+ "Font hinting", özetle, yazı tiplerinin ekran çözünürlüğüne göre düzenlenmelerini ve böylece daha iyi görünmelerini sağlar. Debian'ın ön tanımlı yazı tipi olan DejaVu yazı tipini ya da Microsoft yazı tiplerinden birini kullanıyorsanız, 'Native' seçeneğini; başka TrueType yazı tiplerinden birini kullanıyorsanız, 'Autohinter' seçeneğini seçebilirsiniz. Yazı tiplerinin uyarlama yapılmadan gösterilmesi için 'Hiçbiri' seçenegini seçiniz. Uyarlama yapılmadığında metinler genellikle bulanık görünürler.
 
 Template: fontconfig/hinting_style
 Type: select
 Choices: None, Slight, Medium, Full
+Choices-ca.UTF-8: Cap, Lleuger, Mitjà, Complet
 Choices-da.UTF-8: Ingen, Let, Mellem, Fuld
 Choices-de.UTF-8: keine, gering, mittel, voll
 Choices-es.UTF-8: Ninguno, Ligero, Medio, Completo
@@ -108,8 +118,10 @@ Choices-fr.UTF-8: Aucune, Léger, Moyen, Complet
 Choices-nl.UTF-8: Niet optimaliseren, Licht, Gemiddeld, Volledig
 Choices-pt.UTF-8: Nenhum, Ligeiro, Médio, Total
 Choices-pt_BR.UTF-8: Nenhum, Leve, Médio, Completo
+Choices-ro.UTF-8: niciuna, modic, mediu, complet
 Choices-ru.UTF-8: Без подстройки, Слабое, Среднее, Полное
 Choices-sv.UTF-8: Ingen, Lätt, Mellan, Full
+Choices-tr.UTF-8: Hiçbiri, Az, Orta, Tam
 Choices-C: hintnone, hintslight, hintmedium, hintfull
 Default: hintslight
 Description: Automatic font hinting style:
@@ -123,6 +135,12 @@ Description: Automatic font hinting style:
  default setting.
  .
  To revert to the pre-2.12 behavior, select "Full".
+Description-ca.UTF-8: Estil automàtic de correcció («hinting») del tipus de lletra:
+ Seleccioneu l'estil preferit de correcció («hinting») automàtica del tipus de lletra que es vol usar com a predeterminat pel sistema.
+ .
+ L'estil de correcció («hinting») és la quantitat de modificació de la forma del tipus de lletra fet per alinear-se a la quadrícula. «Lleuger» farà que el tipus de lletra sigui més difús per alinear-se a la quadrícula, però serà millor en mantenir la forma del tipus de lletra, mentre que «Complet» serà un tipus de lletra nítid que s'alinea bé amb la quadrícula de píxels, però perdrà una major quantitat de forma del tipus de lletra. «Lleuger» és la configuració per defecte.
+ .
+ Per tornar enrere al comportament previ a la 2.12, seleccioneu «Complet».
 Description-da.UTF-8: Automatisk hinting-stil for skrifttype:
  Vælg venligst den foretrukne automatiske hinting-stil for skrifttypen, der skal bruges som systemstandard.
  .
@@ -165,6 +183,12 @@ Description-pt_BR.UTF-8: Estilo de ajuste de fonte automático:
  O estilo de ajuste é o quanto a fonte será remodelada para se alinhar à grade. "Leve" fará o alinhamento da fonte à grade menos preciso, mas será melhor em manter o formato original da fonte, enquanto "Completo" fará o alinhamento à grade mais preciso, mas não manterá tão bem o formato original da fonte. A configuração padrão é "Leve".
  .
  Para reverter para o comportamento pre-2.12, selecione "Completo".
+Description-ro.UTF-8: Stilul de autosugerare a fontului:
+ Alegeți stilul preferat de autosugerare a fontului pentru a fi utilizat ca stil implicit al sistemului.
+ .
+ Stilul autosugerării este cantitatea de remodelare a fontului făcută pentru a se alinia la grilă. „modic” va face fontul mai neclar pentru a se alinia la grilă, dar va păstra mai bine forma fontului; în timp ce „complet” va face un font clar care se aliniază bine la grila de pixeli, dar va pierde o cantitate mai mare de formă a fontului. „modic” este opțiunea implicită.
+ .
+ Pentru a reveni la comportamentul anterior versiunii 2.12, alegeți „complet”.
 Description-ru.UTF-8: Автоматический стиль хинтования шрифтов:
  Пожалуйста, выберите предпочтительный стиль хинтования шрифтов, который будет использоваться в системе по умолчанию.
  .
@@ -177,11 +201,18 @@ Description-sv.UTF-8: Automatisk justering av skärmrendering av typsnitt:
  Skärmjustering av typsnitt är mängden av fonten som omformas för att linjera med rutnätet. "Lätt" gör fonter mer suddig för att linjera med rutnätet men kommer vara bättre på att bibehålla typsnittets form, medan "Full" ger en skarpt typsnitt som linjerar väl med rutnätet men kommer förlora en stärre andel  av typsnittets form. "Lätt" är standard-inställningen.
  .
  För att återgå till beteendet före 2.12, välj "Full".
+Description-tr.UTF-8: Otomatik yazı tipi uyarlama tarzı:
+ Sistem geneline uygulanacak otomatik yazı tipi uyarlama tarzını seçin.
+ .
+ Uyarlama tarzı yazı tipinin ekranın ızgarasına, piksellerine uyarlanırken ne kadar değiştirileceğidir. "Az" seçimininde yazı tipi ekranın yapısına tam uymayabilir ama daha kendi gibi görünecektir. "Tam" seçiminde ise yazı tipi ekranın yapısına daha çok uysun diye keskin bir hal alacaktır ama aslından uzaklaşacaktır. "Az" seçimi ön tanımlıdır; tarzınıza göre seçin.
+ .
+ 2.12 sürümünden önceki gibi kullanmayı isterseniz, "Tam" seçeneğini seçiniz.
 
 Template: fontconfig/subpixel_rendering
 Type: select
 Choices: Automatic, Always, Never
 Choices-ar.UTF-8: آلي, دائماً, نهائياً
+Choices-ca.UTF-8: Automàtic, Sempre, Mai
 Choices-cs.UTF-8: Automaticky, Vždy, Nikdy
 Choices-da.UTF-8: Automatisk, Altid, Aldrig
 Choices-de.UTF-8: automatisch, immer, nie
@@ -202,7 +233,7 @@ Choices-no.UTF-8: Automatisk, Alltid, Aldri
 Choices-pl.UTF-8: automatyczne, zawsze, brak
 Choices-pt.UTF-8: Automático, Sempre, Nunca
 Choices-pt_BR.UTF-8: Automática, Sempre, Nunca
-Choices-ro.UTF-8: automat, mereu, niciodată
+Choices-ro.UTF-8: automată, mereu, niciodată
 Choices-ru.UTF-8: Автоматически, Всегда, Никогда
 Choices-sk.UTF-8: automatická, vždy, nikdy
 Choices-sv.UTF-8: Automatisk, Alltid, Aldrig
@@ -217,8 +248,8 @@ Description: Enable subpixel rendering for screen:
  "Automatic" choice will enable it only if a LCD screen is detected.
 Description-ar.UTF-8: تمكين التصيير التحت بكسلي للشاشة:
  تصيير النص بمستوى تحت بكسلي يتسبب عامة بجعله يظهر بشكل أفضل قليلاً على شاشات LCD المسطحة، ولكنه قد لا يكون مناسباً لشاشات CRT. سيقوم الخيار `آلي` بتمكين هذا الخيار فقط إن عثر على شاشة مسطحة.
-Description-ca.UTF-8: Voleu habilitar la renderització a nivell de sub-píxels?
- El text renderitzat a nivell de sub-píxels normalment es veu millor en pantalles planes (LCD), però pot provocar efectes no desitjats en pantalles CRT. L'opció «Automàtic» només habilitarà la renderització a nivell de sub-píxels si es detecta una pantalla LCD.
+Description-ca.UTF-8: Habilita la renderització a nivell de sub-píxels:
+ El text renderitzat a nivell de sub-píxels normalment es veu millor en pantalles planes (LCD), però pot provocar efectes no desitjats en pantalles CRT. L'opció «Automàtic» només l'habilitarà si es detecta una pantalla LCD.
 Description-cs.UTF-8: Povolit podpixelové vykreslování textu:
  Vykreslování textu na podpixelové úrovni způsobí, že na plochých (LCD) obrazovkách vypadá o něco lépe, ale na CRT monitorech může zobrazovat barevné artefakty. Možnost „Automaticky“ povolí podpixelové vykreslování pouze pokud bude rozpoznán LCD monitor.
 Description-da.UTF-8: Aktiver delpiksel-tekstoptegning for skærm:
@@ -259,8 +290,8 @@ Description-pt.UTF-8: Activar desenho de subpixels para o ecrã:
  Desenhar o texto a um nível de subpixel torna-o em geral mais agradável para o olhar em ecrãs planos (LCD), mas poderá apresentar artefactos de cor em ecrãs CRT. A escolha "Automático" apenas activará esta opção se for detectado um ecrã LCD.
 Description-pt_BR.UTF-8: Habilitar renderização de subpixel para a tela:
  Renderização de texto no nível do subpixel geralmente torna a exibição um pouco melhor em telas planas (LCD), mas pode exibir artefatos coloridos em telas CRT. A escolha "Automática" habilitará essa opção somente se uma tela LCD for detectada.
-Description-ro.UTF-8: Activează randarea textului pe ecran la nivel de subpixel:
- Randarea textului la nivel de subpixel face ca textul să arate, în general, mai bine pe monitoare plate (LCD), dar generează artefacte pe monitoarele CRT. Dacă alegeți „automat” se va activa randarea la nivel de subpixel doar dacă este detectat un monitor LCD.
+Description-ro.UTF-8: Activează redarea textului pe ecran la nivel de subpixel:
+ Redarea textului la nivel de subpixel face ca textul să arate, ceva mai bine pe monitoarele plate (LCD), dar generează artefacte de culoare pe monitoarele CRT. Dacă alegeți „automat” se va activa redarea la nivel de subpixel doar dacă este detectat un monitor LCD.
 Description-ru.UTF-8: Включить технологию субпиксельной отрисовки на экране:
  Отрисовка на субпиксельном уровне обычно делает вид текста немного лучше на плоских (ЖК) мониторах, но на ЭЛТ мониторах могут появиться цветовые дефекты изображения. При выборе «Автоматически» данная технология будет включена только при обнаружении ЖК монитора.
 Description-sk.UTF-8: Zapnúť subpixelové vykresľovanie obrazovky:
@@ -269,8 +300,8 @@ Description-sv.UTF-8: Aktivera underpixelritning för skärm:
  Rita upp text vid en underpixelnivå gör generellt att det ser bättre ut på platta skärmar (LCD) men kan visa färgavvikelser på CRT-skärmar. Valet "Automatisk" kommer bara aktivera det om en LCD-skärm hittats.
 Description-ta.UTF-8: துணை படப்புள்ளி காட்டலை திரைக்கு செயல்படுத்துக.
  உரையை துணை படப்புள்ளி மட்டத்தில் காட்டுவது எல்சிடி போன்ற தட்டையான திரைகளில் சற்று மேலும் சிறப்பாக காட்டுகிறது. ஆனால் சிஆர்டி - திரைகளில் நிற வழுக்கள் ஏற்படலாம். "Automatic" தேர்வு எல்சிடி திரையை கண்டறிந்தால் மட்டும் இதை செயல்படுத்தும்.
-Description-tr.UTF-8: Ekran için altpiksel taramasını etkinleştir:
- Metni altpiksel seviyesinde göstermek düz (LCD) ekranlarda biraz daha iyi görünmesini sağlar, fakat CRT ekranlarda yapay renkleri gösterir."Automatic" seçeneği sadece LCD ekran algılanırsa aktif edilecek.
+Description-tr.UTF-8: Alt piksel dönüşümü:
+ Metni altpiksel seviyesinde dönüştürmek LCD ekranlarda biraz işe yarar; fakat CRT ekranlarda yapay renkleri gösterir. "Otomatik" seçeneğinde yalnızca LCD bir ekran algılanırsa dönüşüm yapılacaktır.
 Description-vi.UTF-8: Hiệu lực khả năng vẽ kiểu điểm ảnh phụ cho màn hình không?
  Việc vẽ chữ tại cấp điểm ảnh phụ (subpixel rendering) thường gây ra nó hiển thị đẹp hơn một chút trên màn hình phẳng (LCD), nhưng mà cũng có thể hiển thị đồ tạo tác màu trên màn hình CRT (không phẳng, thường kiểu cũ). Vì vậy sự chọn « Tự động » sẽ bật nó chỉ khi phát hiện màn hình LCD.
 Description-zh_TW.UTF-8: 在螢幕上啟用次像素渲染 (subpixel rendering)：
@@ -291,6 +322,10 @@ Description-ar.UTF-8: تمكين الخطوط النقطية بشكل افترا
  افتراضياً، تستخدم خطوط outline فقط من قبل التطبيقات التي تدعم fontconfig.
  .
  خطوط Outline هي الخطوط التي تتلائم بشكل جيد من الأحجام المختلفة. وعلى العكس، فإن الخطوط النقطية غالباً ما تكون ذات جودة أقل. تمكين هذا الخيار سوف يؤثر على الوضع الافتراضي للنظام بأكمله؛ هذا الخيار والعديد من خيارات fontconfig الأخري يمكن تمكينه وتعطيله وفقاً لكل مستخدم.
+Description-ca.UTF-8: Voleu habilitar per defecte els tipus de lletra de mapa de bits?
+ Per defecte, només els tipus de lletra de contorn («outline») són usats per aplicacions compatibles amb «fontconfig».
+ .
+ Els tipus de lletra de contorn («outline») són tipus de lletra que s'escalen bé a diverses mides. En canvi, els tipus de lletra de mapa de bits sovint són de menor qualitat. Activar aquesta opció afectarà el valor per defecte del sistema; aquesta i moltes altres opcions de «fontconfig» poden estar habilitades o no a nivell d'usuari.
 Description-cs.UTF-8: Povolit implicitně bitmapová písma?
  Ve výchozím nastavení jsou v aplikacích podporujících fontconfig používány pouze obrysová písma.
  .
@@ -371,10 +406,10 @@ Description-pt_BR.UTF-8: Habilitar fontes "bitmapped" por padrão?
  Por padrão, somente fontes desenhadas são usadas por aplicações que suportam fontconfig.
  .
  Fontes desenhadas ("outline") são fontes que escalam bem em diversos tamanhos. Em contraste, fontes "bitmapped" são geralmente de uma qualidade menor. Habilitar essa opção afetará o padrão de todo o sistema; essa e muitas outras opções do fontconfig podem ser habilitadas ou desabilitadas para cada usuário.
-Description-ro.UTF-8: Se activează implicit fonturile bitmap?
- În mod implicit, numai fonturile vectoriale sunt folosite de aplicațiile caresuportă fontconfig.
+Description-ro.UTF-8: Se activează implicit fonturile de tip hartă de biți(bitmap)?
+ În mod implicit, aplicațiile care acceptă fontconfig utilizează doar fonturile de contur(outline).
  .
- Implicit, aplicațiile care suportă fontconfig folosesc doar fonturi vectoriale. Fonturile vectoriale sunt fonturi care arată bine indiferent de mărimea caracterului, spre deosebire de fonturile bitmap nu arată bine la dimensiuni mai mari. Această opțiune afectează valoarea implicită a sistemului și poate fi activată sau deazactivată, pentru fiecare utilizator în parte, la fel ca multe alte opțiuni fontconfig.
+ Fonturile de contur(outline) sunt fonturi care arată bine indiferent de mărimea caracterului, spre deosebire de fonturile de tip hartă de biți(bitmap) care nu arată bine la dimensiuni mai mari. Această opțiune afectează valoarea implicită a sistemului și poate fi activată sau deazactivată, pentru fiecare utilizator în parte, la fel ca multe alte opțiuni fontconfig.
 Description-ru.UTF-8: Включить растровые шрифты по умолчанию?
  По умолчанию, приложениями, поддерживающими fontconfig, используются только контурные шрифты.
  .
@@ -391,10 +426,10 @@ Description-ta.UTF-8: முன்னிருப்பாக பிட் வ�
  முன்னிருப்பாக பான்ட் கான்பிக் (fontconfig) ஐ ஆதரிக்கும் எழுத்துருக்கள் மட்டுமே நிரல்களால் பயன்படுத்தப்படும்.
  .
  அவுட்லைன் எழுத்துருக்கள் என்பவை எந்த அளவுக்கும் நன்கு மாறக்கூடியவை. மாறாக பிட்வரைபட எழுத்துருக்கள் குறைந்த பண்புள்ளவை. இந்த தேர்வை செயல்படுத்துவதால் கணினி முழுதும் முன்னிருப்பு மாற்றங்கள் நிகழும்; இந்த மற்றும் பல பான்ட் கான்பிக் (fontconfig) தேர்வுகள் தனிப்பயனர் அடிப்படையில் செயல்படுத்தவோ நீக்கவோ தக்கன.
-Description-tr.UTF-8: Biteşlemli yazıtipleri öntanımlı olarak etkinleştirilsin mi?
- Sadece sınır fontları,varsayılan olarak fontconfig deskteklik yazılımlar tarafından kullanılır.
+Description-tr.UTF-8: Biteşlemli yazı tipleri ön tanımlı olarak etkinleştirilsin mi?
+ Çerçeve yazı tipleri, ön tanımlı olarak, yalnızca fontconfig desteği olan yazılımlar tarafından kullanılır.
  .
- Ölçeklenebilir yazıtipleri kalitesinden birşey kaybetmeden çeşitli boyutlara ölçeklendirilebilir.  Buna karşılık, biteşlemli yazıtipleri çoğunlukla düşük kalitelidir.  Bu seçeneği etkinleştirmek sistem genelinde geçerli öntanımlı ayarları etkileyecektir;kullanıma göre bu ve diğer bir çok fontconfig özelliği aktif yada pasif hale getirilebilir.
+ Çerçeve yazı tipleri karakterlerin yalnızca sınır çizgilerinden oluşan yazı tipleridir ve çeşitli boyutlara kolayca ölçeklenebilirler. Buna karşın, bit eşlemli yazı tipleri ölçeklendirilirken bozulabilirler. Bu seçeneği etkinleştirmek sistem genelinde geçerli ön tanımlı ayarları belirleyecektir; ancak bu ve diğer bir çok fontconfig özelliği kullanıcı özelinde etkin ya da edilgin yapılabilir.
 Description-vi.UTF-8: Hiệu lực phông chử mảng ảnh theo mặc định không?
  Mặc định là chỉ phông chữ nét ngoài được sử dụng bởi ứng dụng hỗ trợ fontconfig.
  .

@@ -1,6 +1,6 @@
-5d59a6fabf790a635d5a6888dfba7c24  usr/lib/x86_64-linux-gnu/gio/modules/libgiognomeproxy.so
-962002799024c4f5d9dcc771e1fc9097  usr/lib/x86_64-linux-gnu/gio/modules/libgiognutls.so
-73c67fddcc5d8876ce1dc039bb0d6989  usr/lib/x86_64-linux-gnu/gio/modules/libgiolibproxy.so
-1f9e20342151194d964089c72251525f  usr/share/doc/glib-networking/NEWS.gz
-4a132c6bdf5e3726bd8a2ff9fae9439a  usr/share/doc/glib-networking/changelog.Debian.gz
+ee42214acd6e49d984aa49e204618fd2  usr/lib/x86_64-linux-gnu/gio/modules/libgiognomeproxy.so
+5922f7bfa57554300ce57a1df8327e2a  usr/lib/x86_64-linux-gnu/gio/modules/libgiognutls.so
+a17f00dcd3c478ebcf47e9b25c1debd5  usr/lib/x86_64-linux-gnu/gio/modules/libgiolibproxy.so
+58e82013e9fb5ced3019dde7f9d46b90  usr/share/doc/glib-networking/NEWS.gz
+c91e7b1a310d359237a11fe4aeefa6a8  usr/share/doc/glib-networking/changelog.Debian.gz
 cb4920970a32a704744db1021a6d8226  usr/share/doc/glib-networking/copyright

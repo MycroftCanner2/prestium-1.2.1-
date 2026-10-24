@@ -18,13 +18,11 @@
 /usr
 /usr/bin
 /usr/bin/lsinitramfs
-/usr/bin/unmkinitramfs
 /usr/sbin
 /usr/sbin/mkinitramfs
 /usr/share
 /usr/share/doc
 /usr/share/doc/initramfs-tools-core
-/usr/share/doc/initramfs-tools-core/NEWS.Debian.gz
 /usr/share/doc/initramfs-tools-core/changelog.gz
 /usr/share/doc/initramfs-tools-core/copyright
 /usr/share/doc/initramfs-tools-core/examples
@@ -65,4 +63,3 @@
 /usr/share/man/man8
 /usr/share/man/man8/lsinitramfs.8.gz
 /usr/share/man/man8/mkinitramfs.8.gz
-/usr/share/man/man8/unmkinitramfs.8.gz

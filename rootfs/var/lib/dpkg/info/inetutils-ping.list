@@ -1,8 +1,8 @@
 /.
-/bin
-/bin/ping
-/bin/ping6
 /usr
+/usr/bin
+/usr/bin/ping
+/usr/bin/ping6
 /usr/share
 /usr/share/doc
 /usr/share/doc/inetutils-ping

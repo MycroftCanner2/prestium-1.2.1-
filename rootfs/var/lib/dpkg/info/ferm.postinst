@@ -49,9 +49,9 @@ if [ "$action" = configure ]; then
     fi
 fi
 
-# Automatically added by dh_installinit/13.10
+# Automatically added by dh_installinit/13.24.1
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	if [ -z "${DPKG_ROOT:-}" ] && [ -x "/etc/init.d/ferm" ]; then
+	if [ -z "$DPKG_ROOT" ] && [ -x "/etc/init.d/ferm" ]; then
 		update-rc.d ferm defaults >/dev/null
 		if [ -n "$2" ]; then
 			_dh_action=restart
@@ -62,7 +62,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.10
+# Automatically added by dh_installsystemd/13.24.1
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'ferm.service' >/dev/null || true
@@ -79,7 +79,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.10
+# Automatically added by dh_installsystemd/13.24.1
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	if [ -d /run/systemd/system ]; then
 		systemctl --system daemon-reload >/dev/null || true

@@ -134,6 +134,9 @@
 /usr/share/doc/iptables/copyright
 /usr/share/iptables
 /usr/share/iptables/iptables.xslt
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/iptables
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/iptables-xml.1.gz
@@ -162,6 +165,7 @@
 /usr/sbin/arptables-nft
 /usr/sbin/arptables-nft-restore
 /usr/sbin/arptables-nft-save
+/usr/sbin/arptables-translate
 /usr/sbin/ebtables-nft
 /usr/sbin/ebtables-nft-restore
 /usr/sbin/ebtables-nft-save
@@ -184,6 +188,7 @@
 /usr/sbin/iptables-restore-translate
 /usr/sbin/iptables-translate
 /usr/sbin/xtables-monitor
+/usr/share/man/man8/arptables-translate.8.gz
 /usr/share/man/man8/ebtables-nft-restore.8.gz
 /usr/share/man/man8/ebtables-nft-save.8.gz
 /usr/share/man/man8/ebtables-translate.8.gz

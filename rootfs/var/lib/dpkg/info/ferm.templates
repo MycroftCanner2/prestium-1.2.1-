@@ -55,6 +55,10 @@ Description-pt_BR.UTF-8: Habilitar o ferm na inicialização do sistema?
  O ferm pode carregar as regras de firewall a cada inicialização do sistema, a partir de /etc/ferm/ferm.conf.
  .
  A configuração padrão permite login SSH via porta 22; se você está instalando esse pacote remotamente via outra porta, você deve rejeitar essa opção, e mais tarde editar o arquivo /etc/default/ferm para habilitar o ferm.
+Description-ro.UTF-8: Activați inițierea lui «ferm» la pornirea sistemului?
+ «ferm» poate încărca reguli pentru parafoc(firewall) la fiecare pornire din „/etc/ferm/ferm.conf”.
+ .
+ Configurația implicită permite autentificarea SSH pe portul 22; dacă instalați acest pachet de la distanță pe alt port, trebuie să refuzați această opțiune, și să editați mai târziu „/etc/default/ferm” pentru a activa «ferm».
 Description-ru.UTF-8: Запускать ferm при загрузке операционной системы?
  Ferm может загружать правила межсетевого экрана из файла /etc/ferm/ferm.conf при запуске операционной системы.
  .

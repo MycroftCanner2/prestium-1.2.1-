@@ -1,0 +1,7 @@
+56a13492c0664404c5d34696c508974e  usr/lib/firmware/ath9k_htc/htc_7010-1.4.0.fw
+f95851f86d797a9411d298e081668ce6  usr/lib/firmware/ath9k_htc/htc_9271-1.4.0.fw
+6fabd9e072b5e3e5e518d515a2d5e6fa  usr/share/bug/firmware-ath9k-htc/control
+c5b90d95a3db9db6075726f902213138  usr/share/bug/firmware-ath9k-htc/presubj
+69d5f87a17dd76f7461320ebd55d6358  usr/share/doc/firmware-ath9k-htc/changelog.Debian.gz
+d8ed96394a688a17a0151ff01fc0a807  usr/share/doc/firmware-ath9k-htc/copyright
+e16848a7ef02330dab9412d20cfd7984  usr/share/metainfo/com.qualcomm.qca.ath9k_htc.firmware.metainfo.xml

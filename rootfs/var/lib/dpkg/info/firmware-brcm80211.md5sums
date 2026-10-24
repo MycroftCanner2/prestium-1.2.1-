@@ -1,0 +1,79 @@
+b0736e3590b05d27284fbb8a3efd50e1  usr/lib/firmware/brcm/bcm43xx-0.fw
+5e51778ee011badcb42f1e2cb4ab3956  usr/lib/firmware/brcm/bcm43xx_hdr-0.fw
+dc78f76883f5a0df9f13fad30d78442b  usr/lib/firmware/brcm/brcmfmac43143-sdio.bin
+2be9d4da43aba729bfa3417829e011df  usr/lib/firmware/brcm/brcmfmac43143.bin
+f579673b5dc45640c814a9c68abcaf55  usr/lib/firmware/brcm/brcmfmac43236b.bin
+44b13e2afe822657634ca0f08bd8c584  usr/lib/firmware/brcm/brcmfmac43241b0-sdio.bin
+b6fe79781f3e2f4a30705f2ebe5e9c6c  usr/lib/firmware/brcm/brcmfmac43241b4-sdio.Advantech-MICA-071.txt
+b219396d9341e6eabc9c4d6eb3e8a87c  usr/lib/firmware/brcm/brcmfmac43241b4-sdio.Intel Corp.-VALLEYVIEW C0 PLATFORM.txt
+62dffd52291975a60b2c079f2b671c06  usr/lib/firmware/brcm/brcmfmac43241b4-sdio.bin
+6053b3e59ac12f984aabaa3252bcecab  usr/lib/firmware/brcm/brcmfmac43241b5-sdio.bin
+418098fc9ee888cb4585a641c9333679  usr/lib/firmware/brcm/brcmfmac43242a.bin
+ff610cee869375a2d0c0be6b97b107fb  usr/lib/firmware/brcm/brcmfmac4329-sdio.bin
+f27461e1326125e00dd426a3a2782202  usr/lib/firmware/brcm/brcmfmac4330-sdio.Prowise-PT301.txt
+c6908817b83724800bb76b0114eec7a5  usr/lib/firmware/brcm/brcmfmac4330-sdio.bin
+0e5d2b9bfaaf3b6c43077405cfe92632  usr/lib/firmware/brcm/brcmfmac4334-sdio.bin
+8bf2c51176a487dc599ae92472ed508b  usr/lib/firmware/brcm/brcmfmac43340-sdio.ASUSTeK COMPUTER INC.-TF103CE.txt
+4824d0bf2e30b9c83bcdd26f2a10697a  usr/lib/firmware/brcm/brcmfmac43340-sdio.Insyde-VESPA2.txt
+5b4bfe2c5bda0ed81c1f6e382ccc4023  usr/lib/firmware/brcm/brcmfmac43340-sdio.meegopad-t08.txt
+03e9342822abb6d4aa444d33b7b1cef8  usr/lib/firmware/brcm/brcmfmac43340-sdio.pov-tab-p1006w-data.txt
+7fbc9dadaee82c67504b2b707c66f658  usr/lib/firmware/brcm/brcmfmac43340-sdio.predia-basic.txt
+678ed027a1bac420318cd54daa1e1579  usr/lib/firmware/brcm/brcmfmac4335-sdio.bin
+13b101cc43aaab6d492fe19b840dee3e  usr/lib/firmware/brcm/brcmfmac43362-sdio.ASUSTeK COMPUTER INC.-ME176C.txt
+40d1aa2dca4c1759257d81ea66d122c6  usr/lib/firmware/brcm/brcmfmac43362-sdio.WC121.txt
+c007a7c45f3d0080be4f2c1bc439c053  usr/lib/firmware/brcm/brcmfmac43362-sdio.cubietech,cubietruck.txt
+56bd4e83a74244068c07f4045450eff6  usr/lib/firmware/brcm/brcmfmac43430-sdio.AP6212.txt
+fdc506b375fd121d595da9fdacb25d55  usr/lib/firmware/brcm/brcmfmac43430-sdio.Hampoo-D2D3_Vi8A1.txt
+2f038b3611fe82414318bc8ed98a535c  usr/lib/firmware/brcm/brcmfmac43430-sdio.MUR1DX.txt
+1ab0207fee19b628371fd8f7d4dfd306  usr/lib/firmware/brcm/brcmfmac43430-sdio.ilife-S806.txt
+f823f96f057b31558e70425830858723  usr/lib/firmware/brcm/brcmfmac43430-sdio.raspberrypi,3-model-b.txt
+74e00528d84534ba68fe92c512d11de5  usr/lib/firmware/brcm/brcmfmac43430a0-sdio.ONDA-V80 PLUS.txt
+8c97a1fb04a8c2c0ca0a8ed0814f38ae  usr/lib/firmware/brcm/brcmfmac43430a0-sdio.bin
+1eb5661a14ed8c51e6e1d32b0ee1681c  usr/lib/firmware/brcm/brcmfmac43430a0-sdio.ilife-S806.txt
+864a714701fc0581f43e5afe155938be  usr/lib/firmware/brcm/brcmfmac43430a0-sdio.jumper-ezpad-mini3.txt
+5a67b117d487fd9abaa8b0c9c84cd995  usr/lib/firmware/brcm/brcmfmac43455-sdio.AW-CM256SM.txt
+33ad683f22dc4bd4b398629821d7a3de  usr/lib/firmware/brcm/brcmfmac43455-sdio.MINIX-NEO Z83-4.txt
+b9fda5b86979a3790252019635dc703e  usr/lib/firmware/brcm/brcmfmac43455-sdio.Radxa-ROCK Pi X.txt
+2f99aa1979acf8627757c08f62ce4155  usr/lib/firmware/brcm/brcmfmac43455-sdio.acepc-t8.txt
+4de8eaa3cb3ca0438a7bad7f11604e49  usr/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,3-model-b-plus.txt
+70a5c4ab8d7cca57bad76c831c039783  usr/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt
+7ad59f4b16485a17a8e7cfcfb83906ab  usr/lib/firmware/brcm/brcmfmac4350-pcie.bin
+d4caee6ee3d0403662990ea1edc10314  usr/lib/firmware/brcm/brcmfmac4350c2-pcie.bin
+ef6c7a53539848a52db26ac11b29e146  usr/lib/firmware/brcm/brcmfmac4354-sdio.nvidia,p2371-2180.txt
+85fa34ffea0dc3c7d5fda13d4e4f293d  usr/lib/firmware/brcm/brcmfmac4356-pcie.Intel Corporation-CHERRYVIEW D1 PLATFORM.txt
+a0bf28f8f2377b9007931392a6a7ae65  usr/lib/firmware/brcm/brcmfmac4356-pcie.Xiaomi Inc-Mipad2.txt
+1a376cc8a3c41bf58993fe88ae529bee  usr/lib/firmware/brcm/brcmfmac4356-pcie.gpd-win-pocket.txt
+f9a647d2dabf5892a8583de5326167f6  usr/lib/firmware/brcm/brcmfmac4356-sdio.AP6356S.txt
+6aa4682b48c3c16ac50018457d5adf2d  usr/lib/firmware/brcm/brcmfmac43569.bin
+0194dc79c1006399d4a7411e8e9a6c9b  usr/lib/firmware/brcm/brcmfmac4358-pcie.bin
+498d0d87a98207a964f78c4ebdd7c884  usr/lib/firmware/brcm/brcmfmac43602-pcie.ap.bin
+717f29226bc754b72cf2bbe6aaf7db05  usr/lib/firmware/brcm/brcmfmac43602-pcie.bin
+f88bac62ac52df179ce1298a0f479dc1  usr/lib/firmware/brcm/brcmfmac4366b-pcie.bin
+e3bb4457082aa54769253e9168db2269  usr/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+de30fb1f742e27c3b937b343be3ecad4  usr/lib/firmware/brcm/brcmfmac4371-pcie.bin
+bccbdf86b4d74f36219ff088cf87f607  usr/lib/firmware/brcm/brcmfmac4373.bin
+d193bd38eba449a80d1e7e35e07322aa  usr/lib/firmware/cypress/cyfmac43012-sdio.bin
+7afd2d83d31eff4f12d67858490cfc86  usr/lib/firmware/cypress/cyfmac43012-sdio.clm_blob
+8bd382215322d7ff9ede2924d3452187  usr/lib/firmware/cypress/cyfmac43340-sdio.bin
+602325b8c42546238307a9bb9d39cb29  usr/lib/firmware/cypress/cyfmac43362-sdio.bin
+0554efb6792b9688aa04f3dead201794  usr/lib/firmware/cypress/cyfmac4339-sdio.bin
+d566c33ab5e8f9fdb1abc63bec9dedae  usr/lib/firmware/cypress/cyfmac43430-sdio.bin
+9ff46519b8b8c2cab323322c9d983873  usr/lib/firmware/cypress/cyfmac43430-sdio.clm_blob
+4e3074e402f4ea3814a2d810ba9504b0  usr/lib/firmware/cypress/cyfmac43455-sdio.bin
+49ed4e9a2ec4eda5e3787cd5e6337b9d  usr/lib/firmware/cypress/cyfmac43455-sdio.clm_blob
+fa73ea799a4b9d8b4fa29e16148bdd77  usr/lib/firmware/cypress/cyfmac4354-sdio.bin
+b7fb8a88a9fc1bd212ce72e40ca4f954  usr/lib/firmware/cypress/cyfmac4354-sdio.clm_blob
+b99cf1dfc1e5479ed659aec7f018e01e  usr/lib/firmware/cypress/cyfmac4356-pcie.bin
+f8611ec4459ebadf99bb999e5903df12  usr/lib/firmware/cypress/cyfmac4356-pcie.clm_blob
+a8e39102e8d4c3374628769d0ce778db  usr/lib/firmware/cypress/cyfmac4356-sdio.bin
+4860d1f7b6ecaeefb9abd4f8a39992d6  usr/lib/firmware/cypress/cyfmac4356-sdio.clm_blob
+000f33628f8854a6ee70baa49ce56b17  usr/lib/firmware/cypress/cyfmac43570-pcie.bin
+adfc528c4f21938af68c4cff464047a9  usr/lib/firmware/cypress/cyfmac43570-pcie.clm_blob
+b5199d69b08b6983b219e971527cf6b7  usr/lib/firmware/cypress/cyfmac4373-sdio.bin
+f90fa3ccb4af9b5f29732f1694c77d6a  usr/lib/firmware/cypress/cyfmac4373-sdio.clm_blob
+d472b9fe247329eb4733cf6e63f91c47  usr/lib/firmware/cypress/cyfmac54591-pcie.bin
+7c1d399347bc48c3e90d0e4a73de2f1c  usr/lib/firmware/cypress/cyfmac54591-pcie.clm_blob
+8dbcc0513822473f1ebe02dcf31dcc01  usr/share/bug/firmware-brcm80211/presubj
+ba90dfc2e8b8c577c67b1788698e94b7  usr/share/doc/firmware-brcm80211/changelog.Debian.gz
+f3e2688fa6b92030584f2b9aa5c0543b  usr/share/doc/firmware-brcm80211/copyright
+3115a27fb0becbde9426e86b4dd035e1  usr/share/metainfo/org.debian.firmware_brcm80211.metainfo.xml

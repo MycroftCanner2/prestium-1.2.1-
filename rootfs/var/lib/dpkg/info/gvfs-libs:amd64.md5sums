@@ -1,4 +1,4 @@
-dcdbaebd62b6c1eace199dbb9d9d964d  usr/lib/x86_64-linux-gnu/gvfs/libgvfscommon.so
-b9fafb9983f788ff1a3e2944b06cff16  usr/lib/x86_64-linux-gnu/gvfs/libgvfsdaemon.so
-7a732fe966117d37f61c2a86dfcbb823  usr/share/doc/gvfs-libs/changelog.Debian.gz
+325b77254f6afb12ca4ac75d51df30aa  usr/lib/x86_64-linux-gnu/gvfs/libgvfscommon.so
+eaa1f57412d02f43b179e43249c5ec63  usr/lib/x86_64-linux-gnu/gvfs/libgvfsdaemon.so
+a2058845de7694f5970159a8df3882d0  usr/share/doc/gvfs-libs/changelog.Debian.gz
 528290130c1c3d81871b26638c2e2583  usr/share/doc/gvfs-libs/copyright

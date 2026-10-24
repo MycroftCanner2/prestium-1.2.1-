@@ -1,8 +1,7 @@
 /.
 /usr
 /usr/bin
-/usr/bin/gpg-zip
-/usr/bin/gpgcompose
+/usr/bin/gpg-mail-tube
 /usr/bin/gpgparsemail
 /usr/bin/gpgsplit
 /usr/bin/gpgtar
@@ -10,6 +9,9 @@
 /usr/bin/lspgpot
 /usr/bin/migrate-pubring-from-classic-gpg
 /usr/bin/watchgnupg
+/usr/lib
+/usr/lib/gnupg
+/usr/lib/gnupg/gpg-pair-tool
 /usr/sbin
 /usr/sbin/addgnupghome
 /usr/sbin/applygnupgdefaults
@@ -17,13 +19,13 @@
 /usr/share/doc
 /usr/share/doc/gnupg-utils
 /usr/share/doc/gnupg-utils/NEWS.Debian.gz
+/usr/share/doc/gnupg-utils/changelog.Debian.amd64.gz
 /usr/share/doc/gnupg-utils/changelog.Debian.gz
 /usr/share/doc/gnupg-utils/changelog.gz
 /usr/share/doc/gnupg-utils/copyright
 /usr/share/man
 /usr/share/man/man1
-/usr/share/man/man1/gpg-zip.1.gz
-/usr/share/man/man1/gpgcompose.1.gz
+/usr/share/man/man1/gpg-mail-tube.1.gz
 /usr/share/man/man1/gpgparsemail.1.gz
 /usr/share/man/man1/gpgsplit.1.gz
 /usr/share/man/man1/gpgtar.1.gz

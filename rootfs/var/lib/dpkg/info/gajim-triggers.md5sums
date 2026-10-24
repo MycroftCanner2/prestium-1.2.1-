@@ -1,10 +1,10 @@
 a533059decfb6104620e3650ac0fd3e8  usr/share/doc/gajim-triggers/NEWS.Debian.gz
-5d4aff4262e74109efc9ca1482577383  usr/share/doc/gajim-triggers/changelog.Debian.gz
+7466ecc9653765c77586b9ea2229e4ef  usr/share/doc/gajim-triggers/changelog.Debian.gz
 c9f28e62c78da4e40159896e7c0c9894  usr/share/doc/gajim-triggers/copyright
-093c62f21f19a5b83cbb39188bd495ad  usr/share/gajim/plugins/triggers/__init__.py
-c1cb7bbbe2896d4bfbf42745a3d6652a  usr/share/gajim/plugins/triggers/gtk/config.py
-a0e0296d769f2c6f4722970d7bf2d242  usr/share/gajim/plugins/triggers/gtk/config.ui
-239c712f28810e18effe484bc3ffddf9  usr/share/gajim/plugins/triggers/plugin-manifest.json
+ad96929c56b359b1dc388bad40d8464c  usr/share/gajim/plugins/triggers/__init__.py
+690082fbf09acfb05c78f0e86d04e304  usr/share/gajim/plugins/triggers/gtk/config.py
+db2843c01113e178b5dafe4d7638c404  usr/share/gajim/plugins/triggers/gtk/config.ui
+c6e35b8824f3f471a0922e5c2aeab281  usr/share/gajim/plugins/triggers/plugin-manifest.json
 bb8046c5e705b82cbe4be0ca25c94fa0  usr/share/gajim/plugins/triggers/triggers.png
-7d58177fe54df40c2837736eeecfd3e4  usr/share/gajim/plugins/triggers/triggers.py
-8f60bf2b1ff6f2105050e6b035f45f07  usr/share/gajim/plugins/triggers/util.py
+cc6e4ce1bb88570762091f7fe8327299  usr/share/gajim/plugins/triggers/triggers.py
+9dbcca284d7de7bab93538a519e230bc  usr/share/gajim/plugins/triggers/util.py

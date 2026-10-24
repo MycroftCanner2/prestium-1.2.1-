@@ -9,7 +9,4 @@
 /usr/share/doc/gvfs-fuse
 /usr/share/doc/gvfs-fuse/changelog.Debian.gz
 /usr/share/doc/gvfs-fuse/copyright
-/usr/share/lintian
-/usr/share/lintian/overrides
-/usr/share/lintian/overrides/gvfs-fuse
 /usr/lib/gvfs/gvfsd-fuse

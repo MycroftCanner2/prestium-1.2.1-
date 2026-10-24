@@ -12,11 +12,21 @@ chrooted() {
 	return 0
 }
 
+# begin-remove-after: released:trixie
+# protective diversion of files moved from / to /usr, to avoid file loss.
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
+	for f in /bin/fusermount /sbin/mount.fuse; do
+		dpkg-divert --package fuse3 --no-rename --divert "$f.usr-is-merged" --remove "$f"
+	done
+fi
+# end-remove-after
+
 case "${1}" in
 	configure)
-		if ! dpkg-statoverride --list /bin/fusermount3 > /dev/null 2>&1
+		if ! dpkg-statoverride --list /bin/fusermount3 > /dev/null 2>&1 &&
+			! dpkg-statoverride --list /usr/bin/fusermount3 > /dev/null 2>&1
 		then
-			chmod 4755 /bin/fusermount3
+			chmod 4755 /usr/bin/fusermount3
 		fi
 
 		modprobe fuse > /dev/null 2>&1 || true

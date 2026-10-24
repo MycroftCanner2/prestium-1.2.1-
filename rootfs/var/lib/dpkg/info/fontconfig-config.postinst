@@ -29,6 +29,23 @@ if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le-nl "2.12.3-0.2~"; t
         ln -s $CONFAVAIL/10-hinting-slight.conf $CONFDIR/10-hinting-slight.conf
 fi
 
+# Replace symlinks obsoleted by upstream with their equivalent new ones
+if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le-nl "2.14.2-5~"; then
+    if [ -h $CONFDIR/10-no-sub-pixel.conf ] && ! readlink -e $CONFDIR/10-no-sub-pixel.conf >/dev/null; then
+        rm $CONFDIR/10-no-sub-pixel.conf
+        test -e $CONFDIR/10-sub-pixel-none.conf || \
+          ln -s $CONFAVAIL/10-sub-pixel-none.conf $CONFDIR/10-sub-pixel-none.conf
+    fi
+fi
+
+if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le-nl "2.15.0-1.1~"; then
+    if [ -h $CONFDIR/70-no-bitmaps.conf ]; then
+        rm $CONFDIR/70-no-bitmaps.conf
+        test -e $CONFDIR/70-no-bitmaps-except-emoji.conf || \
+          ln -s $CONFAVAIL/70-no-bitmaps-except-emoji.conf $CONFDIR/70-no-bitmaps-except-emoji.conf
+    fi
+fi
+
 if is_initial_configuration "$@"; then
     db_get fontconfig/hinting_type
     hinting_type="$RET"
@@ -94,7 +111,7 @@ if is_initial_configuration "$@"; then
     subpixel_rendering="$RET"
 
     subpixel="10-sub-pixel-rgb.conf"
-    no_subpixel="10-no-sub-pixel.conf"
+    no_subpixel="10-sub-pixel-none.conf"
 
     if [ -h $CONFDIR/$subpixel ]; then
     	rm $CONFDIR/$subpixel
@@ -120,7 +137,7 @@ if is_initial_configuration "$@"; then
     enable_bitmaps="$RET"
 
     yes_bitmaps="70-yes-bitmaps.conf"
-    no_bitmaps="70-no-bitmaps.conf"
+    no_bitmaps="70-no-bitmaps-except-emoji.conf"
 
     if [ -h $CONFDIR/$yes_bitmaps ]; then
     	rm $CONFDIR/$yes_bitmaps
@@ -143,10 +160,12 @@ fi # end changes applied only for initial config / reconfiguration
 # Create /usr/local/share/fonts
 LOCALDIR=/usr/local/share/fonts
 if [ ! -d $LOCALDIR ]; then
-  if mkdir $LOCALDIR 2>/dev/null ; then
-    chmod 2775 $LOCALDIR
-    chown root:staff $LOCALDIR
-  fi
+  mkdir -p $LOCALDIR 2>/dev/null
+fi
+
+if [ -f /etc/staff-group-for-usr-local ]; then
+  chmod 2775 $LOCALDIR
+  chown root:staff $LOCALDIR
 fi
 
 # fontconfig-config 2.11.0-5 (and earlier) created /etc/fonts.conf.d by mistake
@@ -156,37 +175,4 @@ if [ -d /etc/fonts.conf.d ]; then
     rmdir --ignore-fail-on-non-empty /etc/fonts.conf.d
 fi
 
-# Automatically added by dh_installdeb/13.11.4
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-autohint.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-no-sub-pixel.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-sub-pixel-bgr.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-sub-pixel-rgb.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-sub-pixel-vbgr.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-sub-pixel-vrgb.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-unhinted.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/11-lcdfilter-default.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/11-lcdfilter-legacy.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/11-lcdfilter-light.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/20-fix-globaladvance.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/20-unhint-small-vera.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/25-unhint-nonlatin.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/30-metric-aliases.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/30-urw-aliases.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/40-nonlatin.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/45-latin.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/49-sansserif.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/50-user.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/51-local.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/60-latin.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/65-fonts-persian.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/65-khmer.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/65-nonlatin.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/69-unifont.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/70-force-bitmaps.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/70-no-bitmaps.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/70-yes-bitmaps.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/80-delicious.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/90-synthetic.conf 2.10 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/fonts/fonts.dtd 2.10 -- "$@"
-# End automatically added section
 

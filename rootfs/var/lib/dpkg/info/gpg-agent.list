@@ -22,13 +22,12 @@
 /usr/lib/systemd/user/gpg-agent-ssh.socket
 /usr/lib/systemd/user/gpg-agent.service
 /usr/lib/systemd/user/gpg-agent.socket
-/usr/lib/systemd/user-environment-generators
-/usr/lib/systemd/user-environment-generators/90gpg-agent
 /usr/share
 /usr/share/doc
 /usr/share/doc/gpg-agent
 /usr/share/doc/gpg-agent/NEWS.Debian.gz
 /usr/share/doc/gpg-agent/README.Debian
+/usr/share/doc/gpg-agent/changelog.Debian.amd64.gz
 /usr/share/doc/gpg-agent/changelog.Debian.gz
 /usr/share/doc/gpg-agent/changelog.gz
 /usr/share/doc/gpg-agent/copyright

@@ -1,0 +1,11 @@
+b956daaa9e59be94ebdf6df0b3365cb6  usr/lib/firmware/ipw2100-1.3-i.fw
+a03e4e0a85242356b1d5a1d489fa3a7f  usr/lib/firmware/ipw2100-1.3-p.fw
+dc1cece9f906f57a98f5a3859dba3e28  usr/lib/firmware/ipw2100-1.3.fw
+045a46163341514ef17490c76bd0c858  usr/lib/firmware/ipw2200-bss.fw
+44cdedc8d5a0eb727466ed982db97a53  usr/lib/firmware/ipw2200-ibss.fw
+ebc70dce66f876695fa8852b8ff757ee  usr/lib/firmware/ipw2200-sniffer.fw
+8dbcc0513822473f1ebe02dcf31dcc01  usr/share/bug/firmware-ipw2x00/presubj
+50f3a2ba807be846c7531f6b7f3d2e6b  usr/share/doc/firmware-ipw2x00/changelog.Debian.gz
+f3e2688fa6b92030584f2b9aa5c0543b  usr/share/doc/firmware-ipw2x00/copyright
+9643ff6536e1c57276497fe4ecae6181  usr/share/lintian/overrides/firmware-ipw2x00
+670b6af4f9378d31920cf21180dccb90  usr/share/metainfo/org.debian.firmware_ipw2x00.metainfo.xml

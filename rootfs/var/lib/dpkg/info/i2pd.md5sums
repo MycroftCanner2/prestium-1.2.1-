@@ -1,9 +1,8 @@
-6f45052cb17dc5cd83f4df08d41c3ed3  lib/systemd/system/i2pd.service
-bedab753b660ece68163af0b0a966b47  usr/bin/i2pd
+f6f034b76fca2c8ef5ddf36585395397  usr/bin/i2pd
+6f45052cb17dc5cd83f4df08d41c3ed3  usr/lib/systemd/system/i2pd.service
 f9322746e4898960521812a5b4d476d7  usr/lib/tmpfiles.d/i2pd.conf
-8887a6859a27135ab5c358eceb89b7d9  usr/share/doc/i2pd/NEWS.Debian.gz
 0535ac0fdd0df314cd557eb262dfa4aa  usr/share/doc/i2pd/README.md.gz
-eddf655d0d589d313217ee5423712565  usr/share/doc/i2pd/changelog.Debian.gz
+eab7e0c771f9db315c51ad42624e04ea  usr/share/doc/i2pd/changelog.Debian.gz
 40a7f962511ff502f9d0a67138b6f644  usr/share/doc/i2pd/changelog.gz
 bfe192f23b904520128e1c5f7a4dfe35  usr/share/doc/i2pd/copyright
 29d0a4ed05b57f2e025e1af6a330f001  usr/share/i2pd/certificates/family/gostcoin.crt

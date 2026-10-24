@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
-# Automatically added by dh_installsystemduser/13.11.4
+# Automatically added by dh_installsystemduser/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	if [ -z "${DPKG_ROOT:-}" ] ; then
+	if [ -z "$DPKG_ROOT" ] ; then
 		# The following line should be removed in trixie or trixie+1
 		deb-systemd-helper --user unmask 'gpg-agent-browser.socket' >/dev/null || true
 
@@ -19,9 +19,9 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemduser/13.11.4
+# Automatically added by dh_installsystemduser/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	if [ -z "${DPKG_ROOT:-}" ] ; then
+	if [ -z "$DPKG_ROOT" ] ; then
 		# The following line should be removed in trixie or trixie+1
 		deb-systemd-helper --user unmask 'gpg-agent-extra.socket' >/dev/null || true
 
@@ -38,9 +38,9 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemduser/13.11.4
+# Automatically added by dh_installsystemduser/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	if [ -z "${DPKG_ROOT:-}" ] ; then
+	if [ -z "$DPKG_ROOT" ] ; then
 		# The following line should be removed in trixie or trixie+1
 		deb-systemd-helper --user unmask 'gpg-agent-ssh.socket' >/dev/null || true
 
@@ -57,9 +57,9 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemduser/13.11.4
+# Automatically added by dh_installsystemduser/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	if [ -z "${DPKG_ROOT:-}" ] ; then
+	if [ -z "$DPKG_ROOT" ] ; then
 		# The following line should be removed in trixie or trixie+1
 		deb-systemd-helper --user unmask 'gpg-agent.socket' >/dev/null || true
 
