@@ -1,4 +1,4 @@
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -6,7 +6,6 @@ profile samba-bgqd /usr/lib*/samba/{,samba/}samba-bgqd flags=(complain) {
   include <abstractions/base>
   include <abstractions/cups-client>
   include <abstractions/nameservice>
-  include <abstractions/openssl>
   include <abstractions/samba>
 
   signal receive set=term peer=smbd,
@@ -14,7 +13,7 @@ profile samba-bgqd /usr/lib*/samba/{,samba/}samba-bgqd flags=(complain) {
   @{PROC}/sys/kernel/core_pattern r,
   owner @{PROC}/@{pid}/fd/ r,
 
-  @{run}/samba/samba-bgqd.pid wk,
+  @{run}/{,samba/}samba-bgqd.pid rwk,
 
   /usr/lib*/samba/{,samba/}samba-bgqd mr,
   /var/cache/samba/printing/*.tdb rwk,

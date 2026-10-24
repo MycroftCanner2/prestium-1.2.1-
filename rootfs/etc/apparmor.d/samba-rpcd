@@ -9,14 +9,19 @@
 # ------------------------------------------------------------------
 # vim:syntax=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile samba-rpcd /usr/lib*/samba/{,samba/}rpcd_{mdssvc,epmapper,rpcecho,fsrvp,lsad,winreg} flags=(complain) {
+profile samba-rpcd /usr/lib*/samba/{,samba/}rpcd_{mdssvc,epmapper,rpcecho,fsrvp,lsad,winreg,witness} flags=(complain) {
   include <abstractions/samba-rpcd>
-  /usr/lib*/samba/{,samba/}rpcd_{mdssvc,epmapper,rpcecho,fsrvp,lsad,winreg} mr,
 
+  capability sys_resource,
+
+  /usr/lib*/samba/{,samba/}rpcd_{mdssvc,epmapper,rpcecho,fsrvp,lsad,winreg,witness} mr,
+
+  @{run}/samba/ncalrpc/np/lsarpc wr,
+  @{run}/samba/ncalrpc/np/mdssvc wr,
   @{run}/samba/ncalrpc/np/winreg wr,
 
   # Site-specific additions and overrides. See local/README for details.

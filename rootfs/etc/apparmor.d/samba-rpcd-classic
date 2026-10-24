@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------
 # vim:syntax=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -17,7 +17,17 @@ profile samba-rpcd-classic /usr/lib*/samba/{,samba/}rpcd_classic flags=(complain
   include <abstractions/samba-rpcd>
   include <abstractions/wutmp>
 
+  capability sys_resource,
+
   /usr/lib*/samba/{,samba/}rpcd_classic mr,
+
+  @{run}/samba/ncalrpc/np/srvsvc wr,
+  @{run}/samba/ncalrpc/np/winreg wr,
+  /dev/urandom rw,
+
+  /usr/lib*/samba/{,samba/}samba-dcerpcd Px -> samba-dcerpcd,
+
+  @{HOMEDIRS}/** lrwk,
 
   # Site-specific additions and overrides. See local/README for details.
   include if exists <local/samba-rpcd-classic>

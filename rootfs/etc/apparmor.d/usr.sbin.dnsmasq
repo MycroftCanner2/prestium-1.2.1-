@@ -9,7 +9,7 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 @{TFTP_DIR}=/var/tftp /srv/tftp /srv/tftpboot
 
@@ -115,6 +115,9 @@ profile dnsmasq /usr/{bin,sbin}/dnsmasq flags=(complain,attach_disconnected) {
   owner @{run}/user/*/containers/cni/dnsname/*/addnhosts r,
   owner @{run}/user/*/containers/cni/dnsname/*/pidfile rw,
 
+  # waydroid lxc-net pid file
+  @{run}/waydroid-lxc/dnsmasq.pid rw,
+
   profile libvirt_leaseshelper flags=(complain) {
     include <abstractions/base>
 
@@ -124,10 +127,7 @@ profile dnsmasq /usr/{bin,sbin}/dnsmasq flags=(complain,attach_disconnected) {
     /usr/libexec/libvirt_leaseshelper mr,
 
     owner @{PROC}/@{pid}/net/psched r,
-    owner @{PROC}/@{pid}/status r,
 
-    @{sys}/devices/system/cpu/ r,
-    @{sys}/devices/system/cpu/possible r,
     @{sys}/devices/system/node/ r,
     @{sys}/devices/system/node/*/meminfo r,
 

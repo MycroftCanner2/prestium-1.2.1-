@@ -9,7 +9,7 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 profile nscd /usr/{bin,sbin}/nscd flags=(complain) {
@@ -40,6 +40,13 @@ profile nscd /usr/{bin,sbin}/nscd flags=(complain) {
   @{PROC}/@{pid}/fd/ r,
   @{PROC}/@{pid}/fd/* r,
   @{PROC}/@{pid}/mounts r,
+
+  # systemd-userdb
+  /{etc,run,run/host,/usr/lib}/userdb/ r,
+  /{etc,run,run/host,/usr/lib}/userdb/*.{user,user-privileged,group,group-privileged} r,
+
+  # needed by unscd
+  @{run}/systemd/notify w,
 
   # Site-specific additions and overrides. See local/README for details.
   include if exists <local/usr.sbin.nscd>

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IWCONFIG=/sbin/iwconfig
+IWCONFIG=/usr/sbin/iwconfig
 
 if [ ! -x $IWCONFIG ]; then
 	exit 0

@@ -9,7 +9,7 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -30,6 +30,7 @@ profile syslogd /{usr/,}{bin,sbin}/syslogd flags=(complain) {
 
   /dev/log                      wl,
   /var/lib/*/dev/log            wl,
+  /dev/kmsg                     r,
   /proc/kmsg                    r,
 
   /dev/tty*                     w,

@@ -4,7 +4,7 @@
 # is invoked from other confined applications, but not when it is used
 # in regular (unconfined) shell scripts or run directly by the user.
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -12,6 +12,7 @@ include <tunables/global>
 profile lsb_release {
   include <abstractions/base>
   include <abstractions/python>
+  include <abstractions/terminfo>
 
   owner @{PROC}/@{pid}/fd/ r,
 
@@ -43,7 +44,6 @@ profile lsb_release {
   /usr/include/python*/pyconfig.h r,
   /usr/share/distro-info/** r,
   /usr/share/dpkg/** r,
-  /usr/share/terminfo/** r,
   /var/lib/dpkg/** r,
 
   # file_inherit

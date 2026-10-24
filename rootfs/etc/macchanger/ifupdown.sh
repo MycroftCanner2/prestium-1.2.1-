@@ -29,4 +29,17 @@ if [ "$IFACE" = lo ]; then
     exit 0
 fi
 
+# if ENABLE_INTERFACES is set, quit if IFACE not in that list
+if [ -n "$ENABLE_INTERFACES" ]; then
+    case "$ENABLE_INTERFACES" in
+        *"$IFACE"*)
+            # IFACE* is found, continue
+        ;;
+        *)
+            echo "ignoring $IFACE" >> "$LOGFILE";
+            exit 0 # IFACE not found, exit
+        ;;
+    esac
+fi
+
 /usr/bin/${package} -e $IFACE >> $LOGFILE 2>&1

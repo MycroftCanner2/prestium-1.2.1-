@@ -28,8 +28,11 @@ REALRESOLVCONF=$(readlink --canonicalize /etc/resolv.conf)
 
 # merge the new nameservers with the other options from the old configuration
 {
+  echo '# PPP: This file was written by /etc/ppp/ip-up.d/0000usepeerdns.'
+  echo '# PPP: The following entries were obtained using PPP:'
   cat /etc/ppp/resolv.conf
-  grep --invert-match '^nameserver[[:space:]]' "$REALRESOLVCONF" || true
+  echo '# PPP: End of section rewritten by 0000usepeerdns.'
+  grep -vE "^(nameserver[[:space:]]|# PPP: )" "$REALRESOLVCONF" || true
 } > "$REALRESOLVCONF.tmp"
 
 # backup the old configuration and install the new one

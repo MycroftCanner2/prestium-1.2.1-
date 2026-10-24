@@ -13,59 +13,32 @@
 #                    connections to the readers.
 ### END INIT INFO
 
-# Authors: 
+# Authors:
 #   Carlos Prados Bocos <cprados@debian.org>
 #   Ludovic Rousseau <rousseau@debian.org>
 
 # Do NOT "set -e"
 
-# PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="PCSC Lite resource manager"
 NAME=pcscd
 DAEMON=/usr/sbin/$NAME
-IPCDIR=/var/run/pcscd
+IPCDIR=/run/pcscd
 PIDFILE=$IPCDIR/$NAME.pid
-SCRIPTNAME=/etc/init.d/$NAME
-
-# if you need to pass arguments to pcscd you should edit the file
-# /etc/default/pcscd and add a line 
-# DAEMON_ARGS="--your-option"
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
 
-# Read configuration variable file if it is present
+# Prefer PCSCD_ARGS per systemd, falling back to DAEMON_ARGS for old configs.
 [ -r /etc/default/$NAME ] && . /etc/default/$NAME
-
-# Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh
-
-# Define LSB log_* functions.
-# Depend on lsb-base (>= 3.0-6) to ensure that this file is present.
 . /lib/lsb/init-functions
-
-# get LANG variable (code from /etc/init.d/keymap.sh)
-ENV_FILE="none"
-[ -r /etc/environment ] && ENV_FILE="/etc/environment"
-[ -r /etc/default/locale ] && ENV_FILE="/etc/default/locale"
-
-value=$(grep -E "^[^#]*LANG=" $ENV_FILE | tail -n1 | cut -d= -f2)
-eval LANG=$value
 
 #
 # Function that starts the daemon/service
 #
 do_start()
 {
-	# create $IPCDIR with correct access rights
-	if [ ! -d $IPCDIR ]
-	then
-		rm -rf $IPCDIR
-		mkdir $IPCDIR
-	fi
-	chmod 0755 $IPCDIR
-
 	# Return
 	#   0 if daemon has been started
 	#   1 if daemon was already running
@@ -73,7 +46,7 @@ do_start()
 	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON --test > /dev/null \
 		|| return 1
 	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON -- \
-		$DAEMON_ARGS \
+		${PCSCD_ARGS-$DAEMON_ARGS} \
 		|| return 2
 	# Add code here, if necessary, that waits for the process to be ready
 	# to handle requests from services started subsequently which depend
@@ -132,13 +105,13 @@ case "$1" in
 		esac
 		;;
 	  *)
-	  	# Failed to stop
+		# Failed to stop
 		log_end_msg 1
 		;;
 	esac
 	;;
   *)
-	echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload}" >&2
+	echo "Usage: $0 {start|stop|status|restart|force-reload}" >&2
 	exit 3
 	;;
 esac

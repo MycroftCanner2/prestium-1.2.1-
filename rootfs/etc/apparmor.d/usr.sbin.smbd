@@ -1,4 +1,4 @@
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -8,12 +8,12 @@ profile smbd /usr/{bin,sbin}/smbd flags=(complain) {
   include <abstractions/consoles>
   include <abstractions/cups-client>
   include <abstractions/nameservice>
-  include <abstractions/openssl>
   include <abstractions/samba>
   include <abstractions/user-tmp>
   include <abstractions/wutmp>
 
   capability audit_write,
+  capability chown,
   capability dac_override,
   capability dac_read_search,
   capability fowner,
@@ -49,14 +49,14 @@ profile smbd /usr/{bin,sbin}/smbd flags=(complain) {
   /usr/{bin,sbin}/smbldap-useradd Px,
   /var/cache/samba/** rwk,
   /var/{cache,lib}/samba/printing/printers.tdb mrw,
+  /var/lib/nscd/netgroup r,
   /var/lib/samba/** rwk,
   /var/lib/sss/pubconf/kdcinfo.* r,
   @{run}/dbus/system_bus_socket rw,
-  @{run}/smbd.pid rwk,
+  @{run}/{,samba/}smbd.pid rwk,
   @{run}/samba/** rk,
   @{run}/samba/ncalrpc/ rw,
   @{run}/samba/ncalrpc/** rw,
-  @{run}/samba/smbd.pid rw,
   /var/spool/samba/** rw,
 
   @{HOMEDIRS}/** lrwk,

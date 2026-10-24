@@ -1,37 +1,51 @@
-.\" -*- nroff -*-
+.\" This file is loaded by an.tmac.
 .\"
-.\" This file is loaded after an-old.tmac.
-.\" Put any local modifications to an-old.tmac here.
+.\" Put local modifications to groff_man(7)'s behavior here.
 .\"
-.\" for forward compatibility with a groff 1.23 feature
-.if !d MR \{\
-.  \" Provide a simple implementation of the new `MR` macro to avoid
-.  \" loss of formatted text.
-.  de MR
-.    ie \\n(.$=1 \
-.      I \%\\$1
-.    el \
-.      IR \%\\$1 (\\$2)\\$3
-.  .
-.\}
+.\" Change "0" to "1" to enable OSC 8 links on SGR-capable grotty(1)
+.\" output devices.
+.if !'\*[.T]'html' \
+.  if !r U \
+.    nr U 1
+.\"
+.\" "CW" is not a portable font name, but some man pages use it anyway.
+.\" Uncomment this to suppress warnings produced by such pages.  This
+.\" test remaps the font to roman ("R") on nroff (terminal) devices. You
+.\" might prefer to remap it to bold ("B") instead.
+.if n .ftr CW R
+.\"
+.\" A de facto standard URL format for man pages is recognized
+.\" everywhere except Apple, where different macOS applications expect
+.\" different formats.
+.\"   1: man:groff(1)          -- package default
+.\"   2: x-man-page://1/groff  -- macOS/Mac OS X since 10.3 (Panther)
+.\"   3: man:groff.1           -- Bwana (Mac OS X)
+.\"   4: x-man-doc://1/groff   -- ManOpen (Mac OS X pre-2005)
+.\" Set this register to configure which the `MR` macro uses.
+.\" .nr an*MR-URL-format 1
+.\"
+.\" Local Variables:
+.\" mode: nroff
+.\" fill-column: 72
+.\" End:
+.\" vim: set filetype=groff textwidth=72:
 .
 .if n \{\
-.  \" Debian: Map \(oq to ' rather than ` in nroff mode for devices other
-.  \" than utf8.
-.  if !'\*[.T]'utf8' \
-.    tr \[oq]'
-.
-.  \" Debian: Disable the use of SGR (ANSI colour) escape sequences by
-.  \" grotty.
-.  if '\V[GROFF_SGR]'' \
-.    output x X tty: sgr 0
-.
-.  \" Debian: Strictly, "-" is a hyphen while "\-" is a minus sign, and the
-.  \" former may not always be rendered in the form expected for things like
-.  \" command-line options.  Uncomment this if you want to make sure that
-.  \" manual pages you're writing are clear of this problem.
-.  \" if '\*[.T]'utf8' \
-.  \"   char - \[hy]
+.  \" Debian: As of groff 1.23.0, the "-", "'", "`", "^", and "~" input
+.  \" characters are mapped to non-Basic Latin code points in output from
+.  \" the "utf8" device, for consistency with other output devices such as
+.  \" PDF.  Unfortunately in practice this still causes far too much
+.  \" disruption for innocent users of manual pages who just want to be able
+.  \" to search for characters normally, so preserve the old behaviour.
+.  \" Comment this out if you want to make sure that manual pages you're
+.  \" writing are clear of these problems.
+.  if '\*[.T]'utf8' \{\
+.    char - \-
+.    char ' \[aq]
+.    char ` \[ga]
+.    char ^ \[ha]
+.    char ~ \[ti]
+.  \}
 .
 .  \" Debian: "\-" is more commonly used for option dashes than for minus
 .  \" signs in manual pages, so map it to plain "-" for HTML/XHTML output

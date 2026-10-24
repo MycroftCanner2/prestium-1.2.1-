@@ -1,8 +1,10 @@
-#! /bin/sh
+#! /usr/bin/busybox ash
 #
 # Written by Miquel van Smoorenburg <miquels@cistron.nl>.
 # Modified for Debian GNU/Linux by Ian Murdock <imurdock@gnu.ai.mit.edu>
 # and Axel Beckert <abe@deuxchevaux.org>.
+# Entirely rewritten by Mjt in 2023,
+# Copyright (c) 2023 Michael Tokarev <mjt@tls.msk.ru>
 #
 ### BEGIN INIT INFO
 # Provides:          udhcpd
@@ -14,50 +16,50 @@
 ### END INIT INFO
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/sbin/udhcpd
 NAME=udhcpd
-DESC="very small Busybox based DHCP server"
-DHCPD_OPTS="-S" # Additional options given to the server
+DAEMON=/usr/sbin/$NAME
+DESC="Busybox based DHCP server"
 
 test -x $DAEMON || exit 0
 
 . /lib/lsb/init-functions
 
+DHCPD_OPTS="-S"	# Additional options given to the server
 # Include defaults if available
 if [ -f /etc/default/udhcpd ] ; then
 	. /etc/default/udhcpd
 fi
+DAEMON_OPTS="$DHCP_OPTS"
 
 if [ "$DHCPD_ENABLED" = "no" ]; then
-    echo $NAME: Disabled. Edit /etc/default/udhcpd to enable it.
-    exit 0;
+	echo $NAME: Disabled. Edit /etc/default/udhcpd to enable it.
+	exit 0
 fi
 
-set -e
+daemon() {
+	case "$1" in
+		(start)  args="-S -o";    act="Starting" ;;
+		(stop)   args="-K -o -q"; act="Stopping" ;;
+		(status) args="-K -t -q"; act="Checking" ;;
+	esac
+	log_daemon_msg "$act $DESC " "$NAME"
+	busybox start-stop-daemon $args -p /var/run/$NAME.pid \
+		-x $DAEMON -- $DAEMON_OPTS
+	rc=$?
+	log_end_msg $?
+	return $?
+}
 
 case "$1" in
-  start)
-	echo -n "Starting $DESC: "
-	start-stop-daemon --start --verbose --pidfile /var/run/$NAME.pid \
-		--oknodo --exec $DAEMON -- $DHCPD_OPTS
-	echo "$NAME."
+    (start|stop|status)
+	daemon $1
 	;;
-  stop)
-	echo -n "Stopping $DESC: "
-	start-stop-daemon --stop --verbose --pidfile /var/run/$NAME.pid \
-		--oknodo --exec $DAEMON
-	echo "$NAME."
+    (restart|force-reload)
+	daemon stop
+	daemon start
 	;;
-  restart|force-reload)
-	$0 stop
-	sleep 1
-	$0 start	
-	;;
-  *)
-	N=/etc/init.d/$NAME
-	echo "Usage: $N {start|stop|restart|force-reload}" >&2
+    (*)
+	echo "Usage: /etc/init.d/$NAME {start|stop|restart|force-reload|status}" >&2
 	exit 1
 	;;
 esac
-
-exit 0

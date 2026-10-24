@@ -1,4 +1,7 @@
+;; -*- lexical-binding: nil -*-
+;; -----------------------------------------------------------------------
 ;; File: startup.el.in
+;; -----------------------------------------------------------------------
 ;; Description: Emacsen startup for dictionaries-common in Debian
 ;; Authors: Rafael Laboissière <rafael@debian.org>
 ;;          Agustin Martin     <agmartin@debian.org>
@@ -33,9 +36,11 @@
 		 "/site-lisp/dictionaries-common/debian-ispell.el"))
 	(if (getenv "DPKG_RUNNING_VERSION")
 	    (message "Info: Skip debian-el loading if run under dpkg control.")
-	  (let ((coding-system-for-read 'raw-text)) ;; Read these as data streams
-	    (load "debian-ispell" t)
-	    (load debian-dict-entries t)))
+	  (let ((coding-system-for-read 'raw-text) ;; Read these as data streams
+		;; Silence Emacs load messages in non-interactive (batch) mode.
+		(debian-ispell-load-nomessage noninteractive))
+	    (load "debian-ispell" t debian-ispell-load-nomessage)
+	    (load debian-dict-entries t debian-ispell-load-nomessage)))
       (message "Info: Package dictionaries-common removed but not purged."))))
 
 ;;; Previous code for loading ispell.el and refreshing spell-checking

@@ -25,6 +25,7 @@ AARP		80F3		# Appletalk Address Resolution Protocol
 IPX		8137		# Novell IPX
 NetBEUI		8191		# NetBEUI
 IPv6		86DD	ip6	# IP version 6
+SLOW		8809		# Slow Protocols (LACP, OAM...) [802.3ad]
 PPP		880B		# Point-to-Point Protocol
 MPLS		8847		# MPLS [RFC5332]
 MPLS_MULTI	8848		# MPLS with upstream-assigned label [RFC5332]
@@ -33,6 +34,7 @@ PPP_DISC	8863		# PPP over Ethernet discovery stage
 PPP_SES		8864		# PPP over Ethernet session stage
 ATMFATE		8884		# Frame-based ATM Transport over Ethernet
 EAPOL		888E		# EAP over LAN [802.1x]
+EtherCAT	88A4		# [IEC 61158]
 S-TAG		88A8		# QinQ Service VLAN tag identifier [802.1q]
 EAP_PREAUTH	88C7		# EAPOL Pre-Authentication [802.11i]
 LLDP		88CC		# Link Layer Discovery Protocol [802.1ab]

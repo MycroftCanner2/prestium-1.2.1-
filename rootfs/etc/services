@@ -231,6 +231,10 @@ freeciv		5556/tcp	rptp		# Freeciv gameplay
 amqps		5671/tcp			# AMQP protocol over TLS/SSL
 amqp		5672/tcp
 amqp		5672/sctp
+coap		5683/tcp		# Constrained Application Protocol
+coap		5683/udp		# Constrained Application Protocol
+coaps		5684/tcp			# TLS-secured CoAP
+coaps		5684/udp			# DTLS-secured CoAP
 x11		6000/tcp	x11-0		# X Window System
 x11-1		6001/tcp
 x11-2		6002/tcp
