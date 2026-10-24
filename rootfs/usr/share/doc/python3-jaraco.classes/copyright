@@ -4,7 +4,7 @@ Upstream-Contact: Jason R. Coombs
 Source: https://github.com/jaraco/jaraco.classes
 
 Files: *
-Copyright: 2005-2021 Jason R. Coombs
+Copyright: 2005-2024 Jason R. Coombs <jaraco@jaraco.com>
 Comment:
  Because no copyright years are documented in the source tree, the years given
  above are based on the upstream git commit history.
@@ -28,7 +28,7 @@ License: Expat
  THE SOFTWARE.
 
 Files: debian/*
-Copyright: 2020-2021 Jeroen Ploemen <jcfp@debian.org>
+Copyright: 2020-2024 Jeroen Ploemen <jcfp@debian.org>
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

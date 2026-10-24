@@ -4,7 +4,7 @@ Upstream-Contact: William W. Fisher <william.w.fisher@gmail.com>
 Source: https://github.com/byllyfish/precis_i18n
 
 Files: *
-Copyright: 2016..2023, William W. Fisher <william.w.fisher@gmail.com>
+Copyright: 2016-2024, William W. Fisher <william.w.fisher@gmail.com>
 License: MIT
 
 Files: debian/*
@@ -18,7 +18,7 @@ License: MIT
  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  copies of the Software, and to permit persons to whom the Software is
  furnished to do so, subject to the following conditions:
- . 
+ .
  The above copyright notice and this permission notice shall be included in
  all copies or substantial portions of the Software.
  .

@@ -16,10 +16,7 @@ Files:
     src/pyudev/device/*
     src/pyudev/discover.py
     src/pyudev/version.py
-    tests/_constants.py
-    tests/_device_tests/__init__.py
     tests/test_discover.py
-    tests/utils/*
 Copyright: Copyright (C) 2015 Anne Mulhern <amulhern@redhat.com>
 License: LGPL-2.1+
 

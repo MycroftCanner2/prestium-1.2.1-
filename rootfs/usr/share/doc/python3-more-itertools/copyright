@@ -4,10 +4,12 @@ Source: https://github.com/more-itertools/more-itertools
 
 Files: *
 Copyright: (c) 2017 Erik Rose
+ 2016-2025 Bo Bayles
 License: MIT-style
 
 Files: debian/*
 Copyright: (c) 2017, Ethan Ward <ethan.ward@mycroft.ai>
+ 2023-2025, Carsten Schoenert <c.schoenert@t-online.de>
 License: MIT-style
 
 License: MIT-style

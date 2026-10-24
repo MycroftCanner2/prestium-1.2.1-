@@ -1,13 +1,13 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: python-libevdev
-Source: https://github.com/whot/python-libevdev
+Source: https://gitlab.freedesktop.org/libevdev/python-libevdev
 
 Files: *
-Copyright: 2016-2018 Red Hat, Inc.
+Copyright: 2016-2022 Red Hat, Inc.
 License: MIT
 
 Files: debian/*
-Copyright: 2018 Stephen Kitt <skitt@debian.org>
+Copyright: 2018, 2020-2021, 2024 Stephen Kitt <skitt@debian.org>
 License: MIT
 
 License: MIT

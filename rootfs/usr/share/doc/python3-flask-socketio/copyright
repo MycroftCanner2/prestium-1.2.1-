@@ -1,0 +1,61 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Flask-SocketIO
+Source: https://pypi.python.org/pypi/Flask-SocketIO
+Comment: Repository on GitHub: https://github.com/miguelgrinberg/Flask-SocketIO
+
+Files: docs/Makefile 
+       docs/_static/README.md 
+       docs/_static/custom.css 
+       docs/api.rst 
+       docs/conf.py 
+       docs/deployment.rst 
+       docs/getting_started.rst 
+       docs/implementation_notes.rst 
+       docs/index.rst 
+       docs/intro.rst 
+       docs/make.bat 
+       docs/upgrading.rst 
+       src/Flask_SocketIO.egg-info/dependency_links.txt
+       src/Flask_SocketIO.egg-info/not-zip-safe
+       src/Flask_SocketIO.egg-info/PKG-INFO
+       src/Flask_SocketIO.egg-info/requires.txt
+       src/Flask_SocketIO.egg-info/SOURCES.txt
+       src/Flask_SocketIO.egg-info/top_level.txt
+       src/flask_socketio/__init__.py
+       src/flask_socketio/namespace.py
+       src/flask_socketio/test_client.py
+       MANIFEST.in
+       PKG-INFO
+       README.md
+       pyproject.toml
+       setup.cfg
+       test_socketio.py 
+       tox.ini 
+Copyright: 2014-2025, Miguel Grinberg <miguel.grinberg@gmail.com>
+License: MIT
+Comment:
+ Using license as found in LICENSE file.
+
+Files: debian/*
+Copyright: 2023, Sandro Knauß <hefee@debian.org>
+           2017-2025, Paulo Henrique de Lima Santana (phls) <phls@debian.org>
+License: MIT
+
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

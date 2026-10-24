@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: GnuPG Made Easy (GPGME)
 Upstream-Contact: GnuPG development mailing list <gnupg-devel@gnupg.org>
-Source: https://www.gnupg.org/related_software/gpgme/
+Source: https://gnupg.org/software/gpgme/
 
 Files: *
 Copyright:
@@ -42,9 +42,27 @@ License: LGPL-2+
 
 Files: lang/qt/*
 Copyright:
- 2004, 2005, 2007-2010, 2016 Klarälvdalens Datakonsult AB,
- 2016 Intevation GmbH
+ 2004, 2005, 2007-2010, 2016 Klarälvdalens Datakonsult AB
+ 2016-2017 Bundesamt für Sicherheit in der Informationstechnik
+ 2016-2017 Intevation GmbH
+ 2020-2024 g10 Code GmbH
 License: GPL-2+
+Comment:  QGpgME is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or (at
+ your option) any later version.
+ .
+ In addition, as a special exception, the copyright holders give
+ permission to link the code of this program with any edition of
+ the Qt library by Trolltech AS, Norway (or with modified versions
+ of Qt that use the same license as Qt), and distribute linked
+ combinations including the two.  You must obey the GNU General
+ Public License in all respects for all of the code used other than
+ Qt.  If you modify this file, you may extend this exception to
+ your version of the file, but you are not obligated to do so.  If
+ you do not wish to do so, delete this exception statement from
+ your version.
+
 
 License: LGPL-3+
  You can redistribute and/or modify this software under the terms of

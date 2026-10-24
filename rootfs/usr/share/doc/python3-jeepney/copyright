@@ -3,11 +3,11 @@ Source: https://pypi.org/project/jeepney/
 Upstream-Name: jeepney
 
 Files: *
-Copyright: 2017-2022 Thomas Kluyver <thomas@kluyver.me.uk>
+Copyright: 2017-2025 Thomas Kluyver <thomas@kluyver.me.uk>
 License: Expat
 
 Files: debian/*
-Copyright: 2019-2022 Dmitry Shachnev <mitya57@debian.org>
+Copyright: 2019-2025 Dmitry Shachnev <mitya57@debian.org>
 License: Expat
 
 License: Expat

@@ -26,7 +26,7 @@ import sys
 # Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License and the GNU
-# Lesser General Public along with this program; if not, see
+# Lesser General Public License along with this program; if not, see
 # <https://www.gnu.org/licenses/>.
 
 print("""
@@ -34,6 +34,9 @@ This script exports one or more secret keys.
 
 The gpg-agent and pinentry are invoked to authorise the export.
 """)
+
+def open_0o600(path, flags):
+    return os.open(path, flags, mode=0o600)
 
 c = gpg.Context(armor=True)
 
@@ -84,8 +87,7 @@ except:
     result = c.key_export_secret(pattern=None)
 
 if result is not None:
-    with open(keyfile, "wb") as f:
+    with open(keyfile, "wb", opener=open_0o600) as f:
         f.write(result)
-    os.chmod(keyfile, 0o600)
 else:
     pass
