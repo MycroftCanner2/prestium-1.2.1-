@@ -10,12 +10,15 @@
 # ------------------------------------------------------------------
 # vim:syntax=apparmor
 
-  abi <abi/3.0>,
+  abi <abi/4.0>,
 
 include <tunables/global>
 
-profile postfix-discard /usr/lib/postfix/{bin/,sbin/,}discard {
+profile postfix-discard /usr/lib{,exec}/postfix/{bin/,sbin/,}discard {
   include <abstractions/base>
 
-  /usr/lib/postfix/{bin/,sbin/,}discard mrix,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}discard mrix,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-discard>
 }

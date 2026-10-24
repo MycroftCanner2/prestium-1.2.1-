@@ -10,20 +10,22 @@
 #
 # ------------------------------------------------------------------
 
-  abi <abi/3.0>,
+  abi <abi/4.0>,
 
 include <tunables/global>
 
-profile postfix-error /usr/lib/postfix/{bin/,sbin/,}error {
+profile postfix-error /usr/lib{,exec}/postfix/{bin/,sbin/,}error {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/postfix-common>
 
-  /usr/lib/postfix/{bin/,sbin/,}error mrix,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}error mrix,
 
   owner /var/spool/postfix/active/* rwk,
   /var/spool/postfix/pid/unix.error rwk,
   /var/spool/postfix/pid/unix.retry rwk,
   owner /var/spool/postfix/private/defer w,
 
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-error>
 }

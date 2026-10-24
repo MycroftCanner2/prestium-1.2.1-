@@ -9,18 +9,21 @@
 #
 # ------------------------------------------------------------------
 
-  abi <abi/3.0>,
+  abi <abi/4.0>,
 
 include <tunables/global>
 
-profile postfix-anvil /usr/lib/postfix/{bin/,sbin/,}anvil {
+profile postfix-anvil /usr/lib{,exec}/postfix/{bin/,sbin/,}anvil {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/postfix-common>
 
-  /usr/lib/postfix/{bin/,sbin/,}anvil         mrix,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}anvil  mrix,
 
   /etc/postfix/main.cf                        r,
   /{var/spool/postfix/,}private/anvil         rw,
   /{var/spool/postfix/,}pid/unix.anvil        rwk,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-anvil>
 }

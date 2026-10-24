@@ -10,16 +10,16 @@
 #
 # ------------------------------------------------------------------
 
-  abi <abi/3.0>,
+  abi <abi/4.0>,
 
 include <tunables/global>
 
-profile postfix-flush /usr/lib/postfix/{bin/,sbin/,}flush {
+profile postfix-flush /usr/lib{,exec}/postfix/{bin/,sbin/,}flush {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/postfix-common>
 
-  /usr/lib/postfix/{bin/,sbin/,}flush                mrix,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}flush         mrix,
 
   /{var/spool/postfix/,}deferred/                    r,
   /{var/spool/postfix/,}deferred/[0-9A-F]/[0-9A-F]/* rwl,
@@ -40,4 +40,6 @@ profile postfix-flush /usr/lib/postfix/{bin/,sbin/,}flush {
 
   @{HOME}/.forward                            r,
 
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-flush>
 }
