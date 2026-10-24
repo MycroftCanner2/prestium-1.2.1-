@@ -5,11 +5,11 @@ Source: https://github.com/HOST-Oman/libraqm
 
 Files: *
 Copyright: 2015 Information Technology Authority (ITA) <foss@ita.gov.om>
-           2016 Khaled Hosny <khaledhosny@eglug.org>
+           2016-2023 Khaled Hosny <khaledhosny@eglug.org>
 License: MIT
 
 Files: debian/*
-Copyright: 2017-2019 أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+Copyright: 2017-2019,2023-2024 أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 License: MIT
 
 License: MIT

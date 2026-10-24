@@ -3,7 +3,7 @@ Upstream-Name: qttools-everywhere-src
 Source: https://download.qt.io/official_releases/qt/*/submodules/
 
 Files: *
-Copyright: 2016-2020 The Qt Company Ltd.
+Copyright: 2016-2023 The Qt Company Ltd.
 License: GPL-3 with Qt-1.0 exception
 
 Files: debian/*
@@ -15,7 +15,7 @@ Copyright: 2007-2012 Fathi Boudra <fabo@debian.org>
            2012 Felix Geyer <fgeyer@debian.org>
            2012-2013 Timo Jyrinki <timo.jyrinki@canonical.com>
            2013-2015 Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
-           2014-2022 Dmitry Shachnev <mitya57@debian.org>
+           2014-2024 Dmitry Shachnev <mitya57@debian.org>
 License: LGPL-3 or GPL-2
 
 Files: *.qdoc
@@ -50,6 +50,11 @@ Files: src/linguist/lupdate/main.cpp
 Copyright: 2016 Klarälvdalens Datakonsult AB, a KDAB Group company, info@kdab.com
 License: GPL-3 with Qt-1.0 exception
 
+Files: tests/auto/cmake/test_create_translation_same_base_names/myi18nobject.cpp
+Copyright: 2016 Klarälvdalens Datakonsult AB, a KDAB Group company, info@kdab.com
+           2023 The Qt Company Ltd.
+License: GPL-3 with Qt-1.0 exception
+
 Files: src/qtplugininfo/qtplugininfo.cpp
 Copyright: 2016 Klarälvdalens Datakonsult AB, a KDAB Group company, info@kdab.com
            2016 Intel Corporation
@@ -71,6 +76,7 @@ License: GPL-3 with Qt-1.0 exception
 
 Files: src/linguist/Qt5LinguistToolsMacros.cmake
 Copyright: 2005-2011 Kitware, Inc.
+           2022 The Qt Company Ltd.
 License: BSD-3-clause
 
 Files: src/qtpaths/*

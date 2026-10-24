@@ -5,7 +5,7 @@ Source: https://download.librdf.org/source/
 
 Files: *
 Copyright: 2000-2005 University of Bristol.
-           2000-2014 David Beckett
+           2000-2023 David Beckett
 License: LGPL-2.1+
 
 Files: src/turtle_parser.c
@@ -37,6 +37,10 @@ Files: librdfa/strtok_r.*
 Copyright: none (in the public domain)
 License: public-domain
  Files is released in the public domain.
+
+Files: tests/mkr/*
+License: LGPL-2.1+ or GPL-2+ or Apache-2.0
+Copyright: 2014 Richard H. McCullough
 
 License: Apache-2.0
  See `/usr/share/common-licenses/Apache-2.0'.

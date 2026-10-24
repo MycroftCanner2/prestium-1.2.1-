@@ -29,11 +29,17 @@ License: expat
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 
+Files: po/ca.po
+Copyright: 2020 Panu Matilainen <pmatilai@redhat.com>
+           2020 Jordi Mallach <jordi@debian.org>
+License: public-domain
+ No further information given.
+
 Files: debian/*
 Copyright: GNU copyright 1997 to 1999 by Joey Hess
            2012, Paul Martin <pm@debian.org>
            2018, Michael Jeanson <mjeanson@debian.org>
-           2022 Håvard F. Aasen <havard.f.aasen@pfft.no>
+           2022-2024 Håvard F. Aasen <havard.f.aasen@pfft.no>
 License: GPL-2+
  This program is free software; you can redistribute it
  and/or modify it under the terms of the GNU General Public

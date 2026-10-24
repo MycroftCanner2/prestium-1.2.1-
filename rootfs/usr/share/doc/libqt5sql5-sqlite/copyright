@@ -28,7 +28,7 @@ Files-Excluded: bin/licheck*
 # Manual rules for The Qt Company copyrights
 
 Files: *
-Copyright: 2016-2020 The Qt Company Ltd.
+Copyright: 2016-2023 The Qt Company Ltd.
 License: LGPL-3 or GPL-2
 
 Files: *.qdoc
@@ -67,7 +67,7 @@ Copyright: 2007-2013 Fathi Boudra <fabo@debian.org>
            2005-2007 Brian Nelson <pyro@debian.org>
            2012-2013 Zoltán Balogh <zoltan.balogh@canonical.com>
            2012-2013 Timo Jyrinki <timo.jyrinki@canonical.com>
-           2013-2023 Dmitry Shachnev <mitya57@debian.org>
+           2013-2024 Dmitry Shachnev <mitya57@debian.org>
            2018 Simon Quigley <tsimonq2@ubuntu.com>
 License: LGPL-3 or GPL-2+
 
@@ -259,8 +259,7 @@ License: GFDL-NIV-1.3
 
 ## GPL-3
 
-Files: src/corelib/time/qcalendar.cpp
-       src/plugins/platforms/wasm/main.cpp
+Files: src/plugins/platforms/wasm/main.cpp
        src/plugins/platforms/wasm/qtloader.js
        src/plugins/platforms/wasm/qwasmbackingstore.cpp
        src/plugins/platforms/wasm/qwasmbackingstore.h
@@ -406,7 +405,6 @@ Files: src/corelib/mimetypes/mime/generate.bat
        tests/auto/other/qprocess_and_guieventloop/write-read-write/main.cpp
        tests/auto/tools/moc/forward-declared-param.h
        tests/auto/tools/qdbusxml2cpp/tst_qdbusxml2cpp.cpp
-       tests/benchmarks/corelib/tools/qcryptographichash/main.cpp
        tests/manual/qdesktopservices/tst_qdesktopservices.cpp
        tests/manual/qstorageinfo/main.cpp
        tests/manual/qstorageinfo/printvolumes.cpp
@@ -494,9 +492,10 @@ Files: configure
        tests/auto/other/compiler/tst_compiler.cpp
        tests/auto/testlib/selftests/tst_selftests.cpp
        tests/benchmarks/corelib/text/qbytearray/main.cpp
+       tests/benchmarks/corelib/tools/qcryptographichash/main.cpp
        tests/benchmarks/corelib/tools/qhash/main.cpp
-Copyright: 2016-2020 Intel Corporation
-           2016-2021 The Qt Company Ltd.
+Copyright: 2016-2022 Intel Corporation
+           2016-2023 The Qt Company Ltd.
 License: GPL-3 with Qt-1.0 exception
 
 Files: tests/auto/corelib/global/qglobalstatic/tst_qglobalstatic.cpp
@@ -930,7 +929,7 @@ Files: src/android/jar/src/org/qtproject/qt5/android/QtActivityDelegate.java
        src/plugins/platforms/android/qandroidinputcontext.cpp
 Copyright: 2012-2017 BogDan Vatra <bogdan@kde.org>
            2016 Olivier Goffart <ogoffart@woboq.com>
-           2016 The Qt Company Ltd.
+           2016-2022 The Qt Company Ltd.
 License: LGPL-3 or GPL-2
 
 Files: src/android/jar/src/org/qtproject/qt5/android/ExtractStyle.java
@@ -956,7 +955,7 @@ Files: src/android/jar/src/org/qtproject/qt5/android/ExtractStyle.java
        src/plugins/platforms/android/qandroidplatformwindow.cpp
        src/plugins/platforms/android/qandroidplatformwindow.h
 Copyright: 2012-2016 BogDan Vatra <bogdan@kde.org>
-           2016-2021 The Qt Company Ltd.
+           2016-2022 The Qt Company Ltd.
 License: LGPL-3 or GPL-2
 
 Files: src/testlib/qteamcitylogger.cpp
@@ -1318,8 +1317,8 @@ Files: bin/syncqt.pl
        src/testlib/qtest.h
        src/testlib/qtestcase.cpp
        src/widgets/kernel/qwidget.cpp
-Copyright: 2015-2020 Intel Corporation
-           2016-2020 The Qt Company Ltd.
+Copyright: 2015-2022 Intel Corporation
+           2016-2022 The Qt Company Ltd.
 License: LGPL-3 or GPL-2
 
 Files: src/corelib/text/qbytearraylist.h
@@ -1374,7 +1373,6 @@ License: LGPL-3 or GPL-2
 
 Files: src/corelib/time/qtimezone.cpp
        src/corelib/time/qtimezone.h
-       src/corelib/time/qtimezoneprivate_icu.cpp
        src/corelib/time/qtimezoneprivate_win.cpp
        src/gui/painting/qpagelayout.cpp
        src/gui/painting/qpagelayout.h
@@ -1388,11 +1386,12 @@ Files: src/corelib/time/qtimezone.cpp
        src/printsupport/kernel/qprint_p.h
        src/printsupport/kernel/qprintdevice.cpp
        src/printsupport/kernel/qprintdevice_p.h
-Copyright: 2013-2014 John Layt <jlayt@kde.org>
+Copyright: 2013-2020 John Layt <jlayt@kde.org>
 License: LGPL-3 or GPL-2
 
 Files: src/corelib/time/qtimezoneprivate.cpp
        src/corelib/time/qtimezoneprivate_data_p.h
+       src/corelib/time/qtimezoneprivate_icu.cpp
        src/corelib/time/qtimezoneprivate_mac.mm
        src/corelib/time/qtimezoneprivate_p.h
        src/plugins/printsupport/cups/qcupsprintersupport.cpp
@@ -1809,9 +1808,13 @@ Copyright: 2014 Robin Burchell <robin.burchell@viroteck.net>
            2016 The Qt Company Ltd.
 License: LGPL-3 or GPL-2
 
-Files: src/corelib/tools/qmessageauthenticationcode.cpp
-       src/corelib/tools/qmessageauthenticationcode.h
+Files: src/corelib/tools/qmessageauthenticationcode.h
 Copyright: 2013 Ruslan Nigmatullin <euroelessar@yandex.ru>
+License: LGPL-3 or GPL-2
+
+Files: src/corelib/tools/qmessageauthenticationcode.cpp
+Copyright: 2013 Ruslan Nigmatullin <euroelessar@yandex.ru>
+           2023 The Qt Company Ltd.
 License: LGPL-3 or GPL-2
 
 Files: src/plugins/platforms/cocoa/qcocoasessionmanager.cpp
@@ -1852,6 +1855,12 @@ Copyright: 2016 The Qt Company Ltd.
            2011 Thiago Macieira <thiago@kde.org>
 License: LGPL-3 or GPL-2
 
+Files: src/plugins/platforms/android/androidcontentfileengine.cpp
+       src/plugins/platforms/android/androidcontentfileengine.h
+Copyright: 2022 The Qt Company Ltd.
+           2019 Volker Krause <vkrause@kde.org>
+License: LGPL-3 or GPL-2
+
 Files: src/corelib/global/qfloat16.cpp
        src/corelib/global/qfloat16.h
        src/corelib/text/qbytearraylist.cpp
@@ -1862,11 +1871,6 @@ License: LGPL-3 or GPL-2
 Files: src/network/ssl/qsslsocket_mac_shared.cpp
 Copyright: 2016 The Qt Company Ltd.
            2015 ownCloud Inc
-License: LGPL-3 or GPL-2
-
-Files: src/plugins/platforms/android/androidcontentfileengine.cpp
-       src/plugins/platforms/android/androidcontentfileengine.h
-Copyright: 2019 Volker Krause <vkrause@kde.org>
 License: LGPL-3 or GPL-2
 
 ## LGPL-3 or GPL-2+
@@ -2073,20 +2077,26 @@ Copyright: 1998-2005 David Turner
 License: Harfbuzz
 
 Files: src/3rdparty/harfbuzz-ng/*
-Copyright: 2010-2017 Google, Inc.
+Copyright: 2010-2022 Google, Inc.
+           2015-2020 Ebrahim Byagowi
+           2019-2020 Facebook, Inc.
            2012-2015 Mozilla Foundation
            2011 Codethink Limited
            2008-2010 Nokia Corporation and/or its subsidiary(-ies)
            2009 Keith Stribley
-           2009 Martin Hosken and SIL International
+           2011 Martin Hosken and SIL International
            2007 Chris Wilson
-           2006 Behdad Esfahbod
+           2005-2023 Behdad Esfahbod
            1998-2005 David Turner
-           1998-2004 Werner Lemberg
-           2004-2010 Red Hat, Inc.
+           1998-2005 Werner Lemberg
+           2004-2023 Red Hat, Inc.
            2015 The Qt Company Ltd.
            2015 Konstantin Ritt
            2016 Igalia S.L.
+           2022 Matthias Clasen
+           2018-2021 Khaled Hosny
+           2018-2020 Adobe, Inc
+           2013-2015 Alexei Podtelezhnikov
 License: Harfbuzz
 
 License: Harfbuzz
@@ -2109,20 +2119,23 @@ License: Harfbuzz
  PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 Files: src/3rdparty/freetype/*
-Copyright: 1996-2020 David Turner, Robert Wilhelm, and Werner Lemberg
-           1996-2020 Just van Rossum
-           2002-2020 Roberto Alameda
+Copyright: 1996-2023 David Turner, Robert Wilhelm, and Werner Lemberg
+           1996-2023 Just van Rossum
+           2002-2023 Roberto Alameda
            2003 Huw D M Davies for Codeweavers
-           2003-2020 Masatake YAMATO, Redhat K.K.
-           2004-2020 Albert Chin-A-Young
-           2004-2020 Suzuki Toshiya
+           2003-2023 Masatake YAMATO, Redhat K.K.
+           2004-2023 Albert Chin-A-Young
+           2004-2023 Suzuki Toshiya
            2007 Dmitry Timoshkov for Codeweavers
-           2007-2020 Rahul Bhalerao <rahul.bhalerao@redhat.com>
-           2007-2020 Derek Clegg, Michael Toftdal
-           2009-2020 Oran Agra, Mickey Gabel
-           2010-2020 Joel Klinghed
-           2013-2020 Google, Inc.
-           2019-2020 Nikhil Ramakrishnan
+           2007-2023 Rahul Bhalerao <rahul.bhalerao@redhat.com>
+           2007-2023 Derek Clegg, Michael Toftdal
+           2009-2023 Oran Agra, Mickey Gabel
+           2010-2023 Joel Klinghed
+           2013-2023 Google, Inc.
+           2019-2023 Nikhil Ramakrishnan
+           2018-2023 Armin Hasitzka
+           2018-2023 Dominik Röttsches
+           2022-2023 Moazin Khatti
 License: GPL-2+ or FTL
 
 Files: src/3rdparty/freetype/src/pcf/*
@@ -2146,6 +2159,22 @@ Copyright: 1992-1993 The Regents of the University of California
            2005, 2007, 2008, 2013 George Williams
 License: BSD-3-clause
 
+Files: src/3rdparty/freetype/src/tools/vms_shorten_symbol.c
+Copyright: 2010, 2017 Craig A. Berry
+License: Expat
+
+Files: src/3rdparty/freetype/include/dlg/dlg.h
+       src/3rdparty/freetype/include/dlg/output.h
+       src/3rdparty/freetype/src/dlg/dlg.c
+Copyright: 2019 nyorain
+License: BSL-1.0
+
+Files: src/3rdparty/freetype/src/autofit/ft-hb.c
+       src/3rdparty/freetype/src/autofit/ft-hb.h
+Copyright: 2009, 2023 Red Hat, Inc.
+           2015 Google, Inc.
+License: Harfbuzz
+
 Files: src/3rdparty/icc/sRGB2014.icc
 Copyright: 2015 International Color Consortium
 License: ICC
@@ -2156,16 +2185,17 @@ License: ICC
  profile.
 
 Files: src/3rdparty/libjpeg/src/*
-Copyright: 2009-2021 D. R. Commander
+Copyright: 2009-2023 D. R. Commander
            2011-2016 Siarhei Siamashka
-           2015-2016, 2018 Matthieu Darbois
+           2015-2022 Matthieu Darbois
            2015 Intel Corporation
-           2015-2020 Google, Inc.
+           2015-2022 Google, Inc.
            2013-2014 MIPS Technologies, Inc.
            2013-2014 Linaro Limited
            2009-2011 Nokia Corporation and/or its subsidiary(-ies)
            2009-2012 Pierre Ossman for Cendio AB
            1999-2006 MIYASAKA Masaru
+           1999 Ken Murchison
            1991-2020 Thomas G. Lane, Guido Vollbeding
            2018 Matthias Räncker
            2019-2020 Arm Limited
@@ -2174,8 +2204,8 @@ License: libjpeg and BSD-3-clause and Zlib
 
 Files: src/3rdparty/libpng/*.c
        src/3rdparty/libpng/*.h
-Copyright: 1995-2019 The PNG Reference Library Authors.
-           2018-2019 Cosmin Truta
+Copyright: 1995-2023 The PNG Reference Library Authors.
+           2018-2023 Cosmin Truta
            2000-2018 Glenn Randers-Pehrson
            1996-1997 Andreas Dilger
            1995-1996 Guy Eric Schalnat, Group 42, Inc.
@@ -2215,12 +2245,12 @@ Copyright: 2005 The Android Open Source Project
 License: Apache-2.0
 
 Files: src/3rdparty/pcre2/src/*
-Copyright: 1997-2021 University of Cambridge
-           2009-2021 Zoltan Herczeg
+Copyright: 1997-2022 University of Cambridge
+           2009-2022 Zoltan Herczeg
 License: BSD-3-clause
 
 Files: src/3rdparty/pcre2/src/sljit/*
-Copyright: 2009-2020 Zoltan Herczeg <hzmester@freemail.hu>
+Copyright: 2009-2022 Zoltan Herczeg <hzmester@freemail.hu>
 License: BSD-2-clause
 
 Files: src/3rdparty/pixman/*
@@ -2278,8 +2308,8 @@ License: Bitstream
 
 Files: src/3rdparty/freetype/src/gzip/*
        src/3rdparty/zlib/src/*
-Copyright: 1995-2017 Jean-loup Gailly
-           1995-2017 Mark Adler
+Copyright: 1995-2022 Jean-loup Gailly
+           1995-2022 Mark Adler
 License: Zlib
 
 Files: src/3rdparty/md4c/*
@@ -2927,3 +2957,26 @@ License: MPL-2.0
  .
  On Debian systems, the complete text of the Mozilla Public License Version
  2.0 can be found in /usr/share/common-licenses/MPL-2.0.
+
+License: BSL-1.0
+ Permission is hereby granted, free of charge, to any person or organization
+ obtaining a copy of the software and accompanying documentation covered by
+ this license (the "Software") to use, reproduce, display, distribute,
+ execute, and transmit the Software, and to prepare derivative works of the
+ Software, and to permit third-parties to whom the Software is furnished to
+ do so, all subject to the following:
+ .
+ The copyright notices in the Software and this entire statement, including
+ the above license grant, this restriction and the following disclaimer,
+ must be included in all copies of the Software, in whole or in part, and
+ all derivative works of the Software, unless such copies or derivative
+ works are solely in the form of machine-executable object code generated by
+ a source language processor.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+ SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+ FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.

@@ -1,22 +1,19 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: librabbitmq-c
-Upstream-Contact: Tony Garnock-Jones <tonygarnockjones@gmail.com>
+Upstream-Name: rabbitmq-c
+Upstream-Contact: Alan Antonuk
 Source: https://github.com/alanxz/rabbitmq-c
 
 Files: *
 Copyright: 2007-2012, VMware, Inc.
            2009-2010, Tony Garnock-Jones
+           2007-2022, Alan Antonuk and the rabbitmq-c contributors
 License: Expat
 
 Files: debian/*
 Copyright: 2010, Monty Taylor <mordred@inaugust.com>
            2013-2022, Michael Fladischer <fladi@debian.org>
+           2024, Florian Ernst <florian@debian.org>
 License: Expat
-
-Files: librabbitmq/win32/msinttypes/stdint.h
-       tests/win32/msinttypes/inttypes.h
-Copyright: 2006-2008, Alexander Chemeris
-License: BSD-Author
 
 License: Expat
  Permission is hereby granted, free of charge, to any person
@@ -38,27 +35,3 @@ License: Expat
  ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
-
-License: BSD-Author
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions
- are met:
- .
- 1. Redistributions of source code must retain the copyright
-    notice, this list of conditions and the following disclaimer.
- 2. Redistributions in binary form must reproduce the copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
- 3. The name of the author may not be used to endorse or promote products
-    derived from this software without specific prior written permission.
- .
- THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
- IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
- NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
- THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
