@@ -11,7 +11,7 @@ License: MPL-1.1 or GPL-2+ or LGPL-2.1+
 Files: debian/*
 Copyright:
  2011 Asias He <asias.hejun@gmail.com>
- 2017 James Cowgill <jcowgill@debian.org>
+ 2017-2023 James Cowgill <jcowgill@debian.org>
 License: GPL-2+
 
 License: GPL-2+

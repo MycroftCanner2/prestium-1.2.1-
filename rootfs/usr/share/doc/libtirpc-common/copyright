@@ -11,7 +11,7 @@ License: BSD-3-Clause
 
 Files: debian/*
 Copyright: 2009 Steinar H. Gunderson <sesse@debian.org>
-           2022 Josue Ortega <josue@debian.org>
+           2023 Josue Ortega <josue@debian.org>
 License: GPL-2
 
 Files:     src/auth_des.c

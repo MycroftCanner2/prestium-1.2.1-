@@ -9,13 +9,17 @@ Copyright: 1995-2009, Gisle Aas <gisle@activestate.com>
  1995, Martijn Koster <mak@surfski.webcrawler.com>
 License: Artistic or GPL-1+
 
+Files: lib/URI/otpauth.pm t/otpauth.t
+Copyright: 2024, David Dick <ddick@cpan.org>
+License: Artistic or GPL-1+
+
 Files: debian/*
 Copyright: 1999-2001, John Goerzen <jgoerzen@complete.org>
  2001-2007, Stefan Hornburg (Racke) <racke@linuxia.de>
  2008, Kees Cook <kees@outflux.net>
  2009-2010, Jonathan Yu <jawnsy@cpan.org>
  2010-2011, 2014, Angel Abad <angel@debian.org>
- 2010-2022, gregor herrmann <gregoa@debian.org>
+ 2010-2024, gregor herrmann <gregoa@debian.org>
  2011, Ansgar Burchardt <ansgar@debian.org>
 License: Artistic or GPL-1+
 

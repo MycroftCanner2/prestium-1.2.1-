@@ -15,7 +15,7 @@ License: BSD-2-Clause
 Files: debian/*
 Copyright: 2009-2011, Fathi Boudra <fabo@debian.org>
                 2015, Felix Geyer <fgeyer@debian.org>
-           2019-2023, Christian Göttsche <cgzones@googlemail.com>
+           2019-2024, Christian Göttsche <cgzones@googlemail.com>
 License: LGPL-2.1
 
 License: LGPL-2.1
