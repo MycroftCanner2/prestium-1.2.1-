@@ -30,12 +30,6 @@ libaom.so.3 libaom3 #MINVER#
  aom_codec_version@Base 3.2.0
  aom_codec_version_extra_str@Base 3.2.0
  aom_codec_version_str@Base 3.2.0
- aom_film_grain_table_append@Base 3.2.0
- aom_film_grain_table_free@Base 3.2.0
- aom_film_grain_table_write@Base 3.2.0
- aom_flat_block_finder_init@Base 3.2.0
- aom_flat_block_finder_run@Base 3.2.0
- aom_free@Base 3.2.0
  aom_img_add_metadata@Base 3.2.0
  aom_img_alloc@Base 3.2.0
  aom_img_alloc_with_border@Base 3.2.0
@@ -43,8 +37,6 @@ libaom.so.3 libaom3 #MINVER#
  aom_img_free@Base 3.2.0
  aom_img_get_metadata@Base 3.2.0
  aom_img_metadata_alloc@Base 3.2.0
- aom_img_metadata_array_alloc@Base 3.2.0
- aom_img_metadata_array_free@Base 3.2.0
  aom_img_metadata_free@Base 3.2.0
  aom_img_num_metadata@Base 3.2.0
  aom_img_plane_height@Base 3.2.0
@@ -52,11 +44,6 @@ libaom.so.3 libaom3 #MINVER#
  aom_img_remove_metadata@Base 3.2.0
  aom_img_set_rect@Base 3.2.0
  aom_img_wrap@Base 3.2.0
- aom_malloc@Base 3.2.0
- aom_noise_model_get_grain_parameters@Base 3.2.0
- aom_noise_model_init@Base 3.2.0
- aom_noise_model_save_latest@Base 3.2.0
- aom_noise_model_update@Base 3.2.0
  aom_obu_type_to_string@Base 3.2.0
  aom_rb_bytes_read@Base 3.2.0
  aom_rb_read_bit@Base 3.2.0
@@ -68,9 +55,3 @@ libaom.so.3 libaom3 #MINVER#
  aom_uleb_encode@Base 3.2.0
  aom_uleb_encode_fixed_size@Base 3.2.0
  aom_uleb_size_in_bytes@Base 3.2.0
- aom_wb_bytes_written@Base 3.2.0
- aom_wb_write_bit@Base 3.2.0
- aom_wb_write_literal@Base 3.2.0
- aom_wb_write_unsigned_literal@Base 3.2.0
- av1_add_film_grain@Base 3.2.0
- av1_resize_frame420@Base 3.2.0

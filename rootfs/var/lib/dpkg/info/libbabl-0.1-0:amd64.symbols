@@ -80,12 +80,14 @@ libbabl-0.1.so.0 libbabl-0.1-0 #MINVER#
  babl_space_get_rgbtoxyz@V0_1_0 0.1.72
  babl_space_is_cmyk@V0_1_0 0.1.72
  babl_space_is_gray@V0_1_0 0.1.72
+ babl_space_is_rgb@V0_1_0 1:0.1.108
  babl_space_to_icc@V0_1_0 0.1.72
  babl_space_to_xyz@V0_1_0 0.1.72
  babl_space_with_trc@V0_1_0 0.1.72
  babl_ticks@V0_1_0 0.1.72
  babl_trc@V0_1_0 0.1.72
  babl_trc_gamma@V0_1_0 0.1.72
+ babl_trc_new@V0_1_0 1:0.1.114
  babl_type@V0_1_0 0.1.72
  babl_type_class_for_each@V0_1_0 0.1.72
  babl_type_is_symmetric@V0_1_0 0.1.72

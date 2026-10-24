@@ -1,0 +1,5 @@
+fcaa226e40b3bcc230afe842331b62cb  usr/lib/x86_64-linux-gnu/libavcodec.so.61.19.101
+4bf190ee804bb7c6f44b5426f9615d61  usr/share/doc/libavcodec61/changelog.Debian.gz
+d6e9510177e07740476678fdc9d45577  usr/share/doc/libavcodec61/changelog.gz
+8302782d216f52cabf7ee6d8822c3d6e  usr/share/doc/libavcodec61/copyright
+7bd569700d6a9194aeb8279ab684d104  usr/share/lintian/overrides/libavcodec61

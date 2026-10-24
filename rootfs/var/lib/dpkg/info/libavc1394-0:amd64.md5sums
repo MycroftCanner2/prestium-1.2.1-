@@ -1,5 +1,6 @@
-82b8b33115b176264f7b0a1107a85665  usr/lib/x86_64-linux-gnu/libavc1394.so.0.3.0
-12376af5711918887834b495e26b6d3b  usr/lib/x86_64-linux-gnu/librom1394.so.0.3.0
-04021cea4b0e53a2f73d7df833c0b759  usr/share/doc/libavc1394-0/changelog.Debian.gz
+6e296beaf7902d7754518d9e4057f1d3  usr/lib/x86_64-linux-gnu/libavc1394.so.0.3.0
+1901d10e1ed32084df41d69455bd725a  usr/lib/x86_64-linux-gnu/librom1394.so.0.3.0
+b9966422bbe34d97c8411ebe1e609cbf  usr/share/doc/libavc1394-0/changelog.Debian.amd64.gz
+aa56a3d3326ee81faa63640260497622  usr/share/doc/libavc1394-0/changelog.Debian.gz
 3cf3481cbc58e50ba6226306da27d25e  usr/share/doc/libavc1394-0/changelog.gz
 56ee784d40038148c71c41de7e657c86  usr/share/doc/libavc1394-0/copyright

@@ -1,11 +1,39 @@
 #!/bin/sh
+
 set -e
-# Automatically added by dh_apparmor/3.0.8-3
+
+# begin-remove-after: released:forky
+if [ "$1" = configure ] &&
+	[ "$(dpkg-divert --truename /usr/sbin/dhclient)" = /usr/sbin/dhclient.usr-is-merged ] &&
+	[ "$(dpkg-divert --listpackage /usr/sbin/dhclient)" = isc-dhcp-client-ddns ]; then
+	# /usr/sbin/dhclient is still diverted in the same way as our
+	# preinst did.  Conclude that isc-dhcp-client-ddns was installed
+	# during preinst, we duplicated the diversion and now
+	# isc-dhcp-client-ddns is removed. We have to clean up.
+	echo "Removing duplicated diversion of /usr/sbin/dhclient after isc-dhcp-client-ddns is removed."
+	dpkg-divert --package isc-dhcp-client-ddns --remove --rename \
+		--divert /usr/sbin/dhclient.usr-is-merged /usr/sbin/dhclient
+fi
+# end-remove-after
+
+# https://bugs.debian.org/1102626
+if dpkg-maintscript-helper supports mv_conffile; then
+dpkg-maintscript-helper mv_conffile \
+    /etc/apparmor.d/sbin.dhclient /etc/apparmor.d/usr.sbin.dhclient 4.4.3-P1-7~ -- "$@"
+fi
+
+# https://bugs.debian.org/1103503
+if dpkg-maintscript-helper supports mv_conffile; then
+dpkg-maintscript-helper mv_conffile \
+    /etc/apparmor.d/local/sbin.dhclient /etc/apparmor.d/local/usr.sbin.dhclient 4.4.3-P1-8~ -- "$@"
+fi
+
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
-    APP_PROFILE="/etc/apparmor.d/sbin.dhclient"
+    APP_PROFILE="/etc/apparmor.d/usr.sbin.dhclient"
     if [ -f "$APP_PROFILE" ]; then
         # Add the local/ include
-        LOCAL_APP_PROFILE="/etc/apparmor.d/local/sbin.dhclient"
+        LOCAL_APP_PROFILE="/etc/apparmor.d/local/usr.sbin.dhclient"
 
         test -e "$LOCAL_APP_PROFILE" || {
             mkdir -p `dirname "$LOCAL_APP_PROFILE"`
@@ -19,3 +47,4 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
+

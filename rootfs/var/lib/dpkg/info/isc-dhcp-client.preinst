@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+# begin-remove-after: released:forky
+if [ "$1" = "upgrade" ] || [ "$1" = install ]; then
+	if [ "$(dpkg-divert --truename /sbin/dhclient)" = /sbin/dhclient-noddns ] &&
+		[ "$(dpkg-divert --listpackage /sbin/dhclient)" = isc-dhcp-client-ddns ] &&
+		[ "$(dpkg-divert --truename /usr/sbin/dhclient)" = /usr/sbin/dhclient ]; then
+		# A pre-/usr-merge isc-dhcp-client-ddns is installed.
+		echo "Mitigating diversion of /sbin/dhclient on behalf of isc-dhcp-client-ddns"
+		dpkg-divert --package isc-dhcp-client-ddns --no-rename --add \
+				--divert /usr/sbin/dhclient.usr-is-merged /usr/sbin/dhclient
+	fi
+fi
+# end-remove-after
+
+if [ "$1" = "upgrade" ] || [ "$1" = install ]; then
+    # https://bugs.debian.org/1102626
+    if dpkg-maintscript-helper supports mv_conffile; then
+    dpkg-maintscript-helper mv_conffile \
+        /etc/apparmor.d/sbin.dhclient /etc/apparmor.d/usr.sbin.dhclient 4.4.3-P1-7~ -- "$@"
+    fi
+fi
+
+

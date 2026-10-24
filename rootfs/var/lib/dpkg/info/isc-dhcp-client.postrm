@@ -16,12 +16,18 @@ if [ "$1" = "purge" ]; then
 
 fi
 
-# Automatically added by dh_apparmor/3.0.8-3
-if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/sbin.dhclient" ] ; then
-    rm -f "/etc/apparmor.d/disable/sbin.dhclient" || true
-    rm -f "/etc/apparmor.d/force-complain/sbin.dhclient" || true
-    rm -f "/etc/apparmor.d/local/sbin.dhclient" || true
-    rm -f /var/cache/apparmor/*/"sbin.dhclient" || true
+# https://bugs.debian.org/1102626
+if dpkg-maintscript-helper supports mv_conffile; then
+dpkg-maintscript-helper mv_conffile \
+    /etc/apparmor.d/sbin.dhclient /etc/apparmor.d/usr.sbin.dhclient 4.4.3-P1-7~ -- "$@"
+fi
+
+# Automatically added by dh_apparmor/4.1.0-1
+if [ "$1" = "purge" ] && ! [ -e "/etc/apparmor.d/usr.sbin.dhclient" ] ; then
+    rm -f "/etc/apparmor.d/disable/usr.sbin.dhclient" || true
+    rm -f "/etc/apparmor.d/force-complain/usr.sbin.dhclient" || true
+    rm -f "/etc/apparmor.d/local/usr.sbin.dhclient" || true
+    rm -f /var/cache/apparmor/*/"usr.sbin.dhclient" || true
     rmdir /etc/apparmor.d/disable 2>/dev/null || true
     rmdir /etc/apparmor.d/local   2>/dev/null || true
     rmdir /etc/apparmor.d         2>/dev/null || true

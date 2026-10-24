@@ -1,4 +1,5 @@
-fa68a3fb5a8a7ce829973707c6e8eaf1  usr/lib/x86_64-linux-gnu/libayatana-indicator3.so.7.0.0
-cd29b66e17168e8c5a005f6075fcaea3  usr/share/doc/libayatana-indicator3-7/changelog.Debian.gz
-0ca6538ba87504a51755a2433a17a2e9  usr/share/doc/libayatana-indicator3-7/changelog.gz
-542638c9a658e838a655b27d90644c90  usr/share/doc/libayatana-indicator3-7/copyright
+b26440b9ddb10ac1dee4a3e8b0336844  usr/lib/x86_64-linux-gnu/libayatana-indicator3.so.7.0.0
+8fc60a1a8ffcd1eed90ffaff2018aa43  usr/share/doc/libayatana-indicator3-7/changelog.Debian.amd64.gz
+c4ad58f6f4cbf8ba4f008030c164722a  usr/share/doc/libayatana-indicator3-7/changelog.Debian.gz
+e43e0de7261c968bcf7426b6d21c75a3  usr/share/doc/libayatana-indicator3-7/changelog.gz
+1b1f94e55c9c63279d7d5b52b4e38fbd  usr/share/doc/libayatana-indicator3-7/copyright

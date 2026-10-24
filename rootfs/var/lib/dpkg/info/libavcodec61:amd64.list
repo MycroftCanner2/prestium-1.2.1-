@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libavcodec.so.61.19.101
+/usr/share
+/usr/share/doc
+/usr/share/doc/libavcodec61
+/usr/share/doc/libavcodec61/changelog.Debian.gz
+/usr/share/doc/libavcodec61/changelog.gz
+/usr/share/doc/libavcodec61/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libavcodec61
+/usr/lib/x86_64-linux-gnu/libavcodec.so.61

@@ -61,6 +61,8 @@ keyboard_present () {
     kbdpattern="$kbdpattern\|HIL keyboard"
     kbdpattern="$kbdpattern\|ADB keyboard"
     kbdpattern="$kbdpattern\|Sun Type"
+    kbdpattern="$kbdpattern\|Apple MTP keyboard"
+    kbdpattern="$kbdpattern\|Apple SPI Keyboard"
     kbdpattern="$kbdpattern\|bluetooth.*keyboard"
     if grep -i "$kbdpattern" /proc/bus/input/devices >/dev/null; then
 	return 0
@@ -139,7 +141,7 @@ then
     fi
 fi
 
-if ! [ -d /lib/debian-installer.d ]; then
+if ! [ -d /usr/lib/debian-installer.d ]; then
     dpkg-maintscript-helper rm_conffile \
                             /etc/init.d/keyboard-setup 1.138~ -- "$@"
     dpkg-maintscript-helper rm_conffile \

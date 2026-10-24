@@ -8,6 +8,7 @@ libapparmor.so.1 libapparmor1 #MINVER#
  APPARMOR_2.13@APPARMOR_2.13 2.13
  APPARMOR_2.9@APPARMOR_2.9 2.8.94
  APPARMOR_3.0@APPARMOR_3.0 3.0.0
+ APPARMOR_3.1@APPARMOR_3.1 3.1.0
  IMMUNIX_1.0@IMMUNIX_1.0 2.6~devel
  PRIVATE@PRIVATE 2.10
  __aa_query_label@APPARMOR_1.1 3.0.4
@@ -24,6 +25,7 @@ libapparmor.so.1 libapparmor1 #MINVER#
  aa_change_hatv@APPARMOR_1.1 2.6~devel
  aa_change_onexec@APPARMOR_1.1 2.6~devel
  aa_change_profile@APPARMOR_1.1 2.6~devel
+ aa_features_check@APPARMOR_3.1 4.0.0~alpha1
  aa_features_id@APPARMOR_2.13 2.13
  aa_features_is_equal@APPARMOR_2.10 2.10
  aa_features_new@APPARMOR_2.10 2.10
@@ -73,6 +75,7 @@ libapparmor.so.1 libapparmor1 #MINVER#
  aa_query_label@APPARMOR_2.9 2.8.94
  aa_query_link_path@APPARMOR_2.10 2.10
  aa_query_link_path_len@APPARMOR_2.10 2.10
+ aa_split_overlay_str@APPARMOR_3.1 4.1.0~beta1
  aa_splitcon@APPARMOR_2.10 2.10
  aa_stack_onexec@APPARMOR_2.11 2.10.95
  aa_stack_profile@APPARMOR_2.11 2.10.95

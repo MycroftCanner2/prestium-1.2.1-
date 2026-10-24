@@ -110,8 +110,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libaspell15
-/usr/share/doc/libaspell15/NEWS.Debian.gz
-/usr/share/doc/libaspell15/changelog.Debian.amd64.gz
 /usr/share/doc/libaspell15/changelog.Debian.gz
 /usr/share/doc/libaspell15/changelog.gz
 /usr/share/doc/libaspell15/copyright

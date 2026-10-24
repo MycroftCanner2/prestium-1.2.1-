@@ -1,0 +1,5 @@
+d7d2def00cba58ad880440efd10e226e  usr/lib/x86_64-linux-gnu/libavfilter.so.10.5.100
+720541ffe8181f769eccb5c21cb579c3  usr/share/doc/libavfilter10/changelog.Debian.gz
+d6e9510177e07740476678fdc9d45577  usr/share/doc/libavfilter10/changelog.gz
+8302782d216f52cabf7ee6d8822c3d6e  usr/share/doc/libavfilter10/copyright
+9d7621bfc0261e5230dd5cbb7e2080a7  usr/share/lintian/overrides/libavfilter10

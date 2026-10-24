@@ -6,13 +6,8 @@ case "$1" in
   ;;
 esac
 
-# Automatically added by dh_installinit/13.11.1
-if [ "$1" = "remove" ] && [ -x "/etc/init.d/kmod" ] ; then
-	chmod -x "/etc/init.d/kmod" >/dev/null || true
-fi
-if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
-	update-rc.d kmod remove >/dev/null
-fi
+# Automatically added by dh_installdeb/13.24.2
+dpkg-maintscript-helper rm_conffile /etc/init.d/kmod 34-1\~ -- "$@"
 # End automatically added section
 
 
