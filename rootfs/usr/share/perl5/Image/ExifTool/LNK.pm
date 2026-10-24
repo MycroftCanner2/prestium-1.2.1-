@@ -15,7 +15,7 @@ use strict;
 use vars qw($VERSION);
 use Image::ExifTool qw(:DataAccess :Utils);
 
-$VERSION = '1.08';
+$VERSION = '1.09';
 
 sub ProcessItemID($$$);
 sub ProcessLinkInfo($$$);
@@ -507,7 +507,7 @@ sub ProcessLinkInfo($$$)
     if ($lif & 0x01) {
         # read Volume ID
         $off = Get32u($dataPt, 0x0c);
-        if ($off + 0x20 <= $dataLen) {
+        if ($off and $off + 0x20 <= $dataLen) {
             # my $len = Get32u($dataPt, $off);
             $et->HandleTag($tagTablePtr, 'DriveType', undef, %opts, Start=>$off+4);
             $et->HandleTag($tagTablePtr, 'DriveSerialNumber', undef, %opts, Start=>$off+8);
@@ -545,6 +545,7 @@ sub ProcessLinkInfo($$$)
         $off = Get32u($dataPt, 0x14);
         if ($off and $off + 0x14 <= $dataLen) {
             my $siz = Get32u($dataPt, $off);
+            return 0 if $off + $siz > $dataLen; 
             $pos = Get32u($dataPt, $off + 0x08);
             if ($pos > 0x14 and $siz >= 0x18) {
                 $pos = Get32u($dataPt, $off + 0x14);
@@ -552,7 +553,7 @@ sub ProcessLinkInfo($$$)
             } else {
                 undef $unicode;
             }
-            $val = GetString($dataPt, $pos, $unicode);
+            $val = GetString($dataPt, $off + $pos, $unicode);
             if (defined $val) {
                 $size = length $val;
                 $val = $et->Decode($val, 'UCS2') if $unicode;
@@ -567,7 +568,7 @@ sub ProcessLinkInfo($$$)
                 } else {
                     undef $unicode;
                 }
-                $val = GetString($dataPt, $pos, $unicode);
+                $val = GetString($dataPt, $off + $pos, $unicode);
                 if (defined $val) {
                     $size = length $val;
                     $val = $et->Decode($val, 'UCS2') if $unicode;
@@ -649,7 +650,7 @@ sub ProcessLNK($$)
         my $mask = 0x04 << $i;
         next unless $flags & $mask;
         $raf->Read($buff, 2) or return 1;
-        $len = unpack('v', $buff);
+        $len = unpack('v', $buff) or next;
         $len *= 2 if $flags & 0x80;  # characters are 2 bytes if Unicode flag is set
         $raf->Read($buff, $len) or return 1;
         my $val;
@@ -702,7 +703,7 @@ information MS Shell Link (Windows shortcut) files.
 
 =head1 AUTHOR
 
-Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2025, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

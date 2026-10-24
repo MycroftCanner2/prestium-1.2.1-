@@ -947,10 +947,27 @@ It is also possible to skip C<algo$>, i.e. only specify the fingerprint. In
 this case the likely algorithms will be automatically detected based on the
 length of the digest string.
 
+Examples:
+
+    sha1$pub$f0f0c49b8a04a2dd2110e10f7806c97d87d0b26f  # pubkey SHA-1
+    sha1$f0f0c49b8a04a2dd2110e10f7806c97d87d0b26f      # certificate SHA-1
+    f0f0c49b8a04a2dd2110e10f7806c97d87d0b26f           # certificate SHA-1
+
 You can specify a list of fingerprints in case you have several acceptable
 certificates.
 If a fingerprint matches the topmost (i.e. leaf) certificate no additional
 validations can make the verification fail.
+
+Note that the default behavior of SSL_fingerprint is to be an alternative to the
+normal validation. A mismatching fingerprint does not override a successful
+validation of the certificate, but a matching fingerprint can override an
+otherwise failed validation. To enforce a fingerprint see
+C<SSL_force_fingerprint>.
+
+=item SSL_force_fingerprint
+
+This option should be set to true if a failed fingerprint validation should
+override an otherwise successful certificate validation.
 
 =item SSL_cert_file | SSL_cert | SSL_key_file | SSL_key
 
@@ -1040,25 +1057,26 @@ Sets the version of the SSL protocol used to transmit data.
 'SSLv2', 'SSLv3', 'TLSv1', 'TLSv1_1', 'TLSv1_2', or 'TLSv1_3' restrict
 handshake and protocol to the specified version.
 All values are case-insensitive.  Instead of 'TLSv1_1', 'TLSv1_2', and
-'TLSv1_3' one can also use 'TLSv11', 'TLSv12', and 'TLSv13'.  Support for
-'TLSv1_1', 'TLSv1_2', and 'TLSv1_3' requires recent versions of Net::SSLeay
-and openssl.
+'TLSv1_3' one can also use 'TLSv11', 'TLSv12', and 'TLSv13'.  Which protocol
+versions are actually supported depend on the versions of OpenSSL and
+Net::SSLeay installed, but modern protocols like TLS 1.3 are supported by these
+for many years now.
 
 Independent from the handshake format you can limit to set of accepted SSL
 versions by adding !version separated by ':'.
 
-The default SSL_version is 'SSLv23:!SSLv3:!SSLv2' which means, that the
-handshake format is compatible to SSL2.0 and higher, but that the successful
-handshake is limited to TLS1.0 and higher, that is no SSL2.0 or SSL3.0 because
-both of these versions have serious security issues and should not be used
-anymore.
+The default SSL_version is 'SSLv23:!TLSv1:!TLSv1_1:!SSLv3:!SSLv2'. This means,
+that the handshake format is compatible to SSL2.0 and higher, but that the
+successful handshake is limited to TLS1.2 and higher, that is no SSL2.0, SSL3.0,
+TLS 1.0 or TLS 1.1 because these versions have serious security issues and
+should not be used anymore.
+
 You can also use !TLSv1_1 and !TLSv1_2 to disable TLS versions 1.1 and 1.2 while
 still allowing TLS version 1.0.
-
-Setting the version instead to 'TLSv1' might break interaction with older
-clients, which need and SSL2.0 compatible handshake. On the other
-side some clients just close the connection when they receive a TLS version 1.1
-request. In this case setting the version to
+Setting the version instead to 'TLSv1' might break interaction with very old or
+broken clients, which expect a SSL2.0 compatible handshake. On the other
+side some broken clients just close the connection when they receive a TLS
+version 1.1 request. In this case setting the version to
 'SSLv23:!SSLv2:!SSLv3:!TLSv1_1:!TLSv1_2' might help.
 
 =item SSL_cipher_list
@@ -1082,7 +1100,7 @@ B<SSL_cert*>.
 
 If this option is set the TLS 1.3 ciphersuites for the connection will be
 set to the given value. This is similar to SSL_cipher_list, but only for TLS 1.3
-ciphers. See argument C<-ciphersuits> in the OpenSSL documentation
+ciphers. See argument C<-ciphersuites> in the OpenSSL documentation
 (L<https://www.openssl.org/docs/manmaster/man1/openssl-ciphers.html>) for
 details.
 
@@ -1331,6 +1349,36 @@ which needs to have methods C<put($key,\%entry)> and C<get($key)> (returning
 C<\%entry>) where entry is the hash representation of the OCSP response with
 fields like C<nextUpdate>. The default implementation of the cache will consider
 responses valid as long as C<nextUpdate> is less then the current time.
+
+=item SSL_psk
+
+PSK to use instead of certificate. Requires the peer to use the same PSK.
+
+On the client side the identity and psk need to be provided as array-ref with
+C<<[identity,psk]>>. Alternatively only the psk might be provided, in which case
+C<io_socket_ssl> is used as identity.
+On the server side a single psk might be given which will then be use no matter
+which identity hint was given by the client. Alternatively a hash-ref can be
+provided with identity as key and psk as value to serve clients with different
+psk based on the identity hint. The special identity C<''> is used to set a
+default psk.
+
+To use PSK make sure to have the relevant ciphers enabled. With TLS 1.3 this
+is implicit, but with TLS 1.2 and lower explicitly add PSK to C<SSL_cipher_list>
+since it is not enabled by default.
+
+Note that the given psk is expected to be binary and not hexadecimal as some
+other tools do. To convert hex to binary use C<pack("H*",hexstring)>.
+Also note that the error messages one gets if either identity or psk don't match
+the configuration in the peer can be useless ("handshake failure") or misleading
+("bad mac").
+
+PSK support needs respective API functionality in Net::SSLeay, which was
+only fully included in 1.94. C<< IO::Socket::SSL->can_psk() >> returns undef if
+functionality is not available and a hash-ref with details otherwise: key
+C<client> in the hash signals support for using PSK in a SSL client (available
+since Net::SSLeay 1.82) while key server for support of PSK in SSL server (since
+Net::SSLeay 1.94).
 
 =item SSL_reuse_ctx
 
@@ -1593,7 +1641,7 @@ most a single SSL frame. This means, that no more than 16.384 bytes, which is
 the maximum size of an SSL frame, will be written at once.
 
 For non-blocking sockets SSL specific behavior applies.
-Pease read the specific section in this documentation.
+Please read the specific section in this documentation.
 
 =item B<peek( BUF, LEN, [ OFFSET ])>
 
@@ -1756,7 +1804,7 @@ exist.
 =item gist (rfc5971)
 
 Simple wildcards are allowed in subjectAltNames and common name, but common name
-will only be checked if their are no DNS names in subjectAltNames.
+will only be checked if there are no DNS names in subjectAltNames.
 
 =item default
 
@@ -2142,6 +2190,20 @@ the print/printf/syswrite and read/sysread families instead.
 
 =back
 
+=head1 ACCESS TO INTERNALS
+
+C<IO::Socket::SSL> uses internally C<Net::SSLeay> which provides a lower level
+API to OpenSSL and provides functions which work directly with OpenSSL SSL and
+CTX handles. Sometimes it might be necessary to get direct access to these
+handles from C<IO::Socket::SSL> in order to apply functionality available only
+with C<Net::SSLeay>.
+
+For this C<_get_ssl_object> can be used on the C<IO::Socket::SSL> object to get
+access to the OpenSSL SSL handle and C<_get_ctx_object> can be used on
+C<IO::Socket::SSL> and C<IO::Socket::SSL_Context> objects to access the OpenSSL
+CTX handle. Use very carefully since OpenSSL memory/reference management must be
+done manually with C<Net::SSLeay>.
+
 =head1 DEPRECATIONS
 
 The following functions are deprecated and are only retained for compatibility:
@@ -2194,10 +2256,6 @@ thread will not work.
 
 IO::Socket::SSL does not work together with Storable::fd_retrieve/fd_store.
 See BUGS file for more information and how to work around the problem.
-
-Non-blocking and timeouts (which are based on non-blocking) are not
-supported on Win32, because the underlying IO::Socket::INET does not support
-non-blocking on this platform.
 
 If you have a server and it looks like you have a memory leak you might
 check the size of your session cache. Default for Net::SSLeay seems to be

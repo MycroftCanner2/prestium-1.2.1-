@@ -19,16 +19,15 @@ use Image::ExifTool::Fixup;
 
 sub AssembleRational($$@);
 sub LastInList($);
-sub CreateDirectory($$);
 sub NextFreeTagKey($$);
 sub RemoveNewValueHash($$$);
 sub RemoveNewValuesForGroup($$);
 sub GetWriteGroup1($$);
 sub Sanitize($$);
 sub ConvInv($$$$$;$$);
+sub PushValue($$$;$);
 
 my $loadedAllTables;    # flag indicating we loaded all tables
-my $advFmtSelf;         # ExifTool object during evaluation of advanced formatting expr
 
 # the following is a road map of where we write each directory
 # in the different types of files.
@@ -44,6 +43,7 @@ my %tiffMap = (
     PrintIM      => 'IFD0',
     IPTC         => 'IFD0',
     Photoshop    => 'IFD0',
+    SEAL         => 'IFD0',
     InteropIFD   => 'ExifIFD',
     MakerNotes   => 'ExifIFD',
     CanonVRD     => 'MakerNotes', # (so VRDOffset will get updated)
@@ -75,6 +75,7 @@ my %jpegMap = (
     Meta         => 'APP3',
     MetaIFD      => 'Meta',
     RMETA        => 'APP5',
+    SEAL         => ['APP8','APP9'], # (note: add 'IFD0' if this is a possibility)
     Ducky        => 'APP12',
     Photoshop    => 'APP13',
     Adobe        => 'APP14',
@@ -122,9 +123,9 @@ my %writableType = (
     XMP => [ undef,         'WriteXMP' ],
 );
 
-# RAW file types
+# RAW file types (2 = raw file where we can delete maker notes from ExifIFD)
 my %rawType = (
-   '3FR'=> 1,  CR3 => 1,  IIQ => 1,  NEF => 1,  RW2 => 1,
+   '3FR'=> 1,  CR3 => 2,  IIQ => 1,  NEF => 1,  RW2 => 1,
     ARQ => 1,  CRW => 1,  K25 => 1,  NRW => 1,  RWL => 1,
     ARW => 1,  DCR => 1,  KDC => 1,  ORF => 1,  SR2 => 1,
     ARW => 1,  ERF => 1,  MEF => 1,  PEF => 1,  SRF => 1,
@@ -136,12 +137,13 @@ my %rawType = (
 # 1) these names must either exist in %dirMap, or be translated in InitWriteDirs())
 # 2) any dependencies must be added to %excludeGroups
 my @delGroups = qw(
-    Adobe AFCP APP0 APP1 APP2 APP3 APP4 APP5 APP6 APP7 APP8 APP9 APP10 APP11
-    APP12 APP13 APP14 APP15 CanonVRD CIFF Ducky EXIF ExifIFD File FlashPix
+    Adobe AFCP APP0 APP1 APP2 APP3 APP4 APP5 APP6 APP7 APP8 APP9 APP10 APP11 APP12
+    APP13 APP14 APP15 AudioKeys CanonVRD CIFF Ducky EXIF ExifIFD File FlashPix
     FotoStation GlobParamIFD GPS ICC_Profile IFD0 IFD1 Insta360 InteropIFD IPTC
-    ItemList JFIF Jpeg2000 Keys MakerNotes Meta MetaIFD Microsoft MIE MPF
-    NikonApp NikonCapture PDF PDF-update PhotoMechanic Photoshop PNG PNG-pHYs
-    PrintIM QuickTime RMETA RSRC SubIFD Trailer UserData XML XML-* XMP XMP-*
+    ItemList iTunes JFIF Jpeg2000 JUMBF Keys MakerNotes Meta MetaIFD Microsoft
+    MIE MPF Nextbase NikonApp NikonCapture PDF PDF-update PhotoMechanic
+    Photoshop PNG PNG-pHYs PrintIM QuickTime RMETA RSRC SEAL SubIFD Trailer
+    UserData VideoKeys Vivo XML XML-* XMP XMP-*
 );
 # family 2 group names that we can delete
 my @delGroup2 = qw(
@@ -153,6 +155,7 @@ my %delMore = (
     QuickTime => [ qw(ItemList UserData Keys) ],
     XMP => [ 'XMP-*' ],
     XML => [ 'XML-*' ],
+    SEAL => [ 'XMP-SEAL' ],
 );
 
 # family 0 groups where directories should never be deleted
@@ -226,7 +229,7 @@ my %allFam0 = (
 
 my @writableMacOSTags = qw(
     FileCreateDate MDItemFinderComment MDItemFSCreationDate MDItemFSLabel MDItemUserTags
-    XAttrQuarantine
+    XAttrQuarantine XAttrMDItemWhereFroms
 );
 
 # min/max values for integer formats
@@ -278,6 +281,7 @@ my %ignorePrintConv = map { $_ => 1 } qw(OTHER BITMASK Notes);
 #           ListOnly => [internal use] set only list or non-list tags
 #           SetTags => [internal use] hash ref to return tagInfo refs of set tags
 #           Sanitized => [internal use] set to avoid double-sanitizing the value
+#           Fixup => [internal use] fixup information when writing maker notes
 # Returns: number of tags set (plus error string in list context)
 # Notes: For tag lists (like Keywords), call repeatedly with the same tag name for
 #        each value in the list.  Internally, the new information is stored in
@@ -295,10 +299,11 @@ my %ignorePrintConv = map { $_ => 1 } qw(OTHER BITMASK Notes);
 #           CreateGroups - hash of all family 0 group names where tag may be created
 #           WriteGroup - group name where information is being written (correct case)
 #           WantGroup - group name as specified in call to function (case insensitive)
-#           Next - pointer to next new value hash (if more than one)
+#           Next - pointer to next new value hash (if more than one for this tag)
 #           NoReplace - set if value was created with Replace=0
 #           AddBefore - number of list items added by a subsequent Replace=0 call
-#           IsNVH - Flag indicating this is a new value hash
+#           IsNVH - flag indicating this is a new value hash
+#           Order - counter to indicate the order that new value hashes were created
 #           Shift - shift value
 #           Save - counter used by SaveNewValues()/RestoreNewValues()
 #           MAKER_NOTE_FIXUP - pointer to fixup if necessary for a maker note value
@@ -317,7 +322,7 @@ sub SetNewValue($;$$%)
 
     unless (defined $tag) {
         delete $$self{NEW_VALUE};
-        $$self{SAVE_COUNT} = 0;
+        $$self{SAVE_COUNT} = $$self{NV_COUNT} = 0;
         $$self{DEL_GROUP} = { };
         return 1;
     }
@@ -689,6 +694,12 @@ TAG: foreach $tagInfo (@matchingTags) {
             $writeProc = $$src{WRITE_PROC} unless $writeProc;
         }
         {
+            # make sure module is loaded if the writeProc is a string
+            unless (ref $writeProc) {
+                my $module = $writeProc;
+                $module =~ s/::\w+$//;
+                eval "require $module";
+            }
             no strict 'refs';
             next unless $writeProc and &$writeProc();
         }
@@ -1002,10 +1013,8 @@ TAG: foreach $tagInfo (@matchingTags) {
             $$nvHash{NoReplace} = 1 if $$tagInfo{List} and not $options{Replace};
             $$nvHash{WantGroup} = $wantGroup;
             $$nvHash{EditOnly} = 1 if $editOnly;
-            # save maker note information if writing maker notes
-            if ($$tagInfo{MakerNotes}) {
-                $$nvHash{MAKER_NOTE_FIXUP} = $$self{MAKER_NOTE_FIXUP};
-            }
+            # save maker note fixup information if writing maker notes
+            $$nvHash{MAKER_NOTE_FIXUP} = $options{Fixup} if $$tagInfo{MakerNotes};
             if ($createOnly) {  # create only (never edit)
                 # empty item in DelValue list to never edit existing value
                 $$nvHash{DelValue} = [ '' ];
@@ -1028,7 +1037,7 @@ TAG: foreach $tagInfo (@matchingTags) {
                         foreach (@vals) {
                             if (ref $_ eq 'HASH') {
                                 require 'Image/ExifTool/XMPStruct.pl';
-                                $_ = Image::ExifTool::XMP::SerializeStruct($_);
+                                $_ = Image::ExifTool::XMP::SerializeStruct($self, $_);
                             }
                             print $out "$$self{INDENT2}$verb $wgrp1:$tag$fromList if value is '${_}'\n";
                         }
@@ -1228,7 +1237,8 @@ WriteAlso:
 
 #------------------------------------------------------------------------------
 # set new values from information in specified file
-# Inputs: 0) ExifTool object reference, 1) source file name or reference, etc
+# Inputs: 0) ExifTool object reference, 1) source file name or reference, etc,
+#         or ExifTool ref to use already-extracted tags from an ExifTool object,
 #         2-N) List of tags to set (or all if none specified), or reference(s) to
 #         hash for options to pass to SetNewValue.  The Replace option defaults
 #         to 1 for SetNewValuesFromFile -- set this to 0 to allow multiple tags
@@ -1239,11 +1249,12 @@ WriteAlso:
 #        be used to represent all tags in a group.  An optional destination tag
 #        may be specified with '>DSTTAG' ('DSTTAG<TAG' also works, but in this
 #        case the source tag may also be an expression involving tag names).
+#        Simple assignments are also allowed: 'DSTTAG[#][+-][^]=[string]'
 sub SetNewValuesFromFile($$;@)
 {
     local $_;
     my ($self, $srcFile, @setTags) = @_;
-    my ($key, $tag, @exclude, @reqTags);
+    my ($srcExifTool, $key, $tag, @exclude, @reqTags, $info);
 
     # get initial SetNewValuesFromFile options
     my %opts = ( Replace => 1 );    # replace existing list items by default
@@ -1255,120 +1266,111 @@ sub SetNewValuesFromFile($$;@)
     }
     # expand shortcuts
     @setTags and ExpandShortcuts(\@setTags);
-    my $srcExifTool = new Image::ExifTool;
-    # set flag to indicate we are being called from inside SetNewValuesFromFile()
-    $$srcExifTool{TAGS_FROM_FILE} = 1;
-    # synchronize and increment the file sequence number
-    $$srcExifTool{FILE_SEQUENCE} = $$self{FILE_SEQUENCE}++;
     # set options for our extraction tool
     my $options = $$self{OPTIONS};
-    # copy both structured and flattened tags by default (but flattened tags are "unsafe")
-    my $structOpt = defined $$options{Struct} ? $$options{Struct} : 2;
-    # copy structures only if no tags specified (since flattened tags are "unsafe")
-    $structOpt = 1 if $structOpt eq '2' and not @setTags;
-    # +------------------------------------------+
-    # ! DON'T FORGET!!  Must consider each new   !
-    # ! option to decide how it is handled here. !
-    # +------------------------------------------+
-    $srcExifTool->Options(
-        Binary          => 1,
-        Charset         => $$options{Charset},
-        CharsetEXIF     => $$options{CharsetEXIF},
-        CharsetFileName => $$options{CharsetFileName},
-        CharsetID3      => $$options{CharsetID3},
-        CharsetIPTC     => $$options{CharsetIPTC},
-        CharsetPhotoshop=> $$options{CharsetPhotoshop},
-        Composite       => $$options{Composite},
-        CoordFormat     => $$options{CoordFormat} || '%d %d %.8f', # copy coordinates at high resolution unless otherwise specified
-        DateFormat      => $$options{DateFormat},
-        Duplicates      => 1,
-        Escape          => $$options{Escape},
-      # Exclude (set below)
-        ExtendedXMP     => $$options{ExtendedXMP},
-        ExtractEmbedded => $$options{ExtractEmbedded},
-        FastScan        => $$options{FastScan},
-        Filter          => $$options{Filter},
-        FixBase         => $$options{FixBase},
-        GlobalTimeShift => $$options{GlobalTimeShift},
-        HexTagIDs       => $$options{HexTagIDs},
-        IgnoreMinorErrors=>$$options{IgnoreMinorErrors},
-        IgnoreTags      => $$options{IgnoreTags},
-        Lang            => $$options{Lang},
-        LargeFileSupport=> $$options{LargeFileSupport},
-        List            => 1,
-        ListItem        => $$options{ListItem},
-        ListSep         => $$options{ListSep},
-        MakerNotes      => $$options{FastScan} && $$options{FastScan} > 1 ? undef : 1,
-        MDItemTags      => $$options{MDItemTags},
-        MissingTagValue => $$options{MissingTagValue},
-        NoPDFList       => $$options{NoPDFList},
-        Password        => $$options{Password},
-        PrintConv       => $$options{PrintConv},
-        QuickTimeUTC    => $$options{QuickTimeUTC},
-        RequestAll      => $$options{RequestAll} || 1, # (is this still necessary now that RequestTags are being set?)
-        RequestTags     => $$options{RequestTags},
-        SaveFormat      => $$options{SaveFormat},
-        SavePath        => $$options{SavePath},
-        ScanForXMP      => $$options{ScanForXMP},
-        StrictDate      => defined $$options{StrictDate} ? $$options{StrictDate} : 1,
-        Struct          => $structOpt,
-        SystemTags      => $$options{SystemTags},
-        TimeZone        => $$options{TimeZone},
-        Unknown         => $$options{Unknown},
-        UserParam       => $$options{UserParam},
-        Validate        => $$options{Validate},
-        XAttrTags       => $$options{XAttrTags},
-        XMPAutoConv     => $$options{XMPAutoConv},
-    );
-    $$srcExifTool{GLOBAL_TIME_OFFSET} = $$self{GLOBAL_TIME_OFFSET};
-    foreach $tag (@setTags) {
-        next if ref $tag;
-        if ($tag =~ /^-(.*)/) {
-            # avoid extracting tags that are excluded
-            push @exclude, $1;
-            next;
-        }
-        # add specified tags to list of requested tags
-        $_ = $tag;
-        if (/(.+?)\s*(>|<)\s*(.+)/) {
-            if ($2 eq '>') {
-                $_ = $1;
-            } else {
-                $_ = $3;
-                /\$/ and push(@reqTags, /\$\{?(?:[-\w]+:)*([-\w?*]+)/g), next;
-            }
-        }
-        push @reqTags, $2 if /(^|:)([-\w?*]+)#?$/;
-    }
-    if (@exclude) {
-        ExpandShortcuts(\@exclude, 1);
-        $srcExifTool->Options(Exclude => \@exclude);
-    }
-    $srcExifTool->Options(RequestTags => \@reqTags) if @reqTags;
     my $printConv = $$options{PrintConv};
     if ($opts{Type}) {
         # save source type separately because it may be different than dst Type
         $opts{SrcType} = $opts{Type};
         # override PrintConv option with initial Type if given
         $printConv = ($opts{Type} eq 'PrintConv' ? 1 : 0);
-        $srcExifTool->Options(PrintConv => $printConv);
     }
     my $srcType = $printConv ? 'PrintConv' : 'ValueConv';
+    my $structOpt = defined $$options{Struct} ? $$options{Struct} : 2;
 
-    # get all tags from source file (including MakerNotes block)
-    my $info = $srcExifTool->ImageInfo($srcFile);
+    if (ref $srcFile and UNIVERSAL::isa($srcFile,'Image::ExifTool')) {
+        $srcExifTool = $srcFile;
+        $info = $srcExifTool->GetInfo({ PrintConv => $printConv });
+    } else {
+        $srcExifTool = Image::ExifTool->new;
+        $srcExifTool->Options(PrintConv => $printConv);
+        # set flag to indicate we are being called from inside SetNewValuesFromFile()
+        $$srcExifTool{TAGS_FROM_FILE} = 1;
+        # synchronize and increment the file sequence number
+        $$srcExifTool{FILE_SEQUENCE} = $$self{FILE_SEQUENCE}++;
+        # copy both structured and flattened tags by default (but flattened tags are "unsafe")
+        # copy structures only if no tags specified (since flattened tags are "unsafe")
+        $structOpt = 1 if $structOpt eq '2' and not @setTags;
+        # +------------------------------------------+
+        # ! DON'T FORGET!!  Must consider each new   !
+        # ! option to decide how it is handled here. !
+        # +------------------------------------------+
+        foreach (qw(ByteUnit Charset CharsetEXIF CharsetFileName CharsetID3 CharsetIPTC
+                    CharsetPhotoshop Composite DateFormat Debug EncodeHangs Escape
+                    ExtendedXMP ExtractEmbedded FastScan Filter FixBase Geolocation
+                    GeolocAltNames GeolocFeature GeolocMinPop GeolocMaxDist
+                    GlobalTimeShift GPSQuadrant HexTagIDs IgnoreGroups IgnoreMinorErrors
+                    IgnoreTags ImageHashType KeepUTCTime Lang LargeFileSupport
+                    LigoGPSScale ListItem ListSep MDItemTags MissingTagValue NoPDFList
+                    NoWarning Password PrintConv QuickTimeUTC RequestTags SaveFormat
+                    SavePath ScanForXMP StructFormat SystemTags TimeZone Unknown UserParam
+                    Validate WindowsLongPath WindowsWideFile XAttrTags XMPAutoConv))
+        {
+            $srcExifTool->Options($_ => $$options{$_});
+        }
+        $srcExifTool->Options(
+            Binary          => 1,
+            CoordFormat     => $$options{CoordFormat} || '%d %d %.8f', # copy coordinates at high resolution unless otherwise specified
+            Duplicates      => 1,
+          # Exclude (set below)
+            LimitLongValues => 10000000, # (10 MB)
+            List            => 1,
+            MakerNotes      => $$options{FastScan} && $$options{FastScan} > 1 ? undef : 1,
+            RequestAll      => $$options{RequestAll} || 1, # (must request all because reqTags doesn't cover wildcards)
+            StrictDate      => defined $$options{StrictDate} ? $$options{StrictDate} : 1,
+            Struct          => $structOpt,
+        );
+        # reset Geolocation option if we aren't copying any geolocation tags
+        if ($$options{Geolocation} and not grep /\bGeolocation/i, @setTags) {
+            $self->VPrint(0, '(resetting unnecessary Geolocation option)');
+            $$srcExifTool{OPTIONS}{Geolocation} = undef;
+        }
+        $$srcExifTool{GLOBAL_TIME_OFFSET} = $$self{GLOBAL_TIME_OFFSET};
+        $$srcExifTool{ALT_EXIFTOOL} = $$self{ALT_EXIFTOOL};
+        foreach $tag (@setTags) {
+            next if ref $tag;
+            # avoid extracting tags that are excluded
+            $tag =~ /^-(.*)/ and push(@exclude, $1), next;
+            # add specified tags to list of requested tags
+            $_ = $tag;
+            if (/(.+?)\s*(>|<)\s*(.+)/) {
+                if ($2 eq '>') {
+                    $_ = $1;
+                } else {
+                    $_ = $3;
+                    /\$/ and push(@reqTags, /\$\{?(?:[-\w]+:)*([-\w?*]+)/g), next;
+                }
+            }
+            push @reqTags, $2 if /(^|:)([-\w?*]+)#?$/;
+        }
+        if (@exclude) {
+            ExpandShortcuts(\@exclude, 1);
+            $srcExifTool->Options(Exclude => \@exclude);
+        }
+        $srcExifTool->Options(RequestTags => \@reqTags) if @reqTags;
+        # get all tags from source file (including MakerNotes block)
+        $info = $srcExifTool->ImageInfo($srcFile);
+    }
     return $info if $$info{Error} and $$info{Error} eq 'Error opening file';
     delete $$srcExifTool{VALUE}{Error}; # delete so we can check this later
 
-    # sort tags in reverse order so we get priority tag last
-    my @tags = reverse sort keys %$info;
+    # sort tags in file order with priority tags last
+    my (@tags, @prio);
+    foreach (sort { $$srcExifTool{FILE_ORDER}{$a} <=> $$srcExifTool{FILE_ORDER}{$b} } keys %$info) {
+        if (/ /) {
+            push @tags, $_;
+        } else {
+            push @prio, $_;
+        }
+    }
+    push @tags, @prio;
 #
 # simply transfer all tags from source image if no tags specified
 #
     unless (@setTags) {
         # transfer maker note information to this object
-        $$self{MAKER_NOTE_FIXUP} = $$srcExifTool{MAKER_NOTE_FIXUP};
         $$self{MAKER_NOTE_BYTE_ORDER} = $$srcExifTool{MAKER_NOTE_BYTE_ORDER};
+        my $tagExtra = $$srcExifTool{TAG_EXTRA};
         foreach $tag (@tags) {
             # don't try to set errors or warnings
             next if $tag =~ /^(Error|Warning)\b/;
@@ -1376,10 +1378,13 @@ sub SetNewValuesFromFile($$;@)
             if ($opts{SrcType} and $opts{SrcType} ne $srcType) {
                 $$info{$tag} = $srcExifTool->GetValue($tag, $opts{SrcType});
             }
+            my $fixup = $$tagExtra{$tag}{Fixup};
+            $opts{Fixup} = $fixup if $fixup;
             # set value for this tag
             my ($n, $e) = $self->SetNewValue($tag, $$info{$tag}, %opts);
             # delete this tag if we couldn't set it
             $n or delete $$info{$tag};
+            delete $opts{Fixup} if $fixup;
         }
         return $info;
     }
@@ -1387,7 +1392,8 @@ sub SetNewValuesFromFile($$;@)
 # transfer specified tags in the proper order
 #
     # 1) loop through input list of tags to set, and build @setList
-    my (@setList, $set, %setMatches, $t);
+    my (@setList, $set, %setMatches, $t, %altFiles);
+    my $assign = 0;
     foreach $t (@setTags) {
         if (ref $t eq 'HASH') {
             # update current options
@@ -1402,28 +1408,35 @@ sub SetNewValuesFromFile($$;@)
         $tag = lc $t;   # change tag/group names to all lower case
         my (@fg, $grp, $dst, $dstGrp, $dstTag, $isExclude);
         # handle redirection to another tag
-        if ($tag =~ /(.+?)\s*(>|<)\s*(.+)/) {
+        if ($tag =~ /(.+?)\s*(>|<|=)(\s*)(.*)/) {
             $dstGrp = '';
-            my $opt;
+            my ($opt, $op, $spc);
             if ($2 eq '>') {
-                ($tag, $dstTag) = ($1, $3);
+                ($tag, $dstTag) = ($1, $4);
                 # flag add and delete (eg. '+<' and '-<') redirections
                 $opt = $1 if $tag =~ s/\s*([-+])$// or $dstTag =~ s/^([-+])\s*//;
             } else {
-                ($tag, $dstTag) = ($3, $1);
+                ($dstTag, $op, $spc, $tag) = ($1, $2, $3, $4);
                 $opt = $1 if $dstTag =~ s/\s*([-+])$//;
-                # handle expressions
-                if ($tag =~ /\$/) {
+                if ($op eq '=') {
+                    # simple assignment ($tag will be the new value)
+                    $tag = $spc . $tag;
+                    undef $tag unless $dstTag =~ s/\^$// or length $tag;
+                    $$opts{ASSIGN} = ++$assign;
+                } elsif ($tag =~ /\$/) {    # handle expressions
                     $tag = $t;  # restore original case
                     # recover leading whitespace (except for initial single space)
                     $tag =~ s/(.+?)\s*(>|<) ?//;
                     $$opts{EXPR} = 1; # flag this expression
                 } else {
+                    # (not sure why this is here because sign should be before '<')
+                    # (--> allows "<+" or "<-", which is an undocumented feature)
                     $opt = $1 if $tag =~ s/^([-+])\s*//;
                 }
             }
+            $$opts{Replace} = 0 if $dstTag =~ s/^\+//;
             # validate tag name(s)
-            unless ($$opts{EXPR} or ValidTagName($tag)) {
+            unless ($$opts{EXPR} or $$opts{ASSIGN} or ValidTagName($tag)) {
                 $self->Warn("Invalid tag name '${tag}'. Use '=' not '<' to assign a tag value");
                 next;
             }
@@ -1438,8 +1451,10 @@ sub SetNewValuesFromFile($$;@)
             $$opts{Type} = 'ValueConv' if $dstTag =~ s/#$//;
             # replace tag name of 'all' with '*'
             $dstTag = '*' if $dstTag eq 'all';
+        } else {
+            $$opts{Replace} = 0 if $tag =~ s/^\+//;
         }
-        unless ($$opts{EXPR}) {
+        unless ($$opts{EXPR} or $$opts{ASSIGN}) {
             $isExclude = ($tag =~ s/^-//);
             if ($tag =~ /(.*):(.+)/) {
                 ($grp, $tag) = ($1, $2);
@@ -1447,7 +1462,17 @@ sub SetNewValuesFromFile($$;@)
                     # save family/groups in list (ignoring 'all' and '*')
                     next unless length($_) and /^(\d+)?(.*)/;
                     my ($f, $g) = ($1, $2);
-                    $f = 7 if $g =~ s/^ID-//i;
+                    $f = 7 if (not $f or $f eq '7') and $g =~ s/^ID-//i;
+                    if ($g =~ /^file\d+$/i and (not $f or $f eq '8')) {
+                        $f = 8;
+                        my $g8 = ucfirst $g;
+                        if ($$srcExifTool{ALT_EXIFTOOL}{$g8}) {
+                            $$opts{GROUP8} = $g8;
+                            $altFiles{$g8} or $altFiles{$g8} = [ ];
+                            # save list of requested tags for this alternate ExifTool object
+                            push @{$altFiles{$g8}}, "$grp:$tag";
+                        }
+                    }
                     push @fg, [ $f, $g ] unless $g eq '*' or $g eq 'all';
                 }
             }
@@ -1484,26 +1509,46 @@ sub SetNewValuesFromFile($$;@)
         # save in reverse order so we don't set tags before an exclude
         unshift @setList, [ \@fg, $tag, $dst, $opts ];
     }
+    # 1b) copy requested tags for each alternate ExifTool object
+    my $g8;
+    foreach $g8 (sort keys %altFiles) {
+        # request specific alternate tags to load them from the alternate ExifTool object
+        my $altInfo = $srcExifTool->GetInfo($altFiles{$g8});
+        # add to tags list after dummy entry to signify start of tags for this alt file
+        if (%$altInfo) {
+            push @tags, 'Warning DUMMY', reverse sort keys %$altInfo;
+            $$info{$_} = $$altInfo{$_} foreach keys %$altInfo;
+        }
+    }
     # 2) initialize lists of matching tags for each setTag
     foreach $set (@setList) {
         $$set[2] and $setMatches{$set} = [ ];
     }
+    # no need to search source tags if doing only assignments
+    undef @tags if $assign == @setList;
     # 3) loop through all tags in source image and save tags matching each setTag
-    my %rtnInfo;
+    my (%rtnInfo, $isAlt);
     foreach $tag (@tags) {
         # don't try to set errors or warnings
         if ($tag =~ /^(Error|Warning)( |$)/) {
-            $rtnInfo{$tag} = $$info{$tag};
+            if ($tag eq 'Warning DUMMY') {
+                $isAlt = 1; # start of the alt tags
+            } else {
+                $rtnInfo{$tag} = $$info{$tag};
+            }
             next;
         }
         # only set specified tags
         my $lcTag = lc(GetTagName($tag));
         my (@grp, %grp);
 SET:    foreach $set (@setList) {
+            my $opts = $$set[3];
+            next if $$opts{EXPR};   # (expressions handled in step 4)
+            next if $$opts{GROUP8} xor $isAlt;
             # check first for matching tag
             unless ($$set[1] eq $lcTag or $$set[1] eq '*') {
                 # handle wildcards
-                next unless $$set[3]{WILD} and $lcTag =~ /^$$set[1]$/;
+                next unless $$opts{WILD} and $lcTag =~ /^$$set[1]$/;
             }
             # then check for matching group
             if (@{$$set[0]}) {
@@ -1533,14 +1578,26 @@ SET:    foreach $set (@setList) {
         # get options for SetNewValue
         my $opts = $$set[3];
         # handle expressions
-        if ($$opts{EXPR}) {
-            my $val = $srcExifTool->InsertTagValues(\@tags, $$set[1], 'Error');
-            if ($$srcExifTool{VALUE}{Error}) {
-                # pass on any error as a warning
-                $tag = NextFreeTagKey(\%rtnInfo, 'Warning');
-                $rtnInfo{$tag} = $$srcExifTool{VALUE}{Error};
-                delete $$srcExifTool{VALUE}{Error};
-                next unless defined $val;
+        if ($$opts{EXPR} or $$opts{ASSIGN}) {
+            my $val;
+            if ($$opts{EXPR}) {
+                $val = $srcExifTool->InsertTagValues($$set[1], \@tags, 'Error');
+                my $err = $$srcExifTool{VALUE}{Error};
+                if ($err) {
+                    # pass on any error as a warning unless it is suppressed
+                    my $noWarn = $$srcExifTool{OPTIONS}{NoWarning};
+                    unless ($noWarn and (eval { $err =~ /$noWarn/ } or
+                        # (also apply expression to warning without "[minor] " prefix)
+                        ($err =~ s/^\[minor\] //i and eval { $err =~ /$noWarn/ })))
+                    {
+                        $tag = NextFreeTagKey(\%rtnInfo, 'Warning');
+                        $rtnInfo{$tag} = $$srcExifTool{VALUE}{Error};
+                    }
+                    delete $$srcExifTool{VALUE}{Error};
+                    next unless defined $val;
+                }
+            } else {
+                $val = $$set[1];
             }
             my ($dstGrp, $dstTag) = @{$$set[2]};
             $$opts{Protected} = 1 unless $dstTag =~ /[?*]/ and $dstTag ne '*';
@@ -1572,7 +1629,7 @@ SET:    foreach $set (@setList) {
             }
             # transfer maker note information if setting this tag
             if ($$srcExifTool{TAG_INFO}{$tag}{MakerNotes}) {
-                $$self{MAKER_NOTE_FIXUP} = $$srcExifTool{MAKER_NOTE_FIXUP};
+                $$opts{Fixup} = $$srcExifTool{TAG_EXTRA}{$tag}{Fixup};
                 $$self{MAKER_NOTE_BYTE_ORDER} = $$srcExifTool{MAKER_NOTE_BYTE_ORDER};
             }
             if ($dstTag eq '*') {
@@ -1604,6 +1661,7 @@ SET:    foreach $set (@setList) {
                 $rtnInfo{NextFreeTagKey(\%rtnInfo, 'Warning')} = $wrn;
                 $noWarn = 1;
             }
+            delete $$opts{Fixup};
             $rtnInfo{$tag} = $val if $rtn;  # tag was set successfully
         }
     }
@@ -1693,7 +1751,7 @@ GNV_TagInfo:    foreach $tagInfo (@tagInfoList) {
                 my $err = &$checkProc($self, $tagInfo, \$val);
                 if ($err or not defined $val) {
                     $err or $err = 'Error generating raw value';
-                    $self->WarnOnce("$err for $$tagInfo{Name}");
+                    $self->Warn("$err for $$tagInfo{Name}");
                     @$vals = ();
                     last;
                 }
@@ -1713,7 +1771,7 @@ GNV_TagInfo:    foreach $tagInfo (@tagInfoList) {
                 # an empty warning ("\n") ignores tag with no error
                 if ($evalWarning ne "\n") {
                     my $err = CleanWarning() . " in $$tagInfo{Name} (RawConvInv)";
-                    $self->WarnOnce($err);
+                    $self->Warn($err);
                 }
                 @$vals = ();
                 last;
@@ -1721,7 +1779,14 @@ GNV_TagInfo:    foreach $tagInfo (@tagInfoList) {
         }
     }
     # return our value(s)
-    return @$vals if wantarray;
+    if (wantarray) {
+        # remove duplicates if requested
+        if (@$vals > 1 and $self->Options('NoDups')) {
+            my %seen;
+            @$vals = grep { !$seen{$_}++ } @$vals;
+        }
+        return @$vals;
+    }
     return $$vals[0];
 }
 
@@ -1836,6 +1901,27 @@ sub RestoreNewValues($)
 }
 
 #------------------------------------------------------------------------------
+# Set alternate file for extracting information
+# Inputs: 0) ExifTool ref, 1) family 8 group name (of the form "File#" where # is any number)
+#         2) alternate file name, or undef to reset
+# Returns: 1 on success, or 0 on invalid group name
+sub SetAlternateFile($$$)
+{
+    my ($self, $g8, $file) = @_;
+    $g8 = ucfirst lc $g8;
+    return 0 unless $g8 =~ /^File\d+$/;
+    # keep the same file if already initialized (possibly has metadata extracted)
+    if (not defined $file) {
+        delete $$self{ALT_EXIFTOOL}{$g8};
+    } elsif (not ($$self{ALT_EXIFTOOL}{$g8} and $$self{ALT_EXIFTOOL}{$g8}{ALT_FILE} eq $file)) {
+        my $altExifTool = Image::ExifTool->new;
+        $$altExifTool{ALT_FILE} = $file;
+        $$self{ALT_EXIFTOOL}{$g8} = $altExifTool;
+    }
+    return 1;
+}
+
+#------------------------------------------------------------------------------
 # Set filesystem time from from FileModifyDate or FileCreateDate tag
 # Inputs: 0) ExifTool object reference, 1) file name or file ref
 #         2) time (-M or -C) of original file (used for shift; obtained from file if not given)
@@ -1869,8 +1955,8 @@ sub SetFileModifyDate($$;$$$)
     }
     my ($aTime, $mTime, $cTime);
     if ($tag eq 'FileCreateDate') {
-        eval { require Win32::API } or $self->WarnOnce("Install Win32::API to set $tag"), return -1;
-        eval { require Win32API::File } or $self->WarnOnce("Install Win32API::File to set $tag"), return -1;
+        eval { require Win32::API } or $self->Warn("Install Win32::API to set $tag"), return -1;
+        eval { require Win32API::File } or $self->Warn("Install Win32API::File to set $tag"), return -1;
         $cTime = $val;
     } else {
         $aTime = $mTime = $val;
@@ -1953,7 +2039,7 @@ sub SetFileName($$;$$$)
     # protect against empty file name
     length $newName or $self->Warn('New file name is empty'), return -1;
     # don't replace existing file
-    if ($self->Exists($newName) and (not defined $usedFlag or $usedFlag)) {
+    if ($self->Exists($newName, 1) and (not defined $usedFlag or $usedFlag)) {
         if ($file ne $newName or $opt =~ /Link$/) {
             # allow for case-insensitive filesystem
             if ($opt =~ /Link$/ or not $self->IsSameFile($file, $newName)) {
@@ -1971,9 +2057,10 @@ sub SetFileName($$;$$$)
         return 1;
     }
     # create directory for new file if necessary
-    my $result;
-    if (($result = $self->CreateDirectory($newName)) != 0) {
-        if ($result < 0) {
+    my $err = $self->CreateDirectory($newName);
+    if (defined $err) {
+        if ($err) {
+            $self->Warn($err) unless $err =~ /^Error creating/;
             $self->Warn("Error creating directory for '${newName}'");
             return -1;
         }
@@ -2066,7 +2153,7 @@ sub SetSystemTags($$)
             $self->VerboseValue('+ FilePermissions', $perm);
             $result = 1;
         } else {
-            $self->WarnOnce('Error setting FilePermissions');
+            $self->Warn('Error setting FilePermissions');
             $result = -1;
         }
     }
@@ -2080,7 +2167,7 @@ sub SetSystemTags($$)
             $self->VerboseValue('+ FileGroupID', $gid) if $gid >= 0;
             $result = 1;
         } else {
-            $self->WarnOnce('Error setting FileGroup/UserID');
+            $self->Warn('Error setting FileGroup/UserID');
             $result = -1 unless $result;
         }
     }
@@ -2096,7 +2183,7 @@ sub SetSystemTags($$)
             $result = $res if $res == 1 or not $result;
             last;
         } elsif ($tag ne 'FileCreateDate') {
-            $self->WarnOnce('Can only set MDItem tags on OS X');
+            $self->Warn('Can only set MDItem tags on MacOS');
             last;
         }
     }
@@ -2109,7 +2196,7 @@ sub SetSystemTags($$)
         } elsif (ref $file) {
             $self->Warn('Writing ZoneIdentifer requires a file name');
         } elsif (defined $self->GetNewValue('ZoneIdentifier', \$zhash)) {
-            $self->Warn('ZoneIndentifier may only be delted');
+            $self->Warn('ZoneIndentifier may only be deleted');
         } elsif (not eval { require Win32API::File }) {
             $self->Warn('Install Win32API::File to write ZoneIdentifier');
         } else {
@@ -2253,9 +2340,13 @@ sub WriteInfo($$;$$)
         } elsif (UNIVERSAL::isa($inRef,'File::RandomAccess')) {
             $inRef->Seek(0);
             $raf = $inRef;
-        } elsif ($] >= 5.006 and (eval { require Encode; Encode::is_utf8($$inRef) } or $@)) {
+        } elsif ($] >= 5.006 and ($$self{OPTIONS}{EncodeHangs} or
+            eval { require Encode; Encode::is_utf8($$inRef) } or $@))
+        {
+            local $SIG{'__WARN__'} = \&SetWarning;
             # convert image data from UTF-8 to character stream if necessary
-            my $buff = $@ ? pack('C*',unpack($] < 5.010000 ? 'U0C*' : 'C0C*',$$inRef)) : Encode::encode('utf8',$$inRef);
+            my $buff = ($$self{OPTIONS}{EncodeHangs} or $@) ? pack('C*', unpack($] < 5.010000 ?
+                       'U0C*' : 'C0C*', $$inRef)) : Encode::encode('utf8', $$inRef);
             if (defined $outfile) {
                 $inRef = \$buff;
             } else {
@@ -2332,7 +2423,7 @@ sub WriteInfo($$;$$)
         $outBuff = '';
         $outRef = \$outBuff;
         $outPos = 0;
-    } elsif ($self->Exists($outfile)) {
+    } elsif ($self->Exists($outfile, 1)) {
         $self->Error("File already exists: $outfile");
     } elsif ($self->Open(\*EXIFTOOL_OUTFILE, $outfile, '>')) {
         $outRef = \*EXIFTOOL_OUTFILE;
@@ -2348,7 +2439,7 @@ sub WriteInfo($$;$$)
 #
     until ($$self{VALUE}{Error}) {
         # create random access file object (disable seek test in case of straight copy)
-        $raf or $raf = new File::RandomAccess($inRef, 1);
+        $raf or $raf = File::RandomAccess->new($inRef, 1);
         $raf->BinMode();
         if ($numNew == $numPseudo) {
             $rtnVal = 1;
@@ -2619,7 +2710,7 @@ sub GetAllTags(;$)
     my (%allTags, @groups);
     @groups = split ':', $group if $group;
 
-    my $et = new Image::ExifTool;
+    my $et = Image::ExifTool->new;
     LoadAllTables();    # first load all our tables
     my @tableNames = keys %allTables;
 
@@ -2664,7 +2755,7 @@ sub GetWritableTags(;$)
     my (%writableTags, @groups);
     @groups = split ':', $group if $group;
 
-    my $et = new Image::ExifTool;
+    my $et = Image::ExifTool->new;
     LoadAllTables();
     my @tableNames = keys %allTables;
 
@@ -2721,7 +2812,11 @@ sub GetAllGroups($;$)
     $family == 3 and return('Doc#', 'Main');
     $family == 4 and return('Copy#');
     $family == 5 and return('[too many possibilities to list]');
-    $family == 6 and return(@Image::ExifTool::Exif::formatName[1..$#Image::ExifTool::Exif::formatName]);
+    if ($family == 6) {
+        my $fn = \%Image::ExifTool::Exif::formatNumber;
+        return(sort { $$fn{$a} <=> $$fn{$b} } keys %$fn);
+    }
+    $family == 8 and return('File#');
 
     LoadAllTables();    # first load all our tables
 
@@ -2729,7 +2824,10 @@ sub GetAllGroups($;$)
 
     my %allGroups;
     # add family 1 groups not in tables
-    $family == 1 and map { $allGroups{$_} = 1 } qw(Garmin);
+    no warnings; # (avoid "possible attempt to put comments in qw()")
+    $family == 1 and map { $allGroups{$_} = 1 } qw(Garmin AudioItemList AudioUserData
+        VideoItemList VideoUserData Track#Keys Track#ItemList Track#UserData);
+    use warnings;
     # loop through all tag tables and get all group names
     while (@tableNames) {
         my $table = GetTagTable(pop @tableNames);
@@ -2758,7 +2856,7 @@ sub GetAllGroups($;$)
         }
     }
     delete $allGroups{'*'};     # (not a real group)
-    return sort keys %allGroups;
+    return sort { lc $a cmp lc $b } keys %allGroups;
 }
 
 #------------------------------------------------------------------------------
@@ -2776,7 +2874,7 @@ sub GetNewGroups($)
 # Returns: List of group names (sorted alphabetically)
 sub GetDeleteGroups()
 {
-    return sort @delGroups, @delGroup2;
+    return sort { lc $a cmp lc $b } @delGroups, @delGroup2;
 }
 
 #------------------------------------------------------------------------------
@@ -2824,10 +2922,15 @@ sub Sanitize($$)
     $$valPt = $$$valPt if ref $$valPt eq 'SCALAR';
     # make sure the Perl UTF-8 flag is OFF for the value if perl 5.6 or greater
     # (otherwise our byte manipulations get corrupted!!)
-    if ($] >= 5.006 and (eval { require Encode; Encode::is_utf8($$valPt) } or $@)) {
+    # NOTE: Don't use Encode on Windows becase "require Encode" on Windows hangs if cwd is a long path name!!
+    if ($] >= 5.006 and ($$self{OPTIONS}{EncodeHangs} or
+        eval { require Encode; Encode::is_utf8($$valPt) } or $@))
+    {
+        # (SIG handling was added in 10.39.  Not sure why, but I've added this to other similar code for 13.02)
         local $SIG{'__WARN__'} = \&SetWarning;
         # repack by hand if Encode isn't available
-        $$valPt = $@ ? pack('C*',unpack($] < 5.010000 ? 'U0C*' : 'C0C*',$$valPt)) : Encode::encode('utf8',$$valPt);
+        $$valPt = ($$self{OPTIONS}{EncodeHangs} or $@) ? pack('C*', unpack($] < 5.010000 ?
+                   'U0C*' : 'C0C*', $$valPt)) : Encode::encode('utf8', $$valPt);
     }
     # un-escape value if necessary
     if ($$self{OPTIONS}{Escape}) {
@@ -2885,7 +2988,7 @@ Conv: for (;;) {
                 $err2 = eval $$tagInfo{WriteCheck};
                 $@ and warn($@), $err2 = 'Error evaluating WriteCheck';
             }
-            unless ($err2) {
+            unless (defined $err2) {
                 my $table = $$tagInfo{Table};
                 if ($table and $$table{CHECK_PROC} and not $$tagInfo{RawConvInv}) {
                     my $checkProc = $$table{CHECK_PROC};
@@ -3040,13 +3143,39 @@ Conv: for (;;) {
 }
 
 #------------------------------------------------------------------------------
+# Dereference value and push onto list
+# Inputs: 0) ExifTool ref, 1) value, 2) list ref, 3) flag to push MissingTagValue for undef value
+sub PushValue($$$;$)
+{
+    local $_;
+    my ($self, $val, $list, $missing) = @_;
+    if (ref $val eq 'ARRAY' and ref $$val[0] ne 'HASH') {
+        $self->PushValue($_, $list, $missing) foreach @$val;
+    } elsif (ref $val eq 'SCALAR') {
+        if ($$self{OPTIONS}{Binary} or $$val =~ /^Binary data/) {
+            push @$list, $$val;
+        } else {
+            push @$list, 'Binary data ' . length($$val) . ' bytes';
+        }
+    } elsif (ref $val eq 'HASH' or ref $val eq 'ARRAY') {
+        require 'Image/ExifTool/XMPStruct.pl';
+        push @$list, Image::ExifTool::XMP::SerializeStruct($self, $val);
+    } elsif (not defined $val) {
+        my $mval = $$self{OPTIONS}{MissingTagValue};
+        push @$list, $mval if $missing and defined $mval;
+    } else {
+        push @$list, $val;
+    }
+}
+
+#------------------------------------------------------------------------------
 # Convert tag names to values or variables in a string
 # (eg. '${EXIF:ISO}x $$' --> '100x $' without hash ref, or "$info{'EXIF:ISO'}x $" with)
-# Inputs: 0) ExifTool object ref, 1) reference to list of found tags
-#         2) string with embedded tag names, 3) Options:
+# Inputs: 0) ExifTool object ref, 1) string with embedded tag names,
+#         2) reference to list of found tags or undef to use FOUND_TAGS, 3) Options:
 #               undef    - set missing tags to ''
-#              'Error'   - issue minor error on missing tag (and return undef)
-#              'Warn'    - issue minor warning on missing tag (and return undef)
+#              'Error'   - issue minor error on missing tag (and return undef if error sent)
+#              'Warn'    - issue minor warning on missing tag (and return undef if warning sent)
 #              'Silent'  - just return undef on missing tag (no errors/warnings)
 #               Hash ref - defined to interpolate as variables in string instead of values
 #                          --> receives tag/value pairs for interpolation of the variables
@@ -3060,20 +3189,22 @@ Conv: for (;;) {
 # - advanced feature allows Perl expressions inside braces (eg. '${model;tr/ //d}')
 # - an error/warning in an advanced expression ("${TAG;EXPR}") generates an error
 #   if option set to 'Error', or a warning otherwise
-sub InsertTagValues($$$;$$$)
+sub InsertTagValues($$;$$$$)
 {
     local $_;
-    my ($self, $foundTags, $line, $opt, $docGrp, $cache) = @_;
+    my ($self, $line, $foundTags, $opt, $docGrp, $cache) = @_;
     my $rtnStr = '';
     my ($docNum, $tag);
+
     if ($docGrp) {
         $docNum = $docGrp =~ /(\d+)$/ ? $1 : 0;
     } else {
         undef $cache;   # no cache if no document groups
     }
+    $foundTags or $foundTags = $$self{FOUND_TAGS} || [];
     while ($line =~ s/(.*?)\$(\{\s*)?([-\w]*\w|\$|\/)//s) {
         my ($pre, $bra, $var) = ($1, $2, $3);
-        my (@tags, $val, $tg, @val, $type, $expr, $didExpr, $level, $asList);
+        my (@tags, $tg, $val, @val, $type, $expr, $didExpr, $level, $asList);
         # "$$" represents a "$" symbol, and "$/" is a newline
         if ($var eq '$' or $var eq '/') {
             $line =~ s/^\s*\}// if $bra;
@@ -3140,7 +3271,7 @@ sub InsertTagValues($$$;$$$)
                     my @matches = grep /^$tag(\s|$)/i, @$foundTags;
                     @matches = $self->GroupMatches($group, \@matches) if defined $group;
                     foreach (@matches) {
-                        my $doc = $$ex{$_} ? $$ex{$_}{G3} || 0 : 0;
+                        my $doc = $$ex{$_}{G3} || 0;
                         if (defined $$cacheTag[$doc]) {
                             next unless $$cacheTag[$doc] =~ / \((\d+)\)$/;
                             my $cur = $1;
@@ -3161,82 +3292,86 @@ sub InsertTagValues($$$;$$$)
                     $tag = $docGrp . ':' . $tag;
                     $lcTag = lc $tag;
                 }
+                my ($et, $fileTags) = ($self, $foundTags);
+                if ($tag =~ s/(\bfile\d+)://i) {
+                    $et = $$self{ALT_EXIFTOOL}{ucfirst lc $1};
+                    if ($et) {
+                        $fileTags = $$et{FoundTags};
+                    } else {
+                        $et = $self;
+                        $tag = 'no_alt_file';
+                    }
+                }
                 if ($lcTag eq 'all') {
                     $val = 1;   # always some tag available
-                } elsif (defined $$self{OPTIONS}{UserParam}{$lcTag}) {
-                    $val = $$self{OPTIONS}{UserParam}{$lcTag};
+                } elsif (defined $$et{OPTIONS}{UserParam}{$lcTag}) {
+                    $val = $$et{OPTIONS}{UserParam}{$lcTag};
                 } elsif ($tag =~ /(.*):(.+)/) {
-                    my $group;
+                    my ($group, @matches);
                     ($group, $tag) = ($1, $2);
-                    if (lc $tag eq 'all') {
-                        # see if any tag from the specified group exists
-                        my $match = $self->GroupMatches($group, $foundTags);
-                        $val = $match ? 1 : 0;
+                    # join values of all matching tags if "All" group is used
+                    # (and remove "All" from group prefix)
+                    if ($group =~ s/(^|:)(all|\*)(:|$)/$1 and $3/ei) {
+                        if (lc $tag eq 'all') {
+                            @matches = $group ? $et->GroupMatches($group, $fileTags) : @$fileTags;
+                        } else {
+                            @matches = grep /^$tag(\s|$)/i, @$fileTags;
+                            @matches = $et->GroupMatches($group, \@matches) if $group;
+                        }
+                        $self->PushValue(scalar $et->GetValue($_, $type), \@val) foreach @matches;
+                    } elsif (lc $tag eq 'all') {
+                        # return "1" if any tag from the specified group exists
+                        $val = $et->GroupMatches($group, $fileTags) ? 1 : 0;
                     } else {
                         # find the specified tag
-                        my @matches = grep /^$tag(\s|$)/i, @$foundTags;
-                        @matches = $self->GroupMatches($group, \@matches);
+                        @matches = grep /^$tag(\s|$)/i, @$fileTags;
+                        @matches = $et->GroupMatches($group, \@matches);
                         foreach $tg (@matches) {
                             if (defined $val and $tg =~ / \((\d+)\)$/) {
                                 # take the most recently extracted tag
                                 my $tagNum = $1;
                                 next if $tag !~ / \((\d+)\)$/ or $1 > $tagNum;
                             }
-                            $val = $self->GetValue($tg, $type);
+                            $val = $et->GetValue($tg, $type);
                             $tag = $tg;
                             last unless $tag =~ / /;    # all done if we got our best match
                         }
                     }
                 } elsif ($tag eq 'self') {
-                    $val = $self; # ("$self{var}" or "$self->{var}" in string)
+                    $val = $et; # ("$self{var}" or "$file1:self{var}" in string)
                 } else {
-                    # get the tag value
-                    $val = $self->GetValue($tag, $type);
+                    # get the tag value (note: this direct access allows excluded tags
+                    # to be accessed if the case is correct and a group name is not used)
+                    $val = $et->GetValue($tag, $type);
                     unless (defined $val) {
                         # check for tag name with different case
-                        ($tg) = grep /^$tag$/i, @$foundTags;
+                        ($tg) = grep /^$tag$/i, @$fileTags;
                         if (defined $tg) {
-                            $val = $self->GetValue($tg, $type);
+                            $val = $et->GetValue($tg, $type);
                             $tag = $tg;
                         }
                     }
                 }
             }
             $self->Options(ListJoin => $oldListJoin) if $asList;
-            if (ref $val eq 'ARRAY') {
-                push @val, @$val;
-                undef $val;
-                last unless @tags;
-            } elsif (ref $val eq 'SCALAR') {
-                if ($$self{OPTIONS}{Binary} or $$val =~ /^Binary data/) {
-                    $val = $$val;
-                } else {
-                    $val = 'Binary data ' . length($$val) . ' bytes';
-                }
-            } elsif (ref $val eq 'HASH') {
-                require 'Image/ExifTool/XMPStruct.pl';
-                $val = Image::ExifTool::XMP::SerializeStruct($val);
-            } elsif (not defined $val) {
-                $val = $$self{OPTIONS}{MissingTagValue} if $asList;
-            }
-            last unless @tags;
-            push @val, $val if defined $val;
+            $self->PushValue($val, \@val, $asList);
             undef $val;
+            last unless @tags;
         }
         if (@val) {
-            push @val, $val if defined $val;
+            $self->PushValue($val, \@val) if defined $val;
             $val = join $$self{OPTIONS}{ListSep}, @val;
-        } else {
-            push @val, $val if defined $val; # (so the eval has access to @val if required)
+        } elsif (defined $val) {
+            $self->PushValue($val, \@val);  # (so the eval has access to @val if required)
         }
         # evaluate advanced formatting expression if given (eg. "${TAG;EXPR}")
         if (defined $expr and defined $val) {
             local $SIG{'__WARN__'} = \&SetWarning;
             undef $evalWarning;
-            $advFmtSelf = $self;
+            $advFmtSelf = $self;    # set variable for access to $self in helper functions
             if ($asList) {
                 foreach (@val) {
-                    #### eval advanced formatting expression ($_, $self, @val, $advFmtSelf)
+                    #### eval advanced formatting expression ($_, $self, @val, $tag, $advFmtSelf)
                     eval $expr;
                     $@ and $evalWarning = $@;
                 }
@@ -3245,7 +3380,7 @@ sub InsertTagValues($$$;$$$)
                 $val = @val ? join $$self{OPTIONS}{ListSep}, @val : undef;
             } else {
                 $_ = $val;
-                #### eval advanced formatting expression ($_, $self, @val, $advFmtSelf)
+                #### eval advanced formatting expression ($_, $self, @val, $tag, $advFmtSelf)
                 eval $expr;
                 $@ and $evalWarning = $@;
                 $val = ref $_ eq 'ARRAY' ? join($$self{OPTIONS}{ListSep}, @$_): $_;
@@ -3264,15 +3399,19 @@ sub InsertTagValues($$$;$$$)
             undef $advFmtSelf;
             $didExpr = 1;   # set flag indicating an expression was evaluated
         }
-        unless (defined $val or ref $opt) {
+        unless (defined $val) {
             $val = $$self{OPTIONS}{MissingTagValue};
             unless (defined $val) {
                 my $g3 = ($docGrp and $var !~ /\b(main|doc\d+):/i) ? $docGrp . ':' : '';
                 my $msg = $didExpr ? "Advanced formatting expression returned undef for '$g3${var}'" :
                                      "Tag '$g3${var}' not defined";
-                no strict 'refs';
-                $opt and ($opt eq 'Silent' or &$opt($self, $msg, 2)) and return $$self{FMT_EXPR} = undef;
-                $val = '';
+                if (ref $opt) {
+                    $self->Warn($msg,2) or $val = '';
+                } elsif ($opt) {
+                    no strict 'refs';
+                    ($opt eq 'Silent' or &$opt($self, $msg, 2)) and return $$self{FMT_EXPR} = undef;
+                    $val = '';
+                }
             }
         }
         if (ref $opt eq 'HASH') {
@@ -3296,6 +3435,7 @@ sub InsertTagValues($$$;$$$)
 #------------------------------------------------------------------------------
 # Reformat date/time value in $_ based on specified format string
 # Inputs: 0) date/time format string
+# Returns: Reformatted date/time string
 sub DateFmt($)
 {
     my $et = bless { OPTIONS => { DateFormat => shift, StrictDate => 1 } };
@@ -3307,6 +3447,7 @@ sub DateFmt($)
     $_ = $et->ConvertDateTime($_);
     defined $_ or warn "Error converting date/time\n";
     $$advFmtSelf{GLOBAL_TIME_OFFSET} = $$et{GLOBAL_TIME_OFFSET} if $shift;
+    return $_;
 }
 
 #------------------------------------------------------------------------------
@@ -3319,6 +3460,19 @@ sub NoDups
     my $sep = $advFmtSelf ? $$advFmtSelf{OPTIONS}{ListSep} : ', ';
     my $new = join $sep, grep { !$seen{$_}++ } split /\Q$sep\E/, $_;
     $_ = ($_[0] and $new eq $_) ? undef : $new;
+}
+
+#------------------------------------------------------------------------------
+# Utility routine to set in $_ image from current object
+# Inputs: 0-N) list of tags to copy
+# Returns: Return value from WriteInfo
+# Notes: - for use only in advanced formatting expressions
+sub SetTags(@)
+{
+    my $self = $advFmtSelf;
+    my $et = Image::ExifTool->new;
+    $et->SetNewValuesFromFile($self, @_);
+    return $et->WriteInfo(\$_);
 }
 
 #------------------------------------------------------------------------------
@@ -3384,55 +3538,6 @@ sub IsRawType($)
 {
     my $self = shift;
     return $rawType{$$self{FileType}};
-}
-
-#------------------------------------------------------------------------------
-# Create directory for specified file
-# Inputs: 0) ExifTool ref, 1) complete file name including path
-# Returns: 1 = directory created, 0 = nothing done, -1 = error
-my $k32CreateDir;
-sub CreateDirectory($$)
-{
-    local $_;
-    my ($self, $file) = @_;
-    my $rtnVal = 0;
-    my $enc = $$self{OPTIONS}{CharsetFileName};
-    my $dir;
-    ($dir = $file) =~ s/[^\/]*$//;  # remove filename from path specification
-    # recode as UTF-8 if necessary
-    if ($dir and not $self->IsDirectory($dir)) {
-        my @parts = split /\//, $dir;
-        $dir = '';
-        foreach (@parts) {
-            $dir .= $_;
-            if (length $dir and not $self->IsDirectory($dir)) {
-                # create directory since it doesn't exist
-                my $d2 = $dir; # (must make a copy in case EncodeFileName recodes it)
-                if ($self->EncodeFileName($d2)) {
-                    # handle Windows Unicode directory names
-                    unless (eval { require Win32::API }) {
-                        $self->Warn('Install Win32::API to create directories with Unicode names');
-                        return -1;
-                    }
-                    unless ($k32CreateDir) {
-                        return -1 if defined $k32CreateDir;
-                        $k32CreateDir = new Win32::API('KERNEL32', 'CreateDirectoryW', 'PP', 'I');
-                        unless ($k32CreateDir) {
-                            $self->Warn('Error calling Win32::API::CreateDirectoryW');
-                            $k32CreateDir = 0;
-                            return -1;
-                        }
-                    }
-                    $k32CreateDir->Call($d2, 0) or return -1;
-                } else {
-                    mkdir($d2, 0777) or return -1;
-                }
-                $rtnVal = 1;
-            }
-            $dir .= '/';
-        }
-    }
-    return $rtnVal;
 }
 
 #------------------------------------------------------------------------------
@@ -3661,6 +3766,56 @@ sub GetWriteGroup1($$)
 }
 
 #------------------------------------------------------------------------------
+# Get list of tags to write for Geolocate feature
+# Inputs: 0) ExifTool ref, 1) group name(s),
+#         2) 0=prefer writing City, 1=prefer writing GPS, undef=deleting tags
+# Returns: list of tags to write/delete
+sub GetGeolocateTags($$;$)
+{
+    my ($self, $wantGroup, $writeGPS) = @_;
+    my @grps = $wantGroup ? map lc, split(/:/, $wantGroup) : ();
+    my %grps = map { $_ => $_ } @grps;   # lookup for specified groups
+    $grps{exif} and not $grps{gps} and $grps{gps} = 'gps', push(@grps, 'gps');
+    my %tagGroups = (
+        'xmp-iptcext'   => [ qw(LocationShownCity LocationShownProvinceState LocationShownCountryCode
+                                LocationShownCountryName LocationShownGPSLatitude LocationShownGPSLongitude) ],
+        'xmp-photoshop' => [ qw(City State Country) ],
+        'xmp-iptccore'  => [ 'CountryCode' ],
+        'iptc'          => [ qw(City Province-State Country-PrimaryLocationCode Country-PrimaryLocationName) ],
+        'gps'           => [ qw(GPSLatitude GPSLongitude GPSLatitudeRef GPSLongitudeRef) ],
+        'xmp-exif'      => [ qw(GPSLatitude GPSLongitude) ],
+        'itemlist'      => [ 'GPSCoordinates' ],
+        'userdata'      => [ 'GPSCoordinates' ],
+        # more general groups not in this lookup: XMP and QuickTime 
+    );
+    my (@tags, $grp);
+    # set specific City and GPS tags
+    foreach $grp (@grps) {
+        $tagGroups{$grp} and push @tags, map("$grp:$_", @{$tagGroups{$grp}});
+    }
+    # set default XMP City tags if necessary
+    if (not $writeGPS) {
+        push @tags, 'Keys:LocationName' if $grps{'keys'};
+        if  ($grps{xmp} or (not @tags and not $grps{quicktime})) {
+            push @tags, qw(XMP:City XMP:State XMP:CountryCode XMP:Country Keys:LocationName);
+        }
+    }
+    $writeGPS = 1 unless defined $writeGPS; # (delete both City and GPS)
+    push @tags, 'Keys:GPSCoordinates' if $writeGPS and $grps{'keys'};
+    # set default QuickTime tag if necessary
+    my $didQT = grep /GPSCoordinates$/, @tags;
+    if (($grps{quicktime} and not $didQT) or ($writeGPS and not @tags and not $grps{xmp})) {
+        push @tags, 'QuickTime:GPSCoordinates';
+    }
+    # set default GPS tags if necessary
+    if ($writeGPS) {
+        push @tags, qw(XMP:GPSLatitude XMP:GPSLongitude) if $grps{xmp} and not $grps{'xmp-exif'};
+        push @tags, qw(GPSLatitude GPSLongitude GPSLatitudeRef GPSLongitudeRef) if not $wantGroup;
+    }
+    return @tags;
+}
+
+#------------------------------------------------------------------------------
 # Get new value hash for specified tagInfo/writeGroup
 # Inputs: 0) ExifTool object reference, 1) reference to tag info hash
 #         2) Write group name, 3) Options: 'delete' or 'create' new value hash
@@ -3695,6 +3850,8 @@ sub GetNewValueHash($$;$$$$)
         # this is a bit tricky:  we want to add to a protected nvHash only if we
         # are adding a conditional delete ($_[5] true or DelValue with no Shift)
         # or accumulating List items (NoReplace true)
+        # (NOTE: this should be looked into --> lists may be accumulated instead of being replaced
+        # as expected when copying to the same list from different dynamic -tagsFromFile source files)
         if ($protect and not ($opts{create} and ($$nvHash{NoReplace} or $_[5] or
             ($$nvHash{DelValue} and not defined $$nvHash{Shift}))))
         {
@@ -3725,6 +3882,7 @@ sub GetNewValueHash($$;$$$$)
             TagInfo => $tagInfo,
             WriteGroup => $writeGroup,
             IsNVH => 1, # set flag so we can recognize a new value hash
+            Order => $$self{NV_COUNT}++,
         };
         # add entry to our NEW_VALUE hash
         if ($$self{NEW_VALUE}{$tagInfo}) {
@@ -3839,7 +3997,7 @@ sub RemoveNewValuesForGroup($$)
             my $wgrp = $$nvHash{WriteGroup};
             # use group1 if write group is not specific
             $wgrp = $grp1 if $wgrp eq $grp0;
-            if (grep /^($grp0|$wgrp)$/i, @groups) {
+            if ($grp0 eq '*' or $wgrp eq '*' or grep /^($grp0|$wgrp)$/i, @groups) {
                 $out and print $out "Removed new value for $wgrp:$$tagInfo{Name}\n";
                 # remove from linked list
                 $self->RemoveNewValueHash($nvHash, $tagInfo);
@@ -3852,7 +4010,7 @@ sub RemoveNewValuesForGroup($$)
 #------------------------------------------------------------------------------
 # Get list of tagInfo hashes for all new data
 # Inputs: 0) ExifTool object reference, 1) optional tag table pointer
-# Returns: list of tagInfo hashes
+# Returns: list of tagInfo hashes in no particular order
 sub GetNewTagInfoList($;$)
 {
     my ($self, $tagTablePtr) = @_;
@@ -4092,6 +4250,7 @@ sub WriteDirectory($$$;$)
     $out = $$self{OPTIONS}{TextOut} if $$self{OPTIONS}{Verbose};
     # set directory name from default group0 name if not done already
     my $dirName = $$dirInfo{DirName};
+    my $parent = $$dirInfo{Parent} || '';
     my $dataPt = $$dirInfo{DataPt};
     my $grp0 = $$tagTablePtr{GROUPS}{0};
     $dirName or $dirName = $$dirInfo{DirName} = $grp0;
@@ -4099,16 +4258,23 @@ sub WriteDirectory($$$;$)
         my $delGroup = $$self{DEL_GROUP};
         # delete entire directory if specified
         my $grp1 = $dirName;
-        $delFlag = ($$delGroup{$grp0} or $$delGroup{$grp1}) unless $permanentDir{$grp0};
-        # (never delete an entire QuickTime group)
+        $delFlag = ($$delGroup{$grp0} or $$delGroup{$grp1});
+        if ($permanentDir{$grp0} and not ($$dirInfo{TagInfo} and $$dirInfo{TagInfo}{Deletable})) {
+            undef $delFlag;
+        }
         if ($delFlag) {
-            if (($grp0 =~ /^(MakerNotes)$/ or $grp1 =~ /^(IFD0|ExifIFD|MakerNotes)$/) and
+            if ($$dirInfo{Permanent}) {
+                $self->Warn("Not deleting permanent $dirName directory");
+                undef $grp1;
+            } elsif (($grp0 =~ /^(MakerNotes)$/ or $grp1 =~ /^(IFD0|ExifIFD|MakerNotes)$/) and
                 $self->IsRawType() and
                 # allow non-permanent MakerNote directories to be deleted (ie. NikonCapture)
                 (not $$dirInfo{TagInfo} or not defined $$dirInfo{TagInfo}{Permanent} or
-                $$dirInfo{TagInfo}{Permanent}))
+                $$dirInfo{TagInfo}{Permanent}) and
+                # allow MakerNotes to be deleted from ExifIFD of CR3 file
+                not ($self->IsRawType() == 2 and $parent eq 'ExifIFD'))
             {
-                $self->WarnOnce("Can't delete $1 from $$self{FileType}",1);
+                $self->Warn("Can't delete $1 from $$self{FileType}",1);
                 undef $grp1;
             } elsif (not $blockExifTypes{$$self{FILE_TYPE}}) {
                 # restrict delete logic to prevent entire tiff image from being killed
@@ -4142,7 +4308,6 @@ sub WriteDirectory($$$;$)
                 if ($delFlag == 2 and $right) {
                     # also check grandparent because some routines create 2 levels in 1
                     my $right2 = $$self{ADD_DIRS}{$right} || '';
-                    my $parent = $$dirInfo{Parent};
                     if (not $parent or $parent eq $right or $parent eq $right2) {
                         # prevent duplicate directories from being recreated at the same path
                         my $path = join '-', @{$$self{PATH}}, $dirName;
@@ -4200,11 +4365,28 @@ sub WriteDirectory($$$;$)
         last unless $self->IsOverwriting($nvHash, $dataPt ? $$dataPt : '');
         my $verb = 'Writing';
         my $newVal = $self->GetNewValue($nvHash);
-        unless (defined $newVal and length $newVal) {
+        if (defined $newVal and length $newVal) {
+            # hack to add back TIFF header when writing MakerNoteCanon to CMT3 in CR3 images
+            if ($$tagInfo{Name} eq 'MakerNoteCanon') {
+                require Image::ExifTool::Canon;
+                if ($tagInfo eq $Image::ExifTool::Canon::uuid{CMT3}) {
+                    my $hdr;
+                    if (substr($newVal, 0, 1) eq "\0") {
+                        $hdr = "MM\0\x2a" . pack('N', 8);
+                    } else {
+                        $hdr = "II\x2a\0" . pack('V', 8);
+                    }
+                    $newVal = $hdr . $newVal;
+                }
+            }
+        } else {
             return '' unless $dataPt or $$dirInfo{RAF}; # nothing to do if block never existed
             # don't allow MakerNotes to be removed from RAW files
-            if ($blockName eq 'MakerNotes' and $rawType{$$self{FileType}}) {
-                $self->Warn("Can't delete MakerNotes from $$self{VALUE}{FileType}",1);
+            if ($blockName eq 'MakerNotes' and $self->IsRawType() and
+                # but allow MakerNotes to be deleted from ExifIFD of CR3 image (shouldn't be there)
+                not ($self->IsRawType() == 2 and $parent eq 'ExifIFD'))
+            {
+                $self->Warn("Can't delete MakerNotes from $$self{FileType}",1);
                 return undef;
             }
             $verb = 'Deleting';
@@ -4384,6 +4566,7 @@ sub HexDump($;$%)
 #        Count => number of values
 #        Extra => Extra Verbose=2 information to put after tag number
 #        Table => Reference to tag table
+#        Name => Name to use for unknown tag
 #        --> plus any of these HexDump() options: Start, Addr, Width
 sub VerboseInfo($$$%)
 {
@@ -4401,6 +4584,9 @@ sub VerboseInfo($$$%)
     # get tag name
     if ($tagInfo and $$tagInfo{Name}) {
         $tag = $$tagInfo{Name};
+    } elsif ($parms{Name}) { # (used for PNG Plus FPX tags)
+        $tag = $parms{Name};
+        undef $hexID;
     } else {
         my $prefix;
         $prefix = $parms{Table}{TAG_PREFIX} if $parms{Table};
@@ -4553,9 +4739,18 @@ sub DumpUnknownTrailer($$)
     # account for preview/MPF image trailer
     my $prePos = $$self{VALUE}{PreviewImageStart} || $$self{PreviewImageStart};
     my $preLen = $$self{VALUE}{PreviewImageLength} || $$self{PreviewImageLength};
+    my $hidPos = $$self{VALUE}{HiddenDataOffset};
+    my $hidLen = $$self{VALUE}{HiddenDataLength};
     my $tag = 'PreviewImage';
     my $mpImageNum = 0;
     my (%image, $lastOne);
+    # add HiddenData to list of known trailer blocks
+    if ($hidPos and $hidLen) {
+        # call ReadHiddenData to validate hidden data and fix offset if necessary
+        require Image::ExifTool::Sony;
+        my $datPt = Image::ExifTool::Sony::ReadHiddenData($self, $hidPos, $hidLen);
+        $image{$hidPos} = ['HiddenData', $hidLen] if $datPt;
+    }
     for (;;) {
         # add to Preview block list if valid and in the trailer
         $image{$prePos} = [$tag, $preLen] if $prePos and $preLen and $prePos+$preLen > $pos;
@@ -4806,7 +5001,7 @@ my $strptimeLib; # strptime library name if available
 sub InverseDateTime($$;$$)
 {
     my ($self, $val, $tzFlag, $dateOnly) = @_;
-    my ($rtnVal, $tz);
+    my ($rtnVal, $tz, $fs);
     my $fmt = $$self{OPTIONS}{DateFormat};
     # strip off timezone first if it exists
     if (not $fmt and $val =~ s/([-+])(\d{1,2}):?(\d{2})\s*(DST)?$//i) {
@@ -4832,12 +5027,25 @@ sub InverseDateTime($$;$$)
                 $strptimeLib = '';
             }
         }
-        # handle factional seconds (%f), but only at the end of the string
-        my $fs = ($fmt =~ s/%f$// and $val =~ s/(\.\d+)\s*$//) ? $1 : '';
+        # handle fractional seconds (%f) and time zone (%z)
+        ($fs, $tz) = ('', '');
+        if ($fmt =~ /%(f|:?z)/) {
+            if ($fmt =~ s/(.*[^%])%f/$1/) {
+                $fs = $2 if $val =~ s/(.*)(\.\d+)/$1/;  # (take last .### as fractional seconds)
+            }
+            if ($fmt =~ s/(.*[^%])%(:?)z/$1/) {
+                my $colon = $2;
+                $tz = "$2:$3" if $val =~ s/(.*)([-+]\d{2})$colon(\d{2})/$1/;
+            }
+        }
         my ($lib, $wrn, @a);
 TryLib: for ($lib=$strptimeLib; ; $lib='') {
+            # handle %s format ourself (not supported in Fedora, see forum15032)
+            if ($fmt eq '%s') {
+                $val = ConvertUnixTime($val, 1);
+                last;
+            }
             if (not $lib) {
-                last unless $$self{OPTIONS}{StrictDate};
                 warn $wrn || "Install POSIX::strptime or Time::Piece for inverse date/time conversions\n";
                 return undef;
             } elsif ($lib eq 'POSIX::strptime') {
@@ -4873,7 +5081,7 @@ TryLib: for ($lib=$strptimeLib; ; $lib='') {
                     $a[$i] = "0$a[$i]"; # pad to 2 digits if necessary
                 }
             }
-            $val = join(':', @a[5,4,3]) . ' ' . join(':', @a[2,1,0]) . $fs;
+            $val = join(':', @a[5,4,3]) . ' ' . join(':', @a[2,1,0]) . $fs . $tz;
             last;
         }
     }
@@ -4885,7 +5093,9 @@ TryLib: for ($lib=$strptimeLib; ; $lib='') {
             my $ss = $a[4];             # get SS
             push @a, '00' while @a < 5; # add MM, SS if not given
             # get sub-seconds if they exist (must be after SS, and have leading ".")
-            my $fs = (@a > 5 and $val =~ /(\.\d+)\s*$/) ? $1 : '';
+            unless ($fmt) {
+                $fs = (@a > 5 and $val =~ /(\.\d+)\s*$/) ? $1 : '';
+            }
             # add/remove timezone if necessary
             if ($tzFlag) {
                 if (not $tz) {
@@ -5025,7 +5235,7 @@ sub Set64u(@)
 {
     my $val = $_[0];
     my $hi = int($val / 4294967296);
-    my $lo = Set32u($val - $hi * 4294967296);
+    my $lo = Set32u($val - $hi * 4294967296); # NOTE: subject to round-off errors!
     $hi = Set32u($hi);
     $val = GetByteOrder() eq 'MM' ? $hi . $lo : $lo . $hi;
     $_[1] and substr(${$_[1]}, $_[2], length($val)) = $val;
@@ -5506,7 +5716,7 @@ sub WriteJPEG($$)
                     $s =~ /^JFXX\0\x10/     and $dirName = 'JFXX';
                     $s =~ /^(II|MM).{4}HEAPJPGM/s and $dirName = 'CIFF';
                 } elsif ($marker == 0xe1) {
-                    if ($s =~ /^(.{0,4})$exifAPP1hdr(.{1,4})/is) {
+                    if ($s =~ /^(.{0,4})Exif\0.(.{1,4})/is) {
                         $dirName = 'IFD0';
                         my ($junk, $bytes) = ($1, $2);
                         # support multi-segment EXIF
@@ -5526,6 +5736,8 @@ sub WriteJPEG($$)
                     $s =~ /^(Meta|META|Exif)\0\0/ and $dirName = 'Meta';
                 } elsif ($marker == 0xe5) {
                     $s =~ /^RMETA\0/        and $dirName = 'RMETA';
+                } elsif ($marker == 0xeb) {
+                    $s =~ /^JP/             and $dirName = 'JUMBF';
                 } elsif ($marker == 0xec) {
                     $s =~ /^Ducky/          and $dirName = 'Ducky';
                 } elsif ($marker == 0xed) {
@@ -5663,13 +5875,16 @@ sub WriteJPEG($$)
                         }
                     }
                     # switch to buffered output if required
-                    if (($$self{PREVIEW_INFO} or $$self{LeicaTrailer}) and not $oldOutfile) {
+                    if (($$self{PREVIEW_INFO} or $$self{LeicaTrailer} or $$self{HiddenData}) and
+                        not $oldOutfile)
+                    {
                         $writeBuffer = '';
                         $oldOutfile = $outfile;
                         $outfile = \$writeBuffer;
                         # account for segment, EXIF and TIFF headers
                         $$self{PREVIEW_INFO}{Fixup}{Start} += 18 if $$self{PREVIEW_INFO};
                         $$self{LeicaTrailer}{Fixup}{Start} += 18 if $$self{LeicaTrailer};
+                        $$self{HiddenData}{Fixup}{Start} += 18 if $$self{HiddenData};
                     }
                     # write as multi-segment
                     my $n = WriteMultiSegment($outfile, 0xe1, $exifAPP1hdr, \$buff, 'EXIF');
@@ -5813,9 +6028,11 @@ sub WriteJPEG($$)
             Write($outfile, $hdr, $s, $segData) or $err = 1;
             my ($buff, $endPos, $trailInfo);
             my $delPreview = $$self{DEL_PREVIEW};
-            $trailInfo = IdentifyTrailer($raf) unless $$delGroup{Trailer};
+            $trailInfo = $self->IdentifyTrailer($raf) unless $$delGroup{Trailer};
             my $nvTrail = $self->GetNewValueHash($Image::ExifTool::Extra{Trailer});
-            unless ($oldOutfile or $delPreview or $trailInfo or $$delGroup{Trailer} or $nvTrail) {
+            unless ($oldOutfile or $delPreview or $trailInfo or $$delGroup{Trailer} or $nvTrail or
+                $$self{HiddenData})
+            {
                 # blindly copy the rest of the file
                 while ($raf->Read($buff, 65536)) {
                     Write($outfile, $buff) or $err = 1, last;
@@ -5845,7 +6062,7 @@ sub WriteJPEG($$)
                 $endedWithFF = substr($buff, 65535, 1) eq "\xff" ? 1 : 0;
             }
             # remember position of last data copied
-            $endPos = $raf->Tell() - length($buff);
+            $endPos = $$self{TrailerStart} = $raf->Tell() - length($buff);
             # write new trailer if specified
             if ($nvTrail) {
                 # access new value directly to avoid copying a potentially very large data block
@@ -5859,12 +6076,40 @@ sub WriteJPEG($$)
                 }
                 last;   # all done
             }
+            # copy HiddenData if necessary
+            if ($$self{HiddenData}) {
+                my $pad;
+                my $hd = $$self{HiddenData};
+                my $hdOff = $$hd{Offset} + $$hd{Base};
+                require Image::ExifTool::Sony;
+                # read HiddenData, updating $hdOff with actual offset if necessary
+                my $dataPt = Image::ExifTool::Sony::ReadHiddenData($self, $hdOff, $$hd{Size});
+                if ($dataPt) {
+                    # preserve padding to avoid invalidating MPF pointers (yuk!)
+                    my $padLen = $hdOff - $endPos;
+                    unless ($padLen >= 0 and $raf->Seek($endPos,0) and $raf->Read($pad,$padLen)==$padLen) {
+                        $self->Error('Error reading HiddenData padding',1);
+                        $pad = '';
+                    }
+                    $endPos += length($pad) + length($$dataPt); # update end position
+                } else {
+                    $$dataPt = $pad = '';
+                }
+                my $fixup = $$self{HiddenData}{Fixup};
+                # set MakerNote pointer and size (subtract 10 for segment and EXIF headers)
+                $fixup->SetMarkerPointers($outfile, 'HiddenData', length($$outfile) + length($pad) - 10);
+                # clean up and write the buffered data
+                $outfile = $oldOutfile;
+                undef $oldOutfile;
+                Write($outfile, $writeBuffer, $pad, $$dataPt) or $err = 1;
+                undef $writeBuffer;
+            }
             # rewrite existing trailers
             if ($trailInfo) {
                 my $tbuf = '';
                 $raf->Seek(-length($buff), 1);  # seek back to just after EOI
                 $$trailInfo{OutFile} = \$tbuf;  # rewrite the trailer
-                $$trailInfo{ScanForAFCP} = 1;   # scan if necessary
+                $$trailInfo{ScanForTrailer} = 1;# scan if necessary
                 $self->ProcessTrailers($trailInfo) or undef $trailInfo;
             }
             if (not $oldOutfile) {
@@ -5968,7 +6213,7 @@ sub WriteJPEG($$)
                     $delPreview = 1;    # remove old preview
                 }
             }
-            # copy over preview image if necessary
+            # copy over preview image (or other data) if necessary
             unless ($delPreview) {
                 my $extra;
                 if ($trailInfo) {
@@ -6057,7 +6302,7 @@ sub WriteJPEG($$)
                     last unless $$editDirs{CIFF};
                     my $newData = '';
                     my %dirInfo = (
-                        RAF => new File::RandomAccess($segDataPt),
+                        RAF => File::RandomAccess->new($segDataPt),
                         OutFile => \$newData,
                     );
                     require Image::ExifTool::CanonRaw;
@@ -6072,7 +6317,7 @@ sub WriteJPEG($$)
                 }
             } elsif ($marker == 0xe1) {         # APP1 (EXIF, XMP)
                 # check for EXIF data
-                if ($$segDataPt =~ /^(.{0,4})$exifAPP1hdr/is) {
+                if ($$segDataPt =~ /^(.{0,4})Exif\0./is) {
                     my $hdrLen = length $exifAPP1hdr;
                     if (length $1) {
                         $hdrLen += length $1;
@@ -6135,13 +6380,16 @@ sub WriteJPEG($$)
                         }
                     }
                     # switch to buffered output if required
-                    if (($$self{PREVIEW_INFO} or $$self{LeicaTrailer}) and not $oldOutfile) {
+                    if (($$self{PREVIEW_INFO} or $$self{LeicaTrailer} or $$self{HiddenData}) and
+                        not $oldOutfile)
+                    {
                         $writeBuffer = '';
                         $oldOutfile = $outfile;
                         $outfile = \$writeBuffer;
                         # must account for segment, EXIF and TIFF headers
                         $$self{PREVIEW_INFO}{Fixup}{Start} += 18 if $$self{PREVIEW_INFO};
                         $$self{LeicaTrailer}{Fixup}{Start} += 18 if $$self{LeicaTrailer};
+                        $$self{HiddenData}{Fixup}{Start} += 18 if $$self{HiddenData};
                     }
                     # write as multi-segment
                     my $n = WriteMultiSegment($outfile, $marker, $exifAPP1hdr, $segDataPt, 'EXIF');
@@ -6200,7 +6448,7 @@ sub WriteJPEG($$)
                                 # warn of subsequent XMP blocks specifying a different
                                 # HasExtendedXMP (have never seen this)
                                 if ($goodGuid and $goodGuid ne $2) {
-                                    $self->WarnOnce('Multiple XMP segments specifying different extended XMP GUID');
+                                    $self->Warn('Multiple XMP segments specifying different extended XMP GUID');
                                 }
                                 $goodGuid = $2; # GUID for the standard extended XMP
                             }
@@ -6348,7 +6596,7 @@ sub WriteJPEG($$)
                         undef $$segDataPt;
                         next Marker;
                     } elsif (defined $chunkNum) {
-                        $self->WarnOnce('Invalid or extraneous ICC_Profile chunk(s)');
+                        $self->Warn('Invalid or extraneous ICC_Profile chunk(s)');
                         # fall through to preserve this extra profile...
                     }
                 } elsif ($$segDataPt =~ /^FPXR\0/) {
@@ -6390,6 +6638,16 @@ sub WriteJPEG($$)
                 if ($$segDataPt =~ /^RMETA\0/) {
                     $segType = 'Ricoh RMETA';
                     $$delGroup{RMETA} and $del = 1;
+                }
+            } elsif ($marker == 0xe8 or $marker == 0xe9) { # APP8/9 (SEAL)
+                if ($$segDataPt =~ /^SEAL\0/) {
+                    $segType = 'SEAL';
+                    $$delGroup{SEAL} and $del = 1;
+                }
+            } elsif ($marker == 0xeb) {         # APP10 (JUMBF)
+                if ($$segDataPt =~ /^JP/) {
+                    $segType = 'JUMBF';
+                    $$delGroup{JUMBF} and $del = 1;
                 }
             } elsif ($marker == 0xec) {         # APP12 (Ducky)
                 if ($$segDataPt =~ /^Ducky/) {
@@ -6736,7 +6994,7 @@ sub SetFileTime($$;$$$$)
                 $mtime = $m unless defined $mtime;
                 $success = eval { utime($atime, $mtime, $file) } if defined $atime and defined $mtime;
             }
-            $self->Warn('Error opening file for update') unless $success;
+            $self->Warn('Error updating file time') unless $success;
             return $success;
         }
         $saveFile = $file;
@@ -6745,14 +7003,14 @@ sub SetFileTime($$;$$$$)
     # on Windows, try to work around incorrect file times when daylight saving time is in effect
     if ($^O eq 'MSWin32') {
         if (not eval { require Win32::API }) {
-            $self->WarnOnce('Install Win32::API for proper handling of Windows file times');
+            $self->Warn('Install Win32::API for proper handling of Windows file times');
         } elsif (not eval { require Win32API::File }) {
-            $self->WarnOnce('Install Win32API::File for proper handling of Windows file times');
+            $self->Warn('Install Win32API::File for proper handling of Windows file times');
         } else {
             # get Win32 handle, needed for SetFileTime
             my $win32Handle = eval { Win32API::File::GetOsFHandle($file) };
             unless ($win32Handle) {
-                $self->Warn('Win32API::File::GetOsFHandle returned invalid handle');
+                $self->Warn('Win32API::File GetOsFHandle returned invalid handle');
                 return 0;
             }
             # convert Unix seconds to FILETIME structs
@@ -6768,15 +7026,15 @@ sub SetFileTime($$;$$$$)
             }
             unless ($k32SetFileTime) {
                 return 0 if defined $k32SetFileTime;
-                $k32SetFileTime = new Win32::API('KERNEL32', 'SetFileTime', 'NPPP', 'I');
+                $k32SetFileTime = Win32::API->new('KERNEL32', 'SetFileTime', 'NPPP', 'I');
                 unless ($k32SetFileTime) {
-                    $self->Warn('Error calling Win32::API::SetFileTime');
+                    $self->Warn('Error loading Win32::API SetFileTime');
                     $k32SetFileTime = 0;
                     return 0;
                 }
             }
             unless ($k32SetFileTime->Call($win32Handle, $ctime, $atime, $mtime)) {
-                $self->Warn('Win32::API::SetFileTime returned ' . Win32::GetLastError());
+                $self->Warn('Win32::API SetFileTime returned ' . Win32::GetLastError());
                 return 0;
             }
             return 1;
@@ -6805,6 +7063,36 @@ sub SetFileTime($$;$$$$)
         return $success;
     }
     return 1; # (nothing to do)
+}
+
+#------------------------------------------------------------------------------
+# Add data to hash checksum
+# Inputs: 0) ExifTool ref, 1) RAF ref, 2) data size (or undef to read to end of file),
+#         3) data name (or undef for no warnings or messages), 4) flag for no verbose message
+# Returns: number of bytes read and hashed
+sub ImageDataHash($$$;$$)
+{
+    my ($self, $raf, $size, $type, $noMsg) = @_;
+    my $hash = $$self{ImageDataHash} or return;
+    my ($bytesRead, $n) = (0, 65536);
+    my $buff;
+    for (;;) {
+        if (defined $size) {
+            last unless $size;
+            $n = $size > 65536 ? 65536 : $size;
+            $size -= $n;
+        }
+        unless ($raf->Read($buff, $n)) {
+            $self->Warn("Error reading $type data") if $type and defined $size;
+            last;
+        }
+        $hash->add($buff);
+        $bytesRead += length $buff;
+    }
+    if ($$self{OPTIONS}{Verbose} and $bytesRead and $type and not $noMsg) {
+        $self->VPrint(0, "$$self{INDENT}(ImageDataHash: $bytesRead bytes of $type data)\n");
+    }
+    return $bytesRead;
 }
 
 #------------------------------------------------------------------------------
@@ -6941,7 +7229,7 @@ sub WriteBinaryData($$$)
             $newVal = length($data) if defined $data;
             my $format = $$tagInfo{Format} || $$tagTablePtr{FORMAT} || 'int32u';
             if ($format =~ /^int16/ and $newVal > 0xffff) {
-                $self->Error("$$tagInfo{DataTag} is too large (64 kB max. for this file)");
+                $self->Error("$$tagInfo{DataTag} is too large (64 KiB max. for this file)");
             }
         }
         my $rtnVal = WriteValue($newVal, $format, $count, $dataPt, $entry);
@@ -6971,17 +7259,27 @@ sub WriteBinaryData($$$)
             # ignore if offset is zero (eg. Ricoh DNG uses this to indicate no preview)
             next unless $offset;
             $fixup->AddFixup($entry, $$tagInfo{DataTag}, $format);
-            # handle the preview image now if this is a JPEG file
-            next unless $$self{FILE_TYPE} eq 'JPEG' and $$tagInfo{DataTag} and
-                $$tagInfo{DataTag} eq 'PreviewImage' and defined $$tagInfo{OffsetPair};
+            next unless $$tagInfo{DataTag} and defined $$tagInfo{OffsetPair};
             # NOTE: here we assume there are no var-sized tags between the
             # OffsetPair tags.  If this ever becomes possible we must recalculate
             # $varSize for the OffsetPair tag here!
             $entry = $$tagInfo{OffsetPair} * $increment + $varSize;
             my $size = ReadValue($dataPt, $entry, $format, 1, $dirLen-$entry);
+            next unless defined $size;
+            if ($$tagInfo{DataTag} eq 'HiddenData') {
+                $$self{HiddenData} = {
+                    Offset => $offset,
+                    Size   => $size,
+                    Fixup  => Image::ExifTool::Fixup->new,
+                    Base   => $$dirInfo{Base},
+                };
+                next;
+            }
+            # handle the preview image now if this is a JPEG file
+            next unless $$tagInfo{DataTag} eq 'PreviewImage' and $$self{FILE_TYPE} eq 'JPEG';
             my $previewInfo = $$self{PREVIEW_INFO};
             $previewInfo or $previewInfo = $$self{PREVIEW_INFO} = {
-                Fixup => new Image::ExifTool::Fixup,
+                Fixup => Image::ExifTool::Fixup->new,
             };
             # set flag indicating we are using short pointers
             $$previewInfo{IsShort} = 1 unless $format eq 'int32u';
@@ -7085,7 +7383,7 @@ used routines.
 
 =head1 AUTHOR
 
-Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2025, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

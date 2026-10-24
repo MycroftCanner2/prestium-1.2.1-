@@ -1,9 +1,11 @@
 package LWP::Protocol::https;
 
 use strict;
-our $VERSION = '6.10';
+use warnings;
 
-use base qw(LWP::Protocol::http);
+our $VERSION = '6.14';
+
+use parent qw(LWP::Protocol::http);
 require Net::HTTPS;
 
 sub socket_type
@@ -20,95 +22,34 @@ sub _extra_sock_opts
 	$ssl_opts{SSL_verifycn_scheme} = 'www';
     }
     else {
-	if ( $Net::HTTPS::SSL_SOCKET_CLASS eq 'Net::SSL' ) {
-		$ssl_opts{SSL_verifycn_scheme} = '';
-	} else {
-		$ssl_opts{SSL_verifycn_scheme} = 'none';
-	}
+        if ( $Net::HTTPS::SSL_SOCKET_CLASS eq 'Net::SSL' ) {
+            $ssl_opts{SSL_verifycn_scheme} = '';
+        } else {
+            $ssl_opts{SSL_verifycn_scheme} = 'none';
+        }
     }
     if ($ssl_opts{SSL_verify_mode}) {
-	unless (exists $ssl_opts{SSL_ca_file} || exists $ssl_opts{SSL_ca_path}) {
-        $ssl_opts{SSL_ca_file} = '/etc/ssl/certs/ca-certificates.crt';
-	}
+        unless (exists $ssl_opts{SSL_ca_file} || exists $ssl_opts{SSL_ca_path}) {
+            if ($Net::HTTPS::SSL_SOCKET_CLASS eq 'IO::Socket::SSL'
+                && defined &IO::Socket::SSL::default_ca
+                && IO::Socket::SSL::default_ca() ) {
+                # IO::Socket::SSL has a usable default CA
+            } else {
+              $ssl_opts{SSL_ca_file} = '/etc/ssl/certs/ca-certificates.crt';
+            }
+        }
     }
     $self->{ssl_opts} = \%ssl_opts;
-    return (%ssl_opts, $self->SUPER::_extra_sock_opts);
+    return (%ssl_opts, MultiHomed => 1, $self->SUPER::_extra_sock_opts);
 }
 
-#------------------------------------------------------------
-# _cn_match($common_name, $san_name)
-#  common_name: an IA5String
-#  san_name: subjectAltName
-# initially we were only concerned with the dNSName
-# and the 'left-most' only wildcard as noted in
-#   https://tools.ietf.org/html/rfc6125#section-6.4.3
-# this method does not match any wildcarding in the
-# domain name as listed in section-6.4.3.3
-#
-sub _cn_match {
-    my( $me, $common_name, $san_name ) = @_;
-
-    # /CN has a '*.' prefix
-    # MUST be an FQDN -- fishing?
-    return 0 if( $common_name =~ /^\*\./ );
-
-    my $re = q{}; # empty string
-
-     # turn a leading "*." into a regex
-    if( $san_name =~ /^\*\./ ) {
-        $san_name =~ s/\*//;
-        $re = "[^.]+";
-    }
-
-      # quotemeta the rest and match anchored
-    if( $common_name =~ /^$re\Q$san_name\E$/ ) {
-        return 1;
-    }
-    return 0;
-}
-
-#-------------------------------------------------------
-# _in_san( cn, cert )
-#  'cn' of the form  /CN=host_to_check ( "Common Name" form )
-#  'cert' any object that implements a peer_certificate('subjectAltNames') method
-#   which will return an array of  ( type-id, value ) pairings per
-#   http://tools.ietf.org/html/rfc5280#section-4.2.1.6
-# if there is no subjectAltNames there is nothing more to do.
-# currently we have a _cn_match() that will allow for simple compare.
-sub _in_san
-{
-    my($me, $cn, $cert) = @_;
-
-	  # we can return early if there are no SAN options.
-	my @sans = $cert->peer_certificate('subjectAltNames');
-	return unless scalar @sans;
-
-	(my $common_name = $cn) =~ s/.*=//; # strip off the prefix.
-
-      # get the ( type-id, value ) pairwise
-      # currently only the basic CN to san_name check
-    while( my ( $type_id, $value ) = splice( @sans, 0, 2 ) ) {
-        return 'ok' if $me->_cn_match($common_name,$value);
-    }
-    return;
-}
-
-sub _check_sock
-{
-    my($self, $req, $sock) = @_;
-    my $check = $req->header("If-SSL-Cert-Subject");
-    if (defined $check) {
-        my $cert = $sock->get_peer_certificate ||
-            die "Missing SSL certificate";
-        my $subject = $cert->subject_name;
-        unless ( defined $subject && ( $subject =~ /$check/ ) ) {
-            my $ok = $self->_in_san( $check, $cert);
-            die "Bad SSL certificate subject: '$subject' !~ /$check/"
-                unless $ok;
-        }
-        $req->remove_header("If-SSL-Cert-Subject");  # don't pass it on
-    }
-}
+# This is a subclass of LWP::Protocol::http.
+# That parent class calls ->_check_sock() during the
+# request method. This allows us to hook in and run checks
+# sub _check_sock
+# {
+#     my($self, $req, $sock) = @_;
+# }
 
 sub _get_sock_info
 {
@@ -139,9 +80,12 @@ sub _get_sock_info
 if ( $Net::HTTPS::SSL_SOCKET_CLASS->can('start_SSL')) {
     *_upgrade_sock = sub {
 	my ($self,$sock,$url) = @_;
+    # SNI should be passed there only if it is not an IP address.
+    # Details: https://github.com/libwww-perl/libwww-perl/issues/449#issuecomment-1896175509
+	my $host = $url->host() =~ m/:|^[\d.]+$/s ? undef : $url->host();
 	$sock = LWP::Protocol::https::Socket->start_SSL( $sock,
 	    SSL_verifycn_name => $url->host,
-	    SSL_hostname => $url->host,
+	    SSL_hostname => $host,
 	    $self->_extra_sock_opts,
 	);
 	$@ = LWP::Protocol::https::Socket->errstr if ! $sock;
@@ -152,7 +96,7 @@ if ( $Net::HTTPS::SSL_SOCKET_CLASS->can('start_SSL')) {
 #-----------------------------------------------------------
 package LWP::Protocol::https::Socket;
 
-use base qw(Net::HTTPS LWP::Protocol::http::SocketMethods);
+use parent -norequire, qw(Net::HTTPS LWP::Protocol::http::SocketMethods);
 
 1;
 

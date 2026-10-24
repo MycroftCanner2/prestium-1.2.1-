@@ -21,7 +21,7 @@ use Image::ExifTool qw(:DataAccess :Utils);
 use Image::ExifTool::Exif;
 use Image::ExifTool::Canon;
 
-$VERSION = '1.59';
+$VERSION = '1.61';
 
 sub WriteCRW($$);
 sub ProcessCanonRaw($$$);
@@ -562,7 +562,7 @@ sub BuildMakerNotes($$$$$$);
     3 => {
         Name => 'Rotation',
         Format => 'int32s',
-        Writable => 'int32s',
+        Writable => 1,
     },
     4 => 'ComponentBitDepth', #3
     5 => 'ColorBitDepth', #3
@@ -698,6 +698,10 @@ sub ProcessCanonRaw($$$)
                           $format ne 'string' and not $subdir;
         } else {
             $valueDataPos = $ptr;
+            # do hash of image data if requested
+            if ($$et{ImageDataHash} and $tagID == 0x2005) {
+                $raf->Seek($ptr, 0) and $et->ImageDataHash($raf, $size, 'raw');
+            }
             if ($size <= 512 or ($verbose > 2 and $size <= 65536)
                 or ($tagInfo and ($$tagInfo{SubDirectory}
                 or grep(/^$$tagInfo{Name}$/i, $et->GetRequestedTags()) )))
@@ -850,7 +854,7 @@ sub ProcessCRW($$)
 
     # process trailers if they exist in CRW file (not in CIFF information!)
     if ($$et{FILE_TYPE} eq 'CRW') {
-        my $trailInfo = Image::ExifTool::IdentifyTrailer($raf);
+        my $trailInfo = $et->IdentifyTrailer($raf);
         $et->ProcessTrailers($trailInfo) if $trailInfo;
     }
 
@@ -884,7 +888,7 @@ tags.)
 
 =head1 AUTHOR
 
-Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2025, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

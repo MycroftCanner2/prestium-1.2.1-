@@ -13,7 +13,7 @@
 
 package IO::Socket::SSL;
 
-our $VERSION = '2.081';
+our $VERSION = '2.089';
 
 use IO::Socket;
 use Net::SSLeay 1.46;
@@ -77,6 +77,8 @@ my $check_partial_chain; # use X509_V_FLAG_PARTIAL_CHAIN if available
 my $auto_retry;      # (clear|set)_mode SSL_MODE_AUTO_RETRY with OpenSSL 1.1.1+ with non-blocking
 my $ssl_mode_release_buffers = 0; # SSL_MODE_RELEASE_BUFFERS if available
 my $can_ciphersuites; # support for SSL_CTX_set_ciphersuites (TLS 1.3)
+my $can_client_psk; # work as PSK client
+my $can_server_psk; # work as PSK server
 
 my $openssl_version;
 my $netssleay_version;
@@ -115,6 +117,8 @@ BEGIN {
 	&& $netssleay_version >= 1.80;
     $can_pha = defined &Net::SSLeay::CTX_set_post_handshake_auth;
     $can_ciphersuites = defined &Net::SSLeay::CTX_set_ciphersuites;
+    $can_client_psk = defined &Net::SSLeay::CTX_set_psk_client_callback;
+    $can_server_psk = defined &Net::SSLeay::CTX_set_psk_server_callback;
 
     if (defined &Net::SSLeay::SESSION_up_ref) {
 	$session_upref = 1;
@@ -196,7 +200,8 @@ if ( defined &Net::SSLeay::CTX_set_min_proto_version
 # global defaults
 my %DEFAULT_SSL_ARGS = (
     SSL_check_crl => 0,
-    SSL_version => 'SSLv23:!SSLv3:!SSLv2', # consider both SSL3.0 and SSL2.0 as broken
+    # TLS 1.1 and lower are deprecated with RFC 8996
+    SSL_version => 'SSLv23:!TLSv1:!TLSv1_1:!SSLv3:!SSLv2',
     SSL_verify_callback => undef,
     SSL_verifycn_scheme => undef,  # fallback cn verification
     SSL_verifycn_publicsuffix => undef,  # fallback default list verification
@@ -790,12 +795,12 @@ sub connect_SSL {
 	    if ( ! defined $host ) {
 		if ( $host = $arg_hash->{PeerAddr} || $arg_hash->{PeerHost} ) {
 		    $host =~s{^
-			(?:
-			    ([^:\[]+) |    # ipv4|host
-			    (\[(.*)\])     # [ipv6|host]
+			(
+			    (?:[^:\[]+) |    # ipv4|host
+			    (?:\[(?:.*)\])   # [ipv6|host]
 			)
-			(:[\w\-]+)?        # optional :port
-		    $}{$1$2}x;             # ipv4|host|ipv6
+			(:[\w\-]+)?          # optional :port
+		    $}{$1}x;                 # ipv4|host|ipv6
 		}
 	    }
 	    ${$ctx->{verify_name_ref}} = $host;
@@ -1181,6 +1186,8 @@ sub _generic_read {
 	    if (not $! and $err == $Net_SSLeay_ERROR_SSL || $err == $Net_SSLeay_ERROR_SYSCALL) {
 		# treat as EOF
 		$data = '';
+		# clear the "unexpected eof while reading" error (OpenSSL 3.0+)
+		Net::SSLeay::ERR_clear_error();
 		last;
 	    }
 	    $self->error("SSL read error");
@@ -1500,9 +1507,14 @@ sub stop_SSL {
 		    my $err = Net::SSLeay::get_error($ssl,$rv);
 		    if ( $err == $Net_SSLeay_ERROR_WANT_READ) {
 			select($vec,undef,undef,$wait)
-		    } elsif ( $err == $Net_SSLeay_ERROR_WANT_READ) {
+		    } elsif ( $err == $Net_SSLeay_ERROR_WANT_WRITE) {
 			select(undef,$vec,undef,$wait)
 		    } else {
+			if ($err) {
+			    # if $! is not set with ERROR_SYSCALL then report as EPIPE
+			    $! ||= EPIPE if $err == $Net_SSLeay_ERROR_SYSCALL;
+			    $self->error("SSL shutdown error ($err)");
+			}
 			last;
 		    }
 		}
@@ -1558,14 +1570,14 @@ sub fileno {
 
 
 ####### IO::Socket::SSL specific functions #######
-# _get_ssl_object is for internal use ONLY!
+# get access to SSL handle for use with Net::SSLeay. Use with caution!
 sub _get_ssl_object {
     my $self = shift;
     return ${*$self}{'_SSL_object'} ||
 	IO::Socket::SSL->_internal_error("Undefined SSL object",9);
 }
 
-# _get_ctx_object is for internal use ONLY!
+# get access to SSL handle for use with Net::SSLeay. Use with caution!
 sub _get_ctx_object {
     my $self = shift;
     my $ctx_object = ${*$self}{_SSL_ctx};
@@ -1958,7 +1970,7 @@ sub get_servername {
 
 sub get_fingerprint_bin {
     my ($self,$algo,$cert,$key_only) = @_;
-    $cert ||= $self->peer_certificate;
+    $cert ||= $self->peer_certificate or return;
     return $key_only
 	? Net::SSLeay::X509_pubkey_digest($cert, $algo2digest->($algo || 'sha256'))
 	: Net::SSLeay::X509_digest($cert, $algo2digest->($algo || 'sha256'));
@@ -2114,6 +2126,13 @@ sub can_ocsp       { return $can_ocsp }
 sub can_ticket_keycb { return $can_tckt_keycb }
 sub can_pha        { return $can_pha }
 sub can_partial_chain { return $check_partial_chain && 1 }
+sub can_ciphersuites { return $can_ciphersuites }
+sub can_psk {
+    my %can;
+    $can{client}=1 if $can_client_psk;
+    $can{server}=1 if $can_server_psk;
+    return %can ? \%can : undef
+}
 
 sub DESTROY {
     my $self = shift or return;
@@ -2298,6 +2317,10 @@ use constant FILETYPE_ASN1 => Net::SSLeay::FILETYPE_ASN1();
 my $DEFAULT_SSL_OP = &Net::SSLeay::OP_ALL
     | &Net::SSLeay::OP_SINGLE_DH_USE
     | ($can_ecdh ? &Net::SSLeay::OP_SINGLE_ECDH_USE : 0);
+
+
+# get access to SSL handle for use with Net::SSLeay. Use with caution!
+sub _get_ctx_object { shift->{context} }
 
 # Note that the final object will actually be a reference to the scalar
 # (C-style pointer) returned by Net::SSLeay::CTX_*_new() so that
@@ -2567,6 +2590,44 @@ sub new {
 	    Net::SSLeay::CTX_set_tlsext_ticket_getkey_cb($ctx,$cb,$arg);
 	}
 
+	if ($arg_hash->{SSL_psk}) {
+	    my $psk = $arg_hash->{SSL_psk};
+	    if ($arg_hash->{SSL_server}) {
+		$can_server_psk or return IO::Socket::SSL->_internal_error(
+		    "no support for server side PSK");
+		Net::SSLeay::CTX_set_psk_server_callback($ctx, sub {
+		    my ($ssl,$identity,$psklen) = @_;
+		    if (ref($psk) eq 'HASH') {
+			return $psk->{$identity} || $psk->{''} ||
+			    IO::Socket::SSL->_internal_error(
+			    "no PSK for given identity '$identity' and no default");
+		    } else {
+			return $psk;
+		    }
+		});
+	    } else {
+		$can_client_psk or return IO::Socket::SSL->_internal_error(
+		    "no support for client side PSK");
+		Net::SSLeay::CTX_set_psk_client_callback($ctx, sub {
+		    my $hint = shift;
+		    my ($i,$p);
+		    if (ref($psk) eq 'HASH') {
+			$hint = '' if ! defined $hint;
+			$p = $psk->{$hint} or return IO::Socket::SSL->_internal_error(
+			    "no PSK for given hint '$hint'");
+			$i = $hint;
+		    } elsif (ref($psk)) { # [identity,psk]
+			($i,$p) = @$psk;
+		    } else {
+			($i,$p) = ('io_socket_ssl', $psk)
+		    }
+		    # for some reason this expects the PSK in hex whereas the server
+		    # side function expects the PSK in binary
+		    return ($i, unpack("H*",$p));
+		});
+	    }
+	}
+
 	# Try to apply SSL_ca even if SSL_verify_mode is 0, so that they can be
 	# used to verify OCSP responses.
 	# If applying fails complain only if verify_mode != VERIFY_NONE.
@@ -2824,6 +2885,7 @@ sub new {
     }
     my $verify_fingerprint = @accept_fp && do {
 	my $fail;
+	my $force = $arg_hash->{SSL_force_fingerprint};
 	sub {
 	    my ($ok,$cert,$depth) = @_;
 	    $fail = 1 if ! $ok;
@@ -2837,7 +2899,7 @@ sub new {
 		next if $fp ne $_->[2];
 		return 1;
 	    }
-	    return ! $fail;
+	    return $force ? 0 : ! $fail;
 	}
     };
     my $verify_callback = ( $verify_cb || @accept_fp ) && sub {
@@ -3077,22 +3139,30 @@ sub DESTROY {
 
 package IO::Socket::SSL::Session_Cache;
 *DEBUG = *IO::Socket::SSL::DEBUG;
+
+# The cache is consisting of one list which contains all sessions and then
+# for each session key another list containing all sessions for same key.
+# The order of the list is by use, i.e. last used are put on top.
+# self.ghead points to the top of the global list while
+# self.shead{key} to the top of the session key specific list
+# All lists are cyclic
+# Each element in the list consists of an array with slots for ...
 use constant {
-    SESSION => 0,
-    KEY     => 1,
-    GNEXT   => 2,
-    GPREV   => 3,
-    SNEXT   => 4,
-    SPREV   => 5,
+    SESSION => 0,  # session object
+    KEY     => 1,  # key for object
+    GNEXT   => 2,  # next element in global list
+    GPREV   => 3,  # previous element in global list
+    SNEXT   => 4,  # next element for same session key
+    SPREV   => 5,  # previous element for same session key
 };
 
 sub new {
     my ($class, $size) = @_;
     $size>0 or return;
     return bless {
-	room  => $size,
-	ghead => undef,
-	shead => {},
+	room  => $size,  # free space regarding to max size
+	ghead => undef,  # top of global list
+	shead => {},     # top of key specific list
     }, $class;
 }
 
@@ -3115,6 +3185,9 @@ sub replace_session {
 
 sub del_session {
     my ($self, $key, $session) = @_;
+
+    # find all sessions which match given key and session and add to @del
+    # if key is given scan only sessions for the key, else all sessions
     my ($head,$inext) = $key
 	? ($self->{shead}{$key},SNEXT) : ($self->{ghead},GNEXT);
     my $v = $head;
@@ -3143,6 +3216,9 @@ sub del_session {
 
 sub get_session {
     my ($self, $key, $session) = @_;
+
+    # find first session for key
+    # if $session is given further look for this specific one
     my $v = $self->{shead}{$key};
     if ($session) {
 	my $shead = $v;
@@ -3153,10 +3229,10 @@ sub get_session {
 	    $v = undef if $v == $shead; # session not found
 	}
     }
-    if ($v) {
-	_del_entry($self, $v); # remove
-	_add_entry($self, $v); # and add back on top
-    }
+
+    # mark as recent by moving to top so that it gets expired last
+    _touch_entry($self,$v) if $v;
+
     $DEBUG>=3 && DEBUG("get_session($key"
 	. ( $session ? ",$session) -> " : ") -> ")
 	. ($v? $v->[SESSION]:"none"));
@@ -3165,20 +3241,25 @@ sub get_session {
 
 sub _add_entry {
     my ($self,$v) = @_;
+
+    # If there are already sessions for same key add to this list else create
+    # a new sublist for this key. Similar for global list.
     for(
 	[ SNEXT, SPREV, \$self->{shead}{$v->[KEY]} ],
 	[ GNEXT, GPREV, \$self->{ghead} ],
     ) {
 	my ($inext,$iprev,$rhead) = @$_;
 	if ($$rhead) {
+	    # add on top of list
 	    $v->[$inext] = $$rhead;
 	    $v->[$iprev] = ${$rhead}->[$iprev];
 	    ${$rhead}->[$iprev][$inext] = $v;
 	    ${$rhead}->[$iprev] = $v;
+	    $$rhead = $v;
 	} else {
-	    $v->[$inext] = $v->[$iprev] = $v;
+	    # create a new list
+	    $$rhead = $v->[$inext] = $v->[$iprev] = $v;
 	}
-	$$rhead = $v;
     }
 
     $self->{room}--;
@@ -3194,6 +3275,8 @@ sub _add_entry {
 
 sub _del_entry {
     my ($self,$v) = @_;
+    # Remove element from both key specific list and global list
+    # If key specific list is then empty drop it from self.shead
     for(
 	[ SNEXT, SPREV, \$self->{shead}{$v->[KEY]} ],
 	[ GNEXT, GPREV, \$self->{ghead} ],
@@ -3217,6 +3300,32 @@ sub _del_entry {
 	}
     }
     $self->{room}++;
+}
+
+sub _touch_entry {
+    my ($self,$v) = @_;
+
+    # Put element on top of both global list and key specific list
+    # so that it gets expired last when making space in the cache
+    for(
+	[ SNEXT, SPREV, \$self->{shead}{$v->[KEY]} ],
+	[ GNEXT, GPREV, \$self->{ghead} ],
+    ) {
+	my ($inext,$iprev,$rhead) = @$_;
+	$$rhead or die "entry not in list ($inext)"; # should not happen
+	next if $$rhead == $v; # already at top
+
+	# remove from current position - like _del_entry
+	$v->[$inext][$iprev] = $v->[$iprev];
+	$v->[$iprev][$inext] = $v->[$inext];
+
+	# add on top - like _add_entry
+	$v->[$inext] = $$rhead;
+	$v->[$iprev] = ${$rhead}->[$iprev];
+	${$rhead}->[$iprev][$inext] = $v;
+	${$rhead}->[$iprev] = $v;
+	$$rhead = $v;
+    }
 }
 
 sub _dump {
@@ -3650,6 +3759,9 @@ sub ossl_trace {
     $DEBUG>=2 or return;
     my ($direction, $ssl_ver, $content_type, $buf, $len, $ssl) = @_;
 
+    # Restore original $! value on return
+    local $!;
+
     my $verstr = $tc_ver2s{$ssl_ver} || "(version=$ssl_ver)";
 
     # Log progress for interesting records only (like Handshake or Alert), skip
@@ -3680,7 +3792,7 @@ sub ossl_trace {
         } elsif ($content_type == $trace_constants{SSL3_RT_ALERT}) {
             my @c = unpack('c2', $buf);
             $msg_type = ($c[0] << 8) + $c[1];
-            $msg_name = eval { Net::SSLeay::SSL_alert_desc_string_long($msg_type) } || "Unknown alert";
+            $msg_name = eval { Net::SSLeay::alert_desc_string_long($msg_type) } || "Unknown alert";
         } else {
             $msg_type = unpack('c1', $buf);
 	    $msg_name = $tc_msgtype2s{$ssl_ver, $msg_type} || "Unknown (ssl_ver=$ssl_ver, msg=$msg_type)";

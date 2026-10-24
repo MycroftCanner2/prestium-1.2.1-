@@ -19,15 +19,13 @@ use strict;
 use vars qw($VERSION %sigmaLensTypes);
 use Image::ExifTool::Exif;
 
-$VERSION = '1.33';
+$VERSION = '1.34';
 
 # sigma LensType lookup (ref IB)
 %sigmaLensTypes = (
     Notes => q{
         Sigma LensType values are hexadecimal numbers stored as a string (without
-        the leading "0x").  Decimal values have been added to differentiate lenses
-        which would otherwise have the same LensType, and are used by the Composite
-        LensID tag when attempting to identify the specific lens model.
+        the leading "0x").
     },
     # 0x0 => 'Sigma 50mm F2.8 EX Macro', (0x0 used for other lenses too)
     # 0x8 - 18-125mm LENSARANGE@18mm=22-4
@@ -557,6 +555,7 @@ $VERSION = '1.33';
         SeparateTable => 'LensType',
         PrintHex => 1,
         PrintConv => \%sigmaLensTypes,
+        PrintInt => 1,
     },{ #PH
         Name => 'LensType',
         Condition => '$$self{MakerNoteSigmaVer} >= 3',
@@ -565,6 +564,7 @@ $VERSION = '1.33';
         SeparateTable => 'LensType',
         PrintHex => 1,
         PrintConv => \%sigmaLensTypes,
+        PrintInt => 1,
     }],
     0x002a => { #PH
         Name => 'LensFocalRange',
@@ -864,7 +864,7 @@ Sigma and Foveon maker notes in EXIF information.
 
 =head1 AUTHOR
 
-Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2025, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

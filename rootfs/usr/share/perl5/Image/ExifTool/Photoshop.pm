@@ -28,11 +28,12 @@ use strict;
 use vars qw($VERSION $AUTOLOAD $iptcDigestInfo %printFlags);
 use Image::ExifTool qw(:DataAccess :Utils);
 
-$VERSION = '1.68';
+$VERSION = '1.72';
 
 sub ProcessPhotoshop($$$);
 sub WritePhotoshop($$$);
 sub ProcessLayers($$$);
+sub ProcessChannelOptions($$$);
 
 # PrintFlags bit definitions (ref forum13785)
 %printFlags = (
@@ -70,11 +71,11 @@ my %thumbnailInfo = (
     Protected => 1,
     RawConv => 'my $img=substr($val,0x1c); $self->ValidateImage(\$img,$tag)',
     ValueConvInv => q{
-        my $et = new Image::ExifTool;
+        my $et = Image::ExifTool->new;
         my @tags = qw{ImageWidth ImageHeight FileType};
         my $info = $et->ImageInfo(\$val, @tags);
         my ($w, $h, $type) = @$info{@tags};
-        $w and $h and $type eq 'JPEG' or warn("Not a valid JPEG image\n"), return undef;
+        $w and $h and $type and $type eq 'JPEG' or warn("Not a valid JPEG image\n"), return undef;
         my $wbytes = int(($w * 24 + 31) / 32) * 4;
         return pack('N6n2', 1, $w, $h, $wbytes, $wbytes * $h, length($val), 24, 1) . $val;
     },
@@ -322,7 +323,13 @@ my %unicodeString = (
     0x0432 => { Unknown => 1, Name => 'MeasurementScale' }, #7
     0x0433 => { Unknown => 1, Name => 'TimelineInfo' }, #7
     0x0434 => { Unknown => 1, Name => 'SheetDisclosure' }, #7
-    0x0435 => { Unknown => 1, Name => 'DisplayInfo' }, #7
+    0x0435 => {
+        Name => 'ChannelOptions', #7/forum16762
+        SubDirectory => {
+            TagTable => 'Image::ExifTool::Photoshop::ChannelOptions',
+            Start => 4,
+        },
+    },
     0x0436 => { Unknown => 1, Name => 'OnionSkins' }, #7
     0x0438 => { Unknown => 1, Name => 'CountInfo' }, #7
     0x043a => { Unknown => 1, Name => 'PrintInfo2' }, #7
@@ -348,6 +355,41 @@ my %unicodeString = (
     0x1b59 => { Unknown => 1, Name => 'ImageReadyDataSets' }, #7
     0x1f40 => { Unknown => 1, Name => 'LightroomWorkflow' }, #7
     0x2710 => { Unknown => 1, Name => 'PrintFlagsInfo' },
+);
+
+# Photoshop channel options (ref forum16762)
+%Image::ExifTool::Photoshop::ChannelOptions = (
+    PROCESS_PROC => \&ProcessChannelOptions,
+    VARS => { IS_BINARY => 1 },
+    GROUPS => { 2 => 'Image' },
+    NOTES => 'These tags relate only to the appearance of a channel.',
+    0 => {
+        Name => 'ChannelColorSpace',
+        Format => 'int16u',
+        PrintConv => {
+            0 => 'RGB',
+            1 => 'HSB',
+            2 => 'CMYK',
+            7 => 'Lab',
+            8 => 'Grayscale',
+        },
+    },
+    2 => {
+        Name => 'ChannelColorData',
+        Format => 'int16u[4]',
+    },
+    11 => {
+        Name => 'ChannelOpacity',
+        PrintConv => '"$val%"',
+    },
+    12 => {
+        Name => 'ChannelColorIndicates',
+        PrintConv => {
+            0 => 'Selected Areas',
+            1 => 'Masked Areas',
+            2 => 'Spot Color',
+        },
+    },
 );
 
 # Photoshop JPEG quality record (ref 2)
@@ -706,7 +748,7 @@ sub ProcessLayersAndMask($$$)
     local $_;
     my ($et, $dirInfo, $tagTablePtr) = @_;
     my $raf = $$dirInfo{RAF};
-    my $fileType = $$et{VALUE}{FileType};
+    my $fileType = $$et{FileType};
     my $data;
 
     return 0 unless $fileType eq 'PSD' or $fileType eq 'PSB';   # (no layer section in CS1 files)
@@ -753,6 +795,25 @@ sub ProcessLayersAndMask($$$)
 
     # seek to the end of this section and return success flag
     return $raf->Seek($end, 0) ? 1 : 0;
+}
+
+#------------------------------------------------------------------------------
+# Process Photoshop channel options (ref forum16762)
+# Inputs: 0) ExifTool ref, 1) DirInfo ref, 2) tag table ref
+# Returns: 1 on success
+sub ProcessChannelOptions($$$)
+{
+    my ($et, $dirInfo, $tagTablePtr) = @_;
+    my $end = $$dirInfo{DirStart}  + $$dirInfo{DirLen};
+    $$dirInfo{DirLen} = 13;
+    my $i;
+    for ($i=0; $$dirInfo{DirStart} + 13 <= $end; ++$i) {
+        $$et{SET_GROUP1} = "Channel$i";
+        $et->ProcessBinaryData($dirInfo, $tagTablePtr);
+        $$dirInfo{DirStart} += 13;
+    }
+    delete $$et{SET_GROUP1};
+    return 1;
 }
 
 #------------------------------------------------------------------------------
@@ -892,7 +953,7 @@ sub ProcessDocumentData($$$)
     unless ($raf) {
         my $dataPt = $$dirInfo{DataPt};
         my $start = $$dirInfo{DirStart} || 0;
-        $raf = new File::RandomAccess($dataPt);
+        $raf = File::RandomAccess->new($dataPt);
         $raf->Seek($start, 0) if $start;
         $dirLen = length $$dataPt - $start unless defined $dirLen;
         $et->VerboseDump($dataPt, Start => $start, Len => $dirLen, Base => $$dirInfo{Base});
@@ -1050,7 +1111,7 @@ sub ProcessPhotoshop($$$)
     if ($$et{VALUE}{IPTCDigest} and $$et{VALUE}{CurrentIPTCDigest} and
         $$et{VALUE}{IPTCDigest} ne $$et{VALUE}{CurrentIPTCDigest})
     {
-        $et->WarnOnce('IPTCDigest is not current. XMP may be out of sync');
+        $et->Warn('IPTCDigest is not current. XMP may be out of sync');
     }
     delete $$et{LOW_PRIORITY_DIR}{'*'};
     return $success;
@@ -1104,7 +1165,7 @@ sub ProcessPSD($$)
             $len = Set32u(length $data);
             Write($outfile, $len, $data) or $err = 1;
             # look for trailer and edit if necessary
-            my $trailInfo = Image::ExifTool::IdentifyTrailer($raf);
+            my $trailInfo = $et->IdentifyTrailer($raf);
             if ($trailInfo) {
                 my $tbuf = '';
                 $$trailInfo{OutFile} = \$tbuf;  # rewrite trailer(s)
@@ -1162,7 +1223,7 @@ sub ProcessPSD($$)
         }
         $$et{INDENT} = $oldIndent;
         # process trailers if they exist
-        my $trailInfo = Image::ExifTool::IdentifyTrailer($raf);
+        my $trailInfo = $et->IdentifyTrailer($raf);
         $et->ProcessTrailers($trailInfo) if $trailInfo;
     }
     return $rtnVal;
@@ -1201,7 +1262,7 @@ be preserved when copying Photoshop information via user-defined tags.
 
 =head1 AUTHOR
 
-Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2025, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

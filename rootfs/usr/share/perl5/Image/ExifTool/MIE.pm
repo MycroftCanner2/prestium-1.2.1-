@@ -14,7 +14,7 @@ use Image::ExifTool qw(:DataAccess :Utils);
 use Image::ExifTool::Exif;
 use Image::ExifTool::GPS;
 
-$VERSION = '1.51';
+$VERSION = '1.56';
 
 sub ProcessMIE($$);
 sub ProcessMIEGroup($$$);
@@ -1077,7 +1077,7 @@ sub WriteMIEGroup($$$)
                         $newVal = '';
                         %subdirInfo = (
                             OutFile => \$newVal,
-                            RAF => new File::RandomAccess(\$oldVal),
+                            RAF => File::RandomAccess->new(\$oldVal),
                         );
                     } elsif ($optCompress and not $$dirInfo{IsCompressed}) {
                         # write to memory so we can compress the new MIE group
@@ -1376,8 +1376,9 @@ sub WriteMIEGroup($$$)
                 my $term = "~\0\0\0";
                 unless ($$dirInfo{Parent}) {
                     # write extended terminator for file-level group
-                    my $len = ref $outfile eq 'SCALAR' ? length($$outfile) : tell $outfile;
-                    $len += 10; # include length of terminator itself
+                    my $len = ref $outfile eq 'SCALAR' ? length($$outfile) || 0 : tell $outfile;
+                    # include length of terminator itself minus original $outfile position
+                    $len += 10 - ($$dirInfo{OutPos} || 0);
                     if ($len and $len <= 0x7fffffff) {
                         $term = "~\0\0\x06" . Set32u($len) . MIEGroupFormat(1) . "\x04";
                     }
@@ -1536,7 +1537,7 @@ sub ProcessMIEGroup($$$)
             $tagInfo = {
                 Name => $tag,
                 Writable => 0,
-                PrintConv => 'length($val) > 60 ? substr($val,0,55) . "[...]" : $val',
+                PrintConv => \&Image::ExifTool::LimitLongValues,
             };
             AddTagToTable($tagTablePtr, $tag, $tagInfo);
             last;
@@ -1585,7 +1586,7 @@ sub ProcessMIEGroup($$$)
                 WasCompressed => $wasCompressed,
             );
             # read from uncompressed data instead if necessary
-            $subdirInfo{RAF} = new File::RandomAccess(\$value) if $valLen;
+            $subdirInfo{RAF} = File::RandomAccess->new(\$value) if $valLen;
 
             my $oldOrder = GetByteOrder();
             SetByteOrder($format & 0x08 ? 'II' : 'MM');
@@ -1596,9 +1597,10 @@ sub ProcessMIEGroup($$$)
         } else {
             # process MIE data format types
             if ($tagInfo) {
-                my $rational;
+                my ($rational, $binVal);
                 # extract tag value
                 my $val = ReadMIEValue(\$value, 0, $formatStr, undef, $valLen, \$rational);
+                $binVal = substr($value, 0, $valLen) if $$et{OPTIONS}{SaveBin};
                 unless (defined $val) {
                     $et->Warn("Error reading $tag value");
                     $val = '<err>';
@@ -1661,7 +1663,12 @@ sub ProcessMIEGroup($$$)
                         $val .= "($units)" if defined $units;
                     }
                     my $key = $et->FoundTag($tagInfo, $val);
-                    $$et{RATIONAL}{$key} = $rational if defined $rational and defined $key;
+                    if (defined $key) {
+                        my $ex = $$et{TAG_EXTRA}{$key};
+                        $$ex{Rational} = $rational if defined $rational;
+                        $$ex{BinVal} = $binVal if defined $binVal;
+                        $$ex{G6} = $formatStr if $$et{OPTIONS}{SaveFormat};
+                    }
                 }
             } else {
                 # skip over unknown information or free bytes
@@ -1796,6 +1803,8 @@ sub ProcessMIE($$)
             # don't define Parent so WriteMIEGroup() writes extended terminator
         );
         if ($outfile) {
+            # save start position in $outfile
+            $subdirInfo{OutPos} = ref $outfile eq 'SCALAR' ? length($$outfile) || 0 : tell $outfile;
             # generate lookup for MIE format codes if not done already
             unless (%mieCode) {
                 foreach (keys %mieFormat) {
@@ -2551,7 +2560,7 @@ tag name.  For example:
 
 =head1 AUTHOR
 
-Copyright 2003-2023, Phil Harvey (philharvey66 at gmail.com)
+Copyright 2003-2025, Phil Harvey (philharvey66 at gmail.com)
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.  The MIE format itself is also
