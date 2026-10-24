@@ -40,6 +40,13 @@
         _describe -t groups 'file system groups' _groups || compadd "$@"
     }
 
+(( $+functions[_systemd-analyze_plot] )) ||
+    _systemd-analyze_plot() {
+        local -a _options
+        _options=( '--json=off' '--json=pretty' '--json=short' '--table' '--no-legend' )
+        _describe 'plot options' _options
+    }
+
 (( $+functions[_systemd-analyze_commands] )) ||
     _systemd-analyze_commands(){
         local -a _systemd_analyze_cmds
@@ -48,7 +55,8 @@
             'time:Print time spent in the kernel before reaching userspace'
             'blame:Print list of running units ordered by time to init'
             'critical-chain:Print a tree of the time critical chain of units'
-            'plot:Output SVG graphic showing service initialization'
+            'plot:Output SVG graphic showing service initialization, or raw time data in
+JSON or table format'
             'dot:Dump dependency graph (in dot(1) format)'
             'dump:Dump server status'
             'cat-config:Cat systemd config files'
@@ -65,6 +73,7 @@
             'timespan:Parse a systemd syntax timespan'
             'security:Analyze security settings of a service'
             'inspect-elf:Parse and print ELF package metadata'
+            'has-tpm2:Report whether TPM2 support is available'
             # log-level, log-target, service-watchdogs have been deprecated
         )
 
@@ -86,8 +95,8 @@
     }
 
 _arguments \
-    {-h,--help}'[Show help text]' \
-    '--version[Show package version]' \
+    '(- *)'{-h,--help}'[Show help text]' \
+    '(- *)--version[Show package version]' \
     '--system[Operate on system systemd instance]' \
     '--user[Operate on user systemd instance]' \
     '--global[Show global user instance config]' \
@@ -97,9 +106,11 @@ _arguments \
     '--offline=[Perform a security review of the specified unit files]:BOOL:(yes no)' \
     '--threshold=[Set a value to compare the overall security exposure level with]: NUMBER' \
     '--security-policy=[Use customized requirements to compare unit files against]: PATH' \
-    '--json=[Generate a JSON output of the security analysis table]:MODE:(pretty short off)' \
+    "--json=[Generate a JSON output of the security analysis table or plot's raw time data]:MODE:(pretty short off)" \
+    "--table=[Generate a table of plot's raw time data]" \
     '--profile=[Include the specified profile in the security review of units]: PATH' \
     '--no-pager[Do not pipe output into a pager]' \
+    "--no-legend[Do not show the headers and footers for plot's raw time data formats]" \
     '--man=[Do (not) check for existence of man pages]:BOOL:(yes no)' \
     '--generators=[Do (not) run unit generators]:BOOL:(yes no)' \
     '--order[When generating graph for dot, show only order]' \
@@ -107,7 +118,7 @@ _arguments \
     '--fuzz=[When printing the tree of the critical chain, print also services, which finished TIMESPAN earlier, than the latest in the branch]:TIMESPAN' \
     '--from-pattern=[When generating a dependency graph, filter only origins]:GLOB' \
     '--to-pattern=[When generating a dependency graph, filter only destinations]:GLOB' \
-    {-H+,--host=}'[Operate on remote host]:userathost:_sd_hosts_or_user_at_host' \
-    {-M+,--machine=}'[Operate on local container]:machine:_sd_machines' \
+    '(-H --host)'{-H+,--host=}'[Operate on remote host]:userathost:_sd_hosts_or_user_at_host' \
+    '(-M --machine)'{-M+,--machine=}'[Operate on local container]:machine:_sd_machines' \
     '--quiet[Do not show hints]' \
     '*::systemd-analyze commands:_systemd-analyze_commands'

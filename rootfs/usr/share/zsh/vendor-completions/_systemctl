@@ -8,6 +8,7 @@
     local -a unit_commands=(
         # Unit Commands
         "list-automounts:List automounts"
+        "list-paths:List paths"
         "list-sockets:List sockets"
         "list-timers:List timers"
         "list-units:List units"
@@ -36,6 +37,7 @@
         "clean:Remove configuration, state, cache, logs or runtime data of units"
         "bind:Bind mount a path from the host into a unit's namespace"
         "mount-image:Mount an image from the host into a unit's namespace"
+        "whoami:Determines as part of which unit the command is being invoked"
     )
 
     local -a machine_commands=(
@@ -96,6 +98,7 @@
         "suspend:Suspend the system"
         "poweroff:Shut down and power-off the system"
         "reboot:Shut down and reboot the system"
+        "soft-reboot:Shut down and reboot the userspace"
         "kexec:Shut down and reboot the system with kexec"
         "exit:Ask for user instance termination"
         "switch-root:Change root directory"
@@ -150,7 +153,7 @@
 # @todo _systemd-run has a helper with the same name, so we must redefine
 __systemctl()
 {
-    systemctl $_sys_service_mgr --full --legend=no --no-pager --plain "$@" 2>/dev/null
+    command systemctl $_sys_service_mgr --full --legend=no --no-pager --plain "$@" 2>/dev/null
 }
 
 
@@ -158,11 +161,10 @@ __systemctl()
 (( $+functions[_systemctl_all_units] )) ||
     _systemctl_all_units()
 {
-    if ( [[ ${+_sys_all_units} -eq 0 ]] || _cache_invalid SYS_ALL_UNITS$_sys_service_mgr ) ||
-           ! _retrieve_cache SYS_ALL_UNITS$_sys_service_mgr;
+    if _cache_invalid SYS_ALL_UNITS$_sys_service_mgr || ! _retrieve_cache SYS_ALL_UNITS$_sys_service_mgr;
     then
         _sys_all_units=( ${${(f)"$(__systemctl list-units --all)"}%% *} )
-        _store_cache SYS_ALL_UNITS$_sys_service_mgr _sys_all_unis
+        _store_cache SYS_ALL_UNITS$_sys_service_mgr _sys_all_units
     fi
 }
 
@@ -172,8 +174,7 @@ __systemctl()
 {
     local -a all_unit_files;
     local -a really_all_units;
-    if ( [[ ${+_sys_really_all_units} -eq 0 ]] || _cache_invalid SYS_REALLY_ALL_UNITS$_sys_service_mgr ) ||
-           ! _retrieve_cache SYS_REALLY_ALL_UNITS$_sys_service_mgr;
+    if _cache_invalid SYS_REALLY_ALL_UNITS$_sys_service_mgr || ! _retrieve_cache SYS_REALLY_ALL_UNITS$_sys_service_mgr;
     then
         all_unit_files=( ${${(f)"$(__systemctl list-unit-files)"}%% *} )
         _systemctl_all_units
@@ -189,7 +190,7 @@ __systemctl()
         local -a units; units=("${(q-)@}")
         local -A props
         props=(${(f)"$(_call_program units "$service $_sys_service_mgr show --no-pager --property=\"Id,$property\" -- ${units} 2>/dev/null")"})
-        echo -E - "${(@g:o:)${(k@)props[(Re)$property=$value]}#Id=}"
+        echo -E - "${(@)${(k@)props[(Re)$property=$value]}#Id=}"
     }
 
 (( $+functions[_systemctl_get_non_template_names] )) ||
@@ -199,7 +200,10 @@ __systemctl()
     }
 
 (( $+functions[_systemctl_get_template_names] )) ||
-    _systemctl_get_template_names() { echo -E - ${^${(M)${(f)"$(__systemctl list-unit-files)"}##*@.[^[:space:]]##}%%@.*}\@ }
+    _systemctl_get_template_names() {
+        local pathkind=systemd-search-${_sys_service_mgr##*--}-unit
+        print -r - ${(s-:-)^$(_call_program $pathkind systemd-path $pathkind)}/*@.(${(~j.|.)$(__systemctl --type=help)})(N:t:r)
+    }
 
 (( $+functions[_systemctl_active_units] )) ||
     _systemctl_active_units()  {
@@ -441,20 +445,13 @@ done
 (( $+functions[_systemctl_caching_policy] )) ||
     _systemctl_caching_policy()
 {
-    local _sysunits
-    local -a oldcache
-
     # rebuild if cache is more than a day old
-    oldcache=( "$1"(mh+1) )
-    (( $#oldcache )) && return 0
+    [[ -n $1(#qNmd+1) ]] && return 0
 
-    _sysunits=(${${(f)"$(__systemctl --all)"}%% *})
-
-    if (( $#_sysunits )); then
-        for unit in $_sysunits; do
-            [[ "$unit" -nt "$1" ]] && return 0
-        done
-    fi
+    local pathkind=systemd-search-${1##*--}-unit
+    for dir in ${(s-:-)^$(_call_program $pathkind systemd-path $pathkind)}; do
+        [[ $dir -nt $1 ]] && return 0
+    done
 
     return 1
 }
@@ -475,13 +472,9 @@ done
 
 (( $+functions[_systemctl_unit_properties] )) ||
     _systemctl_unit_properties() {
-        if ( [[ ${+_sys_all_properties} -eq 0 ]] || _cache_invalid SYS_ALL_PROPERTIES$_sys_service_mgr ) ||
-               ! _retrieve_cache SYS_ALL_PROPERTIES$_sys_service_mgr;
-        then
-            _sys_all_properties=( ${${(M)${(f)"$(/lib/systemd/systemd --dump-bus-properties)"}}} )
-            _store_cache SYS_ALL_PROPERTIES$_sys_service_mgr _sys_all_properties
-        fi
-        _values -s , "${_sys_all_properties[@]}"
+		local -a _sys_all_properties=( ${(f)"$(/usr/lib/systemd/systemd --no-pager --dump-bus-properties 2>/dev/null)"} )
+        _wanted systemd-unit-properties expl 'unit property' \
+			_values -s , "${_sys_all_properties[@]}"
     }
 
 (( $+functions[_systemctl_job_modes] )) ||
@@ -506,24 +499,24 @@ done
     }
 
 # Build arguments for "systemctl" to be used in completion.
-local -a _modes; _modes=("--user" "--system")
-# Use the last mode (they are exclusive and the last one is used).
-local _sys_service_mgr=${${words:*_modes}[(R)(${(j.|.)_modes})]}
+# Use the last mode, or --system (they are exclusive and the last one is used).
+local _sys_service_mgr=${words[(R)(--user|--system)]:---system}
 _arguments -s \
-    {-h,--help}'[Show help]' \
-    '--version[Show package version]' \
-    {-t+,--type=}'[List only units of a particular type]:unit type:_systemctl_unit_types' \
+    '(- *)'{-h,--help}'[Show help]' \
+    '(- *)--version[Show package version]' \
+    '(-t --type)'{-t+,--type=}'[List only units of a particular type]:unit type:_systemctl_unit_types' \
     '--state=[Display units in the specified state]:unit state:_systemctl_unit_states' \
     '--job-mode=[Specify how to deal with other jobs]:mode:_systemctl_job_modes' \
-    {-p+,--property=}'[Show only properties by specific name]:unit property:_systemctl_unit_properties' \
-    {-a,--all}'[Show all units/properties, including dead/empty ones]' \
+    '(-p --property)'{-p+,--property=}'[Show only properties by specific name]:unit property:_systemctl_unit_properties' \
+    '(-a --all)'{-a,--all}'[Show all units/properties, including dead/empty ones]' \
     '--reverse[Show reverse dependencies]' \
     '--after[Show units ordered after]' \
     '--before[Show units ordered before]' \
-    {-l,--full}"[Don't ellipsize unit names on output]" \
+    '(-l --full)'{-l,--full}"[Don't ellipsize unit names on output]" \
     '--show-types[When showing sockets, show socket type]' \
     '--check-inhibitors[Specify if inhibitors should be checked]:mode:_systemctl_check_inhibitors' \
-    {-q,--quiet}'[Suppress output]' \
+    '(-q --quiet)'{-q,--quiet}'[Suppress output]' \
+    '--no-warn[Suppress several warnings shown by default]' \
     '--no-block[Do not wait until operation finished]' \
     '--legend=no[Do not print a legend, i.e. the column headers and the footer with hints]' \
     '--no-pager[Do not pipe output into a pager]' \
@@ -534,14 +527,14 @@ _arguments -s \
     "--no-reload[When enabling/disabling unit files, don't reload daemon configuration]" \
     '--no-ask-password[Do not ask for system passwords]' \
     '--kill-whom=[Whom to send signal to]:killwhom:(main control all)' \
-    {-s+,--signal=}'[Which signal to send]:signal:_signals' \
-    {-f,--force}'[When enabling unit files, override existing symlinks. When shutting down, execute action immediately]' \
+    '(-s --signal)'{-s+,--signal=}'[Which signal to send]:signal:_signals' \
+    '(-f --force)'{-f,--force}'[When enabling unit files, override existing symlinks. When shutting down, execute action immediately]' \
     '--root=[Enable/disable/mask unit files in the specified root directory]:directory:_directories' \
     '--runtime[Enable/disable/mask unit files only temporarily until next reboot]' \
-    {-H+,--host=}'[Operate on remote host]:userathost:_sd_hosts_or_user_at_host' \
-    {-P,--privileged}'[Acquire privileges before execution]' \
-    {-n+,--lines=}'[Journal entries to show]:number of entries' \
-    {-o+,--output=}'[Change journal output mode]:modes:_sd_outputmodes' \
+    '(-H --host)'{-H+,--host=}'[Operate on remote host]:userathost:_sd_hosts_or_user_at_host' \
+    '(-P --privileged)'{-P,--privileged}'[Acquire privileges before execution]' \
+    '(-n --lines)'{-n+,--lines=}'[Journal entries to show]:number of entries' \
+    '(-o --output)'{-o+,--output=}'[Change journal output mode]:modes:_sd_outputmodes' \
     '--firmware-setup[Tell the firmware to show the setup menu on next boot]' \
     '--plain[When used with list-dependencies, print output as a list]' \
     '--failed[Show failed units]' \
