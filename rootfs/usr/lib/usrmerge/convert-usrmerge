@@ -221,9 +221,11 @@ sub convert_file {
 sub early_conversion_files {
 	no autodie qw(close);
 
-	open(my $fh, '-|', 'ldd /bin/cp');
+	my $bin_cp = '/bin/cp';
+	$bin_cp = '/usr/bin/cp' unless -x $bin_cp;
+	open(my $fh, '-|', "ldd $bin_cp");
 	my @ldd = <$fh>;
-	close $fh or fatal("Failed to execute 'ldd /bin/cp'");
+	close $fh or fatal("Failed to execute 'ldd $bin_cp'");
 
 	# the libraries
 	my @list = grep { $_ } map { /^\s+\S+ => (\/\S+) / and $1 } @ldd;
@@ -299,7 +301,7 @@ sub convert_directory {
 sub restore_context {
 	my ($file) = @_;
 
-	return if not -x '/sbin/restorecon';
+	return if not (-x '/sbin/restorecon' or -x '/usr/sbin/restorecon');
 
 	safe_system('restorecon', $file);
 }

@@ -1,0 +1,25 @@
+[Plugin]
+Module=indicator
+Name[ca]=Indicador de l'aplicació
+Name[cs]=Indikátor aplikace
+Name[de]=Indikator-Applet
+Name[es]=Indicador de la aplicación
+Name[fi]=Sovellusilmaisin
+Name[fr]=Indicateur
+Name[gl]=Indicador de aplicativo
+Name[hu]=Alkalmazás Indikátor
+Name[ja]=アプリケーションインジケーター
+Name[nl]=Toepassingsindicator
+Name[pl]=Application Indicator
+Name[pt]=Indicador da Aplicação
+Name[ro]=Indicator aplicație
+Name[ru]=Приложение-индикатор
+Name[sv]=Programindikator
+Name[tr]=Uygulama Göstergesi
+Name[uk]=Застосунок-індикатор
+Name[zh_CN]=应用状态图标
+Name=Application Indicator
+Description=Access clipboard history with an application indicator.
+Authors=Oliver Sauder <os@esite.ch>
+Copyright=Copyright © 2011 Diodon Team
+

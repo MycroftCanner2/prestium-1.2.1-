@@ -12,6 +12,7 @@ ACTION=="remove", GOTO="seat_end"
 TAG=="uaccess", SUBSYSTEM!="sound", TAG+="seat"
 SUBSYSTEM=="sound", KERNEL=="card*", TAG+="seat"
 SUBSYSTEM=="input", KERNEL=="input*", TAG+="seat"
+SUBSYSTEM=="hidraw", KERNEL=="hidraw*", TAG+="seat"
 SUBSYSTEM=="graphics", KERNEL=="fb[0-9]*", TAG+="seat"
 
 # Assign keyboard and LCD backlights to the seat
@@ -69,11 +70,11 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="17e9", ATTR{idProduct}=="401a", ATTR{product}
 SUBSYSTEM=="usb", ATTR{idVendor}=="17e9", ATTR{idProduct}=="401a", ATTR{product}=="mimo inc", \
                   ATTR{../idVendor}=="058f", ATTR{../idProduct}=="6254", \
                   ENV{ID_AVOID_LOOP}=="", \
-                  RUN+="/bin/udevadm trigger --parent-match=%p/.."
+                  RUN+="/usr/bin/udevadm trigger --parent-match=%p/.."
 
 TAG=="seat", ENV{ID_PATH}=="", IMPORT{builtin}="path_id"
 TAG=="seat", ENV{ID_FOR_SEAT}=="", ENV{ID_PATH_TAG}!="", ENV{ID_FOR_SEAT}="$env{SUBSYSTEM}-$env{ID_PATH_TAG}"
 
-SUBSYSTEM=="input", ATTR{name}=="Wiebetech LLC Wiebetech", RUN+="/bin/loginctl lock-sessions"
+SUBSYSTEM=="input", ATTR{name}=="Wiebetech LLC Wiebetech", RUN+="/usr/bin/loginctl lock-sessions"
 
 LABEL="seat_end"

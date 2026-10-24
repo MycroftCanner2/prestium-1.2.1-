@@ -13,29 +13,21 @@ ACTION!="add|change|move|bind", GOTO="mm_candidate_end"
 # connection. Don't do that.
 KERNEL=="rfcomm*", DEVPATH=="*/virtual/*", GOTO="mm_candidate_end"
 
+# All Qualcomm-based USB devices may switch to a recovery layout with a single
+# serial port in QDL mode if they fail to boot correctly too many times.
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", ENV{ID_MM_DEVICE_IGNORE}="1"
+
+# Generic candidate rules for tty/usbmisc/net subsystems
 SUBSYSTEM=="tty", ENV{ID_MM_CANDIDATE}="1"
 SUBSYSTEM=="net", ENV{ID_MM_CANDIDATE}="1"
 KERNEL=="cdc-wdm*", SUBSYSTEM=="usbmisc", ENV{ID_MM_CANDIDATE}="1"
 
-# WWAN subsystem port handling
+# WWAN subsystem candidate rules
 #  - All USB devices ignored for now, only PCI devices expected
 #  - Only "wwan_port" device types processed (single ports); we fully ignore
 #    the "wwan_dev" device type (full device, not just one port)
-#  - FIREHOSE ports are used for firmware updates and not managed by ModemManager
 SUBSYSTEMS=="usb", GOTO="mm_candidate_end"
 SUBSYSTEM=="wwan", ENV{DEVTYPE}=="wwan_dev", GOTO="mm_candidate_end"
 SUBSYSTEM=="wwan", ENV{ID_MM_CANDIDATE}="1"
-SUBSYSTEM=="wwan", ATTR{type}=="AT", ENV{ID_MM_PORT_TYPE_AT_PRIMARY}="1"
-SUBSYSTEM=="wwan", ATTR{type}=="MBIM", ENV{ID_MM_PORT_TYPE_MBIM}="1"
-SUBSYSTEM=="wwan", ATTR{type}=="QMI", ENV{ID_MM_PORT_TYPE_QMI}="1"
-SUBSYSTEM=="wwan", ATTR{type}=="QCDM", ENV{ID_MM_PORT_TYPE_QCDM}="1"
-SUBSYSTEM=="wwan", ATTR{type}=="FIREHOSE", ENV{ID_MM_PORT_IGNORE}="1"
-
-# Linux 5.13 does not have "type" attribute yet, match kernel name instead
-SUBSYSTEM=="wwan", KERNEL=="*MBIM", ENV{ID_MM_PORT_TYPE_MBIM}="1"
-SUBSYSTEM=="wwan", KERNEL=="*QMI", ENV{ID_MM_PORT_TYPE_QMI}="1"
-SUBSYSTEM=="wwan", KERNEL=="*AT", ENV{ID_MM_PORT_TYPE_AT_PRIMARY}="1"
-SUBSYSTEM=="wwan", KERNEL=="*QCDM", ENV{ID_MM_PORT_TYPE_QCDM}="1"
-SUBSYSTEM=="wwan", KERNEL=="*FIREHOSE", ENV{ID_MM_PORT_IGNORE}="1"
 
 LABEL="mm_candidate_end"
