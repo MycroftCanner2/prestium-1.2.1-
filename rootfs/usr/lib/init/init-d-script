@@ -44,7 +44,13 @@ call() {
 #
 
 do_start_cmd() {
-	start-stop-daemon --start --quiet \
+	if [ "$SETPRIV_ARGS" ] ; then
+	    if ! PATH=/bin:/usr/bin command -v setpriv  > /dev/null 2>&1 ; then
+	       echo "WARNING: setpriv not available, ignoring SETPRIV_ARGS" >&2
+	       unset SETPRIV_ARGS
+	    fi
+	fi
+	${SETPRIV_ARGS:+setpriv $SETPRIV_ARGS} start-stop-daemon --start --quiet \
 	    ${PIDFILE:+--pidfile "$PIDFILE"} \
 	    ${COMMAND_NAME:+--name "$COMMAND_NAME"} \
 	    ${DAEMON:+--exec "$DAEMON"} $START_ARGS -- $DAEMON_ARGS
@@ -75,7 +81,7 @@ do_start()
 
 do_stop_cmd() {
 	start-stop-daemon --stop --quiet \
-	    --retry=TERM/0/CONT/30/KILL/5 \
+	    --retry=CONT/0/TERM/30/KILL/5 \
 	    ${PIDFILE:+--pidfile "$PIDFILE"} \
 	    ${COMMAND_NAME:+--name "$COMMAND_NAME"} \
 	    ${DAEMON:+--exec "$DAEMON"} $STOP_ARGS
@@ -177,7 +183,7 @@ fi
 # Unset configuration variables to make sure that if variable is not assigned a
 # value in init script, it does not use one from environment. See #822918.
 unset DAEMON DAEMON_ARGS DESC NAME COMMAND_NAME PIDFILE \
-    RELOAD_ARGS RELOAD_SIGNAL START_ARGS STOP_ARGS
+    RELOAD_ARGS RELOAD_SIGNAL START_ARGS STOP_ARGS SETPRIV_ARGS
 
 SCRIPTNAME="$__init_d_script_name"
 scriptbasename=${__init_d_script_name##*/}

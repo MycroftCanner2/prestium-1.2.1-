@@ -42,6 +42,11 @@ if [ -r /proc/cmdline ]; then
 		    VERBOSE="no"
 		fi
 		;;
+
+	    # If ip or nfsroot specified and ASYNCMOUNTNFS is unset, default to no
+	    ip|nfsroot)
+	    	[ "$ASYNCMOUNTNFS" ] || ASYNCMOUNTNFS=no
+		;;
 	esac
     done
 fi
