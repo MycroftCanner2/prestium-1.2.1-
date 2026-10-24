@@ -3,7 +3,7 @@ package locale;
 use strict;
 use warnings;
 
-our $VERSION = '1.10';
+our $VERSION = '1.12';
 use Config;
 
 $Carp::Internal{ (__PACKAGE__) } = 1;
@@ -69,7 +69,7 @@ sub import {
 
             $arg =~ s/^://;
 
-            eval { require POSIX; import POSIX 'locale_h'; };
+            eval { require POSIX; POSIX->import('locale_h'); };
 
             # Map our names to the ones defined by POSIX
             my $LC = "LC_" . uc($arg);
@@ -98,7 +98,7 @@ sub import {
 }
 
 sub unimport {
-    $^H &= ~($locale::hint_bits|$locale::partial_hint_bits);
+    $^H &= ~($locale::hint_bits | $locale::partial_hint_bits);
     $^H{locale} = 0;
 }
 

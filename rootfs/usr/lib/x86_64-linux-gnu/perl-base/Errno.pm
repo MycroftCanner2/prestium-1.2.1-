@@ -8,7 +8,7 @@ package Errno;
 use Exporter 'import';
 use strict;
 
-our $VERSION = "1.36";
+our $VERSION = "1.38";
 $VERSION = eval $VERSION;
 
 my %err;

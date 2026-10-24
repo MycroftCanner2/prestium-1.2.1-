@@ -12,7 +12,7 @@ unless( eval q{require warnings::register; warnings::register->import; 1} ) {
 }
 our %attr;
 
-our $VERSION = '2.24';
+our $VERSION = '2.25';
 $VERSION =~ tr/_//d;
 
 # constant.pm is slow

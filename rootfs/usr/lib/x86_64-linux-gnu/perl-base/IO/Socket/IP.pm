@@ -1,19 +1,12 @@
 #  You may distribute under the terms of either the GNU General Public License
 #  or the Artistic License (the same terms as Perl itself)
 #
-#  (C) Paul Evans, 2010-2020 -- leonerd@leonerd.org.uk
+#  (C) Paul Evans, 2010-2023 -- leonerd@leonerd.org.uk
 
-package IO::Socket::IP;
+package IO::Socket::IP 0.42;
 
-use v5;
-use strict;
+use v5.14;
 use warnings;
-
-# $VERSION needs to be set before  use base 'IO::Socket'
-#  - https://rt.cpan.org/Ticket/Display.html?id=92107
-BEGIN {
-   our $VERSION = '0.41';
-}
 
 use base qw( IO::Socket );
 
@@ -96,6 +89,12 @@ sub import
          die "Cannot socket(PF_INET6) - $!";
 
       if( setsockopt $testsock, IPPROTO_IPV6, IPV6_V6ONLY, 0 ) {
+         if( $^O eq "dragonfly") {
+            # dragonflybsd 6.4 lies about successfully turning this off
+            if( getsockopt $testsock, IPPROTO_IPV6, IPV6_V6ONLY ) {
+               return $can_disable_v6only = 0;
+            }
+         }
          return $can_disable_v6only = 1;
       }
       elsif( $! == EINVAL || $! == EOPNOTSUPP ) {
@@ -246,7 +245,7 @@ sub _io_socket_ip__configure
       }
 
       if( $err ) {
-         $@ = "$err";
+         $IO::Socket::errstr = $@ = "$err";
          $! = EINVAL;
          return;
       }
@@ -275,7 +274,7 @@ sub _io_socket_ip__configure
       }
 
       if( $err ) {
-         $@ = "$err";
+         $IO::Socket::errstr = $@ = "$err";
          $! = EINVAL;
          return;
       }
@@ -354,7 +353,7 @@ sub _io_socket_ip__configure
          $hints{flags} |= $AI_ADDRCONFIG;
          ( my $err, @infos ) = getaddrinfo( "", "0", \%hints );
          if( $err ) {
-            $@ = "$err";
+            $IO::Socket::errstr = $@ = "$err";
             $! = EINVAL;
             return;
          }
@@ -403,12 +402,14 @@ sub setup
 
       foreach my $sockopt ( @{ ${*$self}{io_socket_ip_sockopts} } ) {
          my ( $level, $optname, $value ) = @$sockopt;
-         $self->setsockopt( $level, $optname, $value ) or ( $@ = "$!", return undef );
+         $self->setsockopt( $level, $optname, $value ) or
+            ( $IO::Socket::errstr = $@ = "$!", return undef );
       }
 
       if( defined ${*$self}{io_socket_ip_v6only} and defined $AF_INET6 and $info->{family} == $AF_INET6 ) {
          my $v6only = ${*$self}{io_socket_ip_v6only};
-         $self->setsockopt( IPPROTO_IPV6, IPV6_V6ONLY, pack "i", $v6only ) or ( $@ = "$!", return undef );
+         $self->setsockopt( IPPROTO_IPV6, IPV6_V6ONLY, pack "i", $v6only ) or
+            ( $IO::Socket::errstr = $@ = "$!", return undef );
       }
 
       if( defined( my $addr = $info->{localaddr} ) ) {
@@ -417,7 +418,8 @@ sub setup
       }
 
       if( defined( my $listenqueue = ${*$self}{io_socket_ip_listenqueue} ) ) {
-         $self->listen( $listenqueue ) or ( $@ = "$!", return undef );
+         $self->listen( $listenqueue ) or
+            ( $IO::Socket::errstr = $@ = "$!", return undef );
       }
 
       if( defined( my $addr = $info->{peeraddr} ) ) {
@@ -447,7 +449,7 @@ sub setup
 
    # Pick the most appropriate error, stringified
    $! = ( grep defined, @{ ${*$self}{io_socket_ip_errors}} )[0];
-   $@ = "$!";
+   $IO::Socket::errstr = $@ = "$!";
    return undef;
 }
 

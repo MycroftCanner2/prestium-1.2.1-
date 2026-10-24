@@ -10,15 +10,15 @@ use strict;
 use warnings;
 our ( %Config, $VERSION );
 
-$VERSION = "5.036000";
+$VERSION = "5.040001";
 
 # Skip @Config::EXPORT because it only contains %Config, which we special
 # case below as it's not a function. @Config::EXPORT won't change in the
 # lifetime of Perl 5.
 my %Export_Cache = (myconfig => 1, config_sh => 1, config_vars => 1,
-		    config_re => 1, compile_date => 1, local_patches => 1,
-		    bincompat_options => 1, non_bincompat_options => 1,
-		    header_files => 1);
+                    config_re => 1, compile_date => 1, local_patches => 1,
+                    bincompat_options => 1, non_bincompat_options => 1,
+                    header_files => 1);
 
 @Config::EXPORT = qw(%Config);
 @Config::EXPORT_OK = keys %Export_Cache;
@@ -47,20 +47,20 @@ sub import {
     no strict 'refs';
     my $callpkg = caller(0);
     foreach my $func (@funcs) {
-	die qq{"$func" is not exported by the Config module\n}
-	    unless $Export_Cache{$func};
-	*{$callpkg.'::'.$func} = \&{$func};
+        die qq{"$func" is not exported by the Config module\n}
+            unless $Export_Cache{$func};
+        *{$callpkg.'::'.$func} = \&{$func};
     }
 
     *{"$callpkg\::Config"} = \%Config if $export_Config;
     return;
 }
 
-die "$0: Perl lib version (5.36.0) doesn't match executable '$^X' version ($])"
+die "$0: Perl lib version (5.40.1) doesn't match executable '$^X' version ($])"
     unless $^V;
 
-$^V eq 5.36.0
-    or die sprintf "%s: Perl lib version (5.36.0) doesn't match executable '$^X' version (%vd)", $0, $^V;
+$^V eq 5.40.1
+    or die sprintf "%s: Perl lib version (5.40.1) doesn't match executable '$^X' version (%vd)", $0, $^V;
 
 sub FETCH {
     my($self, $key) = @_;
@@ -83,7 +83,7 @@ sub AUTOLOAD {
 
 # tie returns the object, so the value returned to require will be true.
 tie %Config, 'Config', {
-    archlibexp => '/usr/lib/x86_64-linux-gnu/perl/5.36',
+    archlibexp => '/usr/lib/x86_64-linux-gnu/perl/5.40',
     archname => 'x86_64-linux-gnu-thread-multi',
     cc => 'x86_64-linux-gnu-gcc',
     d_readlink => 'define',
@@ -92,19 +92,19 @@ tie %Config, 'Config', {
     dlsrc => 'dl_dlopen.xs',
     dont_use_nlink => undef,
     exe_ext => '',
-    inc_version_list => '',
+    inc_version_list => '5.40.0 5.40.0/x86_64-linux-gnu-thread-multi',
     intsize => '4',
     ldlibpthname => 'LD_LIBRARY_PATH',
     libpth => '/usr/local/lib /usr/lib/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib',
     osname => 'linux',
-    osvers => '4.19.0',
+    osvers => '6.1.0',
     path_sep => ':',
-    privlibexp => '/usr/share/perl/5.36',
+    privlibexp => '/usr/share/perl/5.40',
     scriptdir => '/usr/bin',
-    sitearchexp => '/usr/local/lib/x86_64-linux-gnu/perl/5.36.0',
-    sitelibexp => '/usr/local/share/perl/5.36.0',
+    sitearchexp => '/usr/local/lib/x86_64-linux-gnu/perl/5.40.1',
+    sitelibexp => '/usr/local/share/perl/5.40.1',
     so => 'so',
     useithreads => 'define',
     usevendorprefix => 'define',
-    version => '5.36.0',
+    version => '5.40.1',
 };

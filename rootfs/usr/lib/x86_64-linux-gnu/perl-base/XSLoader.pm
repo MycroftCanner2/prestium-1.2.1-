@@ -6,7 +6,7 @@ no strict 'refs';
 
 package XSLoader;
 
-our $VERSION = "0.31"; # remember to update version in POD!
+our $VERSION = "0.32"; # remember to update version in POD!
 
 package DynaLoader;
 

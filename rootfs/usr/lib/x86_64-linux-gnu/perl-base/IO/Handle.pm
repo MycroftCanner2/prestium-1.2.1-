@@ -10,7 +10,7 @@ use IO ();	# Load the XS module
 require Exporter;
 our @ISA = qw(Exporter);
 
-our $VERSION = "1.48";
+our $VERSION = "1.55";
 
 our @EXPORT_OK = qw(
     autoflush
@@ -364,6 +364,19 @@ sub printflush {
     else {
 	print @_;
     }
+}
+
+################################################
+## Binmode
+##
+
+sub binmode {
+    ( @_ == 1 or @_ == 2 ) or croak 'usage $fh->binmode([LAYER])';
+
+    my($fh, $layer) = @_;
+
+    return binmode $$fh unless $layer;
+    return binmode $$fh, $layer;
 }
 
 1;

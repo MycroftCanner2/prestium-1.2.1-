@@ -3,29 +3,24 @@
 # Getopt::Long.pm -- Universal options parsing
 # Author          : Johan Vromans
 # Created On      : Tue Sep 11 15:00:12 1990
-# Last Modified By: Johan Vromans
-# Last Modified On: Tue Aug 18 14:48:05 2020
-# Update Count    : 1739
+# Last Modified On: Sat Nov 11 17:48:41 2023
+# Update Count    : 1808
 # Status          : Released
 
 ################ Module Preamble ################
 
-use 5.004;
+# Getopt::Long is reported to run under 5.6.1. Thanks Tux!
+use 5.006001;
 
 use strict;
 use warnings;
 
 package Getopt::Long;
 
-use vars qw($VERSION);
-$VERSION        =  2.52;
-# For testing versions only.
-use vars qw($VERSION_STRING);
-$VERSION_STRING = "2.52";
+our $VERSION = 2.57;
 
 use Exporter;
-use vars qw(@ISA @EXPORT @EXPORT_OK);
-@ISA = qw(Exporter);
+use base qw(Exporter);
 
 # Exported subroutines.
 sub GetOptions(@);		# always
@@ -35,21 +30,24 @@ sub Configure(@);		# on demand
 sub HelpMessage(@);		# on demand
 sub VersionMessage(@);		# in demand
 
+our @EXPORT;
+our @EXPORT_OK;
+# Values for $order. See GNU getopt.c for details.
+our ($REQUIRE_ORDER, $PERMUTE, $RETURN_IN_ORDER);
 BEGIN {
-    # Init immediately so their contents can be used in the 'use vars' below.
+    ($REQUIRE_ORDER, $PERMUTE, $RETURN_IN_ORDER) = (0..2);
     @EXPORT    = qw(&GetOptions $REQUIRE_ORDER $PERMUTE $RETURN_IN_ORDER);
     @EXPORT_OK = qw(&HelpMessage &VersionMessage &Configure
 		    &GetOptionsFromArray &GetOptionsFromString);
 }
 
 # User visible variables.
-use vars @EXPORT, @EXPORT_OK;
-use vars qw($error $debug $major_version $minor_version);
+our ($error, $debug, $major_version, $minor_version);
 # Deprecated visible variables.
-use vars qw($autoabbrev $getopt_compat $ignorecase $bundling $order
-	    $passthrough);
+our ($autoabbrev, $getopt_compat, $ignorecase, $bundling, $order,
+     $passthrough);
 # Official invisible variables.
-use vars qw($genprefix $caller $gnu_compat $auto_help $auto_version $longprefix);
+our ($genprefix, $caller, $gnu_compat, $auto_help, $auto_version, $longprefix);
 
 # Really invisible variables.
 my $bundling_values;
@@ -123,16 +121,10 @@ sub import {
 
 ################ Initialization ################
 
-# Values for $order. See GNU getopt.c for details.
-($REQUIRE_ORDER, $PERMUTE, $RETURN_IN_ORDER) = (0..2);
 # Version major/minor numbers.
 ($major_version, $minor_version) = $VERSION =~ /^(\d+)\.(\d+)/;
 
 ConfigDefaults();
-
-################ OO Interface ################
-
-package Getopt::Long::Parser;
 
 # Store a copy of the default configuration. Since ConfigDefaults has
 # just been called, what we get from Configure is the default.
@@ -140,80 +132,18 @@ my $default_config = do {
     Getopt::Long::Configure ()
 };
 
-sub new {
-    my $that = shift;
-    my $class = ref($that) || $that;
-    my %atts = @_;
-
-    # Register the callers package.
-    my $self = { caller_pkg => (caller)[0] };
-
-    bless ($self, $class);
-
-    # Process config attributes.
-    if ( defined $atts{config} ) {
-	my $save = Getopt::Long::Configure ($default_config, @{$atts{config}});
-	$self->{settings} = Getopt::Long::Configure ($save);
-	delete ($atts{config});
-    }
-    # Else use default config.
-    else {
-	$self->{settings} = $default_config;
-    }
-
-    if ( %atts ) {		# Oops
-	die(__PACKAGE__.": unhandled attributes: ".
-	    join(" ", sort(keys(%atts)))."\n");
-    }
-
-    $self;
-}
-
-sub configure {
-    my ($self) = shift;
-
-    # Restore settings, merge new settings in.
-    my $save = Getopt::Long::Configure ($self->{settings}, @_);
-
-    # Restore orig config and save the new config.
-    $self->{settings} = Getopt::Long::Configure ($save);
-}
-
-sub getoptions {
-    my ($self) = shift;
-
-    return $self->getoptionsfromarray(\@ARGV, @_);
-}
-
-sub getoptionsfromarray {
-    my ($self) = shift;
-
-    # Restore config settings.
-    my $save = Getopt::Long::Configure ($self->{settings});
-
-    # Call main routine.
-    my $ret = 0;
-    $Getopt::Long::caller = $self->{caller_pkg};
-
-    eval {
-	# Locally set exception handler to default, otherwise it will
-	# be called implicitly here, and again explicitly when we try
-	# to deliver the messages.
-	local ($SIG{__DIE__}) = 'DEFAULT';
-	$ret = Getopt::Long::GetOptionsFromArray (@_);
-    };
-
-    # Restore saved settings.
-    Getopt::Long::Configure ($save);
-
-    # Handle errors and return value.
-    die ($@) if $@;
-    return $ret;
-}
-
-package Getopt::Long;
+# For the parser only.
+sub _default_config { $default_config }
 
 ################ Back to Normal ################
+
+# The ooparser was traditionally part of the main package.
+no warnings 'redefine';
+sub Getopt::Long::Parser::new {
+    require Getopt::Long::Parser;
+    goto &Getopt::Long::Parser::new;
+}
+use warnings 'redefine';
 
 # Indices in option control info.
 # Note that ParseOptions uses the fields directly. Search for 'hard-wired'.
@@ -258,9 +188,9 @@ use constant PAT_XINT  =>
   ")";
 use constant PAT_FLOAT =>
   "[-+]?".			# optional sign
-  "(?=[0-9.])".			# must start with digit or dec.point
+  "(?=\\.?[0-9])".		# must start with digit or dec.point
   "[0-9_]*".			# digits before the dec.point
-  "(\.[0-9_]+)?".		# optional fraction
+  "(\\.[0-9_]*)?".		# optional fraction
   "([eE][-+]?[0-9_]+)?";	# optional exponent
 
 sub GetOptions(@) {
@@ -303,7 +233,7 @@ sub GetOptionsFromArray(@) {
 	# Avoid some warnings if debugging.
 	local ($^W) = 0;
 	print STDERR
-	  ("Getopt::Long $Getopt::Long::VERSION_STRING ",
+	  ("Getopt::Long $VERSION ",
 	   "called from package \"$pkg\".",
 	   "\n  ",
 	   "argv: ",
@@ -525,8 +455,9 @@ sub GetOptionsFromArray(@) {
 	my $key;		# key (if hash type)
 	my $arg;		# option argument
 	my $ctl;		# the opctl entry
+	my $starter;		# the actual starter character(s)
 
-	($found, $opt, $ctl, $arg, $key) =
+	($found, $opt, $ctl, $starter, $arg, $key) =
 	  FindOption ($argv, $prefix, $argend, $opt, \%opctl);
 
 	if ( $found ) {
@@ -606,12 +537,13 @@ sub GetOptionsFromArray(@) {
 			    eval {
 				&{$linkage{$opt}}
 				  (Getopt::Long::CallBack->new
-				   (name    => $opt,
-				    given   => $given,
-				    ctl     => $ctl,
-				    opctl   => \%opctl,
-				    linkage => \%linkage,
-				    prefix  => $prefix,
+				   (name     => $opt,
+				    given    => $given,
+				    ctl      => $ctl,
+				    opctl    => \%opctl,
+				    linkage  => \%linkage,
+				    prefix   => $prefix,
+				    starter  => $starter,
 				   ),
 				   $ctl->[CTL_DEST] == CTL_DEST_HASH ? ($key) : (),
 				   $arg);
@@ -802,11 +734,15 @@ sub OptCtl ($) {
 sub ParseOptionSpec ($$) {
     my ($opt, $opctl) = @_;
 
+    # Allow period in option name unless passing through,
+    my $op = $passthrough
+      ? qr/(?: \w+[-\w]* )/x : qr/(?: \w+[-.\w]* )/x;
+
     # Match option spec.
     if ( $opt !~ m;^
 		   (
 		     # Option name
-		     (?: \w+[-\w]* )
+		     $op
 		     # Aliases
 		     (?: \| (?: . [^|!+=:]* )? )*
 		   )?
@@ -818,7 +754,7 @@ sub ParseOptionSpec ($$) {
 		     [=:] [ionfs] [@%]? (?: \{\d*,?\d*\} )?
 		     |
 		     # ... or an optional-with-default spec
-		     : (?: -?\d+ | \+ ) [@%]?
+		     : (?: 0[0-7]+ | 0[xX][0-9a-fA-F]+ | 0[bB][01]+ | -?\d+ | \+ ) [@%]?
 		   )?
 		   $;x ) {
 	return (undef, "Error in option spec: \"$opt\"\n");
@@ -851,10 +787,23 @@ sub ParseOptionSpec ($$) {
 	# Fields are hard-wired here.
 	$entry = [$spec,$orig,undef,CTL_DEST_SCALAR,0,0];
     }
-    elsif ( $spec =~ /^:(-?\d+|\+)([@%])?$/ ) {
+    elsif ( $spec =~ /^:(0[0-7]+|0x[0-9a-f]+|0b[01]+|-?\d+|\+)([@%])?$/i ) {
 	my $def = $1;
 	my $dest = $2;
-	my $type = $def eq '+' ? 'I' : 'i';
+	my $type = 'i';		# assume integer
+	if ( $def eq '+' ) {
+	    # Increment.
+	    $type = 'I';
+	}
+	elsif ( $def =~ /^(0[0-7]+|0[xX][0-9a-fA-F]+|0[bB][01]+)$/ ) {
+	    # Octal, binary or hex.
+	    $type = 'o';
+	    $def = oct($def);
+	}
+	elsif ( $def =~ /^-?\d+$/ ) {
+	    # Integer.
+	    $def = 0 + $def;
+	}
 	$dest ||= '$';
 	$dest = $dest eq '@' ? CTL_DEST_ARRAY
 	  : $dest eq '%' ? CTL_DEST_HASH : CTL_DEST_SCALAR;
@@ -912,7 +861,8 @@ sub ParseOptionSpec ($$) {
 	}
     }
 
-    if ( $dups && $^W ) {
+    if ( $dups ) {
+	# Warn now. Will become fatal in a future release.
 	foreach ( split(/\n+/, $dups) ) {
 	    warn($_."\n");
 	}
@@ -923,7 +873,7 @@ sub ParseOptionSpec ($$) {
 # Option lookup.
 sub FindOption ($$$$$) {
 
-    # returns (1, $opt, $ctl, $arg, $key) if okay,
+    # returns (1, $opt, $ctl, $starter, $arg, $key) if okay,
     # returns (1, undef) if option in error,
     # returns (0) otherwise.
 
@@ -1104,7 +1054,7 @@ sub FindOption ($$$$$) {
 	    $arg = 0;		# supply explicit value
 	}
 	unshift (@$argv, $starter.$rest) if defined $rest;
-	return (1, $opt, $ctl, $arg);
+	return (1, $opt, $ctl, $starter, $arg);
     }
 
     # Get mandatory status and type info.
@@ -1127,15 +1077,15 @@ sub FindOption ($$$$$) {
 		# Fake incremental type.
 		my @c = @$ctl;
 		$c[CTL_TYPE] = '+';
-		return (1, $opt, \@c, 1);
+		return (1, $opt, \@c, $starter, 1);
 	    }
 	    my $val
 	      = defined($ctl->[CTL_DEFAULT]) ? $ctl->[CTL_DEFAULT]
 	      : $type eq 's'                 ? ''
 	      :                                0;
-	    return (1, $opt, $ctl, $val);
+	    return (1, $opt, $ctl, $starter, $val);
 	}
-	return (1, $opt, $ctl, $type eq 's' ? '' : 0)
+	return (1, $opt, $ctl, $starter, $type eq 's' ? '' : 0)
 	  if $optargtype == 1;  # --foo=  -> return nothing
     }
 
@@ -1155,9 +1105,9 @@ sub FindOption ($$$$$) {
 	    # Fake incremental type.
 	    my @c = @$ctl;
 	    $c[CTL_TYPE] = '+';
-	    return (1, $opt, \@c, 1);
+	    return (1, $opt, \@c, $starter, 1);
 	}
-	return (1, $opt, $ctl,
+	return (1, $opt, $ctl, $starter,
 		defined($ctl->[CTL_DEFAULT]) ? $ctl->[CTL_DEFAULT] :
 		$type eq 's' ? '' : 0);
     }
@@ -1187,16 +1137,16 @@ sub FindOption ($$$$$) {
 
     if ( $type eq 's' ) {	# string
 	# A mandatory string takes anything.
-	return (1, $opt, $ctl, $arg, $key) if $mand;
+	return (1, $opt, $ctl, $starter, $arg, $key) if $mand;
 
 	# Same for optional string as a hash value
-	return (1, $opt, $ctl, $arg, $key)
+	return (1, $opt, $ctl, $starter, $arg, $key)
 	  if $ctl->[CTL_DEST] == CTL_DEST_HASH;
 
 	# An optional string takes almost anything.
-	return (1, $opt, $ctl, $arg, $key)
+	return (1, $opt, $ctl, $starter, $arg, $key)
 	  if defined $optarg || defined $rest;
-	return (1, $opt, $ctl, $arg, $key) if $arg eq "-"; # ??
+	return (1, $opt, $ctl, $starter, $arg, $key) if $arg eq "-"; # ??
 
 	# Check for option or option list terminator.
 	if ($arg eq $argend ||
@@ -1248,7 +1198,7 @@ sub FindOption ($$$$$) {
 		    # Fake incremental type.
 		    my @c = @$ctl;
 		    $c[CTL_TYPE] = '+';
-		    return (1, $opt, \@c, 1);
+		    return (1, $opt, \@c, $starter, 1);
 		}
 		# Supply default value.
 		$arg = defined($ctl->[CTL_DEFAULT]) ? $ctl->[CTL_DEFAULT] : 0;
@@ -1293,7 +1243,7 @@ sub FindOption ($$$$$) {
     else {
 	die("Getopt::Long internal error (Can't happen)\n");
     }
-    return (1, $opt, $ctl, $arg, $key);
+    return (1, $opt, $ctl, $starter, $arg, $key);
 }
 
 sub ValidValue ($$$$$) {
@@ -1478,9 +1428,7 @@ sub VersionMessage(@) {
 	       $0, defined $v ? " version $v" : (),
 	       "\n",
 	       "(", __PACKAGE__, "::", "GetOptions",
-	       " version ",
-	       defined($Getopt::Long::VERSION_STRING)
-	         ? $Getopt::Long::VERSION_STRING : $VERSION, ";",
+	       " version $VERSION,",
 	       " Perl version ",
 	       $] >= 5.006 ? sprintf("%vd", $^V) : $],
 	       ")\n");
@@ -1498,7 +1446,7 @@ sub VersionMessage(@) {
 sub HelpMessage(@) {
     eval {
 	require Pod::Usage;
-	import Pod::Usage;
+	Pod::Usage->import;
 	1;
     } || die("Cannot provide help: cannot load Pod::Usage\n");
 
@@ -1529,8 +1477,9 @@ sub setup_pa_args($@) {
 
     if ( UNIVERSAL::isa($pa, 'HASH') ) {
 	# Get rid of -msg vs. -message ambiguity.
-	$pa->{-message} = $pa->{-msg};
-	delete($pa->{-msg});
+	if (!defined $pa->{-message}) {
+	    $pa->{-message} = delete($pa->{-msg});
+	}
     }
     elsif ( $pa =~ /^-?\d+$/ ) {
 	$pa = { -exitval => $pa };

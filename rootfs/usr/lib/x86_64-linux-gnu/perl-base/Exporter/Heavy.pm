@@ -4,7 +4,7 @@ use strict;
 no strict 'refs';
 
 # On one line so MakeMaker will see it.
-our $VERSION = '5.77';
+our $VERSION = '5.78';
 
 #
 # We go to a lot of trouble not to 'require Carp' at file scope,
