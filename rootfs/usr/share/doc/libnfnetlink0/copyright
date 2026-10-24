@@ -13,7 +13,7 @@ Files: debian/*
 Copyright: 2006-2007 Max Kellermann <max@duempel.org>
            2007-2014 Alexander Wirt <formorer@debian.org>
            2022      Arturo Borrero Gonzalez <arturo@debian.org>
-           2022      Jeremy Sowden <jeremy@azazel.net>
+           2022-2024 Jeremy Sowden <azazel@debian.org>
 License: GPL-2.0+
 
 License: GPL-2.0+

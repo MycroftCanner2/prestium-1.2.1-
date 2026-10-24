@@ -53,7 +53,6 @@ Files: src/libc-lock.h
        src/nisplus/nis_findserv.c
        src/nisplus/nis_free.c
        src/nisplus/nis_getservlist.c
-       src/nisplus/nis_hash.c
        src/nisplus/nis_intern.h
        src/nisplus/nis_ismember.c
        src/nisplus/nis_local_names.c
@@ -119,7 +118,6 @@ License: permissive-configure
 Files: compile
        depcomp
        missing
-       test-driver
 Copyright: 1999-2017 Free Software Foundation, Inc.
 License: GPL-2+-autoconf-exception
 

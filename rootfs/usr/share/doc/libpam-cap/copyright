@@ -34,12 +34,8 @@ License: BSD-3-clause or GPL-2
 Files: debian/*
 Copyright: 2014, Daniel Baumann <mail@daniel-baumann.ch>
            2014-2022, Christian Kastner <ckk@debian.org>
+	   2025 Simon Josefsson <simon@josefsson.org>
 License: BSD-3-clause or GPL-2+
-
-Files: debian/manpages/*
-Copyright: 1997-2014 Andrew G. Morgan <morgan@linux.kernel.org>
-           2011 Scott Schaefer <saschaefer@neurodiverse.org>
-License: BSD-3-clause or GPL-2
 
 Files: debian/patches/*
 Copyright: 2011, Andrew Straw <strawman@astraw.com>

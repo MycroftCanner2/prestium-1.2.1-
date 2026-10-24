@@ -7,7 +7,7 @@ Files-Excluded:
  tests/*H20_*FIR_SOFA*
 
 Files: *
-Copyright: 2016-2019 Christian Hoene <christian.hoene@symonics.com>, Symonics GmbH
+Copyright: 2016-2024 Christian Hoene <christian.hoene@symonics.com>, Symonics GmbH
 License: BSD-3-clause
 
 Files: src/resampler/*
@@ -22,6 +22,17 @@ License: BSD-3-clause
 Files: src/hrtf/kdtree.*
 Copyright: 2007-2011, John Tsiombikas <nuclear@member.fsf.org>
 License: BSD-3-clause
+
+Files: src/hrtf/portable_endian.h
+Copyright: NONE
+License: public-domain
+ I, Mathias Panzenböck, place this file hereby into the public domain. Use it at
+ your own risk for whatever you like.
+ .
+ In case there are jurisdictions that don't support putting things in the public
+ domain you can also consider it to be "dual licensed" under the BSD, MIT and
+ Apache licenses, if you want to. This code is trivial anyway. Consider it an
+ example on how to get the endian conversion functions on different platforms.
 
 Files: tests/LISTEN_1002_IRC_1002_C_HRIR.*
 Copyright: 2002, IRCAM (Institut de Recherche et Coordination Acoustique/Musique)
@@ -67,7 +78,7 @@ License: cipic
  CIPIC- Center for Image Processing and Integrated Computing University of California 1 Shields Avenue Davis, CA 95616-8553
 
 Files: debian/*
-Copyright: 2017-2019 IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
+Copyright: 2017-2024 IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
 License: BSD-3-clause
 
 

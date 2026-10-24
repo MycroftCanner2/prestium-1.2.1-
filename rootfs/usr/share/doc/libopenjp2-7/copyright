@@ -37,120 +37,6 @@ Copyright: 2001-2003, David Janssens
  2006, Mónica Díez García, Image Processing Laboratory, University of Valladolid, Spain
 License: BSD-2
 
-Files: src/lib/openmj2/*
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
-License: BSD-2
-
-Files: src/lib/openmj2/jp2.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
- 2010-2011, Kaori Hagihara
-License: BSD-2
-
-Files: src/lib/openmj2/jp2.h
- src/lib/openmj2/jpt.h
- src/lib/openmj2/jpt.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2002-2003, Yannick Verschueren
- 2005, Herve Drolon, FreeImage Team
-License: BSD-2
-
-Files: src/lib/openmj2/opj_malloc.h
-Copyright: 2005, Herve Drolon, FreeImage Team
- 2007, Callum Lerwick <seg@haxxed.com>
-License: BSD-2
-
-Files: src/lib/openmj2/event.h
- src/lib/openmj2/event.c
- src/lib/openmj2/image.h
- src/lib/openmj2/image.c
- src/lib/openmj2/opj_includes.h
- src/lib/openmj2/j2k_lib.h
- src/lib/openmj2/j2k_lib.c
- src/lib/openmj2/openjpeg.c
-Copyright: 2005, Herve Drolon, FreeImage Team
-License: BSD-2
-
-Files: src/lib/openmj2/j2k.h
- src/lib/openmj2/pi.c
- src/lib/openmj2/tcd.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
- 2006-2007, Parvatha Elangovan
-License: BSD-2
-
-Files: src/lib/openmj2/mj2.c
- src/lib/openmj2/mj2_convert.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2003-2007, Francois-Olivier Devaux
-License: BSD-2
-
-Files: src/lib/openmj2/openjpeg.h
- src/lib/openmj2/j2k.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
- 2006-2007, Parvatha Elangovan
- 2010-2011, Kaori Hagihara
-License: BSD-2
-
-Files: src/lib/openmj2/raw.h
- src/lib/openmj2/raw.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
-License: BSD-2
-
-Files: src/lib/openmj2/t1.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
- 2007, Callum Lerwick <seg@haxxed.com>
-License: BSD-2
-
-Files: src/lib/openmj2/mj2.h
-Copyright: 2003-2004, Francois-Olivier Devaux
- 2003-2004, Communications and remote sensing Laboratory, Universite catholique de Louvain, Belgium
-License: BSD-2
-
-Files: src/lib/openmj2/dwt.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
- 2007, Jonathan Ballard <dzonatas@dzonux.net>
- 2007, Callum Lerwick <seg@haxxed.com>
-License: BSD-2
-
-Files: src/lib/openmj2/mj2_convert.h
-Copyright: 2003-2004, Francois-Olivier Devaux
- 2002-2004, Communications and remote sensing Laboratory, Universite catholique de Louvain, Belgium
-License: BSD-2
-
 Files: src/lib/openjp2/jp2.h
 Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
  2002-2007, Professor Benoit Macq
@@ -198,14 +84,6 @@ Files:
  src/bin/common/opj_apps_config.h.cmake.in
  src/bin/common/opj_getopt.h
  src/bin/jp2/CMakeLists.txt
- src/bin/jpwl/CMakeLists.txt
- src/bin/mj2/CMakeLists.txt
- src/bin/mj2/meta_out.h
- src/bin/mj2/mj2_to_metadata.h
- src/bin/mj2/mj2_to_metadata.sln
- src/bin/mj2/mj2_to_metadata.vcproj
- src/bin/mj2/mj2_to_metadata_Notes.doc
- src/bin/mj2/readme.txt
  src/bin/wx/CMakeLists.txt
  src/bin/wx/OPJViewer/CMakeLists.txt
  src/bin/wx/OPJViewer/OPJViewer.iss
@@ -254,34 +132,26 @@ Files:
  wrapping/java/openjp2/org_openJpeg_OpenJPEGJavaDecoder.h
  wrapping/java/openjp2/org_openJpeg_OpenJPEGJavaEncoder.h
  .travis.yml
- tools/abi-tracker/compat_report/2.1_to_current/compat_report.html
  tools/abi-tracker/openjpeg.json
  tools/ctest_scripts/travis-ci.cmake
  tools/travis-ci/abi-check.sh
  tools/travis-ci/detect-avx2.c
  tools/travis-ci/install.sh
- tools/travis-ci/knownfailures-Ubuntu12.04-clang3.4-x86_64-Debug-3rdP-ASan.txt
- tools/travis-ci/knownfailures-Ubuntu12.04-clang3.9.0-x86_64-Debug-3rdP.txt
- tools/travis-ci/knownfailures-Ubuntu12.04-clang3.9.0-x86_64-Release-3rdP.txt
- tools/travis-ci/knownfailures-Ubuntu12.04-gcc4.6.3-i386-Release-3rdP.txt
- tools/travis-ci/knownfailures-Ubuntu12.04-gcc4.6.4-i386-Release-3rdP.txt
- tools/travis-ci/knownfailures-Ubuntu14.04-clang3.8.0-x86_64-Release-3rdP.txt
  tools/travis-ci/knownfailures-Ubuntu14.04-gcc4.8.4-i386-Release-3rdP.txt
  tools/travis-ci/knownfailures-all.txt
  tools/travis-ci/knownfailures-windows-vs2010-x86-Release-3rdP.txt
- tools/travis-ci/knownfailures-windows-vs2015-x64-Release-3rdP.txt
- tools/travis-ci/knownfailures-windows-vs2015-x86-Release-3rdP.txt
- tools/travis-ci/knownfailures-Ubuntu12.04-gcc4.6.3-x86_64-Release-3rdP.txt
+ tools/travis-ci/knownfailures-Ubuntu20.04-clang10.0.0-i386-Release-3rdP.txt
+ tools/travis-ci/knownfailures-Ubuntu20.04-gcc9.4.0-x86_64-Release-3rdP.txt
+ tools/travis-ci/knownfailures-Ubuntu22.04-gcc11.4.0-x86_64-Release-3rdP.txt
+ tools/travis-ci/knownfailures-macOS14.7-xcode15.4-arm64-Release-3rdP.txt
+ tools/travis-ci/knownfailures-windows-vs2015-x64-avx2-Release-3rdP.txt
  tools/travis-ci/run.sh
  tools/travis-ci/travis_rsa.enc
+ .github/*
+ HOWTO-RELEASE
 Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
  2002-2007, Professor Benoit Macq
  2002-2003, Yannick Verschueren
-License: BSD-2
-
-Files: src/lib/openjp2/opj_stdint.h
- src/lib/openjp2/opj_inttypes.h
-Copyright: 2012, Mathieu Malaterre <mathieu.malaterre@gmail.com>
 License: BSD-2
 
 Files: src/lib/openjp2/opj_malloc.h
@@ -363,14 +233,6 @@ Files: src/lib/openjp2/invert.h
  src/lib/openjp2/function_list.h
  src/lib/openjp2/function_list.c
 Copyright: 2008, Jerome Fimes, Communications & Systemes <jerome.fimes@c-s.fr>
-License: BSD-2
-
-Files: src/lib/openjp2/raw.c
- src/lib/openjp2/raw.h
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
 License: BSD-2
 
 Files: src/lib/openjp2/bio.c
@@ -471,15 +333,6 @@ Files: src/lib/openjp2/openjpeg.c
 Copyright: 2005, Herve Drolon, FreeImage Team
  2008;2011-2012, Centre National d'Etudes Spatiales (CNES), France
  2012, CS Systemes d'Information, France
-License: BSD-2
-
-Files: src/lib/openjpwl/*
-Copyright: 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2005, Francois Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
- 2002-2005, Communications and remote sensing Laboratory, Universite catholique de Louvain, Belgium
- 2005-2006, Dept. of Electronic and Information Engineering, Universita' degli Studi di Perugia, Italy
 License: BSD-2
 
 Files: src/bin/wx/OPJViewer/source/license.txt
@@ -606,32 +459,6 @@ Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite c
  2005, Herve Drolon, FreeImage Team
 License: BSD-2
 
-Files: src/bin/mj2/opj_mj2_decompress.c
- src/bin/mj2/opj_mj2_compress.c
-Copyright: 2003-2004, Francois-Olivier Devaux
- 2002-2004, Communications and remote sensing Laboratory, Universite catholique de Louvain, Belgium
-License: BSD-2
-
-Files: src/bin/mj2/opj_mj2_wrap.c
- src/bin/mj2/opj_mj2_extract.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2003-2007, Francois-Olivier Devaux
-License: BSD-2
-
-Files: src/bin/mj2/mj2_to_metadata.c
- src/bin/mj2/meta_out.c
- src/bin/mj2/mj2_to_metadata.dtd
-Copyright: None
-License: public-domain
- The base code in this file was developed by the author as part of a video archiving
- project for the U.S. National Library of Medicine, Bethesda, MD.
- It is the policy of NLM (and U.S. government) to not assert copyright.
- .
- A non-exclusive copy of this code has been contributed to the Open JPEG project.
- Except for copyright, inclusion of the code within Open JPEG for distribution and use
- can be bound by the Open JPEG open-source license and disclaimer, expressed elsewhere.
-
 Files: src/bin/jpip/*
 Copyright: 2002-2011, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
  2002-2011, Professor Benoit Macq
@@ -643,38 +470,6 @@ Copyright: 2002-2011, Communications and Remote Sensing Laboratory, Universite c
  2002-2011, Professor Benoit Macq
  2010-2011, Kaori Hagihara
  2011, Lucian Corlaciu, GSoC
-License: BSD-2
-
-Files: src/bin/jpwl/index.c
- src/bin/jpwl/index.h
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2003-2007, Francois-Olivier Devaux
-License: BSD-2
-
-Files: src/bin/jpwl/windirent.h
-Copyright: 1998-2002 Toni Ronkko
-License: MIT
-
-Files: src/bin/jpwl/opj_jpwl_decompress.c
- src/bin/jpwl/opj_jpwl_compress.c
- src/bin/jpwl/convert.c
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
- 2006-2007, Parvatha Elangovan
-License: BSD-2
-
-Files: src/bin/jpwl/convert.h
-Copyright: 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
- 2002-2007, Professor Benoit Macq
- 2001-2003, David Janssens
- 2002-2003, Yannick Verschueren
- 2003-2007, Francois-Olivier Devaux and Antonin Descampe
- 2005, Herve Drolon, FreeImage Team
 License: BSD-2
 
 Files: tests/compare_dump_files.c
@@ -843,9 +638,7 @@ Files: thirdparty/libz/infback.c
 Copyright: 1995-2009 Mark Adler
 License: ZLIB
 
-Files: thirdparty/libz/gzwrite.c
- thirdparty/libz/gzread.c
- thirdparty/libz/gzguts.h
+Files: thirdparty/libz/gzguts.h
 Copyright: 2004, 2005, 2010 Mark Adler
 License: ZLIB
 
@@ -856,11 +649,6 @@ License: ZLIB
 
 Files: thirdparty/libz/inftrees.h
 Copyright: 1995-2005, 2010 Mark Adler
-License: ZLIB
-
-Files: thirdparty/libz/gzclose.c
- thirdparty/libz/gzlib.c
-Copyright: 2004, 2010 Mark Adler
 License: ZLIB
 
 Files: thirdparty/libz/compress.c
@@ -981,11 +769,6 @@ Copyright: 1992-1997 Sam Leffler
  1992-1997 Silicon Graphics, Inc.
 License: LIBTIFF
 
-Files: thirdparty/libtiff/tif_stream.cxx
-Copyright: 1988-1996 Sam Leffler
- 1991-1996 Silicon Graphics, Inc.
-License: LIBTIFF
-
 Files: doc/openjpip.dox.in
 Copyright: 2002-2011, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
  2002-2011, Professor Benoit Macq
@@ -1014,7 +797,8 @@ Files: tests/profiling/filter_massif_output.py
  tests/performance/compare_perfs.py
  tests/performance/perf_test.py
  tests/performance/perf_test_filelist.csv
- tests/fuzzers/opj_decompress_fuzzer.cpp
+ tests/fuzzers/opj_decompress_fuzzer_J2K.cpp
+ tests/fuzzers/opj_decompress_fuzzer_JP2.cpp
  tests/fuzzers/fuzzingengine.c
  tests/fuzzers/build_seed_corpus.sh
  tests/fuzzers/build_google_oss_fuzzers.sh
@@ -1032,7 +816,16 @@ License: BSD-2
 Files: src/lib/openjp2/tls_keys.h
  src/lib/openjp2/thread.h
  src/lib/openjp2/thread.c
+ tests/unit/testjp2.c
 Copyright: Copyright (c) 2016, Even Rouault
+License: BSD-2
+
+Files: src/lib/openjp2/ht_dec.c
+ src/lib/openjp2/t1_ht_generate_luts.c
+ src/lib/openjp2/t1_ht_luts.h
+Copyright: Copyright (c) 2021, Aous Naman
+ Copyright (c) 2021, Kakadu Software Pty Ltd, Australia
+ Copyright (c) 2021, The University of New South Wales, Australia
 License: BSD-2
 
 Files: debian/*

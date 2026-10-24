@@ -9,6 +9,10 @@ Copyright: 2002-2018, Industrial Light & Magic, a division of Lucas Digital Ltd.
            2020, Contributors to the OpenEXR Project
 License: openexr
 
+Files: cmake/FindPythonPackage.cmake
+Copyright: Contributors to the OpenColorIO Project.
+License: BSD-3-clause
+
 Files: src/lib/*
 Copyright: 2002-2014, Industrial Light & Magic, a division of Lucas
 License: BSD-3-clause

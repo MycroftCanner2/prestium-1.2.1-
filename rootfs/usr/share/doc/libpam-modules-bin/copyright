@@ -60,7 +60,12 @@ License: BSD-3-clause or GPL
  DAMAGE.
 Comment:
  On Debian GNU/Linux systems, the complete text of the GNU General
- Public License can be found in `/usr/share/common-licenses/GPL'.
+ Public License can be found in
+ `/usr/share/common-licenses/GPL-1'. Note that according to section 7
+ of GPL version 1, a program that does not specify which version of
+ the GPL it is distributed under (such as PAM) can be distributed
+ under any version of the GPL ever published by the Free Software
+ Foundation. 
 
 Files: tests/tst-pam_mkargv.c
 Copyright: (C) Thorsten Kukuk <kukuk@suse.de> 2009
