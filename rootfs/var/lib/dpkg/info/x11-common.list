@@ -30,7 +30,6 @@
 /usr/share/X11
 /usr/share/doc
 /usr/share/doc/x11-common
-/usr/share/doc/x11-common/NEWS.Debian.gz
 /usr/share/doc/x11-common/changelog.Debian.old.gz
 /usr/share/doc/x11-common/changelog.gz
 /usr/share/doc/x11-common/copyright

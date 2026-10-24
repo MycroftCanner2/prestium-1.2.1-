@@ -1,5 +1,5 @@
-939912a5c5b4447463979fe91c8194b7  usr/lib/xorg/Xorg.wrap
-c1bdbff40fb55f8a1aa448cc8133c26b  usr/share/doc/xserver-xorg-legacy/changelog.Debian.gz
-0160099f49788319beb565bae0023af6  usr/share/doc/xserver-xorg-legacy/changelog.gz
+5a92501b773528cc193cd0c406cc9eb5  usr/lib/xorg/Xorg.wrap
+d60cac11940b51aeead1a74fd3a5aee2  usr/share/doc/xserver-xorg-legacy/changelog.Debian.gz
+40319e3e1b74d11e277c45d3e0777ed2  usr/share/doc/xserver-xorg-legacy/changelog.gz
 5df87950af51ac2c5822094553ea1880  usr/share/doc/xserver-xorg-legacy/copyright
-6b9489de4078dc974b0bd532b302971d  usr/share/man/man1/Xorg.wrap.1.gz
+3b9c69f2184c5199bf3275cd8abdd98f  usr/share/man/man1/Xorg.wrap.1.gz

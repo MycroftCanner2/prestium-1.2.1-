@@ -1,9 +1,10 @@
-b69e6a8eabfb134d288612ccf45b8608  usr/bin/gdialog
-020f103d7f3273ddd54a369a490db2e6  usr/bin/zenity
+e2d64e71ef7b3ceb54d06ac18909e391  usr/bin/zenity
+2db0d8d19c0e7babcdd5f9316a09fd21  usr/share/applications/org.gnome.Zenity.desktop
 71268f6c13e1c0828557f5598dbaaf4b  usr/share/doc/zenity/AUTHORS
-3477832882db4845a6765100150fdbfa  usr/share/doc/zenity/NEWS.gz
-db25f43a9af19e4310ca557f9e6a0001  usr/share/doc/zenity/README.md
-3b4d6c1b8b6c544785d0a4b225def4a9  usr/share/doc/zenity/changelog.Debian.gz
+78be7c1722fcb274d5eebc81ca4b4e61  usr/share/doc/zenity/NEWS.gz
+80bb534bbe03c882f8e6ffe20796b74e  usr/share/doc/zenity/README.md
+5e5fc6d88364af210bd68e999490909b  usr/share/doc/zenity/changelog.Debian.gz
 deb43ebaf6f4fe2d319697e2440927d4  usr/share/doc/zenity/changelog.gz
 2a86e6d10b6063e324aaf3e4c9cbddbf  usr/share/doc/zenity/copyright
-36320fc5f44888a617075c1f0a325f4b  usr/share/man/man1/zenity.1.gz
+9c81084dac5f4c8032059573b28cf6c2  usr/share/icons/hicolor/48x48/apps/zenity.png
+32b03bf8d135cd5168131272dc7958d2  usr/share/man/man1/zenity.1.gz

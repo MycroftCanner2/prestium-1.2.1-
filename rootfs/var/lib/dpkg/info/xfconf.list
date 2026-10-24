@@ -3,6 +3,9 @@
 /usr/bin
 /usr/bin/xfconf-query
 /usr/lib
+/usr/lib/systemd
+/usr/lib/systemd/user
+/usr/lib/systemd/user/xfconfd.service
 /usr/lib/x86_64-linux-gnu
 /usr/lib/x86_64-linux-gnu/xfce4
 /usr/lib/x86_64-linux-gnu/xfce4/xfconf
@@ -62,6 +65,9 @@
 /usr/share/locale/es
 /usr/share/locale/es/LC_MESSAGES
 /usr/share/locale/es/LC_MESSAGES/xfconf.mo
+/usr/share/locale/et
+/usr/share/locale/et/LC_MESSAGES
+/usr/share/locale/et/LC_MESSAGES/xfconf.mo
 /usr/share/locale/eu
 /usr/share/locale/eu/LC_MESSAGES
 /usr/share/locale/eu/LC_MESSAGES/xfconf.mo

@@ -1,13 +1,12 @@
 /.
-/lib
-/lib/udev
-/lib/udev/rules.d
-/lib/udev/rules.d/64-xorg-xkb.rules
 /usr
 /usr/bin
 /usr/bin/Xorg
 /usr/bin/gtf
 /usr/lib
+/usr/lib/udev
+/usr/lib/udev/rules.d
+/usr/lib/udev/rules.d/64-xorg-xkb.rules
 /usr/lib/xorg
 /usr/lib/xorg/Xorg
 /usr/lib/xorg/modules
@@ -34,7 +33,6 @@
 /usr/share/bug/xserver-xorg-core/script
 /usr/share/doc
 /usr/share/doc/xserver-xorg-core
-/usr/share/doc/xserver-xorg-core/NEWS.Debian.gz
 /usr/share/doc/xserver-xorg-core/changelog.Debian.gz
 /usr/share/doc/xserver-xorg-core/changelog.gz
 /usr/share/doc/xserver-xorg-core/copyright

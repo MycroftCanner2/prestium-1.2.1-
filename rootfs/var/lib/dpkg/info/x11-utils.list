@@ -15,7 +15,6 @@
 /usr/bin/appres
 /usr/bin/editres
 /usr/bin/listres
-/usr/bin/luit
 /usr/bin/viewres
 /usr/bin/xdpyinfo
 /usr/bin/xdriinfo
@@ -40,7 +39,6 @@
 /usr/share/man/man1/appres.1.gz
 /usr/share/man/man1/editres.1.gz
 /usr/share/man/man1/listres.1.gz
-/usr/share/man/man1/luit.1.gz
 /usr/share/man/man1/viewres.1.gz
 /usr/share/man/man1/xdpyinfo.1.gz
 /usr/share/man/man1/xdriinfo.1.gz
@@ -55,5 +53,3 @@
 /usr/share/man/man1/xprop.1.gz
 /usr/share/man/man1/xvinfo.1.gz
 /usr/share/man/man1/xwininfo.1.gz
-/usr/share/menu
-/usr/share/menu/x11-utils

@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-# Automatically added by dh_usrlocal/12.1.1
+# Automatically added by dh_usrlocal/13.11.8
 (
 	while read dir; do
 		rmdir "$dir" 2>/dev/null || true

@@ -34,7 +34,7 @@ module.exports = {
 		nick: "anon%%%%",
 		username: "user",
 		realname: "anon",
-		join: "#i2p,#i2p-chat,#i2p-dev,#i2p-help",
+		join: "#i2p,#i2p-chat,#i2p-dev",
 		leaveMessage: "",
 	},
 	lockNetwork: false,

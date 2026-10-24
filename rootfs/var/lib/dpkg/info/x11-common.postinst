@@ -7,11 +7,16 @@ if [ -f /usr/share/debconf/confmodule ]; then
   db_purge
 fi
 
-# Automatically added by dh_installinit/13.4+nmu1
+# Automatically added by dh_installinit/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
-	if [ -z "${DPKG_ROOT:-}" ] && [ -x "/etc/init.d/x11-common" ]; then
+	if [ -z "$DPKG_ROOT" ] && [ -x "/etc/init.d/x11-common" ]; then
 		update-rc.d x11-common defaults >/dev/null
-		invoke-rc.d --skip-systemd-native x11-common restart || exit 1
+		if [ -n "$2" ]; then
+			_dh_action=restart
+		else
+			_dh_action=start
+		fi
+		invoke-rc.d --skip-systemd-native x11-common $_dh_action || exit 1
 	fi
 fi
 # End automatically added section

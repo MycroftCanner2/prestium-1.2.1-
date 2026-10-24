@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-# Automatically added by dh_installalternatives/13.3.4
+# Automatically added by dh_installalternatives/13.20
 if [ "$1" = "remove" ]; then
 	update-alternatives --remove open /usr/bin/xdg-open
 fi

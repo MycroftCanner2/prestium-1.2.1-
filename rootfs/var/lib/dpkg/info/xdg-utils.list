@@ -16,9 +16,8 @@
 /usr/share/bug/xdg-utils/script
 /usr/share/doc
 /usr/share/doc/xdg-utils
-/usr/share/doc/xdg-utils/NEWS.Debian.gz
 /usr/share/doc/xdg-utils/NEWS.gz
-/usr/share/doc/xdg-utils/README
+/usr/share/doc/xdg-utils/README.md.gz
 /usr/share/doc/xdg-utils/TODO
 /usr/share/doc/xdg-utils/changelog.Debian.gz
 /usr/share/doc/xdg-utils/changelog.gz

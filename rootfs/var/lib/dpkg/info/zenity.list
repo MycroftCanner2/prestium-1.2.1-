@@ -1,9 +1,10 @@
 /.
 /usr
 /usr/bin
-/usr/bin/gdialog
 /usr/bin/zenity
 /usr/share
+/usr/share/applications
+/usr/share/applications/org.gnome.Zenity.desktop
 /usr/share/doc
 /usr/share/doc/zenity
 /usr/share/doc/zenity/AUTHORS
@@ -12,6 +13,11 @@
 /usr/share/doc/zenity/changelog.Debian.gz
 /usr/share/doc/zenity/changelog.gz
 /usr/share/doc/zenity/copyright
+/usr/share/icons
+/usr/share/icons/hicolor
+/usr/share/icons/hicolor/48x48
+/usr/share/icons/hicolor/48x48/apps
+/usr/share/icons/hicolor/48x48/apps/zenity.png
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/zenity.1.gz

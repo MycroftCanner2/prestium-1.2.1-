@@ -25,7 +25,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/x11-xserver-utils
-/usr/share/doc/x11-xserver-utils/changelog.amd64.gz
 /usr/share/doc/x11-xserver-utils/changelog.gz
 /usr/share/doc/x11-xserver-utils/copyright
 /usr/share/man
@@ -46,5 +45,3 @@
 /usr/share/man/man1/xsetroot.1.gz
 /usr/share/man/man1/xstdcmap.1.gz
 /usr/share/man/man1/xvidtune.1.gz
-/usr/share/menu
-/usr/share/menu/x11-xserver-utils

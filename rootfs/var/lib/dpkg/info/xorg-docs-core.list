@@ -6,6 +6,9 @@
 /usr/share/doc/xorg-docs-core/changelog.Debian.gz
 /usr/share/doc/xorg-docs-core/changelog.gz
 /usr/share/doc/xorg-docs-core/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/xorg-docs-core
 /usr/share/man
 /usr/share/man/man7
 /usr/share/man/man7/X.7.gz

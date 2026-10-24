@@ -1,8 +1,8 @@
-7b37a33bbe0f18f342fcd5a9f80bc3fe  lib/firmware/regulatory.db-debian
-7b37a33bbe0f18f342fcd5a9f80bc3fe  lib/firmware/regulatory.db-upstream
-db6cb32aaaa5a40709624c63cb19b7a4  lib/firmware/regulatory.db.p7s-debian
-1ab34236cbd7434b889a28f5bc3ce530  lib/firmware/regulatory.db.p7s-upstream
+7b37a33bbe0f18f342fcd5a9f80bc3fe  usr/lib/firmware/regulatory.db-debian
+7b37a33bbe0f18f342fcd5a9f80bc3fe  usr/lib/firmware/regulatory.db-upstream
+db6cb32aaaa5a40709624c63cb19b7a4  usr/lib/firmware/regulatory.db.p7s-debian
+1ab34236cbd7434b889a28f5bc3ce530  usr/lib/firmware/regulatory.db.p7s-upstream
 dced2ab79da4c9e362d03639ccae5140  usr/share/doc/wireless-regdb/README.Debian
-0c5a0f651028fe4a1e7d2d1a260bf99a  usr/share/doc/wireless-regdb/changelog.Debian.gz
+642c9dae9af40f90255eb157ba430444  usr/share/doc/wireless-regdb/changelog.Debian.gz
 970a2e15713037a37a301e343210bad4  usr/share/doc/wireless-regdb/copyright
 f36367764a86a60156caaf98caba0d0a  usr/share/man/man5/regulatory.db.5.gz

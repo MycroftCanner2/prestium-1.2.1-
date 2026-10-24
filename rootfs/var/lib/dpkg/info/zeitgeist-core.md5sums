@@ -1,0 +1,16 @@
+4147c74151f5b8e91cc2c3124abf3980  usr/bin/zeitgeist-daemon
+3e0032c249e0b5bb14ca843375644ba8  usr/lib/systemd/user/zeitgeist-fts.service
+bd33b8826af2dfc1bd79d389285a51a6  usr/lib/systemd/user/zeitgeist.service
+1ec571f5ddf9a1d73e5ba2a9f1acdfba  usr/lib/zeitgeist/zeitgeist-fts
+6528e7d626519342f072c14324e67fe1  usr/lib/zeitgeist/zeitgeist-maybe-vacuum
+93692cf89e73074012ea118afcec87e9  usr/share/bash-completion/completions/zeitgeist-daemon
+0d325daf59b39df8646bfeb77e1daa55  usr/share/dbus-1/services/org.gnome.zeitgeist.Engine.service
+6f049b7009f9a06daac1553a80e590cd  usr/share/dbus-1/services/org.gnome.zeitgeist.SimpleIndexer.service
+0f1713869d038a0c5ae6e1110b6a122e  usr/share/doc/zeitgeist-core/changelog.Debian.amd64.gz
+dc00e798575cf653e9046a211f854909  usr/share/doc/zeitgeist-core/changelog.Debian.gz
+49b673cb1f755f57ee5f94ab9165b8bc  usr/share/doc/zeitgeist-core/changelog.gz
+4b2b4feb750b21b58d48dd625711f273  usr/share/doc/zeitgeist-core/copyright
+3e0dbdcfa0d550311eb83de8fd92c317  usr/share/man/man1/zeitgeist-daemon.1.gz
+3763506ebcbbf2d1a889cebdc232abd0  usr/share/zeitgeist/doc/AUTHORS
+e897bdc297fc1ca6774d366519940971  usr/share/zeitgeist/doc/NEWS
+bb681aae9491f5847b20ff76f44710f0  usr/share/zeitgeist/doc/README.md

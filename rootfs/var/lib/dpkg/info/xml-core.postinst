@@ -14,7 +14,7 @@ if [ "$1" = "configure" ]; then
 
 fi
 # End automatically added section
-# Automatically added by dh_usrlocal/12.1.1
+# Automatically added by dh_usrlocal/13.11.8
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
 (
 	default_mode=0755

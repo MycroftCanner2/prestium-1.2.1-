@@ -1,6 +1,6 @@
 9ebd4afa72d17db9c344a23d11f0d147  usr/lib/xorg/protocol.txt
-4ddc34765a6f998561354be4afc921cf  usr/share/doc/xserver-common/changelog.Debian.gz
-0160099f49788319beb565bae0023af6  usr/share/doc/xserver-common/changelog.gz
+bcedaee35551f714d8e68292115c4591  usr/share/doc/xserver-common/changelog.Debian.gz
+40319e3e1b74d11e277c45d3e0777ed2  usr/share/doc/xserver-common/changelog.gz
 5df87950af51ac2c5822094553ea1880  usr/share/doc/xserver-common/copyright
-6a9700b36fe7e6ccd08cf1069cbfe10d  usr/share/man/man1/Xserver.1.gz
+69edcc87548edff86499bc2d15001664  usr/share/man/man1/Xserver.1.gz
 5226e7f802cdbc002be5176afaca257e  var/lib/xkb/README.compiled

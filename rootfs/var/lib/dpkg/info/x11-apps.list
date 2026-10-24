@@ -106,6 +106,7 @@
 /usr/share/X11/xman.help
 /usr/share/doc
 /usr/share/doc/x11-apps
+/usr/share/doc/x11-apps/changelog.amd64.gz
 /usr/share/doc/x11-apps/changelog.gz
 /usr/share/doc/x11-apps/copyright
 /usr/share/man
@@ -136,7 +137,5 @@
 /usr/share/man/man1/xmore.1.gz
 /usr/share/man/man1/xwd.1.gz
 /usr/share/man/man1/xwud.1.gz
-/usr/share/menu
-/usr/share/menu/x11-apps
 /usr/share/man/man1/atobm.1.gz
 /usr/share/man/man1/bmtoa.1.gz
