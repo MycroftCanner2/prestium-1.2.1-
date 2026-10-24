@@ -15,31 +15,31 @@
 from __future__ import annotations
 
 from typing import Any
-from typing import Callable
-from typing import Optional
 from typing import TYPE_CHECKING
 
 import logging
+from collections.abc import Callable
 from dataclasses import dataclass
 
 if TYPE_CHECKING:
     from .triggers import ProcessableEventsT
     from .triggers import RuleT
 
-log = logging.getLogger('gajim.p.triggers')
+log = logging.getLogger("gajim.p.triggers")
 
 
 def log_result(func: Callable[..., Any]) -> Callable[..., bool]:
     def wrapper(self: Any, event: ProcessableEventsT, rule: RuleT):
         res = func(self, event, rule)
-        log.info(f'{event.name} -> {func.__name__} -> {res}')
+        log.info("%s -> %s -> %s", event.name, func.__name__, res)
         return res
+
     return wrapper
 
 
 @dataclass
 class RuleResult:
-    show_notification: Optional[bool] = None
-    command: Optional[str] = None
-    sound: Optional[bool] = None
-    sound_file: Optional[str] = None
+    show_notification: bool | None = None
+    command: str | None = None
+    sound: bool | None = None
+    sound_file: str | None = None
