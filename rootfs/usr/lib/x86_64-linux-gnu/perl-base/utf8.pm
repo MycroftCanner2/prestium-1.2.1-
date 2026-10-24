@@ -5,7 +5,7 @@ use warnings;
 
 our $hint_bits = 0x00800000;
 
-our $VERSION = '1.24';
+our $VERSION = '1.25';
 our $AUTOLOAD;
 
 sub import {
