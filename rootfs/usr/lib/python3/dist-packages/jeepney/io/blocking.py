@@ -10,14 +10,12 @@ from selectors import DefaultSelector, EVENT_READ
 import socket
 import time
 from typing import Optional
-from warnings import warn
 
 from jeepney import Parser, Message, MessageType, HeaderFields
 from jeepney.auth import Authenticator, BEGIN
 from jeepney.bus import get_bus
 from jeepney.fds import FileDescriptor, fds_buf_size
 from jeepney.wrappers import ProxyBase, unwrap_msg
-from jeepney.routing import Router
 from jeepney.bus_messages import message_bus
 from .common import MessageFilters, FilterHandle, check_replyable
 
@@ -131,19 +129,12 @@ class DBusConnection(DBusConnectionBase):
         super().__init__(sock, enable_fds)
 
         # Message routing machinery
-        self._router = Router(_Future)  # Old interface, for backwards compat
         self._filters = MessageFilters()
 
         # Say Hello, get our unique name
         self.bus_proxy = Proxy(message_bus, self)
         hello_reply = self.bus_proxy.Hello()
         self.unique_name = hello_reply[0]
-
-    @property
-    def router(self):
-        warn("conn.router is deprecated, see the docs for APIs to use instead.",
-             stacklevel=2)
-        return self._router
 
     def send(self, message: Message, serial=None):
         """Serialise and send a :class:`~.Message` object"""
@@ -170,11 +161,10 @@ class DBusConnection(DBusConnectionBase):
         See :meth:`filter`. Returns nothing.
         """
         msg = self.receive(timeout=timeout)
-        self._router.incoming(msg)
         for filter in self._filters.matches(msg):
             filter.queue.append(msg)
 
-    def send_and_get_reply(self, message, *, timeout=None, unwrap=None):
+    def send_and_get_reply(self, message, *, timeout=None):
         """Send a message, wait for the reply and return it
 
         Filters are applied to other messages received before the reply -
@@ -183,24 +173,15 @@ class DBusConnection(DBusConnectionBase):
         check_replyable(message)
         deadline = timeout_to_deadline(timeout)
 
-        if unwrap is None:
-            unwrap = False
-        else:
-            warn("Passing unwrap= to .send_and_get_reply() is deprecated and "
-                 "will break in a future version of Jeepney.", stacklevel=2)
-
         serial = next(self.outgoing_serial)
         self.send_message(message, serial=serial)
         while True:
             msg_in = self.receive(timeout=deadline_to_timeout(deadline))
             reply_to = msg_in.header.fields.get(HeaderFields.reply_serial, -1)
             if reply_to == serial:
-                if unwrap:
-                    return unwrap_msg(msg_in)
                 return msg_in
 
             # Not the reply
-            self._router.incoming(msg_in)
             for filter in self._filters.matches(msg_in):
                 filter.queue.append(msg_in)
 
@@ -308,7 +289,13 @@ def prep_socket(addr, enable_fds=False, timeout=2.0) -> socket.socket:
 
     try:
         with_sock_deadline(sock.connect, addr)
-        authr = Authenticator(enable_fds=enable_fds)
+        authr = Authenticator(enable_fds=enable_fds, inc_null_byte=False)
+        if hasattr(socket, 'SCM_CREDS'):
+            # BSD: send credentials message to authenticate (kernel fills in data)
+            sock.sendmsg([b'\0'], [(socket.SOL_SOCKET, socket.SCM_CREDS, bytes(512))])
+        else:
+            # Linux: no ancillary data needed, bus checks with SO_PEERCRED
+            sock.send(b'\0')
         for req_data in authr:
             with_sock_deadline(sock.sendall, req_data)
             authr.feed(unwrap_read(with_sock_deadline(sock.recv, 1024)))
