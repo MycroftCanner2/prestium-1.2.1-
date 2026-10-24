@@ -1,1 +1,1 @@
-/lib/systemd/system/i2pd.service
+/usr/lib/systemd/system/i2pd.service

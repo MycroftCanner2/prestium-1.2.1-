@@ -1,1 +1,1 @@
-/lib/systemd/system/ifupdown-wait-online.service
+/usr/lib/systemd/system/ifupdown-wait-online.service

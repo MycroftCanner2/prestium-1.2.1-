@@ -35,4 +35,4 @@ tint2 &
 
 volumeicon &
 
-clipit &
+# Prestium 1.9: ClipIt is gone in trixie; Diodon (its Debian replacement) starts from /etc/xdg/autostart

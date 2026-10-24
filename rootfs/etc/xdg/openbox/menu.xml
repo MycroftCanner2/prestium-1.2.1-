@@ -62,7 +62,7 @@
       <action name="Execute"><execute>speedcrunch</execute></action>
     </item>
     <item label="Archive Manager">
-      <action name="Execute"><execute>xarchiver</execute></action>
+      <action name="Execute"><execute>file-roller</execute></action>
     </item>
     <item label="Image Viewer">
       <action name="Execute"><execute>ristretto</execute></action>
@@ -89,6 +89,9 @@
     </item>
     <item label="IRC (The Lounge)">
       <action name="Execute"><execute>/usr/local/bin/prestium-irc</execute></action>
+    </item>
+    <item label="OnionShare">
+      <action name="Execute"><execute>onionshare</execute></action>
     </item>
     <item label="Sylpheed E-mail">
       <action name="Execute"><execute>sylpheed</execute></action>

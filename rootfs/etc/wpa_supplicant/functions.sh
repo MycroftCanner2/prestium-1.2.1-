@@ -26,17 +26,19 @@
 # On Debian GNU/Linux systems, the text of the GPL license,
 # version 2, can be found in /usr/share/common-licenses/GPL-2.
 
+PATH=/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+
 #####################################################################
 ## global variables
 # wpa_supplicant variables
-WPA_SUP_BIN="/sbin/wpa_supplicant"
+WPA_SUP_BIN="/usr/sbin/wpa_supplicant"
 WPA_SUP_PNAME="wpa_supplicant"
 WPA_SUP_PIDFILE="/run/wpa_supplicant.${WPA_IFACE}.pid"
 WPA_SUP_OMIT_DIR="/run/sendsigs.omit.d"
 WPA_SUP_OMIT_PIDFILE="${WPA_SUP_OMIT_DIR}/wpasupplicant.wpa_supplicant.${WPA_IFACE}.pid"
 
 # wpa_cli variables
-WPA_CLI_BIN="/sbin/wpa_cli"
+WPA_CLI_BIN="/usr/sbin/wpa_cli"
 WPA_CLI_PNAME="wpa_cli"
 WPA_CLI_PIDFILE="/run/wpa_action.${WPA_IFACE}.pid"
 WPA_CLI_TIMESTAMP="/run/wpa_action.${WPA_IFACE}.timestamp"
@@ -49,10 +51,14 @@ fi
 
 # verbosity variables
 if [ -n "$IF_WPA_VERBOSITY" ] || [ "$VERBOSITY" = "1" ]; then
-	TO_NULL="/dev/stdout"
+	to_null () {
+		"$@"
+	}
 	DAEMON_VERBOSITY="--verbose"
 else
-	TO_NULL="/dev/null"
+	to_null () {
+		"$@" >/dev/null
+	}
 	DAEMON_VERBOSITY="--quiet"
 fi
 
@@ -92,7 +98,7 @@ wpa_msg () {
 		shift
 		case "$WPA_ACTION" in
 			"CONNECTED"|"DISCONNECTED")
-				[ -x /usr/bin/logger ] || return
+				command -v logger >/dev/null || return
 				if [ "$#" -gt 0 ]; then
 					logger -t "wpa_action" "$@"
 				else
@@ -109,15 +115,15 @@ wpa_msg () {
 	case "$1" in 
 		"verbose")
 			shift
-			echo "$WPA_SUP_PNAME: $@" >$TO_NULL
+			to_null echo "$WPA_SUP_PNAME: $@"
 			;;
 		"action")
 			shift
-			echo -n "$WPA_SUP_PNAME: $@ -- " >$TO_NULL
+			to_null echo -n "$WPA_SUP_PNAME: $@ -- "
 			;;
 		"stderr")
 			shift
-			echo "$WPA_SUP_PNAME: $@" >/dev/stderr
+			echo "$WPA_SUP_PNAME: $@" >&2
 			;;
 		*)
 			;;
@@ -458,7 +464,7 @@ wpa_cli_do () {
 
 	wpa_msg action "$WPACLISET_DESC"
 	
-	wpa_cli $WPACLISET_VARIABLE "$WPACLISET_VALUE" >$TO_NULL
+	to_null wpa_cli $WPACLISET_VARIABLE "$WPACLISET_VALUE"
 
 	if [ "$?" -ne 0 ]; then
 		wpa_msg stderr "$WPACLISET_DESC failed!"
@@ -931,7 +937,7 @@ ifup () {
 	fi
 
 	if [ -n "$WPA_LOGICAL_IFACE" ]; then
-		if ! /sbin/ifquery "${WPA_LOGICAL_IFACE}" > /dev/null 2>&1; then
+		if ! command ifquery "${WPA_LOGICAL_IFACE}" > /dev/null 2>&1; then
 			wpa_msg log "network settings not defined for $WPA_LOGICAL_IFACE in $INTERFACES_FILE and included files."
 			WPA_LOGICAL_IFACE="default"
 		fi
@@ -940,11 +946,11 @@ ifup () {
 
 		ifupdown_lock
 
-		if /sbin/ifquery "$WPA_IFACE" | grep -q '^wpa-roam: ' ; then
+		if command ifquery "$WPA_IFACE" | grep -q '^wpa-roam: ' ; then
 			# Force settings over the unconfigured "master" IFACE
-			/sbin/ifup -v --force "$WPA_IFACE=$WPA_LOGICAL_IFACE"
+			command ifup -v --force "$WPA_IFACE=$WPA_LOGICAL_IFACE"
 		else
-			/sbin/ifup -v "$WPA_IFACE=$WPA_LOGICAL_IFACE"
+			command ifup -v "$WPA_IFACE=$WPA_LOGICAL_IFACE"
 		fi
 		IFUP_RETVAL="$?"
 
@@ -968,7 +974,7 @@ ifdown () {
 
 	ifupdown_lock
 
-	/sbin/ifdown -v "$WPA_IFACE"
+	command ifdown -v "$WPA_IFACE"
 
 	ifupdown_unlock
 
@@ -984,7 +990,7 @@ ifdown () {
 # NB: use iproute if present, flushing the IFACE first
 #
 if_post_down_up () {
-	if [ -x /bin/ip ]; then
+	if command -v ip >/dev/null; then
 		ip addr flush dev "$WPA_IFACE" 2>/dev/null
 		ip link set "$WPA_IFACE" up
 	else

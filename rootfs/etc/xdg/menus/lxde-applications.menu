@@ -6,38 +6,32 @@
 	<Name>Applications</Name>
 	<Directory>lxde-menu-applications.directory</Directory>
 
-	<!-- Read standard .directory and .desktop file locations -->
 	<DefaultAppDirs/>
 	<DefaultDirectoryDirs/>
-
-	<!-- Read in overrides and child menus from applications-merged/ -->
 	<DefaultMergeDirs/>
 
-	<!-- Debian menu -->
 	<Menu>
 		<Name>Debian</Name>
 		<Directory>lxde-debian.directory</Directory>
 		<MergeFile>debian-menu.menu</MergeFile>
 	</Menu>
 
-	<!-- Accessories submenu -->
 	<Menu>
 		<Name>Accessories</Name>
 		<Directory>lxde-utility.directory</Directory>
 		<Include>
 			<And>
 				<Category>Utility</Category>
-	<!-- Accessibility spec must have either the Utility or Settings
-			 category, and we display an accessibility submenu already for
-			 the ones that do not have Settings, so don't display accessibility
-			 applications here -->
-				<Not><Category>Accessibility</Category></Not>
 				<Not><Category>System</Category></Not>
+				<!-- Accessibility must also have either the Utility or Settings
+				     category, and there will be a separate menu for accessibility
+				     applications (that do not have Settings), so don't include
+				     Accessibility here -->
+				<Not><Category>Accessibility</Category></Not>
 			</And>
 		</Include>
-	</Menu> <!-- End Accessories -->
+	</Menu>
 
-	<!-- Accessibility submenu -->
 	<Menu>
 		<Name>Universal Access</Name>
 		<Directory>lxde-utility-accessibility.directory</Directory>
@@ -47,91 +41,77 @@
 				<Not><Category>Settings</Category></Not>
 			</And>
 		</Include>
-	</Menu> <!-- End Accessibility -->
+	</Menu>
 
-	<!-- Development Tools -->
 	<Menu>
 		<Name>Development</Name>
 		<Directory>lxde-development.directory</Directory>
 		<Include>
-			<And>
-				<Category>Development</Category>
-			</And>
-			<Filename>emacs.desktop</Filename>
+			<Category>Development</Category>
 		</Include>
-	</Menu> <!-- End Development Tools -->
+	</Menu>
 
-	<!-- Education -->
 	<Menu>
 		<Name>Education</Name>
 		<Directory>lxde-education.directory</Directory>
 		<Include>
-			<And>
-				<Category>Education</Category>
-			</And>
+			<Category>Education</Category>
 		</Include>
-	</Menu> <!-- End Education -->
+	</Menu>
 
-	<!-- Games -->
 	<Menu>
 		<Name>Games</Name>
 		<Directory>lxde-game.directory</Directory>
 		<Include>
-			<And>
-				<Category>Game</Category>
-			</And>
+			<Category>Game</Category>
 		</Include>
-	</Menu> <!-- End Games -->
+	</Menu>
 
-	<!-- Graphics -->
 	<Menu>
 		<Name>Graphics</Name>
 		<Directory>lxde-graphics.directory</Directory>
 		<Include>
-			<And>
-				<Category>Graphics</Category>
-				<Not><Category>Utility</Category></Not>
-			</And>
+			<Category>Graphics</Category>
 		</Include>
-	</Menu> <!-- End Graphics -->
+	</Menu>
 
-	<!-- Internet -->
 	<Menu>
 		<Name>Internet</Name>
 		<Directory>lxde-network.directory</Directory>
 		<Include>
-			<And>
-				<Category>Network</Category>
-			</And>
+			<Category>Network</Category>
 		</Include>
-	</Menu>	 <!-- End Internet -->
+	</Menu>
 
-	<!-- Multimedia -->
 	<Menu>
 		<Name>Multimedia</Name>
 		<Directory>lxde-audio-video.directory</Directory>
 		<Include>
-			<And>
-				<Category>AudioVideo</Category>
-			</And>
+			<Category>AudioVideo</Category>
+			<Category>Audio</Category>
+			<Category>Video</Category>
 		</Include>
-	</Menu>	 <!-- End Multimedia -->
+	</Menu>
 
-	<!-- Office -->
 	<Menu>
 		<Name>Office</Name>
 		<Directory>lxde-office.directory</Directory>
 		<Include>
-			<And>
-				<Category>Office</Category>
-			</And>
+			<Category>Office</Category>
 		</Include>
-	</Menu> <!-- End Office -->
+	</Menu>
 
-	<!-- System Tools-->
+	<Menu>
+		<Name>Science</Name>
+		<Directory>lxde-science.directory</Directory>
+		<Include>
+			<Category>Science</Category>
+		</Include>
+	</Menu>
+
 	<Menu>
 		<Name>System</Name>
-		<Directory>lxde-system-tools.directory</Directory>
+		<Directory>lxde-system.directory</Directory>
 		<Include>
 			<And>
 				<Category>System</Category>
@@ -139,9 +119,8 @@
 				<Not><Category>PackageManager</Category></Not>
 			</And>
 		</Include>
-	</Menu>	 <!-- End System Tools -->
+	</Menu>
 
-	<!-- Other -->
 	<Menu>
 		<Name>Other</Name>
 		<Directory>lxde-other.directory</Directory>
@@ -149,35 +128,31 @@
 		<Include>
 			<And>
 				<Not><Category>Core</Category></Not>
-				<Not><Category>Settings</Category></Not>
 				<Not><Category>Screensaver</Category></Not>
 			</And>
 		</Include>
-		</Menu> <!-- End Other -->
+		</Menu>
 
 	<Menu>
-		<Name>DesktopSettings</Name>
+		<Name>Settings</Name>
 		<Directory>lxde-settings.directory</Directory>
-		<OnlyUnallocated/>
 		<Include>
-			<Or>
 				<Category>Settings</Category>
 				<Category>PackageManager</Category>
-				<Category>System</Category>
-			</Or>
 		</Include>
 		<Layout>
 			<Merge type="menus"/>
 			<Merge type="files"/>
 		</Layout>
 
-	</Menu> <!-- End Settings -->
+	</Menu>
 
 	<Layout>
 		<Merge type="files"/>
 		<Merge type="menus"/>
+		<Menuname>Other</Menuname>
 		<Separator/>
-		<Menuname>DesktopSettings</Menuname>
+		<Menuname>Settings</Menuname>
 	</Layout>
 
-</Menu> <!-- End Applications -->
+</Menu>

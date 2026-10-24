@@ -1,8 +1,9 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # This file was preprocessed, do not edit!
 
 
 
+use warnings;
 use strict;
 use Debconf::Db;
 use Debconf::AutoSelect qw(:all);
@@ -19,7 +20,7 @@ $confmodule->owner(shift) if @ARGV;
 my $code=127;
 autoflush STDOUT 1;
 
-while (<>) {
+while (<STDIN>) {
 	chomp;
 	my $ret=$confmodule->process_command($_);
 	($code, undef)=split(/ /, $ret, 2);
@@ -30,5 +31,4 @@ $frontend->shutdown;
 $confmodule->finish;
 Debconf::Db->save;
 exit $code;
-
 

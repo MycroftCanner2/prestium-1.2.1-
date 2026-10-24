@@ -3530,7 +3530,7 @@ sub xkb_key {
 		    next;
 		}
 		# symbols[GroupN] = [ X1, X2, ... ]
-		if ($list =~ (s/^symbols\[Group([1-4])\]
+		if ($list =~ (s/^symbols\[[Gg]roup([1-4])\]
 			      =\[([^\]]*?)\],(.*)/$3/x)) {
 		    my $group = $1 - 1 + $base_group;
 		    (my $symbols = $2) =~ s/,/ /g;
@@ -3539,8 +3539,8 @@ sub xkb_key {
 		    next;
 		}
 		# type = "...."
-		if ($list =~ (s/^type(?:\[Group1\])?
-                              =\"([^\"]+)\",(.*)/$2/x)) {
+		if ($list =~ (s/^type(?:\[[Gg]roup1\])?
+                              =?\"([^\"]+)\",(.*)/$2/x)) {
 		    if ($method == $replace_method
 			|| $method == $override_method
 			|| ($method == $augment_method
@@ -3593,7 +3593,7 @@ sub xkb_symbols_definitions {
 	    next;
 	}
 
-	if ($stream =~ (s/^key\.type(?:\[Group1\])?=\"([^\"]+)\";(.*)/$2/)) {
+	if ($stream =~ (s/^key\.type(?:\[[Gg]roup1\])?=\"([^\"]+)\";(.*)/$2/)) {
 	    $default_key_type = $1;
 	    next;
 	}

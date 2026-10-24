@@ -29,9 +29,9 @@
 MACHINE="x86_64"
 OS="linux-gnu"
 CC="gcc"
-CFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wall"
+CFLAGS="-g -O2 -Werror=implicit-function-declaration -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -Wall"
 RELEASE="5.2"
-PATCHLEVEL="15"
+PATCHLEVEL="37"
 RELSTATUS="release"
 MACHTYPE="x86_64-pc-linux-gnu"
 

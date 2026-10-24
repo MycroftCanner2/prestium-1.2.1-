@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+use v5.28;
+
 use strict;
 use warnings;
 use utf8;
@@ -64,7 +66,60 @@ package.
 Overrides the URL of the external repository. This options is
 only useful for the enable and update command. It makes it possible
 to use your own mirror of external repositories, but keeping the
-original GPG authentification that is provided by extrepo.
+original GPG authentication that is provided by extrepo.
+
+=head2 --tor
+
+Define the tor mode. This can be one of the following options
+
+=over
+
+=item onion
+
+When this option is selected, extrepo will try to use a .onion URL that
+is specified in the extrepo metadata. If no such URL is specified,
+extrepo will exit with an error message. Note that not all repositories
+in the extrepo metadata have a .onion URL set, because not all
+repositories even have a .onion URL assigned.
+
+=item tunnel
+
+When this option is selected, extrepo will prepend "tor+" to all URLs,
+but will disregard any .onion URLs that may exist. This tunnels all
+traffic through tor, but will not use the .onion URLs, even if such an
+URL exists in the extrepo metadata.
+
+=item auto
+
+When this option is selected, extrepo will use a .onion URL if one is
+specified in the extrepo metadata, as though the C<onion> option were
+selected. If no such URL is specified, extrepo will instead prepend
+"tor+" to the regular URL in the extrepo metadata, as if C<tunnel> were
+selected.
+
+=item if-onion
+
+When this option is selected, extrepo will use a .onion URL if one is
+specified in the extrepo metadata, as though the C<onion> option were
+selected. If no such URL is specified, extrepo will instead use the
+regular URL without any tor configuration, as if C<off> were selected.
+
+=item off (or not specified)
+
+When this option is selected, no tor configuration will be written by
+extrepo. This is the default.
+
+=back
+
+It is possible to set a default other than C<off> by adding a line to
+C</etc/extrepo/config.yaml>; e.g.,
+
+    tor: auto
+
+sets the default to "auto".
+
+It goes without saying that all the arguments for this option except
+"off" require the apt-transport-tor package to be installed.
 
 =head1 SUBCOMMANDS
 
@@ -113,6 +168,12 @@ C<extrepo enable> command (second case).
 Re-writes the apt configuration file for this repository, as well as the
 GPG keyring for it, from the current metadata.
 
+As of extrepo 0.13, the parameter I<repository_name> may be dropped; in
+that case, all known repositories will be updated. Note that doing so
+will update I<all> files that exist in /etc/apt/sources.list.d and whose
+name starts with C<extrepo_>, even those that are disabled; however, any
+disabled repositories will not be enabled.
+
 =head1 FILES
 
 /etc/extrepo/config.yaml	Extrepo configuration file.
@@ -133,7 +194,7 @@ use Debian::ExtRepo::Commands::Disable;
 use Debian::ExtRepo::Commands::Enable;
 use Debian::ExtRepo::Data qw/fetch_repodata fetch_config/;
 
-sub usage($) {
+sub usage {
 	my $appname = $0;
 	print "Usage:\n";
 	print "$appname search  search for repositories\n";
@@ -153,9 +214,11 @@ my $url;
 my $offlinedata;
 my $mirror;
 my $help;
+my $tormode;
 
 GetOptions(
 	'url=s' => \$url,
+	'tor=s' => \$tormode,
 	'offlinedata' => \$offlinedata,
 	'mirror=s' => \$mirror,
 	'help' => \$help);
@@ -165,9 +228,12 @@ if ($help) {
 }
 
 my $config = fetch_config();
+if(defined($tormode)) {
+	$config->{tor} = $tormode;
+}
 if ($offlinedata) {
 	$config->{url} = "file:///usr/share/extrepo/offline-data";
-}else{
+} else {
 	if ($url) {
 		$config->{url} = $url;
 	}
@@ -189,7 +255,7 @@ if($command eq "Update") {
 } elsif($command eq "Enable") {
 	Debian::ExtRepo::Commands::Enable::run($config, $mirror, 0, $arg);
 } else {
-	eval "Debian::ExtRepo::Commands::${command}::run(\$config, \$mirror, \$arg);";
+	eval "Debian::ExtRepo::Commands::${command}::run(\$config, \$mirror, \$arg);"; ## no critic(stringyeval)
 
 	if($@) {
 		die $!;
