@@ -9,9 +9,9 @@ from precis_i18n.codepointset import CodepointSet
 
 
 def _version_to_float(version):
-    m = re.match(r'^([0-9]+\.[0-9]+)\.[0-9]+$', version)
+    m = re.match(r"^([0-9]+\.[0-9]+)\.[0-9]+$", version)
     if not m:
-        raise ValueError('Unexpected unicode version format: %s' % version)
+        raise ValueError("Unexpected unicode version format: %s" % version)
     return float(m.group(1))
 
 
@@ -24,8 +24,8 @@ class UnicodeData:
         ucd (Union[module,object]): Implements `unicodedata` interface.
     """
 
-    _halfwidth_chars = re.compile(r'[\uff01-\uffef]')
-    _space_chars = re.compile(r'[\u00a0\u1680\u2000-\u200A\u202F\u205F\u3000]')
+    _halfwidth_chars = re.compile(r"[\uff01-\uffef]")
+    _space_chars = re.compile(r"[\u00a0\u1680\u2000-\u200A\u202F\u205F\u3000]")
 
     def __init__(self, ucd=None):
         self._ucd = ucd or unicodedata
@@ -58,10 +58,11 @@ class UnicodeData:
         Returns:
             str: Result.
         """
+
         def _decompose(m):
             char = m.group(0)
             assert len(char) == 1
-            norm = self._ucd.normalize('NFKC', char)
+            norm = self._ucd.normalize("NFKC", char)
             return norm if len(norm) == 1 else char
 
         return self._halfwidth_chars.sub(_decompose, value)
@@ -75,23 +76,23 @@ class UnicodeData:
         Returns:
             str: Result.
         """
-        return self._space_chars.sub(' ', value)
+        return self._space_chars.sub(" ", value)
 
     def default_ignorable(self, cp):
         return cp in _DEFAULT_IGNORABLE
 
     def has_compat(self, cp):
         char = chr(cp)
-        norm = self.normalize('NFKC', char)
+        norm = self.normalize("NFKC", char)
         assert norm
         return norm != char
 
     def control(self, cp):
-        return (0x00 <= cp <= 0x1f) or (0x7f <= cp <= 0x9f)
+        return (0x00 <= cp <= 0x1F) or (0x7F <= cp <= 0x9F)
 
     def noncharacter(self, cp):
-        last = cp & 0x0000ffff
-        return (0xfffe <= last <= 0xffff) or (0xfdd0 <= cp <= 0xfdef)
+        last = cp & 0x0000FFFF
+        return (0xFFFE <= last <= 0xFFFF) or (0xFDD0 <= cp <= 0xFDEF)
 
     def old_hangul_jamo(self, cp):
         return cp in _OLD_HANGUL_JAMO
@@ -112,37 +113,39 @@ class UnicodeData:
         return 0x0660 <= cp <= 0x0669
 
     def extended_arabic_indic(self, cp):
-        return 0x06f0 <= cp <= 0x06f9
+        return 0x06F0 <= cp <= 0x06F9
 
     def valid_jointype(self, value, offset):
-        assert 0x200c <= ord(value[offset]) <= 0x200d
-        return self._scan_join(reversed(value[:offset]), 'L') and \
-            self._scan_join(value[offset + 1:], 'R')
+        assert 0x200C <= ord(value[offset]) <= 0x200D
+        return self._scan_join(reversed(value[:offset]), "L") and self._scan_join(
+            value[offset + 1 :], "R"
+        )
 
     def _scan_join(self, iterable, term):
         for char in iterable:
             join_type = self._join_type(ord(char))
-            if join_type in (term, 'D'):
+            if join_type in (term, "D"):
                 return True
-            if join_type != 'T':
+            if join_type != "T":
                 return False
         return False
 
     def _join_type(self, cp):
         if cp in _JOINTYPE_DUAL_JOINING:
-            return 'D'
+            return "D"
         if cp in _JOINTYPE_RIGHT_JOINING:
-            return 'R'
+            return "R"
         if cp in _JOINTYPE_LEFT_JOINING:
-            return 'L'
+            return "L"
         if cp in _JOINTYPE_TRANSPARENT:
-            return 'T'
+            return "T"
         return None
 
 
 # https://www.unicode.org/Public/UNIDATA/DerivedCoreProperties.txt
 # Derived Property: Default_Ignorable_Code_Point
-_DEFAULT_IGNORABLE = CodepointSet('''
+_DEFAULT_IGNORABLE = CodepointSet(
+    """
 00AD
 034F
 061C
@@ -170,12 +173,14 @@ E0020..E007F
 E0080..E00FF
 E0100..E01EF
 E01F0..E0FFF
-''')
+"""
+)
 assert len(_DEFAULT_IGNORABLE) == 4174
 
 # https://www.unicode.org/Public/UNIDATA/extracted/DerivedJoiningType.txt
 # Joining_Type=Dual_Joining
-_JOINTYPE_DUAL_JOINING = CodepointSet('''
+_JOINTYPE_DUAL_JOINING = CodepointSet(
+    """
 0620
 0626
 0628
@@ -239,6 +244,7 @@ A840..A871
 10BAD..10BAE
 10D01..10D21
 10D23
+10EC3..10EC4
 10F30..10F32
 10F34..10F44
 10F51..10F53
@@ -253,12 +259,14 @@ A840..A871
 10FC4
 10FCA
 1E900..1E943
-''')
-assert len(_JOINTYPE_DUAL_JOINING) == 610
+"""
+)
+assert len(_JOINTYPE_DUAL_JOINING) == 612
 
 # https://www.unicode.org/Public/UNIDATA/extracted/DerivedJoiningType.txt
 # Joining_Type=Right_Joining
-_JOINTYPE_RIGHT_JOINING = CodepointSet('''
+_JOINTYPE_RIGHT_JOINING = CodepointSet(
+    """
 0622..0625
 0627
 0629
@@ -316,6 +324,7 @@ _JOINTYPE_RIGHT_JOINING = CodepointSet('''
 10B91
 10BA9..10BAC
 10D22
+10EC2
 10F33
 10F54
 10F74..10F75
@@ -324,23 +333,27 @@ _JOINTYPE_RIGHT_JOINING = CodepointSet('''
 10FBD
 10FC2..10FC3
 10FC9
-''')
-assert len(_JOINTYPE_RIGHT_JOINING) == 152
+"""
+)
+assert len(_JOINTYPE_RIGHT_JOINING) == 153
 
 # https://www.unicode.org/Public/UNIDATA/extracted/DerivedJoiningType.txt
 # Joining_Type=Left_Joining
-_JOINTYPE_LEFT_JOINING = CodepointSet('''
+_JOINTYPE_LEFT_JOINING = CodepointSet(
+    """
 A872
 10ACD
 10AD7
 10D00
 10FCB
-''')
+"""
+)
 assert len(_JOINTYPE_LEFT_JOINING) == 5
 
 # https://www.unicode.org/Public/UNIDATA/extracted/DerivedJoiningType.txt
 # Joining_Type=Transparent
-_JOINTYPE_TRANSPARENT = CodepointSet('''
+_JOINTYPE_TRANSPARENT = CodepointSet(
+    """
 00AD
 0300..036F
 0483..0487
@@ -369,7 +382,7 @@ _JOINTYPE_TRANSPARENT = CodepointSet('''
 0825..0827
 0829..082D
 0859..085B
-0898..089F
+0897..089F
 08CA..08E1
 08E3..0902
 093A
@@ -578,8 +591,9 @@ FFF9..FFFB
 10A3F
 10AE5..10AE6
 10D24..10D27
+10D69..10D6D
 10EAB..10EAC
-10EFD..10EFF
+10EFC..10EFF
 10F46..10F50
 10F82..10F85
 11001
@@ -610,6 +624,11 @@ FFF9..FFFB
 11340
 11366..1136C
 11370..11374
+113BB..113C0
+113CE
+113D0
+113D2
+113E1..113E2
 11438..1143F
 11442..11444
 11446
@@ -629,7 +648,8 @@ FFF9..FFFB
 116AD
 116B0..116B5
 116B7
-1171D..1171F
+1171D
+1171F
 11722..11725
 11727..1172B
 1182F..11837
@@ -668,9 +688,12 @@ FFF9..FFFB
 11F36..11F3A
 11F40
 11F42
+11F5A
 13430..1343F
 13440
 13447..13455
+1611E..16129
+1612D..1612F
 16AF0..16AF4
 16B30..16B36
 16F4F
@@ -702,18 +725,21 @@ FFF9..FFFB
 1E2AE
 1E2EC..1E2EF
 1E4EC..1E4EF
+1E5EE..1E5EF
 1E8D0..1E8D6
 1E944..1E94A
 1E94B
 E0001
 E0020..E007F
 E0100..E01EF
-''')
-assert len(_JOINTYPE_TRANSPARENT) == 2150
+"""
+)
+assert len(_JOINTYPE_TRANSPARENT) == 2185
 
 # https://www.unicode.org/Public/UNIDATA/Scripts.txt
 # Greek
-_GREEK_SCRIPT = CodepointSet('''
+_GREEK_SCRIPT = CodepointSet(
+    """
 0370..0373
 0375
 0376..0377
@@ -769,12 +795,14 @@ AB65
 1D200..1D241
 1D242..1D244
 1D245
-''')
+"""
+)
 assert len(_GREEK_SCRIPT) == 518
 
 # https://www.unicode.org/Public/UNIDATA/Scripts.txt
 # Hebrew
-_HEBREW_SCRIPT = CodepointSet('''
+_HEBREW_SCRIPT = CodepointSet(
+    """
 0591..05BD
 05BE
 05BF
@@ -797,12 +825,14 @@ FB3E
 FB40..FB41
 FB43..FB44
 FB46..FB4F
-''')
+"""
+)
 assert len(_HEBREW_SCRIPT) == 134
 
 # https://www.unicode.org/Public/UNIDATA/Scripts.txt
 # Hiragana, Katakana, Han
-_HIRAGANA_KATAKANA_HAN = CodepointSet('''
+_HIRAGANA_KATAKANA_HAN = CodepointSet(
+    """
 # Hiragana (381)
 3041..3096
 309D..309E
@@ -827,7 +857,7 @@ FF71..FF9D
 1B120..1B122
 1B155
 1B164..1B167
-# Han (98408)
+# Han (99030)
 2E80..2E99
 2E9B..2EF3
 2F00..2FD5
@@ -848,15 +878,18 @@ FA70..FAD9
 2B740..2B81D
 2B820..2CEA1
 2CEB0..2EBE0
+2EBF0..2EE5D
 2F800..2FA1D
 30000..3134A
 31350..323AF
-''')
-assert len(_HIRAGANA_KATAKANA_HAN) == (381 + 321 + 98408)
+"""
+)
+assert len(_HIRAGANA_KATAKANA_HAN) == (381 + 321 + 99030)
 
 # https://www.unicode.org/Public/UNIDATA/HangulSyllableType.txt
 # Leading_Jamo, Vowel_Jamo, Trailing_Jamo
-_OLD_HANGUL_JAMO = CodepointSet('''
+_OLD_HANGUL_JAMO = CodepointSet(
+    """
 # Leading_Jamo (125)
 1100..115F
 A960..A97C
@@ -866,5 +899,6 @@ D7B0..D7C6
 # Trailing_Jamo (137)
 11A8..11FF
 D7CB..D7FB
-''')
+"""
+)
 assert len(_OLD_HANGUL_JAMO) == (125 + 95 + 137)

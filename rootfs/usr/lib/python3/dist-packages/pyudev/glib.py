@@ -36,7 +36,7 @@
 from gi.repository import GLib, GObject  # pylint: disable=import-error
 
 
-class _ObserverMixin(object):
+class _ObserverMixin:
     """Mixin to provide observer behavior to the old and the new API."""
 
     # pylint: disable=too-few-public-methods
@@ -65,7 +65,10 @@ class _ObserverMixin(object):
             # pylint: disable=attribute-defined-outside-init
             # pylint: disable=no-member
             self.event_source = GLib.io_add_watch(
-                self.monitor, GLib.IO_IN, self._process_udev_event
+                self.monitor,
+                GLib.PRIORITY_DEFAULT,
+                GLib.IO_IN,
+                self._process_udev_event,
             )
         elif not value and self.event_source is not None:
             # pylint: disable=no-member
