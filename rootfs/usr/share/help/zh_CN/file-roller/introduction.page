@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="introduction" xml:lang="zh_CN">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Introduction to the GNOME <app>File Roller</app>.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Zhang Miao</mal:name>
+      <mal:email>mymzhang@gmail.com</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>TeliuTe</mal:name>
+      <mal:email>teliute@163.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>YunQiang Su</mal:name>
+      <mal:email>wzssyqa@gmail.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>tuhaihe</mal:name>
+      <mal:email>1132321739qq@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>简介</title>
+
+  <p><app>File Roller</app> is an application for managing archive files,
+  for example, <file>.zip</file> or <file>.tar</file> files; it is designed to
+  be easy to use. <app>File Roller</app> provides all the tools that are
+  necessary for creating, modifying and extracting archives.</p>
+
+  <note style="advanced">
+    <p>归档由一个或多个文件和文件夹以及元数据组成。它可以部分或整体加密。归档文件对于存储数据和在计算机之间传输数据非常有用，因为它们允许您将多个文件收集到一个文件中。</p>
+  </note>
+
+  <p>With <app>File Roller</app> you can:</p>
+  <list>
+    <item><p>创建新归档文件</p></item>
+    <item><p>查看已有归档文件的内容</p></item>
+    <item><p>查看存档中包含的文件</p></item>
+    <item><p>更改已有归档文件</p></item>
+    <item><p>从归档中提取文件</p></item>
+  </list>
+
+</page>

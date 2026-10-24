@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="test-integrity" xml:lang="zh_CN">
+
+  <info>
+    <title type="sort" its:translate="no">3</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>创作共同署名，相同方式同享许可 3.0</p>
+    </license>
+    <desc>检查归档是否有错误。</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Zhang Miao</mal:name>
+      <mal:email>mymzhang@gmail.com</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>TeliuTe</mal:name>
+      <mal:email>teliute@163.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>YunQiang Su</mal:name>
+      <mal:email>wzssyqa@gmail.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>tuhaihe</mal:name>
+      <mal:email>1132321739qq@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>测试完整性</title>
+
+  <p><app>File Roller</app> allows you to check whether the compressed data
+  in an archive contains any errors. Do this by pressing the menu button in the
+  top-right corner of the window and select
+  <gui style="menuitem">Test Integrity</gui>.</p>
+
+
+  <p><gui>测试结果</gui> 对话框将弹出，列出测试的文件，底部有测试摘要。</p>
+
+  <note style="advanced">
+    <p>完整性测试可以验证您的数据是否损坏。</p>
+  </note>
+
+</page>

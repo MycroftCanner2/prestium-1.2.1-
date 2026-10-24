@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="ru">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович (Marta Bogdanowicz)</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Добавить файлы или папки в новый архив.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрий Мясоедов</mal:name>
+      <mal:email>omerta13@yandex.ru</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Алексей Кабанов</mal:name>
+      <mal:email>ak099@mail.ru</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Станислав Соловей</mal:name>
+      <mal:email>whats_up@tut.by</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Alexey Rubtsov</mal:name>
+      <mal:email>rushills@gmail.com</mal:email>
+      <mal:years>2021</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Aleksandr Melman</mal:name>
+      <mal:email>alexmelman88@gmail.com</mal:email>
+      <mal:years>2022</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Создать новый архив</title>
+
+  <p>Чтобы создать новый архив с помощью <app>File Roller</app>, выполните следующее:</p>
+
+  <steps>
+    <item>
+      <p>Нажмите кнопку меню в правом верхнем углу окна и выберите пункт <gui style="menuitem">Новый архив</gui>.</p>
+    </item>
+    <item>
+      <p>Назовите новый архивный файл и выберите формат файла из выпадающего списка.</p>
+    </item>
+    <item>
+      <p>Выберите место, где будет сохранен архивный файл.</p>
+    </item>
+    <item>
+      <p>Нажмите кнопку <gui>Создать</gui>, чтобы продолжить.</p>
+      <note style="tip">
+	<p>Нажав кнопку <gui>Другие параметры</gui>, вы можете установить пароль или разделить ваш новый архив на более мелкие отдельные файлы, выбрав соответствующую опцию и указав объем каждой части в <gui>МБ</gui>. Эти опции доступны только в том случае, если выбранный формат архивного файла поддерживает их.</p>
+      </note>
+    </item>
+    <item>
+      <p>Добавьте нужные файлы и папки в архив, нажав <gui>+</gui> в строке заголовка. Установите флажок рядом с файлами и папками, которые вы хотите добавить.</p>
+      <note style="tip">
+	<p>Не все архивные форматы поддерживают папки, если файловый формат не поддерживает папки, вы не получите предупреждения. Если файловый формат не поддерживает папки, файлы из папок будут добавлены, но сама папка добавлена не будет.</p>
+      </note>
+    </item>
+    <item>
+      <p>Архив готов, как только будет завершено добавление файлов. Архив не нужно сохранять.</p>
+    </item>
+  </steps>
+
+</page>

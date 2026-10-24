@@ -16,6 +16,12 @@
       <mal:email>sebras@gmail.com</mal:email>
       <mal:years>2016</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Anders Jonsson</mal:name>
+      <mal:email>anders.jonsson@norsjovallen.se</mal:email>
+      <mal:years>2023</mal:years>
+    </mal:credit>
   </info>
   <title>Formulärdialog</title>
     <p>Använd flaggan <cmd>--forms</cmd> för att skapa en formulärdialog.</p>
@@ -30,7 +36,7 @@
       </item>
 
       <item>
-        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+        <title><cmd>--add-password</cmd>=<var>Fältnamn</var></title>
 	<p>Lägg till en ny lösenordsinmatningsruta i formulärdialogen. (Göm text)</p>
       </item>
 

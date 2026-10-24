@@ -18,7 +18,7 @@
     </mal:credit>
   </info>
   <title>通知区域图标</title>
-    <p>使用 <cmd>--notification</cmd> 选项创建一个通知对话框。</p>
+    <p>使用 <cmd>--notification</cmd> 选项创建一个被动桌面通知。</p>
 
   <terms>
     <item>
@@ -26,11 +26,20 @@
       <p>指定在通知区域显示的文本。</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>text</var>', message: '<var>text</var>', tooltip: '<var>text</var>', visible: '<var>text</var>',</title>
-      <p>Listens for commands at standard input. At least one command must be specified. Commands are comma separated. A command must be followed by a colon and a value. </p>
+      <title><cmd>--icon</cmd>=<var>路径</var></title>
+      <p>使用包含系统上有效图标路径的字符串设置通知图标。</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
+      <p>监听标准输入的命令。必须至少指定一个命令。命令以逗号分隔。命令后面必须跟有冒号和值。</p>
       <note style="tip">
-        <p>The <cmd>icon</cmd> command also accepts four stock icon values such as <var>error</var>, <var>info</var>, <var>question</var> and <var>warning</var>.</p>
+        <p><cmd>icon</cmd> 命令还接受符合 FreeDesktop.org 图标命名规范的图标主题名称值，例如 <var>dialog-error</var>、<var>dialog-information</var> 和 <var>security-high</var>。</p>
       </note>
+      <p>示例包括：</p>
+      <code>
+      message: 你好，我的名字是 Joe
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -38,9 +47,9 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
-    --text="There are system updates necessary!"
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
+    --text="系统有必要的更新！"
   </code>
 
   <figure>
@@ -49,7 +58,7 @@
     <media type="image" mime="image/png" src="figures/zenity-notification-screenshot.png"/>
   </figure>
 
-  <p>The following example script shows how to create a notification icon along with <cmd>--listen</cmd>:</p>
+  <p>下面的脚本示范了如何创建一个包含 <cmd>--listen</cmd> 选项的通知区域图标：</p>
   <code>
   #!/bin/sh
   cat &lt;&lt;EOH| zenity --notification --listen
@@ -58,8 +67,8 @@
   </code>
 
   <figure>
-    <title>Notification Icon with <cmd>--listen</cmd> Example</title>
-    <desc><app>Zenity</app> notification with <cmd>--listen</cmd> example</desc>
+    <title>包含<cmd>--listen</cmd>选项的通知区域图标范例</title>
+    <desc>包含<cmd>--listen</cmd>选项的<app>Zenity</app> 通知图标范例</desc>
     <media type="image" mime="image/png" src="figures/zenity-notification-listen-screenshot.png"/>
   </figure>
 

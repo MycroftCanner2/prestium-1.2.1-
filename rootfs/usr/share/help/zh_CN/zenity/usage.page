@@ -112,11 +112,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>图标路径</var></title>
-	<p>指定显示在对话窗口框上的图标。有四个图标也可以用下列关键字 - 'info'， 'warning'， 'question' 和 'error'。</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>宽度</var></title>
 	<p>指定对话框的宽度。</p>
       </item>

@@ -10,6 +10,18 @@
       <mal:email>deshko@tut.by</mal:email>
       <mal:years>2007</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Yuri Kozlov</mal:name>
+      <mal:email>yuray@komyakino.ru</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Ser82-png</mal:name>
+      <mal:email>asvmail.as@gmail.com</mal:email>
+      <mal:years>2023</mal:years>
+    </mal:credit>
   </info>
   <title>Диалоговое окно форм</title>
     <p>Используйте параметр <cmd>--forms</cmd>, чтобы создать диалоговое окно форм.</p>

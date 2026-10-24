@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="introduction" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Вступ до <app>File Roller</app> GNOME.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Вступ</title>
+
+  <p><app>File Roller</app> — програма для керування файлами архівів, наприклад файлів <file>.zip</file> або <file>.tar</file>. Програму розроблено простою у користуванні. У <app>File Roller</app> ви знайдете усі інструменти, які потрібні для створення архівів, внесення змін до архівів і видобування даних з архівів.</p>
+
+  <note style="advanced">
+    <p>Архів складається з одного або декількох файлів чи тек разом із метаданими. Архів може бути зашифровано частково або повністю. Файли архівів використовують для зберігання даних та перенесення даних між комп'ютерами, оскільки за їхньою допомогою можна поєднати декілька файлів у один.</p>
+  </note>
+
+  <p>За допомогою <app>File Roller</app> ви можете:</p>
+  <list>
+    <item><p>створити архів</p></item>
+    <item><p>переглянути вміст наявного архіву</p></item>
+    <item><p>переглянути файл, який міститься в архіві</p></item>
+    <item><p>внести зміни до наявного архіву</p></item>
+    <item><p>видобути файли з архіву</p></item>
+  </list>
+
+</page>

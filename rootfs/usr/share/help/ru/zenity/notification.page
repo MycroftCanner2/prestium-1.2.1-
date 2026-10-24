@@ -10,9 +10,21 @@
       <mal:email>deshko@tut.by</mal:email>
       <mal:years>2007</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Yuri Kozlov</mal:name>
+      <mal:email>yuray@komyakino.ru</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Ser82-png</mal:name>
+      <mal:email>asvmail.as@gmail.com</mal:email>
+      <mal:years>2023</mal:years>
+    </mal:credit>
   </info>
   <title>Значок уведомления</title>
-    <p>Используйте параметр <cmd>--notification</cmd>, чтобы создать значок уведомления.</p>
+    <p>Используйте параметр <cmd>--notification</cmd>, чтобы создать пассивное уведомление на рабочем столе.</p>
 
   <terms>
     <item>
@@ -20,11 +32,20 @@
       <p>Указывает текст, который будет изображён в области уведомления.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>текст</var>', message: '<var>текст</var>', tooltip: '<var>текст</var>', visible: '<var>текст</var>',</title>
+      <title><cmd>--icon</cmd>=<var>путь</var></title>
+      <p>Устанавливает значок уведомления, указанный в строке, содержащей путь к имеющемуся в системе значку.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Ожидает команды по стандартному вводу. Должна быть указана хотя бы одна команда. Команды следует отделять запятыми. После команды следует указывать двоеточие и значение.</p>
       <note style="tip">
-        <p>Команда <cmd>icon</cmd> также принимает значение четырёх стандартных значков, таких как <var>error</var>, <var>info</var>, <var>question</var> и <var>warning</var>.</p>
+        <p>Команда <cmd>icon</cmd> также принимает значение названия темы значка в соответствии со спецификацией именования значков FreeDesktop.org, например <var>dialog-error</var>, <var>dialog-information</var> и <var>security-high</var>.</p>
       </note>
+      <p>Примеры:</p>
+      <code>
+      message: Привет, меня зовут Джо
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -33,7 +54,7 @@
   #!/bin/sh
 
   zenity --notification\
-    --window-icon="info" \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
     --text="Необходимо обновить систему!"
   </code>
 

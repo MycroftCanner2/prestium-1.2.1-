@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">5</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <link type="seealso" xref="archive-open"/>
+    <link type="seealso" xref="password-protection"/>
+    <link type="seealso" xref="archive-extract-advanced-options"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="review"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Видобування файлів або тек з вашого архіву.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Видобування з архіву</title>
+
+  <p>Видобути файли з архіву за допомогою <app>File Roller</app> можна за допомогою таких кроків:</p>
+
+  <steps>
+    <item>
+      <p><link xref="archive-open">Відкрийте</link> архів.</p>
+    </item>
+    <item>
+      <p>Натисніть кнопку <gui style="button">Розпакувати</gui>.</p>
+    </item>
+    <item>
+      <p>Виберіть теку, до якої ви хочете видобути вміст архіву, за допомогою вікна для вибору файлів. Цю теку будемо називати текою призначення. Докладніше про параметри видобування можна дізнатися з розділу щодо <link xref="archive-extract-advanced-options">додаткових параметрів розпаковування архівів</link>.</p>
+    </item>
+    <item>
+      <p>Натисніть кнопку <gui>Розпакувати</gui>.</p>
+    </item>
+    <item>
+      <p>Якщо архів захищено <link xref="password-protection">паролем</link>, <app>Менеджер архівів</app> попросить вас ввести пароль. Введіть пароль і натисніть кнопку <gui>Гаразд</gui>.</p>
+    </item>
+    <item>
+      <p>Програма покаже вам панель поступу у новому діалоговому вікні. Якщо розпакування буде успішно завершено, програма спитає вас, чи хочете ви:</p>
+      <list>
+        <item>
+          <p><gui>Показати файли</gui> — переглянути теку призначення за допомогою програми <app>Файли</app>.</p>
+        </item>
+        <item>
+          <p><gui>Закрити</gui> вікно.</p>
+        </item>
+      </list>
+    </item>
+  </steps>
+
+</page>

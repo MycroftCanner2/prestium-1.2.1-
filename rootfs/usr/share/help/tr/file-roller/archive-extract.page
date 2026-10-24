@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract" xml:lang="tr">
+
+  <info>
+    <title type="sort" its:translate="no">5</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <link type="seealso" xref="archive-open"/>
+    <link type="seealso" xref="password-protection"/>
+    <link type="seealso" xref="archive-extract-advanced-options"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="review"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Dosya veya klasörleri arşivden çıkar.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sabri Ünal</mal:name>
+      <mal:email>libreajans@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Emin Tufan Çetin</mal:name>
+      <mal:email>etcetin@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Arşiv çıkar</title>
+
+  <p>Aşağıdaki adımları izleyerek <app>File Roller</app> uygulamasını kullanarak arşivdeki dosyaları çıkarın:</p>
+
+  <steps>
+    <item>
+      <p>Bir arşivi <link xref="archive-open">Aç</link>.</p>
+    </item>
+    <item>
+      <p><gui style="button">Çıkar</gui>’a tıkla.</p>
+    </item>
+    <item>
+      <p>Arşivin nereye çıkarılmasını istediğinizi dosya seçici ile seçin. Bu, hedef klasör olacaktır. Daha çok çıkarma seçeneği için bkz: <link xref="archive-extract-advanced-options">Arşiv çıkartma için gelişmiş seçenekler</link>.</p>
+    </item>
+    <item>
+      <p><gui>Çıkar</gui>’a tıkla.</p>
+    </item>
+    <item>
+      <p>Arşiv <link xref="password-protection">parola</link> ile korunuyorsa, <app>Arşiv Yöneticisi</app> bunu isteyecektir. Parolayı yazın ve <gui>Tamam</gui>’a tıklayın.</p>
+    </item>
+    <item>
+      <p>Uygulama, ilerleme çubuğunu yeni iletişim kutusunda gösterecektir. Çıkarma işlemi başarıyla tamamlanırsa şu seçenekler sunulur:</p>
+      <list>
+        <item>
+          <p><gui>Dosyaları göster</gui> seçeneği hedef dizini <app>Dosyalar</app> ile görüntüler.</p>
+        </item>
+        <item>
+          <p><gui>Kapat</gui> seçeneği iletişim kutusunu kapatır.</p>
+        </item>
+      </list>
+    </item>
+  </steps>
+
+</page>

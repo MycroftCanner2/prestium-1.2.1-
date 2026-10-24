@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract" xml:lang="zh_CN">
+
+  <info>
+    <title type="sort" its:translate="no">5</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <link type="seealso" xref="archive-open"/>
+    <link type="seealso" xref="password-protection"/>
+    <link type="seealso" xref="archive-extract-advanced-options"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="review"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>从归档文件中提取文件或文件夹。</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Zhang Miao</mal:name>
+      <mal:email>mymzhang@gmail.com</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>TeliuTe</mal:name>
+      <mal:email>teliute@163.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>YunQiang Su</mal:name>
+      <mal:email>wzssyqa@gmail.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>tuhaihe</mal:name>
+      <mal:email>1132321739qq@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>提取归档文件</title>
+
+  <p>Extract files from an archive using <app>File Roller</app> by
+  following these steps:</p>
+
+  <steps>
+    <item>
+      <p><link xref="archive-open">打开</link>归档文件。</p>
+    </item>
+    <item>
+      <p>点击<gui style="button">提取</gui>。</p>
+    </item>
+    <item>
+      <p>在文件选择器中选择要将存档提取到的位置。这将是目标文件夹。有关更多提取选项，请参阅 <link xref="archive-extract-advanced-options">提取档案的高级选项</link>。</p>
+    </item>
+    <item>
+      <p>点击<gui>提取</gui>。</p>
+    </item>
+    <item>
+      <p>如果存档受 <link xref="password-protection">密码</link> 保护，则 <app>归档管理器</app> 将请求它。输入密码并单击<gui>确定</gui>。</p>
+    </item>
+    <item>
+      <p>该应用将在新对话框中为您显示进度条。如果提取成功完成，程序将询问您如何操作：</p>
+      <list>
+        <item>
+          <p><gui>显示文件</gui> 以使用 <app>文件</app> 应用查看目标文件夹。</p>
+        </item>
+        <item>
+          <p><gui>关闭</gui>对话框。</p>
+        </item>
+      </list>
+    </item>
+  </steps>
+
+</page>

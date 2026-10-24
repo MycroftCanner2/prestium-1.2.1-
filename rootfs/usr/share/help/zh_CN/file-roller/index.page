@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" style="task 2column" id="index" xml:lang="zh_CN">
+
+  <info>
+    <title type="link" role="trail">File Roller</title>
+    <title type="link">File Roller Help</title>
+    <title type="text">File Roller Help</title>
+    <revision pkgversion="3.8" date="2013-02-24" status="review"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>学习使用和管理文件和文件夹的压缩存档。</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Zhang Miao</mal:name>
+      <mal:email>mymzhang@gmail.com</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>TeliuTe</mal:name>
+      <mal:email>teliute@163.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>YunQiang Su</mal:name>
+      <mal:email>wzssyqa@gmail.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>tuhaihe</mal:name>
+      <mal:email>1132321739qq@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  </info>
+  
+  <title>
+    <media type="image" its:translate="no" width="48px" height="48px" src="figures/org.gnome.FileRoller.svg"/>
+    File Roller
+  </title>
+  
+  <section id="managing-archives" style="2column">
+    <title>管理归档文件</title>
+  </section>
+
+  <section id="advanced-options" style="2column">
+    <title>高级选项</title>
+  </section>
+
+  <section id="troubleshooting" style="2column">
+    <title>故障排除</title>
+  </section>
+
+</page>

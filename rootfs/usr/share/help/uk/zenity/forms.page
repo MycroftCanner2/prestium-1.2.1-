@@ -18,7 +18,7 @@
       </item>
 
       <item>
-        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+        <title><cmd>--add-password</cmd>=<var>НАЗВА_ПОЛЯ</var></title>
 	<p>Додати у вікно форм поле для введення пароля (приховує введений текст).</p>
       </item>
 

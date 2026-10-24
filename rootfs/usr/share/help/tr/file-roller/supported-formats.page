@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="supported-formats" xml:lang="tr">
+
+  <info>
+    <title type="sort" its:translate="no">2</title>
+    <link type="guide" xref="index"/>
+    <revision pkgversion="3.4" date="2011-11-21" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc><app>File Roller</app>, türlü dosya biçimleriyle çalışır.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sabri Ünal</mal:name>
+      <mal:email>libreajans@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Emin Tufan Çetin</mal:name>
+      <mal:email>etcetin@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Desteklenen dosya biçimleri</title>
+
+  <p><app>File Roller</app> tarafından desteklenen dosya biçimleri şunlardır:</p>
+
+  <list type="numbered">
+    <item><p>Yalnızca arşiv</p>
+      <list>
+        <item><p>AIX Küçük İndeksli Arşiv (<file>.ar</file>)</p></item>
+        <item><p>ISO-9660 CD Disk Görüntüsü [Salt okunur kip] (<file>.iso</file>)</p></item>
+        <item><p>Teyp Arşiv Dosyası (<file>.tar</file>)</p></item>
+      </list>
+    </item>
+    <item><p>Arşiv ve sıkıştırma</p>
+      <list>
+        <item><p>Java Arşiv (<file>.jar</file>)</p></item>
+        <item><p>WinRAR Sıkıştırılmış Arşiv (<file>.rar</file>)</p></item>
+        <item><p>Şunlarla sıkıştırılmış Teyp Arşiv Dosyası:</p>
+          <list>
+            <item><p>gzip (<file>.tar.gz</file>, <file>.tgz</file>)</p></item>
+            <item><p>bzip (<file>.tar.bz</file>, <file>.tbz</file>)</p></item>
+            <item><p>bzip2 (<file>.tar.bz2</file>, <file>.tbz2</file>)</p></item>
+            <item><p>lzop (<file>.tar.lzo</file>, <file>.tzo</file>)</p></item>
+            <item><p>7zip (<file>.tar.7z</file>)</p></item>
+            <item><p>xz (<file>.tar.xz</file>)</p></item>
+          </list>
+        </item>
+        <item><p>Cabinet Dosyası (<file>.cab</file>)</p></item>
+        <item><p>ZIP Arşivlenmiş Çizgi Roman Kitabı (<file>.cbz</file>)</p></item>
+        <item><p>ZIP Arşiv (<file>.zip</file>)</p></item>
+        <item><p>ZOO Sıkıştırılmış Arşiv Dosyası (<file>.zoo</file>)</p></item>
+      </list>
+    </item>
+  </list>
+
+<!-- TODO: how does one install the plugins? -->
+  <note>
+    <p>Kimi dosya biçimleri için <app>File Roller</app> ilave eklentiler gerektirebilir.</p>
+  </note>
+
+</page>

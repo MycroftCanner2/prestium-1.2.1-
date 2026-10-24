@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="zh_CN">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>创作共同署名，相同方式同享许可 3.0</p>
+    </license>
+    <desc>查看已有归档文件及其内容。</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Zhang Miao</mal:name>
+      <mal:email>mymzhang@gmail.com</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>TeliuTe</mal:name>
+      <mal:email>teliute@163.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>YunQiang Su</mal:name>
+      <mal:email>wzssyqa@gmail.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>tuhaihe</mal:name>
+      <mal:email>1132321739qq@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>查看归档文件</title>
+
+  <p>查看归档有两种方式：</p>
+
+  <terms>
+    <item>
+      <title>查看所有文件</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>您可以使用上述这些列标题（如名称、大小……）排列归档中的文件。点击它们来排列文件，再次点击同一个列标题将以逆序排列。</p>
+      </note>
+    </item>
+    <item>
+      <title>以文件夹查看</title>
+      <p>此视图显示经典目录结构。要使用它，请按窗口右上角的菜单按钮，然后选择 <gui style="menuitem">以文件夹方式查看</gui>。</p>
+      <note style="tip">
+	<p>以这种方式查看您的存档时，您可以按<key>F9</key>，或按窗口右上角的菜单按钮并选择<gui style="menu">侧边栏</gui>， 在侧窗格中查看文件夹的树视图。 它允许您在文件夹之间轻松导航。</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>打开归档文件中的文件</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>可通过下面的步骤使用不同的应用程序打开文件：</p>
+      <steps>
+        <item>
+          <p>右键单击该文件。</p>
+        </item>
+        <item>
+          <p>单击<gui style="menuitem">打开方式...</gui>。</p>
+        </item>
+        <item>
+          <p>选择您要使用的应用程序并单击<gui style="menuitem">选择</gui>。</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

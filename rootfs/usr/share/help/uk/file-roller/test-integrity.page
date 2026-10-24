@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="test-integrity" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">3</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Перевірка архіву на помилки.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Перевірка цілісності</title>
+
+  <p>За допомогою <app>File Roller</app> ви можете перевірити стиснені дані у архіві на наявність помилок. Для цього натисніть кнопку меню у верхньому правому куті вікна програми і виберіть пункт <gui style="menuitem">Перевірити цілісність</gui>.</p>
+
+
+  <p>Буде відкрито діалогове вікно із <gui>Результатом перевірки</gui>, де буде показано список перевірених файлів та резюме перевірки у нижній частині вікна.</p>
+
+  <note style="advanced">
+    <p>Перевірка цілісності визначає, чи не пошкоджено вміст архіву.</p>
+  </note>
+
+</page>

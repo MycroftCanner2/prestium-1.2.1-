@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract-advanced-options" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2012-03-06" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Визначення параметрів розпаковування архівів.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Додаткові параметри розпаковування архівів</title>
+
+  <p>У <app>File Roller</app> ви можете скористатися різноманітними параметрами <link xref="archive-extract">розпаковування архівів</link>. Ці параметри буде показано у вікні <gui>Розпакувати</gui>. У нижній частині цього вікна ви зможете визначити, чи слід розпаковувати:</p>
+
+  <terms>
+    <item>
+      <title><gui>Усі файли</gui></title>
+      <p>Буде розпаковано усі файли і теки у архіві.</p>
+    </item>
+    <item>
+      <title><gui>Виділені файли</gui></title>
+      <p><app>File Roller</app> виконує розпаковування лише позначених файлів.</p>
+      <note>
+        <p>Перш ніж ви натиснете кнопку <gui style="button">Розпакувати</gui>, вам слід позначити файли, які ви хочете видобути. Зробити це можна клацанням на пункті файла. Скористайтеся натисканням клавіш <key>Ctrl</key> і <key>Shift</key>, якщо потрібно позначити декілька файлів.</p>
+      </note>
+    </item>
+    <item>
+      <title><gui>Файли</gui></title>
+      <p>Ви можете ввести назви файлів, які хочете розпакувати. Назви файлів слід відокремлювати крапкою з комою (<key>;</key>).</p>
+      <note>
+        <p>Після назви файла слід вказати суфікс назви. Ви можете скористатися універсальним символом-замінником (<key>*</key>). Наприклад, щоб позначити усі файли <file>.txt</file>, введіть <file>*.txt</file>.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>У діалоговому вікні вибору файлів ви можете вказати, чи хочете ви:</p>
+  <terms>
+    <item>
+      <title><gui>Зберегти структуру каталогу</gui></title>
+      <p>Позначте цей пункт, якщо ви хочете зберегти структуру каталогів такою, якою вона є у архіві.</p>
+    </item>
+    <item>
+      <title><gui>Не перезаписувати новіші файли</gui></title>
+      <p>За допомогою цього пункту можна наказати програмі не перезаписувати наявних файлів із тією самою назвою, час внесення змін до яких є ближчим до поточного, ніж час внесення змін до відповідних файлів в архіві.</p>
+    </item>
+  </terms>
+
+  <p>Список цих <gui>Дій</gui> буде показано у нижній частині діалогового вікна.</p>
+
+</page>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract-advanced-options" xml:lang="tr">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2012-03-06" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Arşiv çıkarma tercihlerini belirlemek.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sabri Ünal</mal:name>
+      <mal:email>libreajans@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Emin Tufan Çetin</mal:name>
+      <mal:email>etcetin@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Arşiv çıkarma için gelişmiş seçenekler</title>
+
+  <p><app>File Roller</app> <link xref="archive-extract">arşiv çıkartma</link> için farklı seçenekler sunar. Bu seçenekleri <gui>Çıkar</gui> iletişim kutusunda görebilirsiniz. Bu iletişim kutusunun altında, şu ayıklama seçeneklerinden birini kullanabilirsiniz:</p>
+
+  <terms>
+    <item>
+      <title><gui>Tüm dosyalar</gui></title>
+      <p>Arşivdeki tüm dosya ve klasörler çıkartılır.</p>
+    </item>
+    <item>
+      <title><gui>Seçili dosyalar</gui></title>
+      <p><app>File Roller</app>, yalnızca seçilen dosyaları çıkartır.</p>
+      <note>
+        <p>Çıkarılmak istenen dosyaları <gui style="button">Çıkar</gui> düğmesine tıklamadan önce seçmek gerekir. Bunu, dosyaların üstüne tıklayarak yapabilirsiniz. Birden çok dosya seçmek için <key>Ctrl</key> ve <key>Shift</key> tuşlarını kullanabilirsiniz.</p>
+      </note>
+    </item>
+    <item>
+      <title><gui>Dosyalar</gui></title>
+      <p>Çıkarmak istediğiniz dosyaların adlarını yazabilirsiniz. Noktalı virgül (<key>;</key>) kullanarak tek tek dosyaları ayırınız.</p>
+      <note>
+        <p>Dosya adının ardından dosya uzantısı gelmelidir. Yıldız imini (<key>*</key>) joker karakter olarak kullanabilirsiniz. Örneğin, tüm <file>.txt</file> dosyalarını seçmek için <file>*.txt</file> yazın.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>Dosya seçici iletişim kutusunda şunları yapmak isteyip istemediğinizi belirtebilirsiniz:</p>
+  <terms>
+    <item>
+      <title><gui>Dizin yapısını koru</gui></title>
+      <p>Dizin yapısını arşivinizdeki gibi tutmak istiyorsanız bu seçeneği imleyin.</p>
+    </item>
+    <item>
+      <title><gui>Yeni dosyaların üzerine yazma</gui></title>
+      <p>Bu seçenek, arşivdekilerden daha güncel değişiklik tarihli aynı addaki var olan dosyaların üzerine yazmaz.</p>
+    </item>
+  </terms>
+
+  <p>Bu <gui>Eylemler</gui> iletişim kutusunun altında listelenir.</p>
+
+</page>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="ru">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович (Marta Bogdanowicz)</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Просмотреть существующий архив и его содержимое.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрий Мясоедов</mal:name>
+      <mal:email>omerta13@yandex.ru</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Алексей Кабанов</mal:name>
+      <mal:email>ak099@mail.ru</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Станислав Соловей</mal:name>
+      <mal:email>whats_up@tut.by</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Alexey Rubtsov</mal:name>
+      <mal:email>rushills@gmail.com</mal:email>
+      <mal:years>2021</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Aleksandr Melman</mal:name>
+      <mal:email>alexmelman88@gmail.com</mal:email>
+      <mal:years>2022</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Просмотр архива</title>
+
+  <p>Существует два режима просмотра архива:</p>
+
+  <terms>
+    <item>
+      <title>Просмотр всех файлов</title>
+      <p>Нажмите кнопку меню в правом верхнем углу окна и выберите пункт <gui style="menuitem">Показывать все файлы</gui>. <app>File Roller</app> выведет список всех файлов внутри архива. Вы увидите их имена, размеры, типы, даты последнего изменения и местоположение.</p>
+      <note style="tip">
+	<p>Вышеуказанные заголовки столбцов (имя, размер…) можно использовать для сортировки файлов в архиве. Для этого нажмите на заголовок. Чтобы выполнить сортировку в обратном порядке, нажмите по нему ещё раз.</p>
+      </note>
+    </item>
+    <item>
+      <title>Просмотр в виде папки</title>
+      <p>Этот вид отображает классическую структуру каталогов. Чтобы использовать его, нажмите кнопку меню в правом верхнем углу окна и выберите <gui style="menuitem">Показать текущую папку</gui>.</p>
+      <note style="tip">
+	<p>Просматривая архив таким образом, вы можете нажать <key>F9</key> или кнопку меню в правом верхнем углу окна и выбрать <gui style="menu">Боковая панель</gui>, чтобы увидеть древовидное представление папок в боковой панели. Это позволит вам легко перемещаться между папками.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Открытие файлов в архиве</title>
+
+    <p>Открывайте файлы, находящиеся в вашем архиве, двойным щелчком по имени файла или щелчком правой кнопкой мыши по имени файла и выбором пункта <gui style="menuitem">Открыть</gui>. <app>File Roller</app> откроет файл с помощью приложения по умолчанию для данного типа файлов.</p>
+
+    <note>
+      <p>Открыть файл в другом приложении можно следующим образом:</p>
+      <steps>
+        <item>
+          <p>Щёлкните правой кнопкой мыши по файлу.</p>
+        </item>
+        <item>
+          <p>Нажмите <gui style="menuitem">Открыть с помощью…</gui>.</p>
+        </item>
+        <item>
+          <p>Выберите приложение, которое вы хотите использовать, и нажмите <gui style="menuitem">Выбрать</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

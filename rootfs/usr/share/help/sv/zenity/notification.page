@@ -16,9 +16,15 @@
       <mal:email>sebras@gmail.com</mal:email>
       <mal:years>2016</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Anders Jonsson</mal:name>
+      <mal:email>anders.jonsson@norsjovallen.se</mal:email>
+      <mal:years>2023</mal:years>
+    </mal:credit>
   </info>
   <title>Aviseringsikon</title>
-    <p>Använd flaggan <cmd>--notification</cmd> för att skapa en aviseringsikon.</p>
+    <p>Använd flaggan <cmd>--notification</cmd> för att skapa en passiv skrivbordsavisering.</p>
 
   <terms>
     <item>
@@ -26,11 +32,20 @@
       <p>Anger texten som visas i aviseringsytan.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>text</var>', message: '<var>text</var>', tooltip: '<var>text</var>', visible: '<var>text</var>',</title>
+      <title><cmd>--icon</cmd>=<var>sökväg</var></title>
+      <p>Ställ in aviseringsikonen med en sträng som innehåller en sökväg till en giltig ikon i systemet.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Lyssnar efter kommandon på standard in. Åtminstone ett kommando måste anges. Kommandon är kommaavgränsade. Ett kommando måste följas av ett kolon och ett värde.</p>
       <note style="tip">
-        <p>Kommandot <cmd>icon</cmd> accepterar fyra standardikonvärden så som <var>error</var>, <var>info</var>, <var>question</var> och <var>warning</var>.</p>
+        <p>Kommandot <cmd>icon</cmd> accepterar också värden för ikontemanamn enligt Icon Naming Specification på FreeDesktop.org, såsom <var>dialog-error</var>, <var>dialog-information</var> och <var>security-high</var>.</p>
       </note>
+      <p>Exempel:</p>
+      <code>
+      message: Hej, jag heter Joel
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -38,8 +53,8 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
     --text="Det finns nödvändiga systemuppdateringar!"
   </code>
 

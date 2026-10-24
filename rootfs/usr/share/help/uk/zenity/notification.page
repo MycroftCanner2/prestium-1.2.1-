@@ -6,7 +6,7 @@
     <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
   </info>
   <title>Значок області сповіщення</title>
-    <p>Для створення піктограми області сповіщення скористайтеся параметром <cmd>--notification</cmd>.</p>
+    <p>Для створення пасивного сповіщення стільниці скористайтеся параметром <cmd>--notification</cmd>.</p>
 
   <terms>
     <item>
@@ -14,21 +14,30 @@
       <p>Вказує текст, який буде показано у області сповіщення.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>текст</var>', message: '<var>текст</var>', tooltip: '<var>текст</var>', visible: '<var>текст</var>',</title>
+      <title><cmd>--icon</cmd>=<var>шлях</var></title>
+      <p>Встановити піктограму сповіщення на основі рядка, що містить шлях до коректної піктограми у системі.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Очікує команди зі стандартного введення. Має бути вказано принаймні одну команду. Команди слід відокремлювати комами. Після команди слід вказувати двокрапку і значення.</p>
       <note style="tip">
-        <p>Команда <cmd>icon</cmd> також приймає значення чотирьох типових піктограм, зокрема <var>error</var>, <var>info</var>, <var>question</var> and <var>warning</var>.</p>
+        <p>Команда <cmd>icon</cmd> також приймає значення назви піктограми теми у відповідності до специфікації іменування піктограм FreeDesktop.org, зокрема <var>dialog-error</var>, <var>dialog-information</var> та <var>security-high</var>.</p>
       </note>
+      <p>Приклади:</p>
+      <code>
+      message: Привіт, мене звати Михайло
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
   <p>У наступному прикладі показано створення піктограми області сповіщення:</p>
   <code>
-#!/bin/sh
+  #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
-    --text="Є необхідні оновлення для системи!"
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
+    --text="Слід виконати оновлення системи!"
   </code>
 
   <figure>

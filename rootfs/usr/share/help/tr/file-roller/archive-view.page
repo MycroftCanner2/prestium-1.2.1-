@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="tr">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Var olan arşivi ve içeriğini görüntüle.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sabri Ünal</mal:name>
+      <mal:email>libreajans@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Emin Tufan Çetin</mal:name>
+      <mal:email>etcetin@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Arşiv görüntüle</title>
+
+  <p>Arşivi görüntülemenin iki yolu bulunmaktadır:</p>
+
+  <terms>
+    <item>
+      <title>Tüm dosyaları görüntüle</title>
+      <p>Pencerenin sağ üst köşesindeki menü düğmesine tıklayın ve <gui style="menuitem">Tüm Dosyaları Görüntüle</gui>’yi seçin. <app>File Roller</app> arşivdeki tüm dosyaları listeler. Adlarını, boyutlarını, türlerini, son değişiklik tarihlerini ve konumlarını görürsünüz.</p>
+      <note style="tip">
+	<p>Arşivinizdeki dosyaları sıralamak için yukarıda belirtilen sütun başlıklarını (ad, boyut…) kullanabilirsiniz. Bunu üzerlerine tıklayarak yapabileceğiniz gibi sıralamayı tersine de çevirebilirsiniz.</p>
+      </note>
+    </item>
+    <item>
+      <title>Klasör olarak görüntüle</title>
+      <p>Bu görünüm klasik dizin yapısını görüntüler. Bunu kullanmak için pencerenin sağ üst köşesindeki menü düğmesine basın ve <gui style="menuitem">Klasör Olarak Görüntüle</gui>’yi seçin.</p>
+      <note style="tip">
+	<p>Arşivi bu yolla görüntülerken, <key>F9</key> tuşuna basmak ya da pencerenin sağ üst köşesindeki menü düğmesine basıp <gui style="menu">Kenar Çubuğu</gui>’nu seçmek, klasörlerin ağaç yapısını kenar çubuğunda görüntüleyecektir. Bu işlem klasörler arasında dolaşmanızı kolaylaştırır.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Arşivdeki dosyaları açmak</title>
+
+    <p>Dosya adına çift tıklayarak ya da dosya adına sağ tıklayıp <gui style="menuitem">Aç</gui>’ı seçerek arşivdeki dosyaları açabilirsiniz. <app>File Roller</app> dosyayı, dosya türü için öntanımlı uygulamayla açar.</p>
+
+    <note>
+      <p>Aşağıdaki adımları uygulayarak dosyayı başka uygulamayla açabilirsiniz:</p>
+      <steps>
+        <item>
+          <p>Dosyaya sağ tıklayın.</p>
+        </item>
+        <item>
+          <p><gui style="menuitem">Birlikte Aç…</gui>’a tıklayın.</p>
+        </item>
+        <item>
+          <p>Kullanmak istediğiniz uygulamayı seçip <gui style="menuitem">Seç</gui>’e tıklayın.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

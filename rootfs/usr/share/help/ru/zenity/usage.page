@@ -10,6 +10,18 @@
       <mal:email>deshko@tut.by</mal:email>
       <mal:years>2007</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Yuri Kozlov</mal:name>
+      <mal:email>yuray@komyakino.ru</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Ser82-png</mal:name>
+      <mal:email>asvmail.as@gmail.com</mal:email>
+      <mal:years>2023</mal:years>
+    </mal:credit>
   </info>
 <title>Использование</title>
     <p>Когда вы пишите сценарии, вы можете использовать <app>Zenity</app> для создания простых графических диалоговых окон, которые взаимодействуют с пользователем, как в следующих случаях:</p>
@@ -103,11 +115,6 @@
       <item>
         <title><cmd>--title</cmd>=<var>заголовок</var></title>
 	<p>Указывает заголовок диалогового окна.</p>
-      </item>
-
-      <item>
-        <title><cmd>--window-icon</cmd>=<var>путь_к_значку</var></title>
-	<p>Указывает значок, который изображается в рамке диалогового окна. Существуют 4 запасных значка, доступных по следующим ключевым словам: 'info', 'warning', 'question' и 'error'.</p>
       </item>
 
       <item>

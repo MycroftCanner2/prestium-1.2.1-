@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" style="task 2column" id="index" xml:lang="uk">
+
+  <info>
+    <title type="link" role="trail">File Roller</title>
+    <title type="link">Довідка з «File Roller»</title>
+    <title type="text">Довідка з «File Roller»</title>
+    <revision pkgversion="3.8" date="2013-02-24" status="review"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Ознайомтеся із тим, як користуватися архівами файлів та тек та керувати ними.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+  
+  <title><media type="image" its:translate="no" width="48px" height="48px" src="figures/org.gnome.FileRoller.svg"/> File Roller</title>
+  
+  <section id="managing-archives" style="2column">
+    <title>Керування архівами</title>
+  </section>
+
+  <section id="advanced-options" style="2column">
+    <title>Додаткові параметри</title>
+  </section>
+
+  <section id="troubleshooting" style="2column">
+    <title>Усунення проблем</title>
+  </section>
+
+</page>

@@ -100,11 +100,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>шлях_до_піктограми</var></title>
-	<p>Вказує значок, який буде показано у рамці діалогового вікна. Є 4 вбудовані значки, які вказуються ключовими словами «info», «warning», «question» та «error».</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>ширина</var></title>
 	<p>Вказує ширину вікна.</p>
       </item>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract-advanced-options" xml:lang="zh_CN">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2012-03-06" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>指定归档文件提取的偏好设置(首选项)。</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Zhang Miao</mal:name>
+      <mal:email>mymzhang@gmail.com</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>TeliuTe</mal:name>
+      <mal:email>teliute@163.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>YunQiang Su</mal:name>
+      <mal:email>wzssyqa@gmail.com</mal:email>
+      <mal:years>2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>tuhaihe</mal:name>
+      <mal:email>1132321739qq@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>归档文件提取的高级选项</title>
+
+  <p><app>File Roller</app> offers different options for
+  <link xref="archive-extract">extracting an archive</link>. You can see these
+  options in the <gui>Extract</gui> dialog. At the bottom of this dialog, you
+  can decide if you want to extract:</p>
+
+  <terms>
+    <item>
+      <title><gui>所有文件</gui></title>
+      <p>整个归档文件将被提取。</p>
+    </item>
+    <item>
+      <title><gui>已选择的文件</gui></title>
+      <p><app>File Roller</app> extracts only the selected files.</p>
+      <note>
+        <p>在单击 <gui style="button">提取</gui> 之前，您需要选择要提取的文件。通过单击文件名来执行此操作。使用 <key>Ctrl</key> 和 <key>Shift</key> 键选择多个文件。</p>
+      </note>
+    </item>
+    <item>
+      <title><gui>文件</gui></title>
+      <p>您可以输入要提取的文件的名称。使用分号 (<key>;</key>) 分隔各个文件。</p>
+      <note>
+        <p>文件名后面需要跟文件扩展名。您可以使用星号 (<key>*</key>) 作为通配符。例如，要选择所有 <file>.txt</file> 文件，请键入 <file>*.txt</file>。</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>您可以在文件选择器对话框中指定是否要：</p>
+  <terms>
+    <item>
+      <title><gui>保持目录结构</gui></title>
+      <p>如果您想保留存档中的目录结构，请勾选此选项。</p>
+    </item>
+    <item>
+      <title><gui>不要覆盖较新的文件</gui></title>
+      <p>该选项将不覆盖那些修改日期比归档中更新的现有同名文件。</p>
+    </item>
+  </terms>
+
+  <p>这些<gui>动作</gui>会在对话框底部列出。</p>
+
+</page>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract-advanced-options" xml:lang="ru">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2012-03-06" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович (Marta Bogdanowicz)</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Указать дополнительные параметры извлечения архивов.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрий Мясоедов</mal:name>
+      <mal:email>omerta13@yandex.ru</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Алексей Кабанов</mal:name>
+      <mal:email>ak099@mail.ru</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Станислав Соловей</mal:name>
+      <mal:email>whats_up@tut.by</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Alexey Rubtsov</mal:name>
+      <mal:email>rushills@gmail.com</mal:email>
+      <mal:years>2021</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Aleksandr Melman</mal:name>
+      <mal:email>alexmelman88@gmail.com</mal:email>
+      <mal:years>2022</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Дополнительные параметры извлечения архивов</title>
+
+  <p><app>File Roller</app> предлагает различные варианты <link xref="archive-extract">извлечения архива</link>. Вы можете увидеть их в диалоговом окне <gui>Извлечь</gui>. В нижней части этого диалогового окна вы можете решить, хотите ли вы извлекать архив:</p>
+
+  <terms>
+    <item>
+      <title><gui>Все файлы</gui></title>
+      <p>Будут извлечены все файлы и папки в архиве.</p>
+    </item>
+    <item>
+      <title><gui>Выделенные файлы</gui></title>
+      <p><app>File Roller</app> извлечёт только выделенные файлы.</p>
+      <note>
+        <p>Прежде чем нажать кнопку <gui style="button">Извлечь</gui>, необходимо выбрать файлы, которые вы хотите извлечь. Сделайте это, щелкнув по имени файла. Используйте клавиши <key>Ctrl</key> и <key>Shift</key>, чтобы выбрать несколько файлов.</p>
+      </note>
+    </item>
+    <item>
+      <title><gui>Файлы</gui></title>
+      <p>Вы можете ввести имена файлов, которые нужно извлечь. Разделите отдельные файлы точкой с запятой (<key>;</key>).</p>
+      <note>
+        <p>Имя файла должно быть указано с расширением. Вы можете использовать символ звёздочки (<key>*</key>) в качестве шаблона. Например, чтобы извлечь все файлы <file>.txt</file>, введите <file>*.txt</file>.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>Также можно указать в диалоговом окне выбора файлов, нужно ли:</p>
+  <terms>
+    <item>
+      <title><gui>Сохранять структуру каталогов</gui></title>
+      <p>Включите этот параметр, если вы хотите сохранить структуру каталогов в том виде, в каком она хранилась архиве.</p>
+    </item>
+    <item>
+      <title><gui>Пропускать устаревшие файлы</gui></title>
+      <p>При включении этого параметра существующие файлы не будут перезаписываться, если они имеют более свежую дату изменения, чем содержащиеся в архиве.</p>
+    </item>
+  </terms>
+
+  <p>Данные <gui>опции</gui> перечислены в нижней части диалогового окна.</p>
+
+</page>

@@ -112,11 +112,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>caminho_ícone</var></title>
-	<p>Especifica o ícone que é exibido na moldura do diálogo. Existem 4 ícones pré-definidos que também estão disponíveis ao usar as seguintes palavras-chave - “info” (informação), “warning” (aviso), “question” (pergunta) e “error” (erro).</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>largura</var></title>
 	<p>Especifica a largura do diálogo.</p>
       </item>

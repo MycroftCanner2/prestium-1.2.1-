@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="introduction" xml:lang="sl">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Introduction to the GNOME <app>File Roller</app>.</desc>
+  </info>
+
+  <title>Uvod</title>
+
+  <p><app>File Roller</app> is an application for managing archive files,
+  for example, <file>.zip</file> or <file>.tar</file> files; it is designed to
+  be easy to use. <app>File Roller</app> provides all the tools that are
+  necessary for creating, modifying and extracting archives.</p>
+
+  <note style="advanced">
+    <p>Arhiv je sestavljen iz ene ali več datotek in map, skupaj z metapodatki. Morda je šifriran delno ali v celoti. Z zbiranjem več podatkovnih datotek skupaj v eno so datoteke arhivov uporabne za shranjevanje podatkov in njihov prenos med računalniki.</p>
+  </note>
+
+  <p>With <app>File Roller</app> you can:</p>
+  <list>
+    <item><p>Ustvarite nov arhiv</p></item>
+    <item><p>Oglejte si vsebino obstoječega arhiva</p></item>
+    <item><p>si ogledate datoteko, ki je v arhivu,</p></item>
+    <item><p>spremenite obstoječe arhive,</p></item>
+    <item><p>razširite datoteke iz arhiva.</p></item>
+  </list>
+
+</page>

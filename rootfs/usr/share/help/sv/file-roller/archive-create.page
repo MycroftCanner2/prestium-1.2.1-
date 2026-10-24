@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="sv">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Lägg till filer eller mappar till ett nytt arkiv.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Anders Jonsson</mal:name>
+      <mal:email>anders.jonsson@norsjovallen.se</mal:email>
+      <mal:years>2015, 2023</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Skapa ett nytt arkiv</title>
+
+  <p>Skapa ett nytt arkiv med <app>File Roller</app> genom att följa dessa steg:</p>
+
+  <steps>
+    <item>
+      <p>Tryck på menyknappen i fönstrets övre högra hörn och välj <gui style="menuitem">Nytt arkiv</gui>.</p>
+    </item>
+    <item>
+      <p>Namnge din nya arkivfil och välj filformatet från rullgardinslistan.</p>
+    </item>
+    <item>
+      <p>Välj platsen där arkivfilen ska sparas.</p>
+    </item>
+    <item>
+      <p>Klicka <gui>Skapa</gui> för att fortsätta.</p>
+      <note style="tip">
+	<p>Genom att klicka <gui>Övriga alternativ</gui> kan du ställa in ett lösenord eller dela upp ditt arkiv i mindre, individuella filer genom att välja relevant alternativ och ange volymen för varje del i <gui>MB</gui>. Dessa alternativ är endast tillgängliga om det valda arkivfilformatet stöder dem.</p>
+      </note>
+    </item>
+    <item>
+      <p>Lägg till de önskade filerna och mapparna till ditt arkiv genom att trycka på knappen <gui>+</gui> i rubrikraden. Kryssa i rutan intill de filer och mappar som du vill lägga till.</p>
+      <note style="tip">
+	<p>Alla arkivfilformat stöder inte mappar — om filformatet du använder inte gör det kommer du att varnas. Om filformatet du använder inte stöder mappar kommer filerna från mapparna läggas till, men inte mappen själv.</p>
+      </note>
+    </item>
+    <item>
+      <p>Då du är lagt till filer klart är arkivet färdigt. Du behöver inte spara det.</p>
+    </item>
+  </steps>
+
+</page>

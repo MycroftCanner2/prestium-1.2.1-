@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Перегляд наявного архіву та його вмісту.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Перегляд архіву</title>
+
+  <p>Існує два способи переглянути вміст архіву:</p>
+
+  <terms>
+    <item>
+      <title>Перегляд усіх файлів</title>
+      <p>Натисніть кнопку меню у верхньому правому куті вікна програми і виберіть пункт <gui style="menuitem">Показувати список файлів</gui>. <app>File Roller</app> покаже список усіх файлів у архіві. Ви побачите список дані щодо назв, розмірів, типів, дат внесення змін та розташування файлів.</p>
+      <note style="tip">
+	<p>Ви можете скористатися заголовками вищезгаданих стовпчиків (назва, розмір тощо) для упорядковування файлів у списку. Для цього достатньо клацнути на заголовку стовпчика. Повторне клацання змінить порядок на обернений.</p>
+      </note>
+    </item>
+    <item>
+      <title>Перегляд у форматі теки</title>
+      <p>У цьому режимі перегляду програма покаже класичну структуру каталогів. Щоб увімкнути режим, натисніть кнопку меню у верхньому правому куті вікна і виберіть <gui style="menuitem">Показувати як теку</gui>.</p>
+      <note style="tip">
+	<p>У цьому режимі перегляду архіву ви можете натиснути клавішу <key>F9</key> або кнопку меню у верхньому правому куті вікна програми і вибрати <gui style="menu">Бічна панель</gui>, щоб переглянути ієрархію тек на боковій панелі. За допомогою ієрархії ви можете без проблем здійснювати навігацію теками в архіві.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Відкриття файлів в архіві</title>
+
+    <p>Відкрити файли з вашого архіву можна подвійним клацанням на пункті файла або клацанням на ньому правою кнопкою миші із наступним вибором пункту <gui style="menuitem">Відкрити</gui>. <app>File Roller</app> відкриє файл у типовій програмі, яку визначено для відповідного типу файлів.</p>
+
+    <note>
+      <p>Відкрити файл в іншій програмі можна виконавши такі дії:</p>
+      <steps>
+        <item>
+          <p>Клацніть правою кнопкою на пункті файла.</p>
+        </item>
+        <item>
+          <p>Виберіть пункт <gui style="menuitem">Відкрити за допомогою…</gui>.</p>
+        </item>
+        <item>
+          <p>Виберіть програму, якою ви хочете скористатися, і натисніть <gui style="menuitem">Вибрати</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

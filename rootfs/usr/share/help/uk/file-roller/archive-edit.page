@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-edit" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">3</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <link type="seealso" xref="archive-create"/>
+    <revision pkgversion="3.4" date="2011-12-08" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Внесення змін до вмісту архіву.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Редагування архіву</title>
+
+  <p><app>File Roller</app> надає вам змогу редагувати наявний архів із додаванням нових файлів, вилученням непотрібних і перейменовуванням файлів. Ви можете працювати із теками в архіві так, як ви працюєте з файлами.</p>
+
+  <terms>
+    <item>
+      <title>Додавання файлів</title>
+      <p>Додати файли до наявного архіву можна за допомогою настанов щодо <link xref="archive-create">створення архіву</link>.</p>
+    </item>
+    <item>
+      <title>Вилучення файлів</title>
+      <p>Клацніть правою кнопкою на пункті файла і виберіть пункт <gui style="menuitem">Вилучити</gui> або натисніть клавішу <key>Delete</key>.</p>
+    </item>
+    <item>
+    <title>Перейменувати файли</title>
+      <p>Клацніть правою кнопкою миші на файлі і виберіть пункт <gui style="menuitem">Перейменувати…</gui> або натисніть клавішу <key>F2</key>. Введіть нову назву файла у діалоговому вікні, яке відкриє програма і підтвердьте нову назву.</p>
+    </item>
+  </terms>
+
+</page>

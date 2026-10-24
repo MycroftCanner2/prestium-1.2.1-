@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="tr">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Dosyaları veya dizinleri yeni arşive ekle.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sabri Ünal</mal:name>
+      <mal:email>libreajans@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Emin Tufan Çetin</mal:name>
+      <mal:email>etcetin@gmail.com</mal:email>
+      <mal:years>2020, 2023</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Yeni arşiv oluştur</title>
+
+  <p>Aşağıdaki adımları uygulayarak <app>File Roller</app> ile yeni arşiv oluştur:</p>
+
+  <steps>
+    <item>
+      <p>Pencerenin sağ üst köşesindeki menü düğmesine basın ve <gui style="menuitem">Yeni Arşiv</gui>’i seçin.</p>
+    </item>
+    <item>
+      <p>Yeni arşivinizi adlandırın ve açılır menüden dosya biçimini seçin.</p>
+    </item>
+    <item>
+      <p>Arşiv dosyasının kaydedileceği konumu seçin.</p>
+    </item>
+    <item>
+      <p>Devam etmek için <gui style="button">Oluştur</gui>’a tıklayın.</p>
+      <note style="tip">
+	<p><gui>Diğer Seçenekler</gui>’e tıklayarak yeni arşivinize parola atayabilirsiniz. Ya da ilgili seçeneği kullanarak ve her bölümün boyutunu <gui>MB</gui> olarak belirterek, arşivinizi daha küçük, bağımsız dosyalara bölebilirsiniz. Bu seçenekler yalnızca seçilen arşiv dosyası biçimi bunları destekliyorsa kullanılabilir.</p>
+      </note>
+    </item>
+    <item>
+      <p>Başlık çubuğundaki <gui>+</gui> düğmesine basarak arşivinize eklemek istediğiniz dosya ve klasörleri seçin. Eklemek istediğiniz dosya ve klasörlerin yanındaki kutuyu imleyip <gui>Ekle</gui> düğmesine tıklayın.</p>
+      <note style="tip">
+	<p>Tüm arşiv dosyası biçimleri klasörleri desteklemez ve kullandığınız dosya biçimi desteklemiyorsa bu konuda uyarılmazsınız! Kullandığınız dosya biçimi klasörleri desteklemiyorsa, klasörlerdeki dosyalar eklenir ancak klasörün kendisi eklenmez ve klasör yapısı korunmaz.</p>
+      </note>
+    </item>
+    <item>
+      <p>Dosya eklemeyi bitirdiğinizde arşiv hazırdır, ayrıca kaydetmenize gerek yoktur.</p>
+    </item>
+  </steps>
+
+</page>

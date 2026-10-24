@@ -16,6 +16,12 @@
       <mal:email>sebras@gmail.com</mal:email>
       <mal:years>2016</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Anders Jonsson</mal:name>
+      <mal:email>anders.jonsson@norsjovallen.se</mal:email>
+      <mal:years>2023</mal:years>
+    </mal:credit>
   </info>
 <title>Användning</title>
     <p>När du skriver skript kan du använda <app>Zenity</app> för att skapa enkla dialogrutor som interagerar grafiskt med användaren enligt följande:</p>
@@ -40,7 +46,7 @@
 
     <section id="zenity-usage-mnemonics">
       <title>Snabbtangenter</title>
-	<p>En snabbtangent är en tangent som låter dig genomföra en åtgärd från tangentbordet istället för att använda musen för att välja ett kommando från en meny eller dialog. Varje snabbtangent identifieras av en understruken bokstav i en meny eller dialogflagga.</p>
+	<p>En snabbtangent är en tangent som låter dig genomföra en åtgärd från tangentbordet i stället för att använda musen för att välja ett kommando från en meny eller dialog. Varje snabbtangent identifieras av en understruken bokstav i en meny eller dialogflagga.</p>
 	<p>Vissa <app>Zenity</app>-dialoger har stöd för användningen av snabbtangenter. För att ange tecknet som ska användas som snabbtangenten, placera ett understreck före den bokstaven i dialogens text. Följande exempel visar hur man specificerar bokstaven ”V” som en snabbtangent:</p>
 	<screen><input>"_Välj ett namn".</input></screen>
     </section>
@@ -109,11 +115,6 @@
       <item>
         <title><cmd>--title</cmd>=<var>titel</var></title>
 	<p>Anger titeln på en dialogruta.</p>
-      </item>
-
-      <item>
-        <title><cmd>--window-icon</cmd>=<var>ikonsökväg</var></title>
-	<p>Anger ikonen som visas i fönsterramen för dialogen. Det finns 4 standardikoner som finns tillgängliga genom att ange något av följande nyckelord - "info", "warning", "question" och "error".</p>
       </item>
 
       <item>

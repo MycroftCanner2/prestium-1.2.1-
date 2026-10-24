@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Додавання файлів або тек до нового архіву.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Створення архіву</title>
+
+  <p>Створити архів за допомогою <app>File Roller</app> можна так:</p>
+
+  <steps>
+    <item>
+      <p>Натисніть кнопку меню у верхньому правому куті вікна і виберіть <gui style="menuitem">Створити архів</gui>.</p>
+    </item>
+    <item>
+      <p>Вкажіть назву нового файла архіву і виберіть формат файла зі спадного списку.</p>
+    </item>
+    <item>
+      <p>Виберіть місце, де буде збережено файл архіву.</p>
+    </item>
+    <item>
+      <p>Натисніть кнопку <gui>Створити</gui>, щоб продовжити.</p>
+      <note style="tip">
+	<p>Натисканням пункту <gui>Інші параметри</gui> ви отримаєте доступ до встановлення пароля або поділу вашого нового архіву на менші окремі файли, якщо позначите відповідний пункт і виберете розмір тому у <gui>МБ</gui> для кожної з частин. Доступ до цих параметрів можна буде отримати, лише якщо у вибраному форматі файла архіву передбачено підтримку відповідних можливостей.</p>
+      </note>
+    </item>
+    <item>
+      <p>Додайте бажані файли і теки до вашого архіву за допомогою кнопки <gui>+</gui> на верхній панелі. Позначте пункт поряд із пунктами файлів та тек, які ви хочете додати до архіву.</p>
+      <note style="tip">
+	<p>Підтримку тек у архівах передбачено не в усіх форматах файлів. Якщо у вибраному вами форматі файлів не можна архівувати теки, програма попередить вас. Якщо форматом архіву не передбачено підтримки тек, до архіву буде додано файли з теки, але не саму теку.</p>
+      </note>
+    </item>
+    <item>
+      <p>Після завершення додавання файлів архів буде створено — вам не потрібно додатково зберігати його.</p>
+    </item>
+  </steps>
+
+</page>

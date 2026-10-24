@@ -16,6 +16,12 @@
       <mal:email>sebras@gmail.com</mal:email>
       <mal:years>2016</mal:years>
     </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Anders Jonsson</mal:name>
+      <mal:email>anders.jonsson@norsjovallen.se</mal:email>
+      <mal:years>2023</mal:years>
+    </mal:credit>
   </info>
   <title>Filväljardialog</title>
     <p>Använd flaggan <cmd>--file-selection</cmd> för att skapa en filväljardialog. <app>Zenity</app> returnerar de valda filerna eller katalogerna till standard ut. Standardläget för filväljardialogen är öppna.</p>

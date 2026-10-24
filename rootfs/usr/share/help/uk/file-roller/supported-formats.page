@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="supported-formats" xml:lang="uk">
+
+  <info>
+    <title type="sort" its:translate="no">2</title>
+    <link type="guide" xref="index"/>
+    <revision pkgversion="3.4" date="2011-11-21" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Марта Богданович</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Єкатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc><app>File Roller</app> може працювати із багатьма різними форматами файлів.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Юрій Чорноіван</mal:name>
+      <mal:email>yurchor@ukr.net</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Підтримувані формати файлів</title>
+
+  <p>Серед форматів, підтримку яких передбачено у <app>File Roller</app>, такі:</p>
+
+  <list type="numbered">
+    <item><p>Лише архівування</p>
+      <list>
+        <item><p>Малий індексований архів AIX (<file>.ar</file>)</p></item>
+        <item><p>Образ компакт-диска ISO-9660 [режим лише читання] (<file>.iso</file>)</p></item>
+        <item><p>Файл стрічкового архіву (<file>.tar</file>)</p></item>
+      </list>
+    </item>
+    <item><p>Архівування і стискання</p>
+      <list>
+        <item><p>Архів Java (<file>.jar</file>)</p></item>
+        <item><p>Стиснутий архів WinRAR (<file>.rar</file>)</p></item>
+        <item><p>Файл стрічкового архіву, який стиснуто за допомогою:</p>
+          <list>
+            <item><p>gzip (<file>.tar.gz</file>, <file>.tgz</file>)</p></item>
+            <item><p>bzip (<file>.tar.bz</file>, <file>.tbz</file>)</p></item>
+            <item><p>bzip2 (<file>.tar.bz2</file>, <file>.tbz2</file>)</p></item>
+            <item><p>lzop (<file>.tar.lzo</file>, <file>.tzo</file>)</p></item>
+            <item><p>7zip (<file>.tar.7z</file>)</p></item>
+            <item><p>xz (<file>.tar.xz</file>)</p></item>
+          </list>
+        </item>
+        <item><p>Файл-кабінет (<file>.cab</file>)</p></item>
+        <item><p>Архівований ZIP комікс (<file>.cbz</file>)</p></item>
+        <item><p>Архів ZIP (<file>.zip</file>)</p></item>
+        <item><p>Файл архіву, стисненого ZOO (<file>.zoo</file>)</p></item>
+      </list>
+    </item>
+  </list>
+
+<!-- TODO: how does one install the plugins? -->
+  <note>
+    <p>Для роботи з деякими форматами файлів <app>File Roller</app> можуть знадобитися додатки.</p>
+  </note>
+
+</page>

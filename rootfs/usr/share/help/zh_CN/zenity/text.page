@@ -61,24 +61,24 @@
 <code>
 #!/bin/sh
 
-# You must place file "COPYING" in same folder of this script.
+# 您必须将“COPYING”文件放置于此脚本的相同目录。
 FILE=`dirname $0`/COPYING
 
 zenity --text-info \
-       --title="License" \
+       --title="许可证" \
        --filename=$FILE \
-       --checkbox="I read and accept the terms."
+       --checkbox="我已阅读并接受条目。"
 
 case $? in
     0)
-        echo "Start installation!"
-	# next step
+        echo "开始安装！"
+	# 下一步
 	;;
     1)
-        echo "Stop installation!"
+        echo "停止安装！"
 	;;
     -1)
-        echo "An unexpected error has occurred."
+        echo "发生意外错误。"
 	;;
 esac
 </code>

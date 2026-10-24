@@ -30,7 +30,7 @@
       </item>
 
       <item>
-        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+        <title><cmd>--add-password</cmd>=<var>字段名</var></title>
 	<p>在表格对话框中输入新的密码输入框。(隐藏文本)</p>
       </item>
 
