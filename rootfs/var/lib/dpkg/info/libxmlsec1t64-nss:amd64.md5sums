@@ -1,0 +1,8 @@
+14b3369c9d5c36a94793124f1e6fb9b9  usr/lib/x86_64-linux-gnu/libxmlsec1-nss.so.1.2.41
+83c1f9b891effbe3edd0fcc2112fa3d8  usr/share/doc/libxmlsec1t64-nss/README.Debian
+a8f4904543c9bbad732f66d639bb7b8b  usr/share/doc/libxmlsec1t64-nss/README.md
+6c0a2b7089b7aa867f0c1924f37c51e1  usr/share/doc/libxmlsec1t64-nss/changelog.Debian.amd64.gz
+fef31734385e9878d33a6a07db216e30  usr/share/doc/libxmlsec1t64-nss/changelog.Debian.gz
+89ec5c65ac0a83a485d9302f45a734cc  usr/share/doc/libxmlsec1t64-nss/changelog.gz
+c4a8c979a02ea52c581475dd6015e7e0  usr/share/doc/libxmlsec1t64-nss/copyright
+f410d9c1e44cea2a9eb0506d51837d78  usr/share/lintian/overrides/libxmlsec1t64-nss

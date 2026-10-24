@@ -1,8 +1,7 @@
-89012d18e53ccdd54cf070828dbf3538  usr/lib/notification-daemon/notification-daemon
+cd5a27aed904e7cf6e758976afeb8c23  usr/lib/notification-daemon/notification-daemon
 ef3d0e36a747d6e452671c39ff83f28a  usr/share/applications/notification-daemon.desktop
 d50dc2cf5f2d620925a367b143b20914  usr/share/doc/notification-daemon/NEWS.gz
-ac7483ceac874bce07923ed29e562bba  usr/share/doc/notification-daemon/changelog.Debian.amd64.gz
-41781fbde8da8b8f34d30180ef48998b  usr/share/doc/notification-daemon/changelog.Debian.gz
+cf91a6ff014c1f86b115c3420c9bf51e  usr/share/doc/notification-daemon/changelog.Debian.gz
 1eb0f2177d8d2adac9c406c0ac1463fc  usr/share/doc/notification-daemon/changelog.gz
 d144247a31a75d6ff9189fff2ea9a8b0  usr/share/doc/notification-daemon/copyright
 ee27629fcf3d9f841b984fd5bff5190e  usr/share/locale/af/LC_MESSAGES/notification-daemon.mo

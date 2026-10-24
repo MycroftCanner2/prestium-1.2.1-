@@ -1,6 +1,5 @@
-02ec8db97526c26cba58aa7ffd37137a  usr/bin/lxpolkit
-6c1bb3c8956c225d51b65944bc4dad38  usr/share/doc/lxpolkit/changelog.Debian.amd64.gz
-dc2ab139404ff531874282ae53d49a49  usr/share/doc/lxpolkit/changelog.Debian.gz
+7453ddcac11edc0c73d59c0de64a2f16  usr/bin/lxpolkit
+41c40dc9914fe44bae00f639ea4053bf  usr/share/doc/lxpolkit/changelog.Debian.gz
 f960cc74594d814101948d625cb12b95  usr/share/doc/lxpolkit/changelog.gz
-b7c962d1fcf67e3ff1f6e6e7fa28f202  usr/share/doc/lxpolkit/copyright
+9186692171702f8185cde81f93de121c  usr/share/doc/lxpolkit/copyright
 a29394662d68d8e60f90e10e8c8cb76a  usr/share/man/man1/lxpolkit.1.gz

@@ -1,2 +1,1 @@
 /etc/NetworkManager/NetworkManager.conf
-/etc/NetworkManager/dispatcher.d/01-ifupdown

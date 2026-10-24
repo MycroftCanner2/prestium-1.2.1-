@@ -8,8 +8,18 @@ case "${1}" in
 		rmdir --ignore-fail-on-non-empty /etc/live > /dev/null 2>&1 || true
 		;;
 
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	remove)
+		# Restore original os-release when installing to rootfs,
+		# as the IMAGE_ID= and similar fields are only valid for the
+		# read-only live environment created by live-build, but not
+		# for an installed rootfs, which
+		if [ -f /etc/os-release ] && [ ! -L /etc/os-release ] && grep -q IMAGE_ID=live /etc/os-release; then
+			rm -f /etc/os-release
+			ln -s ../usr/lib/os-release /etc/os-release > /dev/null 2>&1 || true
+		fi
+		;;
 
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 		;;
 
 	*)

@@ -1,5 +1,6 @@
-2bac801f655afdf93f79861a7ac3dda5  usr/lib/x86_64-linux-gnu/libzmq.so.5.2.4
-99cc32262373d027766bb77c840be848  usr/share/doc/libzmq5/AUTHORS
-1e2a9f50f368e03334d319e1b55b8779  usr/share/doc/libzmq5/NEWS.gz
-cde84bafa619b8773260665cd0193f6d  usr/share/doc/libzmq5/changelog.Debian.gz
-4f3e9c0821be1fa0e163dbd53c66b450  usr/share/doc/libzmq5/copyright
+4a6e487752248a4520abd50ce030c6fe  usr/lib/x86_64-linux-gnu/libzmq.so.5.2.5
+71f1eb748e1b453563b2076632253c49  usr/share/doc/libzmq5/AUTHORS
+a7503429e889ade46f36773575ead2be  usr/share/doc/libzmq5/NEWS.gz
+8d3b2b43aa30b2aea4b334f6b87637c3  usr/share/doc/libzmq5/changelog.Debian.amd64.gz
+8f08c73723dada588dd4b06c8bb4fe53  usr/share/doc/libzmq5/changelog.Debian.gz
+ac7d2ff06930971462133c7e69f42e7d  usr/share/doc/libzmq5/copyright

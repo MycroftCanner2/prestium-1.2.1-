@@ -5,6 +5,8 @@ set -e
 # dpkg triggers support for update-mime
 if [ "$1" = "triggered" ]; then
     if command -v update-mime > /dev/null; then update-mime --triggered; fi
+    # Set correct SELinux context
+    if command -v restorecon >/dev/null 2>&1; then restorecon /etc/mailcap; fi
     exit 0
 fi
 
@@ -22,3 +24,5 @@ rm -f  /usr/sbin/install-mime
 
 # Run the update program
 if command -v update-mime > /dev/null; then update-mime --triggered; fi
+# Set correct SELinux context
+if command -v restorecon >/dev/null 2>&1; then restorecon /etc/mailcap; fi

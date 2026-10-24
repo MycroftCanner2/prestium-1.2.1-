@@ -1,9 +1,9 @@
 /.
-/bin
-/bin/nano
 /etc
 /etc/nanorc
 /usr
+/usr/bin
+/usr/bin/nano
 /usr/share
 /usr/share/doc
 /usr/share/doc/nano
@@ -25,6 +25,9 @@
 /usr/share/doc-base/nano.nano-faq
 /usr/share/info
 /usr/share/info/nano.info.gz
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/nano
 /usr/share/locale
 /usr/share/locale/bg
 /usr/share/locale/bg/LC_MESSAGES
@@ -195,6 +198,6 @@
 /usr/share/nano/texinfo.nanorc
 /usr/share/nano/xml.nanorc
 /usr/share/nano/yaml.nanorc
-/bin/rnano
+/usr/bin/rnano
 /usr/share/nano/debian.nanorc
 /usr/share/nano/haskell.nanorc

@@ -1,8 +1,8 @@
-fa7a981617fbd9ae858a7412618ec313  lib/systemd/system/nftables.service
-da35da396673e26ac4f07ccc5d970ba2  usr/sbin/nft
+fa7a981617fbd9ae858a7412618ec313  usr/lib/systemd/system/nftables.service
+9ae3c81ab3ce08a07ac2f0af9895458a  usr/sbin/nft
 f455533398fa2e7689165d7a2c039b20  usr/share/doc/nftables/README.Debian
-0c154483c238bc6118dc9ae6ac7de9d2  usr/share/doc/nftables/changelog.Debian.gz
-f9ef14fe463393c95dc0b88a8409b0e6  usr/share/doc/nftables/copyright
+5dfc7529a050ff100d0784d411602cd3  usr/share/doc/nftables/changelog.Debian.gz
+b1ad8fb50e922bcbdc8da96f3677ba38  usr/share/doc/nftables/copyright
 eb02ea3bf21dad6c51858cee593162a8  usr/share/doc/nftables/examples/README
 593019c00dbe7ca7f9fe48ead21a5f35  usr/share/doc/nftables/examples/all-in-one.nft
 fe8b40f29996f3cb89068ef82dd47ac8  usr/share/doc/nftables/examples/arp-filter.nft
@@ -28,4 +28,5 @@ b92ce2af01fe3d651e0d424a5a816785  usr/share/doc/nftables/examples/secmark.nft
 65076b4ddfc7a53f728e068a0809304d  usr/share/doc/nftables/examples/sysvinit/README
 67d9527e1376331550173f562709d98c  usr/share/doc/nftables/examples/sysvinit/nftables.init
 41a742b1e8c7bbd3ac76338cdb75f8de  usr/share/doc/nftables/examples/workstation.nft
-ecff594d159dd2f519c0842e7a51319e  usr/share/man/man8/nft.8.gz
+b26e34a00c60b1006d111295c9319eb5  usr/share/lintian/overrides/nftables
+f315181afaef457fd9b5818276ad335e  usr/share/man/man8/nft.8.gz

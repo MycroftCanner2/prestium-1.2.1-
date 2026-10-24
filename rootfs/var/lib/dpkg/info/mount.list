@@ -1,12 +1,12 @@
 /.
-/bin
-/bin/mount
-/bin/umount
-/sbin
-/sbin/losetup
-/sbin/swapoff
-/sbin/swapon
 /usr
+/usr/bin
+/usr/bin/mount
+/usr/bin/umount
+/usr/sbin
+/usr/sbin/losetup
+/usr/sbin/swapoff
+/usr/sbin/swapon
 /usr/share
 /usr/share/bash-completion
 /usr/share/bash-completion/completions
@@ -17,6 +17,7 @@
 /usr/share/bash-completion/completions/umount
 /usr/share/doc
 /usr/share/doc/mount
+/usr/share/doc/mount/NEWS.Debian.gz
 /usr/share/doc/mount/changelog.Debian.gz
 /usr/share/doc/mount/changelog.gz
 /usr/share/doc/mount/copyright

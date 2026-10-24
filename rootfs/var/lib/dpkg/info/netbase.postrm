@@ -19,23 +19,8 @@ delete_if_md5_matches() {
 }
 
 case "$1" in
-    remove)
-    ;;
-
     purge)
-    if [ -d /etc/sysctl.d/ ]; then
-	rm -f /etc/sysctl.d/bindv6only.conf
-	rmdir --ignore-fail-on-non-empty /etc/sysctl.d/
-    fi
     delete_if_md5_matches
-    ;;
-
-    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-    ;;
-
-    *)
-    echo "postrm called with unknown argument '$1'" >&2
-    exit 1
     ;;
 esac
 

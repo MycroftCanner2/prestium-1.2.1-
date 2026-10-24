@@ -96,7 +96,7 @@ else
     run_mandb "Updating database of manual pages ..." -pq
 fi
 
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.bin.man"
     if [ -f "$APP_PROFILE" ]; then
@@ -115,14 +115,14 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_installtmpfiles/13.11.4
+# Automatically added by dh_installtmpfiles/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	if [ -x "$(command -v systemd-tmpfiles)" ]; then
-		systemd-tmpfiles ${DPKG_ROOT:+--root="$DPKG_ROOT"} --create man-db.conf >/dev/null || true
+		systemd-tmpfiles ${DPKG_ROOT:+--root="$DPKG_ROOT"} --create man-db.conf || true
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'man-db.timer' >/dev/null || true
@@ -139,7 +139,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	if [ -d /run/systemd/system ]; then
 		systemctl --system daemon-reload >/dev/null || true

@@ -91,4 +91,5 @@ libxtables.so.12 libxtables12 #MINVER#
  xtables_strdup@Base 1.8.8
  xtables_strtoui@Base 1.6.0+snapshot20161117
  xtables_strtoul@Base 1.6.0+snapshot20161117
+ xtables_strtoul_base@Base 1.8.11
  xtables_targets@Base 1.6.0+snapshot20161117

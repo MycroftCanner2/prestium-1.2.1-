@@ -22,7 +22,7 @@ f2736c03adff18c3c8641eab1cde899c  usr/lib/python3/dist-packages/nyx/settings/att
 8729cd599c5cabc30e7bddff183817f9  usr/lib/python3/dist-packages/nyx/settings/dedup.cfg
 e114d09beaec7ce558b36d411bdbb0e2  usr/lib/python3/dist-packages/nyx/starter.py
 58f3163c8cdd05e506e90a77e3101daa  usr/lib/python3/dist-packages/nyx/tracker.py
-cab5c5e83b00bf77f3f1979fd15c4610  usr/share/doc/nyx/changelog.Debian.gz
+b895eb0082d915a57329d8e2e70bcde5  usr/share/doc/nyx/changelog.Debian.gz
 02f43b46cc4d7d79b37f375d10080d9c  usr/share/doc/nyx/copyright
-b1559654f08f2f55ccaae3cf2bbc7272  usr/share/doc/nyx/nyxrc.sample.gz
+ca939c371bff1b3837b641990dc86528  usr/share/doc/nyx/nyxrc.sample.gz
 9c0493e168592cb5d16eb3547cba54ed  usr/share/man/man1/nyx.1.gz

@@ -1,1 +1,1 @@
-/etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf
+remove-on-upgrade /etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf

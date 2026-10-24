@@ -41,14 +41,6 @@ case "$1" in
             fi
         fi
 
-        if dpkg --compare-versions "$2" lt-nl "1.20.4-2"; then
-            if [ -f /var/lib/NetworkManager/secret_key ]; then
-                chmod 0600 /var/lib/NetworkManager/secret_key
-            fi
-        fi
-        if dpkg --compare-versions "$2" lt-nl "1.25.91-1"; then
-            update-rc.d -f network-manager remove || true
-        fi
         if dpkg --compare-versions "$2" lt-nl "1.35.91-1"; then
             deb-systemd-helper purge "nm-priv-helper.service" || true
         fi
@@ -63,10 +55,10 @@ case "$1" in
         ;;
 esac
 
-# Automatically added by dh_installdeb/13.11.4
-dpkg-maintscript-helper rm_conffile /etc/init.d/network-manager 1.25.91-1\~ -- "$@"
+# Automatically added by dh_installdeb/13.24.2
+dpkg-maintscript-helper rm_conffile /etc/NetworkManager/dispatcher.d/01-ifupdown 1.44.2-2\~ -- "$@"
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'NetworkManager-dispatcher.service' >/dev/null || true
@@ -83,7 +75,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'NetworkManager-wait-online.service' >/dev/null || true
@@ -100,7 +92,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	# The following line should be removed in trixie or trixie+1
 	deb-systemd-helper unmask 'NetworkManager.service' >/dev/null || true
@@ -117,7 +109,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-decon
 	fi
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
 	if [ -d /run/systemd/system ]; then
 		systemctl --system daemon-reload >/dev/null || true

@@ -1,9 +1,9 @@
-db9a6a6923699cf27307bc1fc1a3d733  usr/bin/obsession-exit
-60b8f68e57fc69e95b1d7406635c0256  usr/bin/obsession-logout
-2939e35e8f5a2d1be9dcb49bce7b0477  usr/bin/xdg-autostart
+4046fc28b43cc67b494081291ccdf16b  usr/bin/obsession-exit
+f669cdac334867bd77bcddc3b2c99078  usr/bin/obsession-logout
+c960d39d5626db1ccad5896803bee046  usr/bin/xdg-autostart
 003efc14df2a34cd63d201b4d3a00655  usr/share/doc/obsession/README.md
 55318004496c077043038ec4de54d792  usr/share/doc/obsession/TODO
-9f34e6514e7e7b4771e111f34c1eff80  usr/share/doc/obsession/changelog.Debian.amd64.gz
+b498da5c6dd40fad91ec9f5d989d9fda  usr/share/doc/obsession/changelog.Debian.amd64.gz
 64b1ceb06df456e0b48185750953ba55  usr/share/doc/obsession/changelog.Debian.gz
 f7b1fa8d92d7dffd4515bd36933b9317  usr/share/doc/obsession/copyright
 fca9cb66d4ddb4f0987c118bf8646de2  usr/share/locale/af/LC_MESSAGES/obsession-logout.mo

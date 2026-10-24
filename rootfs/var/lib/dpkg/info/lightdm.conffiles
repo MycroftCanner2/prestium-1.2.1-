@@ -1,7 +1,6 @@
 /etc/apparmor.d/abstractions/lightdm
 /etc/apparmor.d/abstractions/lightdm_chromium-browser
 /etc/apparmor.d/lightdm-guest-session
-/etc/dbus-1/system.d/org.freedesktop.DisplayManager.conf
 /etc/init.d/lightdm
 /etc/lightdm/keys.conf
 /etc/lightdm/lightdm.conf

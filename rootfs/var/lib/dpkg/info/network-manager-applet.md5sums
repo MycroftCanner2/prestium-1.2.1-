@@ -1,0 +1,8 @@
+05bace34771aff6391404e8d29c08a4d  usr/bin/nm-applet
+c48aacd1cd3209ba7e3f91e74d2f84fa  usr/share/GConf/gsettings/nm-applet.convert
+9d90e3a4f5f2dc25d1b7d3da629f6b14  usr/share/applications/nm-applet.desktop
+32a6e7dec90e8531ba2ba7019f407301  usr/share/doc/network-manager-applet/changelog.Debian.amd64.gz
+7eca830414ca9ecdf6b24e4293fb121c  usr/share/doc/network-manager-applet/changelog.Debian.gz
+81db4b3a24e3b4f6994ba63a63659f3c  usr/share/doc/network-manager-applet/copyright
+f7b277499d95a0b9da74b3e41ad12138  usr/share/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
+128ba9014f0184dc1cd9d690030b6e32  usr/share/man/man1/nm-applet.1.gz

@@ -1,11 +1,10 @@
-dcde9775e47d945fe0b07cb8b10ee16a  usr/bin/obconf
+62b9ffca717d46da77315a855d55870b  usr/bin/obconf
 39941836ce7a9db9a7f665bdbd396514  usr/share/applications/obconf.desktop
 bb3f04408dadfc6677ea689fd1a91e7f  usr/share/doc/obconf/AUTHORS
 803784f63d651637beb4849a0c690de6  usr/share/doc/obconf/README
-f21a2d8344381710cbb43dce9cf07ab6  usr/share/doc/obconf/changelog.Debian.amd64.gz
-0074cc354faa26ae4f2a8426ec259c60  usr/share/doc/obconf/changelog.Debian.gz
+b31dc88f02dd2451f5ad65cd153e1b74  usr/share/doc/obconf/changelog.Debian.gz
 a9cab92d626439ed17e8fc5c926ab897  usr/share/doc/obconf/changelog.gz
-a5d4c9ff8796a0efa64336a189f6e9d3  usr/share/doc/obconf/copyright
+4a0571205527ab01bbdc49933f634f8f  usr/share/doc/obconf/copyright
 2f4fe746e51920b5b2eec02421d0c5db  usr/share/locale/ar/LC_MESSAGES/obconf.mo
 347e96e5ae1839542e713b8f06eff802  usr/share/locale/be/LC_MESSAGES/obconf.mo
 b6c6ec5e02c818f0aef8fdcdb17315c2  usr/share/locale/cs/LC_MESSAGES/obconf.mo
@@ -40,7 +39,6 @@ ad80938e11cef3531804c47b15703ab1  usr/share/locale/zh_CN/LC_MESSAGES/obconf.mo
 cca106db7d30843a117bcbc1a08385f8  usr/share/locale/zh_TW/LC_MESSAGES/obconf.mo
 9f48a070ca0206abbf4848ecb6873b2d  usr/share/man/man1/obconf.1.gz
 b5cf09d0fda430dc21841269d312dfac  usr/share/mime/packages/obconf.xml
-48917764da6f110c83a9e366f4cbfdb8  usr/share/mimelnk/application/x-openbox-theme.desktop
 f4e93bc52b405f9a5477b2274ed1ff25  usr/share/obconf/obconf.ui
 8bc35fd062b57dd3066105d05c15cfda  usr/share/obconf/video-display.png
-0ae2234dec94447028b12d70d1978d64  usr/share/pixmaps/obconf.png
+14511028690a848991c594f573558cd1  usr/share/pixmaps/obconf.png

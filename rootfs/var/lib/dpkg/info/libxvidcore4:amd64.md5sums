@@ -1,4 +1,5 @@
-04a2e0b5a363cd2be29572ec6bc04c1f  usr/lib/x86_64-linux-gnu/libxvidcore.so.4.3
-880ed94045e568a5040c71ac685f915e  usr/share/doc/libxvidcore4/changelog.Debian.gz
+ed305ec04804ffffcfaf1cfbae0b2037  usr/lib/x86_64-linux-gnu/libxvidcore.so.4.3
+987f2f84bc6854a7a5853f24876863bc  usr/share/doc/libxvidcore4/changelog.Debian.amd64.gz
+f3b290e2a64b5a702b4c8939901cebf9  usr/share/doc/libxvidcore4/changelog.Debian.gz
 e3b1a699830c64796087319909ebdfd4  usr/share/doc/libxvidcore4/changelog.gz
 fd842b39c15ae2d8280d628dfb435c84  usr/share/doc/libxvidcore4/copyright

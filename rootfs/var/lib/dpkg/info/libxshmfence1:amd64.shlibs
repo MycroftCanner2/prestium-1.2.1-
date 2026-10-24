@@ -1,2 +1,2 @@
-libxshmfence 1 libxshmfence1
-udeb: libxshmfence 1 libxshmfence1-udeb
+libxshmfence 1 libxshmfence1 (>= 1.3.3)
+udeb: libxshmfence 1 libxshmfence1-udeb (>= 1.3.3)

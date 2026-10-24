@@ -9,7 +9,6 @@
 /usr/share/doc/obconf
 /usr/share/doc/obconf/AUTHORS
 /usr/share/doc/obconf/README
-/usr/share/doc/obconf/changelog.Debian.amd64.gz
 /usr/share/doc/obconf/changelog.Debian.gz
 /usr/share/doc/obconf/changelog.gz
 /usr/share/doc/obconf/copyright
@@ -116,9 +115,6 @@
 /usr/share/mime
 /usr/share/mime/packages
 /usr/share/mime/packages/obconf.xml
-/usr/share/mimelnk
-/usr/share/mimelnk/application
-/usr/share/mimelnk/application/x-openbox-theme.desktop
 /usr/share/obconf
 /usr/share/obconf/obconf.ui
 /usr/share/obconf/video-display.png

@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libzbar.so.0.3.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libzbar0t64
+/usr/share/doc/libzbar0t64/changelog.Debian.gz
+/usr/share/doc/libzbar0t64/changelog.gz
+/usr/share/doc/libzbar0t64/copyright
+/usr/share/icons
+/usr/share/icons/zbar.ico
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libzbar0t64
+/usr/lib/x86_64-linux-gnu/libzbar.so.0

@@ -23,6 +23,8 @@ Description-pt.UTF-8: Mudar o MAC automaticamente?
  Por favor especifique se o macchanger deve ser configurado para correr automaticamente sempre que um dispositivo de rede é activado ou desactivado. Isto fornece um novo endereço MAC sempre que ligar um cabo ethernet ou reactivar a wifi.
 Description-pt_BR.UTF-8: Trocar MAC automaticamente?
  Por favor, especifique se o macchanger deve ser configurado para executar automaticamente a cada vez que um dispositivo de rede for ativado ou desativado. Isso atribui um novo endereço MAC sempre que você conectar um cabo de rede ethernet ou reativar a rede wifi.
+Description-ro.UTF-8: Doriți ca adresa MAC să fie schimbată automat?
+ Specificați dacă «macchanger» trebuie să fie configurat să ruleze automat de fiecare dată când un dispozitiv de rețea este conectat sau deconectat de la rețea. Aceasta oferă o nouă adresă MAC ori de câte ori atașați un cablu ethernet sau reactivați wifi.
 Description-ru.UTF-8: Изменять MAC автоматически?
  Выберите, должен ли macchanger автоматически запускаться каждый раз при включении и выключении сетевого устройства. Это позволяет иметь новый  MAC-адрес при подключении кабеля ethernet или переподключениипо wifi.
 Description-sv.UTF-8: Byt MAC automatiskt?

@@ -1,0 +1,7 @@
+7b328da2b607e35bd0429e52c390f553  usr/lib/x86_64-linux-gnu/libgallium-25.0.7-2+deb13u1.so
+7f0d95ab544ef194372363bb93229ede  usr/share/bug/mesa-libgallium/control
+114f277e413ffae0a725cc024a955b47  usr/share/bug/mesa-libgallium/script
+a4afab71688ede4dd9867aaa3be619f8  usr/share/doc/mesa-libgallium/changelog.Debian.gz
+db59eee4b30d73f42644550d2b917478  usr/share/doc/mesa-libgallium/changelog.gz
+d63634382a6104b7ac6e8d0fb50ebc17  usr/share/doc/mesa-libgallium/copyright
+d14cb11f66becfc9acd521b48b1be2bc  usr/share/lintian/overrides/mesa-libgallium

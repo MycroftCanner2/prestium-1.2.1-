@@ -1,4 +1,5 @@
 libxxhash.so.0 libxxhash0 #MINVER#
+* Build-Depends-Package: libxxhash-dev
  XXH128@Base 0.8.0
  XXH128_canonicalFromHash@Base 0.8.0
  XXH128_cmp@Base 0.8.0
@@ -55,4 +56,5 @@ libxxhash.so.0 libxxhash0 #MINVER#
  XXH64_hashFromCanonical@Base 0.6.5
  XXH64_reset@Base 0.6.5
  XXH64_update@Base 0.6.5
+ XXH_featureTest@Base 0.8.3-1~
  XXH_versionNumber@Base 0.6.5

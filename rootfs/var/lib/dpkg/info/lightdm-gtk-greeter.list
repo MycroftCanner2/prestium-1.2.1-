@@ -8,7 +8,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/lightdm-gtk-greeter
-/usr/share/doc/lightdm-gtk-greeter/changelog.Debian.amd64.gz
 /usr/share/doc/lightdm-gtk-greeter/changelog.Debian.gz
 /usr/share/doc/lightdm-gtk-greeter/changelog.gz
 /usr/share/doc/lightdm-gtk-greeter/copyright
@@ -18,6 +17,8 @@
 /usr/share/icons/hicolor/scalable
 /usr/share/icons/hicolor/scalable/places
 /usr/share/icons/hicolor/scalable/places/budgie-desktop_badge-symbolic.svg
+/usr/share/icons/hicolor/scalable/places/cinnamon2d_badge-symbolic.svg
+/usr/share/icons/hicolor/scalable/places/cinnamon_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/gnome-classic_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/gnome-fallback-compiz_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/gnome-fallback_badge-symbolic.svg
@@ -29,6 +30,7 @@
 /usr/share/icons/hicolor/scalable/places/kde_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/lubuntu_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/lxde_badge-symbolic.svg
+/usr/share/icons/hicolor/scalable/places/lxqt_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/mate_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/pantheon_badge-symbolic.svg
 /usr/share/icons/hicolor/scalable/places/ubuntu-2d_badge-symbolic.svg

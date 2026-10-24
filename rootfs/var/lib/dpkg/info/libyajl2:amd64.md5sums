@@ -1,6 +1,7 @@
-5a6042ccc21d71d6fbee2652fa099d62  usr/lib/x86_64-linux-gnu/libyajl.so.2.1.0
+50ff1a246f6415fcc7bd3975a7efb822  usr/lib/x86_64-linux-gnu/libyajl.so.2.1.0
 b6f3faf7750f5f375609f5ee26669a0b  usr/share/doc/libyajl2/README
 4908b33db875f1ab46c065277dcfc18d  usr/share/doc/libyajl2/TODO
-dc773fb34e7a5aad0aa687c753c6695d  usr/share/doc/libyajl2/changelog.Debian.gz
+f9bfe6fa7a79514b1f5c2e2de98ba34c  usr/share/doc/libyajl2/changelog.Debian.amd64.gz
+4c19eca1ac6deaf9eee0bb53705713bb  usr/share/doc/libyajl2/changelog.Debian.gz
 db7e238e372040be8c6c768ec611d86c  usr/share/doc/libyajl2/changelog.gz
-36499044292aa2625fd76b1d5a4c42f0  usr/share/doc/libyajl2/copyright
+c234e7afc876a38a303d85fbd52f3075  usr/share/doc/libyajl2/copyright

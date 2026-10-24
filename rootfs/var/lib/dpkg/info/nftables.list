@@ -1,11 +1,11 @@
 /.
 /etc
 /etc/nftables.conf
-/lib
-/lib/systemd
-/lib/systemd/system
-/lib/systemd/system/nftables.service
 /usr
+/usr/lib
+/usr/lib/systemd
+/usr/lib/systemd/system
+/usr/lib/systemd/system/nftables.service
 /usr/sbin
 /usr/sbin/nft
 /usr/share
@@ -41,6 +41,9 @@
 /usr/share/doc/nftables/examples/sysvinit/README
 /usr/share/doc/nftables/examples/sysvinit/nftables.init
 /usr/share/doc/nftables/examples/workstation.nft
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/nftables
 /usr/share/man
 /usr/share/man/man8
 /usr/share/man/man8/nft.8.gz

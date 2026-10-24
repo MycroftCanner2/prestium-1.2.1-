@@ -140,11 +140,11 @@ Description-sk.UTF-8: Zvoľte predvoleného správcu obrazovky:
  .
  Súbežne môže byť spustených viac správcov obrazovky, ale iba v prípade viacero rozdielnych serverov. Pre dosiahnutie takéhoto nastavenia ich musíte správne nastaviť, upraviť ich spúšťacie skripty v /etc/init.d a zakázať kontrolu predvoleného správcu obrazovky.
 Description-sv.UTF-8: Standarddisplayhanterare:
- En displayhanterare är det program som tillhandahåller grafiska inloggningsmöjligheter i X Window System.
+ En displayhanterare Ã¤r det program som tillhandahÃ¥ller grafiska inloggningsmÃ¶jligheter i X Window System.
  .
- Endast en displayhanterare kan hantera en angiven X-server, men flera displayhanterarpaket kan vara installerade. Välj vilken displayhanterare som skall köras som standard.
+ Endast en displayhanterare kan hantera en angiven X-server, men flera displayhanterarpaket kan vara installerade. VÃ¤lj vilken displayhanterare som skall kÃ¶ras som standard.
  .
- Flera displayhanterare kan köras samtidigt om de är konfigurerade att hantera olika servrar. För att uppnå detta ska du konfigurera displayhanterarnas init-skript under /etc/init.d, och inaktivera kontrollen efter en standarddisplayhanterare.
+ Flera displayhanterare kan kÃ¶ras samtidigt om de Ã¤r konfigurerade att hantera olika servrar. FÃ¶r att uppnÃ¥ detta ska du konfigurera displayhanterarnas init-skript under /etc/init.d, och inaktivera kontrollen efter en standarddisplayhanterare.
 Description-ta.UTF-8: முன்னிருப்பு காட்சி மேலாளர்:
  காட்சி மேலாளர் என்பது வரைகலை உள்நுழைவு இயலுமையை எக்ஸ் விண்டோஸ் அமைப்புக்கு தரும் நிரலாகும்.
  .
