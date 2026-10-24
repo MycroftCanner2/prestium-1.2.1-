@@ -1,24 +1,14 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
-from typing import Optional
+from typing import Any
 
 from pathlib import Path
 
 from gajim.common import configpaths
 
-from gajim.gtk.builder import Builder
+from gajim.gtk.builder import GajimBuilder
 
 from .plugins_i18n import _
 from .plugins_i18n import DOMAIN
@@ -30,11 +20,14 @@ class GajimPluginActivateException(Exception):
     '''
 
 
-def get_builder(file_name: str, widgets: Optional[list[str]] = None) -> Builder:
-    return Builder(file_name,
-                   widgets,  # pyright: ignore
-                   domain=DOMAIN,
-                   gettext_=_)
+def get_builder(
+    file_name: str, instance: Any = None, widgets: list[str] | None = None
+) -> GajimBuilder:
+    return GajimBuilder(file_name,
+                        instance,
+                        widgets,
+                        domain=DOMAIN,
+                        gettext_=_)
 
 
 def is_shipped_plugin(path: Path) -> bool:

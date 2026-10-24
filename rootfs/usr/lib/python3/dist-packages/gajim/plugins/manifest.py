@@ -1,21 +1,10 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 
 import json
 import sys
@@ -32,6 +21,7 @@ from .plugins_i18n import _ as p_
 
 BLOCKED_PLUGINS = [
     'appindicator_integration',
+    'omemo',
     'plugin_installer',
     'syntax_highlight',
     'url_image_preview'
@@ -51,7 +41,7 @@ class PluginManifest:
     version: V
     requirements: list[Requirement]
     platforms: list[str]
-    path: Optional[Path] = None
+    path: Path | None = None
 
     def __hash__(self):
         return hash(f'{self.short_name}_{self.version}')
@@ -104,7 +94,7 @@ class PluginManifest:
     @classmethod
     def from_manifest_json(cls,
                            manifest: dict[str, Any],
-                           path: Optional[Path] = None) -> PluginManifest:
+                           path: Path | None = None) -> PluginManifest:
         return cls(
             name=manifest['name'],
             short_name=manifest['short_name'],

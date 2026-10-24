@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
@@ -19,11 +9,12 @@ from typing import Any
 import logging
 import os
 import pickle
+import types
+from collections.abc import Generator
 
 from gajim.common import configpaths
 from gajim.common.events import ApplicationEvent
 from gajim.common.ged import HandlerFuncT
-from gajim.common.modules.base import BaseModule
 from gajim.common.types import PluginExtensionPoints
 
 from .manifest import PluginManifest
@@ -80,7 +71,7 @@ class GajimPlugin:
     '''
     New network event classes to be registered in Network Events Controller.
     '''
-    modules: list[BaseModule] = []
+    modules: list[types.ModuleType] = []
 
     def __init__(self) -> None:
         self.config = GajimPluginConfig(self)
@@ -117,8 +108,8 @@ class GajimPlugin:
     def deactivate(self) -> None:
         pass
 
-    def activate_encryption(self, chat_control: Any) -> None:
-        pass
+    def activate_encryption(self, chat_control: Any) -> bool:
+        raise NotImplementedError
 
 
 class GajimPluginConfig:
@@ -146,7 +137,7 @@ class GajimPluginConfig:
     def __contains__(self, key: str) -> bool:
         return key in self.data
 
-    def __iter__(self):
+    def __iter__(self) -> Generator[str, Any, None]:
         yield from self.data
 
     def keys(self):
@@ -173,7 +164,7 @@ class GajimPluginConfig:
                     shelf = shelve.open(str(self.FILE_PATH))
                     for (key, value) in shelf.items():
                         self.data[key] = value
-                    if not isinstance(self.data, dict):
+                    if not isinstance(self.data, dict):  # pyright: ignore
                         raise GajimPluginException
                     shelf.close()
                     self.save()

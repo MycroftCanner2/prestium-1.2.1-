@@ -1,27 +1,17 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Callable
-from typing import Optional
+from typing import cast
 
 import logging
 import os
 import sys
 import zipfile
+from collections.abc import Callable
 from importlib.util import module_from_spec
 from importlib.util import spec_from_file_location
 from pathlib import Path
@@ -35,6 +25,7 @@ from gajim.common import modules
 from gajim.common.client import Client
 from gajim.common.exceptions import PluginsystemError
 from gajim.common.i18n import _
+from gajim.common.modules import BaseModule
 from gajim.common.util.classes import Singleton
 
 from .events import PluginAdded
@@ -97,7 +88,7 @@ class PluginManager(metaclass=Singleton):
     def update_plugins(self,
                        replace: bool = True,
                        activate: bool = False,
-                       plugin_name: Optional[str] = None
+                       plugin_name: str | None = None
                        ) -> list[str]:
         '''
         Move plugins from the downloaded folder to the user plugin folder
@@ -132,7 +123,7 @@ class PluginManager(metaclass=Singleton):
                     log.warning('Error while updating plugin')
                     continue
 
-                self.add_plugin(manifest, activate=True)
+                self._add_plugin(manifest, activate=True)
         return updated_plugins
 
     def init_plugins(self) -> None:
@@ -144,14 +135,14 @@ class PluginManager(metaclass=Singleton):
                 continue
 
             try:
-                self.activate_plugin(plugin)
+                self.activate_plugin(plugin, init=True)
             except GajimPluginActivateException as error:
                 plugin.activatable = False
                 plugin.available_text = str(error)
 
     def _load_plugin_module(self,
                             manifest: PluginManifest
-                            ) -> Optional[type[GajimPlugin]]:
+                            ) -> type[GajimPlugin] | None:
 
         assert manifest.path is not None
         module_path = manifest.path / '__init__.py'
@@ -181,10 +172,10 @@ class PluginManager(metaclass=Singleton):
                 return module_attr
         return None
 
-    def add_plugin(self,
-                   manifest: PluginManifest,
-                   activate: bool = False
-                   ) -> Optional[GajimPlugin]:
+    def _add_plugin(self,
+                    manifest: PluginManifest,
+                    activate: bool = False
+                    ) -> GajimPlugin | None:
 
         plugin_class = self._load_plugin_module(manifest)
         if plugin_class is None:
@@ -217,7 +208,7 @@ class PluginManager(metaclass=Singleton):
 
         return plugin_obj
 
-    def remove_plugin(self, plugin: GajimPlugin) -> None:
+    def _remove_plugin(self, plugin: GajimPlugin) -> None:
         '''
         removes the plugin from the plugin list and deletes all loaded modules
         from sys. This way we will have a fresh start when the plugin gets added
@@ -234,7 +225,7 @@ class PluginManager(metaclass=Singleton):
         # name to avoid name problems (removing module_abc if base_package is
         # module_ab)
         modules_to_remove = [module for module in sys.modules
-                             if module.startswith('{}.'.format(base_package))]
+                             if module.startswith(f'{base_package}.')]
         # remove the base_package itself
         if base_package in sys.modules:
             modules_to_remove.append(base_package)
@@ -242,13 +233,13 @@ class PluginManager(metaclass=Singleton):
         for module_to_remove in modules_to_remove:
             del sys.modules[module_to_remove]
 
-    def get_active_plugin(self, plugin_name: str) -> Optional[GajimPlugin]:
+    def get_active_plugin(self, plugin_name: str) -> GajimPlugin | None:
         for plugin in self.active_plugins:
             if plugin.manifest.short_name == plugin_name:
                 return plugin
         return None
 
-    def get_plugin(self, short_name: str) -> Optional[GajimPlugin]:
+    def get_plugin(self, short_name: str) -> GajimPlugin | None:
         for plugin in self.plugins:
             if plugin.manifest.short_name == short_name:
                 return plugin
@@ -411,35 +402,39 @@ class PluginManager(metaclass=Singleton):
             return
         for client in app.get_clients():
             for module in plugin.modules:
-                instance = client.get_module(module.name)
+                instance = cast(BaseModule, client.get_module(module.name))
                 modules.unregister_single_module(client, module.name)
 
                 for handler in instance.handlers:
                     client.connection.unregister_handler(handler)
 
-    def activate_plugin(self, plugin: GajimPlugin) -> None:
+    def activate_plugin(self, plugin: GajimPlugin, init: bool = False) -> None:
         '''
         :param plugin: plugin to be activated
         :type plugin: class object of `GajimPlugin` subclass
         '''
-        if not plugin.active and plugin.activatable:
+        if plugin.active or not plugin.activatable:
+            return
 
-            self._add_gui_extension_points_handlers_from_plugin(plugin)
-            self._add_encryption_name_from_plugin(plugin)
-            self._handle_all_gui_extension_points_with_plugin(plugin)
-            self._register_events_handlers_in_ged(plugin)
-            self._register_modules_with_handlers(plugin)
+        self._add_gui_extension_points_handlers_from_plugin(plugin)
+        self._add_encryption_name_from_plugin(plugin)
+        self._handle_all_gui_extension_points_with_plugin(plugin)
+        self._register_events_handlers_in_ged(plugin)
+        self._register_modules_with_handlers(plugin)
 
-            self.active_plugins.append(plugin)
-            try:
-                plugin.activate()
-            except GajimPluginException as e:
-                self.deactivate_plugin(plugin)
-                raise GajimPluginActivateException(str(e))
-            app.settings.set_plugin_setting(plugin.manifest.short_name,
-                                            'active',
-                                            True)
-            plugin.active = True
+        self.active_plugins.append(plugin)
+        try:
+            plugin.activate()
+        except GajimPluginException as e:
+            self.deactivate_plugin(plugin)
+            raise GajimPluginActivateException(str(e))
+        app.settings.set_plugin_setting(plugin.manifest.short_name,
+                                        'active',
+                                        True)
+        plugin.active = True
+
+        if not init:
+            app.commands.init()
 
     def deactivate_plugin(self, plugin: GajimPlugin) -> None:
         # remove GUI extension points handlers (provided by plug-in) from
@@ -478,6 +473,7 @@ class PluginManager(metaclass=Singleton):
                                         'active',
                                         False)
         plugin.active = False
+        app.commands.init()
 
     def _add_gui_extension_points_handlers_from_plugin(self,
                                                        plugin: GajimPlugin
@@ -527,11 +523,11 @@ class PluginManager(metaclass=Singleton):
                     client.connection.register_handler(handler)
 
     @staticmethod
-    def _load_manifest(plugin_path: Path) -> Optional[PluginManifest]:
+    def _load_manifest(plugin_path: Path) -> PluginManifest | None:
         try:
             return PluginManifest.from_path(plugin_path)
         except Exception as error:
-            log.warning('Unable to load manifest: %s', error)
+            log.debug('Unable to load manifest: %s', error)
             return None
 
     def _load_manifests(self) -> None:
@@ -546,7 +542,11 @@ class PluginManager(metaclass=Singleton):
                     continue
 
                 if not manifest.is_usable:
-                    log.info('Skipped plugin with not suitable requirements')
+                    log.info(
+                        'Skipped plugin with not suitable requirements: %s %s',
+                        manifest.short_name,
+                        manifest.requirements
+                    )
                     continue
 
                 same_plugin = manifests.get(manifest.short_name)
@@ -559,12 +559,12 @@ class PluginManager(metaclass=Singleton):
                 manifests[manifest.short_name] = manifest
 
         for manifest in manifests.values():
-            self.add_plugin(manifest)
+            self._add_plugin(manifest)
 
     def install_from_zip(self,
                          zip_filename: str,
                          overwrite: bool = False
-                         ) -> Optional[GajimPlugin]:
+                         ) -> GajimPlugin | None:
         '''
         Install plugin from zip and return plugin
         '''
@@ -583,8 +583,7 @@ class PluginManager(metaclass=Singleton):
         dirs: list[str] = []
         manifest = None
         for filename in zip_file.namelist():
-            if (filename.startswith('.') or filename.startswith('/') or
-                    ('/' not in filename)):
+            if (filename.startswith(('.', '/')) or ('/' not in filename)):
                 # members not safe
                 raise PluginsystemError(_('Archive is malformed'))
             if filename.endswith('/') and filename.find('/', 0, -1) < 0:
@@ -617,7 +616,7 @@ class PluginManager(metaclass=Singleton):
             rmtree(plugin_path)
             raise PluginsystemError(_('Installation failed'))
 
-        return self.add_plugin(manifest)
+        return self._add_plugin(manifest)
 
     def delete_plugin_files(self, plugin_path: Path) -> None:
         def _on_error(func: Callable[..., Any],
@@ -632,7 +631,7 @@ class PluginManager(metaclass=Singleton):
             # access is denied or other
             raise PluginsystemError(str(error[1]))
 
-        rmtree(plugin_path, False, _on_error)
+        rmtree(plugin_path, False, _on_error)  # type: ignore
 
     def uninstall_plugin(self, plugin: GajimPlugin) -> None:
         '''
@@ -641,7 +640,7 @@ class PluginManager(metaclass=Singleton):
         if not plugin:
             return
 
-        self.remove_plugin(plugin)
+        self._remove_plugin(plugin)
         self.delete_plugin_files(Path(plugin.__path__))
         if not is_shipped_plugin(Path(plugin.__path__)):
             path = configpaths.get('PLUGINS_BASE') / plugin.manifest.short_name
@@ -656,7 +655,7 @@ class PluginManager(metaclass=Singleton):
 
         app.ged.raise_event(PluginRemoved(manifest=plugin.manifest))
 
-    def get_plugin_by_path(self, plugin_dir: str) -> Optional[GajimPlugin]:
+    def get_plugin_by_path(self, plugin_dir: str) -> GajimPlugin | None:
         for plugin in self.plugins:
             if plugin.__path__ in plugin_dir:
                 return plugin
