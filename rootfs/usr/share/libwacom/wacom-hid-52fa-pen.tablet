@@ -9,7 +9,7 @@
 Name=Wacom HID 52FA Pen
 ModelName=WACF2200
 Class=ISDV4
-DeviceMatch=i2c:056a:52fa;
+DeviceMatch=i2c|056a|52fa;
 # Width=11
 # Height=6
 # No pad buttons, so no layout
@@ -19,5 +19,4 @@ IntegratedIn=Display;System
 Stylus=true
 Reversible=false
 Touch=true
-Ring=false
-Buttons=0
+NumRings=0
