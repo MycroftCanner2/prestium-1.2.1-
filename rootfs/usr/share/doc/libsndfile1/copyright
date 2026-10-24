@@ -266,6 +266,7 @@ License: LGPL-2.1+
 Files: debian/*
 Copyright: 2016-2017, Erik de Castro Lopo <erikd@mega-nerd.com>
   2016-2022, IOhannes m zmölnig <umlaeute@debian.org>
+  2024, Fabian Greffrath <fabian@debian.org>
 License: LGPL-2.1+
 
 

@@ -43,7 +43,7 @@ in debian/rules.)
 
 Use dpkg-statoverride to change the permission and the ownership of the
 saslauthd socket /var/run/saslauthd and the sasldb user database /etc/sasldb2.
-For more information on saslauthd, see the README.Debian in the sasl2-bin
+For more information on saslauthd, see README.Debian.gz in the sasl2-bin
 package.
 
 Also see the following RFC

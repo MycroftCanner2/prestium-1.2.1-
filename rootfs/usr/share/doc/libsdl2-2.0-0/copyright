@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: SDL
 Upstream-Contact: Sam Lantinga <slouken@libsdl.org>
-Source: https://www.libsdl.org/
+Source: https://github.com/libsdl-org/SDL/releases
 Files-Excluded: Android.mk
                 android-project
                 src/hidapi/windows/ddk_build
@@ -9,17 +9,20 @@ Files-Excluded: Android.mk
                 src/video/os2/SDL_gradd.h
                 test/unifont-*
                 VisualC
+                VisualC-GDK
                 VisualC-WinRT
                 Xcode
                 Xcode-iOS
 
 Files: *
 Copyright:
- 1997-2023 Sam Lantinga <slouken@libsdl.org>
+ 1997-2025 Sam Lantinga <slouken@libsdl.org>
  2012 Raspberry Pi Foundation
  2012-2018 RISC OS Open Ltd
  2018-2019 EXL
  2020-2022 Valve Corporation
+ 2022 Collabora Ltd.
+ 2023 Max Maisel
 License: zlib/libpng and zlib-libpng-like-permissive
 
 Files: include/SDL_egl.h
@@ -78,17 +81,25 @@ Copyright:
  2009-2010 Nokia Corporation
 License: Mozilla-permissive and Expat and zlib/libpng
 
-Files: src/video/khronos/vulkan/*.h
+Files:
+ src/video/khronos/vk_video/*.h
+ src/video/khronos/vulkan/*.h
 Copyright:
- 2014-2020 The Khronos Group Inc.
- 2015-2017 Valve Corporation
- 2015-2017 LunarG, Inc.
+ 2014-2024 The Khronos Group Inc.
+ 2015-2023 Valve Corporation
+ 2015-2023 LunarG, Inc.
 License: Apache-2.0
 
 Files: src/video/haiku/SDL_bkeyboard.cc
        src/video/haiku/SDL_bkeyboard.h
 Copyright: 1997-2012 Sam Lantinga
 License: LGPL-2.1+
+
+Files:
+ src/video/yuv2rgb/*
+Copyright:
+ 2016 Adrien Descamps
+License: BSD-3-clause
 
 Files: test/testautomation_*
 Copyright: Edgar Simo "bobbens"
@@ -129,6 +140,11 @@ Copyright:
  2015 Samsung Electronics Co., Ltd
  2015-2018 Red Hat, Inc.
  2018 Purism SPC
+ 2018 The Chromium Authors
+ 2022 Kenny Levinsen
+ 2023 Simon Ser
+ 2023-2024 Matthias Klumpp
+ 2024 David Edmundson
 License: Expat and MIT-open-group
 
 Files: debian/*
@@ -145,7 +161,7 @@ Copyright: 2015-2020, Gianfranco Costamagna <locutusofborg@debian.org>
            2001, Branden Robinson <branden@debian.org>
            2012, Canonical Ltd.
            2018-2023, Simon McVittie
-           2022-2023, Collabora Ltd.
+           2022-2024, Collabora Ltd.
 License: LGPL-2.1+
 
 Files: debian/tests/cmake-findsdl2/FindSDL2.cmake

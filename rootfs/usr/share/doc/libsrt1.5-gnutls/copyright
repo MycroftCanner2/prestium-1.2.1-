@@ -4,36 +4,40 @@ Source: https://github.com/Haivision/srt
 
 Files: *
 Copyright: 2017-2021 Haivision Systems Inc.
+           2001-2016, The Board of Trustees of the University of Illinois.
 License: MPL-2.0
 
 Files: srtcore/api.cpp
- srtcore/api.h
- srtcore/buffer.cpp
- srtcore/buffer.h
- srtcore/channel.cpp
- srtcore/channel.h
- srtcore/common.cpp
- srtcore/common.h
- srtcore/core.cpp
- srtcore/core.h
- srtcore/epoll.cpp
- srtcore/epoll.h
- srtcore/handshake.cpp
- srtcore/handshake.h
- srtcore/list.cpp
- srtcore/list.h
- srtcore/packet.cpp
- srtcore/packet.h
- srtcore/queue.cpp
- srtcore/queue.h
- srtcore/socketconfig.cpp
- srtcore/socketconfig.h
- srtcore/udt.h
- srtcore/window.cpp
- srtcore/window.h
-Copyright: 2001-2016, The Board of Trustees of the University of Illinois.
-  2018, Haivision Systems Inc.
-License: MPL-2.0
+       srtcore/api.h
+       srtcore/buffer_rcv.cpp
+       srtcore/buffer_snd.cpp
+       srtcore/buffer_snd.h
+       srtcore/buffer_tools.cpp
+       srtcore/buffer_tools.h
+       srtcore/channel.cpp
+       srtcore/channel.h
+       srtcore/common.cpp
+       srtcore/common.h
+       srtcore/core.cpp
+       srtcore/core.h
+       srtcore/epoll.cpp
+       srtcore/epoll.h
+       srtcore/handshake.cpp
+       srtcore/handshake.h
+       srtcore/list.cpp
+       srtcore/list.h
+       srtcore/packet.cpp
+       srtcore/packet.h
+       srtcore/queue.cpp
+       srtcore/queue.h
+       srtcore/socketconfig.cpp
+       srtcore/socketconfig.h
+       srtcore/udt.h
+       srtcore/window.cpp
+       srtcore/window.h
+Copyright: 2018 Haivision Systems Inc.
+           2001-2016, The Board of Trustees of the University of Illinois.
+License: BSD-3-clause and MPL-2.0
 
 Files: srtcore/cache.cpp
  srtcore/cache.h
@@ -62,7 +66,7 @@ License: LGPL-2.1+
 
 Files: debian/*
 Copyright: 2018, Federico Ceratto <federico@debian.org>
-  2022. Florian Ernst <florian@debian.org>
+  2022-2024, Florian Ernst <florian@debian.org>
 License: MPL-2.0
 
 License: MPL-2.0

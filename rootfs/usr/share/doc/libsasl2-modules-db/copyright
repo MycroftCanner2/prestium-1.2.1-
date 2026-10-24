@@ -1,23 +1,23 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Cyrus SASL
 Source: ftp://ftp.cyrusimap.org/cyrus-sasl/
-Files-Excluded: dlcompat-20010505
+Files-Excluded: common/crypto-compat.*
+                dlcompat-20010505
                 doc/html
                 docsrc/exts/themes
+                include/makemd5.c
                 mac
                 man
                 *.pyc
 Comment: doc/html, man and *.pyc contain generated files.
          dlcompat and mac are not needed and contain many licenses more.
-         docsrc/exts/themes contains generated files and has a Debian package replacement.
+         common/crypto-compat.* is OpenSSL-licensed which may be incompatible
+         with reverse dependencies. docsrc/exts/themes contains generated files
+         and has a Debian package replacement.
 
 Files: *
 Copyright: 1998-2003, Carnegie Mellon University
-License: BSD-4-clause
-
-Files: common/crypto-compat.c
-Copyright: 2016 The OpenSSL Project Authors. All Rights Reserved.
-License: OpenSSL and SSLeay
+License: BSD-3-Clause-Attribution
 
 Files: docsrc/exts/sphinxlocal/*
 Copyright: 2007-2016 by the Sphinx team
@@ -65,18 +65,6 @@ Copyright: 2002-2004, Dima Barsky <dima@debian.org>
            Based on cyrus-imapd-2.2 packages by Henrique de Moraes Holshuch.
 License: GPL-3+
 
-Files: debian/saslfinger/*
-Copyright: 2004, Patrick Koetter <p@state-of-mind.de>
-License: GPL-3+
-Comment: The saslfinger utility was downloaded from
- http://postfix.state-of-mind.de/patrick.koetter/saslfinger/
-
-Files: debian/gen-auth/*
-Copyright: 2002-2006, John Jetmore <jj33@pobox.com>
-License: GPL-3+
-Comment: The gen-auth utility was downloaded from
- http://jetmore.org/john/code/gen-auth
-
 Files: debian/tests/*
 Copyright: 2022, Canonical Ltd.
 License: GPL-3
@@ -91,22 +79,19 @@ Files: include/md5*.h
        saslauthd/md5.c
        saslauthd/saslauthd_md5.h
 Copyright: 1991-2, RSA Data Security, Inc. Created 1991. All rights reserved.
+Comment: The source is patched so that these files do not end up in any binary.
+         lib/md5.c is relicensed by upstream to BSD-3-Clause-Attribution, which
+         is reflected in the quilt patch queue.
 License: RSA-MD
-
-Files: include/makemd5.c
-Copyright: (c) 1997, 1998 Kungliga Tekniska Högskolan
-           (Royal Institute of Technology, Stockholm, Sweden).
-           All rights reserved.
-License: BSD-4-clause and BSD-4-clause-KTH
 
 Files: lib/saslutil.c
 Copyright: 1998-2016 Carnegie Mellon University.  All rights reserved.
-License: BSD-4-clause and IBM-as-is
+License: BSD-3-Clause-Attribution and IBM-as-is
 
 Files: plugins/gs2.c
 Copyright: 2010, JANET(UK)
            1998-2016 Carnegie Mellon University.
-License: BSD-3-clause-JANET and BSD-4-clause
+License: BSD-3-clause-JANET and BSD-3-Clause-Attribution
 
 Files: plugins/gs2_token.c
 Copyright: 2011, PADL Software Pty Ltd.
@@ -129,7 +114,7 @@ License: FSFULLR and MIT-CMU
 Files: sample/server.c
 Copyright: 1998-2016 Carnegie Mellon University.  All rights reserved.
            2009  by the Massachusetts Institute of Technology.
-License: BSD-4-clause and MIT-Export
+License: BSD-3-Clause-Attribution and MIT-Export
 
 Files: saslauthd/auth_httpform.c
 Copyright: 2005 Pyx Engineering AG
@@ -218,7 +203,7 @@ License: BSD-2-clause
 
 Files: sasldb/db_lmdb.c
 Copyright: 2011-2012 Howard Chu, All rights reserved. <hyc@symas.com>
-License: BSD-4-clause
+License: BSD-3-Clause-Attribution
 
 License: FSFULLR
  This Makefile.in is free software; the Free Software Foundation
@@ -308,7 +293,7 @@ License: MIT-OpenVision
  * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
  * PERFORMANCE OF THIS SOFTWARE.
 
-License: BSD-4-clause
+License: BSD-3-Clause-Attribution
  Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
  .
  Redistribution and use in source and binary forms, with or without
@@ -346,39 +331,6 @@ License: BSD-4-clause
  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
  AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING
  OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-License: BSD-4-clause-KTH
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * 3. All advertising materials mentioning features or use of this software
- *    must display the following acknowledgement:
- *      This product includes software developed by Kungliga Tekniska
- *      Högskolan and its contributors.
- *
- * 4. Neither the name of the Institute nor the names of its contributors
- *    may be used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE INSTITUTE AND CONTRIBUTORS ``AS IS'' AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE INSTITUTE OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
 
 License: BSD-4-clause-UC
  * Redistribution and use in source and binary forms, with or without
@@ -545,113 +497,6 @@ License: IBM-as-is
  Any notices, including this one, are not to be removed
  from the module without the prior written consent of
  IBM.
-
-License: OpenSSL
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in
- *    the documentation and/or other materials provided with the
- *    distribution.
- *
- * 3. All advertising materials mentioning features or use of this
- *    software must display the following acknowledgment:
- *    "This product includes software developed by the OpenSSL Project
- *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
- *
- * 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
- *    endorse or promote products derived from this software without
- *    prior written permission. For written permission, please contact
- *    openssl-core@openssl.org.
- *
- * 5. Products derived from this software may not be called "OpenSSL"
- *    nor may "OpenSSL" appear in their names without prior written
- *    permission of the OpenSSL Project.
- *
- * 6. Redistributions of any form whatsoever must retain the following
- *    acknowledgment:
- *    "This product includes software developed by the OpenSSL Project
- *    for use in the OpenSSL Toolkit (http://www.openssl.org/)"
- *
- * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
- * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
- * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
- * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
- * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
- * ====================================================================
- *
- * This product includes cryptographic software written by Eric Young
- * (eay@cryptsoft.com).  This product includes software written by Tim
- * Hudson (tjh@cryptsoft.com).
-
-License: SSLeay
- * Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
- * All rights reserved.
- *
- * This package is an SSL implementation written
- * by Eric Young (eay@cryptsoft.com).
- * The implementation was written so as to conform with Netscapes SSL.
- *
- * This library is free for commercial and non-commercial use as long as
- * the following conditions are aheared to.  The following conditions
- * apply to all code found in this distribution, be it the RC4, RSA,
- * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
- * included with this distribution is covered by the same copyright terms
- * except that the holder is Tim Hudson (tjh@cryptsoft.com).
- *
- * Copyright remains Eric Young's, and as such any Copyright notices in
- * the code are not to be removed.
- * If this package is used in a product, Eric Young should be given attribution
- * as the author of the parts of the library used.
- * This can be in the form of a textual message at program startup or
- * in documentation (online or textual) provided with the package.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. All advertising materials mentioning features or use of this software
- *    must display the following acknowledgement:
- *    "This product includes cryptographic software written by
- *     Eric Young (eay@cryptsoft.com)"
- *    The word 'cryptographic' can be left out if the rouines from the library
- *    being used are not cryptographic related :-).
- * 4. If you include any Windows specific code (or a derivative thereof) from
- *    the apps directory (application code) you must include an acknowledgement:
- *    "This product includes software written by Tim Hudson (tjh@cryptsoft.com)"
- *
- * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
- *
- * The licence and distribution terms for any publically available version or
- * derivative of this code cannot be changed.  i.e. this code cannot simply be
- * copied and put under another distribution licence
- * [including the GNU Public Licence.]
 
 License: OpenLDAP
  The OpenLDAP Public License

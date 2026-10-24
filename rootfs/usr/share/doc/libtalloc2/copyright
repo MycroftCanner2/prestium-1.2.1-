@@ -1,17 +1,110 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: talloc
-Upstream-Contact: Samba Developers <samba-technical@samba.org>
-Source: http://talloc.samba.org/
+Upstream-Name: samba
+Upstream-Contact: Samba Developers <samba-technical@lists.samba.org>
+Source: http://www.samba.org/
+Files-Excluded:
+  third_party/heimdal/lib/wind/rfc*.txt
+  third_party/heimdal/doc/standardisation
+  source4/ldap_server/devdocs
+  docs/manpages/*.?
+  ctdb/doc/*.? ctdb/doc/*.?.html
 
 Files: *
+Copyright: 1992-2012 Andrew Tridgell and the Samba Team
+License: GPL-3.0+
+
+Files: third_party/heimdal/*
 Copyright:
-  2004-2005 Andrew Tridgell <tridge@samba.org>
-  2006 Stefan Metzmacher <metze@samba.org>
-License: LGPL-3.0+
+ 1996-2005 Kungliga Tekniska Högskolan
+ (Royal Institute of Technology, Stockholm, Sweden).
+License: BSD-3
+
+Files: source4/setup/ad-schema/*.txt
+Comment: part of the Microsoft protocol documentation
+Copyright: Microsoft Corporation
+License: MS-ADSL
+ License for the Active Directory schemas:
+ .
+ Intellectual Property Rights Notice for Protocol Documentation.
+ .
+ Copyrights.
+ This protocol documentation is covered by Microsoft copyrights. Regardless
+ of any other terms that are contained in the terms of use for the Microsoft
+ website that hosts this documentation, you may make copies of it in order to
+ develop implementations of the protocols, and may distribute portions of it
+ in your implementations of the protocols or your documentation as necessary
+ to properly document the implementation. You may also distribute in your
+ implementation, with or without modification, any schema, IDL’s, or code
+ samples that are included in the documentation. This permission also applies
+ to any documents that are referenced in the protocol documentation.
+ .
+ No Trade Secrets.
+ Microsoft does not claim any trade secret rights in this documentation.
+ .
+ Patents.
+ Microsoft has patents that may cover your implementations of the protocols.
+ Neither this notice nor Microsoft's delivery of the documentation grants any
+ licenses under those or any other Microsoft patents. However, the protocols
+ may be covered by Microsoft's Open Specification Promise (available here:
+ http://www.microsoft.com/interop/osp). If you would prefer a written
+ license, or if the protocols are not covered by the OSP, patent
+ licenses are available by contacting protocol@microsoft.com.
+ .
+ Trademarks.
+ The names of companies and products contained in this documentation may be
+ covered by trademarks or similar intellectual property rights. This notice
+ does not grant any licenses under those rights.
+ .
+ Reservation of Rights.
+ All other rights are reserved, and this notice does not grant any rights
+ other than specifically described above, whether by implication, estoppel,
+ or otherwise.
+ .
+ Tools.
+ This protocol documentation is intended for use in conjunction with
+ publicly available standard specifications and network programming art,
+ and assumes that the reader either is familiar with the aforementioned
+ material or has immediate access to it. A protocol specification does not
+ require the use of Microsoft programming tools or programming environments
+ in order for you to develop an implementation. If you have access to
+ Microsoft programming tools and environments you are free to take
+ advantage of them.
 
 Files: debian/*
-Copyright: 2007-2012 Jelmer Vernooij <jelmer@samba.org>
+Copyright:
+  2005-2012 Jelmer Vernooij <jelmer@debian.org>
+  2005-2006 Steinar H. Gunderson
+  2001-2011 Steve Langasek <vorlon@debian.org>,
+  2005-2012 Christian Perrier <bubulle@debian.org>,
+  2005-2008 Noèl Köthe <noel@debian.org>,
+  2005-2008 Peter Eisentraut <petere@debian.org>, et al.
+  2022-2024 Michael Tokarev <mjt@tls.msk.ru>
+License: GPL-3
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 3 dated June, 2007.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; If not, see https://www.gnu.org/licenses/.
+ .
+ On Debian systems, the full text of the GPL v3 can be found in
+ /usr/share/common-licenses/GPL-3
+
+Files: lib/ldb/common/qsort.c
+Copyright: 1991,1992,1996,1997,1999,2004 Free Software Foundation, Inc.
 License: LGPL-3.0+
+
+Files: lib/ldb/tools/*
+Copyright:
+ 2004-2010 Andrew Tridgell <tridge@samba.org>
+ 2004 Stefan Metzmacher
+ 2009 Matthieu Patou
+License: GPL-3.0+
 
 Files: lib/replace/*.c
 Comment: This file is not used when building the Debian package.
@@ -93,11 +186,39 @@ Copyright:
   Copyright (C) Andrew Bartlett      2012
 License: LGPL-3.0+
 
-Files: pytalloc*
+Files: lib/talloc/*
+Copyright:
+ 2004-2010 Andrew Tridgell
+ 2008-2011 Jelmer Vernooij
+ 2006-2009 Stefan Metzmacher
+ 2015 Petr Viktorin <pviktori@redhat.com>
+License: LGPL-3.0+
+
+Files: lib/talloc/pytalloc*
 Copyright:
   Copyright (C) Jelmer Vernooij <jelmer@samba.org> 2008-2011
   Copyright (C) Andrew Bartlett <abartlet@samba.org> 2016
 License: GPL-3.0+
+
+Files: lib/tdb/*
+Copyright:
+ 2000-2010 Rusty Russell
+ 1999-2010 Andrew Tridgell
+ 2000-2006 Jeremy Allison
+ 2010 Volker Lendecke
+ 2005 Simon McVittie
+ 2001 Andrew Esh
+ 2004-2006 Tim Potter
+ 2007-2008 Jelmer Vernooij
+License: LGPL-3.0+
+
+Files: lib/tevent/*
+Copyright:
+ 2008 Volker Lendecke
+ 2005-2010 Stefan Metzmacher
+ 2003-2010 Andrew Tridgell
+ 2010 Jelmer Vernooij
+License: LGPL-3.0+
 
 Files:
   buildtools/bin/waf

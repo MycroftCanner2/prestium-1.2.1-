@@ -13,7 +13,7 @@ Comment: Binary documentation files with no source excluded via debian/watch and
   in addition embedded copies of code that are not used anyways excluded as well.
 
 Files: *
-Copyright: 2019-2021, VideoLAN and librist authors
+Copyright: 2019-2024, VideoLAN and librist authors
 License: BSD-2-clause
 
 Files: contrib/fastpbkdf2.c
@@ -34,8 +34,8 @@ Files: contrib/fastpbkdf2.c
  src/crypto/crypto.c
  src/crypto/psk.c
  src/crypto/psk.h
- src/eap.c
- src/eap.h
+ src/proto/eap.c
+ src/proto/eap.h
  src/flow.c
  src/libevsocket.c
  src/libevsocket.h
@@ -53,7 +53,6 @@ Files: contrib/fastpbkdf2.c
  src/udp.c
  src/udpsocket.c
  test/meson.build
- test/rist/example-test.c
  test/rist/meson.build
  test/rist/test_send_receive.c
  tools/meson.build
@@ -90,6 +89,14 @@ Copyright: 2018, VideoLAN and dav1d authors
   2020, VideoLAN and librist authors
 License: BSD-2-clause
 
+Files: compat/android/ifaddrs.c
+Copyright: 2013, Kenneth MacKay
+License: BSD-2-clause
+
+Files: compat/android/ifaddrs.h
+Copyright: 1995, 1999, Berkeley Software Design, Inc.
+License: BSD-1-clause
+
 Files: contrib/aes.c
  contrib/aes.h
  contrib/sha256.c
@@ -100,18 +107,10 @@ License: public-domain
  acknowledgement if the code is used, but does not require it. This code is provided free of any
  liability and without any quality claims by the author.
 
-Files: contrib/srp.c
- contrib/srp.h
-Copyright: 2010, Tom Cocagne.
-  2015, Dieter Wimberger
-  2015, Tom Cocagne, Dieter Wimberger
-  2017, Johannes Schriewer
-License: Expat
-
 Files: contrib/getopt-shim.c
 Copyright: 2000, The NetBSD Foundation, Inc.
   2002, Todd C. Miller <Todd.Miller@courtesan.com>
-License: ISC
+License: ISC and BSD-2-clause
 
 Files: contrib/getopt-shim.h
 Copyright: NONE
@@ -134,7 +133,7 @@ Copyright: 2020, in2ip B.V. All right reserved.
 License: BSD-2-clause
 
 Files: debian/*
-Copyright: 2022, Florian Ernst <florian@debian.org>
+Copyright: 2022-2024, Florian Ernst <florian@debian.org>
 License: BSD-2-clause
 
 License: BSD-2-clause
@@ -159,24 +158,24 @@ License: BSD-2-clause
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-License: Expat
- Permission is hereby granted, free of charge, to any person obtaining a copy of
- this software and associated documentation files (the "Software"), to deal in
- the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
- of the Software, and to permit persons to whom the Software is furnished to do
- so, subject to the following conditions:
+License: BSD-1-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
  .
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
- .
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.
+ THIS SOFTWARE IS PROVIDED BY Berkeley Software Design, Inc. ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL Berkeley Software Design, Inc. BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
 
 License: ISC
  Permission to use, copy, modify, and distribute this software for any

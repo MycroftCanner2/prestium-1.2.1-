@@ -16,26 +16,25 @@ command-line tools (package libtasn1-bin) are GPLv3+.
 
 Copyright (library):
 /*
- * Copyright (C) 2000-2022 Free Software Foundation, Inc.
+ * Copyright (C) 2002-2025 Free Software Foundation, Inc.
  *
  * This file is part of LIBTASN1.
  *
- * The LIBTASN1 library is free software; you can redistribute it
- * and/or modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * LIBTASN1 is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful, but
+ * LIBTASN1 is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
- * 02110-1301, USA
+ * License along with this library; if not, see
+ * <https://www.gnu.org/licenses/>.
+ *
  */
-
 On Debian GNU/Linux systems, the complete text of the GNU Lesser
 General Public License can be found in
 `/usr/share/common-licenses/LGPL'; the text of the earliest applying version
@@ -43,7 +42,7 @@ of the license (2.1) can be found in `/usr/share/common-licenses/LGPL-2.1'.
 
 
 Copyright (build system, test-suite and command-line tools):
- * Copyright (C) 2000-2022 Free Software Foundation, Inc.
+ * Copyright (C) 2002-2025 Free Software Foundation, Inc.
  *
  * This file is part of LIBTASN1.
  *
@@ -59,8 +58,6 @@ Copyright (build system, test-suite and command-line tools):
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
 
 On Debian GNU/Linux systems, the complete text of the GNU General Public
 License version 3 can be found in /usr/share/common-licenses/GPL-3.
@@ -69,7 +66,7 @@ License version 3 can be found in /usr/share/common-licenses/GPL-3.
 The documentation is distributed under the terms of the GNU Free
 Documentation License (FDL 1.3):
 ----------------------------------
-Copyright (c) 2001-2022 Free Software Foundation, Inc.
+Copyright (c) 2001-2025 Free Software Foundation, Inc.
 
   Permission is granted to copy, distribute and/or modify this
   document under the terms of the GNU Free Documentation License,
