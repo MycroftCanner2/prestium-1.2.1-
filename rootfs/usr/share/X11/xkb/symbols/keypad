@@ -521,6 +521,8 @@ partial keypad_keys
 xkb_symbols "hex" {
     key.type[Group1]="FOUR_LEVEL_MIXED_KEYPAD" ;
 
+    include "keypad(ops)"
+
     //             None       NumLock    AltGr
     // symbol row
     key <KPDV> { [ NoSymbol,  NoSymbol,  parenleft  ] };
@@ -556,6 +558,9 @@ xkb_symbols "hex" {
 // layout, e.g. "legacy".
 partial keypad_keys
 xkb_symbols "atm" {
+    include "keypad(ops)"
+    include "keypad(hex)"
+
     // upper row
     key <KP7>  { [ NoSymbol,  KP_1 ] };
     key <KP8>  { [ NoSymbol,  KP_2 ] };
@@ -576,15 +581,15 @@ xkb_symbols "pointerkeys" {
 
 // Only numbers, operators and decimal separator,
 // as seen on keypad overlay on Japanese keyboard.
-// ┌─┬─┬─┬─┐
-// │7│8│9│*│
-// ├─┼─┼─┼─┤
-// │4│5│6│-│
-// ├─┼─┼─┼─┤
-// │1│2│3│+│
-// ├─┼─┼─┼─┤
-// │0│ │·│/│
-// └─┴─┴─┴─┘
+// ┌───┬───┬───┬───┐
+// │ 7 │ 8 │ 9 │ * │
+// ├───┼───┼───┼───┤
+// │ 4 │ 5 │ 6 │ - │
+// ├───┼───┼───┼───┤
+// │ 1 │ 2 │ 3 │ + │
+// ├───┼───┼───┼───┤
+// │ 0 │   │ · │ / │
+// └───┴───┴───┴───┘
 partial keypad_keys
 xkb_symbols "numoperdecsep" {
     key  <KO7> {	[  KP_7	]	};

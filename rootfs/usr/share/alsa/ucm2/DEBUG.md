@@ -98,11 +98,24 @@ another.
 Testing changes in the UCM configuration
 ----------------------------------------
 
-The sound server must be reloaded to reload the UCM configuration.
+The sound server must be restarted to reload the UCM configuration. For
+PipeWire, the command `systemctl --user restart wireplumber` is sufficient.
 
 To check the configuration syntax, use `alsaucm -c hw:0 dump text` command 
 (replace zero with the corresponding ALSA card number). This command should
 not return an error.
+
+Logs from PipeWire (wireplumber)
+--------------------------------
+
+````
+systemctl --user stop wireplumber
+WIREPLUMBER_DEBUG="spa.*:5" wireplumber
+````
+
+The alsa-ucm.c lines shows the selected and enabled devices in runtime.
+You may redirect the log output to a file and use a grep or another tool
+to filter them.
 
 Notes
 -----

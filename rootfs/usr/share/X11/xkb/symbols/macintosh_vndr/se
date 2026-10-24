@@ -1,4 +1,4 @@
-default partial alphanumeric_keys 
+default partial alphanumeric_keys
 xkb_symbols "basic" {
 
     // Describes the differences between a very simple en_US
@@ -24,7 +24,7 @@ xkb_symbols "basic" {
     key <AE12> {	[           acute,           grave	]	};
     key <AB09> {	[          period,           colon     	]	};
     key <AB10> {	[           minus,      underscore     	]	};
-    key <AC10> {	[      odiaeresis,      Odiaeresis, 	   oslash,	     Ooblique	]	};
+    key <AC10> {	[      odiaeresis,      Odiaeresis, 	   oslash,	       Oslash	]	};
     key <AC11> {	[      adiaeresis,      Adiaeresis,            ae,		   AE	]	};
     key <AD11> {	[	    aring,           Aring     	]	};
     key <AD12> {	[       diaeresis,     asciicircum, 	asciitilde			]	};
@@ -37,7 +37,7 @@ xkb_symbols "basic" {
 };
 
 
-partial alphanumeric_keys 
+partial alphanumeric_keys
 xkb_symbols "nodeadkeys" {
     include "macintosh_vndr/se(basic)" // for consistent naming
     name[Group1]= "Sweden - Mac, no dead keys";
