@@ -1,4 +1,5 @@
-;;; debian-startup.el --- Debian specific emacsen startup code.
+;;; -*- lexical-binding: t -*-
+;;; debian-startup.el --- Debian-specific emacsen startup code
 
 ;; Copyright (C) 1998-2017 Rob Browning
 

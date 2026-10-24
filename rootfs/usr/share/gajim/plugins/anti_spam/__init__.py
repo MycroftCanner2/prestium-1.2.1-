@@ -1,1 +1,1 @@
-from .anti_spam import AntiSpamPlugin  # type: ignore
+from .anti_spam import AntiSpamPlugin  # pyright: ignore # noqa: F401

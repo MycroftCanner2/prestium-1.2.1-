@@ -15,23 +15,20 @@
 # along with OpenPGP Gajim Plugin. If not, see <http://www.gnu.org/licenses/>.
 
 from enum import IntEnum
-from collections import namedtuple
 
+from nbxmpp import Node
 from nbxmpp.namespaces import Namespace
 
-
-ENCRYPTION_NAME = 'OpenPGP'
+ENCRYPTION_NAME = "OpenPGP"
 
 NOT_ENCRYPTED_TAGS = [
-    ('no-store', Namespace.HINTS),
-    ('store', Namespace.HINTS),
-    ('no-copy', Namespace.HINTS),
-    ('no-permanent-store', Namespace.HINTS),
-    ('origin-id', Namespace.SID),
-    ('thread', None)
+    ("no-store", Namespace.HINTS),
+    ("store", Namespace.HINTS),
+    ("no-copy", Namespace.HINTS),
+    ("no-permanent-store", Namespace.HINTS),
+    ("origin-id", Namespace.SID),
+    ("thread", ""),
 ]
-
-Key = namedtuple('Key', 'fingerprint date')
 
 
 class Trust(IntEnum):
@@ -41,30 +38,29 @@ class Trust(IntEnum):
     VERIFIED = 3
 
 
-def prepare_stanza(stanza, payload):
-    delete_nodes(stanza, 'openpgp', Namespace.OPENPGP)
-    delete_nodes(stanza, 'body')
+def prepare_stanza(stanza: Node, payload: list[Node | str]) -> None:
+    delete_nodes(stanza, "openpgp", Namespace.OPENPGP)
+    delete_nodes(stanza, "body")
 
-    nodes = [(node.getName(), node.getNamespace()) for node in payload]
-    for name, namespace in nodes:
-        delete_nodes(stanza, name, namespace)
-
+    nodes: list[Node] = []
     for node in payload:
+        if isinstance(node, str):
+            continue
+        name, namespace = node.getName(), node.getNamespace()
+        delete_nodes(stanza, name, namespace)
+        nodes.append(node)
+
+    for node in nodes:
         stanza.addChild(node=node)
 
 
-def delete_nodes(stanza, name, namespace=None):
+def delete_nodes(stanza: Node, name: str, namespace: str | None = None) -> None:
     attrs = None
     if namespace is not None:
-        attrs = {'xmlns': Namespace.OPENPGP}
+        attrs = {"xmlns": Namespace.OPENPGP}
     nodes = stanza.getTags(name, attrs)
     for node in nodes:
         stanza.delChild(node)
-
-
-def add_additional_data(data, fingerprint):
-    data['encrypted'] = {'name': ENCRYPTION_NAME,
-                         'fingerprint': fingerprint}
 
 
 class VerifyFailed(Exception):

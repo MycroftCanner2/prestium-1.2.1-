@@ -1,0 +1,189 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Zeitgeist
+Upstream-Contact: https://gitlab.freedesktop.org/zeitgeist/zeitgeist/issues
+Source: https://gitlab.freedesktop.org/zeitgeist/zeitgeist
+Copyright-Unfuzz:
+  Siegfried-Angel Gevatter Pujals <siegfried@gevatter.com>: Siegfried
+ Gevatter, <rainct@ubuntu.com>
+
+Files: *
+Copyright:
+  2009-2012        Canonical Ltd.
+  2012             Christian Dywan <christian@twotoasts.de>
+  2011-2012        Collabora Ltd.
+  2011             Manish Sinha <manishsinha@ubuntu.com>
+  2009-2011        Markus Korn <thekorn@gmx.de>
+  2011             Michal Hruby <michal.mhr@gmail.com>
+  2009-2011        Mikkel Kamstrup Erlandsen <mikkel.kamstrup@gmail.com>
+  2013             Rico Tzschichholz <ricotz@ubuntu.com>
+  2009-2011, 2013  Seif Lotfy <seif@lotfy.com>
+  2009-2011        Siegfried-Angel Gevatter Pujals
+ <siegfried@gevatter.com>
+  2011             Stefano Candori <stefano.candori@gmail.com>
+  2009-2012        The Zeitgeist Team
+License-Grant:
+ This program is free software:
+ you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License
+ as published by the Free Software Foundation,
+ either version 2.1 of the License,
+ or (at your option) any later version.
+License: LGPL-2.1+
+
+Files:
+ extensions/fts++/*
+ src/notify.vala
+ tools/zeitgeist-explorer/*
+Copyright:
+  2012       Canonical Ltd.
+  2011-2012  Collabora Ltd.
+  2011-2012  Michal Hruby <michal.mhr@gmail.com>
+  2012       Mikkel Kamstrup Erlandsen <mikkel.kamstrup@gmail.com>
+  2010       Siegfried Gevatter <siegfried@gevatter.com>
+  2011       Stefano Candori <stefano.candori@gmail.com>
+License-Grant:
+ This program is free software;
+ you can redistribute it and/or modify it
+ under the terms of the GNU General Public License
+ as published by the Free Software Foundation;
+ either version 2 of the License,
+ or (at your option) any later version.
+License: GPL-2+
+
+Files:
+ examples/c/*
+ test/c/*
+Copyright:
+  2010  Canonical Ltd.
+License-Grant:
+ This program is free software:
+ you can redistribute it and/or modify it
+ under the terms of the GNU General Public License version 3
+ as published by the Free Software Foundation.
+License: GPL-3
+
+Files:
+ datahub/*
+Copyright:
+  2012        Canonical Ltd.
+  2012        Collabora Ltd.
+  2012        Eslam Mostafa <cseslam@gmail.com>
+  2010, 2012  Michal Hruby <michal.mhr@gmail.com>
+License-Grant:
+ This program is free software:
+ you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License
+ as published by the Free Software Foundation,
+ either version 3 of the License,
+ or (at your option) any later version.
+License: LGPL-3+
+
+Files:
+ data/ontology/*.trig
+Copyright:
+  2010       Andrew Lake <jamboarder@yahoo.com>
+  2009-2010  Evgeny Egorochkin <phreedom.stdin@gmail.com>
+  2007       NEPOMUK Consortium
+  2009-2011  Sebastian Trueg <trueg@kde.org>
+  2010       Zeitgeist Developer Team
+License: BSD-3-clause
+
+Files:
+ tools/development/cairoplot.py
+ tools/development/series.py
+Copyright:
+  2008  Magnun Leno da Silva
+  2008  Rodrigo Moreira Araújo
+License-Grant:
+ This program is free software;
+ you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License
+ as published by the Free Software Foundation;
+ either version 2 of the License,
+ or (at your option) any later version.
+License: LGPL-2+
+
+Files: debian/*
+Copyright:
+  2012       Canonical Ltd.
+  2011-2012  Collabora Ltd.
+  2020-2023  Jonas Smedegaard <dr@jones.dk>
+  2020-2021  Purism, SPC
+  2013       Rico Tzschichholz <ricotz@ubuntu.com>
+  2009-2013  Siegfried-Angel Gevatter Pujals <rainct@ubuntu.com>
+License-Grant:
+ This program is free software;
+ you can redistribute it and/or modify it
+ under the terms of the GNU General Public License
+ as published by the Free Software Foundation;
+ either version 3 of the License,
+ or (at your option) any later version.
+License: GPL-3+
+Reference: debian/copyright
+
+Files:
+ debian/patches/add_german_translation.patch
+Copyright:
+  Chris Leick  <c.leick@vollbio.de>
+License-Grant:
+ This file is distributed
+ under the same license as the zeitgeist package.
+License: LGPL-2.1+
+Comment:
+ Project is distributed under multiple licenses.
+ License assumed to be LGPL-2.1+ which is most commonly used.
+
+License: GPL-2+
+Reference: /usr/share/common-licenses/GPL-2
+
+License: GPL-3
+Reference: /usr/share/common-licenses/GPL-3
+
+License: GPL-3+
+Reference: /usr/share/common-licenses/GPL-3
+
+License: LGPL-2+
+Reference: /usr/share/common-licenses/LGPL-2
+
+License: LGPL-2.1+
+Reference: /usr/share/common-licenses/LGPL-2.1
+
+License: LGPL-3+
+Reference: /usr/share/common-licenses/LGPL-3
+
+License: BSD-3-clause
+ Redistribution and use in source and binary forms,
+ with or without modification,
+ are permitted
+ provided that the following conditions are met:
+  1. Redistributions of source code must retain
+     the above copyright notice, this list of conditions
+     and the following disclaimer.
+  2. Redistributions in binary form must reproduce
+     the above copyright notice, this list of conditions
+     and the following disclaimer
+     in the documentation and/or other materials
+     provided with the distribution.
+  3. Neither the name of the University
+     nor the names of its contributors
+     may be used to endorse or promote
+     products derived from this software
+     without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO,
+ THE IMPLIED WARRANTIES OF MERCHANTABILITY
+ AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.
+ IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+ OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO,
+ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

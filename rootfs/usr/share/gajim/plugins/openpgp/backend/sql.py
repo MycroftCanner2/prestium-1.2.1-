@@ -14,13 +14,22 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenPGP Gajim Plugin. If not, see <http://www.gnu.org/licenses/>.
 
-import sqlite3
+from typing import Any
+from typing import NamedTuple
+
 import logging
+import sqlite3
 from collections import namedtuple
+from collections.abc import Iterator
+from pathlib import Path
 
-log = logging.getLogger('gajim.p.openpgp.sql')
+from nbxmpp.protocol import JID
 
-TABLE_LAYOUT = '''
+from openpgp.modules.util import Trust
+
+log = logging.getLogger("gajim.p.openpgp.sql")
+
+TABLE_LAYOUT = """
     CREATE TABLE contacts (
         jid TEXT,
         fingerprint TEXT,
@@ -29,13 +38,22 @@ TABLE_LAYOUT = '''
         timestamp INTEGER,
         comment TEXT
         );
-    CREATE UNIQUE INDEX jid_fingerprint ON contacts (jid, fingerprint);'''
+    CREATE UNIQUE INDEX jid_fingerprint ON contacts (jid, fingerprint);"""
+
+
+class ContactRow(NamedTuple):
+    jid: JID
+    fingerprint: str
+    active: bool
+    trust: Trust
+    timestamp: float
 
 
 class Storage:
-    def __init__(self, folder_path):
-        self._con = sqlite3.connect(str(folder_path / 'contacts.db'),
-                                    detect_types=sqlite3.PARSE_COLNAMES)
+    def __init__(self, folder_path: Path) -> None:
+        self._con = sqlite3.connect(
+            str(folder_path / "contacts.db"), detect_types=sqlite3.PARSE_COLNAMES
+        )
 
         self._con.row_factory = self._namedtuple_factory
         self._create_database()
@@ -44,63 +62,66 @@ class Storage:
         self._con.commit()
 
     @staticmethod
-    def _namedtuple_factory(cursor, row):
+    def _namedtuple_factory(cursor: sqlite3.Cursor, row: Any) -> Any:
         fields = [col[0] for col in cursor.description]
-        Row = namedtuple("Row", fields)
+        Row = namedtuple("Row", fields)  # pyright: ignore
         named_row = Row(*row)
         return named_row
 
-    def _user_version(self):
-        return self._con.execute('PRAGMA user_version').fetchone()[0]
+    def _user_version(self) -> int:
+        return self._con.execute("PRAGMA user_version").fetchone()[0]
 
-    def _create_database(self):
+    def _create_database(self) -> None:
         if not self._user_version():
-            log.info('Create contacts.db')
+            log.info("Create contacts.db")
             self._execute_query(TABLE_LAYOUT)
 
-    def _execute_query(self, query):
+    def _execute_query(self, query: str) -> None:
         transaction = """
             BEGIN TRANSACTION;
             %s
             PRAGMA user_version=1;
             END TRANSACTION;
-            """ % (query)
+            """ % (
+            query
+        )
         self._con.executescript(transaction)
 
-    def _migrate_database(self):
+    def _migrate_database(self) -> None:
         pass
 
-    def load_contacts(self):
-        sql = '''SELECT jid as "jid [jid]",
+    def load_contacts(self) -> list[ContactRow]:
+        sql = """SELECT jid as "jid [jid]",
                         fingerprint,
-                        active, 
+                        active,
                         trust,
-                        timestamp,
-                        comment
-                FROM contacts'''
+                        timestamp
+                FROM contacts"""
 
         return self._con.execute(sql).fetchall()
 
-    def save_contact(self, db_values):
-        sql = '''REPLACE INTO
-                 contacts(jid, fingerprint, active, trust, timestamp, comment)
-                 VALUES(?, ?, ?, ?, ?, ?)'''
+    def save_contact(
+        self, db_values: Iterator[tuple[JID, str, bool, Trust, float]]
+    ) -> None:
+        sql = """REPLACE INTO
+                 contacts(jid, fingerprint, active, trust, timestamp)
+                 VALUES(?, ?, ?, ?, ?)"""
         for values in db_values:
-            log.info('Store key: %s', values)
+            log.info("Store key: %s", values)
             self._con.execute(sql, values)
         self._con.commit()
 
-    def set_trust(self, jid, fingerprint, trust):
-        sql = 'UPDATE contacts SET trust = ? WHERE jid = ? AND fingerprint = ?'
-        log.info('Set Trust: %s %s %s', trust, jid, fingerprint)
+    def set_trust(self, jid: JID, fingerprint: str, trust: Trust) -> None:
+        sql = "UPDATE contacts SET trust = ? WHERE jid = ? AND fingerprint = ?"
+        log.info("Set Trust: %s %s %s", trust, jid, fingerprint)
         self._con.execute(sql, (trust, jid, fingerprint))
         self._con.commit()
 
-    def delete_key(self, jid, fingerprint):
-        sql = 'DELETE from contacts WHERE jid = ? AND fingerprint = ?'
-        log.info('Delete Key: %s %s', jid, fingerprint)
+    def delete_key(self, jid: JID, fingerprint: str) -> None:
+        sql = "DELETE from contacts WHERE jid = ? AND fingerprint = ?"
+        log.info("Delete Key: %s %s", jid, fingerprint)
         self._con.execute(sql, (jid, fingerprint))
         self._con.commit()
 
-    def cleanup(self):
+    def cleanup(self) -> None:
         self._con.close()
