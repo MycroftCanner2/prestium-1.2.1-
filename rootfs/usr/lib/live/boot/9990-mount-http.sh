@@ -62,7 +62,7 @@ do_httpmount ()
 					[ "${extension}" = "tgz" ] && live_dest="ram"
 					if [ "${extension}" = "iso" ]
 					then
-						isoloop=$(setup_loop "${dest}/$(basename "${url}")" "loop" "/sys/block/loop*" "" '')
+						isoloop=$(setup_loop "${dest}/$(basename "${url}")" "" '')
 						mount -t iso9660 "${isoloop}" "${mountpoint}"
 						rc=${?}
 					fi

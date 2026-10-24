@@ -55,7 +55,7 @@ Verify_checksums ()
 					_RETURN="${?}"
 
 					# Stop after first verification
-					break
+					break 2
 				else
 					echo "Not found /bin/${_DIGEST}sum..." > "${_TTY}"
 				fi

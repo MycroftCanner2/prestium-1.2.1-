@@ -294,19 +294,19 @@ Cmdline_old ()
 	then
 		PERSISTENCE_ENCRYPTION="none"
 		export PERSISTENCE_ENCRYPTION
-	elif is_in_comma_sep_list luks ${PERSISTENCE_ENCRYPTION}
+	elif is_in_comma_sep_list luks ${PERSISTENCE_ENCRYPTION} || is_in_comma_sep_list lukslabel ${PERSISTENCE_ENCRYPTION}
 	then
 		if ! modprobe dm-crypt
 		then
 			log_warning_msg "Unable to load module dm-crypt"
-			PERSISTENCE_ENCRYPTION=$(echo ${PERSISTENCE_ENCRYPTION} | sed -e 's/\<luks,\|,\?luks$//g')
+			PERSISTENCE_ENCRYPTION=$(echo ${PERSISTENCE_ENCRYPTION} |  sed -e 's/\<lukslabel,\|,\?lukslabel$//g' | sed -e 's/\<luks,\|,\?luks$//g')
 			export PERSISTENCE_ENCRYPTION
 		fi
 
 		if [ ! -x /lib/cryptsetup/askpass ] || [ ! -x /sbin/cryptsetup ]
 		then
 			log_warning_msg "cryptsetup is unavailable"
-			PERSISTENCE_ENCRYPTION=$(echo ${PERSISTENCE_ENCRYPTION} | sed -e 's/\<luks,\|,\?luks$//g')
+			PERSISTENCE_ENCRYPTION=$(echo ${PERSISTENCE_ENCRYPTION} | sed -e 's/\<lukslabel,\|,\?lukslabel$//g' | sed -e 's/\<luks,\|,\?luks$//g')
 			export PERSISTENCE_ENCRYPTION
 		fi
 	fi

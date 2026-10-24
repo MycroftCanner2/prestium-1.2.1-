@@ -81,9 +81,27 @@ Select_eth_device ()
 			case "${ARGUMENT}" in
 				live-netdev=*)
 				NETDEV="${ARGUMENT#live-netdev=}"
-				echo "DEVICE=$NETDEV" >> /conf/param.conf
-				echo "Found live-netdev parameter, forcing to to use network device $NETDEV."
-				Wait_for_carrier $NETDEV
+
+				# Check if NETDEV is a valid MAC address
+				if echo "$NETDEV" | grep -Eq '^[0-9A-Fa-f]{2}[:-]([0-9A-Fa-f]{2}[:-]){4}[0-9A-Fa-f]{2}$'
+				then
+					echo "live-netdev: Finding network device for MAC $NETDEV ..."
+
+					# Retrieve the device name associated with the MAC address
+					NETDEV=$(ip -o link | awk -v mac="$NETDEV" '$0 ~ mac{print substr($2, 1, length($2)-1)}')
+					if [ -n "$NETDEV" ]
+					then
+						echo "DEVICE=$NETDEV" >> /conf/param.conf
+						echo "live-netdev: Found network device $NETDEV."
+						Wait_for_carrier "$NETDEV"
+					else
+						echo "live-netdev: No matching network device found, ignoring parameter."
+					fi
+				else
+					echo "DEVICE=$NETDEV" >> /conf/param.conf
+					echo "Found live-netdev parameter, forcing it to use network device $NETDEV."
+					Wait_for_carrier "$NETDEV"
+				fi
 				return
 				;;
 			esac

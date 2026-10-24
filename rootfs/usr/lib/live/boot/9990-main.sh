@@ -50,29 +50,31 @@ Live ()
 			# Do a local boot from hd
 			livefs_root=${ROOT}
 		else
-			if [ -x /usr/bin/memdiskfind ]
-			then
-				if MEMDISK=$(/usr/bin/memdiskfind)
-				then
-					# We found a memdisk, set up phram
-					# Sometimes "modprobe phram" can not successfully create /dev/mtd0.
-				        # Have to try several times.
-					max_try=20
-					while [ ! -c /dev/mtd0 ] && [ "$max_try" -gt 0 ]; do
-					  modprobe phram "phram=memdisk,${MEMDISK}"
-					  sleep 0.2
-					  if [ -c /dev/mtd0 ]; then
-					  	break
-					  else
-					  	rmmod phram
-				  	  fi
-					  max_try=$((max_try - 1))
-					done
+			Setup_Memdisk
 
-					# Load mtdblock, the memdisk will be /dev/mtdblock0
-					modprobe mtdblock
-				fi
-			fi
+			# If the live media location is given via command line and access to it
+			# involves LVM volumes, the corresponding volumes need to be activated.
+			IFS=','
+			for dev in $(echo "$LIVE_MEDIA")
+			do
+				case "$dev" in
+				/dev/mapper/*)
+					eval $(dmsetup splitname --nameprefixes --noheadings --rows "${dev#/dev/mapper/}")
+					if [ "$DM_VG_NAME" ] && [ "$DM_LV_NAME" ]
+					then
+						lvm lvchange -aay -y --sysinit --ignoreskippedcluster "$DM_VG_NAME/$DM_LV_NAME"
+					fi
+					;;
+				/dev/*/*)
+					# Could be /dev/VG/LV; use lvs to check
+					if lvm lvs -- "$dev" >/dev/null 2>&1
+					then
+						lvm lvchange -aay -y --sysinit --ignoreskippedcluster "$dev"
+					fi
+					;;
+				esac
+			done
+			unset IFS
 
 			# Scan local devices for the image
 			i=0
@@ -210,13 +212,6 @@ Live ()
 	then
 		panic "A wrong rootfs was mounted."
 	fi
-
-	# avoid breaking existing user scripts that rely on the old path
-	# this includes code that checks what is mounted on /lib/live/mount/*
-	# (eg: grep /lib/live /proc/mount)
-	# XXX: to be removed before the bullseye release
-	mkdir -p "${rootmnt}/lib/live/mount"
-	mount --rbind /run/live "${rootmnt}/lib/live/mount"
 
 	Fstab
 	Netbase

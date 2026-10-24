@@ -44,7 +44,7 @@ get_backing_device ()
 {
 	case "${1}" in
 		*.squashfs|*.ext2|*.ext3|*.ext4|*.jffs2|*.*.verity|*.*.fec)
-			echo $(setup_loop "${1}" "loop" "/sys/block/loop*" '0' "${2}")
+			echo $(setup_loop "${1}" '0' "${2}")
 			;;
 
 		*.dir)
@@ -101,37 +101,85 @@ check_dev ()
 	skip_uuid_check="${3}"
 
 	# support for fromiso=.../isofrom=....
+	local iso_device=''
 	if [ -n "$FROMISO" ]
 	then
-		ISO_DEVICE=$(dirname $FROMISO)
-		if ! [ -b $ISO_DEVICE ]
+		fs_type="${FROMISO%%:*}"
+		fs_type_auto='1'
+		iso_device="${FROMISO}"
+		if echo "${fs_type}" | grep -q '[^[:alnum:]_-]'; then
+			# Not a valid file system name. Treat as part of the
+			# path, and, especially, use autodetection.
+			fs_type=''
+		else
+			# Looks like a file system specification, treat it
+			# like that.
+			fs_type_auto='0'
+			iso_device="${iso_device#*:}"
+		fi
+		iso_device=$(dirname "${iso_device}")
+		if ! [ -b "${iso_device}" ]
 		then
 			# to support unusual device names like /dev/cciss/c0d0p1
 			# as well we have to identify the block device name, let's
 			# do that for up to 15 levels
-			i=15
-			while [ -n "$ISO_DEVICE" ] && [ "$i" -gt 0 ]
+			i='15'
+			while [ -n "${iso_device}" ] && [ "${i}" -gt '0' ]
 			do
-				ISO_DEVICE=$(dirname ${ISO_DEVICE})
-				[ -b "$ISO_DEVICE" ] && break
-				i=$(($i -1))
+				iso_device=$(dirname "${iso_device}")
+				if [ -b "${iso_device}" ]; then
+					# Proper device, we're done.
+					break
+				else
+					# Otherwise, it *could* be a proper device
+					# that just hasn't been started yet - think
+					# lvm or RAID.
+					case "${iso_device}" in
+						'/dev/mapper/'*|'/dev/md/'*)
+							# We're looking for paths like
+							# /dev/{mapper,md}/foo here.
+							if printf '%s\n' "${iso_device}" | \
+							   grep -Eqs '^/dev/(mapper|md)/[^/]+$'; then
+								# Okay, looks like a device we'll
+								# have to start later on, done here.
+								break
+							fi
+							;;
+						'/dev/md'*)
+							# This is different from the path above.
+							# Here, we're looking for something like
+							# /dev/md0, /dev/md126 and the like.
+							if printf '%s\n' "${iso_device}" | \
+							   grep -Eqs '^/dev/md[[:digit:]]+$'; then
+								# Syntax matches, keep as device
+								# name for later when RAIDs were
+								# started.
+								break
+							fi
+							;;
+					esac
+				fi
+				i="$(($i - 1))"
 			done
 		fi
 
-		if [ "$ISO_DEVICE" = "/" ]
+		if [ "${iso_device}" = '/' ]
 		then
 			# not a block device, check if it's an iso file, for
 			# example an ISO when booting on an ONIE system
 			if echo "${FROMISO}" | grep -q "\.iso$"
 			then
-				fs_type=$(get_fstype "${FROMISO}")
+				if [ '0' -ne "${fs_type_auto}" ]; then
+					# Autodetect fs type if not overridden.
+					fs_type=$(get_fstype "${FROMISO}")
+				fi
 				if is_supported_fs ${fs_type}
 				then
 					mkdir /run/live/fromiso
-					mount -t $fs_type "${FROMISO}" /run/live/fromiso
+					mount -t "${fs_type}" -o ro "${FROMISO}" /run/live/fromiso
 					if [ "$?" != 0 ]
 					then
-						echo "Warning: unable to mount ${FROMISO}." >>/boot.log
+						echo "Warning: unable to mount ${FROMISO} (type ${fs_type})." >>/boot.log
 					fi
 					devname="/run/live/fromiso"
 				fi
@@ -139,25 +187,19 @@ check_dev ()
 				echo "Warning: device for bootoption fromiso= ($FROMISO) not found.">>/boot.log
 			fi
 		else
-			fs_type=$(get_fstype "${ISO_DEVICE}")
-			if is_supported_fs ${fs_type}
-			then
-				mkdir /run/live/fromiso
-				mount -t $fs_type "$ISO_DEVICE" /run/live/fromiso
-				ISO_NAME="$(echo $FROMISO | sed "s|$ISO_DEVICE||")"
-				loopdevname=$(setup_loop "/run/live/fromiso/${ISO_NAME}" "loop" "/sys/block/loop*" "")
-				devname="${loopdevname}"
-			else
-				echo "Warning: unable to mount $ISO_DEVICE." >>/boot.log
-			fi
+			# Otherwise, it must be a block device, so record that as the devname.
+			devname="${iso_device}"
+		fi
+	else
+		# Usual handling in the non-fromiso case.
+		if [ -z "${devname}" ]
+		then
+			devname=$(sys2dev "${sysdev}")
 		fi
 	fi
 
-	if [ -z "${devname}" ]
-	then
-		devname=$(sys2dev "${sysdev}")
-	fi
-
+	# Common code path again: if devname is a directory, we can just go ahead
+	# and bind-mount it to our target mount point.
 	if [ -d "${devname}" ]
 	then
 		mount -o bind "${devname}" $mountpoint || continue
@@ -171,7 +213,10 @@ check_dev ()
 		fi
 	fi
 
+	# Check if we have to start logical volumes or RAID arrays.
+	# Do this in the common code path so it's only executed once.
 	IFS=","
+	local device=''
 	for device in ${devname}
 	do
 		case "$device" in
@@ -185,17 +230,55 @@ check_dev ()
 
 			/dev/md*)
 				# Adding raid support
-				if [ -x /scripts/local-top/mdadm ]
+				if [ -x /scripts/local-block/mdadm ]
 				then
-					[ -r /conf/conf.d/md ] && cp /conf/conf.d/md /conf/conf.d/md.orig
-					echo "MD_DEVS=$device " >> /conf/conf.d/md
-					/scripts/local-top/mdadm >>/boot.log
-					[ -r /conf/conf.d/md.orig ] && mv /conf/conf.d/md.orig /conf/conf.d/md
+					# Back in the day, when there was still a local-top mdadm script, we
+					# used to select specific devices to be auto-assembled.
+					# This functionality was dropped in the local-block script, so just
+					# scan and assemble all RAID devices.
+					/scripts/local-block/mdadm >>/boot.log
 				fi
 				;;
 		esac
 	done
 	unset IFS
+
+	# Back to fromiso handling, if necessary.
+	# We should now have the necessary lv/RAID devices available, so try to use them.
+	if [ -n "$FROMISO" ]
+	then
+		if [ "${iso_device}" != "/" ]
+		then
+			# Need to extract actual ISO file path later on,
+			# initialize first.
+			iso_name="${FROMISO}"
+
+			if [ '0' -ne "${fs_type_auto}" ]; then
+				# Try to auto-detect file system if not
+				# explicitly provided.
+				fs_type=$(get_fstype "${iso_device}")
+			else
+				# Delete file system type override.
+				iso_name="${iso_name#*:}"
+			fi
+			# At this point, the backing device should always be
+			# at the very front, so remove that - leaving only the
+			# ISO file path.
+			iso_name="$(echo "${iso_name}" | sed "s|^${iso_device}||")"
+			if is_supported_fs ${fs_type}
+			then
+				mkdir /run/live/fromiso
+				mount -t "${fs_type}" -o ro "${iso_device}" /run/live/fromiso
+				loopdevname=$(setup_loop "/run/live/fromiso/${iso_name}" "")
+				devname="${loopdevname}"
+
+				# Reset device variable, we won't need it.
+				device=''
+			else
+				echo "Warning: unable to mount ${iso_device} (type ${fs_type})." >>/boot.log
+			fi
+		fi
+	fi
 
 	[ -n "$device" ] && devname="$device"
 
@@ -203,7 +286,7 @@ check_dev ()
 
 	if [ -n "${LIVE_MEDIA_OFFSET}" ]
 	then
-		loopdevname=$(setup_loop "${devname}" "loop" "/sys/block/loop*" "${LIVE_MEDIA_OFFSET}")
+		loopdevname=$(setup_loop "${devname}" "${LIVE_MEDIA_OFFSET}")
 		devname="${loopdevname}"
 	fi
 
@@ -250,7 +333,7 @@ check_dev ()
 				umount ${mountpoint}
 				mkdir -p /run/live/findiso
 				mount -t ${fstype} -o ro,noatime "${devname}" /run/live/findiso
-				loopdevname=$(setup_loop "/run/live/findiso/${FINDISO}" "loop" "/sys/block/loop*" 0)
+				loopdevname=$(setup_loop "/run/live/findiso/${FINDISO}" 0)
 				devname="${loopdevname}"
 				mount -t iso9660 -o ro,noatime "${devname}" ${mountpoint}
 			else
@@ -636,47 +719,42 @@ setup_loop ()
 {
 	local fspath module pattern offset readonly
 	fspath=${1}
-	module=${2}
-	pattern=${3}
-	offset=${4}
-	readonly=${5}
+	offset=${2}
+	readonly=${3}
 
 	# the output of setup_loop is evaluated in other functions,
 	# modprobe leaks kernel options like "libata.dma=0"
 	# as "options libata dma=0" on stdout, causing serious
 	# problems therefor, so instead always avoid output to stdout
-	modprobe -q -b "${module}" 1>/dev/null
+	modprobe -q -b "loop" 1>/dev/null
+	losetup -f 1>/dev/null
 
 	udevadm settle
 
-	for loopdev in ${pattern}
-	do
-		if [ "$(cat ${loopdev}/size)" -eq 0 ]
+	dev=$(losetup -f)
+	if [ "$?" != "0" ]
+	then
+		panic "No loop devices available"
+	fi
+
+	options=''
+	if [ -n "${readonly}" ]
+	then
+		if losetup --help 2>&1 | grep -q -- "-r\b"
 		then
-			dev=$(sys2dev "${loopdev}")
-			options=''
-
-			if [ -n "${readonly}" ]
-			then
-				if losetup --help 2>&1 | grep -q -- "-r\b"
-				then
-					options="${options} -r"
-				fi
-			fi
-
-			if [ -n "${offset}" ] && [ 0 -lt "${offset}" ]
-			then
-				options="${options} -o ${offset}"
-			fi
-
-			losetup ${options} "${dev}" "${fspath}"
-
-			echo "${dev}"
-			return 0
+			options="${options} -r"
 		fi
-	done
+	fi
 
-	panic "No loop devices available"
+	if [ -n "${offset}" ] && [ 0 -lt "${offset}" ]
+	then
+		options="${options} -o ${offset}"
+	fi
+
+	losetup ${options} "${dev}" "${fspath}"
+
+	echo "${dev}"
+	return 0	
 }
 
 try_mount ()
@@ -702,7 +780,7 @@ try_mount ()
 			fstype=$(get_fstype "${dev}")
 		fi
 		mount -t "${fstype}" -o "${opts}" "${dev}" "${mountp}" || \
-		( echo "SKIPPING: Cannot mount ${dev} on ${mountp}, fstype=${fstype}, options=${opts}" > boot.log && return 0 )
+		( echo "SKIPPING: Cannot mount ${dev} on ${mountp}, fstype=${fstype}, options=${opts}" >> boot.log && return 0 )
 	fi
 }
 
@@ -964,7 +1042,7 @@ probe_for_file_name ()
 		if [ -f "${path}" ]
 		then
 			local loopdev
-			loopdev=$(setup_loop "${path}" "loop" "/sys/block/loop*")
+			loopdev=$(setup_loop "${path}")
 			ret="${ret} ${label}=${loopdev}"
 		fi
 	done
@@ -1058,7 +1136,10 @@ find_persistence_media ()
 		# in order to probe any filesystem it contains, like we do
 		# below. activate_custom_mounts() also depends on that any luks
 		# device already has been opened.
-		if is_in_comma_sep_list luks ${PERSISTENCE_ENCRYPTION} && is_luks_partition ${dev}
+		# If the option is "lukslabel" we check if the container has the
+		# label "persistence" first before opening it.
+		if is_in_comma_sep_list lukslabel ${PERSISTENCE_ENCRYPTION} && \
+		     is_luks_partition ${dev} && [ $(get_luks_label ${dev}) = "persistence" ]
 		then
 			if luks_device=$(open_luks_device "${dev}")
 			then
@@ -1067,6 +1148,16 @@ find_persistence_media ()
 				# skip $dev since we failed/chose not to open it
 				continue
 			fi
+		elif is_in_comma_sep_list luks ${PERSISTENCE_ENCRYPTION} && is_luks_partition ${dev}
+		then
+			if luks_device=$(open_luks_device "${dev}")
+			then
+				dev="${luks_device}"
+			else
+				# skip $dev since we failed/chose not to open it
+				continue
+			fi
+		# For lukslabel we check first if the container has a persistence label before opening it
 		elif ! is_in_comma_sep_list none ${PERSISTENCE_ENCRYPTION}
 		then
 			# skip $dev since we don't allow unencrypted storage
@@ -1098,9 +1189,16 @@ find_persistence_media ()
 			if [ -n "${result}" ]
 			then
 				local loopdevice
-				loopdevice=${result##*=}
-				if is_in_comma_sep_list luks ${PERSISTENCE_ENCRYPTION} && is_luks_partition ${loopdevice}
+				loopdevice=${result##*=}				
+				if (is_in_comma_sep_list luks ${PERSISTENCE_ENCRYPTION} || is_in_comma_sep_list lukslabel ${PERSISTENCE_ENCRYPTION}) &&  is_luks_partition ${loopdevice} 
 				then
+					if is_in_comma_sep_list lukslabel ${PERSISTENCE_ENCRYPTION}
+					then
+						if [ $(get_luks_label ${loopdevice}) != "persistence" ]
+						then
+							continue
+						fi
+					fi
 					local luksfile
 					luksfile=""
 					if luksfile=$(open_luks_device "${loopdevice}")
@@ -1168,7 +1266,9 @@ is_luks_partition ()
 is_active_luks_mapping ()
 {
 	device="${1}"
-	cryptsetup status "${device}" 1>/dev/null 2>&1
+	cryptsetup status "${device}" 2> /dev/null | \
+		awk '{if ($1 == "type:") print $2}' | \
+		grep 'LUKS\|LUKS2' 1>/dev/null
 }
 
 get_luks_backing_device ()
@@ -1176,6 +1276,13 @@ get_luks_backing_device ()
 	device=${1}
 	cryptsetup status ${device} 2> /dev/null | \
 		awk '{if ($1 == "device:") print $2}'
+}
+
+get_luks_label ()
+{
+	device=${1}
+	cryptsetup luksDump ${device} 2> /dev/null | \
+		awk '{if ($1 == "Label:") print $2}'
 }
 
 removable_dev ()

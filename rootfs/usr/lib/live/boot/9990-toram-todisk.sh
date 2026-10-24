@@ -30,7 +30,7 @@ copy_live_to ()
 		mount_options="-o size=${size}k"
 		free_string="memory"
 		fstype="tmpfs"
-		dev="/dev/shm"
+		dev="tmpfs"
 	else
 		# it should be a writable block device
 		if [ -b "${copytodev}" ]

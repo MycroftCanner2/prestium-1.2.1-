@@ -145,6 +145,11 @@
     <xsl:template name="start-main">
         <xsl:param name="globalData" />
 
+    <!-- disable style collection debug 
+        <xsl:call-template name="write-collected-styles">
+            <xsl:with-param name="globalData" select="$globalData" />
+        </xsl:call-template> -->
+
         <xsl:variable name="lang">
              <xsl:choose>
                  <xsl:when test="$globalData/meta-file/*/office:meta/dc:language">
@@ -154,18 +159,24 @@
              </xsl:choose>
         </xsl:variable>
 
+        <xsl:text>&#xa;</xsl:text>
         <xsl:element name="html">
 
             <xsl:attribute name="lang"><xsl:value-of select="$lang"/></xsl:attribute>
+            <xsl:text>&#xa;</xsl:text>
             <xsl:comment>This file was converted to xhtml by LibreOffice - see https://cgit.freedesktop.org/libreoffice/core/tree/filter/source/xslt for the code.</xsl:comment>
+            <xsl:text>&#xa;</xsl:text>
             <xsl:call-template name='create-header'>
                 <xsl:with-param name="globalData" select="$globalData" />
             </xsl:call-template>
 
+            <xsl:text>&#xa;</xsl:text>
             <xsl:call-template name='create-body'>
                 <xsl:with-param name="globalData" select="$globalData" />
             </xsl:call-template>
+            <xsl:text>&#xa;</xsl:text>
         </xsl:element>
+        <xsl:text>&#xa;</xsl:text>
     </xsl:template>
 
 
