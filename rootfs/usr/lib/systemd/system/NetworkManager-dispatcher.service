@@ -1,10 +1,11 @@
 [Unit]
 Description=Network Manager Script Dispatcher Service
+Documentation=man:NetworkManager-dispatcher.service(8)
 
 [Service]
 Type=dbus
 BusName=org.freedesktop.nm_dispatcher
-ExecStart=/usr/lib/NetworkManager/nm-dispatcher
+ExecStart=/usr/libexec/nm-dispatcher
 NotifyAccess=main
 
 # Enable debug logging in dispatcher service. Note that dispatcher

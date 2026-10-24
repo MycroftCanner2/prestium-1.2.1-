@@ -13,10 +13,11 @@ Documentation=man:systemd-debug-generator(8)
 DefaultDependencies=no
 IgnoreOnIsolate=yes
 ConditionPathExists=/dev/tty9
+After=systemd-vconsole-setup.service
 
 [Service]
 Environment=TERM=linux
-ExecStart=/bin/bash
+ExecStart=/usr/bin/bash
 Restart=always
 RestartSec=0
 StandardInput=tty
