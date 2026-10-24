@@ -1,0 +1,81 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "IviApplication"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    }
+                ],
+                "className": "QWaylandIviApplicationQuickExtension",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 27,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": false,
+                        "final": false,
+                        "index": 0,
+                        "name": "data",
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QWaylandIviApplicationQuickExtension",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWaylandIviApplication"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QWaylandIviSurface"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "IviSurface"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    }
+                ],
+                "className": "QWaylandIviSurfaceForeign",
+                "gadget": true,
+                "lineNumber": 29,
+                "qualifiedClassName": "QWaylandIviSurfaceForeign"
+            }
+        ],
+        "inputFile": "qwaylandcompositoriviapplicationforeign_p.h",
+        "outputRevision": 68
+    }
+]

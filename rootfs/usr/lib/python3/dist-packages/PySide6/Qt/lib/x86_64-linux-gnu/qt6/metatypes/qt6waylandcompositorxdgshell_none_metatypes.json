@@ -1,0 +1,263 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "XdgShell"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "259"
+                    }
+                ],
+                "className": "QWaylandXdgShellQuickExtension",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 28,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": false,
+                        "final": false,
+                        "index": 0,
+                        "name": "data",
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QWaylandXdgShellQuickExtension",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWaylandXdgShell"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "XdgDecorationManagerV1"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "259"
+                    }
+                ],
+                "className": "QWaylandXdgDecorationManagerV1QuickExtension",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 29,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": false,
+                        "final": false,
+                        "index": 0,
+                        "name": "data",
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QWaylandXdgDecorationManagerV1QuickExtension",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWaylandXdgDecorationManagerV1"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "XdgOutputManagerV1"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "270"
+                    }
+                ],
+                "className": "QWaylandXdgOutputManagerV1QuickExtension",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 31,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": false,
+                        "final": false,
+                        "index": 0,
+                        "name": "data",
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QWaylandXdgOutputManagerV1QuickExtension",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWaylandXdgOutputManagerV1"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QWaylandXdgSurface"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "XdgSurface"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "259"
+                    }
+                ],
+                "className": "QWaylandXdgSurfaceForeign",
+                "gadget": true,
+                "lineNumber": 34,
+                "qualifiedClassName": "QWaylandXdgSurfaceForeign"
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QWaylandXdgToplevel"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "XdgToplevel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "259"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "Cannot create instance of XdgShellToplevel"
+                    }
+                ],
+                "className": "QWaylandXdgTopLevelForeign",
+                "gadget": true,
+                "lineNumber": 41,
+                "qualifiedClassName": "QWaylandXdgTopLevelForeign"
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QWaylandXdgPopup"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "XdgPopup"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "259"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "Cannot create instance of XdgShellPopup"
+                    }
+                ],
+                "className": "QWaylandXdgPopupForeign",
+                "gadget": true,
+                "lineNumber": 49,
+                "qualifiedClassName": "QWaylandXdgPopupForeign"
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QWaylandQuickXdgOutputV1"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "XdgOutputV1"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "270"
+                    }
+                ],
+                "className": "QWaylandQuickXdgOutputV1Foreign",
+                "gadget": true,
+                "lineNumber": 57,
+                "qualifiedClassName": "QWaylandQuickXdgOutputV1Foreign"
+            }
+        ],
+        "inputFile": "qwaylandcompositorxdgshell_p.h",
+        "outputRevision": 68
+    }
+]

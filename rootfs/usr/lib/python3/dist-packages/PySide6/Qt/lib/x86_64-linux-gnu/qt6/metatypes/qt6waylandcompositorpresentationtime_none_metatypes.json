@@ -1,0 +1,61 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "PresentationTime"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    }
+                ],
+                "className": "QWaylandPresentationTimeQuickExtension",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 26,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": false,
+                        "final": false,
+                        "index": 0,
+                        "name": "data",
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QWaylandPresentationTimeQuickExtension",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWaylandPresentationTime"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwaylandcompositorpresentationtimeforeign_p.h",
+        "outputRevision": 68
+    }
+]

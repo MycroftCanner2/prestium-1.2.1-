@@ -1,0 +1,14 @@
+{
+    "name": "QDocCatchPrivate",
+    "repository": "qttools",
+    "version": "6.8.2",
+    "internal": true,
+    "built_with": {
+        "compiler_id": "GNU",
+        "compiler_target": "",
+        "compiler_version": "14.2.0",
+        "cross_compiled": false,
+        "target_system": "Linux",
+        "architecture": "x86_64"
+    }
+}
