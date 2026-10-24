@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface domain="sc">
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkMenu" id="contextmenu">
@@ -54,6 +54,12 @@
       <column type="gboolean"/>
       <!-- column-name checktri1 -->
       <column type="gboolean"/>
+      <!-- column-name weight1 -->
+      <column type="gint"/>
+      <!-- column-name sensitive1 -->
+      <column type="gboolean"/>
+      <!-- column-name sensitive2 -->
+      <column type="gboolean"/>
     </columns>
   </object>
   <object class="GtkTreeStore" id="treestore2">
@@ -67,6 +73,12 @@
       <!-- column-name checkvis1 -->
       <column type="gboolean"/>
       <!-- column-name checktri1 -->
+      <column type="gboolean"/>
+      <!-- column-name weight1 -->
+      <column type="gint"/>
+      <!-- column-name sensitive1 -->
+      <column type="gboolean"/>
+      <!-- column-name sensitive2 -->
       <column type="gboolean"/>
     </columns>
   </object>
@@ -142,6 +154,30 @@
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
+              <object class="GtkLabel" id="select_field_label">
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes" context="filterdropdown|select_field_label">Select Field</property>
+                <property name="mnemonic-widget">multi_field_combo</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="multi_field_combo">
+                <property name="can-focus">True</property>
+                <property name="no-show-all">True</property>
+                <property name="tooltip-text" translatable="yes" context="filterdropdown|multi_field_combo">Select Field</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkEntry" id="search_edit">
                 <property name="can-focus">True</property>
                 <property name="no-show-all">True</property>
@@ -152,7 +188,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="position">2</property>
               </packing>
             </child>
             <child>
@@ -196,6 +232,22 @@
                       </packing>
                     </child>
                     <child>
+                      <object class="GtkCheckButton" id="lock_checked">
+                        <property name="label" translatable="yes" context="filterdropdown|STR_BTN_TOGGLE_ALL">Lock</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="hexpand">True</property>
+                        <property name="use-underline">True</property>
+                        <property name="draw-indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
                       <object class="GtkButton" id="select_current">
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
@@ -207,7 +259,7 @@
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">1</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                     <child>
@@ -222,7 +274,7 @@
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">2</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                   </object>
@@ -265,6 +317,7 @@
                                 <child>
                                   <object class="GtkCellRendererToggle" id="cellrenderer5"/>
                                   <attributes>
+                                    <attribute name="sensitive">6</attribute>
                                     <attribute name="visible">3</attribute>
                                     <attribute name="active">0</attribute>
                                   </attributes>
@@ -272,6 +325,7 @@
                                 <child>
                                   <object class="GtkCellRendererText" id="cellrenderer4"/>
                                   <attributes>
+                                    <attribute name="sensitive">7</attribute>
                                     <attribute name="text">1</attribute>
                                   </attributes>
                                 </child>
@@ -315,6 +369,7 @@
                                 <child>
                                   <object class="GtkCellRendererToggle" id="cellrenderer1"/>
                                   <attributes>
+                                    <attribute name="sensitive">6</attribute>
                                     <attribute name="visible">3</attribute>
                                     <attribute name="active">0</attribute>
                                   </attributes>
@@ -322,6 +377,7 @@
                                 <child>
                                   <object class="GtkCellRendererText" id="cellrenderer2"/>
                                   <attributes>
+                                    <attribute name="sensitive">7</attribute>
                                     <attribute name="text">1</attribute>
                                   </attributes>
                                 </child>
@@ -347,7 +403,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="position">3</property>
               </packing>
             </child>
             <child>
@@ -390,7 +446,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="position">4</property>
               </packing>
             </child>
           </object>

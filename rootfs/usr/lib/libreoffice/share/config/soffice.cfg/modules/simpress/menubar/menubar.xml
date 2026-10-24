@@ -125,6 +125,7 @@
       <menu:menuitem menu:id=".uno:StatusBarVisible" menu:style="text"/>
       <menu:menuitem menu:id=".uno:LeftPaneImpress" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ToggleTabBarVisibility" menu:style="text"/>
+      <menu:menuitem menu:id=".uno:BottomPaneImpress" menu:style="text"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:ShowRuler"/>
       <menu:menu menu:id=".uno:GridMenu">
@@ -242,7 +243,6 @@
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:Text"/>
       <menu:menuitem menu:id=".uno:InsertAnnotation"/>
-      <menu:menuitem menu:id=".uno:InsertObjectFloatingFrame" menu:style="text"/>
       <menu:menuitem menu:id=".uno:FontworkGalleryFloater"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:HyperlinkDialog"/>
@@ -395,6 +395,7 @@
       <menu:menuitem menu:id=".uno:FontDialog"/>
       <menu:menuitem menu:id=".uno:ParagraphDialog"/>
       <menu:menuitem menu:id=".uno:OutlineBullet"/>
+      <menu:menuitem menu:id=".uno:ThemeDialog"/>
       <menu:menuseparator/>
       <menu:menu menu:id=".uno:TableMenu">
         <menu:menupopup>
@@ -460,6 +461,7 @@
         </menu:menupopup>
       </menu:menu>
       <menu:menuitem menu:id=".uno:FillShadow"/>
+      <menu:menuitem menu:id=".uno:FontWork"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:AnimationEffects"/>
       <menu:menuitem menu:id=".uno:NameGroup" menu:style="text"/>
@@ -485,17 +487,7 @@
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
-      <menu:menu menu:id=".uno:ObjectAlign">
-        <menu:menupopup>
-          <menu:menuitem menu:id=".uno:ObjectAlignLeft"/>
-          <menu:menuitem menu:id=".uno:AlignCenter"/>
-          <menu:menuitem menu:id=".uno:ObjectAlignRight"/>
-          <menu:menuseparator/>
-          <menu:menuitem menu:id=".uno:AlignUp"/>
-          <menu:menuitem menu:id=".uno:AlignMiddle"/>
-          <menu:menuitem menu:id=".uno:AlignDown"/>
-        </menu:menupopup>
-      </menu:menu>
+      <menu:menu menu:id=".uno:ObjectAlign"/>
       <menu:menu menu:id=".uno:ArrangeMenu">
         <menu:menupopup>
           <menu:menuitem menu:id=".uno:BringToFront"/>
@@ -579,6 +571,7 @@
           <menu:menuitem menu:id=".uno:PreviousSlide"/>
           <menu:menuitem menu:id=".uno:NextSlide"/>
           <menu:menuitem menu:id=".uno:LastSlide"/>
+          <menu:menuitem menu:id=".uno:GotoSlide"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuseparator/>
@@ -644,6 +637,8 @@
       </menu:menu>
       <menu:menu menu:id=".uno:MacrosMenu">
         <menu:menupopup>
+          <menu:menuitem menu:id=".uno:MacroManager"/>
+          <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroRecorder"/>
           <menu:menuitem menu:id=".uno:RunMacro"/>
           <menu:menuitem menu:id=".uno:BasicIDEAppear"/>
@@ -651,12 +646,11 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroSignature"/>
           <menu:menuitem menu:id=".uno:MacroOrganizer?TabId:short=1"/>
-          <menu:menuseparator/>
-          <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
       <menu:menuitem menu:id=".uno:DevelopmentToolsDockingWindow"/>
       <menu:menuseparator/>
+      <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>

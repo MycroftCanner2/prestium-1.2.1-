@@ -55,6 +55,7 @@
             <menu:menuitem menu:id=".uno:Paste"/>
             <menu:menuseparator/>
             <menu:menuitem menu:id=".uno:SelectAll"/>
+            <menu:menuitem menu:id=".uno:ToggleComment"/>
             <menu:menuseparator/>
             <menu:menuitem menu:id="vnd.sun.star.findbar:FocusToFindbar"/>
             <menu:menuitem menu:id=".uno:SearchDialog"/>
@@ -65,10 +66,13 @@
         <menu:menupopup>
             <menu:menuitem menu:id=".uno:AvailableToolbars"/>
             <menu:menuitem menu:id=".uno:StatusBarVisible"/>
+            <menu:menuitem menu:id=".uno:BasicColorSchemeDialog"/>
             <menu:menuseparator/>
             <menu:menuitem menu:id=".uno:ShowLines"/>
             <menu:menuitem menu:id=".uno:ShowPropBrowser"/>
             <menu:menuitem menu:id=".uno:ObjectCatalog"/>
+            <menu:menuitem menu:id=".uno:WatchWindow"/>
+            <menu:menuitem menu:id=".uno:StackWindow"/>
             <menu:menuseparator/>
             <menu:menuitem menu:id=".uno:FullScreen"/>
         </menu:menupopup>
@@ -174,4 +178,3 @@
         </menu:menupopup>
     </menu:menu>
 </menu:menubar>
-

@@ -308,7 +308,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
-                                    <property name="tooltip_text" translatable="yes" context="explorerfiledialog|add">Remove selected folder from Places</property>
+                                    <property name="tooltip_text" translatable="yes" context="explorerfiledialog|del">Remove selected folder from Places</property>
                                     <property name="image">image2</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -755,7 +755,17 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <placeholder/>
+                                  <object class="GtkCheckButton" id="gpgsign">
+                                    <property name="label" translatable="yes" context="explorerfiledialog|gpgencrypt">Sign with default certificate</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="top_attach">1</property>
+                                  </packing>
                                 </child>
                               </object>
                               <packing>

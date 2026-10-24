@@ -240,6 +240,7 @@
                       <item id="5" translatable="yes" context="randomnumbergenerator|distribution-liststore">Chi Squared</item>
                       <item id="6" translatable="yes" context="randomnumbergenerator|distribution-liststore">Geometric</item>
                       <item id="7" translatable="yes" context="randomnumbergenerator|distribution-liststore">Negative Binomial</item>
+                      <item id="9" translatable="yes" context="randomnumbergenerator|distribution-liststore">Poisson</item>
                     </items>
                     <child internal-child="accessible">
                       <object class="AtkObject" id="distribution-combo-atkobject">
@@ -288,7 +289,7 @@
                     <property name="can_focus">True</property>
                     <property name="hexpand">True</property>
                     <property name="activates_default">True</property>
-                    <property name="text">0,0000</property>
+                    <property name="text">0.0000</property>
                     <property name="adjustment">parameter2-adjustment</property>
                     <property name="truncate-multiline">True</property>
                     <property name="digits">4</property>
@@ -415,7 +416,7 @@
                     <property name="draw_indicator">True</property>
                     <child internal-child="accessible">
                       <object class="AtkObject" id="enable-rounding-check-atkobject">
-                        <property name="AtkObject::accessible-description" translatable="yes" context="randomnumbergenerator|extended_tip|enable-rounding-check">Truncate the number to a given number of Decimal Places.</property>
+                        <property name="AtkObject::accessible-description" translatable="yes" context="randomnumbergenerator|extended_tip|enable-rounding-check">Round the number to a given number of Decimal Places.</property>
                       </object>
                     </child>
                   </object>

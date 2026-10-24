@@ -56,6 +56,7 @@
         <menu:menuitem menu:id=".uno:InsertMenuLegend"/>
         <menu:menuitem menu:id=".uno:InsertMenuAxes"/>
         <menu:menuitem menu:id=".uno:InsertMenuGrids"/>
+        <menu:menuitem menu:id=".uno:InsertMenuDataTable"/>
       <menu:menuseparator/>
         <menu:menuitem menu:id=".uno:InsertMenuDataLabels"/>
         <menu:menuitem menu:id=".uno:InsertMenuTrendlines"/>
@@ -119,6 +120,7 @@
         <menu:menuitem menu:id=".uno:View3D"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:FormatSelection" menu:style="text"/>
+      <menu:menuitem menu:id=".uno:FontDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:TransformDialog" menu:style="text"/>
       <menu:menu menu:id=".uno:ArrangeRow">
         <menu:menupopup>
@@ -132,6 +134,8 @@
     <menu:menupopup>
       <menu:menu menu:id=".uno:MacrosMenu">
         <menu:menupopup>
+          <menu:menuitem menu:id=".uno:MacroManager"/>
+          <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroRecorder"/>
           <menu:menuitem menu:id=".uno:RunMacro"/>
           <menu:menuitem menu:id=".uno:BasicIDEAppear"/>
@@ -139,10 +143,9 @@
           <menu:menuseparator/>
           <menu:menuitem menu:id=".uno:MacroSignature"/>
           <menu:menuitem menu:id=".uno:MacroOrganizer?TabId:short=1"/>
-          <menu:menuseparator/>
-          <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
         </menu:menupopup>
       </menu:menu>
+      <menu:menuitem menu:id=".uno:OpenXMLFilterSettings"/>
       <menu:menuitem menu:id="service:com.sun.star.deployment.ui.PackageManagerDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:ConfigureDialog" menu:style="text"/>
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>
