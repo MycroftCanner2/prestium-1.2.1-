@@ -2,12 +2,10 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: HarfBuzz
 Upstream-Contact: Behdad Esfahbod
 Source: https://www.freedesktop.org/wiki/Software/HarfBuzz
-Files-excluded: test/shape/data/in-house/fonts/641ca9d7808b01cafa9a666c13811c9b56eb9c52.ttf
- test/shape/data/in-house/tests/arabic-mark-attach.tests
 
 Files: *
 Copyright: 2018-2020, Adobe, Inc
-           2005-2023, Behdad Esfahbod
+           2005-2024, Behdad Esfahbod
            2007, Chris Wilson
            2011, Codethink Limited
            2005, David Turner
@@ -15,7 +13,7 @@ Copyright: 2018-2020, Adobe, Inc
            2015-2020, Ebrahim Byagowi
            2016, Elie Roux
            2019-2020, Facebook, Inc
-           2010-2022, Google, Inc
+           2010-2024, Google, Inc
            2016, Igalia S.L
            2009, Keith Stribley
            2018-2021, Khaled Hosny
@@ -23,15 +21,18 @@ Copyright: 2018-2020, Adobe, Inc
            2022, Matthias Clasen
            2012-2015, Mozilla Foundation
            2008-2010, Nokia Corporation and/or its subsidiary(-ies)
-           1998-2022, Red Hat, Inc
+           1998-2023, Red Hat, Inc
+           2013-2015, Alexei Podtelezhnikov
+           2012 Zilong Tan <eric.zltan@gmail.com>
+           2024 David Corbett
 License: MIT
 
 Files: debian/*
-Copyright: 2012-2019, أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+Copyright: 2012-2019,2023,2025, أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 License: MIT
 
 Files: src/hb-unicode-emoji-table.hh
-Copyright: 2022, Unicode®, Inc
+Copyright: 2024, Unicode®, Inc
 License: Unicode
 Comment: https://www.unicode.org/terms_of_use.html
 

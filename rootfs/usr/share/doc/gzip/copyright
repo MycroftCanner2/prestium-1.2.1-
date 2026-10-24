@@ -4,7 +4,7 @@ Upstream-Contact: http://www.gnu.org/software/gzip/
 Source: https://ftp.gnu.org/gnu/gzip
 
 Files: *
-Copyright: 1999-2022 Free Software Foundation, Inc.
+Copyright: 1999-2023 Free Software Foundation, Inc.
            1992-1993 Jean-loup Gailly and Mark Adler
 License: GPL-3+
 
@@ -13,12 +13,12 @@ Copyright: 1995-2017 Bdale Garbee <bdale@gag.com>
 License: GPL-3+
 
 Files: doc/* NEWS README
-Copyright: 1999-2022 Free Software Foundation, Inc. http://fsf.org/
+Copyright: 1999-2023 Free Software Foundation, Inc. http://fsf.org/
            1992-1993 Jean-loup Gailly
 License: GFDL-1.3+-no-invariant
 
 Files: gzip.1 zless.1
-Copyright: 1998-2022 Free Software Foundation, Inc.
+Copyright: 1998-2023 Free Software Foundation, Inc.
            1992-1993 Jean-loup Gailly
 License: FSF-manpages
 

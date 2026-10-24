@@ -19,7 +19,6 @@ License: GPL-2+
 Files: egg/*
        pam/*
        pkcs11/*
-       pkcs11/rpc-layer/*
 Copyright: 2003 Red Hat, Inc
            2007 Nate Nielsen
            2007-2008 Stefan Walter
@@ -97,27 +96,7 @@ Copyright: 2003, Red Hat Inc
            2015, GNOME i18n Project for Vietnamese
 License: GPL-2+
 
-Files: build/compile
-       build/depcomp
-       build/missing
-       build/test-driver
-Copyright: 1996-2017, Free Software Foundation, Inc
-License: GPL-2+ with AutoConf exception
-
-Files: INSTALL
-       po/Makefile.in.in
-Copyright: 1994-2013, Free Software Foundation, Inc
-           1995-2010, Ulrich Drepper <drepper@gnu.ai.mit.edu>
-License: FSFAP
-
-Files: Makefile.in
-       build/config.rpath
-       build/m4/*
-Copyright: 1994-2017, Free Software Foundation, Inc
-License: FSFULLR
-
-Files: COPYING
-       daemon/gkd-main.c
+Files: daemon/gkd-main.c
        daemon/ssh-agent/gkd-ssh-agent-private.h
        pkcs11/secret-store/dump-keyring0-format.c
        pkcs11/secret-store/gkm-secret-binary.c
@@ -125,11 +104,6 @@ Copyright: 1989-1991, Free Software Foundation, Inc
            2003-2013, Red Hat, Inc
            2007-2009, Stefan Walter
 License: GPL-2+
-
-Files: build/config.guess
-       build/config.sub
-Copyright: 1992-2017, Free Software Foundation, Inc
-License: GPL-3+ with AutoConf exception
 
 Files: build/tap-driver
 Copyright: 2013-2014, Red Hat, Inc
@@ -139,30 +113,6 @@ Files: tool/gkr-tool*
 Copyright: 2008-2010, Stefan Walter
            2011, Collabora Ltd.
 License: GPL-2+
-
-Files: aclocal.m4
-Copyright: 1996-2017, Free Software Foundation, Inc
-           2002-2014, g10 Code GmbH
-           2004, Scott James Remnant <scott@netsplit.com>
-					 2012-2015, Dan Nicholson <dbn.lists@gmail.com>
-License: FSFULLR or GPL-2+ with AutoConf exception
-
-Files: build/ltmain.sh
-Copyright: 1996-2015, Free Software Foundation, Inc
-License: GPL-2+ with LibTool exception
-
-Files: build/m4/libtool.m4
-Copyright: 1996-2015, Free Software Foundation, Inc
-License: FSFULLR or GPL-2+ with LibTool exception
-
-Files: build/install-sh
-Copyright: 1994, X Consortium
-License: Expat
-
-Files: configure
-Copyright: 1992-2012, Free Software Foundation, Inc
-License: FSFUL
-
 
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without
@@ -190,40 +140,6 @@ License: BSD-3-clause
  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  SUCH DAMAGE.
 
-License: Expat
- Permission is hereby granted, free of charge, to any person obtaining a
- copy of this software and associated documentation files (the "Software"),
- to deal in the Software without restriction, including without limitation
- the rights to use, copy, modify, merge, publish, distribute, sublicense,
- and/or sell copies of the Software, and to permit persons to whom the
- Software is furnished to do so, subject to the following conditions:
- .
- The above copyright notice and this permission notice shall be included
- in all copies or substantial portions of the Software.
- .
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
- OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
- NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
- DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
- OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
- USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-License: FSFAP
- Copying and distribution of this file, with or without modification, are
- permitted in any medium without royalty provided the copyright notice and
- this notice are preserved. This file is offered as-is, without any
- warranty.
-
-License: FSFUL
- This configure script is free software; the Free Software Foundation gives
- unlimited permission to copy, distribute and modify it.
-
-License: FSFULLR
- This file is free software; the Free Software Foundation gives unlimited
- permission to copy and/or distribute it, with or without modifications, as
- long as this notice is preserved.
-
 License: GPL-2+
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -232,48 +148,6 @@ License: GPL-2+
  .
  On Debian systems, the complete text of version 2 of the GNU General
  Public License can be found in '/usr/share/common-licenses/GPL-2'.
-
-License: GPL-2+ with LibTool exception
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; version 2 dated June, 1991, or (at
- your option) any later version.
- .
- On Debian systems, the complete text of version 2 of the GNU General
- Public License can be found in '/usr/share/common-licenses/GPL-2'.
- .
- As a special exception to the GNU General Public License,
- if you distribute this file as part of a program or library that
- is built using GNU Libtool, you may include this file under the
- same distribution terms that you use for the rest of that program.
-
-License: GPL-2+ with AutoConf exception
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; version 2 dated June, 1991, or (at
- your option) any later version.
- .
- On Debian systems, the complete text of version 2 of the GNU General
- Public License can be found in '/usr/share/common-licenses/GPL-2'.
- .
- As a special exception to the GNU General Public License, if you
- distribute this file as part of a program that contains a
- configuration script generated by Autoconf, you may include it under
- the same distribution terms that you use for the rest of that program.
-
-License: GPL-3+ with AutoConf exception
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; version 3, or (at your option) any
- later version.
- .
- On Debian systems, the complete text of version 3 of the GNU General
- Public License can be found in '/usr/share/common-licenses/GPL-3'.
- .
- As a special exception to the GNU General Public License, if you
- distribute this file as part of a program that contains a
- configuration script generated by Autoconf, you may include it under
- the same distribution terms that you use for the rest of that program.
 
 License: LGPL-2+
  This program is free software; you can redistribute it and/or modify it

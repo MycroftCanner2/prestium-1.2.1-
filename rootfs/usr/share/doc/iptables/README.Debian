@@ -4,7 +4,7 @@ nftables & iptables
 nftables is the replacement of iptables by the Netfilter project.
 You are encouraged to migrate now to nftables.
 
-If you are developing a new firewall or network service, then writting a
+If you are developing a new firewall or network service, then writing a
 nftables ruleset from the beginnig should be fine.
 If you would like to migrate or translate your previous
 iptables/ip6tables/arptables/ebtables rulesets to nftables then keep reading.

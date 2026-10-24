@@ -18,13 +18,13 @@ License: GPL-any
 
 Files: src/dumpkeys.c src/libkeymap/analyze.l
        src/libkeymap/ksyms.c src/libkeymap/ksyms.h src/showkey.c
-       docs/man/man1/loadkeys.1.in docs/man/man1/dumpkeys.1.in
+       docs/man/man1/loadkeys.1.gen docs/man/man1/dumpkeys.1.gen
        docs/man/man1/showkey.1 docs/man/man5/keymaps.5
 Copyright: 1993, Risto Kankkunen
 License: GPL-any
 
-Files: src/setfont.c docs/man/man8/setfont.8.in
-       src/mapscrn.c docs/man/man8/mapscrn.8.in
+Files: src/setfont.c docs/man/man8/setfont.8.gen
+       src/mapscrn.c docs/man/man8/mapscrn.8.gen
 Copyright: 1993, Eugene G. Crosser
 License: GPL-any
 
@@ -46,10 +46,10 @@ Files: src/chvt.c src/clrunimap.c src/deallocvt.c src/fgconsole.c
        src/kbd_mode.c src/loadunimap.c src/libkfont/psffontop.c src/psfxtable.c
        src/resizecons.c src/screendump.c src/setkeycodes.c src/setleds.c
        src/setmetamode.c src/setvesablank.c src/showconsolefont.c
-       src/spawn_console.c src/spawn_login.c docs/man/man1/chvt.1
+       src/spawn_command.c docs/man/man1/chvt.1
        docs/man/man1/deallocvt.1 docs/man/man1/kbd_mode.1
        docs/man/man1/setleds.1 docs/man/man1/setmetamode.1
-       docs/man/man8/getkeycodes.8 docs/man/man8/loadunimap.8.in
+       docs/man/man8/getkeycodes.8 docs/man/man8/loadunimap.8.gen
        docs/man/man8/resizecons.8 docs/man/man8/setkeycodes.8
 Copyright: 1994–1999, Andries E. Brouwer
 License: GPL-any

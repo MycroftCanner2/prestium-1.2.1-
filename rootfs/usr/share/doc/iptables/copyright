@@ -20,40 +20,20 @@ Files: extensions/libebt_ip.c extensions/libebt_log.c extensions/libebt_mark*.c
 Copyright: 2002 Bart De Schuymer <bdschuym@pandora.be>
 License: GPL-2
 
-Files: extensions/libebt_limit.c
-Copyright: 2003 Tom Marshall <tommy@home.tig-grr.com>
-License: GPL-2
-
 Files: extensions/libebt_nflog.c
 Copyright: 2008 Peter Warasin <peter@endian.com>
-License: GPL-2
-
-Files: extensions/libip6t_DNAT.c
-Copyright: 2011, Patrick McHardy <kaber@trash.net>
 License: GPL-2
 
 Files: extensions/libip6t_DNPT.c
 Copyright: 2012-2013, Patrick McHardy <kaber@trash.net>
 License: GPL-2
 
-Files: extensions/libip6t_MASQUERADE.c
-Copyright: 2011, Patrick McHardy <kaber@trash.net>
-License: GPL-2
-
 Files: extensions/libip6t_NETMAP.c
-Copyright: 2011, Patrick McHardy <kaber@trash.net>
-License: GPL-2
-
-Files: extensions/libip6t_REDIRECT.c
 Copyright: 2011, Patrick McHardy <kaber@trash.net>
 License: GPL-2
 
 Files: extensions/libip6t_REJECT.c
 Copyright: 2000, Jozsef Kadlecsik <kadlec@blackhole.kfki.hu>
-License: GPL-2
-
-Files: extensions/libip6t_SNAT.c
-Copyright: 2011, Patrick McHardy <kaber@trash.net>
 License: GPL-2
 
 Files: extensions/libip6t_SNPT.c
