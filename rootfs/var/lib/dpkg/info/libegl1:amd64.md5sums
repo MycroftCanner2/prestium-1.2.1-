@@ -1,4 +1,5 @@
-79fd946ea2ee2e82d6cc29eecb2b2997  usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0
+1c522407693802d993308f3b52f49626  usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0
 2295a81abfbf493c2fefd51c81b8618e  usr/share/bug/libegl1/control
-f74ca51dc66b884497c483840dbf010b  usr/share/doc/libegl1/changelog.Debian.gz
-96aa9f3a44040e7d50de816f57487503  usr/share/doc/libegl1/copyright
+76b9c4cefd4624ef0102d95f0de77e19  usr/share/doc/libegl1/changelog.Debian.amd64.gz
+073357a8c62b7d546510c077ae0567db  usr/share/doc/libegl1/changelog.Debian.gz
+ba0c09cf9de1643aaab0fd695a6d7476  usr/share/doc/libegl1/copyright

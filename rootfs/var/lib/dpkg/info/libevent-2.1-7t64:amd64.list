@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libevent-2.1.so.7.0.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libevent-2.1-7t64
+/usr/share/doc/libevent-2.1-7t64/changelog.Debian.gz
+/usr/share/doc/libevent-2.1-7t64/changelog.gz
+/usr/share/doc/libevent-2.1-7t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libevent-2.1-7t64
+/usr/lib/x86_64-linux-gnu/libevent-2.1.so.7

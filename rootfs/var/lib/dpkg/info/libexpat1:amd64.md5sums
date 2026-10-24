@@ -1,6 +1,6 @@
-41be3ca185b5520e231f3b7d41252ed0  lib/x86_64-linux-gnu/libexpat.so.1.8.10
-5b0b447540403c389b0119b7570beefe  usr/lib/x86_64-linux-gnu/libexpatw.so.1.8.10
+475e4c01879fec740e24e622784dac68  usr/lib/x86_64-linux-gnu/libexpat.so.1.13.0
+0cd0e0df28f6559d4d1f5287bde5a016  usr/lib/x86_64-linux-gnu/libexpatw.so.1.13.0
 4fcc7d1effd5d9789581801bd86b27d2  usr/share/doc/libexpat1/AUTHORS
-b8ab03d98dba865cb2e64939b7a82f03  usr/share/doc/libexpat1/changelog.Debian.gz
-934485e33f2bc655a856f0a752d2e278  usr/share/doc/libexpat1/changelog.gz
+4611baa5688786ae3201e2016fc963b1  usr/share/doc/libexpat1/changelog.Debian.gz
+997fd4f47781ecedb2cea5ab80e592d8  usr/share/doc/libexpat1/changelog.gz
 c1b12856c3814fdeed96d5657810cf64  usr/share/doc/libexpat1/copyright

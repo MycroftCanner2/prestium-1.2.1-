@@ -1,0 +1,2 @@
+libfuse 2 libfuse2t64 (>= 2.9.9)
+libulockmgr 1 libfuse2t64 (>= 2.9.9)

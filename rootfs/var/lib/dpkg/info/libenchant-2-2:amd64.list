@@ -6,11 +6,11 @@
 /usr/lib/x86_64-linux-gnu/enchant-2/enchant_aspell.so
 /usr/lib/x86_64-linux-gnu/enchant-2/enchant_hspell.so
 /usr/lib/x86_64-linux-gnu/enchant-2/enchant_hunspell.so
-/usr/lib/x86_64-linux-gnu/libenchant-2.so.2.3.3
+/usr/lib/x86_64-linux-gnu/libenchant-2.so.2.8.2
 /usr/share
 /usr/share/doc
 /usr/share/doc/libenchant-2-2
-/usr/share/doc/libenchant-2-2/README
+/usr/share/doc/libenchant-2-2/README.md
 /usr/share/doc/libenchant-2-2/changelog.Debian.gz
 /usr/share/doc/libenchant-2-2/changelog.gz
 /usr/share/doc/libenchant-2-2/copyright

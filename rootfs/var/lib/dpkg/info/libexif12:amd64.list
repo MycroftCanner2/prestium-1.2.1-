@@ -45,6 +45,9 @@
 /usr/share/locale/ja
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/libexif-12.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/libexif-12.mo
 /usr/share/locale/ms
 /usr/share/locale/ms/LC_MESSAGES
 /usr/share/locale/ms/LC_MESSAGES/libexif-12.mo
@@ -60,6 +63,9 @@
 /usr/share/locale/pt_BR
 /usr/share/locale/pt_BR/LC_MESSAGES
 /usr/share/locale/pt_BR/LC_MESSAGES/libexif-12.mo
+/usr/share/locale/ro
+/usr/share/locale/ro/LC_MESSAGES
+/usr/share/locale/ro/LC_MESSAGES/libexif-12.mo
 /usr/share/locale/ru
 /usr/share/locale/ru/LC_MESSAGES
 /usr/share/locale/ru/LC_MESSAGES/libexif-12.mo

@@ -1,5 +1,5 @@
-f60d63b2a689c1d0bee1d059000496f3  usr/lib/x86_64-linux-gnu/libfaad.so.2.0.0
-1c9bb00caeb6f86ac63721a20b9eb3fe  usr/lib/x86_64-linux-gnu/libfaad_drm.so.2.0.0
-b8d130bd4e8aff88ffe427b098a81be9  usr/share/doc/libfaad2/changelog.Debian.gz
-0c3b9d791cf5ecee33c853b3d73fb033  usr/share/doc/libfaad2/changelog.gz
-94e183b15b731453423e6b66cd318432  usr/share/doc/libfaad2/copyright
+03b36e20ce41e8fac5dde4ca390edf41  usr/lib/x86_64-linux-gnu/libfaad.so.2.11.2
+3b024037883332e8a486d8ecff818882  usr/lib/x86_64-linux-gnu/libfaad_drm.so.2.11.2
+e28bfdb6e78981b24fae49f0e4472188  usr/share/doc/libfaad2/changelog.Debian.gz
+67f5c5e800194d2b79faaff30546d6cf  usr/share/doc/libfaad2/changelog.gz
+6522775ebe76a3ecf09610adfa47154e  usr/share/doc/libfaad2/copyright

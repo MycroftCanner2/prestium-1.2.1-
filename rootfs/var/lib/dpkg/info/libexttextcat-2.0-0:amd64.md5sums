@@ -1,7 +1,8 @@
-14e16dbbe0032a126c42d4a21af062d6  usr/lib/x86_64-linux-gnu/libexttextcat-2.0.so.0.0.0
-4bfffb4a8e8d34b4272639f01a1818c3  usr/share/doc/libexttextcat-2.0-0/README
+eefdd1f00336a4615dd8f24b9ed71c7c  usr/lib/x86_64-linux-gnu/libexttextcat-2.0.so.0.0.0
+924265b1e889e04061fb5bd7bf3be0f9  usr/share/doc/libexttextcat-2.0-0/README
 3ff881de602f8a943a004efdd9c6305e  usr/share/doc/libexttextcat-2.0-0/TODO
-3d5958b223ef2381f527e5573f4b0996  usr/share/doc/libexttextcat-2.0-0/changelog.Debian.gz
+c1ba7ac370f8fa8a0aa75054b5b2cebc  usr/share/doc/libexttextcat-2.0-0/changelog.Debian.amd64.gz
+d1899bf8bd75e8a2a6d38e1af6455a2f  usr/share/doc/libexttextcat-2.0-0/changelog.Debian.gz
 a4ea58a2c7b90dc876803f86b932bafa  usr/share/doc/libexttextcat-2.0-0/changelog.gz
 68be9943bbb835ec692d94f66e027187  usr/share/doc/libexttextcat-2.0-0/copyright
-48b033e9a8e7aba34118c9f9ced67ac3  usr/share/lintian/overrides/libexttextcat-2.0-0
+87e2c2f014d29958f133d9c5313b8d59  usr/share/lintian/overrides/libexttextcat-2.0-0

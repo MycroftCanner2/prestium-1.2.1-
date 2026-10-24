@@ -7,15 +7,23 @@ libexpat.so.1 libexpat1 #MINVER#
  XML_FreeContentModel@Base 2.0.1
  XML_GetBase@Base 2.0.1
  XML_GetBuffer@Base 2.0.1
+ XML_GetCurrentByteCount64@Base 2.9.0
  XML_GetCurrentByteCount@Base 2.0.1
+ XML_GetCurrentByteIndex64@Base 2.9.0
  XML_GetCurrentByteIndex@Base 2.0.1
+ XML_GetCurrentColumnNumber64@Base 2.9.0
  XML_GetCurrentColumnNumber@Base 2.0.1
+ XML_GetCurrentLineNumber64@Base 2.9.0
  XML_GetCurrentLineNumber@Base 2.0.1
  XML_GetErrorCode@Base 2.0.1
  XML_GetFeatureList@Base 2.0.1
  XML_GetIdAttributeIndex@Base 2.0.1
+ XML_GetInputContext64@Base 2.9.0
  XML_GetInputContext@Base 2.0.1
  XML_GetParsingStatus@Base 2.0.1
+ XML_GetPropertyBool@Base 2.9.0
+ XML_GetPropertyDouble@Base 2.9.0
+ XML_GetPropertyUInt64@Base 2.9.0
  XML_GetSpecifiedAttributeCount@Base 2.0.1
  XML_MemFree@Base 2.0.1
  XML_MemMalloc@Base 2.0.1
@@ -28,8 +36,8 @@ libexpat.so.1 libexpat1 #MINVER#
  XML_ParserFree@Base 2.0.1
  XML_ParserReset@Base 2.0.1
  XML_ResumeParser@Base 2.0.1
- XML_SetAllocTrackerActivationThreshold@Base 2.5.0-1+deb12u4
- XML_SetAllocTrackerMaximumAmplification@Base 2.5.0-1+deb12u4
+ XML_SetAllocTrackerActivationThreshold@Base 2.7.2
+ XML_SetAllocTrackerMaximumAmplification@Base 2.7.2
  XML_SetAttlistDeclHandler@Base 2.0.1
  XML_SetBase@Base 2.0.1
  XML_SetBillionLaughsAttackProtectionActivationThreshold@Base 2.4.1
@@ -50,13 +58,17 @@ libexpat.so.1 libexpat1 #MINVER#
  XML_SetEntityDeclHandler@Base 2.0.1
  XML_SetExternalEntityRefHandler@Base 2.0.1
  XML_SetExternalEntityRefHandlerArg@Base 2.0.1
+ XML_SetHashSalt16Bytes@Base 2.8.0
  XML_SetHashSalt@Base 2.1~beta3
  XML_SetNamespaceDeclHandler@Base 2.0.1
  XML_SetNotStandaloneHandler@Base 2.0.1
  XML_SetNotationDeclHandler@Base 2.0.1
  XML_SetParamEntityParsing@Base 2.0.1
  XML_SetProcessingInstructionHandler@Base 2.0.1
- XML_SetReparseDeferralEnabled@Base 2.5.0
+ XML_SetPropertyBool@Base 2.9.0
+ XML_SetPropertyDouble@Base 2.9.0
+ XML_SetPropertyUInt64@Base 2.9.0
+ XML_SetReparseDeferralEnabled@Base 2.6.0
  XML_SetReturnNSTriplet@Base 2.0.1
  XML_SetSkippedEntityHandler@Base 2.0.1
  XML_SetStartCdataSectionHandler@Base 2.0.1
@@ -79,15 +91,23 @@ libexpatw.so.1 libexpat1 #MINVER#
  XML_FreeContentModel@Base 2.0.1
  XML_GetBase@Base 2.0.1
  XML_GetBuffer@Base 2.0.1
+ XML_GetCurrentByteCount64@Base 2.9.0
  XML_GetCurrentByteCount@Base 2.0.1
+ XML_GetCurrentByteIndex64@Base 2.9.0
  XML_GetCurrentByteIndex@Base 2.0.1
+ XML_GetCurrentColumnNumber64@Base 2.9.0
  XML_GetCurrentColumnNumber@Base 2.0.1
+ XML_GetCurrentLineNumber64@Base 2.9.0
  XML_GetCurrentLineNumber@Base 2.0.1
  XML_GetErrorCode@Base 2.0.1
  XML_GetFeatureList@Base 2.0.1
  XML_GetIdAttributeIndex@Base 2.0.1
+ XML_GetInputContext64@Base 2.9.0
  XML_GetInputContext@Base 2.0.1
  XML_GetParsingStatus@Base 2.0.1
+ XML_GetPropertyBool@Base 2.9.0
+ XML_GetPropertyDouble@Base 2.9.0
+ XML_GetPropertyUInt64@Base 2.9.0
  XML_GetSpecifiedAttributeCount@Base 2.0.1
  XML_MemFree@Base 2.0.1
  XML_MemMalloc@Base 2.0.1
@@ -100,8 +120,8 @@ libexpatw.so.1 libexpat1 #MINVER#
  XML_ParserFree@Base 2.0.1
  XML_ParserReset@Base 2.0.1
  XML_ResumeParser@Base 2.0.1
- XML_SetAllocTrackerActivationThreshold@Base 2.5.0-1+deb12u4
- XML_SetAllocTrackerMaximumAmplification@Base 2.5.0-1+deb12u4
+ XML_SetAllocTrackerActivationThreshold@Base 2.7.2
+ XML_SetAllocTrackerMaximumAmplification@Base 2.7.2
  XML_SetAttlistDeclHandler@Base 2.0.1
  XML_SetBase@Base 2.0.1
  XML_SetBillionLaughsAttackProtectionActivationThreshold@Base 2.4.1
@@ -122,13 +142,17 @@ libexpatw.so.1 libexpat1 #MINVER#
  XML_SetEntityDeclHandler@Base 2.0.1
  XML_SetExternalEntityRefHandler@Base 2.0.1
  XML_SetExternalEntityRefHandlerArg@Base 2.0.1
+ XML_SetHashSalt16Bytes@Base 2.8.0
  XML_SetHashSalt@Base 2.1~beta3
  XML_SetNamespaceDeclHandler@Base 2.0.1
  XML_SetNotStandaloneHandler@Base 2.0.1
  XML_SetNotationDeclHandler@Base 2.0.1
  XML_SetParamEntityParsing@Base 2.0.1
  XML_SetProcessingInstructionHandler@Base 2.0.1
- XML_SetReparseDeferralEnabled@Base 2.5.0
+ XML_SetPropertyBool@Base 2.9.0
+ XML_SetPropertyDouble@Base 2.9.0
+ XML_SetPropertyUInt64@Base 2.9.0
+ XML_SetReparseDeferralEnabled@Base 2.6.0
  XML_SetReturnNSTriplet@Base 2.0.1
  XML_SetSkippedEntityHandler@Base 2.0.1
  XML_SetStartCdataSectionHandler@Base 2.0.1

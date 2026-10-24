@@ -14,6 +14,7 @@ libfaad.so.2 libfaad2 #MINVER#
  NeAACDecPostSeekReset@Base 2.7
  NeAACDecSetConfiguration@Base 2.7
 libfaad_drm.so.2 libfaad2 #MINVER#
+* Build-Depends-Package: libfaad-dev
  NeAACDecAudioSpecificConfig@Base 2.7-9~
  NeAACDecClose@Base 2.7-9~
  NeAACDecDecode2@Base 2.7-9~

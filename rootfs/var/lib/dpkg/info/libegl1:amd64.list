@@ -12,6 +12,7 @@
 /usr/share/bug/libegl1/control
 /usr/share/doc
 /usr/share/doc/libegl1
+/usr/share/doc/libegl1/changelog.Debian.amd64.gz
 /usr/share/doc/libegl1/changelog.Debian.gz
 /usr/share/doc/libegl1/copyright
 /usr/share/glvnd

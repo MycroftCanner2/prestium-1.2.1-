@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libfm-gtk3.so.4.2.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libfm-gtk3-4t64
+/usr/share/doc/libfm-gtk3-4t64/changelog.Debian.gz
+/usr/share/doc/libfm-gtk3-4t64/changelog.gz
+/usr/share/doc/libfm-gtk3-4t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libfm-gtk3-4t64
+/usr/lib/x86_64-linux-gnu/libfm-gtk3.so.4

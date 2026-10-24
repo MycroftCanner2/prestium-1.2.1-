@@ -1,5 +1,5 @@
-19a2f55be5df08c785dd82c88ec23e69  usr/lib/x86_64-linux-gnu/libfreetype.so.6.18.3
-2d0f0fbe76a19c4993d98a0d6975fea1  usr/share/doc/libfreetype6/README
-d27dacebc9407604bbcb0e638c67eb61  usr/share/doc/libfreetype6/changelog.Debian.gz
-48a55eb21d4fe47c855f66b26ac7370c  usr/share/doc/libfreetype6/changelog.gz
-25bd4a30afaea556008d9b47ad64dd1f  usr/share/doc/libfreetype6/copyright
+bbc3b81e9a8c796027eb665fd537c275  usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.2
+3a6c5f4c5739a407406cbde4a53bf4dc  usr/share/doc/libfreetype6/README
+baf8cf2c23f280423124fa911c7ebc2a  usr/share/doc/libfreetype6/changelog.Debian.gz
+0a78124822804f482e80203f2b30ba92  usr/share/doc/libfreetype6/changelog.gz
+d0ec91228a2091b29d3e334c24fc421e  usr/share/doc/libfreetype6/copyright

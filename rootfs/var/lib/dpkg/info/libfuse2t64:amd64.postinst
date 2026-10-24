@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+# begin-remove-after: released:trixie
+if test "$1" = configure; then
+	# Remove DEP17 P1 M8 protective diversions
+	for f in libfuse.so.2 libfuse.so.2.9.9 libulockmgr.so.1 libulockmgr.so.1.0.1; do
+		dpkg-divert --no-rename --package libfuse2t64 --divert "/lib/x86_64-linux-gnu/$f.usr-is-merged" --remove "/lib/x86_64-linux-gnu/$f"
+	done
+fi
+# end-remove-after
+
+

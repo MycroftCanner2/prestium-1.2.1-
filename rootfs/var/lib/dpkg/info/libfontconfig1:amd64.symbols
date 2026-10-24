@@ -137,6 +137,7 @@ libfontconfig.so.1 libfontconfig1 #MINVER#
  FcMatrixShear@Base 2.12.6
  FcNameConstant@Base 2.12.6
  FcNameGetConstant@Base 2.12.6
+ FcNameGetConstantFor@Base 2.14.2
  FcNameGetObjectType@Base 2.12.6
  FcNameParse@Base 2.12.6
  FcNameRegisterConstants@Base 2.12.6

@@ -1,5 +1,5 @@
-05ccbb40088b6e5480df58c11186af39  usr/lib/x86_64-linux-gnu/libgd.so.3.0.11
-c38beeb523642727f80c25740df32fae  usr/share/doc/libgd3/changelog.Debian.gz
+e8f6f2cd058d069b419d9585b1e2aeb9  usr/lib/x86_64-linux-gnu/libgd.so.3.0.11
+db46ede890a214329244386fb2205829  usr/share/doc/libgd3/changelog.Debian.gz
 e350b7feb52bcf0bd67fc917a0b78182  usr/share/doc/libgd3/changelog.gz
 f92bc9c8dbf132b1977a8e6c46362839  usr/share/doc/libgd3/copyright
 43a0895ba7ba88ad91e8dcea5b1520cf  usr/share/lintian/overrides/libgd3

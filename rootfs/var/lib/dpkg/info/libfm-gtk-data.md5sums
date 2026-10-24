@@ -1,13 +1,13 @@
-9e4df2e27e3868a2450bd63855036496  usr/share/doc/libfm-gtk-data/changelog.Debian.gz
-43d7e0dcb0761c77d3c22e5a3391e9cc  usr/share/doc/libfm-gtk-data/changelog.gz
-9b3f011e0c71dcd15962a05e4de359e4  usr/share/doc/libfm-gtk-data/copyright
+6093f84b6a21c52a574387bde913589e  usr/share/doc/libfm-gtk-data/changelog.Debian.gz
+039266b19ae0f75d206a75eb04fb5d5b  usr/share/doc/libfm-gtk-data/changelog.gz
+b869129254b5b7518f4a0319dce371fa  usr/share/doc/libfm-gtk-data/copyright
 dfd91cce3f0292a1a1aaa49cac4da00c  usr/share/libfm/images/folder.png
 5e32d8c7383e90998c9cba8179870ae0  usr/share/libfm/images/unknown.png
 395a3ee8ecd90dd10a6ea75353cc5320  usr/share/libfm/ui/app-chooser.ui
 615644a3874779ad33d1c20a0a6a161e  usr/share/libfm/ui/ask-rename.ui
 a4508cef715fb099b10bf630f381f22b  usr/share/libfm/ui/choose-icon.ui
 6c917f616fbeb2d7318db28d4cd7ac9b  usr/share/libfm/ui/exec-file.ui
-8eb250d2051afedbe94c2f2f41e4bb01  usr/share/libfm/ui/file-prop.ui
+b36ab58202f492624a23f6feb973f507  usr/share/libfm/ui/file-prop.ui
 5aa27f1a402f53f72781a35d4a92c4ec  usr/share/libfm/ui/filesearch.ui
 5c76ad82a004bf7c0b0ba8cc48b0c590  usr/share/libfm/ui/preferred-apps.ui
 2312ae1bb20262b290163d68abdd4e97  usr/share/libfm/ui/progress.ui

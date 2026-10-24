@@ -2,6 +2,8 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/gbm
+/usr/lib/x86_64-linux-gnu/gbm/dri_gbm.so
 /usr/lib/x86_64-linux-gnu/libgbm.so.1.0.0
 /usr/share
 /usr/share/bug

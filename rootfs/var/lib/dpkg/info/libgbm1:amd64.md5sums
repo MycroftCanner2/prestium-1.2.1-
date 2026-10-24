@@ -1,7 +1,8 @@
-fe029819b677739d17e655d206da1134  usr/lib/x86_64-linux-gnu/libgbm.so.1.0.0
+9d4acb3bd9a3dbe24f1ae69606f5d3cf  usr/lib/x86_64-linux-gnu/gbm/dri_gbm.so
+2c32ceb693b40eb68d7b326b3ae456de  usr/lib/x86_64-linux-gnu/libgbm.so.1.0.0
 7f0d95ab544ef194372363bb93229ede  usr/share/bug/libgbm1/control
 114f277e413ffae0a725cc024a955b47  usr/share/bug/libgbm1/script
-7de7dea48877519f77ea43b953714e7c  usr/share/doc/libgbm1/changelog.Debian.gz
-0afdaff557c72b3fd677716c45fe8d49  usr/share/doc/libgbm1/changelog.gz
-2e2ab611d68364893311e9a62c77c3a5  usr/share/doc/libgbm1/copyright
-5e7f4179767e22980f8e7f7fff30d658  usr/share/lintian/overrides/libgbm1
+83361ffcd01f15075978a89c4b44b1e8  usr/share/doc/libgbm1/changelog.Debian.gz
+db59eee4b30d73f42644550d2b917478  usr/share/doc/libgbm1/changelog.gz
+d63634382a6104b7ac6e8d0fb50ebc17  usr/share/doc/libgbm1/copyright
+df67eefabebb31c7ae20d925b28d9cb8  usr/share/lintian/overrides/libgbm1
