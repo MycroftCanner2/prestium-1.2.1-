@@ -1,25 +1,15 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # Roster
 
 from __future__ import annotations
 
 from typing import cast
-from typing import Iterable
-from typing import Iterator
-from typing import Optional
+
+from collections.abc import Iterable
+from collections.abc import Iterator
 
 import nbxmpp
 from nbxmpp.namespaces import Namespace
@@ -88,7 +78,7 @@ class Roster(BaseModule):
 
         self._log.info('Request version: %s', version)
         self._nbxmpp('Roster').request_roster(
-            version, callback=self._on_request_roster)
+            version, callback=self._on_request_roster)  # type: ignore
 
     def _on_request_roster(self, task: Task) -> None:
         try:
@@ -132,12 +122,11 @@ class Roster(BaseModule):
         self._store_roster()
 
     def _process_roster_push(self,
-                             _con: types.xmppClient,
+                             _con: types.NBXMPPClient,
                              _stanza: Iq,
                              properties: IqProperties
                              ) -> None:
         self._log.info('Push received')
-
         assert properties.roster is not None
         item = properties.roster.item
         if item.subscription == 'remove':
@@ -158,10 +147,10 @@ class Roster(BaseModule):
 
         raise nbxmpp.NodeProcessed
 
-    def get_item(self, jid: JID) -> Optional[RosterItem]:
+    def get_item(self, jid: JID) -> RosterItem | None:
         return self._roster.get(jid)
 
-    def set_groups(self, jid: JID, groups: Optional[Iterable[str]]) -> None:
+    def set_groups(self, jid: JID, groups: Iterable[str] | None) -> None:
         if groups is not None:
             groups = set(groups)
         item = self.get_item(jid)
@@ -203,9 +192,26 @@ class Roster(BaseModule):
         groups.add(new_group)
         self._nbxmpp('Roster').set_item(jid, item.name, groups)
 
+    def add_to_group(self, jid: JID, group: str) -> None:
+        item = self.get_item(jid)
+        assert item is not None
+        new_groups = item.groups | {group}
+        self._nbxmpp('Roster').set_item(jid, item.name, new_groups)
+
+    def remove_from_group(self, jid: JID, group: str) -> None:
+        item = self.get_item(jid)
+        assert item is not None
+        new_groups = item.groups - {group}
+        self._nbxmpp('Roster').set_item(jid, item.name, new_groups)
+
+    def change_name(self, jid: JID, name: str | None) -> None:
+        item = self.get_item(jid)
+        assert item is not None
+        self._nbxmpp('Roster').set_item(jid, name, item.groups)
+
     def iter(self) -> Iterator[tuple[JID, RosterItem]]:
         yield from self._roster.items()
 
     def iter_contacts(self) -> Iterator[BareContact]:
         for jid in self._roster:
-            yield self._get_contact(jid)
+            yield cast(BareContact, self._get_contact(jid))

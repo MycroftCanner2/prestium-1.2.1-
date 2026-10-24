@@ -8,36 +8,25 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import cast
-from typing import Optional
 
 import logging
 
 import keyring
 
 from gajim.common import app
-from gajim.common.helpers import package_version
+from gajim.common.util.version import package_version
 
 __all__ = [
+    'delete_password',
+    'get_password',
     'init',
     'is_keyring_available',
-    'get_password',
-    'save_password',
-    'delete_password'
+    'save_password'
 ]
 
 log = logging.getLogger('gajim.c.passwords')
@@ -78,29 +67,51 @@ class SecretPasswordStorage:
         if not is_keyring_available():
             log.warning('No recommended keyring backend available.'
                         'Passwords cannot be stored.')
-            return True
+            return False
+
+        account_jid = app.get_jid_from_account(account_name)
+
         try:
             log.info('Save password to keyring')
-            _interface.backend.set_password('gajim', account_name, password)
+            _interface.backend.set_password('gajim', account_jid, password)
             return True
         except Exception:
             log.exception('Save password failed')
             return False
 
     @staticmethod
-    def get_password(account_name: str) -> Optional[str]:
+    def get_password(account_name: str) -> str | None:
         if not is_keyring_available():
             return
 
-        log.info('Request password from keyring')
+        account_jid = app.get_jid_from_account(account_name)
+
+        log.info('Request password from keyring for %s', account_jid)
 
         try:
             # For security reasons remove clear-text password
             ConfigPasswordStorage.delete_password(account_name)
-            return _interface.backend.get_password('gajim', account_name)
+            password = _interface.backend.get_password('gajim', account_jid)
         except Exception:
             log.exception('Request password failed')
             return
+
+        if password is not None:
+            return password
+
+        # Migration from account name to account jid
+        try:
+            password = _interface.backend.get_password('gajim', account_name)
+        except Exception:
+            log.exception('Request password failed')
+            return
+
+        if password is not None:
+            result = SecretPasswordStorage.save_password(account_name, password)
+            if not result:
+                log.error('Password migration failed')
+
+        return password
 
     @staticmethod
     def delete_password(account_name: str) -> None:
@@ -109,9 +120,21 @@ class SecretPasswordStorage:
 
         log.info('Remove password from keyring')
 
+        account_jid = app.get_jid_from_account(account_name)
+
+        keyring_errors = (
+            keyring.errors.InitError,
+            keyring.errors.KeyringLocked,
+            keyring.errors.PasswordDeleteError,
+        )
         try:
-            return _interface.backend.delete_password('gajim', account_name)
-        except keyring.errors.PasswordDeleteError as error:
+            _interface.backend.delete_password('gajim', account_name)
+        except keyring_errors:
+            pass
+
+        try:
+            return _interface.backend.delete_password('gajim', account_jid)
+        except keyring_errors as error:
             log.warning('Removing password failed: %s', error)
         except Exception:
             log.exception('Removing password failed')
@@ -162,7 +185,7 @@ def is_keyring_available() -> bool:
     return _interface.is_keyring_available
 
 
-def get_password(account_name: str) -> Optional[str]:
+def get_password(account_name: str) -> str | None:
     if not app.settings.get_account_setting(account_name, 'savepass'):
         return MemoryPasswordStorage().get_password(account_name)
 

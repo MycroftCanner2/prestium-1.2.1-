@@ -1,24 +1,14 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
-from typing import Any
 from typing import NamedTuple
-from typing import Optional
-from typing import Union
 
+from dataclasses import dataclass
+from datetime import datetime
+from datetime import UTC
 from enum import Enum
 from enum import IntEnum
 from enum import unique
@@ -38,8 +28,16 @@ PROPAGATE_EVENT = False
 MAX_MESSAGE_CORRECTION_DELAY = 300
 
 
-class EncryptionData(NamedTuple):
-    additional_data: Any = None
+class EncryptionInfoMsg(Enum):
+    BAD_OMEMO_CONFIG = _('This chat’s configuration is unsuitable for '
+                         'encryption with OMEMO. To use OMEMO in this chat, '
+                         'it should be non-anonymous and members-only.')
+    NO_FINGERPRINTS = _('To send an encrypted message, you have to decide '
+                        'whether to trust the device of your contact.')
+    QUERY_DEVICES = _('No devices found to encrypt this message to. '
+                      'Querying for devices now…')
+    UNDECIDED_FINGERPRINTS = _('There are devices for which you have not made '
+                               'a trust decision yet.')
 
 
 class Entity(NamedTuple):
@@ -57,25 +55,29 @@ class RowHeaderType(IntEnum):
 class AvatarSize(IntEnum):
     TAB = 16
     SHOW_CIRCLE = 24
+    SMALL = 24
     ROSTER = 32
+    START_CHAT = 32
     VCARD_HEADER = 40
     ACCOUNT_SIDE_BAR = 40
     WORKSPACE = 40
     WORKSPACE_EDIT = 100
     CHAT = 48
-    NOTIFICATION = 48
+    MESSAGE_REPLY = 24
+    NOTIFICATION = 96
     CALL = 100
     CALL_BIG = 200
     GROUP_INFO = 100
     TOOLTIP = 100
     ACCOUNT_PAGE = 150
+    ACTIVITY_PAGE = 100
     VCARD = 200
     PUBLISH = 200
 
 
-class ArchiveState(IntEnum):
-    NEVER = 0
-    ALL = 1
+class ArchiveState:
+    NEVER = None
+    ALL = datetime(1970, 1, 1, tzinfo=UTC)
 
 
 @unique
@@ -83,6 +85,7 @@ class PathLocation(IntEnum):
     CONFIG = 0
     CACHE = 1
     DATA = 2
+    NONE = 3
 
 
 @unique
@@ -90,58 +93,6 @@ class PathType(IntEnum):
     FILE = 0
     FOLDER = 1
     FOLDER_OPTIONAL = 2
-
-
-@unique
-class KindConstant(IntEnum):
-    STATUS = 0
-    GCSTATUS = 1
-    GC_MSG = 2
-    SINGLE_MSG_RECV = 3
-    CHAT_MSG_RECV = 4
-    SINGLE_MSG_SENT = 5
-    CHAT_MSG_SENT = 6
-    ERROR = 7
-    FILE_TRANSFER_INCOMING = 8
-    FILE_TRANSFER_OUTGOING = 9
-    CALL_INCOMING = 10
-    CALL_OUTGOING = 11
-
-    def __str__(self):
-        return str(self.value)
-
-
-@unique
-class TypeConstant(IntEnum):
-    AIM = 0
-    GG = 1
-    HTTP_WS = 2
-    ICQ = 3
-    MSN = 4
-    QQ = 5
-    SMS = 6
-    SMTP = 7
-    TLEN = 8
-    YAHOO = 9
-    NEWMAIL = 10
-    RSS = 11
-    WEATHER = 12
-    MRIM = 13
-    NO_TRANSPORT = 14
-
-
-@unique
-class SubscriptionConstant(IntEnum):
-    NONE = 0
-    TO = 1
-    FROM = 2
-    BOTH = 3
-
-
-@unique
-class JIDConstant(IntEnum):
-    NORMAL_TYPE = 0
-    ROOM_TYPE = 1
 
 
 @unique
@@ -232,7 +183,7 @@ class XmppUriQuery(Enum):
     JOIN = 'join'
 
     @staticmethod
-    def from_str(s: str) -> Optional[XmppUriQuery]:
+    def from_str(s: str) -> XmppUriQuery | None:
         try:
             return XmppUriQuery(s)
         except ValueError:
@@ -357,6 +308,12 @@ class JingleState(Enum):
 class CallType(Enum):
     AUDIO = 'audio'
     VIDEO = 'video'
+
+
+@dataclass
+class Draft:
+    text: str
+    reply_pk: int | None
 
 
 MUC_CREATION_EXAMPLES = [
@@ -538,15 +495,16 @@ ARTISTS = [
 ]
 
 
-DEVS_CURRENT = [
-    'Yann Leboulanger (asterix AT lagaule.org)',
+MAINTAINERS = [
     'Philipp Hörist (philipp AT hoerist.com)',
     'Daniel Brötzmann (wurstsalat AT posteo.de)',
-    'André Apitzsch',
 ]
 
 
-DEVS_PAST = [
+DEVELOPERS = [
+    'Marc Henning',
+    'André Apitzsch',
+    'Yann Leboulanger (asterix AT lagaule.org)',
     'Stefan Bethge (stefan AT lanpartei.de)',
     'Alexander Cherniuk (ts33kr AT gmail.com)',
     'Stephan Erb (steve-e AT h3c.de)',
@@ -908,11 +866,17 @@ COMMON_FEATURES = [
     Namespace.HASHES_BLAKE2B_256,
     Namespace.HASHES_BLAKE2B_512,
     Namespace.JINGLE,
-    Namespace.JINGLE_FILE_TRANSFER_5,
-    Namespace.JINGLE_BYTESTREAM,
-    Namespace.JINGLE_IBB,
+    # TODO Jingle FT
+    # Namespace.JINGLE_FILE_TRANSFER_5,
+    # Namespace.JINGLE_BYTESTREAM,
+    # Namespace.JINGLE_IBB,
     Namespace.AVATAR_METADATA + '+notify',
-    Namespace.MESSAGE_MODERATE
+    Namespace.MESSAGE_MODERATE,
+    Namespace.REPLY,
+    Namespace.OMEMO_TEMP_DL + '+notify',
+    Namespace.STYLING,
+    Namespace.REACTIONS,
+    Namespace.MDS + '+notify',
 ]
 
 
@@ -947,6 +911,7 @@ SHOW_STRING_MNEMONIC = {
 }
 
 GAJIM_FAQ_URI = 'https://dev.gajim.org/gajim/gajim/wikis/help/gajimfaq'
+GAJIM_PRIVACY_POLICY_URI = 'https://gajim.org/privacy/'
 GAJIM_WIKI_URI = 'https://dev.gajim.org/gajim/gajim/wikis'
 GAJIM_SUPPORT_JID = 'gajim@conference.gajim.org'
 
@@ -1008,14 +973,21 @@ MIME_TYPES = (
     'audio/aac',
     'audio/ac3',
     'audio/flac',
+    'audio/mp3',
     'audio/mp4',
     'audio/mpeg',
     'audio/ogg',
     'audio/opus',
+    'audio/vnd.wave',
     'audio/wav',
+    'audio/wave',
+    'audio/x-aac',
     'audio/x-flac',
     'audio/x-m4a',
     'audio/x-matroska',
+    'audio/x-mp3',
+    'audio/x-mpeg',
+    'audio/x-ogg',
     'audio/x-wav',
     # font/*
     'font/ttf',
@@ -1074,7 +1046,7 @@ TRUST_SYMBOL_DATA = {
                       _('Trust Not Decided'),
                       'warning-color'),
     Trust.BLIND: ('security-medium-symbolic',
-                  _('Unverified'),
+                  _('Blind Trust'),
                   'encrypted-color'),
     Trust.VERIFIED: ('security-high-symbolic',
                      _('Verified'),
@@ -1106,7 +1078,7 @@ class PresenceShowExt(Enum):
     def is_offline(self):
         return self == PresenceShowExt.OFFLINE
 
-    def __lt__(self, other: Union[PresenceShowExt, PresenceShow]) -> bool:
+    def __lt__(self, other: PresenceShowExt | PresenceShow) -> bool:
         if isinstance(other, PresenceShowExt):
             return False
         if not isinstance(other, PresenceShow):  # pyright: ignore

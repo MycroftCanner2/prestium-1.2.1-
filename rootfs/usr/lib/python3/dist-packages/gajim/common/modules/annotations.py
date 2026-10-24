@@ -1,21 +1,9 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0145: Annotations
 
-from typing import Optional
-from typing import Union
 
 from nbxmpp.errors import MalformedStanzaError
 from nbxmpp.errors import StanzaError
@@ -38,11 +26,11 @@ class Annotations(BaseModule):
     def __init__(self, con: ConnectionT) -> None:
         BaseModule.__init__(self, con)
 
-        self._annotations: dict[Union[JID, str], AnnotationNote] = {}
+        self._annotations: dict[JID | str, AnnotationNote] = {}
 
     def request_annotations(self) -> None:
         self._nbxmpp('Annotations').request_annotations(
-            callback=self._annotations_received)
+            callback=self._annotations_received)  # type: ignore
 
     def _annotations_received(self, task: Task) -> None:
         try:
@@ -55,7 +43,7 @@ class Annotations(BaseModule):
         for note in annotations:
             self._annotations[note.jid] = note
 
-    def get_note(self, jid: str) -> Optional[AnnotationNote]:
+    def get_note(self, jid: JID | str) -> AnnotationNote | None:
         return self._annotations.get(jid)
 
     def set_note(self, note: AnnotationNote) -> None:

@@ -7,29 +7,18 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import cast
-from typing import Generator
-from typing import Optional
-from typing import Union
 
 import importlib.resources
 import os
+import shutil
 import sys
 import tempfile
+from collections.abc import Generator
 from pathlib import Path
 
 from gi.repository import GLib
@@ -39,11 +28,15 @@ from gajim.common.const import PathLocation
 from gajim.common.const import PathType
 from gajim.common.i18n import _
 
-PathTupleT = tuple[Optional[PathLocation], Path, Optional[PathType]]
+PathTupleT = tuple[PathLocation | None, Path, PathType | None]
 
 
 def get(key: str) -> Path:
     return _paths[key]
+
+
+def get_temp_dir() -> Path:
+    return _paths.get_temp_dir()
 
 
 def get_plugin_dirs() -> list[Path]:
@@ -52,6 +45,11 @@ def get_plugin_dirs() -> list[Path]:
                 Path('/app/plugins')]
     return [Path(_paths['PLUGINS_BASE']),
             Path(_paths['PLUGINS_USER'])]
+
+
+def get_ui_path(filename: str) -> str:
+    path = _paths['GUI'] / filename
+    return str(path)
 
 
 def get_paths(type_: PathType) -> Generator[Path, None, None]:
@@ -98,12 +96,25 @@ def create_paths() -> None:
             path.mkdir(mode=0o700)
 
 
+def cleanup_temp() -> None:
+    tmpdir = _paths.get_temp_dir().parent
+    for path in tmpdir.glob('gajim-*'):
+        if not path.is_dir():
+            continue
+        try:
+            shutil.rmtree(path, ignore_errors=True)
+        except Exception:
+            pass
+
+
 class ConfigPaths:
     def __init__(self) -> None:
         self._paths: dict[str, PathTupleT] = {}
+        self._temp_dir: Path | None = None
+
         self.profile = ''
         self.profile_separation = False
-        self.custom_config_root: Optional[Path] = None
+        self.custom_config_root: Path | None = None
 
         if os.name == 'nt':
             if gajim.IS_PORTABLE:
@@ -113,7 +124,7 @@ class ConfigPaths:
             else:
                 # Documents and Settings\[User Name]\Application Data\Gajim
                 self.config_root = self.cache_root = self.data_root = \
-                    Path(os.environ['appdata']) / 'Gajim'
+                    Path(os.environ['APPDATA']) / 'Gajim'
         else:
             self.config_root = Path(GLib.get_user_config_dir()) / 'gajim'
             self.cache_root = Path(GLib.get_user_cache_dir()) / 'gajim'
@@ -156,14 +167,14 @@ class ConfigPaths:
 
     def add(self,
             name: str,
-            path: Union[Path, str],
-            location: Optional[PathLocation] = None,
-            path_type: Optional[PathType] = None,
+            path: Path | str,
+            location: PathLocation | None = None,
+            path_type: PathType | None = None,
             unique: bool = False) -> None:
 
         path = Path(path)
 
-        if location is not None:
+        if location != PathLocation.NONE:
             path = self._prepare(path, unique)
         self._paths[name] = (location, path, path_type)
 
@@ -173,7 +184,6 @@ class ConfigPaths:
             self.cache_root = self.data_root = self.custom_config_root
 
         user_dir_paths = [
-            ('TMP', Path(tempfile.gettempdir()), None, None),
             ('MY_CONFIG', Path(), PathLocation.CONFIG, PathType.FOLDER),
             ('MY_CACHE', Path(), PathLocation.CACHE, PathType.FOLDER),
             ('MY_DATA', Path(), PathLocation.DATA, PathType.FOLDER),
@@ -183,13 +193,16 @@ class ConfigPaths:
             self.add(*path)
 
         # These paths are unique per profile
-        unique_profile_paths = [
+        unique_profile_paths: list[tuple[str, str | Path, PathLocation, PathType]] = [
             # Data paths
             ('SECRETS_FILE', 'secrets', PathLocation.DATA, PathType.FILE),
             ('CERT_STORE', 'cert_store', PathLocation.DATA, PathType.FOLDER),
             ('DEBUG', 'debug', PathLocation.DATA, PathType.FOLDER),
             ('PLUGINS_DATA', 'plugins_data',
              PathLocation.DATA, PathType.FOLDER),
+
+            # Cache paths
+            ('DOWNLOADS_THUMB', 'downloads.thumb', PathLocation.CACHE, PathType.FOLDER),
 
             # Config paths
             ('SETTINGS', 'settings.sqlite', PathLocation.CONFIG, PathType.FILE),
@@ -199,6 +212,17 @@ class ConfigPaths:
             ('MY_SHORTCUTS', 'shortcuts.json',
              PathLocation.CONFIG, PathType.FILE),
         ]
+
+        # Determine downloads dir
+        path = ('DOWNLOADS', 'downloads', PathLocation.DATA, PathType.FOLDER)
+        if sys.platform == 'win32' and not gajim.IS_PORTABLE:
+            download_dir = GLib.get_user_special_dir(
+                GLib.UserDirectory.DIRECTORY_DOWNLOAD)
+            assert download_dir is not None
+            path = ('DOWNLOADS', Path(download_dir) / 'Gajim',
+                    PathLocation.NONE, PathType.FOLDER)
+
+        unique_profile_paths.append(path)
 
         for path in unique_profile_paths:
             self.add(*path, unique=True)
@@ -219,6 +243,8 @@ class ConfigPaths:
             # Cache paths
             ('CACHE_DB', 'cache.db', PathLocation.CACHE, PathType.FILE),
             ('AVATAR', 'avatars', PathLocation.CACHE, PathType.FOLDER),
+            ('AVATAR_ICONS', 'avatar_icons',
+             PathLocation.CACHE, PathType.FOLDER),
             ('BOB', 'bob', PathLocation.CACHE, PathType.FOLDER),
 
             # Config paths
@@ -228,6 +254,11 @@ class ConfigPaths:
 
         for path in paths:
             self.add(*path)
+
+    def get_temp_dir(self) -> Path:
+        if self._temp_dir is None or not self._temp_dir.exists():
+            self._temp_dir = Path(tempfile.mkdtemp(prefix='gajim-'))
+        return self._temp_dir
 
 
 _paths = ConfigPaths()

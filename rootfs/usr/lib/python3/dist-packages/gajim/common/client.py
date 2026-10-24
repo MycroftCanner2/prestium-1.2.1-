@@ -1,23 +1,13 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 
 import logging
+import time
 
 import nbxmpp
 from gi.repository import Gio
@@ -27,17 +17,17 @@ from gi.repository import Gtk
 from nbxmpp.client import Client as NBXMPPClient
 from nbxmpp.const import ConnectionType
 from nbxmpp.const import StreamError
+from nbxmpp.namespaces import Namespace
 from nbxmpp.protocol import JID
 
 from gajim.common import app
-from gajim.common import helpers
 from gajim.common import modules
 from gajim.common import passwords
 from gajim.common.const import ClientState
 from gajim.common.const import SimpleClientState
 from gajim.common.events import AccountConnected
 from gajim.common.events import AccountDisconnected
-from gajim.common.events import MessageSent
+from gajim.common.events import MessageNotSent
 from gajim.common.events import Notification
 from gajim.common.events import PasswordRequired
 from gajim.common.events import PlainConnection
@@ -46,7 +36,6 @@ from gajim.common.events import StanzaReceived
 from gajim.common.events import StanzaSent
 from gajim.common.helpers import get_account_proxy
 from gajim.common.helpers import get_custom_host
-from gajim.common.helpers import get_idle_status_message
 from gajim.common.helpers import get_resource
 from gajim.common.helpers import Observable
 from gajim.common.helpers import warn_about_plain_connection
@@ -55,13 +44,24 @@ from gajim.common.idle import IdleMonitorManager
 from gajim.common.idle import Monitor
 from gajim.common.structs import OutgoingMessage
 from gajim.common.util.http import create_http_session
+from gajim.common.util.status import get_idle_status_message
+from gajim.common.util.text import to_one_line
 
-from gajim.gtk.util import open_window
+from gajim.gtk.util.window import open_window
 
 log = logging.getLogger('gajim.client')
 
 
-IgnoredTlsErrorsT = Optional[set[Gio.TlsCertificateFlags]]
+IgnoredTlsErrorsT = set[Gio.TlsCertificateFlags] | None
+
+
+def call_counter(func: Any):
+    def helper(self, restart: bool = False) -> Any:
+        if restart:
+            self._connect_machine_calls = 0
+        self._connect_machine_calls += 1
+        return func(self)
+    return helper
 
 
 class Client(Observable):
@@ -70,9 +70,9 @@ class Client(Observable):
         self._client = None
         self._account = account
         self.name = account
-        self._hostname = app.settings.get_account_setting(self._account,
-                                                          'hostname')
-        self._user = app.settings.get_account_setting(self._account, 'name')
+
+        address = app.settings.get_account_setting(self._account, 'address')
+        self._address = JID.from_string(address)
 
         self._priority = 0
         self._connect_machine_calls = 0
@@ -107,8 +107,11 @@ class Client(Observable):
             self._screensaver_handler_id = app.app.connect(
                 'notify::screensaver-active', self._screensaver_state_changed)
 
+    def get_module(self, name: modules.ModulesLiteralT) -> modules.ModulesT:
+        return modules.get_module(self._account, name)
+
     def _set_state(self, state: ClientState) -> None:
-        log.info('State: %s', state)
+        log.info('State: %s', repr(state))
         self._state = state
 
     @property
@@ -142,7 +145,7 @@ class Client(Observable):
         return self._client.features
 
     @property
-    def local_address(self) -> Optional[str]:
+    def local_address(self) -> str | None:
         address = self._client.local_address
         if address is not None:
             return address.to_string().split(':')[0]
@@ -159,12 +162,18 @@ class Client(Observable):
 
     def _create_client(self) -> None:
         log.info('Create new nbxmpp client')
+
+        if self._client is not None:
+            self._client.destroy()
+            self._destroy_client = False
+
         self._client = NBXMPPClient(log_context=self._account)
         self.connection = self._client
-        self._client.set_domain(self._hostname)
-        self._client.set_username(self._user)
+        self._client.set_domain(self._address.domain)
+        self._client.set_username(self._address.localpart)
         self._client.set_resource(get_resource(self._account))
         self._client.set_http_session(create_http_session())
+        self._client.set_supported_fallback_ns([Namespace.REPLY])
 
         self._client.subscribe('resume-failed', self._on_resume_failed)
         self._client.subscribe('resume-successful', self._on_resume_successful)
@@ -197,23 +206,41 @@ class Client(Observable):
             self.update_presence()
 
         self.notify('state-changed', SimpleClientState.CONNECTED)
+        self.notify('resume-successful')
 
     def _set_client_available(self) -> None:
         self._set_state(ClientState.AVAILABLE)
         app.ged.raise_event(AccountConnected(account=self._account))
+
+        if not app.settings.get_account_setting(self._account, 'autojoin_sync'):
+            self.join_mucs()
 
     def disconnect(self,
                    gracefully: bool,
                    reconnect: bool,
                    destroy_client: bool = False) -> None:
 
+        self._reconnect = reconnect
+        self._destroy_client = destroy_client
+
+        if self._state.is_reconnect_scheduled:
+            self._abort_reconnect()
+            if reconnect:
+                self.connect()
+            return
+
+        if self._state.is_disconnected:
+            if destroy_client:
+                self._create_client()
+            if reconnect:
+                self.connect()
+            return
+
         if self._state.is_disconnecting:
             log.warning('Disconnect already in progress')
             return
 
         self._set_state(ClientState.DISCONNECTING)
-        self._reconnect = reconnect
-        self._destroy_client = destroy_client
 
         log.info('Starting to disconnect %s', self._account)
         self._client.disconnect(immediate=not gracefully)
@@ -241,6 +268,7 @@ class Client(Observable):
                         account=self._account,
                         client=self,
                         cert=cert,
+                        ignored_errors=set(self._client.ignored_tls_errors),
                         error=errors.pop())
 
         elif domain in (StreamError.STREAM, StreamError.BIND):
@@ -251,7 +279,8 @@ class Client(Observable):
                                                  'gajim.$rand')
             if error == 'system-shutdown':
                 app.ged.raise_event(
-                    Notification(account=self._account,
+                    Notification(context_id="",
+                                 account=self._account,
                                  type='server-shutdown',
                                  title=_('Server Shutdown'),
                                  text=text or _('The server was shut down.')))
@@ -262,13 +291,14 @@ class Client(Observable):
 
             if error in ('not-authorized', 'no-password'):
                 def _on_password() -> None:
-                    self._prepare_for_connect()
+                    self.connect()
 
                 app.ged.raise_event(PasswordRequired(client=self,
                                                      on_password=_on_password))
 
             app.ged.raise_event(
-                Notification(account=self._account,
+                Notification(context_id="",
+                             account=self._account,
                              type='connection-failed',
                              title=_('Authentication failed'),
                              text=text or error))
@@ -287,13 +317,9 @@ class Client(Observable):
     def _after_disconnect(self) -> None:
         self._disable_reconnect_timer()
 
-        app.proxy65_manager.disconnect(self._client)
         self.get_module('Bytestream').remove_all_transfers()
 
         if self._destroy_client:
-            self._client.destroy()
-            self._client = None
-            self._destroy_client = False
             self._create_client()
 
         app.ged.raise_event(AccountDisconnected(account=self._account))
@@ -328,6 +354,10 @@ class Client(Observable):
         app.ged.raise_event(StanzaReceived(account=self._account,
                                            stanza=stanza))
 
+    def is_own_jid(self, jid: JID | str) -> bool:
+        own_jid = self.get_own_jid()
+        return own_jid.bare_match(jid)
+
     def get_own_jid(self) -> JID:
         '''
         Return the last full JID we received on a bind event.
@@ -340,6 +370,12 @@ class Client(Observable):
 
         # This returns the bare jid
         return nbxmpp.JID.from_string(app.get_jid_from_account(self._account))
+
+    def get_bound_jid(self) -> JID:
+        assert self._client is not None
+        jid = self._client.get_bound_jid()
+        assert jid is not None
+        return jid
 
     def change_status(self, show: str, message: str) -> None:
         if not message:
@@ -358,18 +394,17 @@ class Client(Observable):
             app.settings.set_account_setting(
                 self._account,
                 'last_status_msg',
-                helpers.to_one_line(message))
+                to_one_line(message))
 
         if self._state.is_disconnecting:
-            log.warning("Can\'t change status while "
-                        'disconnect is in progress')
+            log.warning("Can't change status while disconnect is in progress")
             return
 
         if self._state.is_disconnected:
             if show == 'offline':
                 return
 
-            self._prepare_for_connect()
+            self.connect()
             return
 
         if self._state.is_connecting:
@@ -384,7 +419,7 @@ class Client(Observable):
                 self._destroy_client = True
                 self._abort_reconnect()
             else:
-                self._prepare_for_connect()
+                self.connect()
             return
 
         # We are connected
@@ -416,17 +451,12 @@ class Client(Observable):
         if include_muc:
             self.get_module('MUC').update_presence()
 
-    def get_module(self, name: str):
-        return modules.get(self._account, name)
-
-    @helpers.call_counter
+    @call_counter
     def connect_machine(self) -> None:
         log.info('Connect machine state: %s', self._connect_machine_calls)
         if self._connect_machine_calls == 1:
-            self.get_module('Delimiter').get_roster_delimiter()
-        elif self._connect_machine_calls == 2:
             self.get_module('Roster').request_roster()
-        elif self._connect_machine_calls == 3:
+        elif self._connect_machine_calls == 2:
             self._finish_connect()
 
     def _finish_connect(self) -> None:
@@ -463,10 +493,29 @@ class Client(Observable):
             return
 
         stanza = self.get_module('Message').build_message_stanza(message)
-        message.stanza = stanza
+        message.set_stanza(stanza)
 
         method = message.contact.settings.get('encryption')
         if not method:
+            self._send_message(message)
+            return
+
+        if method == 'OMEMO':
+            try:
+                self.get_module('OMEMO').encrypt_message(message)
+            except Exception:
+                log.exception('Error')
+                text = message.get_text(with_fallback=False)
+                assert text is not None
+                app.ged.raise_event(
+                    MessageNotSent(
+                        client=self._client,
+                        jid=str(message.contact.jid),
+                        message=text,
+                        error=_('Encryption error'),
+                        time=time.time()))
+                return
+
             self._send_message(message)
             return
 
@@ -480,27 +529,21 @@ class Client(Observable):
                                            self._send_message)
 
     def _send_message(self, message: OutgoingMessage) -> None:
-        message.set_sent_timestamp()
-        message.message_id = self.send_stanza(message.stanza)
+        self.send_stanza(message.get_stanza())
+        self.get_module('Message').store_message(message)
 
-        log_line_id = None
-        if not message.is_groupchat:
-            log_line_id = self.get_module('Message').log_message(message)
+    def connect(
+        self,
+        ignored_tls_errors: IgnoredTlsErrorsT = None
+    ) -> None:
 
-        app.ged.raise_event(
-            MessageSent(jid=message.jid,
-                        account=message.account,
-                        message=message.message,
-                        chatstate=message.chatstate,
-                        timestamp=message.timestamp,
-                        additional_data=message.additional_data,
-                        label=message.label,
-                        correct_id=message.correct_id,
-                        message_id=message.message_id,
-                        msg_log_id=log_line_id,
-                        play_sound=message.play_sound))
+        log.info('Connect')
 
-    def _prepare_for_connect(self) -> None:
+        if self._state not in (ClientState.DISCONNECTED,
+                               ClientState.RECONNECT_SCHEDULED):
+            # Do not try to reco while we are already trying
+            return
+
         custom_host = get_custom_host(self._account)
         if custom_host is not None:
             self._client.set_custom_host(*custom_host)
@@ -526,19 +569,10 @@ class Client(Observable):
         password = passwords.get_password(self._account)
         self._client.set_password(password)
 
-        self.connect()
-
-    def connect(self, ignored_tls_errors: IgnoredTlsErrorsT = None) -> None:
-        if self._state not in (ClientState.DISCONNECTED,
-                               ClientState.RECONNECT_SCHEDULED):
-            # Do not try to reco while we are already trying
-            return
-
-        log.info('Connect')
-
         self._client.set_accepted_certificates(
             app.cert_store.get_certificates())
         self._client.set_ignored_tls_errors(ignored_tls_errors)
+
         self._reconnect = True
         self._disable_reconnect_timer()
         self._set_state(ClientState.CONNECTING)
@@ -557,16 +591,13 @@ class Client(Observable):
         self._set_state(ClientState.RECONNECT_SCHEDULED)
         log.info('Reconnect to %s in 3s', self._account)
         self._reconnect_timer_source = GLib.timeout_add_seconds(
-            3, self._prepare_for_connect)
+            3, self.connect)
 
     def _abort_reconnect(self) -> None:
         self._set_state(ClientState.DISCONNECTED)
         self._disable_reconnect_timer()
 
         if self._destroy_client:
-            self._client.destroy()
-            self._client = None
-            self._destroy_client = False
             self._create_client()
 
         self.notify('state-changed', SimpleClientState.DISCONNECTED)
@@ -588,8 +619,8 @@ class Client(Observable):
         if not app.settings.get(f'auto{state}'):
             return
 
-        if (state in ('away', 'xa') and self._status == 'online' or
-                state == 'xa' and self._idle_status == 'away'):
+        if ((state in ('away', 'xa') and self._status == 'online') or
+                (state == 'xa' and self._idle_status == 'away')):
 
             self._idle_status = state
             self._idle_status_message = get_idle_status_message(
@@ -625,6 +656,17 @@ class Client(Observable):
                                    _param: GObject.ParamSpec) -> None:
         active = application.get_property('screensaver-active')
         Monitor.set_extended_away(active)
+
+    def join_mucs(self) -> None:
+        '''Only used when autojoin_sync is False'''
+        self._log.info('Joining all MUCs in all workspaces')
+        for workspace_id in app.settings.get_workspaces():
+            for chat in app.settings.get_workspace_setting(
+                    workspace_id, 'chats'):
+                if chat['account'] != self._account:
+                    continue
+                if chat['type'] == 'groupchat':
+                    self.get_module('MUC').join(chat['jid'])
 
     def cleanup(self) -> None:
         self.disconnect_signals()

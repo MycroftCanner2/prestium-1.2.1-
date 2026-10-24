@@ -2,17 +2,7 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 '''
 Watch for system shutdown using systemd-logind.
@@ -21,7 +11,6 @@ Documentation: https://www.freedesktop.org/wiki/Software/systemd/inhibit
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 
 import logging
 import os
@@ -36,7 +25,7 @@ log = logging.getLogger('gajim.c.dbus.logind')
 
 
 class LogindListener:
-    _instance: Optional[LogindListener] = None
+    _instance: LogindListener | None = None
 
     @classmethod
     def get(cls) -> LogindListener:
@@ -46,7 +35,7 @@ class LogindListener:
 
     def __init__(self) -> None:
         # file descriptor object of the inhibitor
-        self._inhibit_fd: Optional[int] = None
+        self._inhibit_fd: int | None = None
 
         Gio.bus_watch_name(
             Gio.BusType.SYSTEM,
@@ -83,6 +72,7 @@ class LogindListener:
             # yet another one.
             log.warning('Trying to obtain a shutdown inhibitor '
                         'while already holding one.')
+            return
 
         try:
             result = connection.call_with_unix_fd_list_sync(
@@ -92,7 +82,7 @@ class LogindListener:
                 'Inhibit',
                 GLib.Variant('(ssss)', (
                     'shutdown',
-                    'org.gajim.Gajim',
+                    app.get_default_app_id(),
                     _('Shutting down Gajim'),
                     'delay'  # Inhibitor will delay but not block shutdown
                 )),
@@ -101,12 +91,16 @@ class LogindListener:
                 -1,
                 None,
                 None)
-
-            ret, ret_fdlist = result
         except GLib.Error as error:
             log.warning(
                 'Could not obtain a shutdown delay inhibitor from '
                 'logind: %s', error)
+            return
+
+        ret, ret_fdlist = result
+        if ret_fdlist is None:  # pyright: ignore
+            # This can happen as reported by users
+            log.warning('Unable to obtain inhibitor, fdlist is None')
             return
 
         self._inhibit_fd = ret_fdlist.get(ret.unpack()[0])

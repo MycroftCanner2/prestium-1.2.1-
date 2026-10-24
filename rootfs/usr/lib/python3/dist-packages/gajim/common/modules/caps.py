@@ -3,34 +3,25 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0115: Entity Capabilities
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Callable
-from typing import Optional
+from typing import cast
 
 import weakref
 from collections import defaultdict
+from collections.abc import Callable
 
 from nbxmpp.errors import StanzaError
 from nbxmpp.namespaces import Namespace
 from nbxmpp.protocol import JID
 from nbxmpp.protocol import Presence
 from nbxmpp.structs import DiscoIdentity
+from nbxmpp.structs import DiscoInfo
 from nbxmpp.structs import PresenceProperties
 from nbxmpp.structs import StanzaHandler
 from nbxmpp.task import Task as nbxmpp_Task
@@ -42,6 +33,7 @@ from gajim.common.const import COMMON_FEATURES
 from gajim.common.const import Entity
 from gajim.common.helpers import get_optional_features
 from gajim.common.modules.base import BaseModule
+from gajim.common.modules.contacts import GroupchatContact
 from gajim.common.task_manager import Task
 
 
@@ -82,7 +74,7 @@ class Caps(BaseModule):
         self._queued_tasks_by_jid[task.entity.jid] = task
         app.task_manager.add_task(task)
 
-    def _get_task(self, jid: JID) -> Optional[EntityCapsTask]:
+    def _get_task(self, jid: JID) -> EntityCapsTask | None:
         return self._queued_tasks_by_jid.get(jid)
 
     def _get_similar_tasks(self, task: EntityCapsTask) -> set[EntityCapsTask]:
@@ -100,7 +92,7 @@ class Caps(BaseModule):
         self._queued_tasks_by_hash.clear()
 
     def _entity_caps(self,
-                     _con: types.xmppClient,
+                     _con: types.NBXMPPClient,
                      _stanza: Presence,
                      properties: PresenceProperties
                      ) -> None:
@@ -125,6 +117,7 @@ class Caps(BaseModule):
             self._queue_task(task)
             return
 
+        assert properties.jid is not None
         app.storage.cache.set_last_disco_info(properties.jid,
                                               disco_info,
                                               cache_only=True)
@@ -150,7 +143,7 @@ class Caps(BaseModule):
         self._remove_task(task)
 
         try:
-            disco_info = nbxmpp_task.finish()
+            disco_info = cast(DiscoInfo, nbxmpp_task.finish())
         except StanzaError as error:
             self._log.warning(error)
             return
@@ -164,10 +157,13 @@ class Caps(BaseModule):
                               disco_info.jid, error)
             return
 
+        assert disco_info.jid is not None
+        caps_hash = disco_info.get_caps_hash()
+        assert caps_hash is not None
         app.storage.cache.add_caps_entry(
             disco_info.jid,
             task.entity.method,
-            disco_info.get_caps_hash(),
+            caps_hash,
             disco_info)
 
         self._log.info('Finished query for %s', task.entity.hash)
@@ -179,6 +175,9 @@ class Caps(BaseModule):
             self._log.info('Update %s', task.entity.jid)
             contact = self._con.get_module('Contacts').get_contact(
                 task.entity.jid)
+            app.storage.cache.set_last_disco_info(task.entity.jid,
+                                                  disco_info,
+                                                  cache_only=True)
             contact.notify('caps-update')
 
     def update_caps(self) -> None:
@@ -198,8 +197,8 @@ class Caps(BaseModule):
                              client.status_message)
 
     def cleanup(self) -> None:
-        self._remove_all_tasks()
         BaseModule.cleanup(self)
+        self._remove_all_tasks()
 
 
 class EntityCapsTask(Task):
@@ -212,6 +211,8 @@ class EntityCapsTask(Task):
         self._account = account
         self._callback = weakref.WeakMethod(callback)
 
+        assert properties.jid is not None
+        assert properties.entity_caps is not None
         self.entity = Entity(jid=properties.jid,
                              node=properties.entity_caps.node,
                              hash=properties.entity_caps.ver,
@@ -235,6 +236,7 @@ class EntityCapsTask(Task):
                 self.entity.jid.bare,
                 groupchat=True)
 
+            assert isinstance(contact, GroupchatContact)
             if not contact.is_joined:
                 self.set_obsolete()
                 return False

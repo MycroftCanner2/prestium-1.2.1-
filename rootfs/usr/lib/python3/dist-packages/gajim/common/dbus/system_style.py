@@ -1,25 +1,14 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Callable
-from typing import Optional
 
 import logging
 import sys
+from collections.abc import Callable
 
 from gi.repository import Gio
 from gi.repository import GLib
@@ -32,7 +21,7 @@ log = logging.getLogger('gajim.c.dbus.system_style')
 
 class SystemStyleListener:
     def __init__(self, callback: Callable[..., None]) -> None:
-        self._prefer_dark: Optional[bool] = None
+        self._prefer_dark: bool | None = None
         self._callback = callback
 
         if sys.platform in ('win32', 'darwin'):
@@ -72,7 +61,7 @@ class SystemStyleListener:
 
     def _signal_setting_changed(self,
                                 _proxy: Gio.DBusProxy,
-                                _sender_name: Optional[str],
+                                _sender_name: str | None,
                                 signal_name: str,
                                 parameters: GLib.Variant,
                                 *_user_data: Any
@@ -88,5 +77,5 @@ class SystemStyleListener:
             app.ged.raise_event(StyleChanged())
 
     @property
-    def prefer_dark(self) -> Optional[bool]:
+    def prefer_dark(self) -> bool | None:
         return self._prefer_dark

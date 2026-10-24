@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0055: Jabber Search
 
@@ -40,7 +30,7 @@ class Search(BaseModule):
         self._con.connection.SendAndCallForResponse(iq, self._fields_received)
 
     def _fields_received(self,
-                         _nbxmpp_client: types.xmppClient,
+                         _nbxmpp_client: types.NBXMPPClient,
                          stanza: Iq
                          ) -> None:
         data = None
@@ -85,7 +75,7 @@ class Search(BaseModule):
         self._con.connection.SendAndCallForResponse(iq, self._received_result)
 
     def _received_result(self,
-                         _nbxmpp_client: types.xmppClient,
+                         _nbxmpp_client: types.NBXMPPClient,
                          stanza: Iq
                          ) -> None:
         data = None

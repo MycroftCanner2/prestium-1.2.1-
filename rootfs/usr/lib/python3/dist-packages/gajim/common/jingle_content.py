@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 
 # Handles Jingle contents (XEP 0166)
@@ -19,9 +9,9 @@
 from __future__ import annotations
 
 from typing import Any
-from typing import Callable
-from typing import Optional
 from typing import TYPE_CHECKING
+
+from collections.abc import Callable
 
 import nbxmpp
 from nbxmpp.namespaces import Namespace
@@ -56,8 +46,8 @@ class JingleContent:
 
     def __init__(self,
                  session: JingleSession,
-                 transport: Optional[JingleTransport],
-                 senders: Optional[str]
+                 transport: JingleTransport | None,
+                 senders: str | None
                  ) -> None:
 
         self.session = session
@@ -65,13 +55,13 @@ class JingleContent:
         # will be filled by JingleSession.add_content()
         # don't uncomment these lines, we will catch more buggy code then
         # (a JingleContent not added to session shouldn't send anything)
-        self.creator: Optional[str] = None
-        self.name: Optional[str] = None
+        self.creator: str | None = None
+        self.name: str | None = None
         self.accepted = False
         self.sent = False
         self.negotiated = False
 
-        self.media: Optional[str] = None
+        self.media: str | None = None
 
         self.senders = senders
         if self.senders is None:
@@ -81,10 +71,10 @@ class JingleContent:
         self.allow_sending = True
 
         # These were found by the Politie
-        self.file_props: Optional[FileProp] = None
+        self.file_props: FileProp | None = None
 
         self.callbacks: dict[str, list[Callable[
-            [nbxmpp.Node, nbxmpp.Node, Optional[nbxmpp.Node], str],
+            [nbxmpp.Node, nbxmpp.Node, nbxmpp.Node | None, str],
             None]]] = {
             # these are called when *we* get stanzas
             'content-accept': [self.__on_transport_info,
@@ -122,7 +112,7 @@ class JingleContent:
     def __on_content_accept(self,
                             stanza: nbxmpp.Node,
                             content: nbxmpp.Node,
-                            error: Optional[nbxmpp.Node],
+                            error: nbxmpp.Node | None,
                             action: str
                             ) -> None:
         self.on_negotiated()
@@ -140,8 +130,8 @@ class JingleContent:
 
     def on_stanza(self,
                   stanza: nbxmpp.Node,
-                  content: Optional[nbxmpp.Node],
-                  error: Optional[nbxmpp.Node],
+                  content: nbxmpp.Node | None,
+                  error: nbxmpp.Node | None,
                   action: str
                   ) -> None:
         '''
@@ -154,7 +144,7 @@ class JingleContent:
     def __on_transport_replace(self,
                                stanza: nbxmpp.Node,
                                content: nbxmpp.Node,
-                               error: Optional[nbxmpp.Node],
+                               error: nbxmpp.Node | None,
                                action: str
                                ) -> None:
         content.addChild(node=self.transport.make_transport())
@@ -162,7 +152,7 @@ class JingleContent:
     def __on_transport_info(self,
                             stanza: nbxmpp.Node,
                             content: nbxmpp.Node,
-                            error: Optional[nbxmpp.Node],
+                            error: nbxmpp.Node | None,
                             action: str
                             ) -> None:
         '''
@@ -174,7 +164,7 @@ class JingleContent:
             self.add_remote_candidates(candidates)
 
     def __content(self,
-                  payload: Optional[list[nbxmpp.Node]] = None
+                  payload: list[nbxmpp.Node] | None = None
                   ) -> nbxmpp.Node:
         '''
         Build a XML content-wrapper for our data
@@ -213,7 +203,7 @@ class JingleContent:
     def __fill_jingle_stanza(self,
                              stanza: nbxmpp.Node,
                              content: nbxmpp.Node,
-                             error: Optional[nbxmpp.Node],
+                             error: nbxmpp.Node | None,
                              action: str
                              ) -> None:
         '''

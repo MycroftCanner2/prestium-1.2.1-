@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 
 # Handles  Jingle File Transfer (XEP 0234)
@@ -19,12 +9,11 @@
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 from typing import TYPE_CHECKING
 
 import logging
 import threading
-import time
+import uuid
 from enum import IntEnum
 from enum import unique
 
@@ -34,11 +23,10 @@ from nbxmpp.namespaces import Namespace
 
 from gajim.common import app
 from gajim.common import helpers
-from gajim.common.const import KindConstant
-from gajim.common.events import FileRequestReceivedEvent
+
+# from gajim.common.events import FileRequestReceivedEvent
 from gajim.common.file_props import FileProp
 from gajim.common.file_props import FilesProp
-from gajim.common.helpers import AdditionalDataDict
 from gajim.common.jingle_content import contents
 from gajim.common.jingle_content import JingleContent
 from gajim.common.jingle_ftstates import StateCandReceived
@@ -49,6 +37,11 @@ from gajim.common.jingle_ftstates import StateTransfering
 from gajim.common.jingle_ftstates import StateTransportReplace
 from gajim.common.jingle_transport import JingleTransportSocks5
 from gajim.common.jingle_transport import TransportType
+from gajim.common.storage.archive import models as mod
+from gajim.common.storage.archive.const import ChatDirection
+from gajim.common.storage.archive.const import MessageState
+from gajim.common.storage.archive.const import MessageType
+from gajim.common.util.datetime import utc_now
 
 if TYPE_CHECKING:
     from gajim.common.jingle_session import JingleSession
@@ -77,8 +70,8 @@ class JingleFileTransfer(JingleContent):
     def __init__(self,
                  session: JingleSession,
                  file_props: FileProp,
-                 transport: Optional[JingleTransport] = None,
-                 senders: Optional[str] = None
+                 transport: JingleTransport | None = None,
+                 senders: str | None = None
                  ) -> None:
 
         JingleContent.__init__(self, session, transport, senders)
@@ -136,7 +129,7 @@ class JingleFileTransfer(JingleContent):
 
     def __state_changed(self,
                         nextstate: State,
-                        args: Optional[dict[str, Any]] = None
+                        args: dict[str, Any] | None = None
                         ) -> None:
         # Executes the next state action and sets the next state
         current_state = self.state
@@ -149,7 +142,7 @@ class JingleFileTransfer(JingleContent):
     def __on_session_initiate(self,
                               stanza: nbxmpp.Node,
                               content: nbxmpp.Node,
-                              error: Optional[nbxmpp.Node],
+                              error: nbxmpp.Node | None,
                               action: str
                               ) -> None:
         log.debug('Jingle FT request received')
@@ -160,16 +153,26 @@ class JingleFileTransfer(JingleContent):
             stanza)
         jid = JID.from_string(jid)
         sid = stanza.getTag('jingle').getAttr('sid')
-        timestamp = time.time()
-        additional_data = AdditionalDataDict()
-        additional_data.set_value('gajim', 'type', 'jingle')
-        additional_data.set_value('gajim', 'sid', sid)
-        app.storage.archive.insert_into_logs(
-            account,
-            jid.bare,
-            timestamp,
-            KindConstant.FILE_TRANSFER_INCOMING,
-            additional_data=additional_data)
+        assert sid is not None
+
+        ft_data = mod.FileTransfer(
+            state=1,
+            source=[mod.JingleFT(type='jingleft', sid=sid)],
+        )
+
+        message_data = mod.Message(
+            account_=account,
+            remote_jid_=jid.new_as_bare(),
+            resource=jid.resource,
+            type=MessageType.CHAT,
+            direction=ChatDirection.INCOMING,
+            timestamp=utc_now(),
+            state=MessageState.ACKNOWLEDGED,
+            id=str(uuid.uuid4()),
+            filetransfers=[ft_data],
+        )
+
+        app.storage.archive.insert_object(message_data)
 
         if self.session.request:
             # accept the request
@@ -246,19 +249,20 @@ class JingleFileTransfer(JingleContent):
             file_props.desc = file_desc_tag.getData()
         file_props.transferred_size = []
 
-        app.ged.raise_event(FileRequestReceivedEvent(
-            conn=con,
-            stanza=stanza,
-            id_=id_,
-            fjid=fjid,
-            account=account,
-            jid=jid,
-            file_props=file_props))
+        # TODO Jingle FT
+        # app.ged.raise_event(FileRequestReceivedEvent(
+        #     conn=con,
+        #     stanza=stanza,
+        #     id_=id_,
+        #     fjid=fjid,
+        #     account=account,
+        #     jid=jid,
+        #     file_props=file_props))
 
     def __on_session_initiate_sent(self,
                                    stanza: nbxmpp.Node,
                                    content: nbxmpp.Node,
-                                   error: Optional[nbxmpp.Node],
+                                   error: nbxmpp.Node | None,
                                    action: str
                                    ) -> None:
         pass
@@ -283,7 +287,7 @@ class JingleFileTransfer(JingleContent):
         }
         self.session.connection.get_module('Jingle').set_file_info(file_info)
 
-    def _compute_hash(self) -> Optional[nbxmpp.Hashes2]:
+    def _compute_hash(self) -> nbxmpp.Hashes2 | None:
         # Calculates the hash and returns a xep-300 hash stanza
         if self.file_props.algo is None:
             return
@@ -311,7 +315,7 @@ class JingleFileTransfer(JingleContent):
     def __on_session_accept(self,
                             stanza: nbxmpp.Node,
                             content: nbxmpp.Node,
-                            error: Optional[nbxmpp.Node],
+                            error: nbxmpp.Node | None,
                             action: str
                             ) -> None:
         log.info('__on_session_accept')
@@ -347,7 +351,7 @@ class JingleFileTransfer(JingleContent):
     def __on_session_terminate(self,
                                stanza: nbxmpp.Node,
                                content: nbxmpp.Node,
-                               error: Optional[nbxmpp.Node],
+                               error: nbxmpp.Node | None,
                                action: str
                                ) -> None:
         log.info('__on_session_terminate')
@@ -355,7 +359,7 @@ class JingleFileTransfer(JingleContent):
     def __on_session_info(self,
                           stanza: nbxmpp.Node,
                           content: nbxmpp.Node,
-                          error: Optional[nbxmpp.Node],
+                          error: nbxmpp.Node | None,
                           action: str
                           ) -> None:
         pass
@@ -363,15 +367,17 @@ class JingleFileTransfer(JingleContent):
     def __on_transport_accept(self,
                               stanza: nbxmpp.Node,
                               content: nbxmpp.Node,
-                              error: Optional[nbxmpp.Node],
+                              error: nbxmpp.Node | None,
                               action: str
                               ) -> None:
         log.info('__on_transport_accept')
+        if content.getTag('transport').getNamespace() == Namespace.JINGLE_IBB:
+            self.__state_changed(State.TRANSFERRING)
 
     def __on_transport_replace(self,
                                stanza: nbxmpp.Node,
                                content: nbxmpp.Node,
-                               error: Optional[nbxmpp.Node],
+                               error: nbxmpp.Node | None,
                                action: str
                                ) -> None:
         log.info('__on_transport_replace')
@@ -379,7 +385,7 @@ class JingleFileTransfer(JingleContent):
     def __on_transport_reject(self,
                               stanza: nbxmpp.Node,
                               content: nbxmpp.Node,
-                              error: Optional[nbxmpp.Node],
+                              error: nbxmpp.Node | None,
                               action: str
                               ) -> None:
         log.info('__on_transport_reject')
@@ -387,7 +393,7 @@ class JingleFileTransfer(JingleContent):
     def __on_transport_info(self,
                             stanza: nbxmpp.Node,
                             content: nbxmpp.Node,
-                            error: Optional[nbxmpp.Node],
+                            error: nbxmpp.Node | None,
                             action: str
                             ) -> None:
         log.info('__on_transport_info')
@@ -443,7 +449,7 @@ class JingleFileTransfer(JingleContent):
     def __on_iq_result(self,
                        stanza: nbxmpp.Node,
                        content: nbxmpp.Node,
-                       error: Optional[nbxmpp.Node],
+                       error: nbxmpp.Node | None,
                        action: str
                        ) -> None:
         log.info('__on_iq_result')
@@ -463,7 +469,7 @@ class JingleFileTransfer(JingleContent):
     def __transport_setup(self,
                           stanza: nbxmpp.Node,
                           content: nbxmpp.Node,
-                          error: Optional[nbxmpp.Node],
+                          error: nbxmpp.Node | None,
                           action: str
                           ) -> None:
         # Sets up a few transport specific things for the file transfer

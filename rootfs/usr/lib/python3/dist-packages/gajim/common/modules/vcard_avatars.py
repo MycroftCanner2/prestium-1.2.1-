@@ -1,30 +1,19 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0153: vCard-Based Avatars
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Callable
-from typing import Generator
-from typing import Optional
 
 import weakref
+from collections.abc import Callable
+from collections.abc import Generator
 
 from nbxmpp.const import AvatarState
-from nbxmpp.modules.util import is_error
+from nbxmpp.errors import is_error
 from nbxmpp.modules.vcard_temp import VCard
 from nbxmpp.namespaces import Namespace
 from nbxmpp.protocol import JID
@@ -65,15 +54,15 @@ class VCardAvatars(BaseModule):
         self.avatar_conversion_available = is_available
         self._log.info('Discovered Avatar Conversion')
 
-    def get_avatar_sha(self, jid: JID) -> Optional[str]:
+    def get_avatar_sha(self, jid: JID) -> str | None:
         return self._muc_avatar_cache.get(jid)
 
     @as_task
     def _request_vcard(self,
                        contact: types.ChatContactT,
                        expected_sha: str
-                       ) -> Generator[VCard, None, None]:
-        _task = yield  # noqa: F841
+                       ) -> Generator[Any, Any]:
+        _task = yield
 
         vcard = yield self._con.get_module('VCardTemp').request_vcard(
             jid=contact.jid)
@@ -82,6 +71,7 @@ class VCardAvatars(BaseModule):
             self._log.warning(vcard)
             return
 
+        assert isinstance(vcard, VCard)
         avatar, avatar_sha = vcard.get_avatar()
         if avatar is None:
             self._log.info('Avatar missing: %s %s', contact.jid, expected_sha)
@@ -97,11 +87,8 @@ class VCardAvatars(BaseModule):
         self._log.info('Received: %s %s', contact.jid, avatar_sha)
         app.app.avatar_storage.save_avatar(avatar)
 
-        if isinstance(contact, BareContact):
-            app.storage.cache.set_contact(contact.jid, 'avatar', avatar_sha)
-
-        elif isinstance(contact, GroupchatContact):
-            app.storage.cache.set_muc(contact.jid, 'avatar', avatar_sha)
+        if isinstance(contact, BareContact | GroupchatContact):
+            contact.set_avatar_sha(avatar_sha)
 
         else:
             self._muc_avatar_cache[contact.jid] = avatar_sha
@@ -109,7 +96,7 @@ class VCardAvatars(BaseModule):
         contact.update_avatar(avatar_sha)
 
     def _presence_received(self,
-                           _con: types.xmppClient,
+                           _con: types.NBXMPPClient,
                            _stanza: Presence,
                            properties: PresenceProperties
                            ) -> None:
@@ -118,6 +105,7 @@ class VCardAvatars(BaseModule):
                                        AvatarState.NOT_READY):
             return
 
+        assert properties.jid is not None
         if self._con.get_own_jid().bare_match(properties.jid):
             return
 
@@ -155,15 +143,12 @@ class VCardAvatars(BaseModule):
                         ) -> None:
         contact = self._con.get_module('Contacts').get_contact(
             jid, groupchat=groupchat)
+        assert isinstance(contact, BareContact | GroupchatContact)
 
         if state == AvatarState.EMPTY:
             # Empty <photo/> tag, means no avatar is advertised
             self._log.info('%s has no avatar published', jid)
-            if groupchat:
-                app.storage.cache.set_muc(jid, 'avatar', None)
-            else:
-                app.storage.cache.set_contact(jid, 'avatar', None)
-
+            contact.set_avatar_sha(None)
             contact.update_avatar(avatar_sha)
 
         else:
@@ -176,11 +161,7 @@ class VCardAvatars(BaseModule):
             if app.app.avatar_storage.avatar_exists(avatar_sha):
                 # Check if the avatar is already in storage
                 self._log.info('Found avatar in storage')
-                if groupchat:
-                    app.storage.cache.set_muc(jid, 'avatar', avatar_sha)
-                else:
-                    app.storage.cache.set_contact(jid, 'avatar', avatar_sha)
-
+                contact.set_avatar_sha(avatar_sha)
                 contact.update_avatar(avatar_sha)
                 return
 
@@ -193,16 +174,21 @@ class VCardAvatars(BaseModule):
                 app.task_manager.add_task(task)
 
     def _muc_update_received(self, properties: PresenceProperties) -> None:
+        assert properties.jid is not None
         contact = self._con.get_module('Contacts').get_contact(properties.jid,
                                                                groupchat=True)
         assert isinstance(contact, GroupchatParticipant)
 
         # Custom ejabberd room config option
-        allow_query = contact.room.get_config_value('allow_query_users')
-        if allow_query is False:
-            self._log.debug('Room does not allow IQ queries: %s',
-                            contact.room.jid)
-            return
+        if contact.room.get_disco() is not None:
+            # We have no disco when we create a new room, but receive our
+            # self presence
+            allow_query = contact.room.get_config_value(
+                'muc#roomconfig_allow_query_users')
+            if allow_query is False:
+                self._log.debug('Room does not allow IQ queries: %s',
+                                contact.room.jid)
+                return
 
         nick = properties.jid.resource
 

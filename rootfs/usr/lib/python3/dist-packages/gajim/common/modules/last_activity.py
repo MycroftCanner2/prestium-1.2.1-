@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0012: Last Activity
 
@@ -51,10 +41,10 @@ class LastActivity(BaseModule):
         self._nbxmpp('LastActivity').set_allow_reply_func(self._allow_reply)
 
     def _allow_reply(self, jid: JID) -> bool:
-        item = self._con.get_module('Roster').get_item(jid.bare)
+        bare_jid = jid.new_as_bare()
+        item = self._con.get_module('Roster').get_item(bare_jid)
         if item is None:
             return False
 
-        contact = cast(types.BareContact, self._get_contact(
-            JID.from_string(jid.bare)))
+        contact = cast(types.BareContact, self._get_contact(bare_jid))
         return contact.is_subscribed

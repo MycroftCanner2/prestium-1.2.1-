@@ -1,24 +1,15 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0199: XMPP Ping
 
 from __future__ import annotations
 
-from typing import Generator
+from typing import Any
 
 import time
+from collections.abc import Generator
 
 from nbxmpp.errors import is_error
 from nbxmpp.structs import CommonResult
@@ -47,8 +38,8 @@ class Ping(BaseModule):
     @as_task
     def send_ping(self,
                   contact: types.ContactT
-                  ) -> Generator[CommonResult, None, None]:
-        _task = yield  # noqa: F841
+                  ) -> Generator[Any, Any]:
+        _task = yield
 
         if not app.account_is_available(self._account):
             return
@@ -68,6 +59,8 @@ class Ping(BaseModule):
                 contact=contact,
                 error=str(response)))
             return
+
+        assert isinstance(response, CommonResult)
 
         diff = round(time.time() - ping_time, 2)
         self._log.info('Received pong from %s after %s seconds',

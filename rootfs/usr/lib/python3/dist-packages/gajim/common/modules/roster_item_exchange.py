@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0144: Roster Item Exchange
 
@@ -24,11 +14,12 @@ from nbxmpp.structs import IqProperties
 from nbxmpp.structs import StanzaHandler
 
 from gajim.common import app
-from gajim.common import helpers
 from gajim.common import types
 from gajim.common.events import RosterItemExchangeEvent
 from gajim.common.i18n import _
 from gajim.common.modules.base import BaseModule
+from gajim.common.util.jid import InvalidFormat
+from gajim.common.util.jid import parse_jid
 
 
 class RosterItemExchange(BaseModule):
@@ -42,11 +33,12 @@ class RosterItemExchange(BaseModule):
                           ns=Namespace.ROSTERX),
             StanzaHandler(name='message',
                           callback=self.received_item,
-                          ns=Namespace.ROSTERX),
+                          ns=Namespace.ROSTERX,
+                          priority=48),
         ]
 
     def received_item(self,
-                      _con: types.xmppClient,
+                      _con: types.NBXMPPClient,
                       stanza: Iq,
                       properties: IqProperties
                       ) -> None:
@@ -66,8 +58,8 @@ class RosterItemExchange(BaseModule):
 
         for item in items_list:
             try:
-                jid = helpers.parse_jid(item.getAttr('jid'))
-            except helpers.InvalidFormat:
+                jid = parse_jid(item.getAttr('jid'))
+            except InvalidFormat:
                 self._log.warning('Invalid JID: %s, ignoring it',
                                   item.getAttr('jid'))
                 continue
@@ -87,12 +79,12 @@ class RosterItemExchange(BaseModule):
                 for group in contact.groups:
                     if group not in groups:
                         same_groups = False
-                if contact.sub in ('both', 'to') and same_groups:
+                if contact.subscription in ('both', 'to') and same_groups:
                     continue
             exchange_items_list[jid] = [name, groups]
 
         if not exchange_items_list:
-            raise nbxmpp.NodeProcessed
+            return
 
         self._log.info('Items: %s', exchange_items_list)
 
@@ -101,8 +93,6 @@ class RosterItemExchange(BaseModule):
             jid=properties.jid,
             exchange_items_list=exchange_items_list,
             action=action))
-
-        raise nbxmpp.NodeProcessed
 
     def send_contacts(self,
                       contacts: list[types.ChatContactT],

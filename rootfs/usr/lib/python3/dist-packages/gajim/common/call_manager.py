@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from typing import Optional
-
 import logging
-import time
+import uuid
 
 from nbxmpp.namespaces import Namespace
 from nbxmpp.protocol import JID
@@ -15,13 +13,17 @@ from gajim.common import sound
 from gajim.common import types
 from gajim.common.const import CallType
 from gajim.common.const import JingleState
-from gajim.common.const import KindConstant
 from gajim.common.ged import EventHelper
-from gajim.common.helpers import AdditionalDataDict
 from gajim.common.helpers import play_sound
 from gajim.common.i18n import _
 from gajim.common.jingle_rtp import JingleAudio
 from gajim.common.jingle_session import JingleSession
+from gajim.common.modules.contacts import BareContact
+from gajim.common.storage.archive import models as mod
+from gajim.common.storage.archive.const import ChatDirection
+from gajim.common.storage.archive.const import MessageState
+from gajim.common.storage.archive.const import MessageType
+from gajim.common.util.datetime import utc_now
 
 log = logging.getLogger('gajim.c.call_manager')
 
@@ -29,19 +31,18 @@ log = logging.getLogger('gajim.c.call_manager')
 class CallManager(EventHelper):
     def __init__(self) -> None:
         EventHelper.__init__(self)
-        self._account: Optional[str] = None
-        self._resource_jid: Optional[JID] = None
+        self._account: str | None = None
+        self._resource_jid: JID | None = None
 
-        self._jingle_audio_sid: Optional[str] = None
-        self._jingle_video_sid: Optional[str] = None
+        self._jingle_audio_sid: str | None = None
+        self._jingle_video_sid: str | None = None
 
         self._jingle_audio_state: JingleState = JingleState.NULL
         self._jingle_video_state: JingleState = JingleState.NULL
 
         # Helper for upgrading voice call to voice + video without
         # having to show a new call row
-        self._incoming_video_event: Optional[
-            events.JingleRequestReceived] = None
+        self._incoming_video_event: events.JingleRequestReceived | None = None
 
         # pylint: disable=line-too-long
         self.register_events([
@@ -91,12 +92,16 @@ class CallManager(EventHelper):
 
             client = app.get_client(event.account)
             contact = client.get_module('Contacts').get_contact(event.jid)
+            assert isinstance(contact, BareContact)
             app.ged.raise_event(
-                events.Notification(account=event.account,
-                                    jid=event.jid,
-                                    type='incoming-call',
-                                    title=_('Incoming Call'),
-                                    text=_('%s is calling') % contact.name))
+                events.Notification(
+                    context_id="",
+                    account=event.account,
+                    jid=event.jid,
+                    type='incoming-call',
+                    title=_('Incoming Call'),
+                    text=_('%s is calling') % contact.name)
+                )
 
     def _on_jingle_connected(self,
                              event: events.JingleConnectedReceived
@@ -104,6 +109,8 @@ class CallManager(EventHelper):
         client = app.get_client(event.account)
         session = client.get_module('Jingle').get_jingle_session(
             event.fjid, event.sid)
+        if session is None:
+            return
 
         if event.media == 'audio':
             self._set_jingle_state(
@@ -156,8 +163,8 @@ class CallManager(EventHelper):
     def _set_jingle_state(self,
                           jingle_type: str,
                           state: JingleState,
-                          sid: Optional[str] = None,
-                          reason: Optional[str] = None
+                          sid: str | None = None,
+                          reason: str | None = None
                           ) -> None:
         if state in (
                 JingleState.CONNECTING,
@@ -216,8 +223,8 @@ class CallManager(EventHelper):
     def _stop_jingle(self,
                      account: str,
                      full_jid: JID,
-                     sid: Optional[str] = None,
-                     reason: Optional[str] = None
+                     sid: str | None = None,
+                     reason: str | None = None
                      ) -> None:
         if self._jingle_audio_sid and sid in (self._jingle_audio_sid, None):
             self._close_jingle_content(account, full_jid, 'audio')
@@ -233,7 +240,7 @@ class CallManager(EventHelper):
                               account: str,
                               full_jid: JID,
                               jingle_type: str,
-                              shutdown: Optional[bool] = False
+                              shutdown: bool | None = False
                               ) -> None:
         if jingle_type == 'audio':
             if self._jingle_audio_sid is None:
@@ -250,9 +257,11 @@ class CallManager(EventHelper):
             session = client.get_module('Jingle').get_jingle_session(
                 str(full_jid), self._jingle_video_sid)
 
-        if session:
+        if session is not None:
             content = session.get_content(jingle_type)
-            if content:
+            if content is not None:
+                assert content.creator is not None
+                assert content.name is not None
                 session.remove_content(content.creator, content.name)
 
         if not shutdown:
@@ -273,11 +282,19 @@ class CallManager(EventHelper):
     def _get_audio_content(self,
                            account: str,
                            jid: JID
-                           ) -> Optional[JingleAudio]:
+                           ) -> JingleAudio | None:
         client = app.get_client(account)
         session = client.get_module('Jingle').get_jingle_session(
             str(jid), self._jingle_audio_sid)
-        return session.get_content('audio')
+        if session is None:
+            return None
+
+        content = session.get_content('audio')
+        if content is None:
+            return None
+
+        assert isinstance(content, JingleAudio)
+        return content
 
     def start_call(self,
                    account: str,
@@ -286,6 +303,7 @@ class CallManager(EventHelper):
                    ) -> None:
         client = app.get_client(account)
         contact = client.get_module('Contacts').get_contact(jid)
+        assert isinstance(contact, BareContact)
         call_resources = self._get_call_resources(contact)
         if not call_resources:
             return
@@ -355,7 +373,7 @@ class CallManager(EventHelper):
         if video is not None:
             session.approve_content('video')
 
-    def get_active_call_jid(self) -> Optional[JID]:
+    def get_active_call_jid(self) -> JID | None:
         return self._resource_jid
 
     @staticmethod
@@ -406,11 +424,21 @@ class CallManager(EventHelper):
 
     @staticmethod
     def _store_outgoing_call(account: str, jid: JID, sid: str) -> None:
-        additional_data = AdditionalDataDict()
-        additional_data.set_value('gajim', 'sid', sid)
-        app.storage.archive.insert_into_logs(
-            account,
-            jid,
-            time.time(),
-            KindConstant.CALL_OUTGOING,
-            additional_data=additional_data)
+        call_data = mod.Call(
+            sid=sid,
+            state=0,  # TODO
+        )
+
+        message = mod.Message(
+            account_=account,
+            remote_jid_=jid,
+            resource=None,
+            type=MessageType.CHAT,
+            direction=ChatDirection.OUTGOING,
+            timestamp=utc_now(),
+            state=MessageState.ACKNOWLEDGED,
+            id=str(uuid.uuid4()),
+            call=call_data,
+        )
+
+        app.storage.archive.insert_object(message)

@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0048: Bookmarks
 
@@ -18,8 +8,7 @@ from __future__ import annotations
 
 from typing import Any
 from typing import cast
-from typing import Optional
-from typing import Union
+from typing import Literal
 
 from gi.repository import GLib
 from nbxmpp.namespaces import Namespace
@@ -78,10 +67,11 @@ class Bookmarks(BaseModule):
 
     @event_node(Namespace.BOOKMARKS)
     def _bookmark_event_received(self,
-                                 _con: types.xmppClient,
+                                 _con: types.NBXMPPClient,
                                  _stanza: Any,
                                  properties: MessageProperties
                                  ) -> None:
+        assert properties.pubsub_event is not None
         if properties.pubsub_event.retracted:
             return
 
@@ -107,7 +97,7 @@ class Bookmarks(BaseModule):
 
     @event_node(Namespace.BOOKMARKS_1)
     def _bookmark_1_event_received(self,
-                                   _con: types.xmppClient,
+                                   _con: types.NBXMPPClient,
                                    _stanza: Any,
                                    properties: MessageProperties
                                    ) -> None:
@@ -125,19 +115,25 @@ class Bookmarks(BaseModule):
 
         old_bookmarks = self._bookmarks.copy()
 
+        assert properties.pubsub_event is not None
         if properties.pubsub_event.deleted or properties.pubsub_event.purged:
             self._log.info('Bookmark node deleted/purged')
-            self._bookmarks = {}
+            self._bookmarks.clear()
 
         elif properties.pubsub_event.retracted:
-            jid = properties.pubsub_event.id
-            self._log.info('Retract: %s', jid)
-            bookmark = self._bookmarks.get(jid)
-            if bookmark is not None:
-                self._bookmarks.pop(jid, None)
+            try:
+                jid = JID.from_string(properties.pubsub_event.id)
+            except Exception as error:
+                self._log.info('Unable to parse retracted bookmark: %s %s',
+                                properties.pubsub_event.id, error)
+            else:
+                self._log.info('Retract: %s', jid)
+                bookmark = self._bookmarks.get(jid)
+                if bookmark is not None:
+                    self._bookmarks.pop(jid, None)
 
         else:
-            new_bookmark: BookmarkData = properties.pubsub_event.data
+            new_bookmark = cast(BookmarkData, properties.pubsub_event.data)
             self._bookmarks[new_bookmark.jid] = new_bookmark
 
         self._act_on_changed_bookmarks(old_bookmarks)
@@ -150,7 +146,9 @@ class Bookmarks(BaseModule):
         self._compat = Namespace.BOOKMARKS_COMPAT in info.features
         self._conversion = Namespace.BOOKMARK_CONVERSION in info.features
 
-    def _bookmark_module(self) -> str:
+    def _bookmark_module(
+        self
+    ) -> Literal['PrivateBookmarks', 'NativeBookmarks', 'PEPBookmarks']:
         if not self._con.get_module('PubSub').publish_options:
             return 'PrivateBookmarks'
 
@@ -181,9 +179,10 @@ class Bookmarks(BaseModule):
         # If another client creates a MUC, the MUC is locked until the
         # configuration is finished. Give the user some time to finish
         # the configuration.
-        timeout_id = GLib.timeout_add_seconds(
-            10, self._join_with_timeout, bookmarks)
-        self._join_timeouts.append(timeout_id)
+        if app.settings.get_account_setting(self._account, 'autojoin_sync'):
+            timeout_id = GLib.timeout_add_seconds(
+                10, self._join_with_timeout, bookmarks)
+            self._join_timeouts.append(timeout_id)
 
         # TODO: leave mucs
         # leave = [jid for jid, autojoin in changed if not autojoin]
@@ -197,7 +196,7 @@ class Bookmarks(BaseModule):
         return set_
 
     @staticmethod
-    def _convert_to_dict(bookmarks: Optional[list[BookmarkData]]
+    def _convert_to_dict(bookmarks: list[BookmarkData] | None
                          ) -> types.BookmarksDict:
         _dict: types.BookmarksDict = {}
         if not bookmarks:
@@ -207,7 +206,7 @@ class Bookmarks(BaseModule):
             _dict[bookmark.jid] = bookmark
         return _dict
 
-    def get_bookmark(self, jid: Union[str, JID]) -> Optional[BookmarkData]:
+    def get_bookmark(self, jid: str | JID) -> BookmarkData | None:
         return self._bookmarks.get(cast(JID, jid))
 
     def request_bookmarks(self) -> None:
@@ -216,7 +215,7 @@ class Bookmarks(BaseModule):
 
         self._request_in_progress = True
         self._nbxmpp(self._bookmark_module()).request_bookmarks(
-            callback=self._bookmarks_received)
+            callback=self._bookmarks_received)  # type: ignore
 
     def _bookmarks_received(self, task: Task) -> None:
         try:
@@ -229,7 +228,8 @@ class Bookmarks(BaseModule):
 
         self._cleanup_bookmarks(bookmarks)
         self._bookmarks = self._convert_to_dict(bookmarks)
-        self.auto_join_bookmarks(self.bookmarks)
+        if app.settings.get_account_setting(self._account, 'autojoin_sync'):
+            self.auto_join_bookmarks(self.bookmarks)
         app.ged.raise_event(
             BookmarksReceived(account=self._account))
 
@@ -281,6 +281,8 @@ class Bookmarks(BaseModule):
         self.store_bookmarks([new_bookmark])
 
     def add_or_modify(self, jid: JID, **kwargs: Any) -> None:
+        if not app.settings.get_account_setting(self._account, 'autojoin_sync'):
+            kwargs.pop('autojoin', None)
         bookmark = self._bookmarks.get(jid)
         if bookmark is not None:
             self.modify(jid, **kwargs)
@@ -302,13 +304,13 @@ class Bookmarks(BaseModule):
             else:
                 self.store_bookmarks(self.bookmarks)
 
-    def get_name_from_bookmark(self, jid: Union[str, JID]) -> Optional[str]:
+    def get_name_from_bookmark(self, jid: str | JID) -> str | None:
         bookmark = self._bookmarks.get(cast(JID, jid))
         if bookmark is None:
             return bookmark
         return bookmark.name
 
-    def is_bookmark(self, jid: Union[str, JID]) -> bool:
+    def is_bookmark(self, jid: str | JID) -> bool:
         return jid in self._bookmarks
 
     def _remove_timeouts(self) -> None:
@@ -316,4 +318,5 @@ class Bookmarks(BaseModule):
             GLib.source_remove(_id)
 
     def cleanup(self) -> None:
+        BaseModule.cleanup(self)
         self._remove_timeouts()

@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 
 # Handles the jingle signalling protocol
@@ -31,7 +21,6 @@
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 
 import logging
 
@@ -41,7 +30,6 @@ from nbxmpp.protocol import Iq
 from nbxmpp.structs import IqProperties
 from nbxmpp.structs import StanzaHandler
 
-from gajim.common import helpers
 from gajim.common import types
 from gajim.common.file_props import FileProp
 from gajim.common.jingle_ft import JingleFileTransfer
@@ -52,6 +40,9 @@ from gajim.common.jingle_session import JingleStates
 from gajim.common.jingle_transport import JingleTransportIBB
 from gajim.common.jingle_transport import JingleTransportSocks5
 from gajim.common.modules.base import BaseModule
+from gajim.common.util.jid import get_full_jid_from_iq
+from gajim.common.util.jid import InvalidFormat
+from gajim.common.util.text import get_random_string
 
 logger = logging.getLogger('gajim.c.m.jingle')
 
@@ -93,7 +84,7 @@ class Jingle(BaseModule):
             del self._sessions[sid]
 
     def _on_jingle_iq(self,
-                      _con: types.xmppClient,
+                      _con: types.NBXMPPClient,
                       stanza: Iq,
                       _properties: IqProperties
                       ) -> None:
@@ -108,8 +99,8 @@ class Jingle(BaseModule):
         '''
         # get data
         try:
-            jid = helpers.get_full_jid_from_iq(stanza)
-        except helpers.InvalidFormat:
+            jid = get_full_jid_from_iq(stanza)
+        except InvalidFormat:
             logger.warning('Invalid JID: %s, ignoring it', stanza.getFrom())
             return
         id_ = stanza.getID()
@@ -205,7 +196,7 @@ class Jingle(BaseModule):
                             jid: str,
                             file_props: FileProp,
                             request: bool = False
-                            ) -> Optional[str]:
+                            ) -> str | None:
         logger.info('start file transfer with file: %s', file_props)
         contact = self._con.get_module('Contacts').get_contact(jid)
         jingle = JingleSession(self._con,
@@ -235,12 +226,12 @@ class Jingle(BaseModule):
                                       senders=senders)
         file_props.transport_sid = transport.sid
         file_props.algo = self.__hash_support(contact)
-        jingle.add_content('file' + helpers.get_random_string(), transfer)
+        jingle.add_content('file' + get_random_string(), transfer)
         jingle.start_session()
         return transfer.transport.sid
 
     @staticmethod
-    def __hash_support(contact: types.ResourceContact) -> Optional[str]:
+    def __hash_support(contact: types.ResourceContact) -> str | None:
         if contact.supports(Namespace.HASHES_2):
             if contact.supports(Namespace.HASHES_BLAKE2B_512):
                 return 'blake2b-512'
@@ -257,9 +248,9 @@ class Jingle(BaseModule):
         return None
 
     def get_jingle_sessions(self,
-                            jid: Optional[str],
-                            sid: Optional[str] = None,
-                            media: Optional[str] = None
+                            jid: str | None,
+                            sid: str | None = None,
+                            media: str | None = None
                             ) -> list[JingleSession]:
         if sid:
             return [se for se in self._sessions.values() if se.sid == sid]
@@ -278,10 +269,10 @@ class Jingle(BaseModule):
 
     def get_file_info(self,
                       peerjid: str,
-                      hash_: Optional[str] = None,
-                      name: Optional[str] = None,
-                      _account: Optional[str] = None
-                      ) -> Optional[dict[str, Any]]:
+                      hash_: str | None = None,
+                      name: str | None = None,
+                      _account: str | None = None
+                      ) -> dict[str, Any] | None:
         if hash_:
             for file in self.files:  # DEBUG
                 # if f['hash'] == '1294809248109223':
@@ -295,9 +286,9 @@ class Jingle(BaseModule):
 
     def get_jingle_session(self,
                            jid: str,
-                           sid: Optional[str] = None,
-                           media: Optional[str] = None
-                           ) -> Optional[JingleSession]:
+                           sid: str | None = None,
+                           media: str | None = None
+                           ) -> JingleSession | None:
         if sid is not None:
             if sid in self._sessions:
                 return self._sessions[sid]

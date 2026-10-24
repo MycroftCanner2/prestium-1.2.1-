@@ -1,20 +1,10 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
+from typing import Any
 from typing import Literal
 from typing import TypedDict
-from typing import Union
 
 import uuid
 
@@ -36,7 +26,6 @@ HAS_ACCOUNT_DEFAULT = _ACCOUNTDEFAULT()
 
 
 BoolSettings = Literal[
-    'allow_open_file_uris',
     'always_english_wikipedia',
     'always_english_wiktionary',
     'ascii_formatting',
@@ -75,29 +64,25 @@ BoolSettings = Literal[
     'preview_verify_https',
     'print_status_in_chats',
     'remote_control',
-    'save_main_window_position',
+    'show_main_menu',
     'send_on_ctrl_enter',
-    'show_chatstate_in_banner',
     'show_help_start_chat',
     'show_in_taskbar',
     'show_notifications',
     'show_notifications_away',
     'show_only_chat_and_online',
     'show_send_message_button',
+    'show_voice_message_button',
     'show_status_msgs_in_roster',
     'show_subject_on_join',
-    'show_transports_group',
     'show_trayicon',
-    'show_xhtml',
-    'showoffline',
     'sort_by_show_in_muc',
-    'sort_by_show_in_roster',
+    'sort_by_show_in_start_chat',
     'sounddnd',
     'sounds_on',
     'trayicon_notification_on_events',
     'use_keyring',
     'use_kib_mib',
-    'use_libappindicator',
     'use_speller',
     'use_stun_server',
     'use_urgency_hint',
@@ -117,13 +102,12 @@ IntSettings = Literal[
     'groupchat_roster_width',
     'mainwin_height',
     'mainwin_width',
-    'mainwin_x_position',
-    'mainwin_y_position',
-    'notification_position_x',
-    'notification_position_y',
-    'notification_timeout',
     'preview_max_file_size',
     'preview_size',
+]
+
+FloatSettings = Literal[
+    'app_font_size',
 ]
 
 StringSettings = Literal[
@@ -149,6 +133,7 @@ StringSettings = Literal[
     'muclumbus_api_jid',
     'muclumbus_api_pref',
     'preview_leftclick_action',
+    'providers_list_url',
     'roster_theme',
     'search_engine',
     'show_main_window_on_startup',
@@ -160,14 +145,14 @@ StringSettings = Literal[
     'video_size',
 ]
 
-AllSettings = Literal[BoolSettings, IntSettings, StringSettings]
-AllSettingsT = Union[str, int, bool, list[str]]
+AllSettings = Literal[BoolSettings, IntSettings, FloatSettings, StringSettings]
+AllSettingsT = str | int | float | bool | list[str]
 
-APP_SETTINGS = {
+APP_SETTINGS: dict[str, str | int | float | bool | list[Any]] = {
     'additional_uri_schemes': '',
-    'allow_open_file_uris': False,
     'always_english_wikipedia': False,
     'always_english_wiktionary': True,
+    'app_font_size': 1.0,
     'ascii_formatting': True,
     'ask_online_status': False,
     'audio_input_device': 'autoaudiosrc ! volume name=gajim_vol',
@@ -190,7 +175,6 @@ APP_SETTINGS = {
     'date_format': '%x',
     'date_time_format': '%c',
     'dev_force_bookmark_2': False,
-    'dev_use_message_label': True,
     'developer_modus': False,
     'dictionary_url': 'WIKTIONARY',
     'enable_emoji_shortcodes': True,
@@ -208,7 +192,7 @@ APP_SETTINGS = {
     'gc_sync_threshold_private_default': 0,
     'gc_sync_threshold_public_default': 1,
     'global_proxy': '',
-    'groupchat_roster_width': 210,
+    'groupchat_roster_width': 250,
     'hide_groupchat_occupants_list': False,
     'ignore_incoming_attention': False,
     'is_window_visible': True,
@@ -219,18 +203,13 @@ APP_SETTINGS = {
     'latest_disco_addresses': '',
     'mainwin_height': 500,
     'mainwin_width': 1000,
-    'mainwin_x_position': 0,
-    'mainwin_y_position': 0,
     'action_on_close': 'hide',
     'muc_highlight_words': '',
     'muc_prefer_direct_msg': True,
     'muclumbus_api_http_uri': 'https://search.jabber.network/api/1.0/search',
     'muclumbus_api_jid': 'api@search.jabber.network',
     'muclumbus_api_pref': 'http',
-    'notification_position_x': -1,
-    'notification_position_y': -1,
     'notification_preview_message': True,
-    'notification_timeout': 5,
     'notify_on_all_muc_messages': False,
     'notify_on_file_complete': True,
     'plugins_auto_update': False,
@@ -242,30 +221,28 @@ APP_SETTINGS = {
     'preview_anonymous_muc': False,
     'preview_leftclick_action': 'open',
     'preview_max_file_size': 10485760,
-    'preview_size': 300,
+    'preview_size': 400,
     'preview_verify_https': True,
+    'providers_list_url': 'https://data.xmpp.net/providers/v2/providers-B.json',
     'print_status_in_chats': False,
     'remote_control': False,
     'roster_theme': 'default',
-    'save_main_window_position': True,
     'search_engine': 'https://duckduckgo.com/?q=%s',
     'send_on_ctrl_enter': False,
-    'show_chatstate_in_banner': True,
     'show_help_start_chat': True,
     'show_in_taskbar': True,
+    'show_main_menu': True,
     'show_main_window_on_startup': 'always',
     'show_notifications': True,
     'show_notifications_away': False,
     'show_only_chat_and_online': False,
     'show_send_message_button': False,
+    'show_voice_message_button': True,
     'show_status_msgs_in_roster': True,
     'show_subject_on_join': True,
-    'show_transports_group': True,
     'show_trayicon': True,
-    'show_xhtml': True,
-    'showoffline': True,
     'sort_by_show_in_muc': False,
-    'sort_by_show_in_roster': True,
+    'sort_by_show_in_start_chat': True,
     'sounddnd': False,
     'sounds_on': True,
     'speller_language': '',
@@ -274,8 +251,7 @@ APP_SETTINGS = {
     'trayicon_notification_on_events': True,
     'use_keyring': True,
     'use_kib_mib': False,
-    'use_libappindicator': True,
-    'use_speller': False,
+    'use_speller': True,
     'use_stun_server': False,
     'use_urgency_hint': True,
     'video_framerate': '',
@@ -292,6 +268,7 @@ BoolAccountSettings = Literal[
     'answer_receipts',
     'autoauth',
     'autoconnect',
+    'autojoin_sync',
     'client_cert_encrypted',
     'confirm_unencrypted_connection',
     'enable_gssapi',
@@ -300,7 +277,6 @@ BoolAccountSettings = Literal[
     'gc_send_marker_private_default',
     'gc_send_marker_public_default',
     'ignore_unknown_contacts',
-    'is_zeroconf',
     'publish_location',
     'publish_tune',
     'request_user_data',
@@ -314,13 +290,15 @@ BoolAccountSettings = Literal[
     'test_ft_proxies_on_startup',
     'use_custom_host',
     'use_ft_proxies',
-    'use_plain_connection'
+    'use_plain_connection',
+    'omemo_blind_trust'
 ]
 
 
 StringAccountSettings = Literal[
     'account_color',
     'account_label',
+    'address',
     'attached_gpg_keys',
     'avatar_sha',
     'client_cert',
@@ -330,23 +308,17 @@ StringAccountSettings = Literal[
     'file_transfer_proxies',
     'filetransfer_preference',
     'gc_send_chatstate_default',
-    'hostname',
     'http_auth',
     'keyid',
     'keyname',
     'last_status',
     'last_status_msg',
-    'name',
     'password',
     'proxy',
     'resource',
     'roster_version',
     'send_chatstate_default',
     'subscription_request_msg',
-    'zeroconf_email',
-    'zeroconf_first_name',
-    'zeroconf_jabber_id',
-    'zeroconf_last_name',
 ]
 
 IntAccountSettings = Literal[
@@ -364,6 +336,8 @@ IntAccountSettings = Literal[
 AllAccountSettings = Literal[BoolAccountSettings,
                              IntAccountSettings,
                              StringAccountSettings]
+
+AllAccountSettingsT = bool | int | str
 
 
 BoolGroupChatSettings = Literal[
@@ -389,7 +363,7 @@ AllGroupChatSettings = Literal[BoolGroupChatSettings,
                                IntGroupChatSettings,
                                StringGroupChatSettings]
 
-AllGroupChatSettingsT = Union[str, int, bool]
+AllGroupChatSettingsT = str | int | bool
 
 
 BoolContactSettings = Literal[
@@ -406,7 +380,7 @@ StringContactSettings = Literal[
 AllContactSettings = Literal[BoolContactSettings,
                              StringContactSettings]
 
-AllContactSettingsT = Union[str, bool]
+AllContactSettingsT = str | bool
 
 
 ACCOUNT_SETTINGS = {
@@ -415,11 +389,13 @@ ACCOUNT_SETTINGS = {
         'account_label': '',
         'active': False,
         'adjust_priority_with_status': False,
+        'address': '',
         'anonymous_auth': False,
         'answer_receipts': True,
         'attached_gpg_keys': '',
         'autoauth': False,
         'autoconnect': True,
+        'autojoin_sync': True,
         'autopriority_away': 40,
         'autopriority_chat': 50,
         'autopriority_dnd': 20,
@@ -436,21 +412,19 @@ ACCOUNT_SETTINGS = {
         'default_workspace': '',
         'enable_gssapi': False,
         'enable_security_labels': False,
+        'encryption_default': '',
         'file_transfer_proxies': '',
         'filetransfer_preference': 'httpupload',
         'ft_send_local_ips': True,
         'gc_send_chatstate_default': 'composing_only',
         'gc_send_marker_private_default': True,
         'gc_send_marker_public_default': False,
-        'hostname': '',
         'http_auth': 'ask',
         'ignore_unknown_contacts': False,
-        'is_zeroconf': False,
         'keyid': '',
         'keyname': '',
         'last_status': 'online',
         'last_status_msg': '',
-        'name': '',
         'password': '',
         'priority': 0,
         'proxy': '',
@@ -472,14 +446,11 @@ ACCOUNT_SETTINGS = {
         'use_custom_host': False,
         'use_ft_proxies': False,
         'use_plain_connection': False,
-        'zeroconf_email': '',
-        'zeroconf_first_name': '',
-        'zeroconf_jabber_id': '',
-        'zeroconf_last_name': '',
+        'omemo_blind_trust': True,
     },
 
     'contact': {
-        'encryption': '',
+        'encryption': HAS_ACCOUNT_DEFAULT,
         'mute_until': '',
         'send_chatstate': HAS_ACCOUNT_DEFAULT,
         'send_marker': HAS_ACCOUNT_DEFAULT,
@@ -487,7 +458,7 @@ ACCOUNT_SETTINGS = {
     },
 
     'group_chat': {
-        'encryption': '',
+        'encryption': HAS_ACCOUNT_DEFAULT,
         'mute_until': '',
         'notify_on_all_messages': HAS_APP_DEFAULT,
         'print_join_left': HAS_APP_DEFAULT,
@@ -511,13 +482,13 @@ AllWorkspaceSettings = Literal[StringWorkspaceSettings, 'chats']
 class OpenChatSettingDetails(TypedDict):
     account: str
     jid: JID
-    type: str
+    type: Literal["chat", "groupchat", "pm"]
     pinned: bool
     position: int
 
 
 OpenChatsSettingT = list[OpenChatSettingDetails]
-AllWorkspaceSettingsT = Union[str, OpenChatsSettingT]
+AllWorkspaceSettingsT = str | OpenChatsSettingT
 
 
 class WorkspaceSettings(TypedDict):
@@ -641,7 +612,6 @@ ADVANCED_SETTINGS = {
         'additional_uri_schemes': _(
             'Clickable schemes in addition to the hard-coded list of '
             'IANA-registered ones. Space-separated, lower-case, no colons.'),
-        'allow_open_file_uris': _('Allows opening file:/ URIs when clicked.'),
         'always_english_wikipedia': '',
         'always_english_wiktionary': '',
         'ascii_formatting': _(
@@ -659,7 +629,6 @@ ADVANCED_SETTINGS = {
         'date_format': 'https://docs.python.org/3/library/time.html#time.strftime',  # noqa: E501
         'date_time_format': 'https://docs.python.org/3/library/time.html#time.strftime',  # noqa: E501
         'dev_force_bookmark_2': _('Force Bookmark 2 usage'),
-        'dev_use_message_label': '',
         'developer_modus': '',
         'dictionary_url': _(
             'Either a custom URL with %%s in it (where %%s is the word/phrase)'
@@ -669,7 +638,6 @@ ADVANCED_SETTINGS = {
             'account in the Accounts window. BE CAREFUL, when you are logged '
             'in with a negative priority, you will NOT receive any message '
             'from your server.'),
-        'escape_key_closes': _('Close a chat by pressing the Escape key'),
         'file_transfers_port': '',
         'ft_add_hosts_to_send': _(
             'List of send hosts (comma separated) in '
@@ -693,26 +661,20 @@ ADVANCED_SETTINGS = {
             'API Preferences. Possible values: "http", "iq"'),
         'notification_preview_message': _(
             'Preview new messages in notification popup?'),
-        'notification_timeout': '',
         'notify_on_all_muc_messages': '',
         'plugins_repository_enabled': _(
             'If enabled, Gajim offers to download plugins hosted on gajim.org'),
-        'save_main_window_position': _(
-            'If enabled, Gajim will save the main window position when hiding '
-            'it, and restore it when showing the window again.'),
+        'providers_list_url': _(
+            'Endpoint for retrieving a list of providers for sign up'),
         'search_engine': '',
         'send_on_ctrl_enter': _(
             'Send message on Ctrl+Enter and make a new line with Enter.'),
-        'show_chatstate_in_banner': _(
-            'Show chat state (e.g. "is typing…") next to your contact’s name'),
         'stun_server': _('STUN server to use when using Jingle'),
         'time_format': 'https://docs.python.org/3/library/time.html#time.strftime',  # noqa: E501
         'trayicon_notification_on_events': _(
             'Notify of events in the notification area.'),
         'use_kib_mib': _(
             'IEC standard says KiB = 1024 bytes, KB = 1000 bytes.'),
-        'use_libappindicator': _(
-            'Enables libappindicator, an alternative tray icon provider'),
         'use_stun_server': _(
             'If enabled, Gajim will try to use a STUN server when using Jingle.'
             ' The one in "stun_server" option, or the one given by '

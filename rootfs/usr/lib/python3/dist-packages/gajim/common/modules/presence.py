@@ -1,24 +1,12 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # Presence handler
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
-from typing import Union
 
 import time
 
@@ -38,6 +26,8 @@ from gajim.common.events import SubscribePresenceReceived
 from gajim.common.events import UnsubscribedPresenceReceived
 from gajim.common.i18n import _
 from gajim.common.modules.base import BaseModule
+from gajim.common.modules.contacts import BareContact
+from gajim.common.modules.contacts import ResourceContact
 from gajim.common.structs import PresenceData
 
 
@@ -88,40 +78,45 @@ class Presence(BaseModule):
         self._jids_for_auto_auth: set[str] = set()
 
     def _presence_received(self,
-                           _con: types.xmppClient,
+                           _con: types.NBXMPPClient,
                            stanza: nbxmpp.protocol.Presence,
                            properties: PresenceProperties
                            ) -> None:
+
+        self._log.info('Received from %s', properties.jid)
 
         if properties.from_muc:
             # MUC occupant presences are already handled in MUC module
             return
 
+        assert properties.jid is not None
         muc = self._con.get_module('MUC').get_muc_data(properties.jid)
         if muc is not None:
             # Presence from the MUC itself, used for MUC avatar
             # handled in VCardAvatars module
             return
 
-        self._log.info('Received from %s', properties.jid)
+        roster_item = self._con.get_module('Roster').get_item(
+            properties.jid.new_as_bare()
+        )
+
+        if roster_item is None and not properties.is_self_bare:
+            # Handle only presence from roster contacts
+            self._log.warning('Unknown presence received')
+            self._log.warning(stanza)
+            return
 
         presence_data = PresenceData.from_presence(properties)
         self._presence_store[properties.jid] = presence_data
 
         contact = self._con.get_module('Contacts').get_contact(properties.jid)
+        assert isinstance(contact, BareContact | ResourceContact)
         contact.update_presence(presence_data)
 
-        if properties.is_self_presence:
+        assert properties.type is not None
+        if properties.is_self_presence and not properties.type.is_unavailable:
             app.ged.raise_event(ShowChanged(account=self._account,
                                             show=properties.show.value))
-            return
-
-        jid = properties.jid.bare
-        roster_item = self._con.get_module('Roster').get_item(jid)
-        if not properties.is_self_bare and roster_item is None:
-            # Handle only presence from roster contacts
-            self._log.warning('Unknown presence received')
-            self._log.warning(stanza)
             return
 
         show = properties.show.value
@@ -143,7 +138,6 @@ class Presence(BaseModule):
             'timestamp': properties.timestamp,
             'avatar_sha': properties.avatar_sha,
             'user_nick': properties.nickname,
-            'idle_time': properties.idle_timestamp,
             'show': show,
             'new_show': show,
             'old_show': 0,
@@ -155,10 +149,11 @@ class Presence(BaseModule):
         app.ged.raise_event(PresenceReceived(**event_attrs))
 
     def _subscribe_received(self,
-                            _con: types.xmppClient,
+                            _con: types.NBXMPPClient,
                             _stanza: nbxmpp.protocol.Presence,
                             properties: PresenceProperties
                             ) -> None:
+        assert properties.jid is not None
         jid = properties.jid.bare
         fjid = str(properties.jid)
 
@@ -190,10 +185,11 @@ class Presence(BaseModule):
         raise nbxmpp.NodeProcessed
 
     def _subscribed_received(self,
-                             _con: types.xmppClient,
+                             _con: types.NBXMPPClient,
                              _stanza: nbxmpp.protocol.Presence,
                              properties: PresenceProperties
                              ) -> None:
+        assert properties.jid is not None
         jid = properties.jid.bare
         self._log.info('Received Subscribed: %s', properties.jid)
         if jid in self.automatically_added:
@@ -206,7 +202,7 @@ class Presence(BaseModule):
         raise nbxmpp.NodeProcessed
 
     def _unsubscribe_received(self,
-                              _con: types.xmppClient,
+                              _con: types.NBXMPPClient,
                               _stanza: nbxmpp.protocol.Presence,
                               properties: PresenceProperties
                               ) -> None:
@@ -214,10 +210,11 @@ class Presence(BaseModule):
         raise nbxmpp.NodeProcessed
 
     def _unsubscribed_received(self,
-                               _con: types.xmppClient,
+                               _con: types.NBXMPPClient,
                                _stanza: nbxmpp.protocol.Presence,
                                properties: PresenceProperties
                                ) -> None:
+        assert properties.jid is not None
         self._log.info('Received Unsubscribed: %s', properties.jid)
         app.ged.raise_event(UnsubscribedPresenceReceived(
             conn=self._con,
@@ -225,21 +222,21 @@ class Presence(BaseModule):
             jid=properties.jid.bare))
         raise nbxmpp.NodeProcessed
 
-    def unsubscribed(self, jid: Union[JID, str]) -> None:
+    def unsubscribed(self, jid: JID | str) -> None:
         self._log.info('Unsubscribed: %s', jid)
         self._jids_for_auto_auth.discard(str(jid))
         self._nbxmpp('BasePresence').unsubscribed(jid)
 
-    def unsubscribe(self, jid: Union[JID, str]) -> None:
+    def unsubscribe(self, jid: JID | str) -> None:
         self._log.info('Unsubscribe from %s', jid)
         self._jids_for_auto_auth.discard(str(jid))
         self._nbxmpp('BasePresence').unsubscribe(jid)
 
     def subscribe(self,
-                  jid: Union[JID, str],
-                  msg: Optional[str] = None,
-                  name: Optional[str] = None,
-                  groups: Optional[list[str]] = None,
+                  jid: JID | str,
+                  msg: str | None = None,
+                  name: str | None = None,
+                  groups: list[str] | set[str] | None = None,
                   auto_auth: bool = False
                   ) -> None:
         self._log.info('Request Subscription to %s', jid)
@@ -253,12 +250,12 @@ class Presence(BaseModule):
                                                nick=app.nicks[self._account])
 
     def get_presence(self,
-                     to: Optional[str] = None,
-                     typ: Optional[str] = None,
-                     priority: Optional[int] = None,
-                     show: Optional[str] = None,
-                     status: Optional[str] = None,
-                     nick: Optional[str] = None,
+                     to: str | None = None,
+                     typ: str | None = None,
+                     priority: int | None = None,
+                     show: str | None = None,
+                     status: str | None = None,
+                     nick: str | None = None,
                      caps: bool = True,
                      idle_time: bool = False
                      ) -> nbxmpp.Presence:

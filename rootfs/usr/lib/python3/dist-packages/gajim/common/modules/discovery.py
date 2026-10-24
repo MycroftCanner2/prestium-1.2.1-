@@ -1,27 +1,19 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0030: Service Discovery
 
 from __future__ import annotations
 
-from typing import Optional
-from typing import Union
+from typing import Any
+
+from collections.abc import Generator
 
 import nbxmpp
 from nbxmpp.errors import is_error
 from nbxmpp.errors import StanzaError
+from nbxmpp.modules.muc.util import MucInfoResult
 from nbxmpp.namespaces import Namespace
 from nbxmpp.protocol import Iq
 from nbxmpp.protocol import JID
@@ -35,6 +27,8 @@ from gajim.common import types
 from gajim.common.events import MucDiscoUpdate
 from gajim.common.events import ServerDiscoReceived
 from gajim.common.modules.base import BaseModule
+from gajim.common.modules.contacts import BareContact
+from gajim.common.modules.contacts import GroupchatContact
 from gajim.common.modules.util import as_task
 
 
@@ -60,15 +54,15 @@ class Discovery(BaseModule):
                           ns=Namespace.DISCO_ITEMS),
         ]
 
-        self._account_info: Optional[DiscoInfo] = None
-        self._server_info: Optional[DiscoInfo] = None
+        self._account_info: DiscoInfo | None = None
+        self._server_info: DiscoInfo | None = None
 
     @property
-    def account_info(self) -> Optional[DiscoInfo]:
+    def account_info(self) -> DiscoInfo | None:
         return self._account_info
 
     @property
-    def server_info(self) -> Optional[DiscoInfo]:
+    def server_info(self) -> DiscoInfo | None:
         return self._server_info
 
     def discover_server_items(self) -> None:
@@ -131,6 +125,7 @@ class Discovery(BaseModule):
         self._con.get_module('PubSub').pass_disco(result)
         self._con.get_module('Bookmarks').pass_disco(result)
         self._con.get_module('VCardAvatars').pass_disco(result)
+        self._con.get_module('ChatMarkers').pass_disco(result)
 
         self._con.get_module('Caps').update_caps()
 
@@ -162,11 +157,17 @@ class Discovery(BaseModule):
 
     def _parse_transports(self, info: DiscoInfo) -> None:
         for identity in info.identities:
-            if identity.category not in ('gateway', 'headline'):
+            if identity.category != 'gateway':
                 continue
 
             self._log.info('Found transport: %s %s %s',
                            info.jid, identity.category, identity.type)
+
+            for child in self._con.get_module(
+                    'Contacts').get_contacts_with_domain(info.jid.domain):
+                if not isinstance(child, BareContact | GroupchatContact):
+                    continue
+                child.update_gateway_type(identity.type)
 
             jid = str(info.jid)
             if jid not in app.transport_type:
@@ -178,7 +179,7 @@ class Discovery(BaseModule):
                 self._con.available_transports[identity.type] = [jid]
 
     def _answer_disco_items(self,
-                            _con: types.xmppClient,
+                            _con: types.NBXMPPClient,
                             stanza: Iq,
                             _properties: IqProperties
                             ) -> None:
@@ -192,7 +193,7 @@ class Discovery(BaseModule):
             raise nbxmpp.NodeProcessed
 
     def _answer_disco_info(self,
-                           _con: types.xmppClient,
+                           _con: types.NBXMPPClient,
                            stanza: Iq,
                            _properties: IqProperties
                            ) -> None:
@@ -204,10 +205,10 @@ class Discovery(BaseModule):
 
     @as_task
     def disco_muc(self,
-                  jid: Union[JID, str],
+                  jid: JID | str,
                   request_vcard: bool = False,
                   allow_redirect: bool = False
-                  ):
+                  ) -> Generator[Any, Any]:
 
         _task = yield  # noqa: F841
 
@@ -221,12 +222,14 @@ class Discovery(BaseModule):
         if is_error(result):
             raise result
 
+        assert isinstance(result, MucInfoResult)
         if result.redirected:
             self._log.info('MUC info received after redirect: %s -> %s',
                            jid, result.info.jid)
         else:
             self._log.info('MUC info received: %s', result.info.jid)
 
+        assert result.info.jid is not None
         app.storage.cache.set_last_disco_info(result.info.jid, result.info)
 
         if result.vcard is not None:
@@ -235,7 +238,8 @@ class Discovery(BaseModule):
                 if not app.app.avatar_storage.avatar_exists(avatar_sha):
                     app.app.avatar_storage.save_avatar(avatar)
 
-                app.storage.cache.set_muc(result.info.jid, 'avatar', avatar_sha)
+                app.storage.cache.set_muc(
+                    self._account, result.info.jid, 'avatar', avatar_sha)
                 app.app.avatar_storage.invalidate_cache(result.info.jid)
 
         self._con.get_module('VCardAvatars').muc_disco_info_update(result.info)
@@ -243,10 +247,14 @@ class Discovery(BaseModule):
             account=self._account,
             jid=result.info.jid))
 
+        contact = self._con.get_module('Contacts').get_contact(
+            result.info.jid, groupchat=True)
+        contact.notify('disco-info-update')
+
         yield result
 
     @as_task
-    def disco_contact(self, contact: types.ContactT):
+    def disco_contact(self, contact: types.ContactT) -> Generator[Any, Any]:
         _task = yield  # noqa: F841
 
         result = yield self.disco_info(contact.jid)
@@ -255,6 +263,8 @@ class Discovery(BaseModule):
 
         self._log.info('Disco Info received: %s', contact.jid)
 
+        assert isinstance(result, DiscoInfo)
+        assert result.jid is not None
         app.storage.cache.set_last_disco_info(result.jid,
                                               result,
                                               cache_only=True)

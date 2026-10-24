@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # Iq handler
 
@@ -41,7 +31,7 @@ class Iq(BaseModule):
         ]
 
     def _iq_error_received(self,
-                           _con: types.xmppClient,
+                           _con: types.NBXMPPClient,
                            _stanza: nbxmpp.protocol.Iq,
                            properties: IqProperties
                            ) -> None:
@@ -50,6 +40,7 @@ class Iq(BaseModule):
         if properties.error.condition in ('jid-malformed',
                                           'forbidden',
                                           'not-acceptable'):
+            assert properties.id is not None
             sid = self._get_sid(properties.id)
             file_props = FilesProp.getFileProp(self._account, sid)
             if file_props:
@@ -57,6 +48,8 @@ class Iq(BaseModule):
                     file_props.error = -3
                 else:
                     file_props.error = -4
+
+                assert properties.jid is not None
                 app.ged.raise_event(
                     FileRequestError(
                         conn=self._con,
@@ -68,6 +61,7 @@ class Iq(BaseModule):
                 raise nbxmpp.NodeProcessed
 
         if properties.error.condition == 'item-not-found':
+            assert properties.id is not None
             sid = self._get_sid(properties.id)
             file_props = FilesProp.getFileProp(self._account, sid)
             if file_props:

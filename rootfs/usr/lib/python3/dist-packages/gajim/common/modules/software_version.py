@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0092: Software Version
 
@@ -20,8 +10,9 @@ from nbxmpp.protocol import JID
 
 from gajim.common import app
 from gajim.common import types
-from gajim.common.helpers import get_os_info
 from gajim.common.modules.base import BaseModule
+from gajim.common.modules.contacts import BareContact
+from gajim.common.util.version import get_os_info
 
 
 class SoftwareVersion(BaseModule):
@@ -47,9 +38,10 @@ class SoftwareVersion(BaseModule):
         self._nbxmpp('SoftwareVersion').set_allow_reply_func(self._allow_reply)
 
     def _allow_reply(self, jid: JID) -> bool:
-        item = self._con.get_module('Roster').get_item(jid.bare)
+        item = self._con.get_module('Roster').get_item(jid.new_as_bare())
         if item is None:
             return False
 
         contact = self._get_contact(JID.from_string(jid.bare))
+        assert isinstance(contact, BareContact)
         return contact.is_subscribed

@@ -2,26 +2,16 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
+import typing
 from typing import Any
-from typing import Optional
 
 import logging
 from datetime import datetime
-from datetime import timezone
+from datetime import UTC
 
 from gi.repository import Gio
 from gi.repository import GLib
@@ -31,17 +21,16 @@ from nbxmpp.structs import LocationData
 from gajim.common import app
 from gajim.common.events import LocationChanged
 
-if app.is_installed('GEOCLUE'):
+if app.is_installed('GEOCLUE') or typing.TYPE_CHECKING:
     import gi
     gi.require_version('Geoclue', '2.0')
-    from gi.repository import \
-        Geoclue  # pylint: disable=ungrouped-imports,no-name-in-module  # noqa: E501
+    from gi.repository import Geoclue
 
 log = logging.getLogger('gajim.c.dbus.location')
 
 
 class LocationListener:
-    _instance: Optional[LocationListener] = None
+    _instance: LocationListener | None = None
 
     @classmethod
     def get(cls) -> LocationListener:
@@ -54,16 +43,16 @@ class LocationListener:
     def __init__(self) -> None:
         self._data: dict[str, Any] = {}
         self.location_info: dict[str, Any] = {}
-        self.simple: Optional[Geoclue.Simple] = None
-        self._current_location: Optional[LocationData] = None
+        self.simple: Geoclue.Simple | None = None
+        self._current_location: LocationData | None = None
         self._running = False
 
-    def _emit(self, info: Optional[LocationData]) -> None:
+    def _emit(self, info: LocationData | None) -> None:
         self._current_location = info
         app.ged.raise_event(LocationChanged(info=info))
 
     @property
-    def current_location(self) -> Optional[LocationData]:
+    def current_location(self) -> LocationData | None:
         return self._current_location
 
     def _on_location_update(self, simple: Geoclue.Simple, *args: Any) -> None:
@@ -108,7 +97,7 @@ class LocationListener:
             self._on_location_update(self.simple)
 
     def get_data(self) -> None:
-        Geoclue.Simple.new('org.gajim.Gajim',
+        Geoclue.Simple.new(app.get_default_app_id(),
                            Geoclue.AccuracyLevel.EXACT,
                            None,
                            self._on_simple_ready)
@@ -134,5 +123,5 @@ class LocationListener:
 
     @staticmethod
     def _timestamp_to_string(timestamp: float) -> str:
-        utc_datetime = datetime.fromtimestamp(timestamp, timezone.utc)
+        utc_datetime = datetime.fromtimestamp(timestamp, UTC)
         return utc_datetime.strftime('%Y-%m-%dT%H:%MZ')

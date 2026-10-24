@@ -1,25 +1,16 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0184: Message Delivery Receipts
 
 from __future__ import annotations
 
+import datetime as dt
+
 import nbxmpp
 from nbxmpp.modules.receipts import build_receipt
 from nbxmpp.namespaces import Namespace
-from nbxmpp.protocol import JID
 from nbxmpp.protocol import Message
 from nbxmpp.structs import MessageProperties
 from nbxmpp.structs import StanzaHandler
@@ -28,6 +19,8 @@ from gajim.common import app
 from gajim.common import types
 from gajim.common.events import ReceiptReceived
 from gajim.common.modules.base import BaseModule
+from gajim.common.modules.contacts import BareContact
+from gajim.common.storage.archive import models as mod
 
 
 class Receipts(BaseModule):
@@ -42,10 +35,11 @@ class Receipts(BaseModule):
         ]
 
     def _process_message_receipt(self,
-                                 _con: types.xmppClient,
+                                 _con: types.NBXMPPClient,
                                  stanza: Message,
                                  properties: MessageProperties
                                  ) -> None:
+
         if not properties.is_receipt:
             return
 
@@ -58,15 +52,14 @@ class Receipts(BaseModule):
 
         if (properties.type.is_groupchat or
                 properties.is_self_message or
-                properties.is_mam_message or
-                properties.is_carbon_message and properties.carbon.is_sent):
+                (properties.carbon is not None and properties.carbon.is_sent)):
 
             if properties.receipt.is_received:
                 # Don't propagate this event further
                 raise nbxmpp.NodeProcessed
             return
 
-        if properties.receipt.is_request:
+        if properties.receipt.is_request and not properties.is_mam_message:
             if not app.settings.get_account_setting(self._account,
                                                     'answer_receipts'):
                 return
@@ -87,20 +80,27 @@ class Receipts(BaseModule):
                            properties.jid,
                            properties.receipt.id)
 
-            jid = properties.jid
-            if not properties.is_muc_pm:
-                jid = jid.new_as_bare()
+            if properties.mam is not None:
+                timestamp = properties.mam.timestamp
+            else:
+                timestamp = properties.timestamp
 
-            app.storage.archive.set_marker(
-                app.get_jid_from_account(self._account),
-                jid,
-                properties.receipt.id,
-                'received')
+            timestamp = dt.datetime.fromtimestamp(
+                timestamp, dt.UTC)
+
+            assert properties.remote_jid is not None
+            assert properties.receipt.id is not None
+            receipt_data = mod.Receipt(
+                account_=self._account,
+                remote_jid_=properties.remote_jid,
+                id=properties.receipt.id,
+                timestamp=timestamp)
+            app.storage.archive.insert_object(receipt_data)
 
             app.ged.raise_event(
                 ReceiptReceived(
                     account=self._account,
-                    jid=jid,
+                    jid=properties.remote_jid,
                     receipt_id=properties.receipt.id))
 
             raise nbxmpp.NodeProcessed
@@ -109,5 +109,7 @@ class Receipts(BaseModule):
         if properties.is_muc_pm:
             return True
 
-        contact = self._get_contact(JID.from_string(properties.jid.bare))
+        assert properties.jid is not None
+        contact = self._get_contact(properties.jid.new_as_bare())
+        assert isinstance(contact, BareContact)
         return contact.is_subscribed

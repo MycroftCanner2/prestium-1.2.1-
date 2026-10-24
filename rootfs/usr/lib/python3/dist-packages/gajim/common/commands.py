@@ -1,36 +1,25 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from typing import Any
-from typing import Callable
 from typing import NoReturn
-from typing import Optional
 
 import argparse
 import io
 import operator
 import shlex
+from collections.abc import Callable
 
 from nbxmpp.protocol import JID
 
 from gajim.common import app
 from gajim.common import regex
-from gajim.common.helpers import is_affiliation_change_allowed
-from gajim.common.helpers import is_role_change_allowed
 from gajim.common.helpers import Observable
 from gajim.common.i18n import _
 from gajim.common.modules.contacts import GroupchatContact
+from gajim.common.util.muc import is_affiliation_change_allowed
+from gajim.common.util.muc import is_role_change_allowed
 
 
 def split_argument_string(string: str) -> list[str]:
@@ -86,6 +75,8 @@ class ArgumentParser(argparse.ArgumentParser):
 class ChatCommands(Observable):
     def __init__(self) -> None:
         Observable.__init__(self)
+
+    def init(self) -> None:
         self._parser = ArgumentParser(prog='ChatCommands')
         self._sub_parser = self._parser.add_subparsers(title='Commands')
         self._commands: dict[str, tuple[list[str], str]] = {}
@@ -136,9 +127,6 @@ class ChatCommands(Observable):
         self._commands[command_name] = (used_in, usage)
 
     def parse(self, type_: str, arg_string: str) -> bool:
-        if arg_string.startswith('/me '):
-            return False
-
         if regex.COMMAND_REGEX.match(arg_string) is None:
             return False
 
@@ -147,8 +135,10 @@ class ChatCommands(Observable):
         command_name = arg_list[0]
         command = self._commands.get(command_name)
         if command is None or type_ not in command[0]:
+            unknown_command = _('Unknown command: %s') % command_name
+            hint = _('Use "//" to start a message with a slash "/".')
             self.notify('command-not-found',
-                        _('Unknown command: %s' % command_name))
+                        f'{unknown_command}\n{hint}')
             raise CommandFailed
 
         try:
@@ -164,6 +154,9 @@ class ChatCommands(Observable):
         except CommandError as error:
             self.notify('command-error', str(error))
             raise CommandFailed
+
+        if result == 'silent':
+            return True
 
         if result is None:
             result = _('Command executed successfully')
@@ -208,6 +201,12 @@ class ChatCommands(Observable):
                             choices=['moderator', 'participant', 'visitor'])
         self.add_command('role', ['groupchat'], parser)
 
+        parser = self.make_parser('me', self._me_command)
+        parser.add_argument('message', default=None, nargs='*')
+        self.add_command('me', ['chat', 'groupchat', 'pm'], parser)
+
+        app.plugin_manager.extension_point('add_commands', self)
+
     def _help_command(self, args: Any) -> str:
         return self._generate_help(args.used_in)
 
@@ -237,10 +236,10 @@ class ChatCommands(Observable):
         try:
             jid = JID.from_string(args.address)
         except Exception:
-            raise CommandError(_('Invalid address: %s' % args.address))
+            raise CommandError(_('Invalid address: %s') % args.address)
 
         if jid.is_full or jid.localpart is None:
-            raise CommandError(_('Invalid address: %s' % args.address))
+            raise CommandError(_('Invalid address: %s') % args.address)
 
         client = app.get_client(contact.account)
         client.get_module('MUC').invite(contact.jid, args.address, args.reason)
@@ -248,7 +247,7 @@ class ChatCommands(Observable):
     def _change_affiliation(self,
                             nick_or_address: str,
                             affiliation: str,
-                            reason: Optional[str]) -> None:
+                            reason: str | None) -> None:
 
         contact = self._check_if_joined()
 
@@ -268,10 +267,10 @@ class ChatCommands(Observable):
             try:
                 jid = JID.from_string(nick_or_address)
             except Exception:
-                raise CommandError(_('Invalid address: %s' % nick_or_address))
+                raise CommandError(_('Invalid address: %s') % nick_or_address)
 
             if jid.is_full or jid.localpart is None:
-                raise CommandError(_('Invalid address: %s' % nick_or_address))
+                raise CommandError(_('Invalid address: %s') % nick_or_address)
 
         client = app.get_client(contact.account)
         client.get_module('MUC').set_affiliation(
@@ -285,13 +284,13 @@ class ChatCommands(Observable):
     def _affiliate_command(self, args: Any) -> None:
         self._change_affiliation(args.who, args.affiliation, None)
 
-    def _change_role(self, nick: str, role: str, reason: Optional[str]) -> None:
+    def _change_role(self, nick: str, role: str, reason: str | None) -> None:
 
         contact = self._check_if_joined()
 
         nick_list = contact.get_user_nicknames()
         if nick not in nick_list:
-            raise CommandError(_('User %s not found' % nick))
+            raise CommandError(_('User %s not found') % nick)
 
         participant = contact.get_resource(nick)
         self_contact = contact.get_self()
@@ -310,3 +309,7 @@ class ChatCommands(Observable):
 
     def _role_command(self, args: Any) -> None:
         self._change_role(args.who, args.role, None)
+
+    def _me_command(self, _args: Any) -> str:
+        app.window.activate_action('win.send-message', None)
+        return 'silent'

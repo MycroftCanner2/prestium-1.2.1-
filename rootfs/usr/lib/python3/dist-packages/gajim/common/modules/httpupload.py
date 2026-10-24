@@ -1,29 +1,17 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0363: HTTP File Upload
 
 from __future__ import annotations
 
-from typing import Callable
 from typing import cast
-from typing import Optional
 
 import mimetypes
 import os
-import tempfile
 from collections import defaultdict
+from collections.abc import Callable
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -42,18 +30,19 @@ from nbxmpp.task import Task
 from nbxmpp.util import convert_tls_error_flags
 
 from gajim.common import app
+from gajim.common import configpaths
 from gajim.common import types
 from gajim.common.const import FTState
 from gajim.common.events import HTTPUploadError
 from gajim.common.events import HTTPUploadStarted
 from gajim.common.exceptions import FileError
 from gajim.common.filetransfer import FileTransfer
-from gajim.common.helpers import get_random_string
-from gajim.common.helpers import get_tls_error_phrases
 from gajim.common.i18n import _
 from gajim.common.modules.base import BaseModule
 from gajim.common.structs import OutgoingMessage
 from gajim.common.util.http import create_http_request
+from gajim.common.util.text import get_random_string
+from gajim.common.util.user_strings import get_tls_error_phrases
 
 
 class HTTPUpload(BaseModule):
@@ -64,9 +53,9 @@ class HTTPUpload(BaseModule):
         BaseModule.__init__(self, con)
 
         self.available = False
-        self.component: Optional[JID] = None
-        self.httpupload_namespace: Optional[str] = None
-        self.max_file_size: Optional[float] = None  # max file size in bytes
+        self.component: JID | None = None
+        self.httpupload_namespace: str | None = None
+        self.max_file_size: float | None = None  # max file size in bytes
 
         self._requests_in_progress: dict[int, HTTPRequest] = {}
 
@@ -93,7 +82,7 @@ class HTTPUpload(BaseModule):
 
     def get_running_transfers(self,
                               contact: types.ChatContactT
-                              ) -> Optional[set[HTTPFileTransfer]]:
+                              ) -> set[HTTPFileTransfer] | None:
 
         return self._running_transfers.get((contact.account, contact.jid))
 
@@ -125,7 +114,7 @@ class HTTPUpload(BaseModule):
 
     def _make_transfer(self,
                        path: Path,
-                       encryption: Optional[str],
+                       encryption: str | None,
                        contact: types.ChatContactT,
                        ) -> HTTPFileTransfer:
 
@@ -181,14 +170,9 @@ class HTTPUpload(BaseModule):
         if state.is_finished:
             uri = transfer.get_transformed_uri()
 
-            type_ = 'chat'
-            if transfer.is_groupchat:
-                type_ = 'groupchat'
-
             message = OutgoingMessage(account=transfer.account,
                                       contact=transfer.contact,
-                                      message=uri,
-                                      type_=type_,
+                                      text=uri,
                                       oob_url=uri)
 
             self._client.send_message(message)
@@ -212,9 +196,14 @@ class HTTPUpload(BaseModule):
     def _start_transfer(self, transfer: HTTPFileTransfer) -> None:
         if transfer.encryption is not None and not transfer.is_encrypted:
             transfer.set_encrypting()
+            if transfer.encryption == 'OMEMO':
+                self._client.get_module('OMEMO').encrypt_file(
+                    transfer, self._start_transfer)
+                return
+
             plugin = app.plugin_manager.encryption_plugins[transfer.encryption]
             if hasattr(plugin, 'encrypt_file'):
-                plugin.encrypt_file(transfer,
+                plugin.encrypt_file(transfer,  # type: ignore
                                     self._account,
                                     self._start_transfer)
             else:
@@ -229,8 +218,8 @@ class HTTPUpload(BaseModule):
             filename=transfer.filename,
             size=transfer.size,
             content_type=transfer.mime,
-            callback=self._received_slot,
-            user_data=transfer)
+            callback=self._received_slot,  # type: ignore
+            user_data=transfer)  # type: ignore
 
     def _received_slot(self, task: Task) -> None:
         transfer = cast(HTTPFileTransfer, task.get_user_data())
@@ -247,7 +236,7 @@ class HTTPUpload(BaseModule):
                     GLib.FormatSizeFlags.IEC_UNITS)
 
                 error_text = _('File is too large, '
-                               'maximum allowed file size is: %s' % size_text)
+                               'maximum allowed file size is: %s') % size_text
                 transfer.set_error('file-too-large', error_text)
 
             else:
@@ -291,7 +280,7 @@ class HTTPUpload(BaseModule):
                             certificate_errors: Gio.TlsCertificateFlags,
                             ) -> bool:
 
-        transfer = request.get_user_data()
+        transfer = cast(HTTPFileTransfer, request.get_user_data())
         phrases = get_tls_error_phrases(
             convert_tls_error_flags(certificate_errors))
         self._log.warning(
@@ -301,7 +290,7 @@ class HTTPUpload(BaseModule):
         return False
 
     def _on_finish(self, request: HTTPRequest) -> None:
-        transfer = request.get_user_data()
+        transfer = cast(HTTPFileTransfer, request.get_user_data())
 
         self._requests_in_progress.pop(id(transfer), None)
 
@@ -313,6 +302,8 @@ class HTTPUpload(BaseModule):
             if request.get_error() == HTTPRequestError.CANCELLED:
                 self._log.info('Upload cancelled')
             else:
+                if not error:
+                    error = _('Upload could not be completed.')
                 transfer.set_error('http-response', error)
             return
 
@@ -324,7 +315,7 @@ class HTTPUpload(BaseModule):
                              progress: float
                              ) -> None:
 
-        transfer = request.get_user_data()
+        transfer = cast(HTTPFileTransfer, request.get_user_data())
         transfer.set_progress(progress)
 
 
@@ -339,7 +330,8 @@ class HTTPFileTransfer(FileTransfer):
     _errors = {
         'unsecure': _('The server returned an insecure transport (HTTP).'),
         'encryption-not-available': _('There is no encryption method available '
-                                      'for the chosen encryption.')
+                                      'for the chosen encryption.'),
+        'unknown': _('Unknown error.')
     }
 
     def __init__(self,
@@ -347,7 +339,7 @@ class HTTPFileTransfer(FileTransfer):
                  path: str,
                  contact: types.ContactT,
                  mime: str,
-                 encryption: Optional[str],
+                 encryption: str | None,
                  groupchat: bool
                  ) -> None:
 
@@ -359,11 +351,11 @@ class HTTPFileTransfer(FileTransfer):
         self._contact = contact
         self._mime = mime
 
-        self.put_uri: Optional[str] = None
-        self.get_uri: Optional[str] = None
-        self._uri_transform_func: Optional[Callable[[str], str]] = None
+        self.put_uri: str | None = None
+        self.get_uri: str | None = None
+        self._uri_transform_func: Callable[[str], str] | None = None
 
-        self._data: Optional[bytes] = None
+        self._data: bytes | None = None
         self._headers: dict[str, str] = {}
 
         self._is_encrypted = False
@@ -393,7 +385,7 @@ class HTTPFileTransfer(FileTransfer):
         return self._groupchat
 
     @property
-    def encryption(self) -> Optional[str]:
+    def encryption(self) -> str | None:
         return self._encryption
 
     @property
@@ -428,17 +420,19 @@ class HTTPFileTransfer(FileTransfer):
 
     @staticmethod
     def _get_temp_path() -> Path:
-        tempdir = tempfile.gettempdir()
-        return Path(tempdir) / get_random_string(16)
+        tempdir = configpaths.get_temp_dir()
+        return tempdir / get_random_string(16)
 
     def set_error(self, domain: str, text: str = '') -> None:
         if not text:
-            text = self._errors[domain]
+            text = self._errors.get(domain) or self._errors['unknown']
 
         super().set_error(domain, text)
+        self._cleanup()
 
     def set_finished(self) -> None:
         super().set_finished()
+        self._cleanup()
 
     def set_encrypted_data(self, data: bytes) -> None:
         self._temp_path.write_bytes(data)
@@ -451,3 +445,7 @@ class HTTPFileTransfer(FileTransfer):
         self.put_uri = result.put_uri
         self.get_uri = result.get_uri
         self._headers = result.headers
+
+    def _cleanup(self) -> None:
+        if self._temp_path.exists():
+            self._temp_path.unlink()

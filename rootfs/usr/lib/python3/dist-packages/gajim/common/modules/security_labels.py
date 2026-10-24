@@ -1,27 +1,19 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0258: Security Labels in XMPP
 
 from __future__ import annotations
 
-from typing import Generator
-from typing import Optional
+from typing import Any
+
+from collections.abc import Generator
 
 from nbxmpp.errors import is_error
 from nbxmpp.modules.security_labels import Catalog
 from nbxmpp.namespaces import Namespace
+from nbxmpp.protocol import JID
 from nbxmpp.structs import DiscoInfo
 
 from gajim.common import app
@@ -41,7 +33,7 @@ class SecLabels(BaseModule):
     def __init__(self, con: types.Client) -> None:
         BaseModule.__init__(self, con)
 
-        self._catalogs: dict[str, Catalog] = {}
+        self._catalogs: dict[JID, Catalog] = {}
         self.supported = False
 
     def pass_disco(self, info: DiscoInfo) -> None:
@@ -52,16 +44,16 @@ class SecLabels(BaseModule):
         self._log.info('Discovered security labels: %s', info.jid)
 
     @as_task
-    def request_catalog(self, jid: str) -> Generator[Catalog, None, None]:
+    def request_catalog(self, jid: JID) -> Generator[Any, Any]:
+        _task = yield
 
-        _task = yield  # noqa: F841
-
-        catalog = yield self._nbxmpp('SecurityLabels').request_catalog(jid)
+        catalog = yield self._nbxmpp('SecurityLabels').request_catalog(str(jid))
 
         if is_error(catalog):
             self._log.info(catalog)
             return
 
+        assert isinstance(catalog, Catalog)
         self._catalogs[jid] = catalog
 
         self._log.info('Received catalog: %s', jid)
@@ -70,7 +62,7 @@ class SecLabels(BaseModule):
                                                jid=jid,
                                                catalog=catalog))
 
-    def get_catalog(self, jid: str) -> Optional[Catalog]:
+    def get_catalog(self, jid: JID) -> Catalog | None:
         if not self.supported:
             return None
 

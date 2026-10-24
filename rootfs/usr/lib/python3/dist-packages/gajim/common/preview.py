@@ -1,30 +1,21 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Callable
 from typing import cast
-from typing import Optional
 
 import logging
 import os
 import re
 import uuid
+from collections.abc import Callable
+from concurrent.futures import Future
 from dataclasses import dataclass
 from dataclasses import field
+from functools import partial
 from pathlib import Path
 from urllib.parse import ParseResult
 from urllib.parse import urlparse
@@ -39,22 +30,20 @@ from gajim.common import app
 from gajim.common import configpaths
 from gajim.common import regex
 from gajim.common.const import MIME_TYPES
-from gajim.common.helpers import AdditionalDataDict
-from gajim.common.helpers import get_tls_error_phrases
 from gajim.common.helpers import load_file_async
 from gajim.common.helpers import write_file_async
 from gajim.common.i18n import _
-from gajim.common.preview_helpers import aes_decrypt
-from gajim.common.preview_helpers import create_thumbnail
-from gajim.common.preview_helpers import filename_from_uri
-from gajim.common.preview_helpers import get_image_paths
-from gajim.common.preview_helpers import get_previewable_mime_types
-from gajim.common.preview_helpers import guess_mime_type
-from gajim.common.preview_helpers import parse_fragment
-from gajim.common.preview_helpers import pixbuf_from_data
-from gajim.common.preview_helpers import split_geo_uri
-from gajim.common.types import GdkPixbufType
+from gajim.common.multiprocess.thumbnail import create_thumbnail
+from gajim.common.storage.archive import models as mod
 from gajim.common.util.http import create_http_request
+from gajim.common.util.preview import aes_decrypt
+from gajim.common.util.preview import filename_from_uri
+from gajim.common.util.preview import get_image_paths
+from gajim.common.util.preview import get_previewable_mime_types
+from gajim.common.util.preview import guess_mime_type
+from gajim.common.util.preview import parse_fragment
+from gajim.common.util.preview import split_geo_uri
+from gajim.common.util.user_strings import get_tls_error_phrases
 
 log = logging.getLogger('gajim.c.preview')
 
@@ -82,13 +71,13 @@ class AudioPreviewState:
 class Preview:
     def __init__(self,
                  uri: str,
-                 urlparts: Optional[ParseResult],
-                 orig_path: Optional[Path],
-                 thumb_path: Optional[Path],
+                 urlparts: ParseResult | None,
+                 orig_path: Path | None,
+                 thumb_path: Path | None,
                  size: int,
                  widget: Any,
                  from_us: bool = False,
-                 context: Optional[str] = None
+                 context: str | None = None
                  ) -> None:
 
         self.id = str(uuid.uuid4())
@@ -102,19 +91,19 @@ class Preview:
         self.account = widget.account
         self.orig_path = orig_path
         self.thumb_path = thumb_path
-        self.size = size
+        self.size = size * app.window.get_scale_factor()
 
-        self.thumbnail: Optional[bytes] = None
+        self.thumbnail: bytes | None = None
         self.mime_type: str = ''
         self.file_size: int = 0
         self.download_in_progress = False
 
-        self.info_message: Optional[str] = None
+        self.info_message: str | None = None
 
         self._request = None
 
-        self.key: Optional[bytes] = None
-        self.iv: Optional[bytes] = None
+        self.key: bytes | None = None
+        self.iv: bytes | None = None
         if self.is_aes_encrypted and urlparts is not None:
             try:
                 self.key, self.iv = parse_fragment(urlparts.fragment)
@@ -148,7 +137,7 @@ class Preview:
         return self._from_us
 
     @property
-    def context(self) -> Optional[str]:
+    def context(self) -> str | None:
         return self._context
 
     @property
@@ -156,11 +145,11 @@ class Preview:
         return self._filename
 
     @property
-    def request(self) -> HTTPRequest:
+    def request(self) -> HTTPRequest | None:
         return self._request
 
     @property
-    def request_uri(self) -> Optional[str]:
+    def request_uri(self) -> str:
         if self._urlparts is None:
             return ''
         if self.is_aes_encrypted:
@@ -187,33 +176,18 @@ class Preview:
             return False
         return self.orig_path.exists()
 
-    def create_thumbnail(self, data: bytes) -> bool:
-        self.thumbnail = create_thumbnail(data, self.size, self.mime_type)
-        if self.thumbnail is None:
-            self.info_message = _('Creating thumbnail failed')
-            log.warning('Creating thumbnail failed for: %s', self.orig_path)
-            return False
-        return True
-
-    def update_widget(self, data: Optional[GdkPixbufType] = None) -> None:
+    def update_widget(self, data: bytes | None = None) -> None:
         self._widget.update(self, data)
 
     def update_progress(self, progress: float, request: HTTPRequest) -> None:
-        self.download_in_progress = True
         self._request = request
         self._widget.update_progress(self, progress)
 
 
 class PreviewManager:
     def __init__(self) -> None:
-        self._orig_dir = Path(configpaths.get('MY_DATA')) / 'downloads'
-        self._thumb_dir = Path(configpaths.get('MY_CACHE')) / 'downloads.thumb'
-
-        if GLib.mkdir_with_parents(str(self._orig_dir), 0o700) != 0:
-            log.error('Failed to create: %s', self._orig_dir)
-
-        if GLib.mkdir_with_parents(str(self._thumb_dir), 0o700) != 0:
-            log.error('Failed to create: %s', self._thumb_dir)
+        self._orig_dir = configpaths.get('DOWNLOADS')
+        self._thumb_dir = configpaths.get('DOWNLOADS_THUMB')
 
         self._previews: dict[str, Preview] = {}
 
@@ -225,7 +199,10 @@ class PreviewManager:
         # to stop previews by preview_id, see stop_audio_except(preview_id)
         self._audio_stop_functions: dict[int, Callable[..., None]] = {}
 
-    def get_preview(self, preview_id: str) -> Optional[Preview]:
+        log.info('Supported mime types for preview')
+        log.info(sorted(PREVIEWABLE_MIME_TYPES))
+
+    def get_preview(self, preview_id: str) -> Preview | None:
         return self._previews.get(preview_id)
 
     def clear_previews(self) -> None:
@@ -261,8 +238,8 @@ class PreviewManager:
     @staticmethod
     def _accept_uri(urlparts: ParseResult,
                     uri: str,
-                    additional_data: AdditionalDataDict) -> bool:
-        oob_url = additional_data.get_value('gajim', 'oob_url')
+                    oob_url: str | None
+                    ) -> bool:
 
         # geo
         if urlparts.scheme == 'geo':
@@ -280,9 +257,10 @@ class PreviewManager:
             if app.settings.get('preview_allow_all_images'):
                 mime_type = guess_mime_type(uri)
                 if mime_type not in MIME_TYPES:
+                    log.info('%s not in allowed mime types', mime_type)
                     return False
 
-                if mime_type == 'application/octet-stream' and uri != oob_url:
+                if mime_type == 'application/octet-stream' and uri != oob_url:  # noqa: SIM103
                     # guess_mime_type yields 'application/octet-stream' for
                     # paths without suffix. Check oob_url to make sure we
                     # display a preview for files sent via http upload.
@@ -303,7 +281,10 @@ class PreviewManager:
 
     def is_previewable(self,
                        text: str,
-                       additional_data: AdditionalDataDict) -> bool:
+                       oob_data: list[mod.OOB]
+                       ) -> bool:
+
+
         if not IRI_RX.fullmatch(text):
             # urlparse removes whitespace (and who knows what else) from URLs,
             # so can't be used for validation.
@@ -315,7 +296,8 @@ class PreviewManager:
         except Exception:
             return False
 
-        if not self._accept_uri(urlparts, uri, additional_data):
+        oob_url = None if not oob_data else oob_data[0].url
+        if not self._accept_uri(urlparts, uri, oob_url):
             return False
 
         if urlparts.scheme == 'geo':
@@ -331,8 +313,9 @@ class PreviewManager:
                        uri: str,
                        widget: Any,
                        from_us: bool,
-                       context: Optional[str] = None
+                       context: str | None = None
                        ) -> None:
+
         if uri.startswith('geo:'):
             preview = Preview(uri, None, None, None, 96, widget)
             preview.update_widget()
@@ -341,6 +324,10 @@ class PreviewManager:
 
         preview = self._process_web_uri(uri, widget, from_us, context)
         self._previews[preview.id] = preview
+
+        if not app.settings.get('enable_file_preview'):
+            preview.update_widget()
+            return
 
         if not preview.orig_exists:
             if context is not None and not from_us:
@@ -352,20 +339,51 @@ class PreviewManager:
             self.download_content(preview)
 
         elif not preview.thumb_exists:
+            assert preview.orig_path is not None
             load_file_async(preview.orig_path,
                             self._on_orig_load_finished,
                             preview)
 
         else:
+            assert preview.thumb_path is not None
             load_file_async(preview.thumb_path,
                             self._on_thumb_load_finished,
                             preview)
+
+    def create_thumbnail(self, preview: Preview, data: bytes) -> None:
+        future = app.process_pool.submit(
+            create_thumbnail,
+            data,
+            preview.size,
+            preview.mime_type,
+        )
+        future.add_done_callback(partial(self._write_thumbnail, preview))
+
+    def _write_thumbnail(self, preview: Preview, future: Future[bytes | None]) -> None:
+        try:
+            result = future.result()
+            if result is None:
+                raise ValueError("result is None")
+        except Exception as error:
+            preview.info_message = _('Creating thumbnail failed')
+            preview.update_widget()
+            log.warning('Creating thumbnail failed for: %s %s',
+                        preview.orig_path, error)
+            return
+
+        preview.thumbnail = result
+
+        assert preview.thumb_path is not None
+        write_file_async(preview.thumb_path,
+                         preview.thumbnail,
+                         self._on_thumb_write_finished,
+                         preview)
 
     def _process_web_uri(self,
                          uri: str,
                          widget: Any,
                          from_us: bool,
-                         context: Optional[str] = None
+                         context: str | None = None
                          ) -> Preview:
         urlparts = urlparse(uri)
         size = app.settings.get('preview_size')
@@ -384,8 +402,8 @@ class PreviewManager:
                        context=context)
 
     def _on_orig_load_finished(self,
-                               data: Optional[bytes],
-                               error: Gio.AsyncResult,
+                               data: bytes | None,
+                               error: GLib.Error | None,
                                preview: Preview) -> None:
         if preview.thumb_path is None or preview.orig_path is None:
             return
@@ -396,17 +414,15 @@ class PreviewManager:
 
         preview.mime_type = guess_mime_type(preview.orig_path, data)
         preview.file_size = os.path.getsize(preview.orig_path)
+
         if preview.is_previewable:
-            if preview.create_thumbnail(data):
-                write_file_async(preview.thumb_path,
-                                 preview.thumbnail,
-                                 self._on_thumb_write_finished,
-                                 preview)
-        preview.update_widget()
+            self.create_thumbnail(preview, data)
+        else:
+            preview.update_widget()
 
     @staticmethod
-    def _on_thumb_load_finished(data: Optional[bytes],
-                                error: Gio.AsyncResult,
+    def _on_thumb_load_finished(data: bytes | None,
+                                error: GLib.Error | None,
                                 preview: Preview) -> None:
 
         if preview.thumb_path is None or preview.orig_path is None:
@@ -417,22 +433,12 @@ class PreviewManager:
             return
 
         preview.thumbnail = data
-        preview.mime_type = guess_mime_type(preview.orig_path, data)
+        # Thumbnails are stored always as PNG, we don’t know the
+        # mime-type of the original picture
+        preview.mime_type = guess_mime_type(preview.orig_path)
         preview.file_size = os.path.getsize(preview.orig_path)
 
-        try:
-            pixbuf = pixbuf_from_data(preview.thumbnail)
-        except Exception as err:
-            log.error('Unable to load: %s, %s',
-                      preview.thumb_path.name,
-                      err)
-            return
-
-        if pixbuf is None:
-            log.error('Unable to load pixbuf')
-            return
-
-        preview.update_widget(data=pixbuf)
+        preview.update_widget(data=data)
 
     def download_content(self,
                          preview: Preview,
@@ -447,7 +453,9 @@ class PreviewManager:
             # History Window can be opened without account context
             # This means we can not apply proxy settings
             return
+
         log.info('Start downloading: %s', preview.request_uri)
+        preview.download_in_progress = True
 
         request = create_http_request(preview.account)
         request.set_user_data(preview)
@@ -459,7 +467,7 @@ class PreviewManager:
 
     def _accept_certificate(self,
                             request: HTTPRequest,
-                            certificate: Gio.TlsCertificate,
+                            _certificate: Gio.TlsCertificate,
                             certificate_errors: Gio.TlsCertificateFlags,
                             ) -> bool:
 
@@ -473,6 +481,7 @@ class PreviewManager:
 
         preview = cast(Preview, request.get_user_data())
         preview.info_message = _('TLS verification failed: %s') % phrases[0]
+        preview.download_in_progress = False
         preview.update_widget()
         return False
 
@@ -483,7 +492,9 @@ class PreviewManager:
                             force: bool
                             ) -> None:
 
-        uri = request.get_uri().to_string()
+        uri = request.get_uri()
+        assert uri is not None
+        uri = uri.to_string()
         preview = cast(Preview, request.get_user_data())
         preview.mime_type = content_type
         preview.file_size = content_length
@@ -491,6 +502,7 @@ class PreviewManager:
         if content_type not in ALLOWED_MIME_TYPES and not force:
             log.info('Not an allowed content type: %s, %s', content_type, uri)
             request.cancel()
+            preview.download_in_progress = False
             return
 
         if content_length > int(app.settings.get('preview_max_file_size')):
@@ -501,6 +513,7 @@ class PreviewManager:
                 preview.info_message = None
             else:
                 request.cancel()
+                preview.download_in_progress = False
                 preview.info_message = _('Automatic preview disabled '
                                          '(file too big)')
 
@@ -547,23 +560,22 @@ class PreviewManager:
             if preview.orig_path is not None:
                 preview.mime_type = guess_mime_type(preview.orig_path, data)
 
+        assert preview.orig_path is not None
         write_file_async(preview.orig_path,
                          data,
                          self._on_orig_write_finished,
                          preview)
 
+        if not app.settings.get('enable_file_preview'):
+            preview.update_widget()
+            return
+
         if preview.is_previewable:
-            if preview.create_thumbnail(data):
-                write_file_async(preview.thumb_path,
-                                 preview.thumbnail,
-                                 self._on_thumb_write_finished,
-                                 preview)
-            else:
-                preview.update_widget()
+            self.create_thumbnail(preview, data)
 
     @staticmethod
     def _on_orig_write_finished(_result: bool,
-                                error: GLib.Error,
+                                error: GLib.Error | None,
                                 preview: Preview) -> None:
         if preview.orig_path is None:
             return
@@ -581,7 +593,7 @@ class PreviewManager:
 
     @staticmethod
     def _on_thumb_write_finished(_result: bool,
-                                 error: GLib.Error,
+                                 error: GLib.Error | None,
                                  preview: Preview) -> None:
         if preview.thumb_path is None:
             return
@@ -598,19 +610,9 @@ class PreviewManager:
         if preview.thumbnail is None:
             return
 
-        try:
-            pixbuf = pixbuf_from_data(preview.thumbnail)
-        except Exception as err:
-            log.error('Unable to load: %s, %s',
-                      preview.thumb_path.name,
-                      err)
-            return
-
-        if pixbuf is None:
-            log.error('Unable to load pixbuf')
-            return
-
-        preview.update_widget(data=pixbuf)
+        preview.update_widget(data=preview.thumbnail)
 
     def cancel_download(self, preview: Preview) -> None:
+        assert preview.request is not None
         preview.request.cancel()
+        preview.download_in_progress = False

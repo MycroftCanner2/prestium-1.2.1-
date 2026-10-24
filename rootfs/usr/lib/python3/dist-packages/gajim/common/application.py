@@ -1,21 +1,8 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
-from typing import Any
-from typing import Optional
 from typing import TextIO
-from typing import Union
 
 import cProfile
 import json
@@ -31,6 +18,7 @@ from gi.repository import GLib
 from nbxmpp.const import ConnectionProtocol
 from nbxmpp.const import ConnectionType
 from nbxmpp.http import HTTPRequest
+from nbxmpp.protocol import JID
 from packaging.version import Version as V
 
 from gajim import IS_PORTABLE
@@ -48,20 +36,20 @@ from gajim.common.events import AccountDisabled
 from gajim.common.events import AccountDisconnected
 from gajim.common.events import AccountEnabled
 from gajim.common.events import AllowGajimUpdateCheck
+from gajim.common.events import DBMigrationError
 from gajim.common.events import GajimUpdateAvailable
 from gajim.common.events import SignedIn
-from gajim.common.helpers import from_one_line
-from gajim.common.helpers import get_random_string
-from gajim.common.settings import LegacyConfig
 from gajim.common.settings import Settings
-from gajim.common.storage.archive import MessageArchiveStorage
+from gajim.common.storage.archive.storage import MessageArchiveStorage
 from gajim.common.storage.cache import CacheStorage
 from gajim.common.storage.draft import DraftStorage
-from gajim.common.storage.events import EventStorage
+from gajim.common.storage.events.storage import EventStorage
 from gajim.common.task_manager import TaskManager
 from gajim.common.util.http import create_http_request
-from gajim.plugins.pluginmanager import PluginManager
-from gajim.plugins.repository import PluginRepository
+from gajim.common.util.text import from_one_line
+from gajim.common.util.text import get_random_string
+
+log = logging.getLogger('gajim.c.application')
 
 
 class CoreApplication(ged.EventHelper):
@@ -69,11 +57,12 @@ class CoreApplication(ged.EventHelper):
         ged.EventHelper.__init__(self)
         self._profiling_session = None
 
-    def _init_core(self) -> None:
+    def _init_core(self) -> bool:
         # Create and initialize Application Paths & Databases
         app.app = self
         app.print_version()
         app.detect_dependencies()
+        app.init_process_pool()
         configpaths.create_paths()
 
         app.settings = Settings()
@@ -81,25 +70,29 @@ class CoreApplication(ged.EventHelper):
 
         passwords.init()
 
-        app.config = LegacyConfig()
         app.commands = ChatCommands()
 
-        app.storage.cache = CacheStorage()
-        app.storage.cache.init()
+        try:
+            app.storage.cache = CacheStorage()
+            app.storage.cache.init()
 
-        app.storage.events = EventStorage()
-        app.storage.events.init()
+            app.storage.events = EventStorage()
+            app.storage.events.init()
 
-        app.storage.archive = MessageArchiveStorage()
-        app.storage.archive.init()
+            app.storage.archive = MessageArchiveStorage()
+            app.storage.archive.init()
+        except Exception as error:
+            app.ged.raise_event(DBMigrationError(exception=error))
+            log.exception('Failed to init storage')
+            return False
 
         app.storage.drafts = DraftStorage()
 
         app.cert_store = CertificateStore()
         app.task_manager = TaskManager()
 
-        from gajim.common.call_manager import CallManager
-        app.call_manager = CallManager()
+        # from gajim.common.call_manager import CallManager
+        # app.call_manager = CallManager()
 
         from gajim.common.preview import PreviewManager
         app.preview_manager = PreviewManager()
@@ -119,12 +112,16 @@ class CoreApplication(ged.EventHelper):
         for account in app.settings.get_active_accounts():
             app.connections[account] = Client(account)
             app.to_be_removed[account] = []
-            app.nicks[account] = app.settings.get_account_setting(account,
-                                                                  'name')
+            app.nicks[account] = app.get_default_nick(account)
+
+        from gajim.plugins.pluginmanager import PluginManager
+        from gajim.plugins.repository import PluginRepository
 
         app.plugin_manager = PluginManager()
         app.plugin_manager.init_plugins()
         app.plugin_repository = PluginRepository()
+
+        app.commands.init()
 
         for client in app.get_clients():
             client.get_module('Roster').load_roster()
@@ -134,6 +131,8 @@ class CoreApplication(ged.EventHelper):
         self.register_events([
             ('signed-in', ged.CORE, self._on_signed_in),
         ])
+
+        return True
 
     @property
     def _log(self) -> logging.Logger:
@@ -212,10 +211,10 @@ class CoreApplication(ged.EventHelper):
         self._profiling_session.disable()
         self._log.info('End profiling')
         ps = pstats.Stats(self._profiling_session)
-        ps = ps.sort_stats(SortKey.CUMULATIVE)
+        ps = ps.sort_stats(SortKey.TIME)
         ps.print_stats()
 
-    def start_shutdown(self, *args: Any, **kwargs: Any) -> None:
+    def start_shutdown(self) -> None:
         app.app.systray.shutdown()
 
         accounts_to_disconnect: dict[str, Client] = {}
@@ -239,15 +238,17 @@ class CoreApplication(ged.EventHelper):
                                        _on_disconnect)
 
         for client in accounts_to_disconnect.values():
-            client.change_status('offline', kwargs.get('message', ''))
+            client.change_status('offline', '')
 
     def _shutdown_core(self) -> None:
         # Commit any outstanding SQL transactions
+        app.process_pool.shutdown(cancel_futures=True)
         app.storage.archive.cleanup_chat_history()
         app.storage.cache.shutdown()
         app.storage.archive.shutdown()
         app.settings.shutdown()
         self.end_profiling()
+        configpaths.cleanup_temp()
         logind.shutdown()
 
     def _quit_app(self) -> None:
@@ -257,14 +258,13 @@ class CoreApplication(ged.EventHelper):
     def _show_warnings() -> None:
         import traceback
         import warnings
-        os.environ['GAJIM_LEAK'] = 'true'
 
-        def warn_with_traceback(message: Union[Warning, str],
+        def warn_with_traceback(message: Warning | str,
                                 category: type[Warning],
                                 filename: str,
                                 lineno: int,
-                                _file: Optional[TextIO] = None,
-                                line: Optional[str] = None) -> None:
+                                _file: TextIO | None = None,
+                                line: str | None = None) -> None:
 
             traceback.print_stack(file=sys.stderr)
             sys.stderr.write(warnings.formatwarning(message, category,
@@ -295,6 +295,10 @@ class CoreApplication(ged.EventHelper):
         if not app.settings.get('check_for_update'):
             return
 
+        if sys.platform == 'win32' and app.is_ms_store():
+            # Gajim updates are handled by MS Store directly
+            return
+
         now = datetime.now()
         last_check = app.settings.get('last_update_check')
         if not last_check:
@@ -309,15 +313,20 @@ class CoreApplication(ged.EventHelper):
 
     def check_for_gajim_updates(self) -> None:
         self._log.info('Checking for Gajim updates')
+
+        if sys.platform == 'win32':
+            # Disable update check for win32 until we do releases again
+            return
+
         request = create_http_request()
         request.send('GET', 'https://gajim.org/current-version.json',
                      callback=self._on_update_response)
 
     def _on_update_response(self, request: HTTPRequest) -> None:
-
         if not request.is_complete():
-            self._log.warning('Error while performing gajim update check: %s',
-                              request.get_error(), request.get_status())
+            self._log.warning(
+                'Error while performing gajim update check: %s (%s)',
+                request.get_error_string(), request.get_status())
             return
 
         now = datetime.now()
@@ -338,8 +347,7 @@ class CoreApplication(ged.EventHelper):
 
     def create_account(self,
                        account: str,
-                       username: str,
-                       domain: str,
+                       address: JID,
                        password: str,
                        proxy_name: str | None,
                        custom_host: tuple[str,
@@ -348,20 +356,22 @@ class CoreApplication(ged.EventHelper):
                        anonymous: bool = False
                        ) -> None:
 
-        account_label = f'{username}@{domain}'
         if anonymous:
-            username = 'anon'
-            account_label = f'anon@{domain}'
+            address = address.new_with(localpart='anon')
 
-        config: dict[str, Union[str, int, bool]] = {
-            'name': username,
+        if not address.localpart:
+            raise ValueError('Username must be set')
+
+        account_label = str(address)
+
+        config: dict[str, str | int | bool] = {
+            'address': str(address),
             'resource': f'gajim.{get_random_string(8)}',
             'account_label': account_label,
-            'hostname': domain,
             'anonymous_auth': anonymous,
         }
 
-        if proxy_name is not None:
+        if proxy_name:
             config['proxy'] = proxy_name
 
         use_custom_host = custom_host is not None
@@ -377,8 +387,9 @@ class CoreApplication(ged.EventHelper):
         for opt, value in config.items():
             app.settings.set_account_setting(account, opt, value)  # pyright: ignore  # noqa: E501
 
-        # Password module depends on existing config
-        passwords.save_password(account, password)
+        if not anonymous:
+            # Password module depends on existing config
+            passwords.save_password(account, password)
 
     def enable_account(self, account: str) -> None:
         app.connections[account] = Client(account)
@@ -387,7 +398,7 @@ class CoreApplication(ged.EventHelper):
             app.connections[account])
 
         app.to_be_removed[account] = []
-        app.nicks[account] = app.settings.get_account_setting(account, 'name')
+        app.nicks[account] = app.get_default_nick(account)
         app.settings.set_account_setting(account, 'active', True)
 
         app.ged.raise_event(AccountEnabled(account=account))
@@ -403,8 +414,6 @@ class CoreApplication(ged.EventHelper):
 
         app.get_client(account).cleanup()
         del app.connections[account]
-        if account in app.interface.instances:
-            del app.interface.instances[account]
         del app.nicks[account]
         del app.to_be_removed[account]
 
@@ -416,19 +425,18 @@ class CoreApplication(ged.EventHelper):
         # Delete password must be before del_per() because it calls set_per()
         # which would recreate the account with defaults values if not found
         passwords.delete_password(account)
+        app.storage.archive.remove_account(account)
         app.settings.remove_account(account)
         app.app.remove_account_actions(account)
 
     def _on_signed_in(self, event: SignedIn) -> None:
         client = app.get_client(event.account)
-        app.storage.archive.insert_jid(client.get_own_jid().bare)
-
         if client.get_module('MAM').available:
             client.get_module('MAM').request_archive_on_signin()
 
     def change_status(self,
                       status: str,
-                      account: Optional[str] = None
+                      account: str | None = None
                       ) -> None:
 
         if account is not None:

@@ -2,29 +2,20 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
-
-from typing import Optional
+# SPDX-License-Identifier: GPL-3.0-only
 
 import logging
 import os
 import sys
 import time
+from collections.abc import Callable
 from datetime import datetime
 
 from gajim.common import app
 from gajim.common import configpaths
 from gajim.common.i18n import _
+
+LogCallback = Callable[[str], None]
 
 
 def parseLogLevel(arg: str) -> int:
@@ -106,6 +97,28 @@ def colorize(text: str, color: str) -> str:
     return color + text + Colors.NONE
 
 
+class LogConsoleHandler(logging.StreamHandler):  # pyright: ignore
+    def __init__(self) -> None:
+        super().__init__()  # pyright: ignore
+        self._callback: LogCallback | None = None
+
+    def emit(self, record: logging.LogRecord) -> None:
+        if record.levelno < logging.WARNING:
+            return
+
+        msg = self.format(record)
+        app.logging_records.append(msg)
+        if self._callback is not None:
+            self._callback(msg)
+
+    def set_callback(self,
+                     func: LogCallback | None
+                     ) -> None:
+        self._callback = func
+
+
+logging.Formatter.default_msec_format = None
+
 class FancyFormatter(logging.Formatter):
     '''
     An eye-candy formatter with Colors
@@ -119,10 +132,9 @@ class FancyFormatter(logging.Formatter):
     }
 
     def __init__(self,
-                 fmt: Optional[str] = None,
-                 datefmt: Optional[str] = None,
+                 fmt: str | None = None,
                  use_color: bool = False) -> None:
-        logging.Formatter.__init__(self, fmt, datefmt)
+        logging.Formatter.__init__(self, fmt)
         self.use_color = use_color
 
     def format(self, record: logging.LogRecord) -> str:
@@ -141,7 +153,7 @@ class FancyFormatter(logging.Formatter):
 
 def init() -> None:
     '''
-    Iinitialize the logging system
+    Initialize the logging system
     '''
 
     if app.get_debug_mode():
@@ -152,29 +164,40 @@ def init() -> None:
     if os.name != 'nt':
         use_color = sys.stderr.isatty()
 
-    consoleloghandler = logging.StreamHandler()
-    consoleloghandler.setFormatter(
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(
         FancyFormatter(
             '%(asctime)s %(levelname)s %(name)-35s %(message)s',
-            '%x %H:%M:%S',
             use_color
         )
     )
 
     root_log = logging.getLogger('gajim')
     root_log.setLevel(logging.WARNING)
-    root_log.addHandler(consoleloghandler)
+    root_log.addHandler(_log_console_handler)
+    root_log.addHandler(stream_handler)
     root_log.propagate = False
 
     root_log = logging.getLogger('nbxmpp')
-    root_log.setLevel(logging.ERROR)
-    root_log.addHandler(consoleloghandler)
+    root_log.setLevel(logging.WARNING)
+    root_log.addHandler(_log_console_handler)
+    root_log.addHandler(stream_handler)
     root_log.propagate = False
 
     root_log = logging.getLogger('gnupg')
     root_log.setLevel(logging.WARNING)
-    root_log.addHandler(consoleloghandler)
+    root_log.addHandler(_log_console_handler)
+    root_log.addHandler(stream_handler)
     root_log.propagate = False
+
+    root_log = logging.getLogger('omemo_dr')
+    root_log.setLevel(logging.WARNING)
+    root_log.addHandler(_log_console_handler)
+    root_log.addHandler(stream_handler)
+    root_log.propagate = False
+
+    if os.environ.get('GAJIM_LEAK'):
+        logging.getLogger('gajim.leak').setLevel(logging.DEBUG)
 
     # GAJIM_DEBUG is set only on Windows when using Gajim-Debug.exe
     # Gajim-Debug.exe shows a command line prompt and we want to redirect
@@ -190,16 +213,22 @@ def set_loglevels(loglevels_string: str) -> None:
 def set_verbose() -> None:
     parseAndSetLogLevels('gajim=DEBUG')
     parseAndSetLogLevels('.nbxmpp=INFO')
+    parseAndSetLogLevels('.omemo_dr=DEBUG')
 
 
 def set_quiet() -> None:
     parseAndSetLogLevels('gajim=CRITICAL')
     parseAndSetLogLevels('.nbxmpp=CRITICAL')
+    parseAndSetLogLevels('.omemo_dr=CRITICAL')
+
+
+def get_log_console_handler() -> LogConsoleHandler:
+    return _log_console_handler
 
 
 def _redirect_output() -> None:
     debug_folder = configpaths.get('DEBUG')
-    date = datetime.today().strftime('%d%m%Y-%H%M%S')
+    date = datetime.today().strftime('%Y-%m-%d-%H%M%S')
     filename = '%s-debug.log' % date
     fd = open(debug_folder / filename, 'a', encoding='utf8')
     sys.stderr = sys.stdout = fd
@@ -213,6 +242,14 @@ def _cleanup_debug_logs() -> None:
         # Delete everything older than 3 days
         if file.stat().st_ctime < now - 259200:
             file.unlink()
+
+
+_log_console_handler = LogConsoleHandler()
+_log_console_handler.setFormatter(
+    logging.Formatter(
+        '%(asctime)s (%(levelname).1s) %(name)-35s | %(message)s\n',
+    )
+)
 
 
 if __name__ == '__main__':

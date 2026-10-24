@@ -2,26 +2,16 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 
 import hashlib
 import logging
 from base64 import b64decode
+from collections.abc import Callable
 from pathlib import Path
 
 import nbxmpp
@@ -51,10 +41,10 @@ class BitsOfBinary(BaseModule):
         ]
 
         # Used to track which cids are in-flight.
-        self.awaiting_cids: dict[str, tuple[Any, Any, int]] = {}
+        self.awaiting_cids: dict[str, list[tuple[Callable[..., Any], Any, int]]] = {}
 
     def _answer_bob_request(self,
-                            _con: types.xmppClient,
+                            _con: types.NBXMPPClient,
                             stanza: Iq,
                             _properties: IqProperties
                             ) -> None:
@@ -67,7 +57,7 @@ class BitsOfBinary(BaseModule):
         raise nbxmpp.NodeProcessed
 
     def _on_bob_received(self,
-                         _nbxmpp_client: types.xmppClient,
+                         _nbxmpp_client: types.NBXMPPClient,
                          result: Iq,
                          cid: str
                          ) -> None:
@@ -87,12 +77,13 @@ class BitsOfBinary(BaseModule):
                     pos = func[2]
                     bob_data = data.getData()
 
-                    def recurs(node, cid, data):
+                    def recurs(node: nbxmpp.Node, cid: str, data: BobData) -> None:
                         if node.getData() == 'cid:' + cid:
                             node.setData(data)
                         else:
                             for child in node.getChildren():
                                 recurs(child, cid, data)
+
                     recurs(args[pos], cid, bob_data)
                     cb(*args)
                 del self.awaiting_cids[cid]
@@ -108,7 +99,7 @@ class BitsOfBinary(BaseModule):
     def get_bob_data(self,
                      cid: str,
                      to: str,
-                     callback: Any,
+                     callback: Callable[..., Any],
                      args: Any,
                      position: int
                      ) -> None:
@@ -118,7 +109,7 @@ class BitsOfBinary(BaseModule):
         args[position]
         '''
         if cid in self.awaiting_cids:
-            self.awaiting_cids[cid].appends((callback, args, position))
+            self.awaiting_cids[cid].append((callback, args, position))
         else:
             self.awaiting_cids[cid] = [(callback, args, position)]
         iq = nbxmpp.Iq(to=to, typ='get')
@@ -127,7 +118,7 @@ class BitsOfBinary(BaseModule):
             iq, self._on_bob_received, {'cid': cid})
 
 
-def parse_bob_data(stanza: Iq) -> Optional[Path]:
+def parse_bob_data(stanza: Iq) -> Path | None:
     data_node = stanza.getTag('data', namespace=Namespace.BOB)
     if data_node is None:
         return None
@@ -201,7 +192,7 @@ def parse_bob_data(stanza: Iq) -> Optional[Path]:
     return filepath
 
 
-def store_bob_data(bob_data: Optional[BobData]) -> Optional[Path]:
+def store_bob_data(bob_data: BobData | None) -> Path | None:
     if bob_data is None:
         return None
 

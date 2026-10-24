@@ -1,26 +1,18 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0084: User Avatar
 
 from __future__ import annotations
 
-from typing import Generator
-from typing import Optional
+from typing import Any
 
+from collections.abc import Generator
+
+from nbxmpp.errors import is_error
 from nbxmpp.modules.user_avatar import AvatarData
-from nbxmpp.modules.util import is_error
+from nbxmpp.modules.user_avatar import AvatarMetaData
 from nbxmpp.namespaces import Namespace
 from nbxmpp.protocol import Message
 from nbxmpp.structs import MessageProperties
@@ -28,6 +20,9 @@ from nbxmpp.structs import MessageProperties
 from gajim.common import app
 from gajim.common import types
 from gajim.common.modules.base import BaseModule
+from gajim.common.modules.contacts import BareContact
+from gajim.common.modules.contacts import GroupchatContact
+from gajim.common.modules.contacts import GroupchatParticipant
 from gajim.common.modules.util import as_task
 from gajim.common.modules.util import event_node
 
@@ -48,22 +43,29 @@ class UserAvatar(BaseModule):
 
     @event_node(Namespace.AVATAR_METADATA)
     def _avatar_metadata_received(self,
-                                  _con: types.xmppClient,
+                                  _con: types.NBXMPPClient,
                                   _stanza: Message,
                                   properties: MessageProperties
                                   ) -> None:
+        assert properties.pubsub_event is not None
         if properties.pubsub_event.retracted:
             return
 
         metadata = properties.pubsub_event.data
+        assert properties.jid is not None
         jid = properties.jid
         contact = self._con.get_module('Contacts').get_contact(jid)
+        assert isinstance(
+            contact,
+            BareContact | GroupchatContact | GroupchatParticipant
+        )
 
         if metadata is None or not metadata.infos:
             self._log.info('No avatar published: %s', jid)
             contact.update_avatar(None)
             return
 
+        assert isinstance(metadata, AvatarMetaData)
         sha = contact.avatar_sha
         if sha is not None:
             if (sha in metadata.avatar_shas and
@@ -91,11 +93,11 @@ class UserAvatar(BaseModule):
     def _request_avatar_data(self,
                              contact: types.ChatContactT,
                              sha: str
-                             ) -> Generator[Optional[AvatarData], None, None]:
+                             ) -> Generator[Any, Any]:
 
         self._log.info('Request: %s %s', contact.jid, sha)
 
-        _task = yield  # noqa: F841
+        _task = yield
 
         avatar = yield self._nbxmpp('UserAvatar').request_avatar_data(
             sha, jid=contact.jid)
@@ -109,6 +111,7 @@ class UserAvatar(BaseModule):
             self._log.warning(avatar)
             return
 
+        assert isinstance(avatar, AvatarData)
         self._log.info('Received Avatar: %s %s', contact.jid, avatar.sha)
         app.app.avatar_storage.save_avatar(avatar.data)
         contact.update_avatar(avatar.sha)

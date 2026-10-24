@@ -12,71 +12,63 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 import typing
 from typing import Any
 from typing import cast
-from typing import Optional
 
 import gc
 import logging
+import multiprocessing
 import os
 import pprint
 import sys
 import weakref
 from collections import defaultdict
+from concurrent.futures import ProcessPoolExecutor
 
 from gi.repository import Gdk
 from gi.repository import GLib
 from gi.repository import GObject
-from nbxmpp.idlequeue import IdleQueue
+from nbxmpp.protocol import JID
+from nbxmpp.task import Task
 
 import gajim
-from gajim.common import config as c_config
 from gajim.common import configpaths
 from gajim.common import ged as ged_module
 from gajim.common import types
 from gajim.common.const import Display
-from gajim.common.i18n import LANG
+from gajim.common.i18n import get_default_lang
+from gajim.common.multiprocess import init_process
 
 if typing.TYPE_CHECKING:
     from gajim.common.call_manager import CallManager
     from gajim.common.cert_store import CertificateStore
     from gajim.common.commands import ChatCommands  # noqa: F401
     from gajim.common.preview import PreviewManager
-    from gajim.common.storage.archive import MessageArchiveStorage
+    from gajim.common.storage.archive.storage import MessageArchiveStorage
     from gajim.common.storage.cache import CacheStorage
     from gajim.common.storage.draft import DraftStorage
-    from gajim.common.storage.events import EventStorage
+    from gajim.common.storage.events.storage import EventStorage
     from gajim.common.task_manager import TaskManager
 
     from gajim.gtk.application import GajimApplication  # noqa: F401
     from gajim.gtk.main import MainWindow  # noqa: F401
 
 
-interface = cast(types.InterfaceT, None)
-config = c_config.Config()
 settings = cast(types.SettingsT, None)
 version = gajim.__version__
 connections: dict[str, types.Client] = {}
 avatar_cache: dict[str, dict[str, Any]] = {}
 bob_cache: dict[str, bytes] = {}
+services_cache: Any = None
 app = None  # type: GajimApplication
 window = None  # type: MainWindow
 commands = None  # type: ChatCommands
+logging_records: list[str] = []
 
 ged = ged_module.GlobalEventsDispatcher()  # Global Events Dispatcher
 plugin_manager = cast(types.PluginManagerT, None)  # Plugins Manager
@@ -105,8 +97,6 @@ notification = None
 # list of our nick names in each account
 nicks: dict[str, str] = {}
 
-proxy65_manager = None
-
 cert_store = cast('CertificateStore', None)
 
 call_manager = cast('CallManager', None)
@@ -115,13 +105,11 @@ preview_manager = cast('PreviewManager', None)
 
 task_manager = cast('TaskManager', None)
 
-# These will be set in app.gui_interface.
-idlequeue = cast(IdleQueue, None)
-socks5queue = None
-
 gupnp_igd = None
 
 gsound_ctx = None
+
+process_pool = cast(ProcessPoolExecutor, None)
 
 _dependencies = {
     'FARSTREAM': False,
@@ -130,14 +118,25 @@ _dependencies = {
     'GEOCLUE': False,
     'UPNP': False,
     'GSOUND': False,
-    'GSPELL': False,
+    'SPELLING': False,
     'IDLE': False,
-    'APPINDICATOR': False,
-    'AYATANA_APPINDICATOR': False,
     'SENTRY_SDK': False,
 }
 
-_tasks: dict[int, list[Any]] = defaultdict(list)
+_tasks: dict[int, list[Task]] = defaultdict(list)
+
+
+def init_process_pool() -> None:
+    global process_pool
+
+    mp_context = multiprocessing.get_context("spawn")
+    process_pool = ProcessPoolExecutor(
+        max_workers=4,
+        mp_context=mp_context,
+        # https://github.com/python/cpython/issues/115634
+        # max_tasks_per_child=5,
+        initializer=init_process,
+    )
 
 
 def print_version() -> None:
@@ -160,8 +159,23 @@ def is_flatpak() -> bool:
     return gajim.IS_FLATPAK
 
 
+def is_flatpak_nightly() -> bool:
+    return gajim.IS_FLATPAK_NIGHTLY
+
+
 def is_portable() -> bool:
     return gajim.IS_PORTABLE
+
+
+def is_ms_store() -> bool:
+    return gajim.IS_MS_STORE
+
+
+def get_default_app_id() -> str:
+    app_id = 'org.gajim.Gajim'
+    if is_flatpak_nightly():
+        return f'{app_id}.Devel'
+    return app_id
 
 
 def is_display(display: Display) -> bool:
@@ -196,21 +210,25 @@ def detect_dependencies() -> None:
 
     try:
         gi.require_version('Farstream', '0.2')
-        from gi.repository import Farstream
-        _dependencies['FARSTREAM'] = True
+        # from gi.repository import Farstream
+        # _dependencies['FARSTREAM'] = True
     except Exception as error:
         log('gajim').warning('AV dependency test failed: %s', error)
 
-    try:
-        if _dependencies['GST'] and _dependencies['FARSTREAM']:
-            conference = Gst.ElementFactory.make('fsrtpconference', None)
-            conference.new_session(Farstream.MediaType.AUDIO)
-            from gajim.gtk.gstreamer import create_gtk_widget
-            gtk_widget = create_gtk_widget()
-            if gtk_widget is not None:
-                _dependencies['AV'] = True
-    except Exception as error:
-        log('gajim').warning('AV dependency test failed: %s', error)
+    # try:
+    #     if _dependencies['GST'] and _dependencies['FARSTREAM']:
+    #         # This creates a GTK critical
+    #         # gst_base_auto_convert_register_filter: assertion
+    #         # 'g_strcmp0 (name, ((GstAutoConvertFilterInfo *) tmp->data)->name)'
+    #         # failed
+    #         conference = Gst.ElementFactory.make('fsrtpconference', None)
+    #         conference.new_session(Farstream.MediaType.AUDIO)
+    #         from gajim.gtk.gstreamer import create_video_elements
+    #         video_elements = create_video_elements()
+    #         if video_elements is not None:
+    #             _dependencies['AV'] = True
+    # except Exception as error:
+    #     log('gajim').warning('AV dependency test failed: %s', error)
 
     # GEOCLUE
     try:
@@ -255,31 +273,17 @@ def detect_dependencies() -> None:
     except (ImportError, ValueError):
         pass
 
-    # GSPELL
+    # LIBSPELLING
     try:
-        gi.require_version('Gspell', '1')
-        from gi.repository import Gspell
-        langs = Gspell.language_get_available()
+        gi.require_version('Spelling', '1')
+        from gi.repository import Spelling
+        provider = Spelling.Provider.get_default()
+        langs = provider.list_languages()
         for lang in langs:
             log('gajim').info('%s (%s) dict available',
                               lang.get_name(), lang.get_code())
         if langs:
-            _dependencies['GSPELL'] = True
-    except (ImportError, ValueError):
-        pass
-
-    # APPINDICATOR
-    try:
-        gi.require_version('AppIndicator3', '0.1')
-        from gi.repository import AppIndicator3  # noqa: F401
-        _dependencies['APPINDICATOR'] = True
-    except (ImportError, ValueError):
-        pass
-    # AYATANA APPINDICATOR
-    try:
-        gi.require_version('AyatanaAppIndicator3', '0.1')
-        from gi.repository import AyatanaAppIndicator3  # noqa: F401
-        _dependencies['AYATANA_APPINDICATOR'] = True
+            _dependencies['SPELLING'] = True
     except (ImportError, ValueError):
         pass
 
@@ -287,17 +291,20 @@ def detect_dependencies() -> None:
     try:
         import sentry_sdk  # noqa: F401
         _dependencies['SENTRY_SDK'] = True
-    except ImportError:
+    except Exception:
+        # Sentry has a lot of side effects on import
+        # make sure this optional dependency does not prevent
+        # Gajim from starting
         pass
 
     # Print results
     for dep, val in _dependencies.items():
         log('gajim').info('%-13s %s', dep, val)
 
-    log('gajim').info('Used language: %s', LANG)
+    log('gajim').info('Used language: %s', get_default_lang())
 
 
-def detect_desktop_env() -> Optional[str]:
+def detect_desktop_env() -> str | None:
     if sys.platform in ('win32', 'darwin'):
         return sys.platform
 
@@ -333,7 +340,7 @@ def get_jid_without_resource(jid: str) -> str:
 
 
 def get_number_of_connected_accounts(
-        accounts_list: Optional[list[str]] = None) -> int:
+        accounts_list: list[str] | None = None) -> int:
     '''
     Returns the number of connected accounts. You can optionally pass an
     accounts_list and if you do those will be checked, else all will be checked
@@ -380,8 +387,8 @@ def get_accounts_sorted() -> list[str]:
 
 
 def get_enabled_accounts_with_labels(
-        connected_only: bool = False,
-        private_storage_only: bool = False) -> list[list[str]]:
+    connected_only: bool = False
+) -> list[list[str]]:
     '''
     Returns a list with [account, account_label] entries.
     Order by account_label
@@ -389,8 +396,6 @@ def get_enabled_accounts_with_labels(
     accounts: list[list[str]] = []
     for acc in connections:
         if connected_only and not account_is_connected(acc):
-            continue
-        if private_storage_only and not account_supports_private_storage(acc):
             continue
 
         accounts.append([acc, get_account_label(acc)])
@@ -401,12 +406,6 @@ def get_enabled_accounts_with_labels(
 
 def get_account_label(account: str) -> str:
     return settings.get_account_setting(account, 'account_label') or account
-
-
-def account_supports_private_storage(account: str) -> bool:
-    # If Delimiter module is not available we can assume
-    # Private Storage is not available
-    return connections[account].get_module('Delimiter').available
 
 
 def account_is_connected(account: str) -> bool:
@@ -424,7 +423,7 @@ def account_is_available(account: str) -> bool:
 
 def get_transport_name_from_jid(
         jid: str,
-        use_config_setting: bool = True) -> Optional[str]:
+        use_config_setting: bool = True) -> str | None:
 
     '''
     Returns 'gg', 'irc' etc
@@ -462,29 +461,35 @@ def get_transport_name_from_jid(
 
 def jid_is_transport(jid: str) -> bool:
     # if not '@' or '@' starts the jid then it is transport
-    if jid.find('@') <= 0:
-        return True
-    return False
+    return jid.find('@') <= 0
 
 
 def get_jid_from_account(account_name: str) -> str:
     '''
     Return the jid we use in the given account
     '''
-    name = settings.get_account_setting(account_name, 'name')
-    hostname = settings.get_account_setting(account_name, 'hostname')
-    return name + '@' + hostname
+    return settings.get_account_setting(account_name, 'address')
 
 
-def get_hostname_from_account(account_name: str, use_srv: bool = False) -> str:
-    '''
-    Returns hostname (if custom hostname is used, that is returned)
-    '''
-    if use_srv and connections[account_name].connected_hostname:
-        return connections[account_name].connected_hostname
-    if settings.get_account_setting(account_name, 'use_custom_host'):
-        return settings.get_account_setting(account_name, 'custom_host')
-    return settings.get_account_setting(account_name, 'hostname')
+def get_default_nick(account_name: str) -> str:
+    address = settings.get_account_setting(account_name, 'address')
+    jid = JID.from_string(address)
+    assert jid.localpart is not None
+    return jid.localpart
+
+
+def get_hostname_from_account(
+    account_name: str,
+    prefer_custom: bool = False
+) -> str:
+    if prefer_custom:
+        if settings.get_account_setting(account_name, 'use_custom_host'):
+            return settings.get_account_setting(account_name, 'custom_host')
+
+    address = settings.get_account_setting(account_name, 'address')
+    jid = JID.from_string(address)
+    assert jid.domain is not None
+    return jid.domain
 
 
 def get_priority(account: str, show: str) -> int:
@@ -538,7 +543,7 @@ def get_debug_mode() -> bool:
     return debug_enabled.exists()
 
 
-def get_stored_bob_data(algo_hash: str) -> Optional[bytes]:
+def get_stored_bob_data(algo_hash: str) -> bytes | None:
     try:
         return bob_cache[algo_hash]
     except KeyError:
@@ -550,11 +555,11 @@ def get_stored_bob_data(algo_hash: str) -> Optional[bytes]:
     return None
 
 
-def register_task(self, task):
+def register_task(self: Any, task: Task) -> None:
     _tasks[id(self)].append(task)
 
 
-def remove_task(task, id_) -> None:
+def remove_task(task: Task, id_: int) -> None:
     try:
         _tasks[id_].remove(task)
     except Exception:

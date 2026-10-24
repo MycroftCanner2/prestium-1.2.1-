@@ -1,23 +1,12 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0118: User Tune
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 
 from nbxmpp.namespaces import Namespace
 from nbxmpp.protocol import JID
@@ -30,10 +19,10 @@ from gajim.common import types
 from gajim.common.dbus.music_track import MusicTrackListener
 from gajim.common.events import MusicTrackChanged
 from gajim.common.events import SignedIn
-from gajim.common.helpers import event_filter
 from gajim.common.modules.base import BaseModule
 from gajim.common.modules.util import event_node
 from gajim.common.modules.util import store_publish
+from gajim.common.util.decorators import event_filter
 
 
 class UserTune(BaseModule):
@@ -46,21 +35,22 @@ class UserTune(BaseModule):
     def __init__(self, con: types.Client) -> None:
         BaseModule.__init__(self, con)
         self._register_pubsub_handler(self._tune_received)
-        self._current_tune: Optional[TuneData] = None
-        self._contact_tunes: dict[JID, TuneData] = {}
+        self._current_tune: TuneData | None = None
+        self._contact_tunes: dict[JID, TuneData | None] = {}
 
-    def get_current_tune(self) -> Optional[TuneData]:
+    def get_current_tune(self) -> TuneData | None:
         return self._current_tune
 
-    def get_contact_tune(self, jid: JID) -> Optional[TuneData]:
+    def get_contact_tune(self, jid: JID) -> TuneData | None:
         return self._contact_tunes.get(jid)
 
     @event_node(Namespace.TUNE)
     def _tune_received(self,
-                       _con: types.xmppClient,
+                       _con: types.NBXMPPClient,
                        _stanza: Any,
                        properties: MessageProperties
                        ) -> None:
+        assert properties.pubsub_event is not None
         if properties.pubsub_event.retracted:
             return
 
@@ -68,13 +58,14 @@ class UserTune(BaseModule):
         if properties.is_self_message:
             self._current_tune = data
 
+        assert properties.jid is not None
         self._contact_tunes[properties.jid] = data
 
         contact = self._get_contact(properties.jid)
         contact.notify('tune-update', data)
 
     @store_publish
-    def set_tune(self, tune: Optional[TuneData], force: bool = False) -> None:
+    def set_tune(self, tune: TuneData | None, force: bool = False) -> None:
         if not self._con.get_module('PEP').supported:
             return
 

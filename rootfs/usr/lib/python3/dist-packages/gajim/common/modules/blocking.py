@@ -1,22 +1,15 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim.  If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 # XEP-0191: Blocking Command
 
 from __future__ import annotations
 
-from typing import Generator
+from typing import Any
+from typing import cast
+
+from collections.abc import Generator
 
 import nbxmpp
 from nbxmpp.modules.util import raise_if_error
@@ -26,11 +19,14 @@ from nbxmpp.protocol import JID
 from nbxmpp.structs import BlockingProperties
 from nbxmpp.structs import DiscoInfo
 from nbxmpp.structs import StanzaHandler
+from nbxmpp.types import BlockingReportValues
 
 from gajim.common import app
 from gajim.common import types
+from gajim.common.events import ContactBlocked
 from gajim.common.events import FeatureDiscovered
 from gajim.common.modules.base import BaseModule
+from gajim.common.modules.contacts import BareContact
 from gajim.common.modules.util import as_task
 
 
@@ -71,8 +67,15 @@ class Blocking(BaseModule):
     def is_blocked(self, jid: JID) -> bool:
         return jid in self.blocked
 
+    def block(self, jids: list[JID], report: BlockingReportValues | None) -> None:
+        self._nbxmpp("Blocking").block(jids, report)
+        for jid in jids:
+            app.ged.raise_event(ContactBlocked(account=self._account, jid=jid))
+
     @as_task
-    def get_blocking_list(self) -> Generator[set[JID], None, None]:
+    def get_blocking_list(
+        self
+    ) -> Generator[Any, set[JID]]:
         _task = yield  # noqa: F841
 
         blocking_list = yield self._nbxmpp('Blocking').request_blocking_list()
@@ -89,11 +92,11 @@ class Blocking(BaseModule):
     def update_blocking_list(self,
                              block: set[JID],
                              unblock: set[JID]
-                             ) -> Generator[bool, None, None]:
+                             ) -> Generator[Any, bool]:
         _task = yield  # noqa: F841
 
         if block:
-            result = yield self.block(block)
+            result = yield self._nbxmpp("Blocking").block(list(block))
             raise_if_error(result)
 
         if unblock:
@@ -103,7 +106,7 @@ class Blocking(BaseModule):
         yield True
 
     def _blocking_push_received(self,
-                                _con: types.xmppClient,
+                                _con: types.NBXMPPClient,
                                 _stanza: Iq,
                                 properties: BlockingProperties
                                 ) -> None:
@@ -137,7 +140,7 @@ class Blocking(BaseModule):
 
     def _get_contacts_from_jids(self,
                                 jids: set[JID]
-                                ) -> Generator[types.BareContactT, None, None]:
+                                ) -> Generator[BareContact, BareContact, None]:
         for jid in jids:
             if jid.resource is not None:
                 # Currently not supported by GUI
@@ -151,11 +154,11 @@ class Blocking(BaseModule):
                         # Currently not supported by GUI
                         continue
 
-                    yield contact
+                    yield cast(BareContact, contact)
 
                 continue
 
-            yield self._get_contact(jid)
+            yield cast(BareContact, self._get_contact(jid))
 
     def _presence_probe(self, jid: JID) -> None:
         self._log.info('Presence probe: %s', jid)

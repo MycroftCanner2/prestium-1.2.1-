@@ -1,16 +1,6 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from typing import Any
 from typing import cast
@@ -23,9 +13,13 @@ from gi.repository import GLib
 from gajim.common import app
 from gajim.common import events
 from gajim.common import ged
-from gajim.common import helpers
 from gajim.common.modules.contacts import BareContact
+from gajim.common.modules.contacts import GroupchatContact
+from gajim.common.modules.contacts import GroupchatParticipant
 from gajim.common.structs import OutgoingMessage
+from gajim.common.util.status import get_client_status
+from gajim.common.util.status import get_global_show
+from gajim.common.util.status import get_global_status_message
 
 log = logging.getLogger('gajim.c.dbus.remote_control')
 
@@ -112,7 +106,7 @@ def get_dbus_struct(obj: Any) -> GLib.Variant:
         return GLib.Variant('d', obj)
     if isinstance(obj, bool):
         return GLib.Variant('b', obj)
-    if isinstance(obj, (list, tuple)):
+    if isinstance(obj, list | tuple):
         lst = [get_dbus_struct(i) for i in obj  # pyright: ignore
                if i is not None]
         result = GLib.Variant('av', lst)
@@ -177,17 +171,16 @@ class Server:
 
 class GajimRemote(Server):
     def __init__(self) -> None:
+        application_id = app.app.get_application_id()
+        assert application_id is not None
         self._con = Gio.bus_get_sync(Gio.BusType.SESSION, None)
-        Gio.bus_own_name_on_connection(self._con, 'org.gajim.Gajim',
+        Gio.bus_own_name_on_connection(self._con, application_id,
                                        Gio.BusNameOwnerFlags.NONE, None, None)
         super().__init__(self._con, '/org/gajim/dbus/RemoteObject')
 
         app.ged.register_event_handler('presence-received',
                                        ged.POSTGUI,
                                        self._on_presence_received)
-        app.ged.register_event_handler('gc-message-received',
-                                       ged.POSTGUI,
-                                       self._on_gc_message_received)
         app.ged.register_event_handler('message-received',
                                        ged.POSTGUI,
                                        self._on_message_received)
@@ -199,9 +192,10 @@ class GajimRemote(Server):
                                        self._on_message_sent)
 
     def _on_message_sent(self, event: events.MessageSent) -> None:
+        message = event.message
         self.raise_signal('MessageSent', (
             event.account, [event.jid,
-                          event.message]))
+                            message.text]))
 
     def _on_presence_received(self, event: events.PresenceReceived) -> None:
         self.raise_signal('ContactPresence', (event.account, [
@@ -210,28 +204,16 @@ class GajimRemote(Server):
             event.show,
             event.status]))
 
-    def _on_gc_message_received(self, event: events.GcMessageReceived) -> None:
-        self.raise_signal('GCMessage', (
-            event.conn.name, [event.fjid,
-                              event.msgtxt,
-                              event.properties.timestamp,
-                              event.delayed,
-                              event.displaymarking]))
-
-    def _on_message_received(self,
-                             event: events.MessageReceived) -> None:
-
-        event_type = event.properties.type.value
-        if event.properties.is_muc_pm:
-            event_type = 'pm'
+    def _on_message_received(self, event: events.MessageReceived) -> None:
+        message = event.message
         self.raise_signal('NewMessage', (
-            event.conn.name, [event.fjid,
-                              event.msgtxt,
-                              event.properties.timestamp,
-                              event_type,
-                              event.properties.subject,
-                              event.msg_log_id,
-                              event.properties.nickname]))
+            event.account, [
+                message.remote.jid,
+                message.resource,
+                message.type,
+                message.timestamp,
+                message.text,
+            ]))
 
     def _on_our_status(self, event: events.ShowChanged) -> None:
         self.raise_signal('AccountPresence', (event.show, event.account))
@@ -247,13 +229,13 @@ class GajimRemote(Server):
     @staticmethod
     def get_status(account: str) -> str:
         if not account:
-            return helpers.get_global_show()
-        return helpers.get_client_status(account)
+            return get_global_show()
+        return get_client_status(account)
 
     @staticmethod
     def get_status_message(account: str) -> str:
         if not account:
-            return str(helpers.get_global_status_message())
+            return get_global_status_message()
         return app.get_client(account).status_message
 
     @staticmethod
@@ -269,14 +251,15 @@ class GajimRemote(Server):
         contact = client.get_module('Contacts').get_contact(
             jid, groupchat=type_ == 'groupchat')
 
-        if type_ == 'groupchat':
+        if isinstance(contact, GroupchatContact):
             if not contact.is_joined:
                 return False
 
+        assert isinstance(
+            contact, BareContact | GroupchatContact | GroupchatParticipant)
         message_ = OutgoingMessage(account=account,
                                    contact=contact,
-                                   message=message,
-                                   type_=type_)
+                                   text=message)
 
         app.get_client(account).send_message(message_)
         return True

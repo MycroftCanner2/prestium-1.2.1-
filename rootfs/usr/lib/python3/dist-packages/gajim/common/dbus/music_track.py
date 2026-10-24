@@ -7,22 +7,11 @@
 #
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
 from typing import TypedDict
 
 import logging
@@ -48,7 +37,7 @@ class TrackProperties(TypedDict, total=False):
 
 class MusicTrackListener:
 
-    _instance: Optional[MusicTrackListener] = None
+    _instance: MusicTrackListener | None = None
 
     @classmethod
     def get(cls) -> MusicTrackListener:
@@ -58,19 +47,19 @@ class MusicTrackListener:
 
     def __init__(self) -> None:
         self.players: dict[str, int] = {}
-        self.connection: Optional[Gio.DBusConnection] = None
-        self._current_tune: Optional[TuneData] = None
+        self.connection: Gio.DBusConnection | None = None
+        self._current_tune: TuneData | None = None
         self._running = False
 
         if sys.platform not in ('win32', 'darwin'):
             self.start()
 
-    def _emit(self, info: Optional[TuneData]) -> None:
+    def _emit(self, info: TuneData | None) -> None:
         self._current_tune = info
         app.ged.raise_event(MusicTrackChanged(info=info))
 
     @property
-    def current_tune(self) -> Optional[TuneData]:
+    def current_tune(self) -> TuneData | None:
         return self._current_tune
 
     def start(self):
@@ -181,7 +170,7 @@ class MusicTrackListener:
         self._get_playing_track(user_data[0])
 
     @staticmethod
-    def _get_music_info(properties: TrackProperties) -> Optional[TuneData]:
+    def _get_music_info(properties: TrackProperties) -> TuneData | None:
         meta = properties.get('Metadata')
         if meta is None or not meta:
             return None
@@ -201,14 +190,18 @@ class MusicTrackListener:
     def _get_playing_track(self, name: str) -> None:
         '''Return a TuneData for the currently playing
         song, or None if no song is playing'''
-        proxy = Gio.DBusProxy.new_for_bus_sync(
-            Gio.BusType.SESSION,
-            Gio.DBusProxyFlags.NONE,
-            None,
-            name,
-            '/org/mpris/MediaPlayer2',
-            'org.freedesktop.DBus.Properties',
-            None)
+        try:
+            proxy = Gio.DBusProxy.new_for_bus_sync(
+                Gio.BusType.SESSION,
+                Gio.DBusProxyFlags.NONE,
+                None,
+                name,
+                '/org/mpris/MediaPlayer2',
+                'org.freedesktop.DBus.Properties',
+                None)
+        except GLib.Error as error:
+            log.debug('Could not enable music listener: %s', error.message)
+            return
 
         def proxy_call_finished(proxy: Gio.DBusProxy,
                                 res: Gio.AsyncResult
