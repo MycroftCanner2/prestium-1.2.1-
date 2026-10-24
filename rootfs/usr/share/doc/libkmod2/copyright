@@ -10,11 +10,6 @@ Copyright: (C) 2011-2013  ProFUSION embedded systems
            (C) 2013 Michal Marek, SUSE
 License: LGPL-2.1+
 
-Files: libkmod/python/*
-Copyright: (C) 2012 Red Hat, Inc.
-           (C) 2012 W. Trevor King <wking@tremily.us>
-License: LGPL-2.1+
-
 Files: shell-completion/bash/kmod
 Copyright: 2010 Ran Benita
        (C) 2013  Intel Corporation. All rights reserved.

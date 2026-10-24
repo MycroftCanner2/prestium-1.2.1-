@@ -6,13 +6,13 @@ It was downloaded from http://mhash.sourceforge.net/
 Repositories of interest:
 
   Upstream development:
-    git://git.code.sf.net/p/mhash/code
+    https://git.code.sf.net/p/mhash/code
   Fork thereof used for pushing patched upstream:
-    git://git.code.sf.net/u/bpearlmutter/mhash
+    https://git.code.sf.net/u/bpearlmutter/mhash
   Debian packaging repository:
-    git://anonscm.debian.org/collab-maint/mhash.git
+    https://salsa.debian.org/debian/mhash
   Clone thereof:
-    git://github.com/barak/mhash
+    https://github.com/barak/mhash
 
 Upstream Authors:
 	Nikos Mavroyanopoulos <nmav@hellug.gr>

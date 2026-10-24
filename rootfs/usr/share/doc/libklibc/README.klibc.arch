@@ -77,5 +77,3 @@ e) Any support functions needed by gcc, *unless* they are in libgcc
 
 f) A link location for the shared klibc.  This should be specified in
   SHAREDFLAGS in klibc/arch/*/MCONFIG.
-
-  This is not applicable to no-MMU architectures.

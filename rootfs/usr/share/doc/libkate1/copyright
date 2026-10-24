@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libkate
 Upstream-Contact: Vincent Penquerc'h <ogg.k.ogg.k@googlemail.com>
-Source: https://code.google.com/p/libkate/
+Source: https://wiki.xiph.org/index.php/OggKate
 
 Files: *
 Copyright: 2008, Vincent Penquerc'h <ogg.k.ogg.k@googlemail.com>
