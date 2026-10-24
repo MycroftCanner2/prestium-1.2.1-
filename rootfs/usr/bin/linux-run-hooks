@@ -60,13 +60,14 @@ sub run_hooks {
     # >= 5.22: must pass 1 or more directory names; warning
     #          emitted for non-existent directories
     #
-    # For bookworm or earlier, only ever pass /etc/kernel/$type.d and
-    # warn if /usr/share/kernel/$type.d exists.
-    my $dir = "/etc/kernel/$type.d";
-    push @hook_dirs, $dir if -d $dir;
-    $dir = "/usr/share/kernel/$type.d";
-    print STDERR "W: Hooks in $dir are not supported and will not be run\n"
-	if -d $dir;
+    # So, to be backward-compatible, we only pass directories that
+    # exist and do not run it at all if none exist.  We rely on
+    # packages not to install hooks under /usr/share/kernel without a
+    # dependency or other guarantee that debianutils is >= 5.21.
+    for my $dir ("/etc/kernel/$type.d",
+		 "/usr/share/kernel/$type.d") {
+	push @hook_dirs, $dir if -d $dir;
+    }
     if (@hook_dirs == 0) {
 	exit 0;
     }

@@ -22,6 +22,7 @@
 
 import argparse
 import configparser
+import os
 import sys
 from pathlib import Path
 
@@ -37,24 +38,28 @@ except ModuleNotFoundError as e:
     sys.exit(1)
 
 
+def xdg_dir():
+    return Path(os.getenv("XDG_CONFIG_HOME", Path.home() / ".config")) / "libwacom"
+
+
 class Ansi:
-    clearline = "\x1B[K"
+    clearline = "\x1b[K"
 
     @classmethod
     def up(cls, count):
-        return f"\x1B[{count}A"
+        return f"\x1b[{count}A"
 
     @classmethod
     def down(cls, count):
-        return f"\x1B[{count}B"
+        return f"\x1b[{count}B"
 
     @classmethod
     def right(cls, count):
-        return f"\x1B[{count}C"
+        return f"\x1b[{count}C"
 
     @classmethod
     def left(cls, count):
-        return f"\x1B[{count}D"
+        return f"\x1b[{count}D"
 
 
 def die(msg):
@@ -133,7 +138,7 @@ def record_events(ns):
 def load_data_files():
     lookup_paths = (
         ("./data/",),
-        ("/usr/share/libwacom", "/etc/libwacom"),
+        ("/usr/share/libwacom", "/etc/libwacom", xdg_dir()),
         ("/usr/share/libwacom/", "/etc/libwacom/"),
     )
     stylusfiles = []
@@ -157,8 +162,15 @@ def load_data_files():
         config = configparser.ConfigParser()
         config.read(path)
         for stylus_id in config.sections():
-            sid = int(stylus_id, 16)
-            styli[sid] = config[stylus_id].get("Group", sid)
+            ids = stylus_id.split(":")
+            if len(ids) > 1:
+                _, sid = map(lambda x: int(x, 16), ids)
+            else:
+                _ = 0x56A  # vid
+                sid = int(ids[0], 16)
+            # FIXME: vendor should be used here, let's do that when we figure out
+            # who needs it.
+            styli[sid] = config[stylus_id].get("Group", stylus_id)
 
     return styli
 

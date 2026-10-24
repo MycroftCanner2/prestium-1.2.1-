@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# SPDX-FileCopyrightText: 2021-2022 Gioele Barabucci
+# SPDX-FileCopyrightText: 2021 Gioele Barabucci
 # SPDX-License-Identifier: ISC
 
 set -eu
@@ -21,9 +21,9 @@ help () {
 		  -a, --all          show all of the above information
 		  -s, --short        show requested information in short format
 	EOD
-	exit
 }
 
+show_warning=false
 show_id=false
 show_desc=false
 show_release=false
@@ -32,17 +32,19 @@ short_format=false
 
 options=$(getopt --name lsb_release -o hvidrcas -l help,version,id,description,release,codename,all,short -- "$@") || exit 2
 eval set -- "$options"
+[ "$1" = "--" ] && show_warning=true
 while [ $# -gt 0 ] ; do
 	case "$1" in
-		-h|--help) help ;;
-		-v|--version) ;;
+		-h|--help) help; exit ;;
+		-v|--version) show_warning=true ;;
 		-i|--id) show_id=true ;;
 		-d|--description) show_desc=true ;;
 		-r|--release) show_release=true ;;
 		-c|--codename) show_codename=true ;;
-		-a|--all) show_id=true ; show_desc=true ; show_release=true ; show_codename=true ;;
+		-a|--all) show_warning=true; show_id=true; show_desc=true; show_release=true; show_codename=true ;;
 		-s|--short) short_format=true ;;
-		*) break  ;;
+		--) ;;
+		*) { help; echo; echo "lsb_release: error: No arguments are permitted"; } >&2; exit 2
 	esac
 	shift
 done
@@ -78,7 +80,7 @@ if [ "${NAME-x}" != "x" ] ; then
 fi
 
 # Generate minimal standard-conform output (if stdout is a TTY).
-[ -t 1 ] && echo "No LSB modules are available." >& 2
+[ -t 1 ] && $show_warning && echo "No LSB modules are available." >&2
 
 if $show_id ; then
 	display_line "Distributor ID" "${ID:-n/a}"

@@ -1,45 +1,40 @@
 #!/bin/sh
 
-# Prevent recursive loops, where these values are set to this script
-p="$(command -v "$0")"
-[ -n "$BROWSER" ] && [ "$(command -v "$BROWSER" || true)" = "$p" ] && BROWSER=
+# Prevent recursive loops, where environment variables are set to this script
+[ -n "$__SENSIBLE_BROWSER" ] && exit 126
+__SENSIBLE_BROWSER="$0"
+export __SENSIBLE_BROWSER
 
-IsError()
+Try()
 {
-	# Operating system command not found
-	[ "$1" -ne 126 ] && [ $1 -ne 127 ]
+    [ -z "$__sensible_candidate" ] && return
+    eval "$__sensible_candidate \"\$@\""; ret=$?
+    # 127=ENOENT, 126=couldn't exec for another reason
+    [ "$ret" -ne 126 ] && [ "$ret" -ne 127 ] && exit "$ret"
+    unset ret
 }
 
-Run()
-{
-	"$@"
-	ret=$?
-	IsError "$ret"
-}
 
-if test -n "$BROWSER"; then
-    Run "${BROWSER}" "$@" && exit "$ret"
+__sensible_candidate="$BROWSER"
+Try "$@"
+
+if [ -n "$DISPLAY" ]; then
+    if [ -n "$GNOME_DESKTOP_SESSION_ID" ]; then
+        for __sensible_candidate in gnome-www-browser x-www-browser "gnome-terminal www-browser"; do
+            Try "$@"
+        done
+    fi
+    for __sensible_candidate in x-www-browser "sensible-terminal -e www-browser"; do
+        Try "$@"
+    done
+else
+    __sensible_candidate=www-browser
+    Try "$@"
 fi
 
-if test -n "$DISPLAY"; then
-    if test -n "$GNOME_DESKTOP_SESSION_ID"; then
-        if test -x /usr/bin/gnome-www-browser; then
-            exec /usr/bin/gnome-www-browser "$@"
-        elif test -x /usr/bin/x-www-browser; then
-            exec /usr/bin/x-www-browser "$@"
-        elif test -x /usr/bin/gnome-terminal && test -x /usr/bin/www-browser; then
-            exec /usr/bin/gnome-terminal -x /usr/bin/www-browser "$@"
-        fi
-    fi
-    if test -x /usr/bin/x-www-browser; then
-        exec /usr/bin/x-www-browser "$@"
-    elif test -x /usr/bin/x-terminal-emulator && test -x /usr/bin/www-browser; then
-        exec /usr/bin/x-terminal-emulator -x /usr/bin/www-browser "$@"
-    fi
-elif test -x /usr/bin/www-browser; then
-    exec /usr/bin/www-browser "$@"
-fi
-
-echo "Couldn't find a suitable web browser!\n" >&2
-echo "Set the BROWSER environment variable to your desired browser.\n" >&2
-exit 1;
+command -v gettext > /dev/null || alias gettext='printf %s'
+# shellcheck disable=SC2016
+TEXTDOMAIN=sensible-utils gettext 'Couldn'\''t find a suitable web browser!
+Set the $BROWSER environment variable to your desired browser.
+' >&2
+exit 1

@@ -12,6 +12,7 @@
 use Encode qw(decode);
 use I18N::Langinfo qw(langinfo CODESET);
 use File::Spec;
+use File::Temp qw(tempfile);
 
 $debug=($ENV{RUN_MAILCAP_DEBUG} || 0);
 $norun=0;
@@ -44,8 +45,8 @@ sub Usage {
     print STDERR "  not specified, it will be determined from the filename extension\n\n";
     print STDERR "Encoding:\n";
     print STDERR "  how the file (and type) has been encoded (only \"gzip\", \"bzip2,\"\n";
-    print STDERR "  \"xz\" and \"compress\" are supported) -- if not specified, it will be\n";
-    print STDERR "   determined from the filename extension\n\n";
+    print STDERR "  \"xz\", \"zstd\", and \"compress\" are supported) -- if not specified,\n";
+    print STDERR "   it will be determined from the filename extension\n\n";
 
     exit ($error ? 1 : 0);
 }
@@ -56,10 +57,11 @@ sub EncodingForFile {
     my($file) = @_;
     my $encoding;
 
-    if ($file =~ m/\.gz$/)  { $encoding = "gzip";       }
-    if ($file =~ m/\.bz2$/) { $encoding = "bzip2";      }
-    if ($file =~ m/\.xz$/)  { $encoding = "xz";         }
-    if ($file =~ m/\.Z$/)   { $encoding = "compress";   }
+    if ($file =~ m/\.gz$/)    { $encoding = "gzip";       }
+    if ($file =~ m/\.bz2$/)   { $encoding = "bzip2";      }
+    if ($file =~ m/\.xz$/)    { $encoding = "xz";         }
+    if ($file =~ m/\.zstd?$/) { $encoding = "zstd";       }
+    if ($file =~ m/\.Z$/)     { $encoding = "compress";   }
 
     print STDERR " - file \"$file\" has encoding \"$encoding\"\n" if $debug && $encoding;
 
@@ -133,27 +135,19 @@ sub ReadMailcap {
 
 sub TempFile {
     my($template) = @_;
-    my($cmd,$head,$tail,$tmpfile);
+    my($head,$tail);
     $template = "" unless (defined $template);
 
     ($head,$tail) = split(/%s/,$template,2);
+    
+    my($fh, $filename) = tempfile(
+        TEMPLATE => $head . 'XXXXXXXXX',
+        SUFFIX   => $tail,
+        TMPDIR   => 1
+    );
 
-#   $tmpfile = POSIX::tmpnam($name);
-#   unlink($tmpfile);
-
-    $cmd  = "mktemp --tmpdir";
-    $cmd .= " ${head}XXXXXXXXXX" if $head;
-    $cmd .= " --suffix $tail" if $tail;
-
-    $tmpfile = `$cmd`;
-    chomp($tmpfile);
-
-#   $tmpfile = $ENV{TMPDIR};
-#   $tmpfile = "/tmp" unless $tmpfile;
-#   $tmpfile.= "/$name";
-#   unlink($tmpfile);
-
-    return $tmpfile;
+    chmod(0600, $fh);
+    return $filename;
 }
 
 
@@ -210,6 +204,12 @@ sub DecodeFile {
         } else {
             $res = system "xz -dc <\Q$efile\E >\Q$tmpfile\E";
         }
+    } elsif ($encoding eq "zstd") {
+        if ($efile eq '-') {
+            $res = system "zstd -dc >\Q$tmpfile\E";
+        } else {
+            $res = system "zstd -dc <\Q$efile\E >\Q$tmpfile\E";
+        }
     } elsif ($encoding eq "compress") {
         if ($efile eq '-') {
             $res = system "uncompress >\Q$tmpfile\E";
@@ -251,6 +251,12 @@ sub EncodeFile {
             $res = system "xz < \Q$dfile\E";
         } else {
             $res = system "xz < \Q$dfile\E >\Q$efile\E";
+        }
+    } elsif ($encoding eq "zstd") {
+        if ($efile eq '-') {
+            $res = system "zstd -c < \Q$dfile\E";
+        } else {
+            $res = system "zstd -c < \Q$dfile\E >\Q$efile\E";
         }
     } elsif ($encoding eq "compress") {
         if ($efile eq '-') {
@@ -298,8 +304,8 @@ sub MagicMimetype {
     my($file) = @_;
     my($typ);
 
-    if (`command -v file`) {
-        open(READER, "-|", "file", "-b", "--mime-type", "-e", "tokens", "-L", "-z", $file);
+    if (-x "/usr/bin/file") {
+        open(READER, "-|", "/usr/bin/file", "-b", "--mime-type", "-e", "tokens", "-L", "-z", $file);
         $typ = <READER>;
         chomp $typ;
         print STDERR " - file command returned mime-type \"$typ\"\n" if $debug;
@@ -481,8 +487,12 @@ foreach (@files) {
                 $match =~ m/nametemplate=(.*?)\s*($|;)/;
                 my $prefix = $1;
                 my $linked = 0;
+                my $iterations = 0;
                 while (!$linked) {
                     $tmplink = TempFile($prefix);
+                    if (++$iterations > 50) {
+                        die "looped too many times trying to make temp file";
+                    }
                     unlink($tmplink);
                     $linked = symlink($file,$tmplink);
                 }

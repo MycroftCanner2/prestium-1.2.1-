@@ -24,8 +24,7 @@
 import logging
 import optparse
 import sys
-# glob1() is not in the public documentation, UTSL.
-from glob import glob1
+from glob import glob
 from os import environ, remove, rmdir
 from os.path import dirname, basename, exists, join, splitext
 sys.path.insert(1, '/usr/share/python3/')
@@ -98,7 +97,7 @@ def destroyer(magic_tag=None):  # ;-)
         def find_files_to_remove(pyfile):
             directory = join(dirname(pyfile), '__pycache__')
             fname = splitext(basename(pyfile))[0]
-            for fn in glob1(directory, "%s.*" % fname):
+            for fn in glob("%s.*" % fname, root_dir=directory):
                 yield join(directory, fn)
             # remove "classic" .pyc files as well
             for filename in ("%sc" % pyfile, "%so" % pyfile):
@@ -122,7 +121,7 @@ def destroyer(magic_tag=None):  # ;-)
         def find_files_to_remove(pyfile):  # NOQA
             directory = join(dirname(pyfile), '__pycache__')
             fname = splitext(basename(pyfile))[0]
-            for fn in glob1(directory, "%s.%s.py[co]" % (fname, magic_tag)):
+            for fn in glob("%s.%s.py[co]" % (fname, magic_tag), root_dir=directory):
                 yield join(directory, fn)
             # workaround for http://bugs.python.org/issue22966
             if '.' in fname:
@@ -157,7 +156,7 @@ def destroyer(magic_tag=None):  # ;-)
 
 def main():
     usage = '%prog [-V VERSION] [-p PACKAGE] [DIR_OR_FILE]'
-    parser = optparse.OptionParser(usage, version='%prog 3.11.2-1+b1')
+    parser = optparse.OptionParser(usage, version='%prog 3.13.5-1')
     parser.add_option('-v', '--verbose', action='store_true', dest='verbose',
                       help='turn verbose mode on')
     parser.add_option('-q', '--quiet', action='store_false', dest='verbose',

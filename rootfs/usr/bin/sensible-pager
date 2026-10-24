@@ -1,28 +1,29 @@
 #!/bin/sh
 # Copyright 2007 Jari Aalto; Released under GNU GPL v2 or any later version
 
-# Prevent recursive loops, where these values are set to this script
-p="$(command -v "$0")"
-[ -n "$PAGER" ] && [ "$(command -v "$PAGER" || true)" = "$p" ] && PAGER=
+# Prevent recursive loops, where environment variables are set to this script
+[ -n "$__SENSIBLE_PAGER" ] && exit 126
+__SENSIBLE_PAGER="$0"
+export __SENSIBLE_PAGER
 
-IsError()
+Try()
 {
-	# Operating system command not found
-	[ "$1" -ne 126 ] && [ $1 -ne 127 ]
+    [ -z "$__sensible_candidate" ] && return
+    eval "$__sensible_candidate \"\$@\""; ret=$?
+    # 127=ENOENT, 126=couldn't exec for another reason
+    [ "$ret" -ne 126 ] && [ "$ret" -ne 127 ] && exit "$ret"
+    unset ret
 }
 
-Run()
-{
-	"$@"
-	ret=$?
-	IsError "$ret"
-}
+# shellcheck disable=SC2153
+for __sensible_candidate in "$PAGER" "$SENSIBLE_PAGER" pager more; do
+    Try "$@"
+done
 
-Run ${PAGER:-pager} "$@" ||
-Run more "$@" ||
-{
-		echo "Couldn't find a pager!" 1>&2
-		echo "Set the \$PAGER environment variable to your desired pager." 1>&2
-		exit 1;
-}
-exit "$ret"
+
+command -v gettext > /dev/null || alias gettext='printf %s'
+# shellcheck disable=SC2016
+TEXTDOMAIN=sensible-utils gettext 'Couldn'\''t find a pager!
+Set the $PAGER environment variable to your desired pager.
+' >&2
+exit 1

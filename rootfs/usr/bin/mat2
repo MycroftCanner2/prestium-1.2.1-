@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#! /usr/bin/python3
 
 import os
 import shutil
@@ -17,7 +17,7 @@ except ValueError as ex:
     print(ex)
     sys.exit(1)
 
-__version__ = '0.13.3'
+__version__ = '0.13.5'
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.WARNING)
 
@@ -36,7 +36,7 @@ def __check_file(filename: str, mode: int = os.R_OK) -> bool:
         __print_without_chars("[-] %s is not a regular file." % filename)
         return False
     elif not os.access(filename, mode):
-        mode_str = []  # type: List[str]
+        mode_str: List[str] = list()
         if mode & os.R_OK:
             mode_str += 'readable'
         if mode & os.W_OK:
@@ -57,8 +57,8 @@ def create_arg_parser() -> argparse.ArgumentParser:
                         ', '.join(p.value for p in UnknownMemberPolicy))
     parser.add_argument('--inplace', action='store_true',
                         help='clean in place, without backup')
-    parser.add_argument('--no-sandbox', dest='sandbox', action='store_true',
-                        default=False, help='Disable bubblewrap\'s sandboxing')
+    parser.add_argument('--no-sandbox', dest='sandbox', action='store_false',
+                        default=True, help='Disable bubblewrap\'s sandboxing')
 
     excl_group = parser.add_mutually_exclusive_group()
     excl_group.add_argument('files', nargs='*', help='the files to process',
@@ -168,7 +168,7 @@ def show_parsers():
 
 
 def __get_files_recursively(files: List[str]) -> List[str]:
-    ret = set()  # type: Set[str]
+    ret: Set[str] = set()
     for f in files:
         if os.path.isdir(f):
             for path, _, _files in os.walk(f):
@@ -186,7 +186,7 @@ def main() -> int:
     args = arg_parser.parse_args()
 
     if args.verbose:
-        logging.getLogger().setLevel(logging.DEBUG)
+        logging.getLogger(__name__).setLevel(logging.DEBUG)
 
     if not args.files:
         if args.list:
