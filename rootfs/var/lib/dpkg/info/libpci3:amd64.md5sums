@@ -1,5 +1,5 @@
-56f12b5ca81b6356c8d65e11e86d439b  usr/lib/x86_64-linux-gnu/libpci.so.3.9.0
-19a9b8a4b758c65f88164286e8738611  usr/share/doc/libpci3/changelog.Debian.gz
-f3e10bc38352aaf437955565d176865d  usr/share/doc/libpci3/changelog.gz
-8a41985cbb243aaf2bd2be32c3a14fe0  usr/share/doc/libpci3/copyright
+32898f293e6770def38459c1cec5cc5f  usr/lib/x86_64-linux-gnu/libpci.so.3.13.0
+4884f6f0dcf69a78b89c27797bcbe591  usr/share/doc/libpci3/changelog.Debian.gz
+f80edefd0a0099cd5c6d77ed372cc0d4  usr/share/doc/libpci3/changelog.gz
+f4921ad0ec761ee27f9006e89de6ba07  usr/share/doc/libpci3/copyright
 30f92f172749eb2299f325a15cad25c3  usr/share/lintian/overrides/libpci3

@@ -1,5 +1,5 @@
-826be38d9253b59aec9d312fd38667da  usr/lib/x86_64-linux-gnu/libproxy.so.1.0.0
-0be356f558e2341cf5d4b3f637417bd4  usr/share/doc/libproxy1v5/NEWS.gz
-49cd38a9812f6c2fec902ca335ee6bff  usr/share/doc/libproxy1v5/changelog.Debian.gz
-d091da0c766528fad59e59b2d32b506c  usr/share/doc/libproxy1v5/changelog.gz
-627d75b77a08d0a937371021aaebc525  usr/share/doc/libproxy1v5/copyright
+79c09296012bb5908694e7685c03630f  usr/lib/x86_64-linux-gnu/libproxy.so.0.5.9
+505598d4c942af291cc2c049577c56aa  usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so
+10be265e2b4c381fff82e71510de5dce  usr/share/doc/libproxy1v5/changelog.Debian.gz
+2d5e7c97ca0f7d068126336c5777c00b  usr/share/doc/libproxy1v5/copyright
+590eb478ead5a28792c9ece602e90e7a  usr/share/lintian/overrides/libproxy1v5

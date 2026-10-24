@@ -1,2 +1,2 @@
-libpulse-simple 0 libpulse0 (>= 16.1+dfsg1)
-libpulse 0 libpulse0 (>= 16.1+dfsg1)
+libpulse-simple 0 libpulse0 (>= 17.0+dfsg1)
+libpulse 0 libpulse0 (>= 17.0+dfsg1)

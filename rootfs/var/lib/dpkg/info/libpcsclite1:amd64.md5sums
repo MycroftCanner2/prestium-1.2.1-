@@ -1,4 +1,5 @@
-71d0dffa7944579d4b0b0bb8b1a66bfe  usr/lib/x86_64-linux-gnu/libpcsclite.so.1.0.0
-10e364dcfd5cc7ab60ece919cf63103e  usr/share/doc/libpcsclite1/changelog.Debian.gz
-aa9f4746158b25258867fb3770a582d5  usr/share/doc/libpcsclite1/changelog.gz
-3788de843c0d1ec2a6cf567240c335dc  usr/share/doc/libpcsclite1/copyright
+eb58d84c928282ea485f53f32deba345  usr/lib/x86_64-linux-gnu/libpcsclite.so.1
+617c4cc256d56d1fa8cafa0a2d555174  usr/lib/x86_64-linux-gnu/libpcsclite_real.so.1
+04c99d1b7dd55c8a510fb2dd0ce8a42b  usr/share/doc/libpcsclite1/changelog.Debian.gz
+480724f81e1908d566066d97265e358d  usr/share/doc/libpcsclite1/changelog.gz
+ef4a2f11d02a783d0f03a7352cfca4aa  usr/share/doc/libpcsclite1/copyright

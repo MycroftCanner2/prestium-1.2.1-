@@ -96,6 +96,7 @@ libpolkit-gobject-1.so.0 libpolkit-gobject-1-0 #MINVER#
  polkit_subject_get_type@Base 0.94
  polkit_subject_hash@Base 0.94
  polkit_subject_new_for_gvariant@Base 0.99
+ polkit_subject_new_for_gvariant_invocation@Base 124
  polkit_subject_to_gvariant@Base 0.99
  polkit_subject_to_string@Base 0.94
  polkit_system_bus_name_get_name@Base 0.94
@@ -122,8 +123,11 @@ libpolkit-gobject-1.so.0 libpolkit-gobject-1-0 #MINVER#
  polkit_unix_netgroup_get_type@Base 0.104
  polkit_unix_netgroup_new@Base 0.104
  polkit_unix_netgroup_set_name@Base 0.104
+ polkit_unix_process_get_gids@Base 124
  polkit_unix_process_get_owner@Base 0.94
  polkit_unix_process_get_pid@Base 0.94
+ polkit_unix_process_get_pidfd@Base 124
+ polkit_unix_process_get_pidfd_is_safe@Base 124
  polkit_unix_process_get_racy_uid__@Base 0.105-21~
  polkit_unix_process_get_start_time@Base 0.94
  polkit_unix_process_get_type@Base 0.94
@@ -131,7 +135,10 @@ libpolkit-gobject-1.so.0 libpolkit-gobject-1-0 #MINVER#
  polkit_unix_process_new@Base 0.94
  polkit_unix_process_new_for_owner@Base 0.101
  polkit_unix_process_new_full@Base 0.94
+ polkit_unix_process_new_pidfd@Base 124
+ polkit_unix_process_set_gids@Base 124
  polkit_unix_process_set_pid@Base 0.94
+ polkit_unix_process_set_pidfd@Base 124
  polkit_unix_process_set_start_time@Base 0.101
  polkit_unix_process_set_uid@Base 0.101
  polkit_unix_session_get_session_id@Base 0.94

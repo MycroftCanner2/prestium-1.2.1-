@@ -1,4 +1,4 @@
-3360b80d78e1c7589623a386460688c4  usr/lib/x86_64-linux-gnu/libpolkit-gobject-1.so.0.0.0
+22f5bb285841d43028d2c59068226c34  usr/lib/x86_64-linux-gnu/libpolkit-gobject-1.so.0.0.0
 b039d75b4888caa56a95e8170d2c9e26  usr/share/doc/libpolkit-gobject-1-0/NEWS.Debian.gz
-2ddc10010c101efc9d488107958859f1  usr/share/doc/libpolkit-gobject-1-0/changelog.Debian.gz
-bbab86366c7735eeb867287f26851947  usr/share/doc/libpolkit-gobject-1-0/copyright
+f41f8244cb046a69327abda5eadd29cb  usr/share/doc/libpolkit-gobject-1-0/changelog.Debian.gz
+826842d6ec6fc97950d3823511e24422  usr/share/doc/libpolkit-gobject-1-0/copyright

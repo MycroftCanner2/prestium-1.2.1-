@@ -80,6 +80,7 @@ libpixman-1.so.0 libpixman-1-0 #MINVER#
  pixman_region32_contains_point@Base 0.11.2
  pixman_region32_contains_rectangle@Base 0.11.2
  pixman_region32_copy@Base 0.11.2
+ pixman_region32_empty@Base 0.44.0
  pixman_region32_equal@Base 0.11.2
  pixman_region32_extents@Base 0.11.2
  pixman_region32_fini@Base 0.11.2
@@ -104,6 +105,7 @@ libpixman-1.so.0 libpixman-1-0 #MINVER#
  pixman_region_contains_point@Base 0
  pixman_region_contains_rectangle@Base 0
  pixman_region_copy@Base 0
+ pixman_region_empty@Base 0.44.0
  pixman_region_equal@Base 0
  pixman_region_extents@Base 0
  pixman_region_fini@Base 0

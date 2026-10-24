@@ -18,6 +18,7 @@ libpcre2-8.so.0 libpcre2-8-0 #MINVER#
  pcre2_general_context_free_8@Base 10.22
  pcre2_get_error_message_8@Base 10.22
  pcre2_get_mark_8@Base 10.22
+ pcre2_get_match_data_heapframes_size_8@Base 10.43
  pcre2_get_match_data_size_8@Base 10.34
  pcre2_get_ovector_count_8@Base 10.22
  pcre2_get_ovector_pointer_8@Base 10.22
@@ -53,13 +54,17 @@ libpcre2-8.so.0 libpcre2-8-0 #MINVER#
  pcre2_set_glob_separator_8@Base 10.32
  pcre2_set_heap_limit_8@Base 10.32
  pcre2_set_match_limit_8@Base 10.22
+ pcre2_set_max_pattern_compiled_length_8@Base 10.44
  pcre2_set_max_pattern_length_8@Base 10.22
+ pcre2_set_max_varlookbehind_8@Base 10.43
  pcre2_set_newline_8@Base 10.22
  pcre2_set_offset_limit_8@Base 10.22
+ pcre2_set_optimize_8@Base 10.45~rc1
  pcre2_set_parens_nest_limit_8@Base 10.22
  pcre2_set_recursion_limit_8@Base 10.22
  pcre2_set_recursion_memory_management_8@Base 10.22
  pcre2_set_substitute_callout_8@Base 10.34
+ pcre2_set_substitute_case_callout_8@Base 10.45~rc1
  pcre2_substitute_8@Base 10.22
  pcre2_substring_copy_byname_8@Base 10.22
  pcre2_substring_copy_bynumber_8@Base 10.22

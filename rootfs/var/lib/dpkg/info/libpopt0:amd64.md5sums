@@ -1,7 +1,7 @@
-99b094411fd4149c1958b9ad911d1a14  usr/lib/x86_64-linux-gnu/libpopt.so.0.0.2
+1aa810d01015f10066a7818254a1d4cc  usr/lib/x86_64-linux-gnu/libpopt.so.0.0.2
 ee76d97457a8f33a4de8799bcc190a43  usr/share/doc/libpopt0/README
-8d89e13b930280ab8290c209a1c33912  usr/share/doc/libpopt0/changelog.Debian.gz
-903ebb2b5e7f5d5dad3dbc7164c63f73  usr/share/doc/libpopt0/copyright
+44b6293a87f898ead5ccce5a195482d2  usr/share/doc/libpopt0/changelog.Debian.gz
+d4ab6f77c22c6b178e6e8b7352889d4e  usr/share/doc/libpopt0/copyright
 389abd7f37509efcca3c4ea15c55cf52  usr/share/locale/ca/LC_MESSAGES/popt.mo
 1e06f35a07e30f4266185e3f1a6548b8  usr/share/locale/cs/LC_MESSAGES/popt.mo
 e09ba21cf4ae69b49826e2df279a108a  usr/share/locale/da/LC_MESSAGES/popt.mo

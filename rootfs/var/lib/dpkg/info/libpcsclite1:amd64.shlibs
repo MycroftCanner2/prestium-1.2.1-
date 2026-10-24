@@ -1,1 +1,2 @@
-libpcsclite 1 libpcsclite1 (>= 1.9.9)
+libpcsclite 1 libpcsclite1 (>= 2.3.3)
+libpcsclite_real 1 libpcsclite1 (>= 2.3.3)

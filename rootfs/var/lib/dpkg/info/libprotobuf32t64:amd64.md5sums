@@ -1,0 +1,5 @@
+b688d7104f485609151d0029a08be2bc  usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+fe94ce372da6d2e36153101b2ef87d4e  usr/share/doc/libprotobuf32t64/changelog.Debian.gz
+4f0c9244248e5fde3abab8d0ff21d4e6  usr/share/doc/libprotobuf32t64/changelog.gz
+803940863fba8664d83a8b8fd4a01fb0  usr/share/doc/libprotobuf32t64/copyright
+28d1330632f397cafaa93c5dd2eb087c  usr/share/lintian/overrides/libprotobuf32t64

@@ -2546,7 +2546,6 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZN9DomWidgetD2Ev@Qt_5 5.6.0~beta
  _ZNK10DomInclude5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  _ZNK10DomPalette5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
- _ZNK10QStringRef7compareE13QLatin1StringN2Qt15CaseSensitivityE@Qt_5 5.10.1
  _ZNK11DomDateTime5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  _ZNK11DomGradient5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  _ZNK11DomIncludes5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
@@ -3207,6 +3206,7 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZNK9DomSpacer5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  _ZNK9DomString5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  _ZNK9DomWidget5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
+ _ZSt20get_temporary_bufferIP7QWidgetESt4pairIPT_lEl@Qt_5 5.15.13
  _ZTI12QFormBuilder@Qt_5 5.6.0~beta
  _ZTI12QTextBuilder@Qt_5 5.6.0~beta
  _ZTI13QDesignerMenu@Qt_5 5.6.0~beta

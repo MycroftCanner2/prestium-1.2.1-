@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libpostproc.so.58.3.100
+/usr/share
+/usr/share/doc
+/usr/share/doc/libpostproc58
+/usr/share/doc/libpostproc58/changelog.Debian.gz
+/usr/share/doc/libpostproc58/changelog.gz
+/usr/share/doc/libpostproc58/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libpostproc58
+/usr/lib/x86_64-linux-gnu/libpostproc.so.58

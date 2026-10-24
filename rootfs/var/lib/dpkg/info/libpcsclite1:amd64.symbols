@@ -22,3 +22,23 @@ libpcsclite.so.1 libpcsclite1 #MINVER#
  g_rgSCardT0Pci@Base 1.0.0
  g_rgSCardT1Pci@Base 1.0.0
  pcsc_stringify_error@Base 1.3.0
+libpcsclite_real.so.1 libpcsclite1 #MINVER#
+* Build-Depends-Package: libpcsclite-dev
+ SCardBeginTransaction@Base 2.1.0
+ SCardCancel@Base 2.1.0
+ SCardConnect@Base 2.1.0
+ SCardControl@Base 2.1.0
+ SCardDisconnect@Base 2.1.0
+ SCardEndTransaction@Base 2.1.0
+ SCardEstablishContext@Base 2.1.0
+ SCardFreeMemory@Base 2.1.0
+ SCardGetAttrib@Base 2.1.0
+ SCardGetStatusChange@Base 2.1.0
+ SCardIsValidContext@Base 2.1.0
+ SCardListReaderGroups@Base 2.1.0
+ SCardListReaders@Base 2.1.0
+ SCardReconnect@Base 2.1.0
+ SCardReleaseContext@Base 2.1.0
+ SCardSetAttrib@Base 2.1.0
+ SCardStatus@Base 2.1.0
+ SCardTransmit@Base 2.1.0

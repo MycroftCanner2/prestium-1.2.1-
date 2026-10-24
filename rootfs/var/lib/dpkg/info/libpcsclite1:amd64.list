@@ -2,11 +2,11 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libpcsclite.so.1.0.0
+/usr/lib/x86_64-linux-gnu/libpcsclite.so.1
+/usr/lib/x86_64-linux-gnu/libpcsclite_real.so.1
 /usr/share
 /usr/share/doc
 /usr/share/doc/libpcsclite1
 /usr/share/doc/libpcsclite1/changelog.Debian.gz
 /usr/share/doc/libpcsclite1/changelog.gz
 /usr/share/doc/libpcsclite1/copyright
-/usr/lib/x86_64-linux-gnu/libpcsclite.so.1
