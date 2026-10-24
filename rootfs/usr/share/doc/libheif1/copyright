@@ -5,28 +5,47 @@ Source: https://github.com/strukturag/libheif
 
 Files: *
 Copyright:
-  2017 struktur AG, Dirk Farin <farin@struktur.de>
-  2017 struktur AG, Joachim Bauch <bauch@struktur.de>
+  Copyright (c) 2017-2024 Dirk Farin <dirk.farin@gmail.com>
+  Copyright (c) 2017-2019 struktur AG, Joachim Bauch <bauch@struktur.de>
+  Copyright (c) 2023-2024 Brad Hards <bradh@frogmouth.net>
 License: LGPL-3+
+
+Files: libheif/plugins/encoder_openjph.cc
+Copyright:
+  Copyright (c) 2023 Devon Sookhoo
+  Copyright (c) 2023 Dirk Farin <dirk.farin@gmail.com>
+  Copyright (C) 2024 Brad Hards
+  Copyright (c) 2019, Aous Naman
+  Copyright (c) 2019, Kakadu Software Pty Ltd, Australia
+  Copyright (c) 2019, The University of New South Wales, Australia
+License: LGPL-3+ and BSD-2-clause
 
 Files: debian/*
 Copyright:
-  2018 Joachim Bauch <bauch@struktur.de>
+  2018 Joachim Bauch <fancycode@debian.org>
 License: GPL-3+
 
 Files: examples/*
 Copyright:
-  2017 struktur AG, Joachim Bauch <bauch@struktur.de>
-  2017 struktur AG, Dirk Farin <farin@struktur.de>
-License: MIT
-Comment: Please note that only the sample applications are MIT licensed while
+  Copyright (c) 2017,2018 struktur AG, Joachim Bauch <bauch@struktur.de>
+  Copyright (c) 2017,2018,2019,2023 Dirk Farin <dirk.farin@gmail.com>
+  Copyright (c) 2024 Joachim Bauch <bauch@struktur.de>
+License: Expat
+Comment: Please note that only the sample applications are MIT/Expat licensed while
  the decoding library itself is licensed as LGPL-3+.
+
+Files: examples/benchmark.cc
+ examples/benchmark.h
+Copyright:
+  Copyright (c) 2022 Dirk Farin <dirk.farin@gmail.com>
+License: LGPL-3+
 
 Files: extra/getopt.c
  extra/getopt.h
  extra/getopt_long.c
-Copyright: 1987-1996 The Regents of the University of California
-License: BSD-4-clause
+Copyright:
+  Copyright (c) 1987, 1993, 1994, 1996 The Regents of the University of California. All rights reserved.
+License: BSD-4-Clause-UC
 
 Files: gdk-pixbuf/pixbufloader-heif.c
 Copyright:
@@ -35,25 +54,35 @@ License: LGPL-3+
 
 Files: scripts/*
 Copyright:
-  2018 Joachim Bauch <bauch@struktur.de>
+  Copyright (c) 2018 struktur AG, Joachim Bauch <bauch@struktur.de>
+  Copyright (c) 2018 struktur AG, Leon Klingele <leon@struktur.de>
+  Copyright (c) 2023 Dirk Farin <dirk.farin@gmail.com>
 License: GPL-3+
+
+Files: scripts/test-javascript.js
+Copyright:
+  (c)2017 struktur AG, http://www.struktur.de, opensource@struktur.de
+License: LGPL-3+
 
 Files: scripts/cpplint.py
 Copyright:
-  2009 Google Inc. All rights reserved.
+  Copyright (c) 2009 Google Inc. All rights reserved.
 License: BSD-3-clause
 
 Files: tests/*
 Copyright:
-  2019 struktur AG, Dirk Farin <farin@struktur.de>
-License: MIT
-Comment: Please note that only the tests are MIT licensed while the decoding
+  Copyright (c) 2019,2023 Dirk Farin <dirk.farin@gmail.com>
+  Copyright (c) 2019 struktur AG, Joachim Bauch <bauch@struktur.de>
+  Copyright (c) 2023 struktur AG, Dirk Farin <dirk.farin@gmail.com>
+  Copyright (c) 2023-2024 Brad Hards <bradh@frogmouth.net>
+License: Expat
+Comment: Please note that only the tests are MIT/Expat licensed while the decoding
  library itself is licensed as LGPL-3+.
 
-Files: tests/catch.hpp
+Files: tests/catch_amalgamated.*
 Copyright:
-  2019 Two Blue Cubes Ltd. All rights reserved.
-License: BOOST-1.0
+  Copyright Catch2 Authors
+License: BSL-1.0
 
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
@@ -89,6 +118,30 @@ License: LGPL-3+
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+ .
+ 1. Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ .
+ 2. Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are
@@ -116,7 +169,7 @@ License: BSD-3-clause
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-License: BSD-4-clause
+License: BSD-4-Clause-UC
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions
  are met:
@@ -145,7 +198,7 @@ License: BSD-4-clause
  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  SUCH DAMAGE.
 
-License: MIT
+License: Expat
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -164,7 +217,7 @@ License: MIT
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 
-License: BOOST-1.0
+License: BSL-1.0
  Boost Software License - Version 1.0 - August 17th, 2003
  .
  Permission is hereby granted, free of charge, to any person or organization

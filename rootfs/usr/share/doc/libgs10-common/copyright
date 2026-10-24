@@ -4,12 +4,19 @@ Upstream-Contact: Ghostscript development and discussion <gs-devel@ghostscript.c
 Source: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases
  Repackaged, excluding non-DFSG files and convenience code copies:
   * non-DFSG fonts
+  * images containing non-DFSG ICC profile
   * PCL and PX3 files without license
   * XPS document with embedded potentially non-DFSG odttf font
   * embedded code copies cluttering authorship/licensing tracking
     (Arguably custom build of jpeg code is required - see bug#582521)
 Files-Excluded:
  cups/libs/*
+ doc/language-bindings/images/*.png
+ doc/src/_static/cm-fig*.png
+ doc/src/_static/export-jar.png
+ doc/src/_static/ghostnet-wpf-example.png
+ doc/src/_static/gsviewer.png
+ doc/src/_static/linking-jar.png
  expat/*
  extract/*
  freetype/*
@@ -38,8 +45,14 @@ Files-Excluded:
  zlib/*
 
 Files:
+ .readthedocs.yaml
+ DroidSansFallback.NOTICE
+ autogen.sh
  arch/*
  base/*
+ contrib/autogen.sh
+ contrib/contrib.mak
+ contrib/gdevmd2k.c
  devices/*
  doc/*
  examples/*
@@ -58,9 +71,9 @@ Files:
  Makefile.in
  Resource/CMap/Identity-UTF16-H
 Copyright:
-  1992-1996, 1999-2000  Aladdin Enterprises, Menlo Park, CA
+  1992-1996, 1999-2023  Aladdin Enterprises, Menlo Park, CA
   1991                  Apple Computer, Inc
-  2001-2022             Artifex Software, Inc.
+  2001-2023             Artifex Software, Inc.
   1989                  Berthold K.P. Horn
   1986                  Eric Gisin <egisin@waterloo.csnet>
   2001                  gs-cjk project
@@ -112,7 +125,7 @@ Files:
  base/tttype.h
  base/tttypes.h
 Copyright:
-  2001-2022  Artifex Software, Inc.
+  2001-2023  Artifex Software, Inc.
   1996-1998  David Turner
   1996-1998  Robert Wilhelm
   1996-1998  Werner Lemberg
@@ -146,23 +159,6 @@ Comment:
  Copyright and licensing for these files is presumed to be null.
 
 Files:
- Resource/Init/pdf_sec.ps
-Copyright:
-  2001-2021  Artifex Software, Inc.
-  1996-1998  Geoffrey Keating
-License-Grant:
- This software is distributed under license
- and may not be copied, modified or distributed
- except as expressly authorized
- under the terms of the license
- contained in the file <LICENSE> in this distribution.
-License: AGPL-3+ and custom
- This file may be freely distributed with or without modifications,
- so long as modified versions are marked as such
- and copyright notices are not removed.
-Reference: LICENSE
-
-Files:
  base/bobbin.c
  base/bobbin.h
  base/gxfapi.c
@@ -182,7 +178,7 @@ Files:
  xps/xpsfapi.c
  xps/xpsfapi.h
 Copyright:
-  2001-2022  Artifex Software, Inc.
+  2001-2023  Artifex Software, Inc.
 License-Grant:
  This software is distributed under license
  and may not be copied, modified or distributed
@@ -219,6 +215,18 @@ Files:
 Copyright:
   1990-2015  Adobe Systems Incorporated
 License: BSD-3-Clause~Adobe
+
+Files:
+ contrib/lxm3200-tweaked/*
+Copyright:
+ Daniel Gordini (dgordin@tin.it)
+License: GPL-2
+
+Files:
+ contrib/chp2200/*
+Copyright:
+ Siow-Kiat Tan <siow-kiat_tan@hp.com>
+License: GPL-2
 
 Files:
  contrib/pcl3/*
@@ -510,7 +518,7 @@ Files:
  config.guess
  config.sub
 Copyright:
-  1992-2018  Free Software Foundation, Inc.
+  1992-2022  Free Software Foundation, Inc.
 License-Grant:
  This file is free software;
  you can redistribute it and/or modify it
@@ -574,6 +582,7 @@ Comment:
 
 Files:
  contrib/gdevcd8.c
+ contrib/gdevcd8.h
 Copyright:
   1999       Aladdin Enterprises, Menlo Park, CA
   2000       Hewlett-Packard Company
@@ -727,7 +736,7 @@ Comment:
 Files:
  debian/*
 Copyright:
-  2009-2022  Jonas Smedegaard <dr@jones.dk>
+  2009-2023  Jonas Smedegaard <dr@jones.dk>
   2004-2009  Masayuki Hatta (mhatta) <mhatta@debian.org>
 License-Grant:
  This packaging is free software;

@@ -10,7 +10,8 @@
 <h2 class=top>Matroska Tags</h2>
 <p>The following tags are extracted from Matroska multimedia container files.
 This container format is used by file types such as MKA, MKV, MKS and WEBM.
-For speed, by default ExifTool extracts tags only up to the first Cluster.
+For speed, by default ExifTool extracts tags only up to the first Cluster
+unless a Seek element specifies the position of a Tags element after this.
 However, the <a href="../ExifTool.html#Verbose">Verbose</a> (-v) and <a href="../ExifTool.html#Unknown">Unknown</a> = 2 (-U) options force processing of
 Cluster data, and the <a href="../ExifTool.html#ExtractEmbedded">ExtractEmbedded</a> (-ee) option skips over Clusters to
 read subsequent tags.  See
@@ -101,8 +102,9 @@ Matroska specification.</p>
 <td title='0x001a = 26'>0x001a</td>
 <td>VideoScanType</td>
 <td class=c>no</td>
-<td><span class=s>0 = Progressive
-  <br>1 = Interlaced</span></td></tr>
+<td><span class=s>0 = Undetermined
+  <br>1 = Interlaced
+  <br>2 = Progressive</span></td></tr>
 <tr>
 <td title='0x001b = 27'>0x001b</td>
 <td>BlockDuration?</td>
@@ -1074,6 +1076,11 @@ Matroska specification.</p>
 <td>Cluster</td>
 <td class=c>-</td>
 <td>--&gt; <a href='Matroska.html'>Matroska Tags</a></td></tr>
+<tr>
+<td title='0x5345414c = 1397047628'>0x5345414c</td>
+<td>SEAL</td>
+<td class=c>-</td>
+<td>--&gt; <a href='XMP.html#SEAL'>XMP SEAL Tags</a></td></tr>
 </table></td></tr></table></blockquote>
 
 <h2><a name='Projection'>Matroska Projection Tags</a></h2>
@@ -1354,7 +1361,7 @@ for the specification.</p>
 <tr class=b>
 <td>'INSTRUMENTS'</td>
 <td>Instruments</td>
-<td class=c>no</td>
+<td class=c title=' + = List'>no+</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>'ISBN'</td>
@@ -1369,7 +1376,7 @@ for the specification.</p>
 <tr>
 <td>'KEYWORDS'</td>
 <td>Keywords</td>
-<td class=c>no</td>
+<td class=c title=' + = List'>no+</td>
 <td>&nbsp;</td></tr>
 <tr class=b>
 <td>'LABEL'</td>
@@ -1567,75 +1574,85 @@ for the specification.</p>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
 <tr>
+<td>'SPHERICAL-VIDEO'</td>
+<td>SphericalVideoXML</td>
+<td class=c>-</td>
+<td>--&gt; <a href='XMP.html'>XMP Tags</a></td></tr>
+<tr class=b>
 <td>'SUBJECT'</td>
 <td>Subject</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr class=b>
+<tr>
 <td>'SUBTITLE'</td>
 <td>Subtitle</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr>
+<tr class=b>
 <td>'SUMMARY'</td>
 <td>Summary</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr class=b>
+<tr>
 <td>'SYNOPSIS'</td>
 <td>Synopsis</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr>
+<tr class=b>
 <td>'TERMS_OF_USE'</td>
 <td>TermsOfUse</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr class=b>
+<tr>
 <td>'THANKS_TO'</td>
 <td>ThanksTo</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr>
+<tr class=b>
 <td>'TITLE'</td>
 <td>Title</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr class=b>
+<tr>
 <td>'TMDB'</td>
 <td>TMDB</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr>
+<tr class=b>
 <td>'TOTAL_PARTS'</td>
 <td>TotalParts</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr class=b>
+<tr>
 <td>'TUNING'</td>
 <td>Tuning</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr>
+<tr class=b>
 <td>'TVDB'</td>
 <td>TVDB</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr class=b>
+<tr>
 <td>'URL'</td>
 <td>URL</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
-<tr>
+<tr class=b>
 <td>'WRITTEN_BY'</td>
 <td>WrittenBy</td>
 <td class=c>no</td>
 <td>&nbsp;</td></tr>
+<tr>
+<td>'spherical-video'</td>
+<td>SphericalVideoXML</td>
+<td class=c>-</td>
+<td>--&gt; <a href='XMP.html'>XMP Tags</a></td></tr>
 </table></td></tr></table></blockquote>
 
 <hr>
 (This document generated automatically by Image::ExifTool::BuildTagLookup)
-<br><i>Last revised Jan 17, 2023</i>
+<br><i>Last revised Dec 23, 2024</i>
 <p class=lf><a href='index.html'>&lt;-- ExifTool Tag Names</a></p>
 </body>
 </html>
