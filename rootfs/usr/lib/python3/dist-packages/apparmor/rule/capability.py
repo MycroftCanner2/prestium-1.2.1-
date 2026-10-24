@@ -15,94 +15,96 @@
 
 import re
 
+from apparmor.common import AppArmorBug, AppArmorException
 from apparmor.regex import RE_PROFILE_CAP
-from apparmor.common import AppArmorBug, AppArmorException, type_is_str
 from apparmor.rule import BaseRule, BaseRuleset, logprof_value_or_all, parse_modifiers
-
-# setup module translations
 from apparmor.translations import init_translation
+
 _ = init_translation()
+
+capability_keywords = [
+    'audit_control', 'audit_read', 'audit_write', 'block_suspend', 'bpf', 'checkpoint_restore',
+    'chown', 'dac_override', 'dac_read_search', 'fowner', 'fsetid', 'ipc_lock', 'ipc_owner',
+    'kill', 'lease', 'linux_immutable', 'mac_admin', 'mac_override', 'mknod', 'net_admin',
+    'net_bind_service', 'net_broadcast', 'net_raw', 'perfmon', 'setfcap', 'setgid', 'setpcap',
+    'setuid', 'syslog', 'sys_admin', 'sys_boot', 'sys_chroot', 'sys_module', 'sys_nice',
+    'sys_pacct', 'sys_ptrace', 'sys_rawio', 'sys_resource', 'sys_time', 'sys_tty_config',
+    'wake_alarm']
 
 
 class CapabilityRule(BaseRule):
-    '''Class to handle and store a single capability rule'''
+    """Class to handle and store a single capability rule"""
 
     # Nothing external should reference this class, all external users
     # should reference the class field CapabilityRule.ALL
-    class __CapabilityAll(object):
+    class __CapabilityAll:
         pass
 
     ALL = __CapabilityAll
 
     rule_name = 'capability'
+    _match_re = RE_PROFILE_CAP
 
     def __init__(self, cap_list, audit=False, deny=False, allow_keyword=False,
                  comment='', log_event=None):
 
-        super(CapabilityRule, self).__init__(audit=audit, deny=deny,
-                                             allow_keyword=allow_keyword,
-                                             comment=comment,
-                                             log_event=log_event)
+        super().__init__(audit=audit, deny=deny, allow_keyword=allow_keyword,
+                         comment=comment, log_event=log_event)
         # Because we support having multiple caps in one rule,
         # initializer needs to accept a list of caps.
         self.all_caps = False
-        if cap_list == CapabilityRule.ALL:
+        if cap_list == self.ALL:
             self.all_caps = True
             self.capability = set()
         else:
-            if type_is_str(cap_list):
-                self.capability = {cap_list}
-            elif type(cap_list) == list and len(cap_list) > 0:
+            if isinstance(cap_list, str):
+                cap_list = [cap_list]
+
+            if isinstance(cap_list, list):
+                if not cap_list:
+                    raise AppArmorBug('Passed empty capability list to %s: %s' % (type(self).__name__, str(cap_list)))
+                for cap in cap_list:
+                    if not cap.strip():
+                        # make sure none of the cap_list arguments are blank, in
+                        # case we decide to return one cap per output line
+                        raise AppArmorBug('Passed empty capability to %s: %s' % (type(self).__name__, str(cap_list)))
+                    if cap not in capability_keywords:
+                        raise AppArmorException('Passed unknown capability to %s: %s' % (type(self).__name__, cap))
                 self.capability = set(cap_list)
             else:
-                raise AppArmorBug('Passed unknown object to CapabilityRule: %s' % str(cap_list))
-            # make sure none of the cap_list arguments are blank, in
-            # case we decide to return one cap per output line
-            for cap in self.capability:
-                if len(cap.strip()) == 0:
-                    raise AppArmorBug('Passed empty capability to CapabilityRule: %s' % str(cap_list))
+                raise AppArmorBug('Passed unknown object to %s: %s' % (type(self).__name__, str(cap_list)))
 
     @classmethod
-    def _match(cls, raw_rule):
-        return RE_PROFILE_CAP.search(raw_rule)
-
-    @classmethod
-    def _parse(cls, raw_rule):
-        '''parse raw_rule and return CapabilityRule'''
-
-        matches = cls._match(raw_rule)
-        if not matches:
-            raise AppArmorException(_("Invalid capability rule '%s'") % raw_rule)
+    def _create_instance(cls, raw_rule, matches):
+        """parse raw_rule and return instance of this class"""
 
         audit, deny, allow_keyword, comment = parse_modifiers(matches)
-
-        capability = []
 
         if matches.group('capability'):
             capability = matches.group('capability').strip()
             capability = re.split("[ \t]+", capability)
         else:
-            capability = CapabilityRule.ALL
+            capability = cls.ALL
 
-        return CapabilityRule(capability, audit=audit, deny=deny,
-                              allow_keyword=allow_keyword,
-                              comment=comment)
+        return cls(capability, audit=audit, deny=deny,
+                   allow_keyword=allow_keyword,
+                   comment=comment)
 
     def get_clean(self, depth=0):
-        '''return rule (in clean/default formatting)'''
+        """return rule (in clean/default formatting)"""
 
         space = '  ' * depth
         if self.all_caps:
-            return('%s%scapability,%s' % (space, self.modifiers_str(), self.comment))
+            return ('%s%scapability,%s' % (space, self.modifiers_str(), self.comment))
         else:
             caps = ' '.join(self.capability).strip()  # XXX return multiple lines, one for each capability, instead?
             if caps:
-                return('%s%scapability %s,%s' % (space, self.modifiers_str(), ' '.join(sorted(self.capability)), self.comment))
+                return ('%s%scapability %s,%s' % (space, self.modifiers_str(), ' '.join(sorted(self.capability)), self.comment))
             else:
                 raise AppArmorBug("Empty capability rule")
 
-    def is_covered_localvars(self, other_rule):
-        '''check if other_rule is covered by this rule object'''
+    def _is_covered_localvars(self, other_rule):
+        """check if other_rule is covered by this rule object"""
 
         if not self._is_covered_list(self.capability, self.all_caps, other_rule.capability, other_rule.all_caps, 'capability'):
             return False
@@ -110,11 +112,8 @@ class CapabilityRule(BaseRule):
         # still here? -> then it is covered
         return True
 
-    def is_equal_localvars(self, rule_obj, strict):
-        '''compare if rule-specific variables are equal'''
-
-        if not type(rule_obj) == CapabilityRule:
-            raise AppArmorBug('Passed non-capability rule: %s' % str(rule_obj))
+    def _is_equal_localvars(self, rule_obj, strict):
+        """compare if rule-specific variables are equal"""
 
         if (self.capability != rule_obj.capability
                 or self.all_caps != rule_obj.all_caps):
@@ -137,17 +136,24 @@ class CapabilityRule(BaseRule):
 
         return severity
 
-    def logprof_header_localvars(self):
+    def _logprof_header_localvars(self):
         cap_txt = logprof_value_or_all(self.capability, self.all_caps)
 
-        return [
-            _('Capability'), cap_txt,
-        ]
+        return _('Capability'), cap_txt
+
+    @staticmethod
+    def hashlog_from_event(hl, e):
+        hl[e['name']] = True
+
+    @classmethod
+    def from_hashlog(cls, hl):
+        for cap in hl.keys():
+            yield cls(cap, log_event=True)
 
 
 class CapabilityRuleset(BaseRuleset):
-    '''Class to handle and store a collection of capability rules'''
+    """Class to handle and store a collection of capability rules"""
 
     def get_glob(self, path_or_rule):
-        '''Return the next possible glob. For capability rules, that's always "capability," (all capabilities)'''
+        """Return the next possible glob. For capability rules, that's always "capability," (all capabilities)"""
         return 'capability,'

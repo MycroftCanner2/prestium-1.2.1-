@@ -14,87 +14,89 @@
 
 import re
 
-from apparmor.regex import RE_PROFILE_DBUS, RE_PROFILE_NAME, strip_parenthesis, strip_quotes
 from apparmor.common import AppArmorBug, AppArmorException
-from apparmor.rule import BaseRule, BaseRuleset, check_and_split_list, logprof_value_or_all, parse_modifiers, quote_if_needed
-
-# setup module translations
+from apparmor.regex import RE_PROFILE_DBUS, RE_PROFILE_NAME, strip_parenthesis, strip_quotes
+from apparmor.rule import (
+    BaseRule, BaseRuleset, check_and_split_list, logprof_value_or_all,
+    parse_modifiers, quote_if_needed)
 from apparmor.translations import init_translation
+
 _ = init_translation()
 
-
 message_keywords = ['send', 'receive', 'r', 'read', 'w', 'write', 'rw']
-access_keywords  = [ 'bind', 'eavesdrop' ] + message_keywords
+access_keywords = ['bind', 'eavesdrop'] + message_keywords
 
 # XXX joint_access_keyword and RE_ACCESS_KEYWORDS exactly as in SignalRule - move to function?
-joint_access_keyword = '(' + '(\s|,)*' + '(' + '|'.join(access_keywords) + ')(\s|,)*' + ')'
-RE_ACCESS_KEYWORDS = ( joint_access_keyword +  # one of the access_keyword or
-                       '|' +                                           # or
-                       '\(' + '(\s|,)*' + joint_access_keyword + '?' + '(' + '(\s|,)+' + joint_access_keyword + ')*' + '\)'  # one or more access_keyword in (...)
-                     )
+joint_access_keyword = '(' + r'(\s|,)*' + '(' + '|'.join(access_keywords) + r')(\s|,)*' + ')'
+RE_ACCESS_KEYWORDS = (
+    joint_access_keyword  # one of the access_keyword
+    + '|'  # or
+    + r'\(' + r'(\s|,)*' + joint_access_keyword + '?' + '(' + r'(\s|,)+' + joint_access_keyword + ')*' + r'\)'  # one or more access_keyword in (...)
+)
 
 
-RE_FLAG         = '(?P<%s>(\S+|"[^"]+"|\(\s*\S+\s*\)|\(\s*"[^"]+"\)\s*))'    # string without spaces, or quoted string, optionally wrapped in (...). %s is the match group name
+RE_FLAG = r'(?P<%s>(\S+|"[^"]+"|\(\s*\S+\s*\)|\(\s*"[^"]+"\)\s*))'  # string without spaces, or quoted string, optionally wrapped in (...). %s is the match group name
 # plaintext version:      | * | "* "  | (    *    ) | (  " *   " )    |
 
 # XXX this regex will allow repeated parameters, last one wins
 # XXX (the parser will reject such rules)
-RE_DBUS_DETAILS  = re.compile(
-    '^' +
-    '(\s+(?P<access>'       + RE_ACCESS_KEYWORDS + '))?' +  # optional access keyword(s)
-    '((\s+(bus\s*=\s*'      + RE_FLAG % 'bus'       + '))?|' +  # optional bus= system | session | AARE, (...) optional
-    '(\s+(path\s*=\s*'      + RE_FLAG % 'path'      + '))?|' +  # optional path=AARE, (...) optional
-    '(\s+(name\s*=\s*'      + RE_FLAG % 'name'      + '))?|' +  # optional name=AARE, (...) optional
-    '(\s+(interface\s*=\s*' + RE_FLAG % 'interface' + '))?|' +  # optional interface=AARE, (...) optional
-    '(\s+(member\s*=\s*'    + RE_FLAG % 'member'    + '))?|' +  # optional member=AARE, (...) optional
-    '(\s+(peer\s*=\s*\((,|\s)*'    +  # optional peer=( name=AARE and/or label=AARE ), (...) required
-            '(' +
-                '(' + '(,|\s)*' + ')' +  # empty peer=()
-                '|'  # or
-                '(' + 'name\s*=\s*' + RE_PROFILE_NAME % 'peername1' + ')' +  # only peer name (match group peername1)
-                '|'  # or
-                '(' + 'label\s*=\s*' + RE_PROFILE_NAME % 'peerlabel1' + ')' +  # only peer label (match group peerlabel1)
-                '|'  # or
-                '(' + 'name\s*=\s*'  + RE_PROFILE_NAME % 'peername2'  + '(,|\s)+' + 'label\s*=\s*' + RE_PROFILE_NAME % 'peerlabel2' + ')' +  # peer name + label (match name peername2/peerlabel2)
-                '|'  # or
-                '(' + 'label\s*=\s*' + RE_PROFILE_NAME % 'peerlabel3' + '(,|\s)+' + 'name\s*=\s*'  + RE_PROFILE_NAME % 'peername3'  + ')' +  # peer label + name (match name peername3/peerlabel3)
-            ')'
-        '(,|\s)*\)))?){0,6}'
-    '\s*$')
+RE_DBUS_DETAILS = re.compile(
+    '^'
+    + r'(\s+(?P<access>' + RE_ACCESS_KEYWORDS + '))?'  # optional access keyword(s)
+        + '('  # noqa: E131
+            + r'(\s+(bus\s*=\s*'       + RE_FLAG % 'bus'       + '))?|'  # optional bus= system | session | AARE, (...) optional  # noqa: E131,E221
+            + r'(\s+(path\s*=\s*'      + RE_FLAG % 'path'      + '))?|'  # optional path=AARE, (...) optional  # noqa: E221
+            + r'(\s+(name\s*=\s*'      + RE_FLAG % 'name'      + '))?|'  # optional name=AARE, (...) optional  # noqa: E221
+            + r'(\s+(interface\s*=\s*' + RE_FLAG % 'interface' + '))?|'  # optional interface=AARE, (...) optional
+            + r'(\s+(member\s*=\s*'    + RE_FLAG % 'member'    + '))?|'  # optional member=AARE, (...) optional  # noqa: E221
+            + r'(\s+(peer\s*=\s*\((,|\s)*'  # optional peer=(name=AARE and/or label=AARE), (...) required
+                + '('  # noqa: E131
+                    + '(' + r'(,|\s)*' + ')'  # empty peer=()  # noqa: E131
+                    + '|'  # or  # noqa: E131
+                    + '(' + r'name\s*=\s*' + RE_PROFILE_NAME % 'peername1' + ')'  # only peer name (match group peername1)  # noqa: E131
+                    + '|'  # or  # noqa: E131
+                    + '(' r'label\s*=\s*' + RE_PROFILE_NAME % 'peerlabel1' + ')'  # only peer label (match group peerlabel1)  # noqa: E131
+                    + '|'  # or  # noqa: E131
+                    + '(' + r'name\s*=\s*'  + RE_PROFILE_NAME % 'peername2'  + r'(,|\s)+' + r'label\s*=\s*' + RE_PROFILE_NAME % 'peerlabel2' + ')'  # peer name + label (match name peername2/peerlabel2)  # noqa: E131,E221
+                    + '|'  # or  # noqa: E131
+                    + '(' + r'label\s*=\s*' + RE_PROFILE_NAME % 'peerlabel3' + r'(,|\s)+' + r'name\s*=\s*'  + RE_PROFILE_NAME % 'peername3'  + ')'  # peer label + name (match name peername3/peerlabel3)  # noqa: E131,E221
+                + ')'  # noqa: E131
+            + r'(,|\s)*\)))?'
+        + '){0,6}'
+    + r'\s*$')
 
 
 class DbusRule(BaseRule):
-    '''Class to handle and store a single dbus rule'''
+    """Class to handle and store a single dbus rule"""
 
     # Nothing external should reference this class, all external users
     # should reference the class field DbusRule.ALL
-    class __DbusAll(object):
+    class __DbusAll:
         pass
 
     ALL = __DbusAll
 
     rule_name = 'dbus'
+    _match_re = RE_PROFILE_DBUS
 
     def __init__(self, access, bus, path, name, interface, member, peername, peerlabel,
-                audit=False, deny=False, allow_keyword=False, comment='', log_event=None):
+                 audit=False, deny=False, allow_keyword=False, comment='', log_event=None):
 
-        super(DbusRule, self).__init__(audit=audit, deny=deny,
-                                             allow_keyword=allow_keyword,
-                                             comment=comment,
-                                             log_event=log_event)
+        super().__init__(audit=audit, deny=deny, allow_keyword=allow_keyword,
+                         comment=comment, log_event=log_event)
 
-        self.access, self.all_access, unknown_items = check_and_split_list(access, access_keywords, DbusRule.ALL, 'DbusRule', 'access')
+        self.access, self.all_access, unknown_items = check_and_split_list(access, access_keywords, self.ALL, type(self).__name__, 'access')
         if unknown_items:
-            raise AppArmorException(_('Passed unknown access keyword to DbusRule: %s') % ' '.join(unknown_items))
+            raise AppArmorException(_('Passed unknown access keyword to %s: %s') % (type(self).__name__, ' '.join(unknown_items)))
 
-        #                                                       rulepart        partname        is_path log_event
-        self.bus, self.all_buses            = self._aare_or_all(bus,            'bus',          False,  log_event)
-        self.path, self.all_paths           = self._aare_or_all(path,           'path',         True,   log_event)
-        self.name, self.all_names           = self._aare_or_all(name,           'name',         False,  log_event)
-        self.interface, self.all_interfaces = self._aare_or_all(interface,      'interface',    False,  log_event)
-        self.member, self.all_members       = self._aare_or_all(member,         'member',       False,  log_event)
-        self.peername, self.all_peernames   = self._aare_or_all(peername,       'peer name',    False,  log_event)
-        self.peerlabel, self.all_peerlabels = self._aare_or_all(peerlabel,      'peer label',   False,  log_event)
+        #                                                       rulepart   partname    is_path  log_event
+        self.bus, self.all_buses            = self._aare_or_all(bus,       'bus',        False, log_event)  # noqa: E221
+        self.path, self.all_paths           = self._aare_or_all(path,      'path',       True,  log_event)  # noqa: E221
+        self.name, self.all_names           = self._aare_or_all(name,      'name',       False, log_event)  # noqa: E221
+        self.interface, self.all_interfaces = self._aare_or_all(interface, 'interface',  False, log_event)  # noqa: E221
+        self.member, self.all_members       = self._aare_or_all(member,    'member',     False, log_event)  # noqa: E221
+        self.peername, self.all_peernames   = self._aare_or_all(peername,  'peer name',  False, log_event)  # noqa: E221
+        self.peerlabel, self.all_peerlabels = self._aare_or_all(peerlabel, 'peer label', False, log_event)  # noqa: E221
 
         # not all combinations are allowed
         if self.access and 'bind' in self.access and (self.path or self.interface or self.member or self.peername or self.peerlabel):
@@ -107,16 +109,8 @@ class DbusRule(BaseRule):
                     raise AppArmorException(_('dbus %s rules must not contain a name conditional') % '/'.join(self.access))
 
     @classmethod
-    def _match(cls, raw_rule):
-        return RE_PROFILE_DBUS.search(raw_rule)
-
-    @classmethod
-    def _parse(cls, raw_rule):
-        '''parse raw_rule and return DbusRule'''
-
-        matches = cls._match(raw_rule)
-        if not matches:
-            raise AppArmorException(_("Invalid dbus rule '%s'") % raw_rule)
+    def _create_instance(cls, raw_rule, matches):
+        """parse raw_rule and return instance of this class"""
 
         audit, deny, allow_keyword, comment = parse_modifiers(matches)
 
@@ -133,35 +127,35 @@ class DbusRule(BaseRule):
                 # XXX move to function _split_access()?
                 access = strip_parenthesis(details.group('access'))
                 access = access.replace(',', ' ').split()  # split by ',' or whitespace
-                if access == []:  # XXX that happens for "dbus ( )," rules - correct behaviour? (also: same for signal rules?)
-                    access = DbusRule.ALL
+                if not access:  # XXX that happens for "dbus ( )," rules - correct behaviour? (also: same for signal rules?)
+                    access = cls.ALL
             else:
-                access = DbusRule.ALL
+                access = cls.ALL
 
             if details.group('bus'):
                 bus = strip_parenthesis(strip_quotes(details.group('bus')))
             else:
-                bus = DbusRule.ALL
+                bus = cls.ALL
 
             if details.group('path'):
                 path = strip_parenthesis(strip_quotes(details.group('path')))
             else:
-                path = DbusRule.ALL
+                path = cls.ALL
 
             if details.group('name'):
                 name = strip_parenthesis(strip_quotes(details.group('name')))
             else:
-                name = DbusRule.ALL
+                name = cls.ALL
 
             if details.group('interface'):
                 interface = strip_parenthesis(strip_quotes(details.group('interface')))
             else:
-                interface = DbusRule.ALL
+                interface = cls.ALL
 
             if details.group('member'):
                 member = strip_parenthesis(strip_quotes(details.group('member')))
             else:
-                member = DbusRule.ALL
+                member = cls.ALL
 
             if details.group('peername1'):
                 peername = strip_parenthesis(strip_quotes(details.group('peername1')))
@@ -170,7 +164,7 @@ class DbusRule(BaseRule):
             elif details.group('peername3'):
                 peername = strip_parenthesis(strip_quotes(details.group('peername3')))
             else:
-                peername = DbusRule.ALL
+                peername = cls.ALL
 
             if details.group('peerlabel1'):
                 peerlabel = strip_parenthesis(strip_quotes(details.group('peerlabel1')))
@@ -179,23 +173,23 @@ class DbusRule(BaseRule):
             elif details.group('peerlabel3'):
                 peerlabel = strip_parenthesis(strip_quotes(details.group('peerlabel3')))
             else:
-                peerlabel = DbusRule.ALL
+                peerlabel = cls.ALL
 
         else:
-            access = DbusRule.ALL
-            bus = DbusRule.ALL
-            path = DbusRule.ALL
-            name = DbusRule.ALL
-            interface = DbusRule.ALL
-            member = DbusRule.ALL
-            peername = DbusRule.ALL
-            peerlabel = DbusRule.ALL
+            access = cls.ALL
+            bus = cls.ALL
+            path = cls.ALL
+            name = cls.ALL
+            interface = cls.ALL
+            member = cls.ALL
+            peername = cls.ALL
+            peerlabel = cls.ALL
 
-        return DbusRule(access, bus, path, name, interface, member, peername, peerlabel,
-                           audit=audit, deny=deny, allow_keyword=allow_keyword, comment=comment)
+        return cls(access, bus, path, name, interface, member, peername, peerlabel,
+                   audit=audit, deny=deny, allow_keyword=allow_keyword, comment=comment)
 
     def get_clean(self, depth=0):
-        '''return rule (in clean/default formatting)'''
+        """return rule (in clean/default formatting)"""
 
         space = '  ' * depth
 
@@ -209,23 +203,23 @@ class DbusRule(BaseRule):
         else:
             raise AppArmorBug('Empty access in dbus rule')
 
-        bus         = self._get_aare_rule_part('bus',       self.bus,       self.all_buses)
-        path        = self._get_aare_rule_part('path',      self.path,      self.all_paths)
-        name        = self._get_aare_rule_part('name',      self.name,      self.all_names)
-        interface   = self._get_aare_rule_part('interface', self.interface, self.all_interfaces)
-        member      = self._get_aare_rule_part('member',    self.member,    self.all_members)
+        bus         = self._get_aare_rule_part('bus',       self.bus,       self.all_buses)  # noqa: E221
+        path        = self._get_aare_rule_part('path',      self.path,      self.all_paths)  # noqa: E221
+        name        = self._get_aare_rule_part('name',      self.name,      self.all_names)  # noqa: E221
+        interface   = self._get_aare_rule_part('interface', self.interface, self.all_interfaces)  # noqa: E221
+        member      = self._get_aare_rule_part('member',    self.member,    self.all_members)  # noqa: E221
 
-        peername    = self._get_aare_rule_part('name',      self.peername,  self.all_peernames)
-        peerlabel   = self._get_aare_rule_part('label',     self.peerlabel, self.all_peerlabels)
+        peername    = self._get_aare_rule_part('name',      self.peername,  self.all_peernames)  # noqa: E221
+        peerlabel   = self._get_aare_rule_part('label',     self.peerlabel, self.all_peerlabels)  # noqa: E221
         peer = peername + peerlabel
         if peer:
             peer = ' peer=(%s)' % peer.strip()
 
-        return('%s%sdbus%s%s%s%s%s%s%s,%s' % (space, self.modifiers_str(), access, bus, path, name, interface, member, peer, self.comment))
+        return ('%s%sdbus%s%s%s%s%s%s%s,%s' % (space, self.modifiers_str(), access, bus, path, name, interface, member, peer, self.comment))
 
     def _get_aare_rule_part(self, prefix, value, all_values):
-        '''helper function to write a rule part
-           value is expected to be a AARE'''
+        """helper function to write a rule part
+           value is expected to be a AARE"""
         if all_values:
             return ''
         elif value:
@@ -233,9 +227,8 @@ class DbusRule(BaseRule):
         else:
             raise AppArmorBug('Empty %(prefix_name)s in %(rule_name)s rule' % {'prefix_name': prefix, 'rule_name': self.rule_name})
 
-
-    def is_covered_localvars(self, other_rule):
-        '''check if other_rule is covered by this rule object'''
+    def _is_covered_localvars(self, other_rule):
+        """check if other_rule is covered by this rule object"""
 
         if not self._is_covered_list(self.access,       self.all_access,        other_rule.access,      other_rule.all_access,      'access'):
             return False
@@ -264,12 +257,8 @@ class DbusRule(BaseRule):
         # still here? -> then it is covered
         return True
 
-
-    def is_equal_localvars(self, rule_obj, strict):
-        '''compare if rule-specific variables are equal'''
-
-        if not type(rule_obj) == DbusRule:
-            raise AppArmorBug('Passed non-dbus rule: %s' % str(rule_obj))
+    def _is_equal_localvars(self, rule_obj, strict):
+        """compare if rule-specific variables are equal"""
 
         if (self.access != rule_obj.access
                 or self.all_access != rule_obj.all_access):
@@ -298,32 +287,51 @@ class DbusRule(BaseRule):
 
         return True
 
-    def logprof_header_localvars(self):
-        access      = logprof_value_or_all(self.access,     self.all_access)
-        bus         = logprof_value_or_all(self.bus,        self.all_buses)
-        path        = logprof_value_or_all(self.path,       self.all_paths)
-        name        = logprof_value_or_all(self.name,       self.all_names)
-        interface   = logprof_value_or_all(self.interface,  self.all_interfaces)
-        member      = logprof_value_or_all(self.member,     self.all_members)
-        peername    = logprof_value_or_all(self.peername,   self.all_peernames)
-        peerlabel   = logprof_value_or_all(self.peerlabel,  self.all_peerlabels)
+    def _logprof_header_localvars(self):
+        access    = logprof_value_or_all(self.access,    self.all_access)     # noqa: E221
+        bus       = logprof_value_or_all(self.bus,       self.all_buses)      # noqa: E221
+        path      = logprof_value_or_all(self.path,      self.all_paths)      # noqa: E221
+        name      = logprof_value_or_all(self.name,      self.all_names)      # noqa: E221
+        interface = logprof_value_or_all(self.interface, self.all_interfaces)
+        member    = logprof_value_or_all(self.member,    self.all_members)    # noqa: E221
+        peername  = logprof_value_or_all(self.peername,  self.all_peernames)  # noqa: E221
+        peerlabel = logprof_value_or_all(self.peerlabel, self.all_peerlabels)
 
-        return [
-            _('Access mode'),   access,
-            _('Bus'),           bus,
-            _('Path'),          path,
-            _('Name'),          name,
-            _('Interface'),     interface,
-            _('Member'),        member,
-            _('Peer name'),     peername,
-            _('Peer label'),    peerlabel,
-        ]
+        return (
+            _('Access mode'), access,
+            _('Bus'),         bus,
+            _('Path'),        path,
+            _('Name'),        name,
+            _('Interface'),   interface,
+            _('Member'),      member,
+            _('Peer name'),   peername,
+            _('Peer label'),  peerlabel,
+        )
+
+    @staticmethod
+    def hashlog_from_event(hl, e):
+        hl[e['denied_mask']][e['bus']][e['path']][e['name']][e['interface']][e['member']][e['peer_profile']] = True
+
+    @classmethod
+    def from_hashlog(cls, hl):
+        for access, bus, path, name, interface, member, peer_profile in BaseRule.generate_rules_from_hashlog(hl, 7):
+            # Depending on the access type, not all parameters are allowed.
+            # Ignore them, even if some of them appear in the log.
+            # Also, the log doesn't provide a peer name, therefore always use ALL.
+            if access in ('send', 'receive'):
+                yield cls(access, bus, path, cls.ALL, interface, member, cls.ALL, peer_profile, log_event=True)
+            elif access == 'bind':
+                yield cls(access, bus, cls.ALL, name, cls.ALL, cls.ALL, cls.ALL, cls.ALL, log_event=True)
+            elif access == 'eavesdrop':
+                yield cls(access, bus, cls.ALL, cls.ALL, cls.ALL, cls.ALL, cls.ALL, cls.ALL, log_event=True)
+            else:
+                raise AppArmorBug('unexpected dbus access: {}'.format(access))
 
 
 class DbusRuleset(BaseRuleset):
-    '''Class to handle and store a collection of dbus rules'''
+    """Class to handle and store a collection of dbus rules"""
 
     def get_glob(self, path_or_rule):
-        '''Return the next possible glob. For dbus rules, that means removing access or removing/globbing bus'''
+        """Return the next possible glob. For dbus rules, that means removing access or removing/globbing bus"""
         # XXX only remove one part, not all
         return 'dbus,'

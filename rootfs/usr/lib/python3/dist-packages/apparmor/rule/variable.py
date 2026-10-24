@@ -13,29 +13,27 @@
 #
 # ----------------------------------------------------------------------
 
-from apparmor.regex import RE_PROFILE_VARIABLE, strip_quotes
-from apparmor.common import AppArmorBug, AppArmorException, type_is_str
-from apparmor.rule import BaseRule, BaseRuleset, parse_comment, quote_if_needed
-
 import re
 
-# setup module translations
+from apparmor.common import AppArmorBug, AppArmorException
+from apparmor.regex import RE_PROFILE_VARIABLE, strip_quotes
+from apparmor.rule import BaseRule, BaseRuleset, parse_comment, quote_if_needed
 from apparmor.translations import init_translation
+
 _ = init_translation()
 
 
 class VariableRule(BaseRule):
-    '''Class to handle and store a single variable rule'''
+    """Class to handle and store a single variable rule"""
 
     rule_name = 'variable'
+    _match_re = RE_PROFILE_VARIABLE
 
     def __init__(self, varname, mode, values, audit=False, deny=False, allow_keyword=False,
                  comment='', log_event=None):
 
-        super(VariableRule, self).__init__(audit=audit, deny=deny,
-                                             allow_keyword=allow_keyword,
-                                             comment=comment,
-                                             log_event=log_event)
+        super().__init__(audit=audit, deny=deny, allow_keyword=allow_keyword,
+                         comment=comment, log_event=log_event)
 
         # variables don't support audit or deny
         if audit:
@@ -43,19 +41,19 @@ class VariableRule(BaseRule):
         if deny:
             raise AppArmorBug('Attempt to initialize %s with deny flag' % self.__class__.__name__)
 
-        if not type_is_str(varname):
+        if not isinstance(varname, str):
             raise AppArmorBug('Passed unknown type for varname to %s: %s' % (self.__class__.__name__, varname))
         if not varname.startswith('@{'):
             raise AppArmorException("Passed invalid varname to %s (doesn't start with '@{'): %s" % (self.__class__.__name__, varname))
         if not varname.endswith('}'):
             raise AppArmorException("Passed invalid varname to %s (doesn't end with '}'): %s" % (self.__class__.__name__, varname))
 
-        if not type_is_str(mode):
+        if not isinstance(mode, str):
             raise AppArmorBug('Passed unknown type for variable assignment mode to %s: %s' % (self.__class__.__name__, mode))
-        if mode not in ['=', '+=']:
+        if mode not in ('=', '+='):
             raise AppArmorBug('Passed unknown variable assignment mode to %s: %s' % (self.__class__.__name__, mode))
 
-        if type(values) is not set:
+        if not isinstance(values, set):
             raise AppArmorBug('Passed unknown type for values to %s: %s' % (self.__class__.__name__, values))
         if not values:
             raise AppArmorException('Passed empty list of values to %s: %s' % (self.__class__.__name__, values))
@@ -65,16 +63,8 @@ class VariableRule(BaseRule):
         self.values = values
 
     @classmethod
-    def _match(cls, raw_rule):
-        return RE_PROFILE_VARIABLE.search(raw_rule)
-
-    @classmethod
-    def _parse(cls, raw_rule):
-        '''parse raw_rule and return VariableRule'''
-
-        matches = cls._match(raw_rule)
-        if not matches:
-            raise AppArmorException(_("Invalid variable rule '%s'") % raw_rule)
+    def _create_instance(cls, raw_rule, matches):
+        """parse raw_rule and return instance of this class"""
 
         comment = parse_comment(matches)
 
@@ -82,11 +72,11 @@ class VariableRule(BaseRule):
         mode = matches.group('mode')
         values = separate_vars(matches.group('values'))
 
-        return VariableRule(varname, mode, values,
-                           audit=False, deny=False, allow_keyword=False, comment=comment)
+        return cls(varname, mode, values,
+                   audit=False, deny=False, allow_keyword=False, comment=comment)
 
     def get_clean(self, depth=0):
-        '''return rule (in clean/default formatting)'''
+        """return rule (in clean/default formatting)"""
 
         space = '  ' * depth
 
@@ -98,8 +88,8 @@ class VariableRule(BaseRule):
 
         return '%s%s %s %s' % (space, self.varname, self.mode, ' '.join(data))
 
-    def is_covered_localvars(self, other_rule):
-        '''check if other_rule is covered by this rule object'''
+    def _is_covered_localvars(self, other_rule):
+        """check if other_rule is covered by this rule object"""
 
         if self.varname != other_rule.varname:
             return False
@@ -113,11 +103,8 @@ class VariableRule(BaseRule):
         # still here? -> then it is covered
         return True
 
-    def is_equal_localvars(self, rule_obj, strict):
-        '''compare if rule-specific variables are equal'''
-
-        if not type(rule_obj) == VariableRule:
-            raise AppArmorBug('Passed non-variable rule: %s' % str(rule_obj))
+    def _is_equal_localvars(self, rule_obj, strict):
+        """compare if rule-specific variables are equal"""
 
         if self.varname != rule_obj.varname:
             return False
@@ -130,34 +117,33 @@ class VariableRule(BaseRule):
 
         return True
 
-    def logprof_header_localvars(self):
-        headers = []
+    def _logprof_header_localvars(self):
+        return _('Variable'), self.get_clean()
 
-        return headers + [
-            _('Variable'), self.get_clean(),
-        ]
 
 class VariableRuleset(BaseRuleset):
-    '''Class to handle and store a collection of variable rules'''
+    """Class to handle and store a collection of variable rules"""
 
     def add(self, rule, cleanup=False):
-        ''' Add variable rule object
+        """Add variable rule object
 
-            If the variable name is already known, raise an exception because re-defining a variable isn't allowed.
-        '''
+           If the variable name is already known, raise an exception because re-defining a variable isn't allowed.
+        """
 
         if rule.mode == '=':
             for knownrule in self.rules:
                 if rule.varname == knownrule.varname:
-                    raise AppArmorException(_('Redefining existing variable %(variable)s: %(value)s') % { 'variable': rule.varname, 'value': rule.values })
+                    raise AppArmorException(
+                        _('Redefining existing variable %(variable)s: %(value)s')
+                        % {'variable': rule.varname, 'value': rule.values})
 
-        super(VariableRuleset, self).add(rule, cleanup)
+        super().add(rule, cleanup)
 
     def get_merged_variables(self):
-        ''' Get merged variables of this VariableRuleset.
+        """Get merged variables of this object.
 
-            Note that no error checking is done because variables can be defined in one file and extended in another.
-        '''
+           Note that no error checking is done because variables can be defined in one file and extended in another.
+        """
 
         var_set = {}
         var_add = {}
@@ -173,14 +159,15 @@ class VariableRuleset(BaseRuleset):
 
         return {'=': var_set, '+=': var_add}
 
+
 def separate_vars(vs):
     """Returns a list of all the values for a variable"""
     data = set()
     vs = vs.strip()
 
-    RE_VARS = re.compile('^(("[^"]*")|([^"\s]+))\s*(.*)$')
-    while RE_VARS.search(vs):
-        matches = RE_VARS.search(vs).groups()
+    re_vars = re.compile(r'^(("[^"]*")|([^"\s]+))\s*(.*)$')
+    while re_vars.search(vs):
+        matches = re_vars.search(vs).groups()
 
         if matches[0].endswith(','):
             raise AppArmorException(_('Variable declarations do not accept trailing commas'))

@@ -15,37 +15,38 @@
 # ----------------------------------------------------------------------
 
 import json
-import sys
+import os
 import re
 import readline
-import os
-import tempfile
 import subprocess
+import sys
+from tempfile import NamedTemporaryFile
 
-from apparmor.common import readkey, AppArmorException, DebugLogger
-
-# setup module translations
+from apparmor.common import AppArmorException, DebugLogger, readkey
 from apparmor.translations import init_translation
+
 _ = init_translation()
 
 # Set up UI logger for separate messages from UI module
 debug_logger = DebugLogger('UI')
 
-# If Python3, wrap input in raw_input so make check passes
-if 'raw_input' not in dir(__builtins__):
-    raw_input = input
-
 ARROWS = {'A': 'UP', 'B': 'DOWN', 'C': 'RIGHT', 'D': 'LEFT'}
 
 UI_mode = 'text'
+jsonlog = None
 
 
 def write_json(jsonout):
-    print(json.dumps(jsonout, sort_keys=False, separators=(',', ': ')))
+    jtxt = json.dumps(jsonout, sort_keys=False, separators=(',', ': '))
+
+    if jsonlog:
+        jsonlog.write('o ' + jtxt + '\n')
+
+    print(jtxt)
     sys.stdout.flush()
 
 
-def set_json_mode():
+def set_json_mode(cfg):
     """
     Currently this is only used by aa-genprof and aa-logprof, while e.g.
     aa-status generates its own JSON output.
@@ -55,8 +56,14 @@ def set_json_mode():
 
     Current known consumers of the JSON output:
     - YaST
+
+    The cfg parameter expects the parsed logprof.conf aka apparmor.aa.cfg.
     """
-    global UI_mode
+    global UI_mode, jsonlog
+
+    if int(cfg['settings'].get('json_log', False)):
+        jsonlog = NamedTemporaryFile('w', prefix='aa-jsonlog-', delete=False, encoding='utf-8')
+
     UI_mode = 'json'
     jsonout = {'dialog': 'apparmor-json-version', 'data': '2.12'}
     write_json(jsonout)
@@ -67,10 +74,20 @@ def set_text_mode():
     global UI_mode
     UI_mode = 'text'
 
+
+def set_allow_all_mode():
+    global UI_mode
+    UI_mode = 'allow_all'
+
+
 # reads the response on command line for json and verifies the response
 # for the dialog type
 def json_response(dialog_type):
-    string = raw_input('\n')
+    string = input('\n')
+
+    if jsonlog:
+        jsonlog.write('i ' + string + '\n')
+
     rh = json.loads(string.strip())
     if rh["dialog"] != dialog_type:
         raise AppArmorException('Expected response %s got %s.' % (dialog_type, string))
@@ -83,7 +100,7 @@ def getkey():
         key = readkey()
         if key == '[':
             key = readkey()
-            if(ARROWS.get(key, False)):
+            if ARROWS.get(key, False):
                 key = ARROWS[key]
     return key.strip()
 
@@ -109,27 +126,25 @@ def UI_Important(text):
 
 
 def get_translated_hotkey(translated, cmsg=''):
-    msg = 'PromptUser: ' + _('Invalid hotkey for')
-
     # Originally (\S) was used but with translations it would not work :(
-    if re.search('\((\S+)\)', translated):
-        return re.search('\((\S+)\)', translated).groups()[0]
-    else:
-        if cmsg:
-            raise AppArmorException(cmsg)
-        else:
-            raise AppArmorException('%s %s' % (msg, translated))
+    match = re.search(r'\((\S+)\)', translated)
+    if match:
+        return match.groups()[0].lower()
+
+    if not cmsg:
+        cmsg = 'PromptUser: %s %s' % (_('Invalid hotkey for'), translated)
+    raise AppArmorException(cmsg)
 
 
 def UI_YesNo(text, default):
-    debug_logger.debug('UI_YesNo: %s: %s %s' % (UI_mode, text, default))
+    debug_logger.debug('UI_YesNo: %s: %s %s', UI_mode, text, default)
     default = default.lower()
     yes = CMDS['CMD_YES']
     no = CMDS['CMD_NO']
-    yeskey = get_translated_hotkey(yes).lower()
-    nokey = get_translated_hotkey(no).lower()
+    yeskey = get_translated_hotkey(yes)
+    nokey = get_translated_hotkey(no)
     ans = 'XXXINVALIDXXX'
-    while ans not in ['y', 'n']:
+    while ans not in ('y', 'n'):
         if UI_mode == 'json':
             jsonout = {'dialog': 'yesno', 'text': text, 'default': default}
             write_json(jsonout)
@@ -141,7 +156,10 @@ def UI_YesNo(text, default):
                 sys.stdout.write('\n[%s] / %s\n' % (yes, no))
             else:
                 sys.stdout.write('\n%s / [%s]\n' % (yes, no))
-            ans = getkey()
+            if UI_mode == 'allow_all':
+                ans = nokey
+            else:
+                ans = getkey()
             if ans:
                 # Get back to english from localised answer
                 ans = ans.lower()
@@ -162,18 +180,18 @@ def UI_YesNo(text, default):
 
 
 def UI_YesNoCancel(text, default):
-    debug_logger.debug('UI_YesNoCancel: %s: %s %s' % (UI_mode, text, default))
+    debug_logger.debug('UI_YesNoCancel: %s: %s %s', UI_mode, text, default)
     default = default.lower()
     yes = CMDS['CMD_YES']
     no = CMDS['CMD_NO']
     cancel = CMDS['CMD_CANCEL']
 
-    yeskey = get_translated_hotkey(yes).lower()
-    nokey = get_translated_hotkey(no).lower()
-    cancelkey = get_translated_hotkey(cancel).lower()
+    yeskey = get_translated_hotkey(yes)
+    nokey = get_translated_hotkey(no)
+    cancelkey = get_translated_hotkey(cancel)
 
     ans = 'XXXINVALIDXXX'
-    while ans not in ['c', 'n', 'y']:
+    while ans not in ('c', 'n', 'y'):
         if UI_mode == 'json':
             jsonout = {'dialog': 'yesnocancel', 'text': text, 'default': default}
             write_json(jsonout)
@@ -187,7 +205,10 @@ def UI_YesNoCancel(text, default):
                 sys.stdout.write('\n%s / [%s] / %s\n' % (yes, no, cancel))
             else:
                 sys.stdout.write('\n%s / %s / [%s]\n' % (yes, no, cancel))
-            ans = getkey()
+            if UI_mode == 'allow_all':
+                ans = nokey
+            else:
+                ans = getkey()
             if ans:
                 # Get back to english from localised answer
                 ans = ans.lower()
@@ -213,7 +234,7 @@ def UI_YesNoCancel(text, default):
 
 
 def UI_GetString(text, default):
-    debug_logger.debug('UI_GetString: %s: %s %s' % (UI_mode, text, default))
+    debug_logger.debug('UI_GetString: %s: %s %s', UI_mode, text, default)
     string = default
     if UI_mode == 'json':
         jsonout = {'dialog': 'getstring', 'text': text, 'default': default}
@@ -222,7 +243,7 @@ def UI_GetString(text, default):
     else:  # text mode
         readline.set_startup_hook(lambda: readline.insert_text(default))
         try:
-            string = raw_input('\n' + text)
+            string = input('\n' + text)
         except EOFError:
             string = ''
         finally:
@@ -231,7 +252,7 @@ def UI_GetString(text, default):
 
 
 def UI_GetFile(file):
-    debug_logger.debug('UI_GetFile: %s' % UI_mode)
+    debug_logger.debug('UI_GetFile: %s', UI_mode)
     filename = None
     if UI_mode == 'json':
         jsonout = {'dialog': 'getfile', 'text': file['description']}
@@ -244,43 +265,38 @@ def UI_GetFile(file):
 
 
 def UI_BusyStart(message):
-    debug_logger.debug('UI_BusyStart: %s' % UI_mode)
+    debug_logger.debug('UI_BusyStart: %s', UI_mode)
     UI_Info(message)
 
 
 def UI_BusyStop():
-    debug_logger.debug('UI_BusyStop: %s' % UI_mode)
+    debug_logger.debug('UI_BusyStop: %s', UI_mode)
 
 
 def diff(oldprofile, newprofile):
-    difftemp = tempfile.NamedTemporaryFile('w')
+    difftemp = NamedTemporaryFile('w')
     subprocess.call('diff -u -p %s %s > %s' % (oldprofile, newprofile, difftemp.name), shell=True)
     return difftemp
 
 
 def write_profile_to_tempfile(profile):
-    temp = tempfile.NamedTemporaryFile('w')
+    temp = NamedTemporaryFile('w')
     temp.write(profile)
     temp.flush()
     return temp
 
 
 def generate_diff(oldprofile, newprofile):
-    oldtemp = write_profile_to_tempfile(oldprofile)
-    newtemp = write_profile_to_tempfile(newprofile)
-    difftemp = diff(oldtemp.name, newtemp.name)
-    oldtemp.close()
-    newtemp.close()
-    return difftemp
+    with write_profile_to_tempfile(oldprofile) as oldtemp, \
+            write_profile_to_tempfile(newprofile) as newtemp:
+        return diff(oldtemp.name, newtemp.name)
 
 
 def generate_diff_with_comments(oldprofile, newprofile):
     if not os.path.exists(oldprofile):
         raise AppArmorException(_("Can't find existing profile %s to compare changes.") % oldprofile)
-    newtemp = write_profile_to_tempfile(newprofile)
-    difftemp = diff(oldprofile, newtemp.name)
-    newtemp.close()
-    return difftemp
+    with write_profile_to_tempfile(newprofile) as newtemp:
+        return diff(oldprofile, newtemp.name)
 
 
 def UI_Changes(oldprofile, newprofile, comments=False):
@@ -290,8 +306,9 @@ def UI_Changes(oldprofile, newprofile, comments=False):
     else:
         difftemp = generate_diff_with_comments(oldprofile, newprofile)
         header = 'View Changes with comments'
-    UI_ShowFile(header, difftemp.name)
-    difftemp.close()
+    with difftemp:
+        UI_ShowFile(header, difftemp.name)
+
 
 def UI_ShowFile(header, filename):
     if UI_mode == 'json':
@@ -307,13 +324,13 @@ CMDS = {'CMD_ALLOW': _('(A)llow'),
         'CMD_AUDIT_NEW': _('Audi(t)'),
         'CMD_AUDIT_OFF': _('Audi(t) off'),
         'CMD_AUDIT_FULL': _('Audit (A)ll'),
-        #'CMD_OTHER': '(O)pts',
+        # 'CMD_OTHER': '(O)pts',
         'CMD_USER_ON': _('(O)wner permissions on'),
         'CMD_USER_OFF': _('(O)wner permissions off'),
         'CMD_DENY': _('(D)eny'),
         'CMD_ABORT': _('Abo(r)t'),
         'CMD_FINISHED': _('(F)inish'),
-        'CMD_ix': _('(I)nherit'),
+        'CMD_ix': _('In(h)erit'),
         'CMD_px': _('(P)rofile'),
         'CMD_px_safe': _('(P)rofile Clean Exec'),
         'CMD_cx': _('(C)hild'),
@@ -362,7 +379,7 @@ CMDS = {'CMD_ALLOW': _('(A)llow'),
         }
 
 
-class PromptQuestion(object):
+class PromptQuestion:
     title = None
     headers = None
     explanation = None
@@ -371,10 +388,11 @@ class PromptQuestion(object):
     default = None
     selected = None
     helptext = None
+    already_have_profile = False
 
     def __init__(self):
-        self.headers = list()
-        self.functions = list()
+        self.headers = []
+        self.functions = []
         self.selected = 0
 
     def promptUser(self, params=''):
@@ -400,7 +418,7 @@ class PromptQuestion(object):
         if helptext:
             functions.append('CMD_HELP')
 
-        menu_items = list()
+        menu_items = []
         keys = dict()
 
         for cmd in functions:
@@ -409,10 +427,12 @@ class PromptQuestion(object):
 
             menutext = CMDS[cmd]
 
-            key = get_translated_hotkey(menutext).lower()
+            key = get_translated_hotkey(menutext)
             # Duplicate hotkey
             if keys.get(key, False):
-                raise AppArmorException(_('PromptUser: Duplicate hotkey for %(command)s: %(menutext)s ') % { 'command': cmd, 'menutext': menutext })
+                raise AppArmorException(
+                    _('PromptUser: Duplicate hotkey for %(command)s: %(menutext)s ')
+                    % {'command': cmd, 'menutext': menutext})
 
             keys[key] = cmd
 
@@ -426,7 +446,7 @@ class PromptQuestion(object):
             defaulttext = CMDS[default]
             defmsg = _('PromptUser: Invalid hotkey in default item')
 
-            default_key = get_translated_hotkey(defaulttext, defmsg).lower()
+            default_key = get_translated_hotkey(defaulttext, defmsg)
 
             if not keys.get(default_key, False):
                 raise AppArmorException(_('PromptUser: Invalid default %s') % default)
@@ -445,7 +465,7 @@ class PromptQuestion(object):
         function_regexp = '^('
         function_regexp += '|'.join(keys.keys())
         if options:
-            function_regexp += '|\d'
+            function_regexp += r'|\d'
         function_regexp += ')$'
 
         ans = 'XXXINVALIDXXX'
@@ -494,6 +514,17 @@ class PromptQuestion(object):
                 hm = json_response('promptuser')
                 ans = hm["response_key"]
                 selected = hm["selected"]
+
+            elif UI_mode == 'allow_all':
+                if self.already_have_profile:
+                    expected_keys = ['CMD_px', 'CMD_ix', 'CMD_ALLOW', 'CMD_SAVE_CHANGES']
+                else:
+                    expected_keys = ['CMD_ix', 'CMD_ALLOW', 'CMD_SAVE_CHANGES']
+                for exp in expected_keys:
+                    if exp in functions:
+                        ans = get_translated_hotkey(CMDS[exp])
+                        break
+
             else:  # text mode
                 sys.stdout.write(prompt + '\n')
                 ans = getkey().lower()
@@ -517,7 +548,7 @@ class PromptQuestion(object):
                     # If they hit return choose default option
                     ans = default_key
 
-                elif options and re.search('^\d$', ans):
+                elif options and re.search(r'^\d$', ans):
                     ans = int(ans)
                     if ans > 0 and ans <= len(options):
                         selected = ans - 1
@@ -543,5 +574,5 @@ def confirm_and_abort():
 def is_number(number):
     try:
         return int(number)
-    except:
+    except (TypeError, ValueError):
         return False

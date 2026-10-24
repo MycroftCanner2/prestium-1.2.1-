@@ -11,37 +11,25 @@
 #    GNU General Public License for more details.
 #
 # ----------------------------------------------------------------------
-from __future__ import with_statement
 import os
 import shlex
 import shutil
 import stat
-import sys
-import tempfile
-if sys.version_info < (3, 0):
-    import ConfigParser as configparser
-
-    # Class to provide the object[section][option] behavior in Python2
-    class configparser_py2(configparser.ConfigParser):
-        def __getitem__(self, section):
-            section_val = self.items(section)
-            section_options = dict()
-            for option, value in section_val:
-                section_options[option] = value
-            return section_options
-
-
-else:
-    import configparser
-
+from configparser import ConfigParser
+from tempfile import NamedTemporaryFile
 
 from apparmor.common import AppArmorException, open_file_read  # , warn, msg,
+import apparmor.ui as aaui
+
+from apparmor.translations import init_translation
+
+_ = init_translation()
 
 
 # CFG = None
 # REPO_CFG = None
 # SHELL_FILES = ['easyprof.conf', 'notify.conf', 'parser.conf']
-class Config(object):
+class Config:
     def __init__(self, conf_type, conf_dir='/etc/apparmor'):
         self.CONF_DIR = conf_dir
         # The type of config file that'll be read and/or written
@@ -55,7 +43,7 @@ class Config(object):
         if self.conf_type == 'shell':
             config = {'': dict()}
         elif self.conf_type == 'ini':
-            config = configparser.ConfigParser()
+            config = ConfigParser()
         return config
 
     def read_config(self, filename):
@@ -65,21 +53,10 @@ class Config(object):
         if self.conf_type == 'shell':
             config = self.read_shell(filepath)
         elif self.conf_type == 'ini':
-            if sys.version_info > (3, 0):
-                config = configparser.ConfigParser()
-            else:
-                config = configparser_py2()
+            config = ConfigParser()
             # Set the option form to string -prevents forced conversion to lowercase
             config.optionxform = str
-            if sys.version_info > (3, 0):
-                config.read(filepath)
-            else:
-                try:
-                    config.read(filepath)
-                except configparser.ParsingError:
-                    tmp_filepath = py2_parser(filepath)
-                    config.read(tmp_filepath.name)
-                    ##config.__get__()
+            config.read(filepath)
         return config
 
     def write_config(self, filename, config):
@@ -88,18 +65,17 @@ class Config(object):
         permission_600 = stat.S_IRUSR | stat.S_IWUSR    # Owner read and write
         try:
             # Open a temporary file in the CONF_DIR to write the config file
-            config_file = tempfile.NamedTemporaryFile('w', prefix='aa_temp', delete=False, dir=self.CONF_DIR)
-            if os.path.exists(self.input_file):
-                # Copy permissions from an existing file to temporary file
-                shutil.copymode(self.input_file, config_file.name)
-            else:
-                # If no existing permission set the file permissions as 0600
-                os.chmod(config_file.name, permission_600)
-            if self.conf_type == 'shell':
-                self.write_shell(filepath, config_file, config)
-            elif self.conf_type == 'ini':
-                self.write_configparser(filepath, config_file, config)
-            config_file.close()
+            with NamedTemporaryFile('w', prefix='aa_temp', delete=False, dir=self.CONF_DIR) as config_file:
+                if os.path.exists(self.input_file):
+                    # Copy permissions from an existing file to temporary file
+                    shutil.copymode(self.input_file, config_file.name)
+                else:
+                    # If no existing permission set the file permissions as 0600
+                    os.chmod(config_file.name, permission_600)
+                if self.conf_type == 'shell':
+                    self.write_shell(filepath, config_file, config)
+                elif self.conf_type == 'ini':
+                    self.write_configparser(filepath, config_file, config)
         except IOError:
             raise AppArmorException("Unable to write to %s" % filename)
         else:
@@ -132,7 +108,11 @@ class Config(object):
         config = {'': dict()}
         with open_file_read(filepath) as conf_file:
             for line in conf_file:
-                result = shlex.split(line, True)
+                try:
+                    result = shlex.split(line, True)
+                except ValueError as e:
+                    aaui.UI_Important(_('Warning! invalid line \'{line}\' in config file: {err}').format(line=line[:-1], err=e))
+                    continue
                 # If not a comment of empty line
                 if result:
                     # option="value" or option=value type
@@ -219,7 +199,7 @@ class Config(object):
         if os.path.exists(self.input_file):
             with open_file_read(self.input_file) as f_in:
                 for line in f_in:
-                    # If its a section
+                    # If it's a section
                     if line.lstrip().startswith('['):
                         # If any options from preceding section remain write them
                         if options:
@@ -275,20 +255,3 @@ class Config(object):
             for option in options:
                 line = '  ' + option + ' = ' + config[section][option] + '\n'
                 f_out.write(line)
-
-def py2_parser(filename):
-    """Returns the de-dented ini file from the new format ini"""
-    tmp = tempfile.NamedTemporaryFile('rw')
-    f_out = open(tmp.name, 'w')
-    if os.path.exists(filename):
-        with open_file_read(filename) as f_in:
-            for line in f_in:
-                # The ini format allows for multi-line entries, with the subsequent
-                # entries being indented deeper hence simple lstrip() is not appropriate
-                if line[:2] == '  ':
-                    line = line[2:]
-                elif line[0] == '\t':
-                    line = line[1:]
-                f_out.write(line)
-    f_out.flush()
-    return tmp

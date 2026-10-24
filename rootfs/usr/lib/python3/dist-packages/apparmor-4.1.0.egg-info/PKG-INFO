@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: apparmor
+Version: 4.1.0
+Summary: Python libraries for AppArmor utilities
+Home-page: https://gitlab.com/apparmor/apparmor
+Author: AppArmor Developers
+Author-email: apparmor@lists.ubuntu.com
+License: GPL-2
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: summary
+
+Python libraries for AppArmor utilities

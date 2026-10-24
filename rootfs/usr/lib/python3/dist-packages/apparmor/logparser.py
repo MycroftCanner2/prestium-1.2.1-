@@ -16,31 +16,62 @@ import ctypes
 import re
 import sys
 import time
-import LibAppArmor
-from apparmor.common import AppArmorException, AppArmorBug, hasher, open_file_read, split_name, DebugLogger
 
-# setup module translations
+import LibAppArmor
+import apparmor.ui as aaui
+from apparmor.common import AppArmorBug, AppArmorException, DebugLogger, hasher, open_file_read, split_name
+from apparmor.rule.capability import CapabilityRule
+from apparmor.rule.change_profile import ChangeProfileRule
+from apparmor.rule.dbus import DbusRule
+from apparmor.rule.file import FileRule
+from apparmor.rule.io_uring import IOUringRule
+from apparmor.rule.mount import MountRule
+from apparmor.rule.mqueue import MessageQueueRule
+from apparmor.rule.network import NetworkRule
+from apparmor.rule.pivot_root import PivotRootRule
+from apparmor.rule.ptrace import PtraceRule
+from apparmor.rule.signal import SignalRule
+from apparmor.rule.unix import UnixRule
+from apparmor.rule.userns import UserNamespaceRule
 from apparmor.translations import init_translation
+
 _ = init_translation()
+
 
 class ReadLog:
 
     # used to pre-filter log lines so that we hand over only relevant lines to LibAppArmor parsing
     RE_LOG_ALL = re.compile('apparmor=|operation=|type=AVC')
 
+    ruletypes = {
+        'capability': CapabilityRule,
+        'change_profile': ChangeProfileRule,
+        'dbus': DbusRule,
+        'file': FileRule,
+        'ptrace': PtraceRule,
+        'signal': SignalRule,
+        'userns': UserNamespaceRule,
+        'mqueue': MessageQueueRule,
+        'io_uring': IOUringRule,
+        'mount': MountRule,
+        'unix': UnixRule,
+        'network': NetworkRule,
+        'pivot_root': PivotRootRule,
+    }
+
     def __init__(self, filename, active_profiles, profile_dir):
         self.filename = filename
         self.profile_dir = profile_dir
         self.active_profiles = active_profiles
-        self.hashlog = { 'PERMITTING': {}, 'REJECTING': {}, 'AUDIT': {} }  # structure inside {}: {'profilename': init_hashlog(aamode, profilename), 'profilename2': init_hashlog(...), ...}
-        self.debug_logger = DebugLogger('ReadLog')
+        self.hashlog = {'PERMITTING': {}, 'REJECTING': {}}  # structure inside {}: {'profilename': init_hashlog(aamode, profilename), 'profilename2': init_hashlog(...), ...}
+        self.debug_logger = DebugLogger(type(self).__name__)
         self.LOG = None
         self.logmark = ''
         self.seenmark = None
         self.next_log_entry = None
 
     def init_hashlog(self, aamode, profile):
-        ''' initialize self.hashlog[aamode][profile] for all rule types'''
+        """initialize self.hashlog[aamode][profile] for all rule types"""
 
         if profile in self.hashlog[aamode].keys():
             return  # already initialized, don't overwrite existing data
@@ -52,10 +83,16 @@ class ReadLog:
             'change_profile': {},  # flat, no hasher needed  (at least in logparser which doesn't support EXEC MODE and EXEC COND)
             'dbus':         hasher(),
             'exec':         hasher(),
+            'file':         hasher(),
             'network':      hasher(),
-            'path':         hasher(),
+            'pivot_root':   hasher(),
             'ptrace':       hasher(),
             'signal':       hasher(),
+            'userns':       hasher(),
+            'mqueue':       hasher(),
+            'io_uring':     hasher(),
+            'mount':        hasher(),
+            'unix':         hasher(),
         }
 
     def prefetch_next_log_entry(self):
@@ -75,14 +112,66 @@ class ReadLog:
         self.next_log_entry = None
         return log_entry
 
-    def parse_event(self, msg):
-        """Parse the event from log into key value pairs"""
-        msg = msg.strip()
-        self.debug_logger.info('parse_event: %s' % msg)
-        if sys.version_info < (3, 0):
-            # parse_record fails with u'foo' style strings hence typecasting to string
-            msg = str(msg)
-        event = LibAppArmor.parse_record(msg)
+    def get_event_type(self, e):
+
+        if e['operation'] == 'exec':
+            return 'file'
+        elif e['class'] and e['class'] == 'namespace':
+            if e['denied_mask'] and e['denied_mask'].startswith('userns_'):
+                return 'userns'
+            elif not e['denied_mask'] and e['request_mask'].startswith('userns_'):  # To support transition to special userns profiles
+                return 'userns'
+        elif e['class'] and e['class'].endswith('mqueue'):
+            return 'mqueue'
+        elif e['class'] and e['class'] == 'io_uring':
+            return 'io_uring'
+        elif e['class'] and e['class'] == 'mount' or e['operation'] == 'mount':
+            return 'mount'
+        elif e['operation'] and e['operation'] == 'pivotroot':
+            return 'pivot_root'
+        elif e['class'] and e['class'] == 'net' and e['family'] and e['family'] == 'unix':
+            return 'unix'
+        elif e['class'] == 'file' or self.op_type(e) == 'file':
+            return 'file'
+        elif e['operation'] == 'capable':
+            return 'capability'
+        elif self.op_type(e) == 'net':
+            return 'network'
+        elif e['operation'] == 'change_hat':
+            return 'change_hat'
+        elif e['operation'] == 'change_profile':
+            return 'change_profile'
+        elif e['operation'] == 'ptrace':
+            return 'ptrace'
+        elif e['operation'] == 'signal':
+            return 'signal'
+        elif e['operation'] and e['operation'].startswith('dbus_'):
+            return 'dbus'
+
+        else:
+            self.debug_logger.debug('UNHANDLED: %s', e)
+
+        return None
+
+    def get_rule_type(self, r):
+        for k, v in self.ruletypes.items():
+            if v.match(r):
+                return k, v
+        return None
+
+    def create_rule_from_ev(self, ev):
+        event_type = self.get_event_type(ev)
+        if not event_type:
+            return None
+        ruletype = self.ruletypes[event_type]
+
+        try:
+            return ruletype.create_from_ev(ev)
+        except (AppArmorException, AppArmorBug):
+            return None
+
+    def parse_record(self, event):
+        """Parse the record from LibAppArmor into key value pairs"""
         ev = dict()
         ev['resource'] = event.info
         ev['active_hat'] = event.active_hat
@@ -104,24 +193,55 @@ class ReadLog:
         ev['family'] = event.net_family
         ev['protocol'] = event.net_protocol
         ev['sock_type'] = event.net_sock_type
+        ev['class'] = event._class
 
         if event.ouid != ctypes.c_ulong(-1).value:  # ULONG_MAX
             ev['fsuid'] = event.fsuid
             ev['ouid'] = event.ouid
 
-        if ev['operation'] and ev['operation'] == 'signal':
+        event_type = self.get_event_type(ev)
+        if event_type == 'signal':
             ev['signal'] = event.signal
             ev['peer'] = event.peer
-        elif ev['operation'] and ev['operation'] == 'ptrace':
+        elif event_type == 'ptrace':
             ev['peer'] = event.peer
-        elif ev['operation'] and ev['operation'].startswith('dbus_'):
+        elif event_type == 'pivot_root':
+            ev['src_name'] = event.src_name
+        elif event_type == 'mount':
+            ev['flags'] = event.flags
+            ev['fs_type'] = event.fs_type
+            if ev['operation'] and ev['operation'] == 'mount':
+                ev['src_name'] = event.src_name  # mount can have a source but not umount.
+        elif event_type == 'userns':
+            ev['execpath'] = event.execpath
+            ev['comm'] = event.comm
+        elif event_type == 'network':
+            ev['accesses'] = event.requested_mask
+            ev['port'] = event.net_local_port or None
+            ev['remote_port'] = event.net_foreign_port or None
+            ev['addr'] = event.net_local_addr
+            ev['peer_addr'] = event.net_foreign_addr
+            ev['addr'] = event.net_local_addr
+            ev['peer_addr'] = event.net_foreign_addr
+        elif event_type == 'unix':
+            ev['accesses'] = event.requested_mask
+            ev['port'] = event.net_local_port or None
+            ev['remote_port'] = event.net_foreign_port or None
+            ev['addr'] = event.net_addr
+            ev['peer_addr'] = event.peer_addr
+            ev['peer'] = event.peer
+            ev['peer_profile'] = event.peer_profile
+        elif event_type == 'dbus':
             ev['peer_profile'] = event.peer_profile
             ev['bus'] = event.dbus_bus
             ev['path'] = event.dbus_path
             ev['interface'] = event.dbus_interface
             ev['member'] = event.dbus_member
 
-        LibAppArmor.free_record(event)
+        elif event_type == 'io_uring':
+            ev['peer_profile'] = event.peer_profile
+        elif event_type == 'capability':
+            ev['comm'] = event.comm
 
         if not ev['time']:
             ev['time'] = int(time.time())
@@ -151,18 +271,32 @@ class ReadLog:
         else:
             return None
 
+    def parse_event(self, msg):
+        """Parse the event from log into key value pairs"""
+        msg = msg.strip()
+        self.debug_logger.info('parse_event: %s', msg)
+        try:
+            event = LibAppArmor.parse_record(msg)
+        except TypeError:
+            aaui.UI_Important(_("WARNING: Cannot process log message, skipping entry. Make sure log is plaintext."))
+            return None
+
+        ev = self.parse_record(event)
+        LibAppArmor.free_record(event)
+        return ev
+
     def parse_event_for_tree(self, e):
         aamode = e.get('aamode', 'UNKNOWN')
 
         if aamode == 'UNKNOWN':
             raise AppArmorBug('aamode is UNKNOWN - %s' % e['type'])  # should never happen
 
-        if aamode in ['AUDIT', 'STATUS', 'ERROR']:
-            return None
+        if aamode in ('AUDIT', 'STATUS', 'ERROR'):
+            return
 
         # Skip if AUDIT event was issued due to a change_hat in unconfined mode
         if not e.get('profile', False):
-            return None
+            return
 
         full_profile = e['profile']  # full, nested profile name
         self.init_hashlog(aamode, full_profile)
@@ -174,88 +308,78 @@ class ReadLog:
         profile, hat = split_name(e['profile'])
 
         if profile != 'null-complain-profile' and not self.profile_exists(profile):
-            return None
+            return
+        # TODO: replace all the if conditions with a loop over 'ruletypes'
         if e['operation'] == 'exec':
-            if not e['name']:
-                raise AppArmorException('exec without executed binary')
+            FileRule.hashlog_from_event(self.hashlog[aamode][full_profile]['exec'], e)
+            return
 
-            if not e['name2']:
-                e['name2'] = ''  # exec events in enforce mode don't have target=...
+        elif e['class'] and e['class'] == 'namespace':
+            if e['denied_mask'].startswith('userns_'):
+                UserNamespaceRule.hashlog_from_event(self.hashlog[aamode][full_profile]['userns'], e)
+            return
 
-            self.hashlog[aamode][full_profile]['exec'][e['name']][e['name2']] = True
-            return None
+        elif e['class'] and e['class'].endswith('mqueue'):
+            MessageQueueRule.hashlog_from_event(self.hashlog[aamode][full_profile]['mqueue'], e)
+            return
 
-        elif self.op_type(e) == 'file':
-            # Map c (create) and d (delete) to w (logging is more detailed than the profile language)
-            dmask = e['denied_mask']
-            dmask = dmask.replace('c', 'w')
-            dmask = dmask.replace('d', 'w')
+        elif e['class'] and e['class'] == 'io_uring':
+            IOUringRule.hashlog_from_event(self.hashlog[aamode][full_profile]['io_uring'], e)
+            return
 
-            owner = False
+        elif e['class'] and e['class'] == 'mount' or e['operation'] == 'mount':
+            MountRule.hashlog_from_event(self.hashlog[aamode][full_profile]['mount'], e)
 
-            if '::' in dmask:
-                # old log styles used :: to indicate if permissions are meant for owner or other
-                (owner_d, other_d) = dmask.split('::')
-                if owner_d and other_d:
-                    raise AppArmorException('Found log event with both owner and other permissions. Please open a bugreport!')
-                if owner_d:
-                    dmask = owner_d
-                    owner = True
-                else:
-                    dmask = other_d
+        elif e['operation'] and e['operation'] == 'pivotroot':
+            PivotRootRule.hashlog_from_event(self.hashlog[aamode][full_profile]['pivot_root'], e)
 
-            if e.get('ouid') is not None and e['fsuid'] == e['ouid']:
-                # in current log style, owner permissions are indicated by a match of fsuid and ouid
-                owner = True
+        elif e['class'] and e['class'] == 'net' and e['family'] and e['family'] == 'unix':
+            UnixRule.hashlog_from_event(self.hashlog[aamode][full_profile]['unix'], e)
+            return
 
-            for perm in dmask:
-                if perm in 'mrwalk':  # intentionally not allowing 'x' here
-                    self.hashlog[aamode][full_profile]['path'][e['name']][owner][perm] = True
-                else:
-                    raise AppArmorException(_('Log contains unknown mode %s') % dmask)
-
-            return None
+        elif e['class'] == 'file' or self.op_type(e) == 'file':
+            FileRule.hashlog_from_event(self.hashlog[aamode][full_profile]['file'], e)
 
         elif e['operation'] == 'capable':
-            self.hashlog[aamode][full_profile]['capability'][e['name']] = True
-            return None
+            CapabilityRule.hashlog_from_event(self.hashlog[aamode][full_profile]['capability'], e)
+            return
 
         elif self.op_type(e) == 'net':
-            self.hashlog[aamode][full_profile]['network'][e['family']][e['sock_type']][e['protocol']] = True
-            return None
+            NetworkRule.hashlog_from_event(self.hashlog[aamode][full_profile]['network'], e)
+            return
 
         elif e['operation'] == 'change_hat':
             if e['error_code'] == 1 and e['info'] == 'unconfined can not change_hat':
-                return None
+                return
 
             self.hashlog[aamode][full_profile]['change_hat'][e['name2']] = True
-            return None
+            return
 
         elif e['operation'] == 'change_profile':
-            self.hashlog[aamode][full_profile]['change_profile'][e['name2']] = True
-            return None
+            ChangeProfileRule.hashlog_from_event(self.hashlog[aamode][full_profile]['change_profile'], e)
+            return
 
         elif e['operation'] == 'ptrace':
             if not e['peer']:
                 self.debug_logger.debug('ignored garbage ptrace event with empty peer')
-                return None
+                return
             if not e['denied_mask']:
                 self.debug_logger.debug('ignored garbage ptrace event with empty denied_mask')
-                return None
+                return
 
-            self.hashlog[aamode][full_profile]['ptrace'][e['peer']][e['denied_mask']] = True
-            return None
+            PtraceRule.hashlog_from_event(self.hashlog[aamode][full_profile]['ptrace'], e)
+            return
 
         elif e['operation'] == 'signal':
-            self.hashlog[aamode][full_profile]['signal'][e['peer']][e['denied_mask']][e['signal']]= True
-            return None
+            SignalRule.hashlog_from_event(self.hashlog[aamode][full_profile]['signal'], e)
+            return
 
-        elif e['operation'].startswith('dbus_'):
-            self.hashlog[aamode][full_profile]['dbus'][e['denied_mask']][e['bus']][e['path']][e['name']][e['interface']][e['member']][e['peer_profile']] = True
-            return None
+        elif e['operation'] and e['operation'].startswith('dbus_'):
+            DbusRule.hashlog_from_event(self.hashlog[aamode][full_profile]['dbus'], e)
+            return
 
         else:
-            self.debug_logger.debug('UNHANDLED: %s' % e)
+            self.debug_logger.debug('UNHANDLED: %s', e)
 
     def read_log(self, logmark):
         self.logmark = logmark
@@ -266,32 +390,30 @@ class ReadLog:
             self.LOG = open_file_read(self.filename)
         except IOError:
             raise AppArmorException('Can not read AppArmor logfile: ' + self.filename)
-        line = True
-        while line:
-            line = self.get_next_log_entry()
-            if not line:
-                break
-            line = line.strip()
-            self.debug_logger.debug('read_log: %s' % line)
-            if self.logmark in line:
-                seenmark = True
+        with self.LOG:
+            line = True
+            while line:
+                line = self.get_next_log_entry()
+                if not line:
+                    break
+                line = line.strip()
+                self.debug_logger.debug('read_log: %s', line)
+                if self.logmark in line:
+                    seenmark = True
 
-            self.debug_logger.debug('read_log: seenmark = %s' % seenmark)
-            if not seenmark:
-                continue
+                self.debug_logger.debug('read_log: seenmark = %s', seenmark)
+                if not seenmark:
+                    continue
 
-            event = self.parse_event(line)
-            if event:
-                try:
-                    self.parse_event_for_tree(event)
+                event = self.parse_event(line)
+                if event:
+                    try:
+                        self.parse_event_for_tree(event)
+                    except AppArmorException as e:
+                        ex_msg = ('%(msg)s\n\nThis error was caused by the log line:\n%(logline)s'
+                                  % {'msg': e.value, 'logline': line})
+                        raise AppArmorBug(ex_msg) from None
 
-                except AppArmorException as e:
-                    ex_msg = ('%(msg)s\n\nThis error was caused by the log line:\n%(logline)s' %
-                            {'msg': e.value, 'logline': line})
-                    # when py3 only: Drop the original AppArmorException by passing None as the parent exception
-                    raise AppArmorBug(ex_msg)  # py3-only: from None
-
-        self.LOG.close()
         self.logmark = ''
 
         return self.hashlog
@@ -300,48 +422,50 @@ class ReadLog:
     # (used by op_type() which checks some event details to decide)
     OP_TYPE_FILE_OR_NET = {
         # Note: op_type() also uses some startswith() checks which are not listed here!
-       'create',
-       'post_create',
-       'bind',
-       'connect',
-       'listen',
-       'accept',
-       'sendmsg',
-       'recvmsg',
-       'getsockname',
-       'getpeername',
-       'getsockopt',
-       'setsockopt',
-       'socket_create',
-       'sock_shutdown',
-       'open',
-       'truncate',
-       'mkdir',
-       'mknod',
-       'chmod',
-       'chown',
-       'rename_src',
-       'rename_dest',
-       'unlink',
-       'rmdir',
-       'symlink',
-       'symlink_create',
-       'link',
-       'sysctl',
-       'getattr',
-       'setattr',
-       'xattr',
+        'create',
+        'post_create',
+        'bind',
+        'connect',
+        'listen',
+        'accept',
+        'sendmsg',
+        'recvmsg',
+        'getsockname',
+        'getpeername',
+        'getsockopt',
+        'setsockopt',
+        'socket_create',
+        'sock_shutdown',
+        'open',
+        'truncate',
+        'mkdir',
+        'mknod',
+        'chmod',
+        'chown',
+        'rename_src',
+        'rename_dest',
+        'unlink',
+        'rmdir',
+        'symlink',
+        'symlink_create',
+        'link',
+        'sysctl',
+        'getattr',
+        'setattr',
+        'xattr',
     }
 
     def op_type(self, event):
-        """Returns the operation type if known, unkown otherwise"""
+        """Returns the operation type if known, unknown otherwise"""
 
-        if ( event['operation'].startswith('file_') or event['operation'].startswith('inode_') or event['operation'] in self.OP_TYPE_FILE_OR_NET ):
+        if event['operation'] and (event['operation'].startswith('file_')
+                                   or event['operation'].startswith('inode_')
+                                   or event['operation'] in self.OP_TYPE_FILE_OR_NET):
             # file or network event?
             if event['family'] and event['protocol'] and event['sock_type']:
                 # 'unix' events also use keywords like 'connect', but protocol is 0 and should therefore be filtered out
                 return 'net'
-            elif event['denied_mask']:
+            elif event['denied_mask'] or event['operation'] == 'file_lock':
                 return 'file'
             else:
                 raise AppArmorException('unknown file or network event type')
