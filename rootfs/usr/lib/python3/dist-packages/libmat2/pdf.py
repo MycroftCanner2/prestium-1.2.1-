@@ -36,7 +36,10 @@ class PDFParser(abstract.AbstractParser):
 
     def remove_all(self) -> bool:
         if self.lightweight_cleaning is True:
-            return self.__remove_all_lightweight()
+            try:
+                return self.__remove_all_lightweight()
+            except (cairo.Error, MemoryError) as e:
+                raise RuntimeError(e)
         return self.__remove_all_thorough()
 
     def __remove_all_lightweight(self) -> bool:
@@ -133,8 +136,8 @@ class PDFParser(abstract.AbstractParser):
         # It should(tm) be alright though, because cairo's output format
         # for metadata is fixed.
         with open(out_file, 'rb') as f:
-            out = re.sub(rb'<<[\s\n]*/Producer.*?>>', b' << >>', f.read(), 0,
-                         re.DOTALL | re.IGNORECASE)
+            out = re.sub(rb'<<[\s\n]*/Producer.*?>>', b' << >>', f.read(),
+                         count=0, flags=re.DOTALL | re.IGNORECASE)
         with open(out_file, 'wb') as f:
             f.write(out)
 

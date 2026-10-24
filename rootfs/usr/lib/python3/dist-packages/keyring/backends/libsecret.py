@@ -1,21 +1,19 @@
 import logging
 
 from .. import backend
-from .._compat import properties
 from ..backend import KeyringBackend
+from ..compat import properties
 from ..credentials import SimpleCredential
 from ..errors import (
+    KeyringLocked,
     PasswordDeleteError,
     PasswordSetError,
-    ExceptionRaisedContext,
-    KeyringLocked,
 )
 
 available = False
 try:
     import gi
-    from gi.repository import Gio
-    from gi.repository import GLib
+    from gi.repository import Gio, GLib
 
     gi.require_version('Secret', '1')
     from gi.repository import Secret
@@ -49,11 +47,16 @@ class Keyring(backend.SchemeSelectable, KeyringBackend):
         return Secret.COLLECTION_DEFAULT
 
     @properties.classproperty
-    def priority(cls):
-        with ExceptionRaisedContext() as exc:
-            Secret.__name__
-        if exc:
+    def priority(cls) -> float:
+        if not available:
             raise RuntimeError("libsecret required")
+
+        # Make sure there is actually a secret service running
+        try:
+            Secret.Service.get_sync(Secret.ServiceFlags.OPEN_SESSION, None)
+        except GLib.Error as error:
+            raise RuntimeError("Can't open a session to the secret service") from error
+
         return 4.8
 
     def get_password(self, service, username):
@@ -80,7 +83,7 @@ class Keyring(backend.SchemeSelectable, KeyringBackend):
     def set_password(self, service, username, password):
         """Set password for the username of the service"""
         attributes = self._query(service, username, application=self.appid)
-        label = "Password for '{}' on '{}'".format(username, service)
+        label = f"Password for '{username}' on '{service}'"
         try:
             stored = Secret.password_store_sync(
                 self.schema, attributes, self.collection, label, password, None

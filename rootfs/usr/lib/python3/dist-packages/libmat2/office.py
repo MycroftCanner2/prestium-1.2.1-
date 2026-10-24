@@ -38,7 +38,7 @@ def _sort_xml_attributes(full_path: str) -> bool:
     for c in tree.getroot():
         c[:] = sorted(c, key=lambda child: (child.tag, child.get('desc')))
 
-    tree.write(full_path, xml_declaration=True)
+    tree.write(full_path, xml_declaration=True, encoding='utf-8')
     return True
 
 
@@ -63,7 +63,19 @@ class MSOfficeParser(ZipParser):
         'application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml',  # /word/footer.xml
         'application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml',  # /word/header.xml
         'application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml',  # /word/styles.xml
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml',  # /word/numbering.xml (used for bullet point formatting)
+        'application/vnd.openxmlformats-officedocument.theme+xml',  # /word/theme/theme[0-9].xml (used for font and background coloring, etc.)
         'application/vnd.openxmlformats-package.core-properties+xml',  # /docProps/core.xml
+
+        # for more complicated powerpoints
+        'application/vnd.openxmlformats-officedocument.presentationml.notesSlide+xml',
+        'application/vnd.openxmlformats-officedocument.presentationml.notesMaster+xml',
+        'application/vnd.openxmlformats-officedocument.presentationml.handoutMaster+xml',
+        'application/vnd.openxmlformats-officedocument.drawingml.diagramData+xml',
+        'application/vnd.openxmlformats-officedocument.drawingml.diagramLayout+xml',
+        'application/vnd.openxmlformats-officedocument.drawingml.diagramStyle+xml',
+        'application/vnd.openxmlformats-officedocument.drawingml.diagramColors+xml',
+        'application/vnd.ms-office.drawingml.diagramDrawing+xml',
 
         # Do we want to keep the following ones?
         'application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml',
@@ -85,7 +97,7 @@ class MSOfficeParser(ZipParser):
             r'^_rels/\.rels$',
             r'^xl/sharedStrings\.xml$',  # https://docs.microsoft.com/en-us/office/open-xml/working-with-the-shared-string-table
             r'^xl/calcChain\.xml$',
-            r'^(?:word|ppt|xl)/_rels/document\.xml\.rels$',
+            r'^(?:word|ppt|xl)/_rels/(document|workbook|presentation)\.xml\.rels$',
             r'^(?:word|ppt|xl)/_rels/footer[0-9]*\.xml\.rels$',
             r'^(?:word|ppt|xl)/_rels/header[0-9]*\.xml\.rels$',
             r'^(?:word|ppt|xl)/charts/_rels/chart[0-9]+\.xml\.rels$',
@@ -100,6 +112,7 @@ class MSOfficeParser(ZipParser):
             r'^ppt/slideLayouts/_rels/slideLayout[0-9]+\.xml\.rels$',
             r'^ppt/slideLayouts/slideLayout[0-9]+\.xml$',
             r'^(?:word|ppt|xl)/tableStyles\.xml$',
+            r'^(?:word|ppt|xl)/tables/table[0-9]+\.xml$',
             r'^ppt/slides/_rels/slide[0-9]*\.xml\.rels$',
             r'^ppt/slides/slide[0-9]*\.xml$',
             # https://msdn.microsoft.com/en-us/library/dd908153(v=office.12).aspx
@@ -109,8 +122,13 @@ class MSOfficeParser(ZipParser):
             r'^ppt/slideMasters/slideMaster[0-9]+\.xml',
             r'^ppt/slideMasters/_rels/slideMaster[0-9]+\.xml\.rels',
             r'^xl/worksheets/_rels/sheet[0-9]+\.xml\.rels',
-            r'^xl/drawings/vmlDrawing[0-9]+\.vml',
-            r'^xl/drawings/drawing[0-9]+\.xml',
+            r'^(?:word|ppt|xl)/drawings/vmlDrawing[0-9]+\.vml',
+            r'^(?:word|ppt|xl)/drawings/drawing[0-9]+\.xml',
+            r'^(?:word|ppt|xl)/embeddings/Microsoft_Excel_Worksheet[0-9]+\.xlsx',
+            # rels for complicated powerpoints
+            r'^ppt/notesSlides/_rels/notesSlide[0-9]+\.xml\.rels',
+            r'^ppt/notesMasters/_rels/notesMaster[0-9]+\.xml\.rels',
+            r'^ppt/handoutMasters/_rels/handoutMaster[0-9]+\.xml\.rels',
         }))
         self.files_to_omit = set(map(re.compile, {  # type: ignore
             r'^\[trash\]/',
@@ -120,18 +138,24 @@ class MSOfficeParser(ZipParser):
             r'^(?:word|ppt|xl)/printerSettings/',
             r'^(?:word|ppt|xl)/theme',
             r'^(?:word|ppt|xl)/people\.xml$',
+            r'^(?:word|ppt|xl)/persons/person\.xml$',
             r'^(?:word|ppt|xl)/numbering\.xml$',
             r'^(?:word|ppt|xl)/tags/',
+            r'^(?:word|ppt|xl)/glossary/',
             # View properties like view mode, last viewed slide etc
             r'^(?:word|ppt|xl)/viewProps\.xml$',
             # Additional presentation-wide properties like printing properties,
             # presentation show properties etc.
             r'^(?:word|ppt|xl)/presProps\.xml$',
-            r'^(?:word|ppt|xl)/comments[0-9]+\.xml$',
-
+            r'^(?:word|ppt|xl)/comments[0-9]*\.xml$',
+            r'^(?:word|ppt|xl)/threadedComments/threadedComment[0-9]*\.xml$',
+            r'^(?:word|ppt|xl)/commentsExtended\.xml$',
+            r'^(?:word|ppt|xl)/commentsExtensible\.xml$',
+            r'^(?:word|ppt|xl)/commentsIds\.xml$',
             # we have an allowlist in self.files_to_keep,
             # so we can trash everything else
             r'^(?:word|ppt|xl)/_rels/',
+            r'docMetadata/LabelInfo\.xml$'
         }))
 
         if self.__fill_files_to_keep_via_content_types() is False:
@@ -148,7 +172,7 @@ class MSOfficeParser(ZipParser):
                 return False
             xml_data = zin.read('[Content_Types].xml')
 
-        self.content_types = dict()  # type: Dict[str, str]
+        self.content_types: Dict[str, str] = dict()
         try:
             tree = ET.fromstring(xml_data)
         except ET.ParseError:
@@ -196,7 +220,7 @@ class MSOfficeParser(ZipParser):
         for element in elements_to_remove:
             parent_map[element].remove(element)
 
-        tree.write(full_path, xml_declaration=True)
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
         return True
 
     @staticmethod
@@ -226,7 +250,7 @@ class MSOfficeParser(ZipParser):
         for element in elements_to_remove:
             parent_map[element].remove(element)
 
-        tree.write(full_path, xml_declaration=True)
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
         return True
 
     @staticmethod
@@ -259,11 +283,82 @@ class MSOfficeParser(ZipParser):
                     for children in element.iterfind('./*'):
                         elements_ins.append((element, position, children))
                     break
+
         for (element, position, children) in elements_ins:
             parent_map[element].insert(position, children)
+
+        # the list can sometimes contain duplicate elements, so don't remove
+        # until all children have been processed
+        for (element, position, children) in elements_ins:
+            if element in parent_map[element]:
+                parent_map[element].remove(element)
+
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
+        return True
+
+    @staticmethod
+    def __remove_document_comment_meta(full_path: str) -> bool:
+        try:
+            tree, namespace = _parse_xml(full_path)
+        except ET.ParseError as e:  # pragma: no cover
+            logging.error("Unable to parse %s: %s", full_path, e)
+            return False
+
+        # search the docs to see if we can bail early
+        range_start = tree.find('.//w:commentRangeStart', namespace)
+        range_end = tree.find('.//w:commentRangeEnd', namespace)
+        references = tree.find('.//w:commentReference', namespace)
+        if range_start is None and range_end is None and references is None:
+            return True  # No comment meta tags are present
+
+        parent_map = {c:p for p in tree.iter() for c in p}
+
+        # iterate over the elements and add them to list
+        elements_del = list()
+        for element in tree.iterfind('.//w:commentRangeStart', namespace):
+            elements_del.append(element)
+        for element in tree.iterfind('.//w:commentRangeEnd', namespace):
+            elements_del.append(element)
+        for element in tree.iterfind('.//w:commentReference', namespace):
+            elements_del.append(element)
+
+        # remove the elements
+        for element in elements_del:
             parent_map[element].remove(element)
 
-        tree.write(full_path, xml_declaration=True)
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
+        return True
+
+    def __remove_document_xml_rels_members(self, full_path: str) -> bool:
+        """ Remove the dangling references from the word/_rels/document.xml.rels file, since MS office doesn't like them.
+        """
+        try:
+            tree, namespace = _parse_xml(full_path)
+        except ET.ParseError as e:  # pragma: no cover
+            logging.error("Unable to parse %s: %s", full_path, e)
+            return False
+
+        if len(namespace.items()) != 1:  # pragma: no cover
+            logging.debug("Got several namespaces for Types: %s", namespace.items())
+
+        removed_fnames = set()
+        with zipfile.ZipFile(self.filename) as zin:
+            for fname in [item.filename for item in zin.infolist()]:
+                for file_to_omit in self.files_to_omit:
+                    if file_to_omit.search(fname):
+                        matches = map(lambda r: r.search(fname), self.files_to_keep)
+                        if any(matches):  # the file is in the allowlist
+                            continue
+                        removed_fnames.add(fname)
+                        break
+
+        root = tree.getroot()
+        for item in root.findall('{%s}Relationship' % namespace['']):
+            name = 'word/' + item.attrib['Target'] # add the word/ prefix to the path, since all document rels are in the word/ directory
+            if name in removed_fnames:
+                root.remove(item)
+
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
         return True
 
     def __remove_content_type_members(self, full_path: str) -> bool:
@@ -296,7 +391,7 @@ class MSOfficeParser(ZipParser):
             if name in removed_fnames:
                 root.remove(item)
 
-        tree.write(full_path, xml_declaration=True)
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
         return True
 
     def _final_checks(self) -> bool:
@@ -331,7 +426,7 @@ class MSOfficeParser(ZipParser):
 
         for item in tree.iterfind('.//p14:creationId', namespace):
             item.set('val', '%s' % random.randint(0, 2**32))
-        tree.write(full_path, xml_declaration=True)
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
         return True
 
     @staticmethod
@@ -347,7 +442,7 @@ class MSOfficeParser(ZipParser):
 
         for item in tree.iterfind('.//p:sldMasterId', namespace):
             item.set('id', '%s' % random.randint(0, 2**32))
-        tree.write(full_path, xml_declaration=True)
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
         return True
 
     def _specific_cleanup(self, full_path: str) -> bool:
@@ -355,7 +450,7 @@ class MSOfficeParser(ZipParser):
         if os.stat(full_path).st_size == 0:  # Don't process empty files
             return True
 
-        if not full_path.endswith('.xml'):
+        if not full_path.endswith(('.xml', '.xml.rels')):
             return True
 
         if self.__randomize_creationId(full_path) is False:
@@ -372,6 +467,13 @@ class MSOfficeParser(ZipParser):
             # this file contains the revisions
             if self.__remove_revisions(full_path) is False:
                 return False  # pragma: no cover
+            # remove comment references and ranges
+            if self.__remove_document_comment_meta(full_path) is False:
+                return False  # pragma: no cover
+        elif full_path.endswith('/word/_rels/document.xml.rels'):
+            # similar to the above, but for the document.xml.rels file
+            if self.__remove_document_xml_rels_members(full_path) is False:  # pragma: no cover
+                return False
         elif full_path.endswith('/docProps/app.xml'):
             # This file must be present and valid,
             # so we're removing as much as we can.
@@ -423,7 +525,7 @@ class MSOfficeParser(ZipParser):
         # see: https://docs.microsoft.com/en-us/dotnet/framework/wpf/advanced/mc-ignorable-attribute
         with open(full_path, 'rb') as f:
             text = f.read()
-            out = re.sub(b'mc:Ignorable="[^"]*"', b'', text, 1)
+            out = re.sub(b'mc:Ignorable="[^"]*"', b'', text, count=1)
         with open(full_path, 'wb') as f:
             f.write(out)
 
@@ -490,7 +592,7 @@ class LibreOfficeParser(ZipParser):
             for changes in text.iterfind('.//text:tracked-changes', namespace):
                 text.remove(changes)
 
-        tree.write(full_path, xml_declaration=True)
+        tree.write(full_path, xml_declaration=True, encoding='utf-8')
         return True
 
     def _specific_cleanup(self, full_path: str) -> bool:

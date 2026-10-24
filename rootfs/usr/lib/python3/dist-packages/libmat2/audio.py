@@ -39,7 +39,7 @@ class MP3Parser(MutagenParser):
     mimetypes = {'audio/mpeg', }
 
     def get_meta(self) -> Dict[str, Union[str, Dict]]:
-        metadata = {}  # type: Dict[str, Union[str, Dict]]
+        metadata: Dict[str, Union[str, Dict]] = dict()
         meta = mutagen.File(self.filename).tags
         if not meta:
             return metadata
@@ -82,6 +82,9 @@ class FLACParser(MutagenParser):
             with open(fname, 'wb') as f:
                 f.write(picture.data)
             p, _ = parser_factory.get_parser(fname)  # type: ignore
+            if p is None:
+                raise ValueError
+            p.sandbox = self.sandbox
             # Mypy chokes on ternaries :/
             meta[name] = p.get_meta() if p else 'harmful data'  # type: ignore
             os.remove(fname)

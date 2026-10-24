@@ -97,10 +97,6 @@ class InputAbsInfo(object):
     Any of the attributes may be set to None, those that are None are simply
     ignored by libevdev.
 
-    .. attribute:: minimum
-
-        the minimum value of this axis
-
     :property minimum: the minimum value for this axis
     :property maximum: the maximum value for this axis
     :property fuzz: the fuzz value for this axis
@@ -288,14 +284,27 @@ class Device(object):
     @property
     def id(self):
         """
-        :returns: A dict with the keys 'bustype', 'vendor', 'product', 'version'.
+        :returns: A dict with the keys ``'bustype'``, ``'vendor'``,
+                  ``'product'``, ``'version'``.
 
         When used as a setter, only existing keys are applied to the
         device. For example, to update the product ID only::
 
                 ctx = Device()
-                id["property"] = 1234
-                ctx.id = id
+                ids = {'product' : 1234}
+                ctx.id = ids
+
+        You must assign a new dictionary to ``id``. Technical limitations
+        prohibit accessing the ``id`` dictionary itself for write access.
+        See this example: ::
+
+                $ ctx = Device()
+                $ ctx.id['vendor'] = 1234
+                $ print(ctx.id['vendor'])
+                0
+                $ ctx.id = {'vendor': 1234}
+                $ print(ctx.id['vendor'])
+                1234
 
         """
         return self._libevdev.id
@@ -499,11 +508,14 @@ class Device(object):
         Event processing should look like this::
 
             fd = open("/dev/input/event0", "rb")
+            fcntl.fcntl(fd, fcntl.F_SETFL, os.O_NONBLOCK)  # optional
             ctx = libevdev.Device(fd)
 
             while True:
                 for e in ctx.events():
                     print(e):
+
+                ... other mainloop code ...
 
         This function detects if the file descriptor is in blocking or
         non-blocking mode and adjusts its behavior accordingly. If the file
@@ -799,7 +811,7 @@ class Device(object):
             d.grab()
             # device is now exclusively grabbed
 
-            fd.close()
+            fd1.close()
             fd2 = open("/dev/input/event0", "rb")
             d.fd = fd2
             # device is now exclusively grabbed
@@ -822,3 +834,21 @@ class Device(object):
         """
         self._libevdev.grab(False)
         self._is_grabbed = False
+
+    def set_leds(self, leds):
+        """
+        Write the LEDs to the device::
+
+             >>> fd = open(path, 'r+b', buffering=0)
+             >>> d = libevdev.Device(fd)
+             >>> d.set_leds([(libevdev.EV_LED.LED_NUML, 0),
+                             (libevdev.EV_LED.LED_SCROLLL, 1)])
+
+        Updating LED states require the fd to be in write-mode.
+        """
+        for led in leds:
+            if led[0].type is not libevdev.EV_LED:
+                raise InvalidArgumentException('Event code must be one of EV_LED.*')
+
+        for led in leds:
+            self._libevdev.set_led(led[0].value, led[1])

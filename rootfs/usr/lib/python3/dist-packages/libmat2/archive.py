@@ -49,15 +49,15 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
 
         # Those are the files that have a format that _isn't_
         # supported by mat2, but that we want to keep anyway.
-        self.files_to_keep = set()  # type: Set[Pattern]
+        self.files_to_keep: Set[Pattern] = set()
 
         # Those are the files that we _do not_ want to keep,
         # no matter if they are supported or not.
-        self.files_to_omit = set()  # type: Set[Pattern]
+        self.files_to_omit: Set[Pattern] = set()
 
         # what should the parser do if it encounters an unknown file in
         # the archive?
-        self.unknown_member_policy = UnknownMemberPolicy.ABORT  # type: UnknownMemberPolicy
+        self.unknown_member_policy: UnknownMemberPolicy = UnknownMemberPolicy.ABORT
 
         # The LGTM comment is to mask a false-positive,
         # see https://lgtm.com/projects/g/jvoisin/mat2/
@@ -105,6 +105,11 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
     def _get_member_name(member: ArchiveMember) -> str:
         """Return the name of the given member."""
 
+    @staticmethod
+    @abc.abstractmethod
+    def _is_dir(member: ArchiveMember) -> bool:
+        """Return true is the given member is a directory."""
+
     @abc.abstractmethod
     def _add_file_to_archive(self, archive: ArchiveClass, member: ArchiveMember,
                              full_path: str):
@@ -129,7 +134,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
         return member
 
     def get_meta(self) -> Dict[str, Union[str, Dict]]:
-        meta = dict()  # type: Dict[str, Union[str, Dict]]
+        meta: Dict[str, Union[str, Dict]] = dict()
 
         with self.archive_class(self.filename) as zin:
             temp_folder = tempfile.mkdtemp()
@@ -138,12 +143,17 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
                 local_meta = self._get_member_meta(item)
                 member_name = self._get_member_name(item)
 
-                if member_name[-1] == '/':  # pragma: no cover
-                    # `is_dir` is added in Python3.6
+                if self._is_dir(item):  # pragma: no cover
                     continue  # don't keep empty folders
 
-                zin.extract(member=item, path=temp_folder)
                 full_path = os.path.join(temp_folder, member_name)
+                if not os.path.abspath(full_path).startswith(temp_folder):
+                    logging.error("%s contains a file (%s) pointing outside (%s) of its root.",
+                        self.filename, member_name, full_path)
+                    break
+
+                zin.extract(member=item, path=temp_folder)
+
                 os.chmod(full_path, stat.S_IRUSR)
 
                 specific_meta = self._specific_get_meta(full_path, member_name)
@@ -151,6 +161,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
 
                 member_parser, _ = parser_factory.get_parser(full_path)  # type: ignore
                 if member_parser:
+                    member_parser.sandbox = self.sandbox
                     local_meta = {**local_meta, **member_parser.get_meta()}
 
                 if local_meta:
@@ -170,7 +181,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
 
             # Sort the items to process, to reduce fingerprinting,
             # and keep them in the `items` variable.
-            items = list()  # type: List[ArchiveMember]
+            items: List[ArchiveMember] = list()
             for item in sorted(self._get_all_members(zin), key=self._get_member_name):
                 # Some fileformats do require to have the `mimetype` file
                 # as the first file in the archive.
@@ -183,7 +194,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
             # we're iterating (and thus inserting) them in lexicographic order.
             for item in items:
                 member_name = self._get_member_name(item)
-                if member_name[-1] == '/':  # `is_dir` is added in Python3.6
+                if self._is_dir(item):
                     continue  # don't keep empty folders
 
                 full_path = os.path.join(temp_folder, member_name)
@@ -238,6 +249,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
                             abort = True
                             continue
                     else:
+                        member_parser.sandbox = self.sandbox
                         if member_parser.remove_all() is False:
                             logging.warning("In file %s, something went wrong \
                                              with the cleaning of %s \
@@ -374,6 +386,11 @@ class TarParser(ArchiveBasedAbstractParser):
         member.mode = permissions
         return member
 
+    @staticmethod
+    def _is_dir(member: ArchiveMember) -> bool:
+        assert isinstance(member, tarfile.TarInfo)  # please mypy
+        return member.isdir()
+
 
 class TarGzParser(TarParser):
     compression = ':gz'
@@ -460,3 +477,8 @@ class ZipParser(ArchiveBasedAbstractParser):
         assert isinstance(member, zipfile.ZipInfo)  # please mypy
         member.compress_type = compression
         return member
+
+    @staticmethod
+    def _is_dir(member: ArchiveMember) -> bool:
+        assert isinstance(member, zipfile.ZipInfo)  # please mypy
+        return member.is_dir()

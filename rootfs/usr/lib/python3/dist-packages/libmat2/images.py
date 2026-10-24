@@ -11,9 +11,6 @@ from gi.repository import GdkPixbuf, GLib, Rsvg
 
 from . import exiftool, abstract
 
-# Make pyflakes happy
-assert Any
-
 class SVGParser(exiftool.ExiftoolParser):
     mimetypes = {'image/svg+xml', }
     meta_allowlist = {'Directory', 'ExifToolVersion', 'FileAccessDate',
@@ -119,6 +116,7 @@ class GdkPixbufAbstractParser(exiftool.ExiftoolParser):
 
         _, extension = os.path.splitext(self.filename)
         pixbuf = GdkPixbuf.Pixbuf.new_from_file(self.filename)
+        pixbuf = GdkPixbuf.Pixbuf.apply_embedded_orientation(pixbuf)
         if extension.lower() == '.jpg':
             extension = '.jpeg'  # gdk is picky
         elif extension.lower() == '.tif':
@@ -141,7 +139,7 @@ class JPGParser(GdkPixbufAbstractParser):
                       'MIMEType', 'ImageWidth', 'ImageSize', 'BitsPerSample',
                       'ColorComponents', 'EncodingProcess', 'JFIFVersion',
                       'ResolutionUnit', 'XResolution', 'YCbCrSubSampling',
-                      'YResolution', 'Megapixels', 'ImageHeight'}
+                      'YResolution', 'Megapixels', 'ImageHeight', 'Orientation'}
 
 
 class TiffParser(GdkPixbufAbstractParser):
@@ -155,14 +153,14 @@ class TiffParser(GdkPixbufAbstractParser):
                       'FileInodeChangeDate', 'FileModifyDate', 'FileName',
                       'FilePermissions', 'FileSize', 'FileType',
                       'FileTypeExtension', 'ImageHeight', 'ImageSize',
-                      'ImageWidth', 'MIMEType', 'Megapixels', 'SourceFile'}
+                      'ImageWidth', 'MIMEType', 'Megapixels', 'SourceFile', 'Orientation'}
 
 
 class PPMParser(abstract.AbstractParser):
     mimetypes = {'image/x-portable-pixmap'}
 
     def get_meta(self) -> Dict[str, Union[str, Dict]]:
-        meta = {}  # type: Dict[str, Union[str, Dict[Any, Any]]]
+        meta: Dict[str, Union[str, Dict[Any, Any]]] = dict()
         with open(self.filename) as f:
             for idx, line in enumerate(f):
                 if line.lstrip().startswith('#'):

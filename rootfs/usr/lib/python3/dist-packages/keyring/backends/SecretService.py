@@ -1,15 +1,16 @@
-from contextlib import closing
 import logging
+from contextlib import closing
+
+from jaraco.context import ExceptionTrap
 
 from .. import backend
-from .._compat import properties
 from ..backend import KeyringBackend
+from ..compat import properties
 from ..credentials import SimpleCredential
 from ..errors import (
     InitError,
-    PasswordDeleteError,
-    ExceptionRaisedContext,
     KeyringLocked,
+    PasswordDeleteError,
 )
 
 try:
@@ -30,9 +31,9 @@ class Keyring(backend.SchemeSelectable, KeyringBackend):
     appid = 'Python keyring library'
 
     @properties.classproperty
-    def priority(cls):
-        with ExceptionRaisedContext() as exc:
-            secretstorage.__name__
+    def priority(cls) -> float:
+        with ExceptionTrap() as exc:
+            secretstorage.__name__  # noqa: B018
         if exc:
             raise RuntimeError("SecretStorage required")
         if secretstorage.__version_tuple__ < (3, 2):
@@ -45,7 +46,7 @@ class Keyring(backend.SchemeSelectable, KeyringBackend):
                         "activatable through D-Bus"
                     )
         except exceptions.SecretStorageException as e:
-            raise RuntimeError("Unable to initialize SecretService: %s" % e)
+            raise RuntimeError(f"Unable to initialize SecretService: {e}") from e
         return 5
 
     def get_preferred_collection(self):
@@ -60,7 +61,7 @@ class Keyring(backend.SchemeSelectable, KeyringBackend):
             else:
                 collection = secretstorage.get_default_collection(bus)
         except exceptions.SecretStorageException as e:
-            raise InitError("Failed to create the collection: %s." % e)
+            raise InitError(f"Failed to create the collection: {e}.") from e
         if collection.is_locked():
             collection.unlock()
             if collection.is_locked():  # User dismissed the prompt
@@ -86,7 +87,7 @@ class Keyring(backend.SchemeSelectable, KeyringBackend):
         """Set password for the username of the service"""
         collection = self.get_preferred_collection()
         attributes = self._query(service, username, application=self.appid)
-        label = "Password for '{}' on '{}'".format(username, service)
+        label = f"Password for '{username}' on '{service}'"
         with closing(collection.connection):
             collection.create_item(label, attributes, password, replace=True)
 

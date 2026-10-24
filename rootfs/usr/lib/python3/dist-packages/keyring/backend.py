@@ -2,38 +2,64 @@
 Keyring implementation support
 """
 
-import os
+from __future__ import annotations
+
 import abc
+import copy
+import functools
 import logging
 import operator
-import copy
+import os
+import typing
+import warnings
 
-from typing import Optional
+from jaraco.context import ExceptionTrap
+from jaraco.functools import once
 
-from .py310compat import metadata
 from . import credentials, errors, util
-from ._compat import properties
+from .compat import properties
+from .compat.py312 import metadata
 
 log = logging.getLogger(__name__)
 
 
 by_priority = operator.attrgetter('priority')
-_limit = None
+_limit: typing.Callable[[KeyringBackend], bool] | None = None
 
 
 class KeyringBackendMeta(abc.ABCMeta):
     """
-    A metaclass that's both an ABCMeta and a type that keeps a registry of
-    all (non-abstract) types.
+    Specialized subclass behavior.
+
+    Keeps a registry of all (non-abstract) types.
+
+    Wraps set_password to validate the username.
     """
 
     def __init__(cls, name, bases, dict):
         super().__init__(name, bases, dict)
+        cls._register()
+        cls._validate_username_in_set_password()
+
+    def _register(cls):
         if not hasattr(cls, '_classes'):
             cls._classes = set()
         classes = cls._classes
         if not cls.__abstractmethods__:
             classes.add(cls)
+
+    def _validate_username_in_set_password(cls):
+        """
+        Wrap ``set_password`` such to validate the passed username.
+        """
+        orig = cls.set_password
+
+        @functools.wraps(orig)
+        def wrapper(self, system, username, *args, **kwargs):
+            self._validate_username(username)
+            return orig(self, system, username, *args, **kwargs)
+
+        cls.set_password = wrapper
 
 
 class KeyringBackend(metaclass=KeyringBackendMeta):
@@ -44,8 +70,8 @@ class KeyringBackend(metaclass=KeyringBackendMeta):
     def __init__(self):
         self.set_properties_from_env()
 
-    # @abc.abstractproperty
-    def priority(cls):
+    @properties.classproperty
+    def priority(self) -> float:
         """
         Each backend class must supply a priority, a number (float or integer)
         indicating the priority of the backend relative to all other backends.
@@ -60,22 +86,27 @@ class KeyringBackend(metaclass=KeyringBackendMeta):
         As a rule of thumb, a priority between zero but less than one is
         suitable, but a priority of one or greater is recommended.
         """
+        raise NotImplementedError
+
+    # Python 3.8 compatibility
+    passes = ExceptionTrap().passes
 
     @properties.classproperty
+    @passes
     def viable(cls):
-        with errors.ExceptionRaisedContext() as exc:
-            cls.priority
-        return not exc
+        cls.priority  # noqa: B018
 
     @classmethod
-    def get_viable_backends(cls):
+    def get_viable_backends(
+        cls: type[KeyringBackend],
+    ) -> filter[type[KeyringBackend]]:
         """
         Return all subclasses deemed viable.
         """
         return filter(operator.attrgetter('viable'), cls._classes)
 
     @properties.classproperty
-    def name(cls):
+    def name(cls) -> str:
         """
         The keyring name, suitable for display.
 
@@ -83,18 +114,29 @@ class KeyringBackend(metaclass=KeyringBackendMeta):
         """
         parent, sep, mod_name = cls.__module__.rpartition('.')
         mod_name = mod_name.replace('_', ' ')
-        return ' '.join([mod_name, cls.__name__])
+        # mypy doesn't see `cls` is `type[Self]`, might be fixable in jaraco.classes
+        return ' '.join([mod_name, cls.__name__])  # type: ignore[attr-defined]
 
-    def __str__(self):
+    def __str__(self) -> str:
         keyring_class = type(self)
-        return "{}.{} (priority: {:g})".format(
-            keyring_class.__module__, keyring_class.__name__, keyring_class.priority
-        )
+        return f"{keyring_class.__module__}.{keyring_class.__name__} (priority: {keyring_class.priority:g})"
 
     @abc.abstractmethod
-    def get_password(self, service: str, username: str) -> Optional[str]:
+    def get_password(self, service: str, username: str) -> str | None:
         """Get password of the username for the service"""
         return None
+
+    def _validate_username(self, username: str) -> None:
+        """
+        Ensure the username is not empty.
+        """
+        if not username:
+            warnings.warn(
+                "Empty usernames are deprecated. See #668",
+                DeprecationWarning,
+                stacklevel=3,
+            )
+            # raise ValueError("Username cannot be empty")
 
     @abc.abstractmethod
     def set_password(self, service: str, username: str, password: str) -> None:
@@ -122,8 +164,8 @@ class KeyringBackend(metaclass=KeyringBackendMeta):
     def get_credential(
         self,
         service: str,
-        username: Optional[str],
-    ) -> Optional[credentials.Credential]:
+        username: str | None,
+    ) -> credentials.Credential | None:
         """Gets the username and password for the service.
         Returns a Credential instance.
 
@@ -138,19 +180,19 @@ class KeyringBackend(metaclass=KeyringBackendMeta):
                 return credentials.SimpleCredential(username, password)
         return None
 
-    def set_properties_from_env(self):
+    def set_properties_from_env(self) -> None:
         """For all KEYRING_PROPERTY_* env var, set that property."""
 
-        def parse(item):
+        def parse(item: tuple[str, str]):
             key, value = item
             pre, sep, name = key.partition('KEYRING_PROPERTY_')
             return sep and (name.lower(), value)
 
-        props = filter(None, map(parse, os.environ.items()))
+        props: filter[tuple[str, str]] = filter(None, map(parse, os.environ.items()))
         for name, value in props:
             setattr(self, name, value)
 
-    def with_properties(self, **kwargs):
+    def with_properties(self, **kwargs: typing.Any) -> KeyringBackend:
         alt = copy.copy(self)
         vars(alt).update(kwargs)
         return alt
@@ -180,7 +222,7 @@ class NullCrypter(Crypter):
         return value
 
 
-def _load_plugins():
+def _load_plugins() -> None:
     """
     Locate all setuptools entry points by the name 'keyring backends'
     and initialize them.
@@ -206,8 +248,8 @@ def _load_plugins():
             log.exception(f"Error initializing plugin {ep}.")
 
 
-@util.once
-def get_all_keyring():
+@once
+def get_all_keyring() -> list[KeyringBackend]:
     """
     Return a list of all implemented keyrings that can be constructed without
     parameters.
@@ -241,7 +283,9 @@ class SchemeSelectable:
         KeePassXC=dict(username='UserName', service='Title'),
     )
 
-    def _query(self, service, username=None, **base):
+    def _query(
+        self, service: str, username: str | None = None, **base: typing.Any
+    ) -> dict[str, str]:
         scheme = self.schemes[self.scheme]
         return dict(
             {

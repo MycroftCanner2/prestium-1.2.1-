@@ -46,10 +46,6 @@ class InputEvent(object):
         >>> e == InputEvent(libevdev.EV_REL.REL_X, value=2)
         False
 
-    .. attribute:: code
-
-        The :class:`EventCode` or :class:`EventType` for this input event
-
     .. attribute:: value
 
         The (optional) value for the event's axis
@@ -79,7 +75,7 @@ class InputEvent(object):
     @property
     def code(self):
         """
-        :return: the EventCode for this event or None
+        :return: The :class:`EventCode` or :class:`EventType` for this input event
         :rtype: EventCode
         """
         return self._code

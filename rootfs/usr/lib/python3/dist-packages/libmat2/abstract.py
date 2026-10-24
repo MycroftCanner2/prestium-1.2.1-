@@ -9,8 +9,8 @@ class AbstractParser(abc.ABC):
     It might yield `ValueError` on instantiation on invalid files,
     and `RuntimeError` when something went wrong in `remove_all`.
     """
-    meta_list = set()  # type: Set[str]
-    mimetypes = set()  # type: Set[str]
+    meta_list: Set[str] = set()
+    mimetypes: Set[str] = set()
 
     def __init__(self, filename: str) -> None:
         """
@@ -34,7 +34,10 @@ class AbstractParser(abc.ABC):
 
     @abc.abstractmethod
     def get_meta(self) -> Dict[str, Union[str, Dict]]:
-        """Return all the metadata of the current file"""
+        """Return all the metadata of the current file
+
+        :raises RuntimeError: Raised if the cleaning process went wrong.
+        """
 
     @abc.abstractmethod
     def remove_all(self) -> bool:

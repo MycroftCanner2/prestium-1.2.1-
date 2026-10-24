@@ -143,6 +143,16 @@ class Libevdev(_LibraryWrapper):
             "argtypes": (c_uint, c_char_p,),
             "restype": c_int
         },
+        # const char *libevdev_event_value_get_name(unsigned int type, unsigned int code, int value);
+        "libevdev_event_value_get_name": {
+            "argtypes": (c_uint, c_uint, c_int,),
+            "restype": c_char_p
+        },
+        # int libevdev_event_value_from_name(unsigned int type, unsigned int code, const char *name);
+        "libevdev_event_value_from_name": {
+            "argtypes": (c_uint, c_uint, c_char_p,),
+            "restype": c_int
+        },
         # const char *libevdev_property_get_name(unsigned int prop);
         "libevdev_property_get_name": {
             "argtypes": (c_uint,),
@@ -285,6 +295,11 @@ class Libevdev(_LibraryWrapper):
         # const struct input_absinfo *libevdev_get_abs_info(struct libevdev*,  int code)
         "libevdev_kernel_set_abs_info": {
             "argtypes": (c_void_p, c_int, ctypes.POINTER(_InputAbsinfo)),
+            "restype": (c_int)
+        },
+        # int libevdev_kernel_set_led_value(struct libevdev *dev, unsigned int, enum libevdev_led_value);
+        "libevdev_kernel_set_led_value": {
+            "argtypes": (c_void_p, c_int, c_int),
             "restype": (c_int)
         },
         ##########################
@@ -639,17 +654,20 @@ class Libevdev(_LibraryWrapper):
         return m if m > -1 else None
 
     @classmethod
-    def event_to_name(cls, event_type, event_code=None):
+    def event_to_name(cls, event_type, event_code=None, event_value=None):
         """
         :param event_type: the numerical event type value
         :param event_code: optional, the numerical event code value
+        :param event_value: optional, the numerical event value
         :return: the event code name if a code is given otherwise the event
                  type name.
 
-        This function is the equivalent to ``libevdev_event_code_get_name()``
-        and ``libevdev_event_type_get_name()``
+        This function is the equivalent to ``libevdev_event_value_get_name()``,
+        ``libevdev_event_code_get_name()``, and ``libevdev_event_type_get_name()``
         """
-        if event_code is not None:
+        if event_code is not None and event_value is not None:
+            name = cls._event_value_get_name(event_type, event_code, event_value)
+        elif event_code is not None:
             name = cls._event_code_get_name(event_type, event_code)
         else:
             name = cls._event_type_get_name(event_type)
@@ -658,17 +676,25 @@ class Libevdev(_LibraryWrapper):
         return name.decode("iso8859-1")
 
     @classmethod
-    def event_to_value(cls, event_type, event_code=None):
+    def event_to_value(cls, event_type, event_code=None, event_value=None):
         """
         :param event_type: the event type as string
         :param event_code: optional, the event code as string
+        :param event_value: optional, the numerical event value
         :return: the event code value if a code is given otherwise the event
                  type value.
 
-        This function is the equivalent to ``libevdev_event_code_from_name()``
-        and ``libevdev_event_type_from_name()``
+        This function is the equivalent to ``libevdev_event_value_from_name()``,
+        ``libevdev_event_code_from_name()`` and ``libevdev_event_type_from_name()``
         """
-        if event_code is not None:
+        if event_code is not None and event_value is not None:
+            if not isinstance(event_type, int):
+                event_type = cls.event_to_value(event_type)
+            if not isinstance(event_code, int):
+                event_code = cls.event_to_value(event_type, event_code)
+            v = cls._event_value_from_name(event_type, event_code,
+                                           event_value.encode("iso8859-1"))
+        elif event_code is not None:
             if not isinstance(event_type, int):
                 event_type = cls.event_to_value(event_type)
             v = cls._event_code_from_name(event_type, event_code.encode("iso8859-1"))
@@ -836,7 +862,7 @@ class Libevdev(_LibraryWrapper):
         """
         t, c = self._code("EV_LED", led)
         which = 3 if on else 4
-        self._set_led_value(self._ctx, c, which)
+        self._kernel_set_led_value(self._ctx, c, which)
 
     def next_event(self, flags=READ_FLAG_NORMAL):
         """
@@ -863,6 +889,8 @@ class Libevdev(_LibraryWrapper):
         rc = self._next_event(self._ctx, flags, ctypes.byref(ev))
         if rc == -errno.EAGAIN:
             return None
+        if rc < 0:
+            raise OSError(-rc, os.strerror(-rc))
 
         return ev
 
