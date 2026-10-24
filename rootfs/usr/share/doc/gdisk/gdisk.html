@@ -4,7 +4,7 @@ Content-type: text/html; charset=UTF-8
 <HTML><HEAD><TITLE>Man page of GDISK</TITLE>
 </HEAD><BODY>
 <H1>GDISK</H1>
-Section: GPT fdisk Manual (8)<BR>Updated: 1.0.9<BR><A HREF="#index">Index</A>
+Section: GPT fdisk Manual (8)<BR>Updated: 1.0.10<BR><A HREF="#index">Index</A>
 <A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -41,7 +41,7 @@ recovery options require you to understand the distinctions between the
 main and backup data, as well as between the GPT headers and the partition
 tables. For information on MBR vs. GPT, as well as GPT terminology and
 structure, see the extended <B>gdisk</B> documentation at
-<I><A HREF="http://www.rodsbooks.com/gdisk/">http://www.rodsbooks.com/gdisk/</A></I> or consult Wikipedia.
+<I><A HREF="https://www.rodsbooks.com/gdisk/">https://www.rodsbooks.com/gdisk/</A></I> or consult Wikipedia.
 <P>
 The <B>gdisk</B> program employs a user interface similar to that of Linux's
 <B>fdisk</B>, but <B>gdisk</B> modifies GPT partitions. It also has the
@@ -567,6 +567,14 @@ system-on-chip (SoC) is hard-coded to read boot code from sector 2. I
 recommend against adjusting this value unless doing so is absolutely
 necessary.
 <P>
+<DT><B>k</B>
+
+<DD>
+Adjust the location of the backup partition table. This partition table is
+normally located just before the backup metadata at the end of the disk, but
+it may need to be moved in some very rare cases. I recommend against
+adjusting this value unless doing so is absolutely necessary.
+<P>
 <DT><B>l</B>
 
 <DD>
@@ -825,11 +833,11 @@ Contributors:
 <B><A HREF="/cgi-bin/man/man2html?8+fixparts">fixparts</A></B>(8).
 
 <P>
-<I><A HREF="http://en.wikipedia.org/wiki/GUID_Partition_Table">http://en.wikipedia.org/wiki/GUID_Partition_Table</A></I>
+<I><A HREF="https://en.wikipedia.org/wiki/GUID_Partition_Table">https://en.wikipedia.org/wiki/GUID_Partition_Table</A></I>
 <P>
-<I><A HREF="http://developer.apple.com/technotes/tn2006/tn2166.html">http://developer.apple.com/technotes/tn2006/tn2166.html</A></I>
+<I><A HREF="https://developer.apple.com/technotes/tn2006/tn2166.html">https://developer.apple.com/technotes/tn2006/tn2166.html</A></I>
 <P>
-<I><A HREF="http://www.rodsbooks.com/gdisk/">http://www.rodsbooks.com/gdisk/</A></I>
+<I><A HREF="https://www.rodsbooks.com/gdisk/">https://www.rodsbooks.com/gdisk/</A></I>
 <P>
 <A NAME="lbAI">&nbsp;</A>
 <H2>AVAILABILITY</H2>
@@ -854,6 +862,6 @@ available from Rod Smith.
 This document was created by
 <A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 23:17:12 GMT, April 14, 2022
+Time: 00:55:41 GMT, February 20, 2024
 </BODY>
 </HTML>

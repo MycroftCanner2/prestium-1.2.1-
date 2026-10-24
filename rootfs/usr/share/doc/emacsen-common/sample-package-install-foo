@@ -23,7 +23,7 @@ mkdir -p "$elc_dir"
  if test $? -ne 0
  then
    cat install.log
-   exit 1
+   exit 2
  fi
  set -e
  gzip -9v install.log)

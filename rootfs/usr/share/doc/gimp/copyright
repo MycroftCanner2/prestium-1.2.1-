@@ -153,7 +153,8 @@ Files:
  desktop/*/*.png
  icons/*/*/*.png
  icons/*/*/*.svg
- devel-docs/libgimpwidgets/html/*.png
+ devel-docs/reference/gimp-ui/images/*.png
+ devel-docs/performance-logs/*.png
 Copyright:
  Ell
  Jakub Steiner
@@ -161,7 +162,7 @@ Copyright:
  other unspecified authors
 License: GPL-3+ and CC-BY-SA-3.0 and CC-BY-SA-4.0 and CC0-1.0
 
-Files: plug-ins/pygimp/plug-ins/pyconsole.py
+Files: plug-ins/python/python-console/*
 Copyright:
   2004-2006 Yevgen Muntyan
 License: LGPL-2.1

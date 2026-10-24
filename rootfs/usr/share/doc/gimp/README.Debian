@@ -12,11 +12,11 @@ COMPILING PLUGINS:
 -----------------
 
 If you wish to compile your own plug-ins, the easiest way is to use
-'gimptool-2.0', a simple tool that comes in the libgimp2.0-dev package. 
+'gimptool', a simple tool that comes in the libgimp-3.0-bin package.
 This works only if you have a plug-in whose source is a single .c file, 
 however:
 
-gimptool-2.0 --install plug-in.c
+gimptool --install plug-in.c
 
 Now wasn't that easy?
 

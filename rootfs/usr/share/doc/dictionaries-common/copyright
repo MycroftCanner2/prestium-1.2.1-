@@ -7,7 +7,7 @@ Files: *
 Copyright: 1999-2008 Rafael Laboissiere <rafael@debian.org>
            2001-2023 Agustín Martín Domingo <agmartin@debian.org>
            2003-2016 René Engelhard <rene@debian.org>
-           2022-2023 Soren Stoutner <soren@stoutner.com>
+           2022-2023, 2025 Soren Stoutner <soren@debian.org>
 License: GPL-2+
 
 Files: support/emacsen/ispell.el

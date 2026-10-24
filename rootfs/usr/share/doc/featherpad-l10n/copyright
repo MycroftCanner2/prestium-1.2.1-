@@ -8,13 +8,15 @@ License: GPL-3.0+
 
 Files: featherpad/encoding.cpp
 Copyright: 2004-2005 Tarot Osuji
-           2014      Pedram Pourang (aka Tsu Jan) <tsujan2000@gmail.com>
+           2014-2025 Pedram Pourang (aka Tsu Jan) <tsujan2000@gmail.com>
 License: GPL-2.0+
 
 Files: debian/*
 Copyright: 2017-2019 Alf Gaida <agaida@siduction.org>
-           2021      S. 7 <severusseptimius7@gmail.com>
+           2021-2025 Andrew Lee (李健秋) <ajqlee@debian.org>
+           2021-2024 S. 7 <severusseptimius7@gmail.com>
            2022-2023 ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+           2025      Macy Lin <macy@debconf.org>
 License: GPL-3.0+
 
 Files: featherpad/data/featherpad.metainfo.xml

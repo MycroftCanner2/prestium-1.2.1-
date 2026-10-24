@@ -1,0 +1,301 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Community AR9170 Linux firmware
+Upstream-Contact: linux-wireless@vger.kernel.org
+
+Files: *
+Copyright: 2000-2005 ZyDAS Technology Corporation
+ 2007-2009 Atheros Communications, Inc.
+ 2008-2009 Johannes Berg <johannes@sipsolutions.net>
+ 2009-2011 Christian Lamparter <chunkeey@googlemail.com>
+License: GPL-2+
+
+Files: com.qualcomm.qca.carl9170.firmware.metainfo.xml
+Copyright: 2021 John Scott <jscott@posteo.net>
+License: FSFAP
+ Copying and distribution of this file, with or without modification,
+ are permitted in any medium without royalty provided the copyright
+ notice and this notice are preserved. This file is offered as-is,
+ without any warranty.
+
+Files: carlfw/src/memcpy.S carlfw/src/memset.S
+Copyright: 1999-2001 Niibe Yutaka
+License: GPL-2+
+Comment: These files don't include notices specifying the licences,
+ but through personal correspondence I verified NIIBE's intentions:
+ "I wrote both of these in 1999. When I wrote these implementations
+ (and others under "GNU/Linux for SuperH Project"), I meant it's
+ under GNU GPL version 2 (or later). (Note that it's not GNU GPL
+ version 2 only.)"
+
+Files: carlfw/src/printf.c
+Copyright: 2004, 2008 Kustaa Nyholm
+License: LGPL-2.1+
+
+Files: carlfw/src/udivsi3_i4i-Os.S
+Copyright: 2006 Free Software Foundation, Inc.
+License: GPL-2+-with-linking-exception
+
+Files: config/*
+Copyright: 2002 Roman Zippel <zippel@linux-m68k.org>
+License: GPL-2-only
+
+Files: extra/FindPackageHandleStandardArgs.cmake
+Copyright: 2007-2009 Kitware, Inc.
+License: BSD-3-Clause-Kitware
+
+Files: extra/FindUSB-1.0.cmake
+Copyright: 2009 Andreas Schneider <mail@cynapses.org>
+License: BSD-3-Clause
+
+Files: include/linux/ch9.h
+Copyright: 2021 Christian Lamparter <chunkeey@gmail.com>
+ 2002-2020 Linus Torvalds and many others
+License: GPL-2-only-with-system-calls-note
+Comment: This file is taken and slightly modified from the Linux kernel.
+ It is kept in the Linux source tree at include/uapi/linux/usb/ch9.h,
+ and by inspecting both carl9170 and Linux VCS history I (John Scott)
+ determined that it was taken from commit 7f317d34.
+
+Files: include/linux/ieee80211.h
+Copyright: 2001-2002 SSH Communications Security Corp and Jouni Malinen <jkmaline@cc.hut.fi>
+ 2002-2003 Jouni Malinen <jkmaline@cc.hut.fi>
+ 2005 Devicescape Software, Inc.
+ 2006 Michael Wu <flamingice@sourmilk.net>
+ 2013-2014 Intel Mobile Communications GmbH
+ 2016-2017 Intel Deutschland GmbH
+ 2018-2020 Intel Corporation
+License: GPL-2-only
+
+Files: include/shared/eeprom.h
+Copyright: 2008 Johannes Berg <johannes@sipsolutions.net>
+ 2007-2008 Atheros Communications, Inc.
+License: GPL-2+ and ISC
+
+Files: include/shared/fwcmd.h
+ include/shared/hw.h
+ include/shared/wlan.h
+Copyright: 2008 Johannes Berg <johannes@sipsolutions.net>
+ 2009-2011 Christian Lamparter <chunkeey@googlemail.com>
+ 2007-2008 Atheros Communications, Inc.
+License: GPL-2-only and ISC
+
+Files: include/shared/phy.h
+Copyright: 2008-2009 Atheros Communications Inc.
+License: ISC
+
+Files: tools/*
+Copyright: 2010-2011 Christian Lamparter <chunkeey@googlemail.com>
+License: GPL-2-only
+
+Files: tools/include/frame.h
+Copyright: Alan Cox, <gw4pts@gw4pts.ampr.org>
+ Florian La Roche, <rzsfl@rz.uni-sb.de>
+License: GPL-2-only
+
+Files: tools/include/list.h
+Copyright: 2003-2006 Thomas Graf <tgraf@suug.ch>
+License: LGPL-2.1
+
+License: BSD-3-Clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ 1. Redistributions of source code must retain the copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: BSD-3-Clause-Kitware
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ * Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ .
+ * Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+ .
+ * Neither the names of Kitware, Inc., the Insight Software Consortium,
+   nor the names of their contributors may be used to endorse or promote
+   products derived from this software without specific prior written
+   permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: GPL-2-only
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License version 2 as published by the Free Software Foundation.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+
+License: GPL-2-only-with-system-calls-note
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License version 2 as published by the Free Software Foundation.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+ .
+ NOTE! This copyright does *not* cover user programs that use kernel
+ services by normal system calls - this is merely considered normal
+ use of the kernel, and does *not* fall under the heading of "derived work".
+ Also note that the GPL below is copyrighted by the Free Software Foundation,
+ but the instance of code that it refers to (the Linux kernel) is
+ copyrighted by me and others who actually wrote it.
+ .
+ Also note that the only valid version of the GPL as far as the kernel
+ is concerned is _this_ particular version of the license (ie v2, not
+ v2.2 or v3.x or whatever), unless explicitly otherwise stated.
+
+License: GPL-2+
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later
+ version.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+
+License: GPL-2+-with-linking-exception
+ This file is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the
+ Free Software Foundation; either version 2, or (at your option) any
+ later version.
+ .
+ In addition to the permissions in the GNU General Public License, the
+ Free Software Foundation gives you unlimited permission to link the
+ compiled version of this file into combinations with other programs,
+ and to distribute those combinations without any restriction coming
+ from the use of this file.  (The General Public License restrictions
+ do apply in other respects; for example, they cover modification of
+ the file, and distribution when not linked into a combine
+ executable.)
+ .
+ This file is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; see the file COPYING.  If not, write to
+ with this program; If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+
+License: ISC
+ Permission to use, copy, modify, and/or distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+License: LGPL-2.1
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License version 2.1 as published by the Free Software Foundation.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ .
+ On Debian systems, the full text of the GNU Lesser General Public
+ License version 2.1 can be found in the file
+ '/usr/share/common-licenses/LGPL-2.1'.
+
+License: LGPL-2.1+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ .
+ On Debian systems, the full text of the GNU Lesser General Public
+ License version 2.1 can be found in the file
+ '/usr/share/common-licenses/LGPL-2.1'.
