@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: CoinUtils
-Source: https://projects.coin-or.org/CoinUtils
+Source: https://github.com/coin-or/CoinUtils
 Files-Excluded:
   CoinUtils/MSVisualStudio
 

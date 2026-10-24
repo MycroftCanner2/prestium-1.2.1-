@@ -3,7 +3,7 @@ Upstream-Name: curl
 Source: https://curl.se/
 
 Files: *
-Copyright: 1997-2022, Daniel Stenberg, <daniel@haxx.se>, et al.
+Copyright: 1996-2025, Daniel Stenberg, <daniel@haxx.se>, et al.
 License: curl
 
 Files: debian/*
@@ -23,9 +23,10 @@ Copyright: 1999, Leon Breedt <ljb@debian.org>
  2014-2011, Helmut Grohne <helmutg@debian.org>
  2022, Paul Gevers <elbrus@debian.org>
  2013, 2022, Salvatore Bonaccorso <carnil@debian.org>
- 2022, Sergio Durigan Junior <sergiodj@debian.org>
- 2021-2022, Samuel Henrique <samueloph@debian.org>
  2023 John Scott <jscott@posteo.net>
+ 2023-2025, Carlos Henrique Lima Melara <charlesmelara@riseup.net>
+ 2022-2024, Sergio Durigan Junior <sergiodj@debian.org>
+ 2021-2024, Samuel Henrique <samueloph@debian.org>
 License: curl
 
 Files: debian/tests/LDAP-bindata.c
@@ -68,8 +69,8 @@ Files: lib/curl_des.c
  lib/vauth/krb5_sspi.c
  lib/vauth/vauth.c
  lib/vauth/vauth.h
- lib/version_win32.c
- lib/version_win32.h
+ lib/curlx/version_win32.c
+ lib/curlx/version_win32.h
  projects/build-openssl.bat
  projects/checksrc.bat
  projects/generate.bat
@@ -80,7 +81,6 @@ License: curl
 Files: m4/xc-am-iface.m4
  m4/xc-cc-check.m4
  m4/xc-lt-iface.m4
- m4/xc-translit.m4
  m4/xc-val-flgs.m4
  m4/zz40-xc-ovr.m4
  m4/zz50-xc-ovr.m4
@@ -91,7 +91,6 @@ License: ISC
 Files: compile
  depcomp
  missing
- test-driver
 Copyright: 1996-2021, Free Software Foundation, Inc.
 License: GPL-2+ with Autoconf-data exception
 
@@ -116,14 +115,9 @@ Copyright: 1992-2022, Free Software Foundation, Inc.
 License: GPL-3+ with Autoconf-data exception
 
 Files: lib/inet_ntop.c
- lib/inet_pton.c
+ lib/curlx/inet_pton.c
 Copyright: 1996-2022, Internet Software Consortium.
 License: ISC
-
-Files: tests/certs/scripts/genroot.sh
- tests/certs/scripts/genserv.sh
-Copyright: 2000-2020, EdelWeb for EdelKey and OpenEvidence
-License: curl
 
 Files: lib/smb.c
  lib/smb.h
@@ -175,18 +169,18 @@ Copyright: 2014-2019, Steve Holme, <steve_holme@hotmail.com>.
 License: curl
 
 Files: lib/vtls/rustls.c
- lib/vtls/rustls.h
-Copyright: 2020-2022, Jacob Hoffman-Andrews,
+Copyright: 2020-2022, Jacob Hoffman-Andrews, <github@hoffman-andrews.com>
+                      kpcyrd, <kpcyrd@archlinux.org>
+                      Daniel McCarney, <daniel@binaryparadox.net>
+License: curl
+
+Files: lib/vtls/rustls.h
+Copyright: 2020-2022, Jacob Hoffman-Andrews, <github@hoffman-andrews.com>
 License: curl
 
 Files: tests/libtest/lib1908.c
  tests/libtest/lib1910.c
 Copyright: 2013-2022, Linus Nielsen Feltzing, <linus@haxx.se>
-License: curl
-
-Files: docs/libcurl/opts/CURLOPT_PREREQDATA.3
- docs/libcurl/opts/CURLOPT_PREREQFUNCTION.3
-Copyright: 2022, Max Dymond, <max.dymond@microsoft.com>, et al.
 License: curl
 
 Files: lib/vtls/bearssl.c
@@ -245,11 +239,6 @@ Copyright: 2010, Howard Chu, <hyc@openldap.org>
   2011-2022, Daniel Stenberg, <daniel@haxx.se>, et al.
 License: curl
 
-Files: tests/server/fake_ntlm.c
-Copyright: 2010, Mandy Wu, <mandy.wu@intel.com>
-  2011-2022, Daniel Stenberg, <daniel@haxx.se>, et al.
-License: curl
-
 Files: lib/vtls/schannel.h
 Copyright: 2012, Marc Hoersken, <info@marc-hoersken.de>, et al.
   2012-2022, Daniel Stenberg, <daniel@haxx.se>, et al.
@@ -272,11 +261,6 @@ Files: lib/curl_rtmp.h
 Copyright: 2010-2022, Howard Chu, <hyc@highlandsun.com>
 License: curl
 
-Files: projects/build-wolfssl.bat
-Copyright: 2012-2020, Steve Holme, <steve_holme@hotmail.com>.
-  2015-2022, Jay Satiro, <raysatiro@yahoo.com>.
-License: curl
-
 Files: docs/examples/crawler.c
 Copyright: 2018-2022, Jeroen Ooms <jeroenooms@gmail.com>
 License: curl
@@ -295,6 +279,37 @@ License: curl
 
 Files: lib/vauth/gsasl.c
 Copyright: 2020-2022, Simon Josefsson, <simon@josefsson.org>, et al.
+License: curl
+
+Files: docs/cmdline-opts/mptcp.md
+Copyright: Dorian Craps, <dorian.craps@student.vinci.be>
+License: curl
+
+Files: docs/cmdline-opts/ipfs-gateway.md
+Copyright: Mark Gaiser, <markg85@gmail.com>
+License: curl
+
+Files: docs/examples/maxconnects.c
+Copyright: James Fuller, <jim@webcomposite.com>, et al.
+License: curl
+
+Files: lib/vssh/curl_path.c
+Copyright:            Daniel Stenberg, <daniel@haxx.se>, et al.
+           2001-2004, Damien Miller, <djm@openbsd.org>
+License: curl and ISC
+
+Files: lib/vtls/cipher_suite.c
+       lib/vtls/cipher_suite.h
+       tests/unit/unit3205.c
+Copyright: Jan Venekamp, <jan@venekamp.net>
+License: curl
+
+Files: scripts/cmakelint.sh
+Copyright: Dan Fandrich, <dan@coneharvesters.com>, et al.
+License: curl
+
+Files: tests/libtest/lib2405.c
+Copyright: Dmitry Karpov, <dkarpov1970@gmail.com>
 License: curl
 
 License: curl
@@ -471,9 +486,7 @@ License: GPL-2+ with Libtool exception
  .
  You should have received a copy of the GNU General Public License
  along with GNU Libtool; see the file COPYING.  If not, a copy
- can be downloaded from http://www.gnu.org/licenses/gpl.html,
- or obtained by writing to the Free Software Foundation, Inc.,
- 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ can be downloaded from http://www.gnu.org/licenses/gpl.html.
  .
  On Debian systems, the full text of the GNU General Public
  License version 2 can be found in the file

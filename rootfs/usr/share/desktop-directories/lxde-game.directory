@@ -1,4 +1,5 @@
 [Desktop Entry]
+Type=Directory
 Name=Games
 Name[af]=Speletjies
 Name[ar]=الألعاب
@@ -40,6 +41,7 @@ Name[hr]=Igre
 Name[hu]=Játékok
 Name[hy]=Խաղեր
 Name[id]=Permainan
+Name[ie]=Ludes
 Name[io]=Ludi
 Name[is]=Leikir
 Name[it]=Giochi
@@ -137,6 +139,7 @@ Comment[hr]=Igre i zabava
 Comment[hu]=Játék és szórakozás
 Comment[hy]=Խաղեր և զվարճություններ
 Comment[id]=Permainan dan hiburan
+Comment[ie]=Ludes e amusamentes
 Comment[io]=Ludi ed amuzi
 Comment[is]=Leikir og gaman
 Comment[it]=Giochi e passatempi
@@ -194,4 +197,3 @@ Comment[zh_CN]=游戏和休闲
 Comment[zh_HK]=遊戲及娛樂
 Comment[zh_TW]=遊戲及娛樂
 Icon=applications-games
-Type=Directory

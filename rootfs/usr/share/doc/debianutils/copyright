@@ -1,8 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Comment: This is the Debian GNU/Linux package debianutils.
  It is an original Debian package.  Programs in it were maintained by
- Guy Maor <maor@debian.org>, and are now maintained by Clint Adams
- <schizo@debian.org>.
+ Guy Maor <maor@debian.org> and Clint Adams <schizo@debian.org> before.
 
 Files: *
 Copyright: (see individual files)
@@ -40,10 +39,10 @@ License: GPL-2+
  redistributed under the terms of the GNU GPL, Version 2 or later,
  found on Debian systems in the file /usr/share/common-licenses/GPL-2.
 
-Files: which
+Files: which.debianutils
 Copyright: public-domain
 License: public-domain
- which is in the public domain.
+ which.debianutils is in the public domain.
 
 Files: savelog
 Copyright:

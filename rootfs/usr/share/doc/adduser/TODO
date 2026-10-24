@@ -35,3 +35,6 @@ For adduser 3.x there is to do:
 
  * see whether users is default in too many places
 
+ * probably document whether it's worth to say that --disabled-password
+   may, depending on useradd configuration, leave the account locked if UsePAM
+   is set in sshd.conf
