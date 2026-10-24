@@ -25,8 +25,8 @@ DRY_RUN=0
 . $APPARMOR_FUNCTIONS
 
 usage() {
-	local progname="$1"
-	local rc="$2"
+	local progname="$0"
+	local rc="$1"
 	local msg="usage: ${progname} [options]
 
 Remove profiles unknown to the system
@@ -45,14 +45,14 @@ Options:
 }
 
 if [ "$#" -gt 1 ] ; then
-	usage "$0" 1
+	usage 1
 elif [ "$#" -eq 1 ] ; then
-	if [ "$1" = "-h" -o "$1" = "--help" ] ; then
-		usage "$0" 0
+	if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
+		usage 0
 	elif [ "$1" = "-n" ] ; then
 		DRY_RUN=1
 	else
-		usage "$0" 1
+		usage 1
 	fi
 fi
 
@@ -63,7 +63,7 @@ fi
 # We have to do this check because error checking awk's getline() below is
 # tricky and, as is, results in an infinite loop when apparmorfs returns an
 # error from open().
-if ! IFS= read line < "$PROFILES" ; then
+if ! true < "$PROFILES" ; then
 	echo "ERROR: Unable to read apparmorfs profiles file" 1>&2
 	exit 1
 elif [ ! -w "$REMOVE" ] ; then
@@ -79,6 +79,7 @@ fi
 # on removing the parent profile when the profile has had its
 # child profile names changed.
 
+# shellcheck disable=SC2086
 LOADED_PROFILES=$("$PARSER" -N $PROFILE_DIRS) || {
 	ret=$?
 	echo 'apparmor_parser exited with failure, aborting.' >&2
@@ -88,9 +89,9 @@ LOADED_PROFILES=$("$PARSER" -N $PROFILE_DIRS) || {
 echo "$LOADED_PROFILES" | awk '
 BEGIN {
   while (getline < "'${PROFILES}'" ) {
-    str = sub(/ \((enforce|complain)\)$/, "", $0);
+    sub(/ \((enforce|complain|prompt|kill|unconfined)\)$/, "", $0);
     if (match($0, /^libvirt-[0-9a-f\-]+$/) == 0)
-      arr[$str] = $str
+      arr[$0] = $0
   }
 }
 
@@ -103,7 +104,7 @@ END {
     }
 }
 ' | LC_COLLATE=C sort -r | \
-	while IFS= read profile ; do
+	while IFS= read -r profile ; do
 		if [ "$DRY_RUN" -ne 0 ]; then
 			echo "Would remove '${profile}'"
 		else

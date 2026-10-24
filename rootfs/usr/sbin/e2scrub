@@ -49,7 +49,7 @@ print_help() {
 }
 
 print_version() {
-	echo "e2scrub 1.47.0 (5-Feb-2023)"
+	echo "e2scrub 1.47.2 (1-Jan-2025)"
 }
 
 exitcode() {
@@ -155,6 +155,13 @@ else
 fi
 if [ ! -e "${dev}" ]; then
 	echo "${arg}: Not an ext[234] filesystem."
+	print_help
+	exitcode 16
+fi
+
+# Do not scrub unjournalled filesystems; they are inconsistent when mounted
+if [ "${reap}" -eq 0 ] && ! dumpe2fs -h "${dev}" | grep -q 'has_journal'; then
+	echo "${arg}: Filesystem has no journal, cannot check."
 	print_help
 	exitcode 16
 fi

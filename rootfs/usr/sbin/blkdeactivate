@@ -40,7 +40,7 @@ MPATHD="/sbin/multipathd"
 UMOUNT="/bin/umount"
 VDO="/bin/vdo"
 
-sbindir="/sbin"
+sbindir="/usr/sbin"
 DMSETUP="$sbindir/dmsetup"
 LVM="$sbindir/lvm"
 

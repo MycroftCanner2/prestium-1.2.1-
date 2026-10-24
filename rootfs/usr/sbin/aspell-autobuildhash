@@ -2,7 +2,7 @@
 #
 #  script for aspell hash autorebuild in Debian systems
 #
-# Copyright 2004-2022 Agustin Martin Domingo <agmartin@debian.org>
+# Copyright 2004-2024 Agustin Martin Domingo <agmartin@debian.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -281,8 +281,9 @@ B<aspell-autobuildhash> - Autobuilding aspell hash files for some dicts
  aspell-autobuildhash [--force]
 
    Options:
-    --debug      Show extra info about aspell-autobuildhash internal
-                 work. Will also enable aspell affix validation.
+    --debug      Show extra info about aspell-autobuildhash
+                 internal work.
+                 Will also enable aspell affix validation.
     --dry-run    Show what would be done, but do nothing real.
     --force      Rebuild the hash file for all dicts providing a
                  compat file skipping the test.
@@ -294,29 +295,31 @@ B<aspell-autobuildhash> is a script that will manage aspell hash files
 autobuild, intended to be called from the dictionaries-common tools.
 Depending on the aspell
 compatibility level and on the compatibility level used for the hash file
-if present, will decide whether it must be rebuilt or not. This script will
-only work on aspell packages prepared to use it, it will do nothing for other
-aspell dict packages.
+if present, will decide whether it must be rebuilt or not.
+This script will only work on aspell packages prepared to use it, it
+will do nothing for other aspell dict packages.
 
 =head1 OPTIONS
 
  --debug      Show some extra information about aspell-autobuildhash
-              internal work. Will also enable aspell affix validation.
+              internal work.
+	      Will also enable aspell affix validation.
  --dry-run    Show what would be done, but do nothing real.
  --force      Rebuild the hash file for all dicts providing a compat
               file regardless of the compatibility levels found.
- --triggered  Tell the script that is run in the triggers stage. When
-              run under dpkg control, do not try to set the
+ --triggered  Tell the script that is run in the triggers stage.
+              When run under dpkg control, do not try to set the
               'aspell-autobuildhash' trigger, but run real
-              B<aspell-autobuildhash> code. When not run under dpkg
-              control, real code will always be run and '--triggered'
-              option has no real effect.
+              B<aspell-autobuildhash> code.
+              When not run under dpkg control, real code will always
+              be run and '--triggered' option has no real effect.
 
 =head1 PACKAGE MAINTAINERS
 
 To use this system, B<aspell-autobuildhash> expects a F<$lang.compat> file
-in F</var/lib/aspell> (I<$lang> stands for the lang basename with variant
-if any, e.g. I<$lang> is something like I<gl-minimos> or I<en>))
+in F</var/lib/aspell>
+(I<$lang> stands for the lang basename with variant if any, e.g. I<$lang>
+is something like I<gl-minimos> or I<en>)
 containing aspell compatibility version for last successful build
 or "0" or en empty file if hash is to be rebuild, as is for dictionary
 installation and upgrades.
@@ -326,10 +329,12 @@ is different from I<aspell.compat> and rebuild if so, updating
 I<$lang.compat> with the new value.
 
 Wordlists should previously be compressed either with gzip
-(and their extensions set as F<.mwl.gz> or F<.wl.gz>) or preferably
-first with aspell prezip and then gzipped (with F<.cwl.gz> extension).
+(and their extensions set as F<.mwl.gz> or F<.wl.gz>)
+or preferably first with aspell prezip and then gzipped
+(with F<.cwl.gz> extension).
 This applies both for plain wordlists and munched wordlists
-(in the ispell way) if you use affix compression.
+(in the ispell way)
+if you use affix compression.
 
 If your package will provide a single hash, install prezipped+gzipped
 wordlist as F</usr/share/aspell/$lang.cwl.gz> or, if prezip is not used,
@@ -338,9 +343,10 @@ as F</usr/share/aspell/$lang.mwl.gz>.
 If your package will provide more than one aspell hash for the same $lang,
 you will need to place each compressed wordlist as e.g.
 F</usr/share/aspell/$subdict.cwl.gz>, and the common F<$lang.compat> as
-above. Then create a F</usr/share/aspell/$lang.contents> file with the
-base names of the subdicts, one in a line. For English that will contain,
-amongst other possible lines
+above.
+Then create a F</usr/share/aspell/$lang.contents> file with the
+base names of the subdicts, one in a line.
+For English that will contain, amongst other possible lines
 
  en-common
  en-variant_0
@@ -350,14 +356,16 @@ amongst other possible lines
 
 No need to use this file if a single hash is being created.
 
-Dictionaries-common scripts will call internally this script and create a
-single hash file at F</var/lib/ispell/$lang.rws>, or hash files at
-F</var/lib/ispell/$subdict.rws>. You must set a symlink to that
+Dictionaries-common scripts will call internally this script and
+create a single hash file at F</var/lib/ispell/$lang.rws>,
+or hash files at F</var/lib/ispell/$subdict.rws>.
+You must set a symlink to that
 files from F</usr/lib/aspell/$lang.rws> or
 F</usr/lib/aspell/$subdict.rws> as appropriate.
 
 Aspell dictionary packages using this script must make sure that
-I<$lang.compat> is reset on every new install/upgrade, so hash is rebuilt.
+I<$lang.compat> is reset on every new install/upgrade, so hash is
+rebuilt.
 They must also make sure that I<$lang.compat> and all of
 F</var/lib/aspell/$lang.rws> or F</var/lib/aspell/$subdict.rws>
 are removed on package removal.
@@ -383,7 +391,7 @@ Agustin Martin <agmartin@debian.org>
 
 =head1 COPYRIGHT
 
-Copyright (C) 2004-2013 Agustin Martin <agmartin@debian.org>
+Copyright (C) 2004-2024 Agustin Martin <agmartin@debian.org>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

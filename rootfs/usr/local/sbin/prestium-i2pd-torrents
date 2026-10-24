@@ -7,6 +7,9 @@
 #   path any web page could add or delete torrents.
 set -e
 D=/home/user/Downloads/Torrents
+# Debian 13 creates homes 0700 (1.8/Debian 12: 0755); i2pd must be able to
+# traverse /home/user to reach the torrent dir -> search permission only.
+chmod go+x /home/user
 install -d -o user -g user -m 0755 /home/user/Downloads
 install -d -o user -g i2ptorrents -m 2770 "$D"
 TOKEN=$(head -c 16 /dev/urandom | od -An -tx1 | tr -d ' \n')

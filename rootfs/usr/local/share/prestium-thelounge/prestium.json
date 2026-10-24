@@ -32,10 +32,21 @@
       "proxyPassword": "",
       "userDisconnected": false,
       "channels": [
-        {"name": "#i2p", "key": "", "muted": false},
-        {"name": "#i2p-chat", "key": "", "muted": false},
-        {"name": "#i2p-dev", "key": "", "muted": false},
-        {"name": "#i2p-help", "key": "", "muted": false}
+        {
+          "name": "#i2p",
+          "key": "",
+          "muted": false
+        },
+        {
+          "name": "#i2p-chat",
+          "key": "",
+          "muted": false
+        },
+        {
+          "name": "#i2p-dev",
+          "key": "",
+          "muted": false
+        }
       ]
     },
     {
@@ -60,9 +71,7 @@
       "proxyUsername": "",
       "proxyPassword": "",
       "userDisconnected": false,
-      "channels": [
-        {"name": "#dev", "key": "", "muted": false}
-      ]
+      "channels": []
     }
   ]
 }

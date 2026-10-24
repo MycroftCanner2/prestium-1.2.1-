@@ -1,11 +1,11 @@
 #!/bin/bash
-# Prestium 1.8: emergency shutdown when the boot medium is removed (Tails-style).
+# Prestium 1.9: emergency shutdown when the boot medium is removed (Tails-style).
 # Pulling the USB stick (or ejecting the DVD) powers the machine off at once.
 # "systemctl --force poweroff" kills every process without running the normal
 # shutdown units; the freed RAM is zeroed by the kernel (init_on_free=1 on the
 # boot line), which is the same memory-erasure mechanism Tails relies on.
 # Only bash builtins run in the polling loop, and memlockd keeps bash,
-# systemctl and sleep locked in RAM, so this still works once the medium is gone.
+# systemctl locked in RAM, so this still works once the medium is gone.
 # Not armed when booted with "toram" (the medium may then be removed safely).
 
 grep -qw toram /proc/cmdline && { echo "toram boot: watchdog not armed"; exit 0; }
@@ -20,10 +20,20 @@ case $disk in sr*) optical=1 ;; *) optical= ;; esac
 echo "armed on /dev/$disk (live medium $src)"
 
 emergency() {
+  [ -n "$fired" ] && return
+  fired=1
+  # Independent fallback first. Its argv[0] starts with '@', so the final
+  # killing spree of systemd-shutdown spares it (root process). It waits ~8 s
+  # with a bash builtin (no binary from the vanished medium is needed) and then
+  # powers off through the sysrq trigger: writes to /proc/sysrq-trigger by root
+  # are honoured regardless of the kernel.sysrq bitmask (that only limits the
+  # keyboard). By then systemd-shutdown has killed every process, so their
+  # freed memory has already been zeroed (init_on_free=1).
+  ( exec -a @prestium-emergency /bin/bash -c \
+      'exec 4<> <(:); read -r -t 8 -u 4; echo o > /proc/sysrq-trigger' ) \
+      </dev/null >/dev/null 2>&1 &
   echo "<0>prestium: boot medium removed, emergency shutdown" > /dev/kmsg 2>/dev/null
   systemctl --force poweroff &
-  sleep 20
-  echo o > /proc/sysrq-trigger
 }
 
 exec 3<> <(:)   # a pipe nothing writes to: "read -t" on it is a builtin sleep

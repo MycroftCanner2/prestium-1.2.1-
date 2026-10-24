@@ -1,6 +1,9 @@
 #!/bin/sh
 # Prestium: give i2pd a fresh random port each boot and open only that port
 # inbound, so the router is reachable (not "firewalled") and builds tunnels faster.
+# 1.9: ferm loads its ruleset with the *legacy* xtables backend (it prefers
+# iptables-legacy when present), so the ACCEPT rules must go into the legacy
+# tables too. 1.8 used `iptables` (= nft backend), so the port stayed closed.
 CONF=/var/lib/i2pd/i2pd.conf
 PORT=$(shuf -i 10000-30000 -n 1)
 TMP=$(mktemp)
@@ -11,10 +14,12 @@ awk -v p="$PORT" '
   { print }
 ' "$CONF" > "$TMP" && cat "$TMP" > "$CONF"
 rm -f "$TMP"
-for ipt in iptables ip6tables; do
-  $ipt -N PRESTIUM_I2PD 2>/dev/null || $ipt -F PRESTIUM_I2PD
-  $ipt -C INPUT -j PRESTIUM_I2PD 2>/dev/null || $ipt -I INPUT 1 -j PRESTIUM_I2PD
-  $ipt -A PRESTIUM_I2PD -p tcp --dport "$PORT" -j ACCEPT
-  $ipt -A PRESTIUM_I2PD -p udp --dport "$PORT" -j ACCEPT
+for ipt in iptables-legacy ip6tables-legacy; do
+  command -v $ipt >/dev/null 2>&1 || continue
+  $ipt -w -N PRESTIUM_I2PD 2>/dev/null || $ipt -w -F PRESTIUM_I2PD
+  $ipt -w -C INPUT -j PRESTIUM_I2PD 2>/dev/null || $ipt -w -I INPUT 1 -j PRESTIUM_I2PD
+  # only i2pd's per-boot port, only new inbound connections/datagrams to it
+  $ipt -w -A PRESTIUM_I2PD -p tcp --dport "$PORT" -m conntrack --ctstate NEW -j ACCEPT
+  $ipt -w -A PRESTIUM_I2PD -p udp --dport "$PORT" -j ACCEPT
 done
 exit 0
