@@ -1,7 +1,9 @@
 ## Syntax highlighting for Makefiles.
 
-syntax makefile "(/((GNU)?m|M)akefile[^/]*$|\.(make|mk)$)"
+syntax makefile "(^|/)((GNU)?m|M)akefile[^/]*$|\.(make|mk)$"
 magic "makefile script"
+
+tabgives "	"
 comment "#"
 
 # Assignments.
@@ -15,7 +17,7 @@ color magenta "^((override +)?(un)?define|endef|(un)?export|private|vpath)\>"
 color blue "\$+[{(][a-zA-Z0-9_-]+[})]"
 
 # Targets.
-color brightblue "^[^ 	]+:"
+color brightblue "^[^	].*:"
 
 # Comments.
 color green "(^|[[:blank:]]+)#.*"
