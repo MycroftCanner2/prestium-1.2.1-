@@ -1,0 +1,5 @@
+40ec26489cbb0bee07d9b18937d2dbfa  usr/lib/x86_64-linux-gnu/libumfpack.so.6.3.5
+88fa10adb405fdc57c11e12c14a20131  usr/share/doc/libumfpack6/changelog.Debian.gz
+5bc01b0aaee3dc14fdf0de872a2115b6  usr/share/doc/libumfpack6/changelog.gz
+1378f730d6e2e6cc1d2fbe814ceaa42e  usr/share/doc/libumfpack6/copyright
+b1abd8a1e6512bd102e82f852ba081c4  usr/share/lintian/overrides/libumfpack6

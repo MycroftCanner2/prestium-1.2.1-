@@ -1,5 +1,5 @@
-00d7ec98f9de3f349e4cbc2e1fca06e5  usr/lib/x86_64-linux-gnu/libusb-1.0.so.0.3.0
-3ba8619e6243fcb41098dd30a9c70d1c  usr/share/doc/libusb-1.0-0/README
-b481e92855452224baba7fb756aeee01  usr/share/doc/libusb-1.0-0/changelog.Debian.gz
-d255382fb6f43a37e02564c958ec5c43  usr/share/doc/libusb-1.0-0/changelog.gz
-5816a471ba95e52e3825b47666dd1d74  usr/share/doc/libusb-1.0-0/copyright
+10f1bcc2e859e413f8dc24cab309fe5f  usr/lib/x86_64-linux-gnu/libusb-1.0.so.0.5.0
+77e15dd983c19555e533df5bc15ea0b1  usr/share/doc/libusb-1.0-0/README
+6418d036c045ad6a36f5405043b4ff17  usr/share/doc/libusb-1.0-0/changelog.Debian.gz
+af28938553ee74bd831a6d0044e973fd  usr/share/doc/libusb-1.0-0/changelog.gz
+bb2ce6c4cc2a824dc6e5daa6f3832798  usr/share/doc/libusb-1.0-0/copyright

@@ -19,7 +19,6 @@ libva.so.2 libva2 #MINVER#
  vaCreateMFContext@Base 2.1.0
  vaCreateProtectedSession@Base 2.11.0
  vaCreateSubpicture@Base 1.0.3
- vaCreateSurfaces@VA_API_0.32.0 1.2.0
  vaCreateSurfaces@VA_API_0.33.0 1.2.0
  vaDeassociateSubpicture@Base 1.0.3
  vaDeriveImage@Base 1.0.3
@@ -45,6 +44,7 @@ libva.so.2 libva2 #MINVER#
  vaMFAddContext@Base 2.1.0
  vaMFReleaseContext@Base 2.1.0
  vaMFSubmit@Base 2.1.0
+ vaMapBuffer2@Base 2.21.0
  vaMapBuffer@Base 1.0.3
  vaMaxNumConfigAttributes@Base 1.0.3
  vaMaxNumDisplayAttributes@Base 1.0.3
@@ -87,6 +87,7 @@ libva.so.2 libva2 #MINVER#
  vaUnlockSurface@Base 2.0.0
  vaUnmapBuffer@Base 1.0.3
  va_TracePutSurface@Base 1.0.6
+ va_TraceStatus@Base 2.21.0
  va_newDisplayContext@Base 2.0.0
  va_newDriverContext@Base 2.1.0
  va_trace_flag@Base 2.0.0

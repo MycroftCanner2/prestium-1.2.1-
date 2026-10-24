@@ -1,7 +1,7 @@
-91fd30977a47d311b0f86649c1dbcee8  usr/lib/x86_64-linux-gnu/libunwind-coredump.so.0.0.0
-3cf6539e033afd5617156888418248ec  usr/lib/x86_64-linux-gnu/libunwind-ptrace.so.0.0.0
-12df8388a0c48fdbdf67c5a975de35d0  usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8.0.1
-b5dd0183002207f3cf3e81ed2d8c09ed  usr/lib/x86_64-linux-gnu/libunwind.so.8.0.1
-70094711bb05ee4d634262cdba21b059  usr/share/doc/libunwind8/changelog.Debian.gz
+3a531709aa85ac505876797a1c668122  usr/lib/x86_64-linux-gnu/libunwind-coredump.so.0.0.0
+47922943c67947ba17cbfca70b176f9b  usr/lib/x86_64-linux-gnu/libunwind-ptrace.so.0.0.0
+fdee43f97336e5409de53979f293d23d  usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8.1.0
+a34044c16be49424099331b734a376d2  usr/lib/x86_64-linux-gnu/libunwind.so.8.1.0
+2642ed00f9f6e9a1111777239f612c34  usr/share/doc/libunwind8/changelog.Debian.gz
 651c8bed20e9af973519840137d731de  usr/share/doc/libunwind8/changelog.gz
 7ff5e78e2ec003eebdb2a372777d4dc8  usr/share/doc/libunwind8/copyright

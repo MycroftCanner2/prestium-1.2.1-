@@ -1,1 +1,1 @@
-libtdb 1 libtdb1 (>= 1.4.8)
+libtdb 1 libtdb1 (>> 2:1.4.13+samba4.22.11+dfsg-0+deb13u1~)

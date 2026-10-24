@@ -1,0 +1,5 @@
+3c97a62c32c6c5076d2e98e83e0ee2fa  usr/lib/x86_64-linux-gnu/libswscale.so.8.3.100
+6b607fb728aefcb2c5d7c5055b20502a  usr/share/doc/libswscale8/changelog.Debian.gz
+d6e9510177e07740476678fdc9d45577  usr/share/doc/libswscale8/changelog.gz
+8302782d216f52cabf7ee6d8822c3d6e  usr/share/doc/libswscale8/copyright
+553d18df7860f9d4adbf4112d298bea4  usr/share/lintian/overrides/libswscale8

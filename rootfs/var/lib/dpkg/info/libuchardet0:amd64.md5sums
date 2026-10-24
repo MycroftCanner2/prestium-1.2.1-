@@ -1,3 +1,4 @@
-25c432d83488271b4ebb88b338752540  usr/lib/x86_64-linux-gnu/libuchardet.so.0.0.7
-6291a6a59bc67707cfef35a898b77de6  usr/share/doc/libuchardet0/changelog.Debian.gz
-5e13694a648bb4068dbb3c57f1f8df06  usr/share/doc/libuchardet0/copyright
+ca0fd44a693f32a54d7e766d3d7fd42e  usr/lib/x86_64-linux-gnu/libuchardet.so.0.0.8
+3f82bd37e3cebfbb603148ba1db0373d  usr/share/doc/libuchardet0/changelog.Debian.amd64.gz
+14beed4e1276546f4b3a00484bfcd6e2  usr/share/doc/libuchardet0/changelog.Debian.gz
+3834168365571bceedebf7da5e955c96  usr/share/doc/libuchardet0/copyright
