@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>io.github.linuxwacom</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>xserver-xorg-input-wacom</name>
+  <summary>X.Org X server -- Wacom input driver</summary>
+  <description>
+    <p>This package provides the X.Org driver for Wacom tablet devices.</p>
+  </description>
+  <url type="homepage">https://github.com/philpem/printer-driver-ptouch</url>
+  <provides>
+    <modalias>lkmodule:wacom</modalias>
+  </provides>
+</component>

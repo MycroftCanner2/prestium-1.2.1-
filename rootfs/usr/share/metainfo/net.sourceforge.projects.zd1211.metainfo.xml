@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>net.sourceforge.projects.zd1211</id>
+  <metadata_license>MIT</metadata_license>
+  <name>firmware-zd1211</name>
+  <summary>Binary firmware for the zd1211rw wireless driver</summary>
+  <description>
+    <p>Provide the firmware to be used with the zd1211rw Linux kernel
+    driver for USB wireless dongles based on the following
+    chipsets:</p>
+    <ul>
+      <li>ZyDAS ZD1211</li>
+      <li>ZyDAS ZD1211B</li>
+      <li>Atheros AR5007UG (alternatively known as AR2524/AR5524)</li>
+    </ul>
+  </description>
+  <url type="homepage">https://sourceforge.net/projects/zd1211/</url>
+  <provides>
+    <modalias>lkmodule:zd1211rw</modalias>
+    <modalias>usb:v0ACEp20FFd*</modalias>
+    <modalias>usb:v0ACEp2011d*</modalias>
+    <modalias>usb:v2019pED01d*</modalias>
+    <modalias>usb:v2019p5303d*</modalias>
+    <modalias>usb:v1582p6003d*</modalias>
+    <modalias>usb:v157Ep300Dd*</modalias>
+    <modalias>usb:v13B1p0024d*</modalias>
+    <modalias>usb:v129Bp1667d*</modalias>
+    <modalias>usb:v0DF6p0036d*</modalias>
+    <modalias>usb:v0CDEp001Ad*</modalias>
+    <modalias>usb:v0BAFp0121d*</modalias>
+    <modalias>usb:v0B05p171Bd*</modalias>
+    <modalias>usb:v0ACEpB215d*</modalias>
+    <modalias>usb:v0ACEp1215d*</modalias>
+    <modalias>usb:v083ApE506d*</modalias>
+    <modalias>usb:v083ApE503d*</modalias>
+    <modalias>usb:v083ApE501d*</modalias>
+    <modalias>usb:v083Ap4505d*</modalias>
+    <modalias>usb:v07FAp1196d*</modalias>
+    <modalias>usb:v079Bp0062d*</modalias>
+    <modalias>usb:v0586p3413d*</modalias>
+    <modalias>usb:v0586p3412d*</modalias>
+    <modalias>usb:v0586p3410d*</modalias>
+    <modalias>usb:v0586p340Fd*</modalias>
+    <modalias>usb:v0586p340Ad*</modalias>
+    <modalias>usb:v054Cp0257d*</modalias>
+    <modalias>usb:v050Dp705Cd*</modalias>
+    <modalias>usb:v0471p1237d*</modalias>
+    <modalias>usb:v0471p1236d*</modalias>
+    <modalias>usb:v0411p00DAd*</modalias>
+    <modalias>usb:v0409p0248d*</modalias>
+    <modalias>usb:v0053p5301d*</modalias>
+    <modalias>usb:v6891pA727d*</modalias>
+    <modalias>usb:v1740p2000d*</modalias>
+    <modalias>usb:v157Ep3207d*</modalias>
+    <modalias>usb:v157Ep3204d*</modalias>
+    <modalias>usb:v157Ep300Bd*</modalias>
+    <modalias>usb:v157Ep300Ad*</modalias>
+    <modalias>usb:v14EApAB13d*</modalias>
+    <modalias>usb:v14EApAB10d*</modalias>
+    <modalias>usb:v1435p0711d*</modalias>
+    <modalias>usb:v13B1p001Ed*</modalias>
+    <modalias>usb:v129Bp1666d*</modalias>
+    <modalias>usb:v126FpA006d*</modalias>
+    <modalias>usb:v0DF6p9075d*</modalias>
+    <modalias>usb:v0DF6p9071d*</modalias>
+    <modalias>usb:v0B3Bp5630d*</modalias>
+    <modalias>usb:v0B3Bp1630d*</modalias>
+    <modalias>usb:v0B05p170Cd*</modalias>
+    <modalias>usb:v0ACEpA211d*</modalias>
+    <modalias>usb:v0ACEp1211d*</modalias>
+    <modalias>usb:v07B8p6001d*</modalias>
+    <modalias>usb:v079Bp004Ad*</modalias>
+    <modalias>usb:v0586p3409d*</modalias>
+    <modalias>usb:v0586p3407d*</modalias>
+    <modalias>usb:v0586p3402d*</modalias>
+    <modalias>usb:v0586p3401d*</modalias>
+    <modalias>usb:v0105p145Fd*</modalias>
+  </provides>
+</component>

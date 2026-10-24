@@ -12,6 +12,7 @@
   <name xml:lang="sv">Nätverkshanteraren</name>
   <name xml:lang="sr@latin">Upravnik mreže</name>
   <name xml:lang="sr">Управник мреже</name>
+  <name xml:lang="sl">Program NetworkManager</name>
   <name xml:lang="sk">NetworkManager</name>
   <name xml:lang="ru">NetworkManager</name>
   <name xml:lang="ro">Administrator de rețea</name>
@@ -29,6 +30,7 @@
   <name xml:lang="ja">NetworkManager</name>
   <name xml:lang="it">NetworkManager</name>
   <name xml:lang="is">NetworkManager netstýring</name>
+  <name xml:lang="ie">NetworkManager</name>
   <name xml:lang="id">NetworkManager</name>
   <name xml:lang="hu">Hálózatkezelő</name>
   <name xml:lang="hr">Mrežni upravitelj</name>
@@ -52,6 +54,7 @@
   <summary xml:lang="sv">Nätverkshanteraren (anslutningsredigerare)</summary>
   <summary xml:lang="sr@latin">Uređivač veza upravnika mreže</summary>
   <summary xml:lang="sr">Уређивач веза управника мреже</summary>
+  <summary xml:lang="sl">Urejevalnik povezave NetworkManager</summary>
   <summary xml:lang="sk">Editor pripojení správcu siete NetworkManager</summary>
   <summary xml:lang="ru">Редактор подключений NetworkManager</summary>
   <summary xml:lang="ro">Editorul de conexiuni „Administrator de rețea”</summary>
@@ -180,6 +183,7 @@
   <developer_name xml:lang="sv">Utvecklarna av Nätverkshanteraren</developer_name>
   <developer_name xml:lang="sr@latin">Programeri upravnika mreže</developer_name>
   <developer_name xml:lang="sr">Програмери управника мреже</developer_name>
+  <developer_name xml:lang="sl">Razvijalci programa NetworkManager</developer_name>
   <developer_name xml:lang="sk">Vývojári správcu siete NetworkManager</developer_name>
   <developer_name xml:lang="ru">Разработчики NetworkManager</developer_name>
   <developer_name xml:lang="ro">Dezvoltatorii Administrator de rețea</developer_name>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="firmware">
+  <id>org.debian.firmware_intel_misc</id>
+  <name>firmware-intel-misc</name>
+  <summary>Binary firmware for miscellaneous Intel devices and chips</summary>
+  <description>
+    <p>Binary firmware for miscellaneous Intel devices and chips, which do not belong in the iwlwifi, ipw2x00, intel-graphics or intel-sound packages. This includes for example Omni-Path, Ethernet/Network chips/devices, and QuickAssist Technology crypto accelerators.</p>
+  </description>
+  <url type="homepage">https://gitlab.com/kernel-firmware/linux-firmware</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <provides>
+    <firmware type="runtime">HP/ish/ish_lnlm_12128606_f9751b71.bin</firmware>
+    <firmware type="runtime">HP/ish/ish_ptl_12128606_581.7779.0.bin</firmware>
+    <firmware type="runtime">LENOVO/ish/ish_lnlm_lenovo_X1_2025_5.8.4.7720.bin</firmware>
+    <firmware type="runtime">LENOVO/ish/ish_lnlm_lenovo_X9-14_2025_5.8.36.09092.bin</firmware>
+    <firmware type="runtime">LENOVO/ish/ish_lnlm_lenovo_x9-15_2025_5.8.0.7720.bin</firmware>
+    <firmware type="runtime">LENOVO/ish/ish_ptl_lenovo_X1_2026_5.8.1.7782.bin</firmware>
+    <firmware type="runtime">dell/ish/ish_lnlm_39ceeaf8_58.7727.0.bin</firmware>
+    <firmware type="runtime">dell/ish/ish_ptl_39ceeaf8_581.7779.0.bin</firmware>
+    <firmware type="runtime">dell/ish/ish_ptl_39ceeaf8_581.7783.0.bin</firmware>
+    <firmware type="runtime">e100/d101m_ucode.bin</firmware>
+    <firmware type="runtime">e100/d101s_ucode.bin</firmware>
+    <firmware type="runtime">e100/d102e_ucode.bin</firmware>
+    <firmware type="runtime">hfi1_dc8051.fw</firmware>
+    <firmware type="runtime">hfi1_fabric.fw</firmware>
+    <firmware type="runtime">hfi1_pcie.fw</firmware>
+    <firmware type="runtime">hfi1_sbus.fw</firmware>
+    <firmware type="runtime">intel/ice/ddp/ice-1.3.43.0.pkg</firmware>
+    <firmware type="runtime">intel/ice/ddp/ice.pkg</firmware>
+    <firmware type="runtime">intel/ice/ddp-comms/ice_comms-1.3.55.0.pkg</firmware>
+    <firmware type="runtime">intel/ice/ddp-lag/ice_lag-1.3.2.0.pkg</firmware>
+    <firmware type="runtime">intel/ice/ddp-wireless_edge/ice_wireless_edge-1.3.23.0.pkg</firmware>
+    <firmware type="runtime">intel/ish/ish_lnlm.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_lnlm_12128606_f9751b71.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_lnlm_39ceeaf8.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_lnlm_53c4ffad_90ef58cf.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_lnlm_53c4ffad_a672a235.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_lnlm_53c4ffad_cb391961.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_lnlm_53c4ffad_ebb27e41.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_ptl.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_ptl_39ceeaf8.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_ptl_53c4ffad_75d6ebe2.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_ptl_53c4ffad_bc3e29f7.bin</firmware>
+    <firmware type="runtime">intel/ish/ish_wcl.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_402xx.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_402xx_mmp.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_420xx.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_420xx_mmp.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_4xxx.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_4xxx_mmp.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_895xcc.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_895xcc_mmp.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_c3xxx.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_c3xxx_mmp.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_c62x.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_c62x_mmp.bin</firmware>
+    <firmware type="runtime">intel/qat/qat_mmp.bin</firmware>
+    <firmware type="runtime">intel/vpu/vpu_37xx_v0.0.bin</firmware>
+    <firmware type="runtime">intel/vpu/vpu_37xx_v1.bin</firmware>
+    <firmware type="runtime">intel/vpu/vpu_40xx_v0.0.bin</firmware>
+    <firmware type="runtime">intel/vpu/vpu_40xx_v1.bin</firmware>
+    <firmware type="runtime">intel/vpu/vpu_50xx_v0.0.bin</firmware>
+    <firmware type="runtime">intel/vpu/vpu_50xx_v1.bin</firmware>
+    <firmware type="runtime">qat_402xx.bin</firmware>
+    <firmware type="runtime">qat_402xx_mmp.bin</firmware>
+    <firmware type="runtime">qat_420xx.bin</firmware>
+    <firmware type="runtime">qat_420xx_mmp.bin</firmware>
+    <firmware type="runtime">qat_4xxx.bin</firmware>
+    <firmware type="runtime">qat_4xxx_mmp.bin</firmware>
+    <firmware type="runtime">qat_895xcc.bin</firmware>
+    <firmware type="runtime">qat_895xcc_mmp.bin</firmware>
+    <firmware type="runtime">qat_c3xxx.bin</firmware>
+    <firmware type="runtime">qat_c3xxx_mmp.bin</firmware>
+    <firmware type="runtime">qat_c62x.bin</firmware>
+    <firmware type="runtime">qat_c62x_mmp.bin</firmware>
+    <firmware type="runtime">qat_mmp.bin</firmware>
+    <modalias>auxiliary:ice.sf</modalias>
+    <modalias>pci:v00008086d000002FCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00000435sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000006FCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00000AA2sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001029sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001030sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001031sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001032sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001033sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001034sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001038sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001039sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000103Asv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000103Bsv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000103Csv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000103Dsv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000103Esv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001050sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001051sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001052sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001053sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001054sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001055sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001056sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001057sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001059sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001064sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001065sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001066sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001067sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001068sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001069sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000106Asv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000106Bsv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001091sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001092sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001093sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001094sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001095sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d000010FEsv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001209sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00001229sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000124Csv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000124Dsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000124Esv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000124Fsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012D1sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012D2sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012D3sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012D4sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012D5sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012D8sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012DAsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012DCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012DDsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000012DEsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000151Dsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001591sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001592sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001593sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001599sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000159Asv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000159Bsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001888sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000188Asv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000188Bsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000188Csv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000188Dsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000188Esv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001890sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001891sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001892sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001893sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001894sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001897sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001898sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001899sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000189Asv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000019E2sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00001AA2sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000022D8sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00002449sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d00002459sv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d0000245Dsv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d000024F0sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000024F1sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000027DCsv*sd*bc02sc00i*</modalias>
+    <modalias>pci:v00008086d000031A2sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000034FCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000037C8sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000043FCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00004BB3sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000051FCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d000054FCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000579Csv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000579Dsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000579Esv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000579Fsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00005AA2sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000643Esv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00007745sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00007A78sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00007AF8sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00007D1Dsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00007E45sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00007F78sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00009D35sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d00009DFCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000A0FCsv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000A135sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000A37Csv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000A845sv*sd*bc*sc*i*</modalias>
+    <modalias>pci:v00008086d0000AD1Dsv*sd*bc*sc*i*</modalias>
+
+  </provides>
+</component>

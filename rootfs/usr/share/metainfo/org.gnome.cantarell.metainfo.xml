@@ -4,18 +4,18 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>OFL-1.1</project_license>
   <name>Cantarell</name>
-  <name xml:lang="zh_TW">Cantarell</name>
-  <name xml:lang="zh_CN">Cantarell</name>
+  <name xml:lang="zh-Hant-TW">Cantarell</name>
+  <name xml:lang="zh-Hans-CN">Cantarell</name>
   <name xml:lang="uk">Cantarell</name>
   <name xml:lang="tr">Cantarell</name>
   <name xml:lang="sv">Cantarell</name>
-  <name xml:lang="sr@latin">Kantarel</name>
-  <name xml:lang="sr">Кантарел</name>
+  <name xml:lang="sr-Latn">Kantarel</name>
+  <name xml:lang="sr-Cyrl">Кантарел</name>
   <name xml:lang="sl">Cantarell</name>
   <name xml:lang="sk">Cantarell</name>
   <name xml:lang="ru">Cantarell</name>
   <name xml:lang="ro">Cantarell</name>
-  <name xml:lang="pt_BR">Cantarell</name>
+  <name xml:lang="pt-BR">Cantarell</name>
   <name xml:lang="pt">Cantarell</name>
   <name xml:lang="pl">Cantarell</name>
   <name xml:lang="pa">ਕਾਨਟਾਰੈਲ</name>
@@ -30,7 +30,7 @@
   <name xml:lang="lt">Cantarell</name>
   <name xml:lang="lo">Cantarell</name>
   <name xml:lang="ko">캔타렐</name>
-  <name xml:lang="kk">Cantarell</name>
+  <name xml:lang="kk-Cyrl">Cantarell</name>
   <name xml:lang="ja">Cantarell</name>
   <name xml:lang="it">Cantarell</name>
   <name xml:lang="is">Cantarell</name>
@@ -46,28 +46,28 @@
   <name xml:lang="eu">Cantarell</name>
   <name xml:lang="es">Cantarell</name>
   <name xml:lang="eo">Cantarell</name>
-  <name xml:lang="en_GB">Cantarell</name>
+  <name xml:lang="en-GB">Cantarell</name>
   <name xml:lang="el">Cantarell</name>
   <name xml:lang="de">Cantarell</name>
   <name xml:lang="da">Cantarell</name>
   <name xml:lang="cs">Cantarell</name>
   <name xml:lang="ca">Cantarell</name>
-  <name xml:lang="bn_IN">কেন্টারেল</name>
+  <name xml:lang="bn-IN">কেন্টারেল</name>
   <name xml:lang="bg">Кантарел</name>
-  <name xml:lang="be">Cantarell</name>
+  <name xml:lang="be-Cyrl">Cantarell</name>
   <summary>Humanist sans serif font</summary>
-  <summary xml:lang="zh_TW">人文無襯線字型</summary>
-  <summary xml:lang="zh_CN">人文系无衬线字体</summary>
+  <summary xml:lang="zh-Hant-TW">人文無襯線字型</summary>
+  <summary xml:lang="zh-Hans-CN">人文系无衬线字体</summary>
   <summary xml:lang="uk">Гуманістичний шрифт без засічок</summary>
   <summary xml:lang="tr">Hümanist sans serif yazı tipi</summary>
   <summary xml:lang="sv">Humanist sans serif-typsnitt</summary>
-  <summary xml:lang="sr@latin">Humanistički beserifni font</summary>
-  <summary xml:lang="sr">Хуманистички бесерифни фонт</summary>
+  <summary xml:lang="sr-Latn">Humanistički beserifni font</summary>
+  <summary xml:lang="sr-Cyrl">Хуманистички бесерифни фонт</summary>
   <summary xml:lang="sl">Pisava sans serif Humanist</summary>
   <summary xml:lang="sk">Humanistické písmo typu Sans Serif</summary>
   <summary xml:lang="ru">Шрифт без засечек</summary>
   <summary xml:lang="ro">Font sans serif Humanist</summary>
-  <summary xml:lang="pt_BR">Fonte sem serifa humanista</summary>
+  <summary xml:lang="pt-BR">Fonte sem serifa humanista</summary>
   <summary xml:lang="pt">Fonte humanista sem serifas</summary>
   <summary xml:lang="pl">Humanistyczna czcionka bezszeryfowa</summary>
   <summary xml:lang="pa">ਹਿਊਨਿਸਟ ਸੈਨਜ਼ ਸੈਰਫ਼ ਫ਼ੋਂਟ</summary>
@@ -82,7 +82,7 @@
   <summary xml:lang="lt">Humanistinis šriftas be užraitų</summary>
   <summary xml:lang="lo">ຟັອນ Humanist sans serif</summary>
   <summary xml:lang="ko">인본주의 산세리프 글꼴</summary>
-  <summary xml:lang="kk">Кертіксіз қаріп</summary>
+  <summary xml:lang="kk-Cyrl">Кертіксіз қаріп</summary>
   <summary xml:lang="ja">ヒューマニスト・サンセリフフォント</summary>
   <summary xml:lang="it">Tipo di carattere umanistico senza grazie</summary>
   <summary xml:lang="is">Humanist steinskrift (sans serif letur)</summary>
@@ -98,33 +98,33 @@
   <summary xml:lang="eu">Humanist sans serif font</summary>
   <summary xml:lang="es">Tipografía Sans Serif humanista</summary>
   <summary xml:lang="eo">Humanista senserifa tiparo</summary>
-  <summary xml:lang="en_GB">Humanist sans serif font</summary>
+  <summary xml:lang="en-GB">Humanist sans serif font</summary>
   <summary xml:lang="el">Σύγχρονη έκδοση γραμματοσειράς sans serif</summary>
   <summary xml:lang="de">Serifenlose Humanist-Schriftart</summary>
   <summary xml:lang="da">Humanistisk sansserif-skrifttype</summary>
   <summary xml:lang="cs">Humanistický bezpatkový font</summary>
   <summary xml:lang="ca">Tipus de lletra de pal sec humanista</summary>
-  <summary xml:lang="bn_IN">হিউম্যানিস্ট Sans Serif ফন্ট</summary>
+  <summary xml:lang="bn-IN">হিউম্যানিস্ট Sans Serif ফন্ট</summary>
   <summary xml:lang="bg">Хуманистичен безсерифен шрифт</summary>
-  <summary xml:lang="be">Гуманістычны шрыфт без засечак</summary>
+  <summary xml:lang="be-Cyrl">Гуманістычны шрыфт без засечак</summary>
   <description>
     <p>
       The Cantarell font family is a contemporary Humanist sans serif
       designed for on-screen reading. The fonts were originally designed
       by Dave Crossland.
     </p>
-    <p xml:lang="zh_TW">Cantarell 字型家族是設計給螢幕閱讀用的當代人文無襯線字體。這套字型的原始設計者為 Dave Crossland。</p>
-    <p xml:lang="zh_CN">Cantarell 字体系列是为屏幕阅读优化的现代人文主义无衬线字体。字体最初由 Dave Crossland 设计。</p>
+    <p xml:lang="zh-Hant-TW">Cantarell 字型家族是設計給螢幕閱讀用的當代人文無襯線字體。這套字型的原始設計者為 Dave Crossland。</p>
+    <p xml:lang="zh-Hans-CN">Cantarell 字体系列是为屏幕阅读优化的现代人文主义无衬线字体。字体最初由 Dave Crossland 设计。</p>
     <p xml:lang="uk">Сімейство шрифтів Cantarell - це сучасні гуманістичні шрифти без засічок, призначені для читання на екрані. Шрифти були розроблені Дейвом Кросслендом.</p>
     <p xml:lang="tr">Cantarell yazı tipi ailesi ekran okuması için tasarlanmış çağdaş bir Hümanist sans serifʼtir. Yazı tipleri aslen Dave Crossland tarafından tasarlanmıştır.</p>
     <p xml:lang="sv">Cantarell-typsnittsfamiljen är ett modernt Humanist sans serif som designats för läsning på en skärm. Typsnitten designades ursprungligen av Dave Crossland.</p>
-    <p xml:lang="sr@latin">Kantarel familija humanističkog, beserifnog fonta je osmišljena za čitanje sa ekrana. Fontove je izvorno osmislio Dejv Krosland (Dave Crossland).</p>
-    <p xml:lang="sr">Кантарел фамилија хуманистичког, бесерифног фонта је осмишљена за читање са екрана. Фонтове је изворно осмислио Дејв Кросланд (Dave Crossland).</p>
+    <p xml:lang="sr-Latn">Kantarel familija humanističkog, beserifnog fonta je osmišljena za čitanje sa ekrana. Fontove je izvorno osmislio Dejv Krosland (Dave Crossland).</p>
+    <p xml:lang="sr-Cyrl">Кантарел фамилија хуманистичког, бесерифног фонта је осмишљена за читање са екрана. Фонтове је изворно осмислио Дејв Кросланд (Dave Crossland).</p>
     <p xml:lang="sl">Družina pisave Cantarell je sodobna različica neserifne pisave Humanist, zasnovane za zaslonsko branje. Pisave je izvorno oblikoval Dave Crossland.</p>
     <p xml:lang="sk">Rodinu písiem Cantarell tvoria moderné humanistické písma typu Sans Serif navrhnuté pre čítanie na obrazovke. Písma pôvodne navrhol Dave Crossland.</p>
     <p xml:lang="ru">Семейство шрифтов Cantarell — это современные шрифты без засечек, предназначенные для чтения на экране. Шрифты были первоначально разработаны Дейвом Кросслэндом.</p>
     <p xml:lang="ro">Familia de fonturi Cantarell este un sans serif Humanist contemporar conceput pentru citirea pe ecran. Fonturile au fost concepute inițial de Dave Crossland.</p>
-    <p xml:lang="pt_BR">A família de fonte Cantarell é um sem serifa humanista contemporânea projetada para leitura em tela. As fontes foram originalmente projetada por Dave Crossland.</p>
+    <p xml:lang="pt-BR">A família de fonte Cantarell é um sem serifa humanista contemporânea projetada para leitura em tela. As fontes foram originalmente projetada por Dave Crossland.</p>
     <p xml:lang="pt">A família de fontes Cantarell é contemporânea, humanista e sem serifas, e foi projetada para ser lida facilmente em ecrãs. As fontes foram originalmente projetadas por Dave Crossland.</p>
     <p xml:lang="pl">Rodzina czcionek Cantarell to współczesna humanistyczna czcionka bezszeryfowa przeznaczona do wyświetlania tekstu na ekranie. Oryginalnie zaprojektowana przez Dave’a Crosslanda.</p>
     <p xml:lang="pa">ਕਾਨਟਰੈਲ ਫ਼ੋਂਟ ਵਰਗ ਸਕਰੀਨ ਤੋਂ ਪੜ੍ਹਨ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਸਮੇਂ ਦੇ ਹਾਣੀ ਹਿਊਨਿਸਟ ਸੈਨਜ਼ ਸੈਰਫ਼ ਫ਼ੋਂਟ ਹਨ। ਫ਼ੋਂਟ ਨੂੰ ਮੁੱਢਲੇ ਰੂਪ ਵਿੱਚ ਡੇਵ ਕਰਾਂਸਲੈਂਡ ਵਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਸੀ।</p>
@@ -139,7 +139,7 @@
     <p xml:lang="lt">Cantarell šriftų šeima yra šiuolaikinė Humanistinis šriftų be užraitų šeima skaitymui ekrane. Šių šriftų pirminis autorius yra Dave Crossland.</p>
     <p xml:lang="lo">ຟັອນຕະກຸນ Cantarell ແມ່ນຟັອນ Humanist sans serif ທີ່ໄດ້ຮັບການອອກແບບສຳລັບການອ່ານ on-screen. ຟັອນນີ້ແມ່ນໄດ້ຮັບການອອກແບບໂດຍ Dave Crossland.</p>
     <p xml:lang="ko">캔타렐 글꼴 계열은 화면가독성을 위해 현대 인본주의 산세리프로 설계했습니다. 이 글꼴은 원래 Dave Crossland씨가 설계하였습니다.</p>
-    <p xml:lang="kk">Cantarell қаріптер отбасы - бұл экраннан оқуға арналған, кертіксіз заманауи қаріп. Бұл қаріптерді тұңғыш рет Дейв Кросслэнд жасаған.</p>
+    <p xml:lang="kk-Cyrl">Cantarell қаріптер отбасы - бұл экраннан оқуға арналған, кертіксіз заманауи қаріп. Бұл қаріптерді тұңғыш рет Дейв Кросслэнд жасаған.</p>
     <p xml:lang="ja">Cantarell フォントファミリーは Dave Crossland によって生み出された現代的なヒューマニストサンセリフです。画面上の文字の読みやすさを考慮してデザインされています。</p>
     <p xml:lang="it">La famiglia di caratteri Cantarell contiene dei tipi di carattere contemporanei umanistici e senza grazie progettati per la lettura su schermo. I caratteri sono stati progettati originariamente da Dave Crossland.</p>
     <p xml:lang="is">Cantarell leturgerðirnar eru nútímalegt Humanist sans serif letur sem hannað er fyrir lestur af skjá. Letrið var upphaflega hannað af Dave Crossland.</p>
@@ -155,15 +155,15 @@
     <p xml:lang="eu">Cantarell letra-tipoen familia Humanist sans serif motako tipo garaikidea da, pantaila bidezko irakurketarako diseinatua. Jatorrizko diseinatzailea Dave Crossland izan zen.</p>
     <p xml:lang="es">La familia tipográfica Cantarell es una Sans Serif contemporánea humanista diseñada para leer en pantalla. Las tipografías las diseñó originalmente Dave Crossland.</p>
     <p xml:lang="eo">La Cantarell tipara familio estas nuntempa humanista senserifa tipara familio por surekrana legado. La tiparojn origine desegnis Dave CROSSLAND.</p>
-    <p xml:lang="en_GB">The Cantarell font family is a contemporary Humanist sans serif designed for on-screen reading. The fonts were originally designed by Dave Crossland.</p>
+    <p xml:lang="en-GB">The Cantarell font family is a contemporary Humanist sans serif designed for on-screen reading. The fonts were originally designed by Dave Crossland.</p>
     <p xml:lang="el">Η οικογένεια γραμματοσειρών Cantarell είναι μια σύγχρονη έκδοση sans serif σχεδιασμένη για ανάγνωση στην οθόνη. Οι γραμματοσειρές σχεδιάστηκαν αρχικά από τον Dave Crossland.</p>
     <p xml:lang="de">Die Cantarell-Schriftfamilie ist eine zeitgenössische Humanist-Groteskschrift, die für das Lesen auf dem Bildschirm entworfen wurde. Die Schriftarten wurden ursprünglich von Dave Crossland entworfen.</p>
     <p xml:lang="da">Skrifttypefamilien Cantarell er en nutidig humanistisk sans serif designet til skærmbrug. Skrifttyperne er oprindeligt designet af Dave Crossland.</p>
     <p xml:lang="cs">Rodinu fontů Cantarell tvoří moderní humanistické bezpatkové fonty navržené pro čtení na obrazovce. Původním autorem je Dave Crossland.</p>
     <p xml:lang="ca">La família tipográfica Cantarell és un tipus de pal sec de disseny contemporani i humanista, adient per a la lectura en pantalla. El disseny original de la família és de Dave Crossland.</p>
-    <p xml:lang="bn_IN">ক্যান্টারেল ফন্ট পরিবারটি অন-স্ক্রিন পড়ার জন্য ডিজাইন করা একটি সমসাময়িক হিউম্যানিস্ট সং সেরিফ। ফন্টগুলি মূলত ডেভ ক্রসল্যান্ডের দ্বারা ডিজাইন করা হয়েছিল।</p>
+    <p xml:lang="bn-IN">ক্যান্টারেল ফন্ট পরিবারটি অন-স্ক্রিন পড়ার জন্য ডিজাইন করা একটি সমসাময়িক হিউম্যানিস্ট সং সেরিফ। ফন্টগুলি মূলত ডেভ ক্রসল্যান্ডের দ্বারা ডিজাইন করা হয়েছিল।</p>
     <p xml:lang="bg">Шрифтовото семейство Кантарел е съвременнен безсерифен шрифт в хуманистичен стил, предназначен за лесно четене от екран. Шрифтът е първоначално проектиран от Дейв Кросланд.</p>
-    <p xml:lang="be">Сямейства шрыфтоў Cantarell – гэта сучасныя гуманістычныя шрыфты без засечак, прызначаныя для чытання з экрана. Першапачатковы варыянт шрыфту створаны Дэйвам Крослэндам.</p>
+    <p xml:lang="be-Cyrl">Сямейства шрыфтоў Cantarell – гэта сучасныя гуманістычныя шрыфты без засечак, прызначаныя для чытання з экрана. Першапачатковы варыянт шрыфту створаны Дэйвам Крослэндам.</p>
   </description>
   <url type="homepage">https://wiki.gnome.org/Projects/CantarellFonts</url>
   <provides>
