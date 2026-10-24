@@ -1,12 +1,47 @@
 [Unit]
 Description=PC/SC Smart Card Daemon
 Requires=pcscd.socket
+Requires=polkit.service
 Documentation=man:pcscd(8)
 
 [Service]
 ExecStart=/usr/sbin/pcscd --foreground --auto-exit $PCSCD_ARGS
 ExecReload=/usr/sbin/pcscd --hotplug
 EnvironmentFile=-/etc/default/pcscd
+
+# Paths
+ProtectProc=invisible
+
+# Capabilities
+CapabilityBoundingSet=
+
+# Security
+NoNewPrivileges=yes
+
+# Process Properties
+UMask=0077
+
+# Sandboxing
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateUsers=identity
+ProtectHostname=yes
+ProtectClock=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+
+# System Call Filtering
+SystemCallFilter=@system-service
+SystemCallFilter=~@resources @privileged
+SystemCallArchitectures=native
 
 [Install]
 Also=pcscd.socket

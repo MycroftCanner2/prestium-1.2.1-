@@ -19,7 +19,7 @@ Before=network-online.target shutdown.target
 
 [Service]
 Type=oneshot
-ExecStart=/lib/systemd/systemd-networkd-wait-online -i %i
+ExecStart=/usr/lib/systemd/systemd-networkd-wait-online -i %i
 RemainAfterExit=yes
 
 [Install]

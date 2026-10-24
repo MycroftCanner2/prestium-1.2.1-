@@ -9,7 +9,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/sbin/wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant-nl80211-%I.conf -Dnl80211 -i%I
+ExecStart=/usr/sbin/wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant-nl80211-%I.conf -Dnl80211 -i%I
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]

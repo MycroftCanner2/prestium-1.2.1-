@@ -1,0 +1,9 @@
+[Unit]
+Description=Zeitgeist full-text search indexer
+PartOf=graphical-session.target
+
+[Service]
+Type=dbus
+BusName=org.gnome.zeitgeist.SimpleIndexer
+ExecStart=/usr/lib/zeitgeist/zeitgeist-fts
+Slice=session.slice

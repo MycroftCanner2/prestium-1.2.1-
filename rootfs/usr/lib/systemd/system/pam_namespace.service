@@ -7,5 +7,5 @@ Description=Make sure parent directories configured in /etc/security/namespace.c
 Documentation=man:pam_namespace(8)
 
 [Service]
-ExecStart=/sbin/pam_namespace_helper
+ExecStart=/usr/sbin/pam_namespace_helper
 Type=oneshot

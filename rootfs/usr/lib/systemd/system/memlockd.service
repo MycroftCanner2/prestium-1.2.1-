@@ -5,8 +5,37 @@ Description=memlockd
 ExecStart=/usr/sbin/memlockd -f -u memlockd
 ExecReload=/bin/kill -HUP $MAINPID
 Type=simple
-StandardOutput=syslog
 Restart=always
+
+# CAP_IPC_LOCK is needed to lock RAM
+# CAP_SYS_PTRACE is needed to run ldd
+# CAP_SETGID and CAP_SETUID are needed to run ldd as a different user
+# CAP_DAC_OVERRIDE is needed to map files without Unix permissions granting read
+CapabilityBoundingSet=CAP_DAC_OVERRIDE CAP_SETUID CAP_SETGID CAP_SYS_PTRACE CAP_IPC_LOCK
+
+RestrictNamespaces=true
+SystemCallFilter=~@mount @cpu-emulation @debug @raw-io @reboot @resources @swap @module @obsolete @clock
+ProtectSystem=strict
+ProtectProc=invisible
+SystemCallArchitectures=native
+UMask=077
+NoNewPrivileges=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectHome=true
+PrivateTmp=true
+MemoryDenyWriteExecute=true
+ProtectHostname=true
+LockPersonality=true
+RestrictRealtime=true
+DevicePolicy=closed
+ProtectClock=true
+RestrictSUIDSGID=true
+ProtectKernelTunables=true
+PrivateDevices=true
+RestrictAddressFamilies=~AF_INET AF_INET6 AF_PACKET AF_NETLINK
+PrivateNetwork=true
 
 [Install]
 WantedBy=multi-user.target

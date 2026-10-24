@@ -9,7 +9,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/sbin/wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant-wired-%I.conf -Dwired -i%I
+ExecStart=/usr/sbin/wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant-wired-%I.conf -Dwired -i%I
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]

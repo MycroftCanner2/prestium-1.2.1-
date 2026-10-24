@@ -12,13 +12,13 @@ Description=File System Check on %f
 Documentation=man:systemd-fsck@.service(8)
 DefaultDependencies=no
 BindsTo=%i.device
-Conflicts=shutdown.target
-Wants=systemd-fsckd.socket
-After=%i.device systemd-fsck-root.service local-fs-pre.target systemd-fsckd.socket
+IgnoreOnIsolate=yes
+Conflicts=reboot.target kexec.target poweroff.target halt.target
+After=%i.device systemd-fsck-root.service local-fs-pre.target
 Before=systemd-quotacheck.service shutdown.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/lib/systemd/systemd-fsck %f
-TimeoutSec=0
+ExecStart=/usr/lib/systemd/systemd-fsck %f
+TimeoutSec=infinity

@@ -14,10 +14,11 @@ Documentation=man:localtime(5)
 Documentation=man:org.freedesktop.timedate1(5)
 
 [Service]
+Type=notify
 BusName=org.freedesktop.timedate1
 CapabilityBoundingSet=CAP_SYS_TIME
 DeviceAllow=char-rtc r
-ExecStart=/lib/systemd/systemd-timedated
+ExecStart=/usr/lib/systemd/systemd-timedated
 IPAddressDeny=any
 LockPersonality=yes
 MemoryDenyWriteExecute=yes

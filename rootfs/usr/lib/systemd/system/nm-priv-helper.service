@@ -19,7 +19,7 @@ Description=NetworkManager Privileged Helper
 [Service]
 Type=dbus
 BusName=org.freedesktop.nm_priv_helper
-ExecStart=/usr/lib/NetworkManager/nm-priv-helper
+ExecStart=/usr/libexec/nm-priv-helper
 NotifyAccess=main
 
 # Extra configuration options. Set via `systemctl edit
