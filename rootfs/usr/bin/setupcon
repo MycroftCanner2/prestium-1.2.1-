@@ -60,11 +60,8 @@ trap 'rm -f $tempfiles >/dev/null 2>&1' 0
 trap "exit 2" 1 2 3 13 15
 tempfile () {
     if \
-        TMPFILE=`mktemp /tmp/tmpkbd.XXXXXX 2>/dev/null` \
-            || TMPFILE=`mktemp /run/tmpkbd.XXXXXX 2>/dev/null` \
-            || TMPFILE=`mktemp /dev/.tmpkbd.XXXXXX 2>/dev/null` \
-            || TMPFILE=`mktemp /lib/init/rw/tmpkbd.XXXXXX 2>/dev/null` \
-            || TMPFILE=`mktemp 2>/dev/null`
+        TMPFILE=`mktemp /run/tmpkbd.XXXXXX 2>/dev/null` \
+            || TMPFILE=`mktemp /tmp/tmpkbd.XXXXXX 2>/dev/null`
     then
         tempfiles="$tempfiles $TMPFILE"
         return 0
@@ -452,9 +449,8 @@ kernel=unknown
 if which uname >/dev/null; then
     case "`uname`" in
         *Linux*) kernel=linux ;;
-        *FreeBSD*) kernel=freebsd ;;
         *)
-            echo 'setupcon: Unknown kernel (only Linux and FreeBSD are supported).' >&2
+            echo 'setupcon: Unknown kernel (only Linux is supported).' >&2
             exit 1
             ;;
     esac
@@ -487,12 +483,8 @@ if [ -z "$ACTIVE_CONSOLES" ]; then
     #    Linux:   /dev/tty[1-9][0-9]*
     #    FreeBSD: /dev/ttyv[0-9a-f]
     for tty in \
-        $(cat /etc/inittab /etc/init/* /etc/ttys 2>/dev/null \
-	| grep getty \
-        | egrep '([[:blank:]]|^)tty([1-9][0-9]*|v[0-9a-f])([[:blank:]]|$)' \
-        | sed -e '/^ *#/d' \
-              -e 's/.*[[:blank:]]\(tty[1-9][0-9]*\).*/\1/' \
-              -e 's/.*[[:blank:]]\(ttyv[0-9a-f]\).*/\1/')
+        $(sed -nEe '/^\s*#/d;/getty/s/.*\s(tty([1-9][0-9]*|v[0-9a-f]))(\s|$).*/\1/p' \
+            /etc/inittab /etc/init/* /etc/ttys 2>/dev/null)
     do
         if [ -e /dev/$tty ]; then
             ACTIVE_CONSOLES="$ACTIVE_CONSOLES /dev/$tty"
@@ -502,7 +494,6 @@ fi
 if [ -z "$ACTIVE_CONSOLES" ]; then
     case "$kernel" in
         linux) ACTIVE_CONSOLES=$(ls /dev/tty[1-6] 2>/dev/null) ;;
-        freebsd) ACTIVE_CONSOLES=$(ls /dev/ttyv[0-3] 2>/dev/null) ;;
     esac
     report Can not find the active virtual consoles, \
         assuming ACTIVE_CONSOLES=\"$ACTIVE_CONSOLES\" >&2
@@ -544,14 +535,6 @@ if [ "$do_font" ]; then
                 do_font=linuxkbd
             else
                 echo "setupcon: Neither setfont nor consolechars is accessible. No font will be configured." >&2
-                do_font=''
-            fi
-            ;;
-        freebsd)
-            if which vidcontrol >/dev/null ; then
-                do_font=freebsd
-            else
-                echo "setupcon: vidcontrol is not accessible. No font will be configured." >&2
                 do_font=''
             fi
             ;;
@@ -597,12 +580,6 @@ if [ -z "$CODESET" ]; then
             fi
             ;;
     esac
-    if [ "$kernel" = freebsd ]; then
-        # 512 character fonts are not supported on FreeBSD
-        case "$CODESET" in
-            Uni*|Vietnamese|Arabic|Ethiopian) CODESET=Lat15 ;;
-        esac
-    fi
 fi
 if [ "$CHARMAP" != UTF-8 -a "$kernel" = freebsd ]; then
     if \
@@ -652,17 +629,6 @@ case "$kernel" in
         # [A-Z] includes x and we don't want this.
         stdfontfallback=$CODESET-*[A-WXYZa-wyz]$FONTSIZE.psf.gz
         ;;
-    freebsd)
-        mapdir=share/syscons/scrnmaps
-        stdmap=${CHARMAP}_${CODESET}.scm
-        fontdir=share/syscons/fonts
-        stdfont16=$CODESET-${FONTFACE}16.fnt
-        stdfont14=$CODESET-${FONTFACE}14.fnt
-        stdfont8=$CODESET-${FONTFACE}8.fnt
-        stdfontfallback16=$CODESET-*[A-WXYZa-wyz]16.fnt
-        stdfontfallback14=$CODESET-*[A-WXYZa-wyz]14.fnt
-        stdfontfallback8=$CODESET-*[A-WXYZa-wyz]8.fnt
-        ;;
 esac
 
 # CONSOLE_MAP
@@ -695,16 +661,6 @@ with 8 pixel width matrix.  Please install the setfont utility from the package
                     fi
                     ;;
             esac
-            ;;
-        freebsd)
-            FONTFILES=`findfile $fontdir $stdfont16`
-            [ "$FONTFILES" ] || FONTFILES=`findfile $fontdir $stdfontfallback16`
-            font=`findfile $fontdir $stdfont14`
-            [ "$font" ] || font=`findfile $fontdir $stdfontfallback14`
-            [ -z "$font" ] || FONTFILES="$FONTFILES $font"
-            font=`findfile $fontdir $stdfont8`
-            [ "$font" ] || font=`findfile $fontdir $stdfontfallback8`
-            [ -z "$font" ] || FONTFILES="$FONTFILES $font"
             ;;
     esac
     if [ -n "$do_font" -a -z "$FONTFILES" ]; then
@@ -741,22 +697,12 @@ if [ "$do_kbd" ]; then
                 do_kbd=''
             fi
             ;;
-        freebsd)
-            if which kbdcontrol >/dev/null; then
-                do_kbd=freebsd
-            else
-                echo setupcon: kbdcontrol is not accessible. Keyboard will not be configured.>&2
-                do_kbd=''
-            fi
-            ;;
     esac
 fi
 
 # acm_option
 if [ "$CHARMAP" != UTF-8 ]; then
     acm_option="-charmap $CHARMAP"
-elif [ "$kernel" = freebsd ]; then
-    acm_option='-charmap ISO-8859-1'
 else
     # No encoding limitation, but kernel limitation to 256 diacriticals, so
     # fine-tune which set of compositions should enabled
@@ -906,14 +852,8 @@ fi
 # backspace
 case "$kernel" in
     linux) backspace='del' ;;
-    freebsd) backspace='bs' ;;
 esac
-case \
-    "`(stty -a \
-          | egrep '(^| )erase *=' \
-          | sed -e 's/.* erase *= *//' -e 's/^erase *= *//' -e 's/[; ].*//') \
-      2>/dev/null`"
-in
+case "$({ stty -a | sed -ne 's/.*\berase *= *\([^; ]*\).*/\1/p'; } 2>/dev/null)" in
     ^\?) backspace='del' ;;
     ^h|^H) backspace='bs' ;;
 esac
@@ -933,9 +873,6 @@ if [ "$do_term" ]; then
         linux)
             do_term=linux
             ;;
-        freebsd)
-            do_term=freebsd
-            ;;
     esac
 fi
 
@@ -943,9 +880,6 @@ fi
 case "$kernel" in
     linux)
         cached=/etc/console-setup/cached_${CHARMAP}_$backspace$VARIANT.kmap.gz
-        ;;
-    freebsd)
-        cached=/etc/console-setup/cached_${CHARMAP}_$backspace$VARIANT.kbd
         ;;
 esac
 
@@ -998,12 +932,6 @@ if [ "$savekbdfile" ]; then
 	            "$XKBLAYOUT" "$XKBVARIANT" "$XKBOPTIONS" >$TMPFILE \
                     && gzip -9n <$TMPFILE >"$savekbdfile"
             } || exit 1
-            ;;
-        freebsd)
-	    $installdir/bin/ckbcomp -freebsd -backspace "$backspace" \
-                $acm_option $rules_option -model "$XKBMODEL" \
-	        "$XKBLAYOUT" "$XKBVARIANT" "$XKBOPTIONS" >"$savekbdfile" \
-                || exit 1
             ;;
     esac
 fi
@@ -1090,9 +1018,6 @@ fi
 # Video mode
 if [ "$VIDEOMODE" ]; then
     case "$do_font" in
-        freebsd)
-            run in '' vidcontrol "$VIDEOMODE"
-            ;;
         linux*)
             # this is a bit pointless as vesafb doesn't support changing mode
             if which fbset >/dev/null; then
@@ -1107,16 +1032,6 @@ fi
 # Load the font(s)
 if [ "$FONTFILES" ]; then
     case "$do_font" in
-        freebsd)
-            if [ -z "$unicode" ]; then
-                for font in $FONTFILES; do
-                    run plain '' vidcontrol -f $font
-                done
-                if [ "$CONSOLE_MAP" ]; then
-                    run plain '' vidcontrol -l "$CONSOLE_MAP"
-                fi
-            fi
-            ;;
         linuxkbd)
             if [ "$FONTMAPFILE" ]; then
                 if [ "$CONSOLE_MAP" ]; then
@@ -1229,7 +1144,7 @@ esac
 # Copyright © 2001 Alcove http://www.alcove.fr/
 if [ "$do_kbd" = linux ]; then
     if [ -x /sbin/sysctl -a -r /etc/sysctl.conf ]; then
-	if grep -v '^\#' /etc/sysctl.conf | grep -q keycodes ; then
+	if grep -v '^#' /etc/sysctl.conf | grep -q keycodes ; then
 	    grep keycodes /etc/sysctl.conf | grep -v "^#" \
 		| while read -r d ; do
                 /sbin/sysctl -w $d 2> /dev/null || true
@@ -1264,7 +1179,6 @@ fi
 if [ "$KMAP" ]; then
     case "$do_kbd" in
         linux) run plain NONE loadkeys "$KMAP" ;;
-        freebsd) run in '' kbdcontrol -l "$KMAP" ;;
     esac
 else
     tempfile || { echo setupcon: Can not create temporary file >&2; exit 1; }
@@ -1274,13 +1188,6 @@ else
                 $rules_option -model "$XKBMODEL" \
 	        "$XKBLAYOUT" "$XKBVARIANT" "$XKBOPTIONS" >$TMPFILE
             run plain NONE loadkeys $TMPFILE
-            ;;
-        freebsd)
-	    $installdir/bin/ckbcomp -freebsd -backspace "$backspace" \
-                $acm_option $rules_option -model "$XKBMODEL" \
-	        "$XKBLAYOUT" "$XKBVARIANT" "$XKBOPTIONS" >$TMPFILE
-            run in '' kbdcontrol -l $TMPFILE
-            run in '' kbdcontrol -f 70 "`printf '\033[3~'`"
             ;;
     esac
 fi

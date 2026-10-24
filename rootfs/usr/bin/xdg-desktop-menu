@@ -34,7 +34,7 @@
 
 manualpage()
 {
-cat << _MANUALPAGE
+cat << '_MANUALPAGE'
 Name
 
 xdg-desktop-menu - command line tool for (un)installing desktop menu items
@@ -381,7 +381,7 @@ _MANUALPAGE
 
 usage()
 {
-cat << _USAGE
+cat << '_USAGE'
 xdg-desktop-menu - command line tool for (un)installing desktop menu items
 
 Synopsis
@@ -400,15 +400,16 @@ _USAGE
 }
 
 #@xdg-utils-common@
-
 #----------------------------------------------------------------------------
 #   Common utility functions included in all XDG wrapper scripts
 #----------------------------------------------------------------------------
 
+#shellcheck shell=sh
+
 DEBUG()
 {
   [ -z "${XDG_UTILS_DEBUG_LEVEL}" ] && return 0;
-  [ ${XDG_UTILS_DEBUG_LEVEL} -lt $1 ] && return 0;
+  [ "${XDG_UTILS_DEBUG_LEVEL}" -lt "$1" ] && return 0;
   shift
   echo "$@" >&2
 }
@@ -416,6 +417,7 @@ DEBUG()
 # This handles backslashes but not quote marks.
 first_word()
 {
+    # shellcheck disable=SC2162 # No -r is intended here
     read first rest
     echo "$first"
 }
@@ -425,9 +427,9 @@ first_word()
 binary_to_desktop_file()
 {
     search="${XDG_DATA_HOME:-$HOME/.local/share}:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
-    binary="`which "$1"`"
-    binary="`readlink -f "$binary"`"
-    base="`basename "$binary"`"
+    binary="$(command -v "$1")"
+    binary="$(xdg_realpath "$binary")"
+    base="$(basename "$binary")"
     IFS=:
     for dir in $search; do
         unset IFS
@@ -439,11 +441,11 @@ binary_to_desktop_file()
             grep -q "^Exec.*$base" "$file" || continue
             # Make sure it's a visible desktop file (e.g. not "preferred-web-browser.desktop").
             grep -Eq "^(NoDisplay|Hidden)=true" "$file" && continue
-            command="`grep -E "^Exec(\[[^]=]*])?=" "$file" | cut -d= -f 2- | first_word`"
-            command="`which "$command"`"
-            if [ x"`readlink -f "$command"`" = x"$binary" ]; then
+            command="$(grep -E "^Exec(\[[^]=]*])?=" "$file" | cut -d= -f 2- | first_word)"
+            command="$(command -v "$command")"
+            if [ x"$(xdg_realpath "$command")" = x"$binary" ]; then
                 # Fix any double slashes that got added path composition
-                echo "$file" | sed -e 's,//*,/,g'
+                echo "$file" | tr -s /
                 return
             fi
         done
@@ -455,7 +457,7 @@ binary_to_desktop_file()
 desktop_file_to_binary()
 {
     search="${XDG_DATA_HOME:-$HOME/.local/share}:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
-    desktop="`basename "$1"`"
+    desktop="$(basename "$1")"
     IFS=:
     for dir in $search; do
         unset IFS
@@ -465,9 +467,9 @@ desktop_file_to_binary()
             vendor=${desktop%-*}
             app=${desktop#*-}
             if [ -r "$dir/applications/$vendor/$app" ]; then
-                file_path=$dir/applications/$vendor/$app
+                file_path="$dir/applications/$vendor/$app"
             elif [ -r "$dir/applnk/$vendor/$app" ]; then
-                file_path=$dir/applnk/$vendor/$app
+                file_path="$dir/applnk/$vendor/$app"
             fi
         fi
         if test -z "$file_path" ; then
@@ -481,9 +483,9 @@ desktop_file_to_binary()
         fi
         if [ -r "$file_path" ]; then
             # Remove any arguments (%F, %f, %U, %u, etc.).
-            command="`grep -E "^Exec(\[[^]=]*])?=" "$file_path" | cut -d= -f 2- | first_word`"
-            command="`which "$command"`"
-            readlink -f "$command"
+            command="$(grep -E "^Exec(\[[^]=]*])?=" "$file_path" | cut -d= -f 2- | first_word)"
+            command="$(command -v "$command")"
+            xdg_realpath "$command"
             return
         fi
     done
@@ -492,10 +494,11 @@ desktop_file_to_binary()
 #-------------------------------------------------------------
 # Exit script on successfully completing the desired operation
 
+# shellcheck disable=SC2120 # It is okay to call this without arguments
 exit_success()
 {
     if [ $# -gt 0 ]; then
-        echo "$@"
+        echo "$*"
         echo
     fi
 
@@ -511,7 +514,7 @@ exit_success()
 exit_failure_syntax()
 {
     if [ $# -gt 0 ]; then
-        echo "xdg-desktop-menu: $@" >&2
+        echo "xdg-desktop-menu: $*" >&2
         echo "Try 'xdg-desktop-menu --help' for more information." >&2
     else
         usage
@@ -527,7 +530,7 @@ exit_failure_syntax()
 exit_failure_file_missing()
 {
     if [ $# -gt 0 ]; then
-        echo "xdg-desktop-menu: $@" >&2
+        echo "xdg-desktop-menu: $*" >&2
     fi
 
     exit 2
@@ -539,7 +542,7 @@ exit_failure_file_missing()
 exit_failure_operation_impossible()
 {
     if [ $# -gt 0 ]; then
-        echo "xdg-desktop-menu: $@" >&2
+        echo "xdg-desktop-menu: $*" >&2
     fi
 
     exit 3
@@ -551,7 +554,7 @@ exit_failure_operation_impossible()
 exit_failure_operation_failed()
 {
     if [ $# -gt 0 ]; then
-        echo "xdg-desktop-menu: $@" >&2
+        echo "xdg-desktop-menu: $*" >&2
     fi
 
     exit 4
@@ -563,7 +566,7 @@ exit_failure_operation_failed()
 exit_failure_file_permission_read()
 {
     if [ $# -gt 0 ]; then
-        echo "xdg-desktop-menu: $@" >&2
+        echo "xdg-desktop-menu: $*" >&2
     fi
 
     exit 5
@@ -575,7 +578,7 @@ exit_failure_file_permission_read()
 exit_failure_file_permission_write()
 {
     if [ $# -gt 0 ]; then
-        echo "xdg-desktop-menu: $@" >&2
+        echo "xdg-desktop-menu: $*" >&2
     fi
 
     exit 6
@@ -595,7 +598,7 @@ check_vendor_prefix()
 {
     file_label="$2"
     [ -n "$file_label" ] || file_label="filename"
-    file=`basename "$1"`
+    file="$(basename "$1")"
     case "$file" in
        [[:alpha:]]*-*)
          return
@@ -618,7 +621,7 @@ check_output_file()
             exit_failure_file_permission_write "no permission to write to file '$1'"
         fi
     else
-        DIR=`dirname "$1"`
+        DIR="$(dirname "$1")"
         if [ ! -w "$DIR" ] || [ ! -x "$DIR" ]; then
             exit_failure_file_permission_write "no permission to create file '$1'"
         fi
@@ -647,9 +650,13 @@ check_common_commands()
             ;;
 
             --version)
-            echo "xdg-desktop-menu 1.1.3"
+            echo "xdg-desktop-menu 1.2.1"
             exit_success
             ;;
+
+            --)
+	        [ -z "$XDG_UTILS_ENABLE_DOUBLE_HYPEN" ] || break
+	        ;;
         esac
     done
 }
@@ -657,7 +664,8 @@ check_common_commands()
 check_common_commands "$@"
 
 [ -z "${XDG_UTILS_DEBUG_LEVEL}" ] && unset XDG_UTILS_DEBUG_LEVEL;
-if [ ${XDG_UTILS_DEBUG_LEVEL-0} -lt 1 ]; then
+# shellcheck disable=SC2034
+if [ "${XDG_UTILS_DEBUG_LEVEL-0}" -lt 1 ]; then
     # Be silent
     xdg_redirect_output=" > /dev/null 2> /dev/null"
 else
@@ -711,27 +719,28 @@ detectDE()
       esac
     fi
 
-    if [ x"$DE" = x"" ]; then
+    # shellcheck disable=SC2153
+    if [ -z "$DE" ]; then
       # classic fallbacks
-      if [ x"$KDE_FULL_SESSION" != x"" ]; then DE=kde;
-      elif [ x"$GNOME_DESKTOP_SESSION_ID" != x"" ]; then DE=gnome;
-      elif [ x"$MATE_DESKTOP_SESSION_ID" != x"" ]; then DE=mate;
-      elif `dbus-send --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.gnome.SessionManager > /dev/null 2>&1` ; then DE=gnome;
+      if [ -n "$KDE_FULL_SESSION" ]; then DE=kde;
+      elif [ -n "$GNOME_DESKTOP_SESSION_ID" ]; then DE=gnome;
+      elif [ -n "$MATE_DESKTOP_SESSION_ID" ]; then DE=mate;
+      elif dbus-send --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.gnome.SessionManager > /dev/null 2>&1 ; then DE=gnome;
       elif xprop -root _DT_SAVE_MODE 2> /dev/null | grep ' = \"xfce4\"$' >/dev/null 2>&1; then DE=xfce;
       elif xprop -root 2> /dev/null | grep -i '^xfce_desktop_window' >/dev/null 2>&1; then DE=xfce
-      elif echo $DESKTOP | grep -q '^Enlightenment'; then DE=enlightenment;
-      elif [ x"$LXQT_SESSION_CONFIG" != x"" ]; then DE=lxqt;
+      elif echo "$DESKTOP" | grep -q '^Enlightenment'; then DE=enlightenment;
+      elif [ -n "$LXQT_SESSION_CONFIG" ]; then DE=lxqt;
       fi
     fi
 
-    if [ x"$DE" = x"" ]; then
+    if [ -z "$DE" ]; then
       # fallback to checking $DESKTOP_SESSION
       case "$DESKTOP_SESSION" in
          gnome)
            DE=gnome;
            ;;
          LXDE|Lubuntu)
-           DE=lxde; 
+           DE=lxde;
            ;;
          MATE)
            DE=mate;
@@ -742,14 +751,19 @@ detectDE()
       esac
     fi
 
-    if [ x"$DE" = x"" ]; then
+    if [ -z "$DE" ]; then
       # fallback to uname output for other platforms
-      case "$(uname 2>/dev/null)" in 
+      case "$(uname 2>/dev/null)" in
         CYGWIN*)
           DE=cygwin;
           ;;
         Darwin)
           DE=darwin;
+          ;;
+        Linux)
+          grep -q microsoft /proc/version > /dev/null 2>&1 && \
+          command -v explorer.exe > /dev/null 2>&1 && \
+          DE=wsl;
           ;;
       esac
     fi
@@ -757,7 +771,7 @@ detectDE()
     if [ x"$DE" = x"gnome" ]; then
       # gnome-default-applications-properties is only available in GNOME 2.x
       # but not in GNOME 3.x
-      which gnome-default-applications-properties > /dev/null 2>&1  || DE="gnome3"
+      command -v gnome-default-applications-properties > /dev/null || DE="gnome3"
     fi
 
     if [ -f "$XDG_RUNTIME_DIR/flatpak-info" ]; then
@@ -772,13 +786,13 @@ detectDE()
 
 kfmclient_fix_exit_code()
 {
-    version=`LC_ALL=C.UTF-8 kde-config --version 2>/dev/null | grep '^KDE'`
-    major=`echo $version | sed 's/KDE.*: \([0-9]\).*/\1/'`
-    minor=`echo $version | sed 's/KDE.*: [0-9]*\.\([0-9]\).*/\1/'`
-    release=`echo $version | sed 's/KDE.*: [0-9]*\.[0-9]*\.\([0-9]\).*/\1/'`
-    test "$major" -gt 3 && return $1
-    test "$minor" -gt 5 && return $1
-    test "$release" -gt 4 && return $1
+    version="$(LC_ALL=C.UTF-8 kde-config --version 2>/dev/null | grep '^KDE')"
+    major="$(echo "$version" | sed 's/KDE.*: \([0-9]\).*/\1/')"
+    minor="$(echo "$version" | sed 's/KDE.*: [0-9]*\.\([0-9]\).*/\1/')"
+    release="$(echo "$version" | sed 's/KDE.*: [0-9]*\.[0-9]*\.\([0-9]\).*/\1/')"
+    test "$major" -gt 3 && return "$1"
+    test "$minor" -gt 5 && return "$1"
+    test "$release" -gt 4 && return "$1"
     return 0
 }
 
@@ -792,6 +806,62 @@ has_display()
     else
         return 1
     fi
+}
+
+#----------------------------------------------------------------------------
+# Prefixes a path with a "./" if it starts with a "-".
+# This is useful for programs to not confuse paths with options.
+
+unoption_path()
+{
+	case "$1" in
+		-*)
+			printf "./%s" "$1" ;;
+		*)
+			printf "%s" "$1" ;;
+	esac
+}
+
+#----------------------------------------------------------------------------
+# Performs a symlink and relative path resolving for a single argument.
+# This will always fail if the given file does not exist!
+
+xdg_realpath()
+{
+	# allow caching and external configuration
+	if [ -z "$XDG_UTILS_REALPATH_BACKEND" ] ; then
+		if command -v realpath >/dev/null 2>/dev/null ; then
+			lines="$(realpath -- / 2>&1)"
+			if [ $? = 0 ] && [ "$lines" = "/" ] ; then
+				XDG_UTILS_REALPATH_BACKEND="realpath"
+			else
+				# The realpath took the -- literally, probably the busybox implementation
+				XDG_UTILS_REALPATH_BACKEND="busybox-realpath"
+			fi
+			unset lines
+		elif command -v readlink >/dev/null 2>/dev/null ; then
+			XDG_UTILS_REALPATH_BACKEND="readlink"
+		else
+			exit_failure_operation_failed "No usable realpath backend found. Have a realpath binary or a readlink -f that canonicalizes paths."
+		fi
+	fi
+	# Always fail if the file doesn't exist (busybox realpath does that for example)
+	[ -e "$1" ] || return 1
+	case "$XDG_UTILS_REALPATH_BACKEND" in
+		realpath)
+			realpath -- "$1"
+			;;
+		busybox-realpath)
+			# busybox style realpath implementations have options too
+			realpath "$(unoption_path "$1")"
+			;;
+		readlink)
+			readlink -f "$(unoption_path "$1")"
+			;;
+		*)
+			exit_failure_operation_impossible "Realpath backend '$XDG_UTILS_REALPATH_BACKEND' not recognized."
+			;;
+	esac
 }
 
 update_desktop_database()
@@ -854,14 +924,16 @@ make_lazy_default()
             # App already listed as default
             continue;
         fi
-        default_file="$(readlink -f "$1/defaults.list")"
-        DEBUG 1 "Updating $default_file"
-        grep -v "$MIME=" $default_file > ${default_file}.new 2> /dev/null
-        if ! grep "[Default Applications]" ${default_file}.new > /dev/null; then
-            echo "[Default Applications]" >> ${default_file}.new
-        fi
-        echo $MIME="$default_app$2" >> ${default_file}.new
-        mv ${default_file}.new $default_file
+        default_file="$(xdg_realpath "$1/defaults.list")"
+	if [ -f "$default_file" ] ; then
+            DEBUG 1 "Updating $default_file"
+            grep -v "$MIME=" $default_file > ${default_file}.new 2> /dev/null
+            if ! grep "[Default Applications]" ${default_file}.new > /dev/null; then
+                echo "[Default Applications]" >> ${default_file}.new
+            fi
+            echo $MIME="$default_app$2" >> ${default_file}.new
+            mv ${default_file}.new $default_file
+	fi
     done
 }
 
@@ -892,22 +964,18 @@ update_submenu()
     DEBUG 3 "xdg_global_dir: $xdg_global_dir"
     DEBUG 3 "kde_user_dir: $kde_user_dir"
     DEBUG 3 "kde_global_dir: $kde_global_dir"
-    DEBUG 3 "gnome_user_dir: $gnome_user_dir"
-    DEBUG 3 "gnome_global_dir: $gnome_global_dir"
 
     if [ x"$mode" = x"user" ] ; then
         xdg_dir="$xdg_user_dir"
         kde_dir="$kde_user_dir"
-        gnome_dir="$gnome_user_dir"
         my_umask=077
         my_chmod=0600
     else
         xdg_dir="$xdg_global_dir"
         kde_dir="$kde_global_dir"
-        gnome_dir="$gnome_global_dir"
         my_umask=022
         my_chmod=0644
-        if [ -z "${xdg_dir}${kde_dir}${gnome_dir}" ] ; then
+        if [ -z "${xdg_dir}${kde_dir}" ] ; then
             exit_failure_operation_impossible "No writable system menu directory found."
         fi
     fi
@@ -924,34 +992,25 @@ update_submenu()
         return
     fi
 
-    if [ $action = "install" ] && [ -f "/etc/xdg/menus/gnome-applications.menu" ] ; then
-        # Work around for Debian Gnome
-        gnome_xdg_dir=`echo "$xdg_dir" | sed -e 's^/applications-merged^/gnome-applications-merged^'`
-        if [ ! -e "$gnome_xdg_dir" ] ; then
-            DEBUG 1 "Debian Workaround: Link '$xdg_dir' to '$gnome_xdg_dir'"
-            mkdir -p `dirname "$gnome_xdg_dir"`
-            eval 'ln -s "applications-merged" "$gnome_xdg_dir"'$xdg_redirect_output
-        fi
-    fi
     if [ $action = "install" ] && [ -f "/etc/mandrake-release" ] ; then
         # Work around for Mandriva 2006
         mandrake_xdg_dir=`echo "$xdg_dir" | sed -e 's^/applications-merged^/applications-mdk-merged^'`
         if [ ! -e "$mandrake_xdg_dir" ] ; then
             DEBUG 1 "Mandriva Workaround: Link '$xdg_dir' to '$mandrake_xdg_dir'"
-            mkdir -p `dirname "$mandrake_xdg_dir"`
+            mkdir -p "`dirname "$mandrake_xdg_dir"`"
             eval 'ln -s "applications-merged" "$mandrake_xdg_dir"'$xdg_redirect_output
         fi
     fi
-    if [ $action = "install" -a x"$mode" = x"user" ] && [ -d "/etc/xdg/menus/kde-applications-merged" ] ; then
+    if [ $action = "install" ] && [ x"$mode" = x"user" ] && [ -d "/etc/xdg/menus/kde-applications-merged" ] ; then
         # Work around for Fedora Core 5 + patched KDE
         kde_xdg_dir=`echo "$xdg_dir" | sed -e 's^/applications-merged^/kde-applications-merged^'`
         if [ ! -e "$kde_xdg_dir" ] ; then
             DEBUG 1 "Fedora Workaround: Link '$xdg_dir' to '$kde_xdg_dir'"
-            mkdir -p `dirname "$kde_xdg_dir"`
+            mkdir -p "`dirname "$kde_xdg_dir"`"
             eval 'ln -s "applications-merged" "$kde_xdg_dir"'$xdg_redirect_output
         fi
     fi
-    if [ $action = "install" -a x"$mode" = x"system" ] && [ -d "/etc/xdg/menus/kde-applications-merged" ] && [ ! -d "/etc/xdg/menus/applications-merged" ] ; then
+    if [ $action = "install" ] && [ x"$mode" = x"system" ] && [ -d "/etc/xdg/menus/kde-applications-merged" ] && [ ! -d "/etc/xdg/menus/applications-merged" ] ; then
         # Work around for Kubuntu 6.06
         kde_xdg_dir=`echo "$xdg_dir" | sed -e 's^/applications-merged^/kde-applications-merged^'`
         DEBUG 1 "Kubuntu Workaround: Link '$xdg_dir' to 'kde-applications-merged'"
@@ -1060,7 +1119,7 @@ BEGIN {
     if [ $action = "uninstall" ] ; then
         test "${TMPDIR+set}" = set || TMPDIR=/tmp
         tmpfile=`mktemp $TMPDIR/tmp.XXXXXXXXXX`
-        for menu_file in $xdg_dir/*; do
+        for menu_file in "$xdg_dir"/*; do
             if grep 'generated and managed by xdg-desktop-menu' "$menu_file" > /dev/null 2> /dev/null; then
                 awk '
 # List all files within <Directory> tags
@@ -1189,7 +1248,7 @@ if [ -n "$XDG_UTILS_INSTALL_MODE" ] ; then
 fi
 
 if [ -z "$mode" ] ; then
-    if [ `whoami` = "root" ] ; then
+    if [ "`id -u`" -eq 0 ] ; then
        mode="system"
     else
        mode="user"
@@ -1207,7 +1266,7 @@ fi
 
 menu_name=
 for desktop_file in $directory_files; do
-    if [ "$vendor" =  "true" -a "$action" = "install" ] ; then
+    if [ "$vendor" =  "true" ] && [ "$action" = "install" ] ; then
         check_vendor_prefix "$desktop_file"
     fi
 
@@ -1255,20 +1314,16 @@ DEBUG 3 "xdg_user_dir: $xdg_user_dir"
 DEBUG 3 "xdg_global_dir: $xdg_global_dir"
 DEBUG 3 "kde_user_dir: $kde_user_dir"
 DEBUG 3 "kde_global_dir: $kde_global_dir"
-DEBUG 3 "gnome_user_dir: $gnome_user_dir"
-DEBUG 3 "gnome_global_dir: $gnome_global_dir"
 
 if [ x"$mode" = x"user" ] ; then
     xdg_dir="$xdg_user_dir"
     kde_dir="$kde_user_dir"
-    gnome_dir="$gnome_user_dir"
     my_umask=077
 else
     xdg_dir="$xdg_global_dir"
     kde_dir="$kde_global_dir"
-    gnome_dir="$gnome_global_dir"
     my_umask=022
-    if [ -z "${xdg_dir}${kde_dir}${gnome_dir}" ] ; then
+    if [ -z "${xdg_dir}${kde_dir}" ] ; then
         exit_failure_operation_impossible "No writable system menu directory found."
     fi
 fi
@@ -1276,14 +1331,14 @@ fi
 for desktop_file in $directory_files; do
     basefile=`basename "$desktop_file"`
 
-    DEBUG 1 "$action $desktop_file in $xdg_dir $kde_dir $gnome_dir"
+    DEBUG 1 "$action $desktop_file in $xdg_dir $kde_dir"
 
     case $action in
         install)
             save_umask=`umask`
             umask $my_umask
 
-            for x in $xdg_dir $kde_dir $gnome_dir ; do
+            for x in $xdg_dir $kde_dir ; do
                 mkdir -p $x
                 eval 'cp $desktop_file $x/$basefile'$xdg_redirect_output
             done
@@ -1292,7 +1347,7 @@ for desktop_file in $directory_files; do
             ;;
 
         uninstall)
-            for x in $xdg_dir $kde_dir $gnome_dir ; do
+            for x in $xdg_dir $kde_dir ; do
                 rm -f $x/$basefile
             done
 
@@ -1321,48 +1376,40 @@ kde_user_dir=`kde${KDE_SESSION_VERSION}-config --path apps 2> /dev/null | cut -d
 kde_global_dir=`kde${KDE_SESSION_VERSION}-config --path apps 2> /dev/null | cut -d ':' -f 2`
 [ -w $kde_global_dir ] || kde_global_dir=
 
-gnome_user_dir="$HOME/.gnome/apps"
-gnome_global_dir="/usr/share/gnome/apps"
-[ -w $gnome_global_dir ] || gnome_global_dir=
-
 DEBUG 3 "Install locations for *.desktop files:"
 DEBUG 3 "xdg_user_dir: $xdg_user_dir"
 DEBUG 3 "xdg_global_dir: $xdg_global_dir"
 DEBUG 3 "kde_user_dir: $kde_user_dir"
 DEBUG 3 "kde_global_dir: $kde_global_dir"
-DEBUG 3 "gnome_user_dir: $gnome_user_dir"
-DEBUG 3 "gnome_global_dir: $gnome_global_dir"
 
 if [ x"$mode" = x"user" ] ; then
     xdg_dir="$xdg_user_dir"
     kde_dir="$kde_user_dir"
-    gnome_dir="$gnome_user_dir"
     my_umask=077
 else
     xdg_dir="$xdg_global_dir"
     kde_dir="$kde_global_dir"
-    gnome_dir="$gnome_global_dir"
     my_umask=022
-    if [ -z "${xdg_dir}${kde_dir}${gnome_dir}" ] ; then
+    if [ -z "${xdg_dir}${kde_dir}" ] ; then
         exit_failure_operation_impossible "No writable system menu directory found."
     fi
 fi
 
 for desktop_file in $desktop_files; do
-    if [ "$vendor" =  "true" -a "$action" = "install" ] ; then
+    if [ "$vendor" =  "true" ] && [ "$action" = "install" ] ; then
         check_vendor_prefix "$desktop_file"
     fi
 
     basefile=`basename "$desktop_file"`
 
-    DEBUG 1 "$action $desktop_file in $xdg_dir $kde_dir $gnome_dir"
+    DEBUG 1 "$action $desktop_file in $xdg_dir $kde_dir"
 
     case $action in
         install)
             save_umask=`umask`
             umask $my_umask
 
-            for x in $xdg_dir $kde_dir $gnome_dir ; do
+            for x in $xdg_dir $kde_dir ; do
                 mkdir -p $x
                 eval 'cp $desktop_file $x/$basefile'$xdg_redirect_output
             done
@@ -1371,17 +1418,13 @@ for desktop_file in $desktop_files; do
                 echo "OnlyShowIn=Old;" >> $kde_dir/$basefile
             fi
 
-            if [ -f $gnome_dir/$basefile ] ; then
-                echo "OnlyShowIn=Old;" >> $gnome_dir/$basefile
-            fi
-
             make_lazy_default "$xdg_dir" "$basefile"
 
             umask $save_umask
             ;;
 
         uninstall)
-            for x in $xdg_dir $kde_dir $gnome_dir ; do
+            for x in $xdg_dir $kde_dir ; do
                 rm -f $x/$basefile
             done
 

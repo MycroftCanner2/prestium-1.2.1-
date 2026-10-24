@@ -1,27 +1,13 @@
 #!/usr/bin/perl
-#                              -*- Mode: Cperl -*-
-# ucfq ---
-# Author           : Manoj Srivastava ( srivasta@glaurung.internal.golden-gryphon.com )
-# Created On       : Wed Apr 12 14:51:16 2006
-# Created On Node  : glaurung.internal.golden-gryphon.com
-# Last Modified By : Manoj Srivastava
-# Last Modified On : Fri Apr 14 19:30:45 2006
-# Last Machine Used: glaurung.internal.golden-gryphon.com
-# Update Count     : 81
-# Status           : Unknown, Use with caution!
-# HISTORY          :
-# Description      :
-#
-# arch-tag: 1390e09f-ee31-4d7f-a968-bd539ea061a0
-#
+
 =head1 NAME
 
-ucfq - query ucf registry and hashfile about configuration file details.
+ucfq - query ucf database
 
 =cut
 
 use strict;
-
+use warnings;
 
 package ucf;
 
@@ -29,16 +15,16 @@ use strict;
 use Getopt::Long;
 
 # set the version and revision
-($main::MYNAME     = $main::0) =~ s|.*/||;
-$main::Author      = "Manoj Srivastava";
-$main::AuthorMail  = "srivasta\@debian.org";
+($main::MYNAME = $main::0) =~ s|.*/||;
+$main::VERSION = 3.0052;
+@main::AUTHORS = ('Manoj Srivastava <srivasta@debian.org>',
+		  'Mark Hindley <leepen@debian.org>');
 
 =head1 SYNOPSIS
 
- usage: ucfq [options] (file|package)[file|package  ...]
+ usage: ucfq [options] /path/file.conf|package...
 
 =cut
-
 
 {  # scope for ultra-private meta-object for class attributes
 
@@ -47,21 +33,25 @@ $main::AuthorMail  = "srivasta\@debian.org";
      Optdesc  =>
      {
       'help|h'         => sub {print ucf->Usage();     exit 0;},
+      'version|V'      => sub {print ucf->Version();   exit 0;},
       'with-colons|w!' => sub {$::ConfOpts{"Colons"}= "$_[1]";},
       'state-dir=s'    => sub {$::ConfOpts{"StateDir"}= "$_[1]";},
       'debug|d'        => sub {$::ConfOpts{"DEBUG"}+= "$_[1]";},
       'verbose|v'      => sub {$::ConfOpts{"VERBOSE"}+= "$_[1]";}
      },
-     Usage => qq(Usage: $main::MYNAME [options]
-Author: $main::Author <$main::AuthorMail>
-  where options are:
- --help                This message.
- --debug               Turn on debugging mode.
- --verbose             Make the script more verbose.
- --with-colons         A compact, machine readable version of the output.
- --state-dir </path/>  Set the state directory to /path/ instead of the
-                       default /var/lib/ucf.
-
+     Version => qq($main::MYNAME $main::VERSION
+	Copyright (C) 2002-2024 )
+     . join(', ', @main::AUTHORS)
+     ,
+     Usage => qq(Usage: $main::MYNAME [options] /path/file.conf|package...
+Options:
+	--help                This message.
+	--version	      Print version
+	--debug               Turn on debugging mode.
+	--verbose             Make the script more verbose.
+	--with-colons         A compact, machine readable version of the output.
+	--state-dir </path/>  Set the state directory to /path/ instead of the
+                       	      default /var/lib/ucf.
 ),
      Defaults =>
      {
@@ -71,16 +61,8 @@ Author: $main::Author <$main::AuthorMail>
       "StateDir" => '/var/lib/ucf'
      }
     );
-  # tri-natured: function, class method, or object method
-  sub _classobj {
-    my $obclass = shift || __PACKAGE__;
-    my $class   = ref($obclass) || $obclass;
-    no strict "refs";   # to convert sym ref to real one
-    return \%$class;
-  }
-
   for my $datum (keys %Ucf ) {
-    no strict "refs";
+    no strict "refs"; ## no critic (ProhibitNoStrict);
     *$datum = sub {
       use strict "refs";
       my ($self, $newvalue) = @_;
@@ -94,11 +76,13 @@ Author: $main::Author <$main::AuthorMail>
 
 =over 3
 
-=item B<--help> B<h> Print out a usage message.
+=item B<--help> B<-h> Print out a usage message.
+
+=item B<--version> B<-V> Print version.
 
 =item B<--debug> B<-d> Turn on debugging mode.
 
-=item B<--verbose> B<-v> Make the script more verbose..
+=item B<--verbose> B<-v> Make the script more verbose.
 
 =item B<--with-colons> B<-w>
 
@@ -111,7 +95,7 @@ dividers, headers, or footer.
 
 =back
 
-=item B<--state-dr> dir
+=item B<--state-dir> dir
 
 =over 2
 
@@ -124,26 +108,24 @@ C</var/lib/ucf>.  Used mostly for testing.
 
 =cut
 
-
 =head1 DESCRIPTION
 
+This script takes a set of arguments, each of which is a package name
+(and thus does not contain a /) or a full path to a configuration
+file, and outputs the associated package, if any, if the file exists
+on disk, and whether it has been modified by the user.  The output is
+either a human readable tabular form, or a compact colon-separated
+machine friendly format.
 
-This script takes a set of arguments, each of which is a package or a
-path to a configuration file, and outputs the associated package, if
-any, if the file exists on disk, and whether it has been modfied by te
-user.  The output is either a human readable tabular form, or a
-compact colon-separated machine friendly format.
-
-This script can potentially be used in package C<postinst> scripts
+This script can be used in package C<postrm> scripts
 during purge to query the system for configuration files that may
 still exist on the system, and whether these files have been locally
 modified by the user -- assuming that the package registered all the
-configuration files with B<ucf> using C<ucfr>.
+configuration files with B<ucf> using B<ucfr>.
 
 =cut
 
-
-
+=begin comment
 
 =head1 INTERNALS
 
@@ -161,7 +143,6 @@ variable is returned.
 
 This is a combination view and controller class that mediates between
 the user and the internal model classes.
-
 
 =head2 new
 
@@ -198,7 +179,6 @@ sub validate{
   my %params   = @_;
   my $defaults = $this->Defaults();
 
-
   # Make sure runtime options override what we get from the config file
   for my $option (keys %params) {
     $this->{Con_Ref}->{"$option"} = $params{"$option"};
@@ -212,6 +192,7 @@ sub validate{
       $this->{Con_Ref}->{"$default"} = $defaults->{"$default"};
     }
   }
+  return
 }
 
 =head2 get_config_ref
@@ -237,6 +218,7 @@ sub dump_config {
   for (keys %{$this->{Con_Ref}}) {
     print  "$_ = [${$this->{Con_Ref}}{$_}]\n"
   }
+  return
 }
 
 =head2 process
@@ -246,7 +228,6 @@ arguments, and queries the on disk databases, determines of the files
 exist, and have been modified.
 
 =cut
-
 
 sub process {
   my $this      = shift;
@@ -299,6 +280,7 @@ sub process {
       $this->{file_list}->element($file)->conffile_package($this->{registry_proxy}->find_pkg($file));
     }
   }
+  return
 }
 
 =head2 report
@@ -310,7 +292,6 @@ reports, the first being a user friendly tabular form, the second
 report.
 
 =cut
-
 
 our ($out_pkg, $out_file, $there, $mod);
 
@@ -335,6 +316,7 @@ sub report {
       write;
     }
   }
+  return
 }
 
 =head1 Class registry
@@ -370,9 +352,9 @@ sub new {
     if (! -r "$params{StateDir}/registry") {
       die "Can't read registry file $params{StateDir}/registry:$!";
     }
-    open (REG, "$params{StateDir}/registry") ||
+    open (my $reg,"<", "$params{StateDir}/registry") ||
       die "Can't read registry file $params{StateDir}/registry:$!";
-    while (<REG>) {
+    while (<$reg>) {
       chomp;
       my ($pkg, $file) = m/^(\S+)\s+(\S+)$/;
       $self->{Packages}->{$file} = $pkg;
@@ -383,6 +365,7 @@ sub new {
         $self->{List}->{$pkg} = [ $file ];
       }
     }
+    close $reg;
   }
 
   bless $self => $class;
@@ -410,7 +393,6 @@ sub list_files {
   }
 }
 
-
 =head2 find_pkg
 
 This routine queries the registry for the package associated with the
@@ -426,9 +408,7 @@ sub find_pkg {
   if (exists $this->{Packages}->{$file}) {
     return $this->{Packages}->{$file};
   }
-  else {
-    return undef;
-  }
+  return;
 }
 
 =head1 Class hashfile
@@ -451,25 +431,24 @@ sub new {
   die "Missing required parameter StateDir"
     unless $params{StateDir};
 
-
   if (-e "$params{StateDir}/hashfile") {
     if (! -r "$params{StateDir}/hashfile") {
       die "Can't read registry file $params{StateDir}/hashfile:$!";
     }
-    open (HASH, "$params{StateDir}/hashfile") ||
+    open (my $hash,"<", "$params{StateDir}/hashfile") ||
       die "Can't read registry file $params{StateDir}/hashfile:$!";
-    while (<HASH>) {
+    while (<$hash>) {
       chomp;
       my ($hash, $file) = m/^(\S+)\s+(\S+)$/;
       $self->{$file} = $hash
     }
+    close $hash;
   }
 
   bless $self => $class;
 
   return $self;
 }
-
 
 =head2 hash
 
@@ -478,7 +457,6 @@ developers version of the given file.  Takes the path of the
 configuration file as a required parameter.
 
 =cut
-
 
 sub hash {
   my $this      = shift;
@@ -497,12 +475,9 @@ This is the encapsulation of a configuration file metadata.
 
 =cut
 
-
-
 package conffile;
 use strict;
 use Cwd qw{abs_path};
-
 
 =head2 new
 
@@ -533,7 +508,6 @@ sub new {
   return $self;
 }
 
-
 =head2 conffile_package
 
 This routine is the accessor method of the internal attribute that
@@ -552,9 +526,7 @@ sub conffile_package {
   if (exists $this->{Package}) {
     return $this->{Package};
   }
-  else {
-    return undef;
-  }
+  return;
 }
 
 =head2 conffile_exists
@@ -574,9 +546,7 @@ sub conffile_exists {
   if (exists $this->{Exists}) {
     return $this->{Exists};
   }
-  else {
-    return undef;
-  }
+  return;
 }
 
 =head2 conffile_modified
@@ -600,9 +570,7 @@ sub conffile_modified {
   if (exists $this->{Modified}) {
     return $this->{Modified};
   }
-  else {
-    return undef;
-  }
+  return;
 }
 
 =head2 conffile_hash
@@ -625,9 +593,9 @@ sub conffile_hash {
     $this->{Hash} = $value;
     if (-e "$name") {
       if (-x "/usr/bin/md5sum") {
-        open (NEWHASH, "/usr/bin/md5sum $name |") ||
+        open (my $newhash, "-|", "/usr/bin/md5sum $name") ||
           die "Could not run md5sum: $!";
-        while (<NEWHASH>) {
+        while (<$newhash>) {
           chomp;
           my ($hash, $dummy) = m/^(\S+)\s+(\S+)$/;
           if ("$hash" ne "$value") {
@@ -637,7 +605,7 @@ sub conffile_hash {
             $this->{Modified} = 'No';
           }
         }
-        close NEWHASH;
+        close $newhash;
       }
       else {
         die "Could not find /usr/bin/md5sum .\n";
@@ -647,9 +615,7 @@ sub conffile_hash {
   if (exists $this->{Hash}) {
     return $this->{Hash};
   }
-  else {
-    return undef;
-  }
+  return;
 }
 
 sub conffile_report {
@@ -659,7 +625,6 @@ sub conffile_report {
       $this->{Modified}? $this->{Modified} : "";
 }
 
-
 =head1 CLASS PKG
 
 This is an encapsulation of package metadata.  Packages may be
@@ -667,10 +632,8 @@ associated with configuration files.
 
 =cut
 
-
 package pkg;
 use strict;
-
 
 =head2 new
 
@@ -713,8 +676,6 @@ list.
 package object_list;
 use strict;
 
-
-
 =head2 new
 
 This is the constructor for the class. It takes no arguments.
@@ -756,11 +717,8 @@ sub element {
   if (exists $this->{"List"}->{$name}) {
     return $this->{"List"}->{$name};
   }
-  else {
-    return undef;
-  }
+  return;
 }
-
 
 =head2 remove
 
@@ -776,6 +734,7 @@ sub remove {
     unless $name;
   delete $this->{"List"}->{$name}
     if (exists $this->{"List"}->{$name} );
+  return
 }
 
 =head2 list
@@ -783,6 +742,7 @@ sub remove {
 This routine lists all the elements in the list.  It does not take any
 options.
 
+=end comment
 =cut
 
 sub list {
@@ -796,39 +756,40 @@ use Getopt::Long;
 
 sub main {
   my $optdesc = ucf->Optdesc();
-  my $parser  = new Getopt::Long::Parser;
+  my $parser  = Getopt::Long::Parser->new;
   $parser->configure("bundling");
   $parser->getoptions (%$optdesc);
   my $query = ucf->new(%::ConfOpts);
   $query->process;
   $query->report;
+  return
 }
 
 &main;
 
 exit 0;
 
-=head1 CAVEATS
+=head1 AUTHORS
 
-This is very inchoate, at the moment, and needs testing.
+=over
 
-=cut
+=item Manoj Srivastava <srivasta@debian.org>
 
-=head1 BUGS
+=item Mark Hindley <leepen@debian.org>
 
-None Known so far.
-
-=cut
-
-=head1 AUTHOR
-
-Manoj Srivastava <srivasta\@debian.org>
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
 This script is a part of the Ucf package, and is
 
-Copyright (c) 2006 Manoj Srivastava <srivasta\@debian.org>
+=over
+
+=item Copyright (c) 2006 Manoj Srivastava <srivasta@debian.org>
+
+=item Copyright (c) 2024 Mark Hindley <leepen@debian.org>
+
+=back
 
 This program is free software; you can redistribute it and / or modify
 it under the terms of the GNU General Public License as published by
@@ -843,6 +804,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+=head1 SEE ALSO
+
+B<ucf>(1), B<ucfr>(1)
 
 =cut
 

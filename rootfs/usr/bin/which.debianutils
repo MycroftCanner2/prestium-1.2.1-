@@ -1,23 +1,27 @@
 #! /bin/sh
 set -ef
 
+SILENT=0
 if test -n "$KSH_VERSION"; then
 	puts() {
+                [ "$SILENT" -eq 1 ] && return
 		print -r -- "$*"
 	}
 else
 	puts() {
+                [ "$SILENT" -eq 1 ] && return
 		printf '%s\n' "$*"
 	}
 fi
 
 ALLMATCHES=0
 
-while getopts a whichopts
+while getopts as whichopts
 do
         case "$whichopts" in
                 a) ALLMATCHES=1 ;;
-                ?) puts "Usage: $0 [-a] args"; exit 2 ;;
+                s) SILENT=1 ;;
+                ?) puts "Usage: $0 [-as] args"; exit 2 ;;
         esac
 done
 shift $(($OPTIND - 1))
