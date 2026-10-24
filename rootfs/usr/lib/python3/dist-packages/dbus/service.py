@@ -393,7 +393,7 @@ class Object(Interface):
 
     Example::
 
-        class Example(dbus.service.object):
+        class Example(dbus.service.Object):
             def __init__(self, object_path):
                 dbus.service.Object.__init__(self, dbus.SessionBus(), path)
                 self._last_input = None
