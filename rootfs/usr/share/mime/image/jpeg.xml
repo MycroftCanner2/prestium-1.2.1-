@@ -2,19 +2,20 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="image/jpeg">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>JPEG image</comment>
-  <comment xml:lang="zh_TW">JPEG 影像</comment>
-  <comment xml:lang="zh_CN">JPEG 图像</comment>
+  <comment xml:lang="zh-Hant-TW">JPEG 影像</comment>
+  <comment xml:lang="zh-Hans-CN">JPEG 图像</comment>
   <comment xml:lang="vi">Ảnh JPEG</comment>
   <comment xml:lang="uk">зображення JPEG</comment>
   <comment xml:lang="tr">JPEG görüntüsü</comment>
   <comment xml:lang="sv">JPEG-bild</comment>
-  <comment xml:lang="sr">ЈПЕГ слика</comment>
-  <comment xml:lang="sq">Figurë JPEG</comment>
+  <comment xml:lang="sr-Cyrl">ЈПЕГ слика</comment>
+  <comment xml:lang="sq">figurë JPEG</comment>
   <comment xml:lang="sl">Slikovna datoteka JPEG</comment>
+  <comment xml:lang="si">JPEG රූපය</comment>
   <comment xml:lang="sk">Obrázok JPEG</comment>
   <comment xml:lang="ru">Изображение JPEG</comment>
   <comment xml:lang="ro">Imagine JPEG</comment>
-  <comment xml:lang="pt_BR">Imagem JPEG</comment>
+  <comment xml:lang="pt-BR">Imagem JPEG</comment>
   <comment xml:lang="pt">imagem JPEG</comment>
   <comment xml:lang="pl">Obraz JPEG</comment>
   <comment xml:lang="oc">imatge JPEG</comment>
@@ -25,9 +26,11 @@
   <comment xml:lang="lv">JPEG attēls</comment>
   <comment xml:lang="lt">JPEG paveikslėlis</comment>
   <comment xml:lang="ko">JPEG 그림</comment>
-  <comment xml:lang="kk">JPEG суреті</comment>
+  <comment xml:lang="kk-Cyrl">JPEG суреті</comment>
+  <comment xml:lang="ka">JPEG გამოსახულება</comment>
   <comment xml:lang="ja">JPEG 画像 </comment>
   <comment xml:lang="it">Immagine JPEG</comment>
+  <comment xml:lang="is">JPEG mynd</comment>
   <comment xml:lang="id">Citra JPEG</comment>
   <comment xml:lang="ia">Imagine JPEG</comment>
   <comment xml:lang="hu">JPEG-kép</comment>
@@ -42,7 +45,7 @@
   <comment xml:lang="eu">JPEG irudia</comment>
   <comment xml:lang="es">imagen JPEG</comment>
   <comment xml:lang="eo">JPEG-bildo</comment>
-  <comment xml:lang="en_GB">JPEG image</comment>
+  <comment xml:lang="en-GB">JPEG image</comment>
   <comment xml:lang="el">Εικόνα JPEG</comment>
   <comment xml:lang="de">JPEG-Bild</comment>
   <comment xml:lang="da">JPEG-billede</comment>
@@ -50,7 +53,8 @@
   <comment xml:lang="cs">obrázek JPEG</comment>
   <comment xml:lang="ca">imatge JPEG</comment>
   <comment xml:lang="bg">Изображение — JPEG</comment>
-  <comment xml:lang="be@latin">Vyjava JPEG</comment>
+  <comment xml:lang="be-Latn">Vyjava JPEG</comment>
+  <comment xml:lang="be-Cyrl">выява JPEG</comment>
   <comment xml:lang="az">JPEG rəsmi</comment>
   <comment xml:lang="ar">صورة JPEG</comment>
   <comment xml:lang="af">JPEG-beeld</comment>
@@ -59,5 +63,6 @@
   <glob pattern="*.jpg"/>
   <glob pattern="*.jpeg"/>
   <glob pattern="*.jpe"/>
+  <glob pattern="*.jfif"/>
   <alias type="image/pjpeg"/>
 </mime-type>

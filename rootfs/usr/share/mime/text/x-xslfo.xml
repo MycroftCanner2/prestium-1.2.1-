@@ -2,19 +2,20 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-xslfo">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>XSL FO file</comment>
-  <comment xml:lang="zh_TW">XSL FO 檔</comment>
-  <comment xml:lang="zh_CN">XSL 格式化对象文件</comment>
+  <comment xml:lang="zh-Hant-TW">XSL FO 檔</comment>
+  <comment xml:lang="zh-Hans-CN">XSL 格式化对象文件</comment>
   <comment xml:lang="vi">Tập tin FO của XSL (XFO)</comment>
   <comment xml:lang="uk">файл XSL FO</comment>
   <comment xml:lang="tr">XSL FO dosyası</comment>
   <comment xml:lang="sv">XSL FO-fil</comment>
-  <comment xml:lang="sr">ИксСЛ ФО датотека</comment>
-  <comment xml:lang="sq">File XSL FO</comment>
+  <comment xml:lang="sr-Cyrl">ИксСЛ ФО датотека</comment>
+  <comment xml:lang="sq">kartelë XSL FO</comment>
   <comment xml:lang="sl">Datoteka XSL FO</comment>
+  <comment xml:lang="si">XSL FO ගොනුව</comment>
   <comment xml:lang="sk">Súbor XSL FO</comment>
   <comment xml:lang="ru">Файл XSL FO</comment>
   <comment xml:lang="ro">Fișier XSL FO</comment>
-  <comment xml:lang="pt_BR">Arquivo XSL FO</comment>
+  <comment xml:lang="pt-BR">Arquivo XSL FO</comment>
   <comment xml:lang="pt">ficheiro XSL FO</comment>
   <comment xml:lang="pl">Plik XSL FO</comment>
   <comment xml:lang="oc">fichièr XSL FO</comment>
@@ -24,9 +25,10 @@
   <comment xml:lang="lv">XSL FO datne</comment>
   <comment xml:lang="lt">XSL FO failas</comment>
   <comment xml:lang="ko">XSL 포매팅 개체 파일</comment>
-  <comment xml:lang="kk">XSL FO файлы</comment>
+  <comment xml:lang="kk-Cyrl">XSL FO файлы</comment>
   <comment xml:lang="ja">XSL FO ファイル</comment>
   <comment xml:lang="it">File XSL FO</comment>
+  <comment xml:lang="is">XSL FO skrá</comment>
   <comment xml:lang="id">Berkas XSL FO</comment>
   <comment xml:lang="ia">File XSL FO</comment>
   <comment xml:lang="hu">XSL FO fájl</comment>
@@ -41,14 +43,15 @@
   <comment xml:lang="eu">XSL FO fitxategia</comment>
   <comment xml:lang="es">archivo XSL FO</comment>
   <comment xml:lang="eo">XSL-FO-dosiero</comment>
-  <comment xml:lang="en_GB">XSL FO file</comment>
+  <comment xml:lang="en-GB">XSL FO file</comment>
   <comment xml:lang="el">Αρχείο XSL FO</comment>
   <comment xml:lang="de">XSL-FO-Datei</comment>
   <comment xml:lang="da">XML FO-fil</comment>
   <comment xml:lang="cs">soubor XSL FO</comment>
   <comment xml:lang="ca">fitxer FO XSL</comment>
   <comment xml:lang="bg">Форматиращ файл — XSL FO</comment>
-  <comment xml:lang="be@latin">Fajł XSL FO</comment>
+  <comment xml:lang="be-Latn">Fajł XSL FO</comment>
+  <comment xml:lang="be-Cyrl">файл XSL FO</comment>
   <comment xml:lang="ar">ملف XSL FO</comment>
   <comment xml:lang="af">XSL FO-lêer</comment>
   <acronym>XSL FO</acronym>

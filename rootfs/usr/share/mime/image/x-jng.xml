@@ -2,19 +2,20 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="image/x-jng">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>JNG image</comment>
-  <comment xml:lang="zh_TW">JNG 影像</comment>
-  <comment xml:lang="zh_CN">JNG 图像</comment>
+  <comment xml:lang="zh-Hant-TW">JNG 影像</comment>
+  <comment xml:lang="zh-Hans-CN">JNG 图像</comment>
   <comment xml:lang="vi">Ảnh JNG</comment>
   <comment xml:lang="uk">зображення JNG</comment>
   <comment xml:lang="tr">JNG görüntüsü</comment>
   <comment xml:lang="sv">JNG-bild</comment>
-  <comment xml:lang="sr">ЈНГ слика</comment>
-  <comment xml:lang="sq">Figurë JNG</comment>
+  <comment xml:lang="sr-Cyrl">ЈНГ слика</comment>
+  <comment xml:lang="sq">figurë JNG</comment>
   <comment xml:lang="sl">Slikovna datoteka JNG</comment>
+  <comment xml:lang="si">JNG රූපය</comment>
   <comment xml:lang="sk">Obrázok JNG</comment>
   <comment xml:lang="ru">Изображение JNG</comment>
   <comment xml:lang="ro">Imagine JNG</comment>
-  <comment xml:lang="pt_BR">Imagem JNG</comment>
+  <comment xml:lang="pt-BR">Imagem JNG</comment>
   <comment xml:lang="pt">imagem JNG</comment>
   <comment xml:lang="pl">Obraz JNG</comment>
   <comment xml:lang="oc">imatge JNG</comment>
@@ -25,9 +26,10 @@
   <comment xml:lang="lv">JNG attēls</comment>
   <comment xml:lang="lt">JNG paveikslėlis</comment>
   <comment xml:lang="ko">JNG 그림</comment>
-  <comment xml:lang="kk">JNG суреті</comment>
+  <comment xml:lang="kk-Cyrl">JNG суреті</comment>
   <comment xml:lang="ja">JNG 画像</comment>
   <comment xml:lang="it">Immagine JNG</comment>
+  <comment xml:lang="is">JNG mynd</comment>
   <comment xml:lang="id">Citra JNG</comment>
   <comment xml:lang="ia">Imagine JNG</comment>
   <comment xml:lang="hu">JNG-kép</comment>
@@ -42,7 +44,7 @@
   <comment xml:lang="eu">JNG irudia</comment>
   <comment xml:lang="es">imagen JNG</comment>
   <comment xml:lang="eo">JNG-bildo</comment>
-  <comment xml:lang="en_GB">JNG image</comment>
+  <comment xml:lang="en-GB">JNG image</comment>
   <comment xml:lang="el">Εικόνα JNG</comment>
   <comment xml:lang="de">JNG-Bild</comment>
   <comment xml:lang="da">JNG-billede</comment>
@@ -50,7 +52,8 @@
   <comment xml:lang="cs">obrázek JNG</comment>
   <comment xml:lang="ca">imatge JNG</comment>
   <comment xml:lang="bg">Изображение — JNG</comment>
-  <comment xml:lang="be@latin">Vyjava JNG</comment>
+  <comment xml:lang="be-Latn">Vyjava JNG</comment>
+  <comment xml:lang="be-Cyrl">выява JNG</comment>
   <comment xml:lang="az">JNG rəsmi</comment>
   <comment xml:lang="ar">صورة JNG</comment>
   <comment xml:lang="af">JNG-beeld</comment>
