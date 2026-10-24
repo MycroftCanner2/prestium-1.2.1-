@@ -143,6 +143,8 @@
     <value nick="right" value="2"/>
     <value nick="back" value="3"/>
     <value nick="forward" value="4"/>
+    <value nick="switch-monitor" value="5"/>
+    <value nick="keybinding" value="6"/>
   </enum>
 <enum id="org.gnome.desktop.GDesktopPointerAccelProfile">
     <value nick="default" value="0"/>
@@ -180,6 +182,21 @@
     <value nick="default" value="0"/>
     <value nick="none" value="1"/>
     <value nick="on-button-down" value="2"/>
+  </enum>
+<enum id="org.gnome.desktop.GDesktopFontRendering">
+    <value nick="automatic" value="0"/>
+    <value nick="manual" value="1"/>
+  </enum>
+<enum id="org.gnome.desktop.GDesktopAccentColor">
+    <value nick="blue" value="0"/>
+    <value nick="teal" value="1"/>
+    <value nick="green" value="2"/>
+    <value nick="yellow" value="3"/>
+    <value nick="orange" value="4"/>
+    <value nick="red" value="5"/>
+    <value nick="pink" value="6"/>
+    <value nick="purple" value="7"/>
+    <value nick="slate" value="8"/>
   </enum>
 </schemalist>
 

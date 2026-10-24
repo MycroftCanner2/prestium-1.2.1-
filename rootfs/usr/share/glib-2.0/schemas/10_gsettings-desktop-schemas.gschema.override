@@ -2,9 +2,11 @@
 exec='x-terminal-emulator'
 exec-arg='-e'
 
-# Adobe Source Code Pro is not in Debian yet
-# See https://bugs.debian.org/736681 and https://bugs.debian.org/762252
+# Adwaita Sans (variant of fonts-inter) and Adwaita Mono (variants of fonts-iosevka)
+# are not in Debian yet. See https://bugs.debian.org/1093547 and https://bugs.debian.org/973995
 [org.gnome.desktop.interface]
+document-font-name = 'Cantarell 11'
+font-name = 'Cantarell 11'
 monospace-font-name = 'Monospace 11'
 
 [org.gnome.desktop.wm.keybindings]

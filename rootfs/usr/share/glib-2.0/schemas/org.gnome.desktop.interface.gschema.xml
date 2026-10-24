@@ -105,7 +105,7 @@
       </description>
     </key>
     <key name="font-name" type="s">
-      <default>'Cantarell 11'</default>
+      <default>'Adwaita Sans 11'</default>
       <summary>Default font</summary>
       <description>
         Name of the default font used by gtk+.
@@ -156,14 +156,14 @@
       </description>
     </key>
     <key name="document-font-name" type="s">
-      <default>'Cantarell 11'</default>
+      <default>'Adwaita Sans 11'</default>
       <summary>Document font</summary>
       <description>
         Name of the default font used for reading documents.
       </description>
     </key>
     <key name="monospace-font-name" type="s">
-      <default>'Source Code Pro 10'</default>
+      <default>'Adwaita Mono 11'</default>
       <summary>Monospace font</summary>
       <description>
         Name of a monospaced (fixed-width) font for use in locations like
@@ -208,7 +208,8 @@
       <description>A “\n” separated list of “name:color” as defined by the “gtk-color-scheme” setting</description>
     </key>
     <key name="clock-format" enum="org.gnome.desktop.GDesktopClockFormat">
-      <default>'24h'</default>
+      <!-- TRANSLATORS: select your locale's default clock format, this should be '12h' or '24h' (with the quotes!) -->
+      <default l10n="time">'24h'</default>
       <summary>Whether the clock displays in 24h or 12h format</summary>
       <description>
         Whether the clock displays in 24h or 12h format
@@ -299,6 +300,22 @@
       <summary>Color scheme</summary>
       <description>
         The preferred color scheme for the user interface. Valid values are “default”, “prefer-dark”, “prefer-light”.
+      </description>
+    </key>
+    <key name="font-rendering" enum="org.gnome.desktop.GDesktopFontRendering">
+      <default>'automatic'</default>
+      <summary>Font rendering</summary>
+      <description>
+        Preference to indicate whether font rendering should follow the low-level `font-hinting` and `font-antialiasing` and `font-rgba-order` settings, or take environmental factors such as screen resolution and scaling into account.
+        Possible values are: "manual" for respecting the low-level settings, or "automatic" for letting the toolkit
+        make its own decisions.
+      </description>
+    </key>
+    <key name="accent-color" enum="org.gnome.desktop.GDesktopAccentColor">
+      <default>'blue'</default>
+      <summary>Accent color</summary>
+      <description>
+        The preferred accent color for the user interface. Valid values are "blue", "teal", "green", "yellow", "orange", "red", "pink", "purple", "slate".
       </description>
     </key>
   </schema>
