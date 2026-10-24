@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   id="svg3465"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="diodon-panel.svg">
+  <defs
+     id="defs3467" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="33.136364"
+     inkscape:cx="5.6886145"
+     inkscape:cy="11"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1600"
+     inkscape:window-height="876"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3491"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3470">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1036.3622)">
+    <path
+       inkscape:connector-curvature="0"
+       d="m 5.5599543,1049.2716 c -0.8232063,0.813 -2.1206548,0.7711 -2.9329794,-0.03 -0.8091263,-0.8039 -0.851687,-2.0892 -0.030879,-2.9046 l 6.7730044,-6.7072 c 1.0705697,-1.0569 2.7552197,-1.0036 3.8137877,0.042 1.055049,1.0489 1.108809,2.7171 0.04208,3.7772 l -5.6442016,5.5896 c -0.1246407,0.1236 -0.3267204,0.1236 -0.4508812,0 -0.1248014,-0.1236 -0.1252814,-0.3235 -4.866e-4,-0.447 l 5.6437194,-5.5899 c 0.812806,-0.8059 0.780006,-2.0625 -0.04176,-2.883 -0.827365,-0.8133 -2.096655,-0.8455 -2.9109021,-0.041 l -6.7730045,6.7066 c -0.5652841,0.5623 -0.544164,1.4353 0.030879,2.0105 0.5817645,0.5707 1.4625706,0.5906 2.0307346,0.031 l 5.643719,-5.5891 c 0.293441,-0.2903 0.282722,-0.7592 -0.04592,-1.0913 -0.334722,-0.3247 -0.8081661,-0.3355 -1.1016081,-0.044 l -5.0793948,5.0301 c -0.1246406,0.1241 -0.326722,0.1235 -0.4513626,0 -0.1246415,-0.1235 -0.1251215,-0.3239 -4.848e-4,-0.4473 l 5.0803532,-5.0299 c 0.561604,-0.5546 1.4512121,-0.5006 2.0038581,0.045 0.55184,0.5481 0.605602,1.4294 0.0464,1.9854 l -5.6446796,5.5891 z"
+       style="fill:#dfdbd2;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path108" />
+  </g>
+</svg>
