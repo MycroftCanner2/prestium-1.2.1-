@@ -1,2 +1,2 @@
 # not really used directly by users
-lightdm-gtk-greeter: binary-without-manpage usr/sbin/lightdm-gtk-greeter
+lightdm-gtk-greeter: no-manual-page [usr/sbin/lightdm-gtk-greeter]

@@ -10,4 +10,3 @@ unused-debconf-template tzdata/Zones/Etc *
 unused-debconf-template tzdata/Zones/Europe *
 unused-debconf-template tzdata/Zones/Indian *
 unused-debconf-template tzdata/Zones/Pacific *
-unused-debconf-template tzdata/Zones/US *

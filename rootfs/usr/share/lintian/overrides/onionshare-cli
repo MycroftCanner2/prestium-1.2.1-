@@ -1,0 +1,5 @@
+# we need a special jquery versian and we ship the source in debian/missing-sources/
+embedded-javascript-library please use libjs-jquery *
+# That are actuall resource files and no documentation
+package-contains-documentation-outside-usr-share-doc [usr/share/onionshare-cli/version.txt]
+package-contains-documentation-outside-usr-share-doc [usr/share/onionshare-cli/wordlist.txt]
