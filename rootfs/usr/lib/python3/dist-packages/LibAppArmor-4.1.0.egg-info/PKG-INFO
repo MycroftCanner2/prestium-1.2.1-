@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: LibAppArmor
+Version: 4.1.0
+Summary: AppArmor python bindings
+Home-page: https://wiki.apparmor.net
+Download-URL: https://launchpad.net/apparmor/+download
+Author: AppArmor Dev Team
+Author-email: apparmor@lists.ubuntu.com
+Dynamic: author
+Dynamic: author-email
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: summary
