@@ -1,36 +1,24 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Match
-from typing import Optional
-from typing import Union
 
 import re
 import string
 from dataclasses import dataclass
 from dataclasses import field
+from re import Match
 
 from gi.repository import GLib
 
 from gajim.common import regex
 from gajim.common.const import URIType
-from gajim.common.helpers import parse_uri as analyze_uri
-from gajim.common.helpers import validate_jid
+from gajim.common.util.jid import validate_jid
 from gajim.common.util.text import escape_iri_query
+from gajim.common.util.uri import parse_uri as analyze_uri
 
 PRE = '`'
 STRONG = '*'
@@ -45,9 +33,9 @@ PRE_RX = r'(?P<pre>^```.+?(^```$(.|\Z)))'
 PRE_NESTED_RX = r'(?P<pre>^```.+?((^```$(.|\Z))|\Z))'
 QUOTE_RX = r'(?P<quote>^(?=>).*?(^|\Z)(?!>))'
 
-BLOCK_RX = re.compile(PRE_RX + '|' + QUOTE_RX, re.S | re.M)
-BLOCK_NESTED_RX = re.compile(PRE_NESTED_RX + '|' + QUOTE_RX, re.S | re.M)
-UNQUOTE_RX = re.compile(r'^> |^>', re.M)
+BLOCK_RX = re.compile(PRE_RX + '|' + QUOTE_RX, re.DOTALL | re.MULTILINE)
+BLOCK_NESTED_RX = re.compile(PRE_NESTED_RX + '|' + QUOTE_RX, re.DOTALL | re.MULTILINE)
+UNQUOTE_RX = re.compile(r'^> |^>', re.MULTILINE)
 
 URI_OR_JID_RX = re.compile(
     fr'(?P<uri>(?<![\w+.-]){regex.IRI})|(?P<jid>{regex.XMPP.jid})')
@@ -187,10 +175,10 @@ def find_byte_index(text: str, index: int):
         if index == index_:
             return byte_index
 
-    raise ValueError('index not in string: %s, %s' % (text, index))
+    raise ValueError(f'index not in string: {text}, {index}')
 
 
-def process(text: Union[str, bytes], level: int = 0) -> ParsingResult:
+def process(text: str | bytes, level: int = 0) -> ParsingResult:
     if isinstance(text, bytes):
         text = text.decode()
 
@@ -213,7 +201,7 @@ def process(text: Union[str, bytes], level: int = 0) -> ParsingResult:
     return ParsingResult(text, blocks)
 
 
-def process_uris(text: Union[str, bytes]) -> list[BaseHyperlink]:
+def process_uris(text: str | bytes) -> list[BaseHyperlink]:
     if isinstance(text, bytes):
         text = text.decode()
 
@@ -324,7 +312,7 @@ def _parse_uris(line: str,
                 offset_bytes: int) -> list[BaseHyperlink]:
     uris: list[BaseHyperlink] = []
 
-    def make(start: int, end: int, is_jid: bool) -> Optional[BaseHyperlink]:
+    def make(start: int, end: int, is_jid: bool) -> BaseHyperlink | None:
         if line[end - 1] == ',':
             # Trim one trailing comma
             end -= 1
@@ -399,7 +387,7 @@ def _make_hyperlink(line: str,
                     end: int,
                     offset: int,
                     offset_bytes: int,
-                    is_jid: bool) -> Optional[BaseHyperlink]:
+                    is_jid: bool) -> BaseHyperlink | None:
 
     text = line[start:end + 1]
 
@@ -416,7 +404,7 @@ def _make_hyperlink(line: str,
             validate_jid(text)
         except ValueError:
             return None
-        uri = 'about:ambiguous-address?' + escape_iri_query(text)
+        uri = escape_iri_query(text)
 
     else:
         uri = text
