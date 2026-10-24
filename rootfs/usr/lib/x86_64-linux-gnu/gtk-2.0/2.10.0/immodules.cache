@@ -1,8 +1,8 @@
 # GTK+ Input Method Modules file
 # Automatically generated file, do not edit
-# Created by /usr/lib/x86_64-linux-gnu/libgtk2.0-0/gtk-query-immodules-2.0 from gtk+-2.24.33
+# Created by /usr/lib/x86_64-linux-gnu/libgtk2.0-0t64/gtk-query-immodules-2.0 from gtk+-2.24.33
 #
-# ModulesPath = /root/.gtk-2.0/2.10.0/x86_64-pc-linux-gnu/immodules:/root/.gtk-2.0/2.10.0/immodules:/root/.gtk-2.0/x86_64-pc-linux-gnu/immodules:/root/.gtk-2.0/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/x86_64-pc-linux-gnu/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/x86_64-pc-linux-gnu/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/immodules:/usr/lib/gtk-2.0/2.10.0/x86_64-pc-linux-gnu/immodules:/usr/lib/gtk-2.0/2.10.0/immodules:/usr/lib/gtk-2.0/x86_64-pc-linux-gnu/immodules:/usr/lib/gtk-2.0/immodules
+# ModulesPath = /root/.gtk-2.0/2.10.0/x86_64-pc-linux-gnu/immodules:/root/.gtk-2.0/2.10.0/immodules:/root/.gtk-2.0/x86_64-pc-linux-gnu/immodules:/root/.gtk-2.0/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/x86_64-pc-linux-gnu/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/x86_64-pc-linux-gnu/immodules:/usr/lib/x86_64-linux-gnu/gtk-2.0/immodules
 #
 "/usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules/im-am-et.so" 
 "am_et" "Amharic (EZ+)" "gtk20" "/usr/share/locale" "am" 
