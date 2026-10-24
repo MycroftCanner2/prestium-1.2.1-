@@ -1,29 +1,21 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
 from typing import cast
-from typing import Optional
-from typing import Union
+from typing import Literal
+from typing import overload
 
 import logging
 
 from gi.repository import GObject
 from gi.repository import Gtk
+from gi.repository import Pango
 from nbxmpp.const import AdHocAction
+from nbxmpp.const import AdHocNoteType
 from nbxmpp.errors import MalformedStanzaError
 from nbxmpp.errors import StanzaError
 from nbxmpp.modules import dataforms
@@ -37,72 +29,96 @@ from nbxmpp.task import Task
 from gajim.common import app
 from gajim.common.helpers import to_user_string
 from gajim.common.i18n import _
+from gajim.common.util.text import process_non_spacing_marks
 
 from gajim.gtk.assistant import Assistant
 from gajim.gtk.assistant import ErrorPage
 from gajim.gtk.assistant import Page
 from gajim.gtk.assistant import ProgressPage
 from gajim.gtk.dataform import DataFormWidget
-from gajim.gtk.util import ensure_not_destroyed
-from gajim.gtk.util import MultiLineLabel
+from gajim.gtk.util.misc import container_remove_all
+from gajim.gtk.util.misc import ensure_not_destroyed
+from gajim.gtk.widgets import MultiLineLabel
 
-log = logging.getLogger('gajim.gtk.adhoc')
+log = logging.getLogger("gajim.gtk.adhoc")
 
 
 class AdHocCommands(Assistant):
-    def __init__(self, account: str, jid: Optional[str] = None) -> None:
+    def __init__(self, account: str, jids: list[str]) -> None:
         Assistant.__init__(self, width=600, height=500)
         self.account = account
-        self.jid = jid
+        self.jid = str(jids[0])  # TODO: Add resource chooser
 
         self._destroyed = False
 
         self._client = app.get_client(account)
 
-        self.add_button('complete', _('Complete'), complete=True,
-                        css_class='suggested-action')
-        self.add_button('next', _('Next'), complete=True,
-                        css_class='suggested-action')
-        self.add_button('prev', _('Previous'))
-        self.add_button('cancel', _('Cancel'),
-                        css_class='destructive-action')
-        self.add_button('commands', _('Commands'),
-                        css_class='suggested-action')
-        self.add_button('execute', _('Execute'), css_class='suggested-action')
+        self.add_button("cancel", _("Cancel"))
+        self.add_button("prev", _("Previous"))
+        self.add_button("next", _("Next"), complete=True, css_class="suggested-action")
+        self.add_button(
+            "complete", _("Complete"), complete=True, css_class="suggested-action"
+        )
+        self.add_button("commands", _("Commands"), css_class="suggested-action")
+        self.add_button("execute", _("Execute"), css_class="suggested-action")
 
-        self.add_pages({
-            'request': RequestCommandList(),
-            'commands': Commands(),
-            'stage': Stage(),
-            'completed': Completed(),
-            'error': Error(),
-            'executing': Executing(),
-        })
+        self.add_pages(
+            {
+                "request": RequestCommandList(),
+                "commands": Commands(),
+                "stage": Stage(),
+                "completed": Completed(),
+                "error": Error(),
+                "executing": Executing(),
+            }
+        )
 
-        self.get_page('commands').connect('execute', self._on_execute)
+        commands_page = self.get_page("commands")
+        self._connect(commands_page, "execute", self._on_execute)
 
-        self.connect('button-clicked', self._on_button_clicked)
-        self.connect('destroy', self._on_destroy)
+        self._connect(self, "button-clicked", self._on_button_clicked)
 
-        self._client.get_module('AdHocCommands').request_command_list(
-            jid, callback=self._received_command_list)
+        self._client.get_module("AdHocCommands").request_command_list(
+            self.jid, callback=self._received_command_list
+        )
         self.show_all()
+
+    @overload
+    def get_page(self, name: Literal["request"]) -> RequestCommandList: ...
+
+    @overload
+    def get_page(self, name: Literal["commands"]) -> Commands: ...
+
+    @overload
+    def get_page(self, name: Literal["stage"]) -> Stage: ...
+
+    @overload
+    def get_page(self, name: Literal["completed"]) -> Completed: ...
+
+    @overload
+    def get_page(self, name: Literal["error"]) -> Error: ...
+
+    @overload
+    def get_page(self, name: Literal["executing"]) -> Executing: ...
+
+    def get_page(self, name: str) -> Page:
+        return self._pages[name]
 
     @ensure_not_destroyed
     def _received_command_list(self, task: Task) -> None:
         try:
-            commands = cast(Optional[list[AdHocCommand]], task.finish())
+            commands = cast(list[AdHocCommand] | None, task.finish())
         except (StanzaError, MalformedStanzaError) as error:
             self._set_error(to_user_string(error), False)
             return
 
         if not commands:
-            self._set_error(_('No commands available'), False)
+            self._set_error(_("No commands available"), False)
             return
 
-        commands_page = cast(Commands, self.get_page('commands'))
+        commands_page = self.get_page("commands")
         commands_page.add_commands(commands)
-        self.show_page('commands')
+        self.show_page("commands")
 
     @ensure_not_destroyed
     def _received_stage(self, task: Task) -> None:
@@ -112,84 +128,80 @@ class AdHocCommands(Assistant):
             self._set_error(to_user_string(error), True)
             return
 
-        page_name = 'stage'
+        page_name = "stage"
         if stage.is_completed:
-            page_name = 'completed'
+            page_name = "completed"
 
-        page = cast(Union[Stage, Completed], self.get_page(page_name))
+        page = self.get_page(page_name)
         page.process_stage(stage)
         self.show_page(page_name)
 
     def _set_error(self, text: str, show_command_button: bool) -> None:
-        error_page = cast(Error, self.get_page('error'))
+        error_page = self.get_page("error")
         error_page.set_show_commands_button(show_command_button)
         error_page.set_text(text)
-        self.show_page('error')
+        self.show_page("error")
 
-    def _on_destroy(self, _widget: Gtk.Widget) -> None:
+    def _cleanup(self) -> None:
         self._destroyed = True
 
-    def _on_button_clicked(self,
-                           _assistant: AdHocCommands,
-                           button_name: str
-                           ) -> None:
-        if button_name == 'commands':
-            self._client.get_module('AdHocCommands').request_command_list(
-                self.jid, callback=self._received_command_list)
+    def _on_button_clicked(self, _assistant: AdHocCommands, button_name: str) -> None:
+        if button_name == "commands":
+            self._client.get_module("AdHocCommands").request_command_list(
+                self.jid, callback=self._received_command_list
+            )
 
-        elif button_name == 'execute':
+        elif button_name == "execute":
             self._on_execute()
 
-        elif button_name in ('prev', 'next', 'complete'):
+        elif button_name in ("prev", "next", "complete"):
             self._on_stage_action(AdHocAction(button_name))
 
-        elif button_name == 'cancel':
+        elif button_name == "cancel":
             self._on_cancel()
 
         else:
-            raise ValueError('Invalid button name: %s' % button_name)
+            raise ValueError("Invalid button name: %s" % button_name)
 
     def _on_stage_action(self, action: AdHocAction) -> None:
-        stage_page = cast(Stage, self.get_page('stage'))
+        stage_page = self.get_page("stage")
         command, dataform = stage_page.stage_data
         if action == AdHocAction.PREV:
             dataform = None
 
-        self._client.get_module('AdHocCommands').execute_command(
-            command,
-            action=action,
-            dataform=dataform,
-            callback=self._received_stage)
+        self._client.get_module("AdHocCommands").execute_command(
+            command, action=action, dataform=dataform, callback=self._received_stage
+        )
 
-        self.show_page('executing')
-        stage_page = cast(Stage, self.get_page('stage'))
+        self.show_page("executing")
+        stage_page = self.get_page("stage")
         stage_page.clear()
 
     def _on_execute(self, *args: Any) -> None:
-        commands_page = cast(Commands, self.get_page('commands'))
+        commands_page = self.get_page("commands")
         command = commands_page.get_selected_command()
         if command is None:
             return
 
-        self._client.get_module('AdHocCommands').execute_command(
-            command,
-            action=AdHocAction.EXECUTE,
-            callback=self._received_stage)
+        self._client.get_module("AdHocCommands").execute_command(
+            command, action=AdHocAction.EXECUTE, callback=self._received_stage
+        )
 
-        self.show_page('executing')
+        self.show_page("executing")
 
     def _on_cancel(self) -> None:
-        stage_page = cast(Stage, self.get_page('stage'))
+        stage_page = self.get_page("stage")
         command, _ = stage_page.stage_data
-        self._client.get_module('AdHocCommands').execute_command(
-            command, AdHocAction.CANCEL)
-        self.show_page('commands')
+        self._client.get_module("AdHocCommands").execute_command(
+            command, AdHocAction.CANCEL
+        )
+        self.show_page("commands")
 
 
 class Commands(Page):
 
     __gsignals__ = {
-        'execute': (GObject.SignalFlags.RUN_LAST, None, ()),
+        "execute": (GObject.SignalFlags.RUN_LAST, None, ()),
     }
 
     def __init__(self) -> None:
@@ -197,57 +209,53 @@ class Commands(Page):
 
         self.set_valign(Gtk.Align.FILL)
         self.complete = True
-        self.title = _('Command List')
+        self.title = _("Command List")
 
         self._commands: dict[str, AdHocCommand] = {}
-        self._scrolled = Gtk.ScrolledWindow()
-        self._scrolled.get_style_context().add_class('gajim-scrolled')
-        self._scrolled.set_max_content_height(400)
-        self._scrolled.set_max_content_width(400)
-        self._scrolled.set_policy(Gtk.PolicyType.NEVER,
-                                  Gtk.PolicyType.AUTOMATIC)
+        self._scrolled = Gtk.ScrolledWindow(
+            max_content_width=400,
+            max_content_height=400,
+            propagate_natural_height=True,
+            hscrollbar_policy=Gtk.PolicyType.NEVER,
+            vscrollbar_policy=Gtk.PolicyType.AUTOMATIC,
+            vexpand=True,
+        )
+        self._scrolled.add_css_class("gajim-scrolled")
+
         self._treeview = Gtk.TreeView()
-        self._treeview.get_style_context().add_class('gajim-treeview')
+        self._treeview.add_css_class("gajim-treeview")
         self._store = Gtk.ListStore(str, str)
         self._treeview.set_model(self._store)
-        column = Gtk.TreeViewColumn(_('Commands'))
+        column = Gtk.TreeViewColumn(_("Commands"), Gtk.CellRendererText(), text=0)
         column.set_expand(True)
         self._treeview.append_column(column)
-        renderer = Gtk.CellRendererText()
-        column.pack_start(renderer, True)
-        column.add_attribute(renderer, 'text', 0)
 
-        self._treeview.connect('row-activated', self._on_row_activate)
+        self._connect(self._treeview, "row-activated", self._on_row_activate)
         self._treeview.set_search_equal_func(self._search_func)
 
-        self._scrolled.add(self._treeview)
-        self.pack_start(self._scrolled, True, True, 0)
-        self.show_all()
+        self._scrolled.set_child(self._treeview)
+        self.append(self._scrolled)
 
     @staticmethod
-    def _search_func(model: Gtk.TreeModel,
-                     _column: int,
-                     search_text: str,
-                     iter_: Gtk.TreeIter
-                     ) -> bool:
+    def _search_func(
+        model: Gtk.TreeModel, _column: int, search_text: str, iter_: Gtk.TreeIter
+    ) -> bool:
         return search_text.lower() not in model[iter_][0].lower()
 
-    def _on_row_activate(self,
-                         _tree_view: Gtk.TreeView,
-                         _path: Gtk.TreePath,
-                         _column: Gtk.TreeViewColumn
-                         ) -> None:
-        self.emit('execute')
+    def _on_row_activate(
+        self, _tree_view: Gtk.TreeView, _path: Gtk.TreePath, _column: Gtk.TreeViewColumn
+    ) -> None:
+        self.emit("execute")
 
     def add_commands(self, commands: list[AdHocCommand]) -> None:
         self._store.clear()
         self._commands = {}
         for command in commands:
-            key = f'{command.jid}:{command.node}'
+            key = f"{command.jid}:{command.node}"
             self._commands[key] = command
             self._store.append((command.name, key))
 
-    def get_selected_command(self) -> Optional[AdHocCommand]:
+    def get_selected_command(self) -> AdHocCommand | None:
         model, treeiter = self._treeview.get_selection().get_selected()
         if treeiter is None:
             return None
@@ -255,7 +263,7 @@ class Commands(Page):
         return self._commands[key]
 
     def get_visible_buttons(self) -> list[str]:
-        return ['execute']
+        return ["execute"]
 
 
 class Stage(Page):
@@ -264,23 +272,26 @@ class Stage(Page):
 
         self.set_valign(Gtk.Align.FILL)
         self.complete = False
-        self.title = _('Stage')
+        self.title = _("Stage")
 
         self._dataform_widget = None
         self._notes: list[Gtk.Label] = []
-        self._last_stage_data: Optional[AdHocCommand] = None
+        self._last_stage_data: AdHocCommand | None = None
         self.default = None
-        self.show_all()
 
     @property
-    def stage_data(self) -> tuple[AdHocCommand,
-                                  Union[SimpleDataForm, MultipleDataForm]]:
+    def stage_data(
+        self,
+    ) -> tuple[AdHocCommand, SimpleDataForm | MultipleDataForm | None]:
         assert self._last_stage_data is not None
+        form = None
+        if self._dataform_widget is not None:
+            form = self._dataform_widget.get_submit_form()
         assert self._dataform_widget is not None
-        return self._last_stage_data, self._dataform_widget.get_submit_form()
+        return self._last_stage_data, form
 
     @property
-    def actions(self) -> Optional[set[AdHocAction]]:
+    def actions(self) -> set[AdHocAction] | None:
         assert self._last_stage_data is not None
         return self._last_stage_data.actions
 
@@ -295,21 +306,19 @@ class Stage(Page):
         self._show_form(stage_data.data)
         self.default = stage_data.default
 
-    def _show_form(self, form: Optional[Node]) -> None:
+    def _show_form(self, form: Node | None) -> None:
         if self._dataform_widget is not None:
             self.remove(self._dataform_widget)
-            self._dataform_widget.destroy()
         if form is None:
             return
         form = dataforms.extend_form(node=form)
-        options = {'entry-activates-default': True}
+        options = {"entry-activates-default": True}
         self._dataform_widget = DataFormWidget(form, options)
-        self._dataform_widget.connect('is-valid', self._on_is_valid)
+        self._connect(self._dataform_widget, "is-valid", self._on_is_valid)
         self._dataform_widget.validate()
-        self._dataform_widget.show_all()
-        self.add(self._dataform_widget)
+        self.append(self._dataform_widget)
 
-    def _show_notes(self, notes: Optional[list[AdHocCommandNote]]):
+    def _show_notes(self, notes: list[AdHocCommandNote] | None):
         for note in self._notes:
             self.remove(note)
         self._notes = []
@@ -318,10 +327,14 @@ class Stage(Page):
             return
 
         for note in notes:
-            label = Gtk.Label(label=note.text)
-            label.show()
+            label = Gtk.Label(
+                label=process_non_spacing_marks(note.text),
+                wrap=True,
+                wrap_mode=Pango.WrapMode.WORD_CHAR,
+            )
+            label.set_visible(True)
             self._notes.append(label)
-            self.add(label)
+            self.append(label)
 
     def _on_is_valid(self, _widget: DataFormWidget, is_valid: bool) -> None:
         self.complete = is_valid
@@ -340,69 +353,106 @@ class Completed(Page):
 
         self.set_valign(Gtk.Align.FILL)
         self.complete = True
-        self.title = _('Completed')
+        self.title = _("Completed")
+        self._severity = AdHocNoteType.INFO
 
-        self._notes: list[MultiLineLabel] = []
         self._dataform_widget = None
 
-        icon = Gtk.Image.new_from_icon_name('object-select-symbolic',
-                                            Gtk.IconSize.DIALOG)
-        icon.get_style_context().add_class('success-color')
-        icon.show()
+        self._icon = SeverityIcon(self._severity)
+        self._icon.set_visible(True)
 
-        label = Gtk.Label(label='Completed')
-        label.show()
+        self._label = Gtk.Label(label=_("Completed"))
+        self._label.set_visible(True)
 
         self._icon_text = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self._icon_text.set_spacing(12)
         self._icon_text.set_halign(Gtk.Align.CENTER)
-        self._icon_text.add(icon)
-        self._icon_text.add(label)
-        self.add(self._icon_text)
+        self._icon_text.append(self._icon)
+        self._icon_text.append(self._label)
+        self.append(self._icon_text)
 
-        self.show_all()
+        self._notes = Gtk.Grid(row_spacing=6, column_spacing=12)
+        self._notes.insert_column(0)
+        self._notes.insert_column(1)
+        self._notes.set_vexpand(False)
+        self._notes.set_hexpand(True)
+        notes_box = Gtk.Box()
+        notes_box.set_halign(Gtk.Align.CENTER)
+        notes_box.set_vexpand(False)
+        notes_box.append(self._notes)
+        self.append(notes_box)
 
     def process_stage(self, stage_data: AdHocCommand) -> None:
+        self._reset_severity()
         self._show_notes(stage_data.notes)
         self._show_form(stage_data.data)
         self._show_icon_text(stage_data.data is None)
+        self._show_icon(len(stage_data.notes) <= 1)
+
+    def _set_status(self, status: str):
+        self.title = status
+        self._label.set_label(status)
 
     def _show_icon_text(self, show: bool) -> None:
         if show:
             self.set_valign(Gtk.Align.CENTER)
-            self._icon_text.show_all()
+            self._icon_text.set_visible(True)
         else:
             self.set_valign(Gtk.Align.FILL)
-            self._icon_text.hide()
+            self._icon_text.set_visible(False)
 
-    def _show_form(self, form: Optional[Node]) -> None:
+        if self._severity == AdHocNoteType.INFO:
+            self._set_status(_("Completed"))
+        elif self._severity == AdHocNoteType.WARN:
+            self._set_status(_("Warning"))
+        elif self._severity == AdHocNoteType.ERROR:
+            self._set_status(_("Error"))
+
+    def _show_form(self, form: Node | None) -> None:
         if self._dataform_widget is not None:
             self.remove(self._dataform_widget)
-            self._dataform_widget.destroy()
         if form is None:
             return
 
         form = dataforms.extend_form(node=form)
 
-        self._dataform_widget = DataFormWidget(
-            form, options={'read-only': True})
-        self._dataform_widget.show_all()
-        self.add(self._dataform_widget)
+        self._dataform_widget = DataFormWidget(form, options={"read-only": True})
+        self.append(self._dataform_widget)
 
     def _show_notes(self, notes: list[AdHocCommandNote]):
-        for note in self._notes:
-            self.remove(note)
-        self._notes = []
+        container_remove_all(self._notes)
 
-        for note in notes:
-            label = MultiLineLabel(label=note.text)
+        for i, note in enumerate(notes):
+            if len(notes) > 1:
+                icon = SeverityIcon(note.type)
+                icon.set_visible(True)
+                self._notes.attach(icon, 0, i, 1, 1)
+
+            label = MultiLineLabel(label=process_non_spacing_marks(note.text))
             label.set_justify(Gtk.Justification.CENTER)
-            label.show()
-            self._notes.append(label)
-            self.add(label)
+            label.set_vexpand(False)
+            label.set_visible(True)
+            self._notes.attach(label, 1, i, 1, 1)
+
+            self._bump_severity(note.type)
+
+    def _show_icon(self, show: bool):
+        if show:
+            self._icon.set_severity(self._severity)
+        else:
+            self._icon.set_visible(False)
+
+    def _reset_severity(self):
+        self._severity = AdHocNoteType.INFO
+
+    def _bump_severity(self, severity: AdHocNoteType):
+        if (
+            severity == AdHocNoteType.WARN and self._severity != AdHocNoteType.ERROR
+        ) or severity == AdHocNoteType.ERROR:
+            self._severity = severity
 
     def get_visible_buttons(self) -> list[str]:
-        return ['commands']
+        return ["commands"]
 
 
 class Error(ErrorPage):
@@ -410,26 +460,46 @@ class Error(ErrorPage):
         ErrorPage.__init__(self)
 
         self._show_commands_button = False
-        self.set_heading(_('An error occurred'))
+        self.set_heading(_("An error occurred"))
 
     def set_show_commands_button(self, value: bool) -> None:
         self._show_commands_button = value
 
     def get_visible_buttons(self) -> list[str]:
         if self._show_commands_button:
-            return ['commands']
+            return ["commands"]
         return []
 
 
 class Executing(ProgressPage):
     def __init__(self) -> None:
         ProgressPage.__init__(self)
-        self.set_title(_('Executing…'))
-        self.set_text(_('Executing…'))
+        self.set_title(_("Executing…"))
+        self.set_text(_("Executing…"))
 
 
 class RequestCommandList(ProgressPage):
     def __init__(self) -> None:
         ProgressPage.__init__(self)
-        self.set_title(_('Requesting Command List'))
-        self.set_text(_('Requesting Command List'))
+        self.set_title(_("Requesting Command List"))
+        self.set_text(_("Requesting Command List"))
+
+
+class SeverityIcon(Gtk.Image):
+    def __init__(self, severity: AdHocNoteType) -> None:
+        Gtk.Image.__init__(self)
+        self.set_severity(severity)
+
+    def set_severity(self, severity: AdHocNoteType) -> None:
+        self.remove_css_class("success-color")
+        self.remove_css_class("warning-color")
+        self.remove_css_class("error-color")
+        if severity == AdHocNoteType.INFO:
+            self.set_from_icon_name("object-select-symbolic")
+            self.add_css_class("success-color")
+        elif severity == AdHocNoteType.WARN:
+            self.set_from_icon_name("dialog-warning-symbolic")
+            self.add_css_class("warning-color")
+        elif severity == AdHocNoteType.ERROR:
+            self.set_from_icon_name("dialog-error-symbolic")
+            self.add_css_class("error-color")

@@ -1,97 +1,102 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
-from typing import Optional
-from typing import Union
+from typing import cast
 
 from gi.repository import Gtk
 from nbxmpp.protocol import JID
 
-from gajim.common import app
-
 from gajim.gtk.account_page import AccountPage
-from gajim.gtk.app_page import AppPage
+from gajim.gtk.activity_list import ActivityListView
+from gajim.gtk.activity_page import ActivityPage
 from gajim.gtk.chat_list import ChatList
 from gajim.gtk.chat_page import ChatPage
 
-PageT = Union[ChatPage, AccountPage, AppPage]
+PageT = ChatPage | AccountPage
 
 
 class MainStack(Gtk.Stack):
     def __init__(self) -> None:
         Gtk.Stack.__init__(self)
 
-        self.add_named(Gtk.Box(), 'empty')
-
-        self._app_page = AppPage()
-        self.add_named(self._app_page, 'app')
+        self.add_named(Gtk.Box(), "empty")
 
         self._chat_page = ChatPage()
-        self._chat_page.connect('chat-selected', self._on_chat_selected)
-        self.add_named(self._chat_page, 'chats')
+        self._chat_page.connect("chat-selected", self._on_chat_selected)
+        self.add_named(self._chat_page, "chats")
 
-        for account in app.settings.get_active_accounts():
-            self.add_account_page(account)
+        activity_list = self._chat_page.get_activity_list()
+        activity_list.connect("activate", self._on_activity_item_activate)
+        activity_list.connect("unselected", self._on_activity_item_unselected)
 
-    def add_account_page(self, account: str) -> None:
-        account_page = AccountPage(account)
-        self.add_named(account_page, account)
+    def _get_current_account_page(self) -> AccountPage | None:
+        return cast(AccountPage | None, self.get_child_by_name("account"))
 
     def remove_account_page(self, account: str) -> None:
-        account_page = self.get_child_by_name(account)
-        assert account_page is not None
-        account_page.destroy()
+        account_page = self._get_current_account_page()
+        if account_page is None:
+            return
+
+        if account_page.get_account() != account:
+            return
+
+        self.set_visible_child_name("empty")
+        self.remove(account_page)
 
     def remove_chats_for_account(self, account: str) -> None:
         self._chat_page.remove_chats_for_account(account)
 
-    def get_visible_page_name(self) -> Optional[str]:
+    def get_visible_page_name(self) -> str | None:
         return self.get_visible_child_name()
 
-    def show_app_page(self) -> None:
-        self.set_visible_child_name('app')
+    def show_activity_page(self, context_id: str | None = None) -> None:
+        self.set_visible_child_name("chats")
+        self._chat_page.show_activity_page(context_id)
 
-    def get_app_page(self) -> AppPage:
-        app_page = self.get_child_by_name('app')
-        assert isinstance(app_page, AppPage)
-        return app_page
+    def get_activity_page(self) -> ActivityPage:
+        chat_stack = self._chat_page.get_chat_stack()
+        activity_page = chat_stack.get_child_by_name("activity")
+        assert isinstance(activity_page, ActivityPage)
+        return activity_page
 
     def show_chats(self, workspace_id: str) -> None:
         self._chat_page.show_workspace_chats(workspace_id)
-        self.set_visible_child_name('chats')
+        self.set_visible_child_name("chats")
 
     def show_chat_page(self) -> None:
-        self.set_visible_child_name('chats')
+        self.set_visible_child_name("chats")
 
     def show_account(self, account: str) -> None:
-        self.set_visible_child_name(account)
+        account_page = self._get_current_account_page()
+        if account_page is not None:
+            if account_page.get_account() == account:
+                self.set_visible_child_name("account")
+                return
 
-    def get_account_page(self, account: str) -> AccountPage:
-        account_page = self.get_child_by_name(account)
-        assert isinstance(account_page, AccountPage)
-        return account_page
+            self.remove(account_page)
+
+        account_page = AccountPage(account)
+        self.add_named(account_page, "account")
+        self.set_visible_child_name("account")
 
     def get_chat_page(self) -> ChatPage:
-        chat_page = self.get_child_by_name('chats')
+        chat_page = self.get_child_by_name("chats")
         assert isinstance(chat_page, ChatPage)
         return chat_page
 
-    def _on_chat_selected(self,
-                          _chat_list: ChatList,
-                          _workspace_id: str,
-                          _account: str,
-                          _jid: JID) -> None:
-        self.set_visible_child_name('chats')
+    def _on_activity_item_activate(
+        self, listview: ActivityListView, position: int
+    ) -> None:
+        item = listview.get_listitem(position)
+        self.get_activity_page().process_row_activated(item)
+
+    def _on_activity_item_unselected(self, _listview: ActivityListView) -> None:
+        self.get_activity_page().show_default_page()
+
+    def _on_chat_selected(
+        self, _chat_list: ChatList, _workspace_id: str, _account: str, _jid: JID
+    ) -> None:
+        self.set_visible_child_name("chats")

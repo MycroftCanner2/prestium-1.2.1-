@@ -1,24 +1,13 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
-
-import time
-from datetime import datetime
+# SPDX-License-Identifier: GPL-3.0-only
 
 from gi.repository import GLib
 from gi.repository import Gtk
 
 from gajim.common.const import AvatarSize
+from gajim.common.util.datetime import utc_now
+from gajim.common.util.text import process_non_spacing_marks
 
 from gajim.gtk.conversation.rows.base import BaseRow
 from gajim.gtk.conversation.rows.widgets import DateTimeLabel
@@ -29,19 +18,19 @@ class CommandOutputRow(BaseRow):
     def __init__(self, account: str, text: str, is_error: bool) -> None:
         BaseRow.__init__(self, account)
 
-        self.type = 'command_output'
-        timestamp = time.time()
-        self.timestamp = datetime.fromtimestamp(timestamp)
-        self.db_timestamp = timestamp
+        self.type = "command_output"
+        now = utc_now()
+        self.timestamp = now.astimezone()
+        self.db_timestamp = now.timestamp()
 
-        self.get_style_context().add_class('conversation-command-row')
+        self.add_css_class("conversation-command-row")
 
         avatar_placeholder = Gtk.Box()
         avatar_placeholder.set_size_request(AvatarSize.ROSTER, -1)
-        icon = Gtk.Image.new_from_icon_name('utilities-terminal-symbolic',
-                                            Gtk.IconSize.LARGE_TOOLBAR)
-        icon.get_style_context().add_class('dim-label')
-        avatar_placeholder.add(icon)
+        icon = Gtk.Image.new_from_icon_name("utilities-terminal-symbolic")
+        icon.set_pixel_size(32)
+        icon.add_css_class("dim-label")
+        avatar_placeholder.append(icon)
         self.grid.attach(avatar_placeholder, 0, 0, 1, 1)
 
         timestamp_widget = DateTimeLabel(self.timestamp)
@@ -50,13 +39,14 @@ class CommandOutputRow(BaseRow):
         self.grid.attach(timestamp_widget, 1, 0, 1, 1)
 
         text = GLib.markup_escape_text(text)
-        markup = f'<tt>{text}</tt>'
+        markup = f"<tt>{text}</tt>"
         self._label = SimpleLabel()
         if is_error:
-            self._label.get_style_context().add_class('gajim-command-error')
+            self._label.add_css_class("gajim-command-error")
         else:
-            self._label.get_style_context().add_class('gajim-command-output')
-        self._label.set_markup(markup)
+            self._label.add_css_class("gajim-command-output")
+        self._label.set_markup(process_non_spacing_marks(markup))
         self.grid.attach(self._label, 1, 1, 1, 1)
 
-        self.show_all()
+    def do_unroot(self) -> None:
+        BaseRow.do_unroot(self)

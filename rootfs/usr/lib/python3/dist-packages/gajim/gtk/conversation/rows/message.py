@@ -1,214 +1,275 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
-from typing import Optional
-from typing import Union
-
+import logging
 import textwrap
-from datetime import datetime
 from datetime import timedelta
 
-import cairo
-from gi.repository import GdkPixbuf
 from gi.repository import GLib
 from gi.repository import Gtk
-from gi.repository import Pango
-from nbxmpp.errors import StanzaError
-from nbxmpp.modules.security_labels import Displaymarking
-from nbxmpp.structs import CommonError
 
 from gajim.common import app
 from gajim.common.const import AvatarSize
 from gajim.common.const import Trust
 from gajim.common.const import TRUST_SYMBOL_DATA
-from gajim.common.helpers import AdditionalDataDict
-from gajim.common.helpers import get_group_chat_nick
-from gajim.common.helpers import message_needs_highlight
-from gajim.common.helpers import to_user_string
 from gajim.common.i18n import _
 from gajim.common.i18n import is_rtl_text
 from gajim.common.modules.contacts import GroupchatContact
 from gajim.common.modules.contacts import GroupchatParticipant
+from gajim.common.storage.archive import models as mod
+from gajim.common.storage.archive.const import ChatDirection
+from gajim.common.storage.archive.const import MessageState
+from gajim.common.storage.archive.const import MessageType
+from gajim.common.storage.archive.models import Message
 from gajim.common.types import ChatContactT
+from gajim.common.util.muc import message_needs_highlight
+from gajim.common.util.text import format_fingerprint
+from gajim.common.util.user_strings import get_moderation_text
 
 from gajim.gtk.conversation.message_widget import MessageWidget
+from gajim.gtk.conversation.reactions_bar import ReactionsBar
 from gajim.gtk.conversation.rows.base import BaseRow
 from gajim.gtk.conversation.rows.widgets import AvatarBox
 from gajim.gtk.conversation.rows.widgets import DateTimeLabel
 from gajim.gtk.conversation.rows.widgets import MessageIcons
-from gajim.gtk.conversation.rows.widgets import MoreMenuButton
+from gajim.gtk.conversation.rows.widgets import MessageRowActions
 from gajim.gtk.conversation.rows.widgets import NicknameLabel
+from gajim.gtk.menus import GajimMenu
 from gajim.gtk.menus import get_chat_row_menu
 from gajim.gtk.preview import PreviewWidget
-from gajim.gtk.util import format_fingerprint
-from gajim.gtk.util import GajimPopover
+from gajim.gtk.referenced_message import ReferencedMessageNotFoundWidget
+from gajim.gtk.referenced_message import ReferencedMessageWidget
+from gajim.gtk.util.misc import container_remove_all
+from gajim.gtk.util.misc import get_avatar_for_message
+from gajim.gtk.util.misc import get_contact_name_for_message
+from gajim.gtk.widgets import GajimPopover
+
+log = logging.getLogger("gajim.gtk.conversation.rows.message")
 
 MERGE_TIMEFRAME = timedelta(seconds=120)
 
 
 class MessageRow(BaseRow):
-    def __init__(self,
-                 account: str,
-                 contact: ChatContactT,
-                 message_id: Optional[str],
-                 stanza_id: Optional[str],
-                 timestamp: float,
-                 kind: str,
-                 name: str,
-                 text: str,
-                 additional_data: Optional[AdditionalDataDict] = None,
-                 display_marking: Optional[Displaymarking] = None,
-                 marker: Optional[str] = None,
-                 error: Union[CommonError, StanzaError, None] = None,
-                 log_line_id: Optional[int] = None) -> None:
+    def __init__(self, contact: ChatContactT, message: Message) -> None:
 
-        BaseRow.__init__(self, account)
-        self.type = 'chat'
-        self.timestamp = datetime.fromtimestamp(timestamp)
-        self.db_timestamp = timestamp
-        self.message_id = message_id
-        self.stanza_id = stanza_id
-        self.log_line_id = log_line_id
-        self.kind = kind
-        self.name = name
-        self.text = text
-        self.additional_data = additional_data
-        self.display_marking = display_marking
-
+        BaseRow.__init__(self, contact.account)
         self.set_selectable(True)
-
-        self._account = account
+        self.type = "chat"
         self._contact = contact
+        self._message = message
 
-        self._is_groupchat: bool = False
-        if contact.is_groupchat:
-            self._is_groupchat = True
+        self.timestamp = message.timestamp.astimezone()
+        self.db_timestamp = message.timestamp.timestamp()
+        self.stanza_id = message.stanza_id
+        self.direction = ChatDirection(message.direction)
+        self._is_outgoing = self.direction == ChatDirection.OUTGOING
 
-        self._has_receipt: bool = marker == 'received'
-        self._has_displayed: bool = marker == 'displayed'
+        self.orig_pk = message.pk
 
-        # Keep original text for message correction
-        self._original_text: str = text
+        assert message.text is not None
+        self._original_text = message.text
+        self._original_message = message
 
-        if self._is_groupchat:
-            our_nick = get_group_chat_nick(self._account, self._contact.jid)
-            from_us = name == our_nick
-        else:
-            from_us = kind == 'outgoing'
+        self._is_moderated = message.moderation is not None
+        self._has_receipt = False
 
-        is_previewable = False
-        preview_enabled = app.settings.get('enable_file_preview')
-        if additional_data is not None and preview_enabled:
-            is_previewable = app.preview_manager.is_previewable(
-                text, additional_data)
+        self._avatar_box = AvatarBox(contact)
 
-        if is_previewable:
-            muc_context = None
-            if isinstance(self._contact,
-                          (GroupchatContact, GroupchatParticipant)):
-                muc_context = self._contact.muc_context
-            self._message_widget = PreviewWidget(account)
-            app.preview_manager.create_preview(
-                text, self._message_widget, from_us, muc_context)
-        else:
-            self._message_widget = MessageWidget(account)
-            self._message_widget.add_with_styling(text, nickname=name)
-            if self._is_groupchat:
-                our_nick = get_group_chat_nick(
-                    self._account, self._contact.jid)
-                if name != our_nick:
-                    self._check_for_highlight(text)
-
-        if self._contact.jid == self._client.get_own_jid().bare:
-            name = _('Me')
-
-        name_widget = NicknameLabel(name, from_us)
+        self._ref_message_widget = None
 
         self._meta_box = Gtk.Box(spacing=6)
         self._meta_box.set_hexpand(True)
-        self._meta_box.pack_start(name_widget, False, True, 0)
-        timestamp_label = DateTimeLabel(self.timestamp)
-        self._meta_box.pack_start(timestamp_label, False, True, 0)
-
-        if additional_data is not None:
-            encryption_img = self._get_encryption_image(additional_data)
-            if encryption_img:
-                self._meta_box.pack_start(encryption_img, False, True, 0)
-
-        self._add_security_label(display_marking)
-
-        self._message_icons = MessageIcons()
-
-        if additional_data is not None:
-            if additional_data.get_value('retracted', 'by') is not None:
-                self.get_style_context().add_class('retracted-message')
-
-            correction_original = additional_data.get_value(
-                'corrected', 'original_text')
-            if correction_original is not None:
-                self._original_text = correction_original
-                self._message_icons.set_correction_icon_visible(True)
-                original_text = textwrap.fill(correction_original,
-                                              width=150,
-                                              max_lines=10,
-                                              placeholder='…')
-                self._message_icons.set_correction_tooltip(
-                    _('Message corrected. Original message:'
-                      '\n%s') % original_text)
-
-        if error is not None:
-            self.set_error(to_user_string(error))
-
-        if marker is not None:
-            if marker in ('received', 'displayed'):
-                self.set_receipt()
-
-        self._meta_box.pack_start(self._message_icons, False, True, 0)
-
-        avatar = self._get_avatar(kind, name)
-        self._avatar_box = AvatarBox(self._contact, name, avatar)
 
         self._bottom_box = Gtk.Box(spacing=6)
-        self._bottom_box.add(self._message_widget)
-
-        if is_rtl_text(text):
-            self._bottom_box.set_halign(Gtk.Align.END)
-            self._message_widget.set_direction(Gtk.TextDirection.RTL)
-
-        more_menu_button = MoreMenuButton(self._on_more_menu_button_clicked)
-        self._bottom_box.pack_end(more_menu_button, False, True, 0)
 
         self.grid.attach(self._avatar_box, 0, 0, 1, 2)
         self.grid.attach(self._meta_box, 1, 0, 1, 1)
         self.grid.attach(self._bottom_box, 1, 1, 1, 1)
 
-        self.show_all()
+        self._reactions_bar = ReactionsBar(self, self._contact)
+        self.grid.attach(self._reactions_bar, 1, 2, 1, 1)
 
-    def _on_more_menu_button_clicked(self, button: Gtk.Button) -> None:
-        menu = get_chat_row_menu(
-            self._contact,
-            self.name,
-            self.get_text(),
-            self.timestamp,
-            self.message_id,
-            self.stanza_id,
-            self.log_line_id)
+        self._set_content(message)
 
-        popover = GajimPopover(menu, relative_to=button)
-        popover.popup()
+    @classmethod
+    def from_db_row(cls, contact: ChatContactT, message: Message) -> MessageRow:
+
+        return cls(contact, message)
+
+    @property
+    def last_message_id(self) -> str | None:
+        if self._corr_message is None:
+            return self._original_message.id
+        return self._corr_message.id
+
+    @property
+    def message_id(self) -> str | None:
+        return self._original_message.id
+
+    @property
+    def has_receipt(self) -> bool:
+        return self._has_receipt
+
+    @property
+    def is_merged(self) -> bool:
+        return self._merged
+
+    def do_unroot(self) -> None:
+        BaseRow.do_unroot(self)
+
+    def refresh(self, *, complete: bool = True) -> None:
+        original_message = app.storage.archive.get_message_with_pk(self.orig_pk)
+        assert original_message is not None
+        self._original_message = original_message
+        if complete:
+            self._set_content(original_message)
+
+    def _set_content(self, message: Message) -> None:
+        self.set_merged(False)
+        self.remove_css_class("moderated-message")
+        self.remove_css_class("gajim-mention-highlight")
+
+        container_remove_all(self._meta_box)
+        container_remove_all(self._bottom_box)
+
+        self._corr_message = None
+
+        # From here on, if this is a correction all data must
+        # be taken from the correction
+        if message.corrections:
+            message = message.get_last_correction()
+            self._corr_message = message
+
+        self.pk = message.pk
+
+        self.encryption = message.encryption
+        self.securitylabel = message.security_label
+
+        assert message.text is not None
+        self.text = message.text
+
+        self.name = get_contact_name_for_message(message, self._contact)
+
+        avatar = get_avatar_for_message(
+            message, self._contact, self.get_scale_factor(), AvatarSize.ROSTER
+        )
+        self._avatar_box.set_from_paintable(avatar)
+        self._avatar_box.set_name(self.name)
+
+        self._meta_box.append(NicknameLabel(self.name, self._is_outgoing))
+        self._meta_box.append(DateTimeLabel(self.timestamp))
+
+        self._message_icons = MessageIcons()
+        self._meta_box.append(self._message_icons)
+
+        if app.preview_manager.is_previewable(self.text, message.oob):
+            self._message_widget = PreviewWidget(self._contact.account)
+            app.preview_manager.create_preview(
+                self.text, self._message_widget, self._is_outgoing, self._muc_context
+            )
+        else:
+            if message.reply is not None:
+                referenced_message = message.get_referenced_message()
+                if referenced_message is None:
+                    self._ref_message_widget = ReferencedMessageNotFoundWidget()
+                else:
+                    self._ref_message_widget = ReferencedMessageWidget(
+                        self._contact, referenced_message
+                    )
+
+            self._message_widget = MessageWidget(self._contact.account)
+            self._message_widget.add_with_styling(self.text, nickname=self.name)
+            if self._contact.is_groupchat and not self._is_outgoing:
+                self._apply_highlight(self.text)
+
+        if self._ref_message_widget is not None:
+            box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=3)
+            box.append(self._ref_message_widget)
+            box.append(self._message_widget)
+            self._bottom_box.append(box)
+        else:
+            self._bottom_box.append(self._message_widget)
+
+        self._set_text_direction(self.text)
+
+        if self._original_message.corrections:
+            self._set_correction()
+
+        if message.moderation is not None:
+            self.set_moderated(
+                get_moderation_text(message.moderation.by, message.moderation.reason)
+            )
+
+        reactions = self._original_message.reactions
+        if reactions:
+            self._reactions_bar.update_from_reactions(reactions)
+
+        encryption_data = self._get_encryption_data(message.encryption)
+        if encryption_data is not None:
+            self._message_icons.set_encrytion_icon_data(*encryption_data)
+            self._message_icons.set_encryption_icon_visible(True)
+
+        sec_label_data = self._get_security_labels_data(message.security_label)
+        if sec_label_data is not None:
+            self._message_icons.set_security_label_data(*sec_label_data)
+            self._message_icons.set_security_label_visible(True)
+
+        self.set_receipt(message.receipt is not None)
+
+        self.state = MessageState(message.state)
+
+        if self._contact.is_groupchat and self.direction == ChatDirection.OUTGOING:
+            self._message_icons.set_message_state_icon(self.state)
+
+        if message.error is not None:
+            if message.error.text is not None:
+                error_text = f"{message.error.text} ({message.error.condition})"
+            else:
+                error_text = message.error.condition
+            self.show_error(error_text)
+
+    def _set_text_direction(self, text: str) -> None:
+        if is_rtl_text(text):
+            self._bottom_box.set_halign(Gtk.Align.END)
+            self._message_widget.set_direction(Gtk.TextDirection.RTL)
+        else:
+            self._bottom_box.set_halign(Gtk.Align.FILL)
+            self._message_widget.set_direction(Gtk.TextDirection.LTR)
+
+    @property
+    def _muc_context(self) -> str | None:
+        if isinstance(self._contact, GroupchatContact | GroupchatParticipant):
+            return self._contact.muc_context
+        return None
+
+    def get_chat_row_menu(
+        self,
+    ) -> GajimMenu:
+        occupant_id = None
+        if self._message.occupant is not None:
+            occupant_id = self._message.occupant.id
+
+        return get_chat_row_menu(
+            contact=self._contact,
+            name=self.name,
+            text=self.get_text(),
+            timestamp=self.timestamp,
+            message_id=self._original_message.id,
+            stanza_id=self.stanza_id,
+            pk=self.orig_pk,
+            corrected_pk=self.pk,
+            state=self.state,
+            is_moderated=self._is_moderated,
+            occupant_id=occupant_id,
+        )
+
+    def _on_more_menu_popover_closed(
+        self, _popover: GajimPopover, message_row_actions: MessageRowActions
+    ) -> None:
+        message_row_actions.hide_actions()
 
     def enable_selection_mode(self) -> None:
         if isinstance(self._message_widget, MessageWidget):
@@ -218,223 +279,205 @@ class MessageRow(BaseRow):
         if isinstance(self._message_widget, MessageWidget):
             self._message_widget.set_selectable(True)
 
-    def _add_security_label(self,
-                            display_marking: Optional[Displaymarking]
-                            ) -> None:
+    def _get_security_labels_data(
+        self, security_labels: mod.SecurityLabel | None
+    ) -> tuple[str, str] | None:
 
-        if display_marking is None:
-            return
+        if security_labels is None:
+            return None
 
-        if not app.settings.get_account_setting(self._account,
-                                                'enable_security_labels'):
-            return
+        if not app.settings.get_account_setting(
+            self._account, "enable_security_labels"
+        ):
+            return None
 
-        label_text = GLib.markup_escape_text(display_marking.name)
-        if label_text:
-            display_marking_label = Gtk.Label()
-            display_marking_label.set_ellipsize(Pango.EllipsizeMode.END)
-            display_marking_label.set_max_width_chars(30)
-            display_marking_label.set_tooltip_text(label_text)
-            bgcolor = display_marking.bgcolor
-            fgcolor = display_marking.fgcolor
-            label_text = (
+        displaymarking = GLib.markup_escape_text(security_labels.displaymarking)
+        if displaymarking:
+            bgcolor = security_labels.bgcolor
+            fgcolor = security_labels.fgcolor
+            markup = (
                 f'<span size="small" bgcolor="{bgcolor}" '
-                f'fgcolor="{fgcolor}"><tt>{label_text}</tt></span>')
-            display_marking_label.set_markup(label_text)
-            self._meta_box.add(display_marking_label)
+                f'fgcolor="{fgcolor}"><tt>{displaymarking}</tt></span>'
+            )
+            return displaymarking, markup
+        return None
 
-    def _check_for_highlight(self, text: str) -> None:
+    def _apply_highlight(self, text: str) -> None:
         assert isinstance(self._contact, GroupchatContact)
         if self._contact.nickname is None:
             return
 
-        needs_highlight = message_needs_highlight(
-            text,
-            self._contact.nickname,
-            self._client.get_own_jid().bare)
-        if needs_highlight:
-            self.get_style_context().add_class(
-                'gajim-mention-highlight')
-
-    def _get_avatar(self, kind: str, name: str) -> Optional[cairo.ImageSurface]:
-        scale = self.get_scale_factor()
-        if isinstance(self._contact, GroupchatContact):
-            contact = self._contact.get_resource(name)
-            return contact.get_avatar(AvatarSize.ROSTER, scale, add_show=False)
-
-        if kind == 'outgoing':
-            contact = self._client.get_module('Contacts').get_contact(
-                str(self._client.get_own_jid().bare))
-        else:
-            contact = self._contact
-
-        avatar = contact.get_avatar(AvatarSize.ROSTER, scale, add_show=False)
-        assert not isinstance(avatar, GdkPixbuf.Pixbuf)
-        return avatar
+        if message_needs_highlight(
+            text, self._contact.nickname, self._client.get_own_jid().bare
+        ):
+            self.add_css_class("gajim-mention-highlight")
 
     def is_same_sender(self, message: MessageRow) -> bool:
         return message.name == self.name
 
     def is_same_encryption(self, message: MessageRow) -> bool:
-        m_add_data = message.additional_data
-        if m_add_data is None:
-            m_add_data = AdditionalDataDict()
-        s_add_data = self.additional_data
-        if s_add_data is None:
-            s_add_data = AdditionalDataDict()
-
-        message_details = self._get_encryption_details(m_add_data)
-        own_details = self._get_encryption_details(s_add_data)
-        if message_details is None and own_details is None:
+        c_enc = message.encryption
+        o_enc = self.encryption
+        if c_enc is None and o_enc is None:
             return True
 
-        if message_details is not None and own_details is not None:
-            # *_details contains encryption method's name, fingerprint, trust
-            m_name, _, m_trust = message_details
-            o_name, _, o_trust = own_details
-            if m_name == o_name and m_trust == o_trust:
+        if c_enc is not None and o_enc is not None:
+            if c_enc.protocol == o_enc.protocol and c_enc.trust == o_enc.trust:
                 return True
+
         return False
 
-    def is_same_display_marking(self, message: MessageRow) -> bool:
-        if message.display_marking == self.display_marking:
+    def is_same_securitylabels(self, message: MessageRow) -> bool:
+        sec1 = message.securitylabel
+        sec2 = self.securitylabel
+
+        if sec1 is None and sec2 is None:
             return True
-        if (message.display_marking is not None and
-                self.display_marking is not None):
-            if message.display_marking.name == self.display_marking.name:
-                return True
-        return False
+
+        if sec1 is None or sec2 is None:
+            return False
+
+        return sec1.label_hash == sec2.label_hash
+
+    def is_same_state(self, message: MessageRow) -> bool:
+        return message.state == self.state
+
+    def has_same_receipt_status(self, message: MessageRow) -> bool:
+        if not app.settings.get("positive_184_ack"):
+            return True
+        return self._has_receipt == message.has_receipt
 
     def is_mergeable(self, message: MessageRow) -> bool:
         if message.type != self.type:
+            return False
+        if not self.is_same_state(message):
+            return False
+        if message.direction != self.direction:
+            return False
+        if self._original_message.corrections:
             return False
         if not self.is_same_sender(message):
             return False
         if not self.is_same_encryption(message):
             return False
-        if not self.is_same_display_marking(message):
+        if not self.is_same_securitylabels(message):
+            return False
+        if not self.has_same_receipt_status(message):
             return False
         return abs(message.timestamp - self.timestamp) < MERGE_TIMEFRAME
 
     def get_text(self) -> str:
         return self._message_widget.get_text()
 
-    def _get_encryption_image(self,
-                              additional_data: AdditionalDataDict,
-                              ) -> Optional[Gtk.Image]:
+    def _get_encryption_data(
+        self,
+        encryption_data: mod.Encryption | None,
+    ) -> tuple[str, str, str] | None:
 
-        details = self._get_encryption_details(additional_data)
-        if details is None:
-            # Message was not encrypted
-            if not self._contact.settings.get('encryption'):
+        contact_encryption = self._contact.settings.get("encryption")
+        if encryption_data is None:
+            if not contact_encryption:
                 return None
-            icon = 'channel-insecure-symbolic'
-            color = 'unencrypted-color'
-            tooltip = _('Not encrypted')
+
+            icon = "channel-insecure-symbolic"
+            color = "unencrypted-color"
+            tooltip = _("Not encrypted")
         else:
-            name, fingerprint, trust = details
-            tooltip = _('Encrypted (%s)') % (name)
-            if trust is None:
-                # The encryption plugin did not pass trust information
-                icon = 'channel-secure-symbolic'
-                color = 'encrypted-color'
-            else:
-                icon, trust_tooltip, color = TRUST_SYMBOL_DATA[Trust(trust)]
-                tooltip = f'{tooltip}\n{trust_tooltip}'
-            if fingerprint is not None:
-                fingerprint = format_fingerprint(fingerprint)
-                tooltip = f'{tooltip}\n<tt>{fingerprint}</tt>'
+            tooltip = _("Encrypted (%s)") % (encryption_data.protocol)
+            icon, trust_tooltip, color = TRUST_SYMBOL_DATA[Trust(encryption_data.trust)]
+            tooltip = f"{tooltip}\n{trust_tooltip}"
+            if encryption_data.key != "Unknown":
+                fingerprint = format_fingerprint(encryption_data.key)
+                tooltip = f"{tooltip}\n<tt>{fingerprint}</tt>"
 
-        image = Gtk.Image.new_from_icon_name(icon, Gtk.IconSize.MENU)
-        image.set_tooltip_markup(tooltip)
-        image.get_style_context().add_class(color)
-        image.show()
-        return image
+        return icon, color, tooltip
 
-    @staticmethod
-    def _get_encryption_details(additional_data: AdditionalDataDict
-                                ) -> Optional[tuple[
-                                    str, Optional[str], Optional[Trust]]]:
-        name = additional_data.get_value('encrypted', 'name')
-        if name is None:
-            return None
+    def set_acknowledged(self, stanza_id: str | None) -> None:
+        self.state = MessageState.ACKNOWLEDGED
+        self.stanza_id = stanza_id
+        self._message_icons.set_message_state_icon(self.state)
 
-        fingerprint = additional_data.get_value('encrypted', 'fingerprint')
-        trust_data = additional_data.get_value('encrypted', 'trust')
+    def set_receipt(self, value: bool) -> None:
+        self._has_receipt = value
+        self._message_icons.set_receipt_icon_visible(value)
 
-        if trust_data is not None:
-            trust_data = Trust(trust_data)
-        return name, fingerprint, trust_data
-
-    @property
-    def has_receipt(self) -> bool:
-        return self._has_receipt
-
-    @property
-    def has_displayed(self) -> bool:
-        return self._has_displayed
-
-    def set_receipt(self) -> None:
-        self._has_receipt = True
-        self._message_icons.set_receipt_icon_visible(True)
-
-    def set_displayed(self) -> None:
-        self._has_displayed = True
-
-    def set_retracted(self, text: str) -> None:
-        if isinstance(self._message_widget, PreviewWidget):
-            self._message_widget.destroy()
-            self._message_widget = MessageWidget(self._account)
-            self._bottom_box.pack_start(self._message_widget, True, True, 0)
-            if is_rtl_text(text):
-                self._bottom_box.set_halign(Gtk.Align.END)
-                self._message_widget.set_direction(Gtk.TextDirection.RTL)
-            else:
-                self._bottom_box.set_halign(Gtk.Align.FILL)
-                self._message_widget.set_direction(Gtk.TextDirection.LTR)
-
-        self._message_widget.add_with_styling(text)
-        self.get_style_context().add_class('retracted-message')
-
-    def set_correction(self, text: str, nickname: Optional[str]) -> None:
-        if not isinstance(self._message_widget, PreviewWidget):
-            self._message_widget.add_with_styling(text, nickname)
-
-            if is_rtl_text(text):
-                self._bottom_box.set_halign(Gtk.Align.END)
-                self._message_widget.set_direction(Gtk.TextDirection.RTL)
-            else:
-                self._bottom_box.set_halign(Gtk.Align.FILL)
-                self._message_widget.set_direction(Gtk.TextDirection.LTR)
-
-        self._has_receipt = False
-        self._message_icons.set_receipt_icon_visible(False)
-        self._message_icons.set_correction_icon_visible(True)
-
-        original_text = textwrap.fill(self._original_text,
-                                      width=150,
-                                      max_lines=10,
-                                      placeholder='…')
-        self._message_icons.set_correction_tooltip(
-            _('Message corrected. Original message:\n%s') % original_text)
-
-    def set_error(self, tooltip: str) -> None:
+    def show_error(self, tooltip: str) -> None:
+        self._message_icons.hide_message_state_icon()
         self._message_icons.set_error_icon_visible(True)
         self._message_icons.set_error_tooltip(tooltip)
 
+    def update_reactions(self) -> None:
+        self.refresh(complete=False)
+        self._reactions_bar.update_from_reactions(self._original_message.reactions)
+
+    def send_reaction(self, emoji: str, toggle: bool = True) -> None:
+        """Adds or removes 'emoji' from this message's reactions and sends the result.
+
+        Args:
+          emoji: Reaction emoji to add or remove
+          toggle: Whether an existing emoji should be removed from the set
+        """
+        reaction_id = self.message_id
+        if self._original_message.type == MessageType.GROUPCHAT:
+            reaction_id = self.stanza_id
+
+        if reaction_id is None:
+            log.warning("No reaction id")
+            return
+
+        our_reactions = self._reactions_bar.get_our_reactions()
+        if emoji in our_reactions and not toggle:
+            log.info("Not toggling reaction <%s>", emoji)
+            return
+
+        if emoji in our_reactions:
+            our_reactions.discard(emoji)
+        else:
+            our_reactions.add(emoji)
+
+        client = app.get_client(self._contact.account)
+        client.get_module("Reactions").send_reaction(
+            contact=self._contact, reaction_id=reaction_id, reactions=our_reactions
+        )
+
+    def set_moderated(self, text: str) -> None:
+        self.text = text
+
+        if isinstance(self._message_widget, PreviewWidget):
+            self._bottom_box.remove(self._message_widget)
+
+            self._message_widget = MessageWidget(self._account)
+            self._bottom_box.append(self._message_widget)
+            self._set_text_direction(text)
+
+        self._message_widget.add_with_styling(text)
+        self.add_css_class("moderated-message")
+
+        self._is_moderated = True
+
+    def _set_correction(self) -> None:
+        original_text = textwrap.fill(
+            self._original_text, width=150, max_lines=10, placeholder="…"
+        )
+        self._message_icons.set_correction_tooltip(
+            _("Message corrected. Original message:\n%s") % original_text
+        )
+        self._message_icons.set_correction_icon_visible(True)
+
     def update_avatar(self) -> None:
-        avatar = self._get_avatar(self.kind, self.name)
-        self._avatar_box.set_from_surface(avatar)
+        avatar = get_avatar_for_message(
+            self._message, self._contact, self.get_scale_factor(), AvatarSize.ROSTER
+        )
+        self._avatar_box.set_from_paintable(avatar)
 
     def set_merged(self, merged: bool) -> None:
         self._merged = merged
         if merged:
-            self.get_style_context().add_class('merged')
-            self._meta_box.set_no_show_all(True)
-            self._meta_box.hide()
+            self.add_css_class("merged")
+            self._meta_box.set_visible(False)
+            self._meta_box.set_visible(False)
         else:
-            self.get_style_context().remove_class('merged')
-            self._meta_box.set_no_show_all(False)
-            self._meta_box.show()
+            self.remove_css_class("merged")
+            self._meta_box.set_visible(True)
 
         self._avatar_box.set_merged(merged)

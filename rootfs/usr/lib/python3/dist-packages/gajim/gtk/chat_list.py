@@ -1,26 +1,16 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
 from typing import cast
-from typing import Optional
-from typing import Union
+from typing import Literal
 
 import logging
-import time
+from collections.abc import Iterator
+from datetime import datetime
 
 from gi.repository import Gdk
 from gi.repository import GLib
@@ -33,86 +23,108 @@ from gajim.common import events
 from gajim.common import ged
 from gajim.common.const import Direction
 from gajim.common.const import RowHeaderType
-from gajim.common.helpers import get_group_chat_nick
-from gajim.common.helpers import get_retraction_text
+from gajim.common.ged import EventHelper
 from gajim.common.i18n import _
+from gajim.common.modules.contacts import BareContact
+from gajim.common.modules.message_util import get_nickname_from_message
 from gajim.common.setting_values import OpenChatsSettingT
+from gajim.common.storage.archive.const import ChatDirection
+from gajim.common.storage.archive.const import MessageType
+from gajim.common.storage.archive.models import Message
+from gajim.common.util.muc import get_group_chat_nick
+from gajim.common.util.user_strings import get_moderation_text
 
+from gajim.gtk.chat_filter import ChatFilters
 from gajim.gtk.chat_list_row import ChatListRow
-from gajim.gtk.util import EventHelper
+from gajim.gtk.start_chat import ChatTypeFilter
+from gajim.gtk.util.classes import SignalManager
+from gajim.gtk.util.misc import get_listbox_row_count
+from gajim.gtk.util.misc import iterate_listbox_children
 
-log = logging.getLogger('gajim.gtk.chatlist')
-
-MessageEventT = Union[events.MessageReceived,
-                      events.GcMessageReceived,
-                      events.MamMessageReceived]
+log = logging.getLogger("gajim.gtk.chatlist")
 
 
-class ChatList(Gtk.ListBox, EventHelper):
+class ChatList(Gtk.ListBox, EventHelper, SignalManager):
 
     __gsignals__ = {
-        'chat-order-changed': (GObject.SignalFlags.RUN_LAST,
-                               None,
-                               ()),
+        "chat-order-changed": (GObject.SignalFlags.RUN_LAST, None, ()),
     }
 
     def __init__(self, workspace_id: str) -> None:
         Gtk.ListBox.__init__(self)
         EventHelper.__init__(self)
+        SignalManager.__init__(self)
+
         self._workspace_id = workspace_id
 
-        self._chats: dict[tuple[str, JID], Any] = {}
-        self._current_filter: str = 'all'
-        self._current_filter_text: str = ''
+        self._chats: dict[tuple[str, JID], ChatListRow] = {}
+        self._current_filter: ChatFilters = ChatFilters()
+        self._current_filter_text: str = ""
 
-        self.get_style_context().add_class('chatlist')
+        self.add_css_class("chatlist")
         self.set_filter_func(self._filter_func)
         self.set_header_func(self._header_func)
         self.set_sort_func(self._sort_func)
         self._set_placeholder()
 
-        self._mouseover: bool = False
-        self.connect('enter-notify-event', self._on_mouse_focus_changed)
-        self.connect('leave-notify-event', self._on_mouse_focus_changed)
+        self._force_sort = False
+        self._rows_need_sort = False
+        self._context_menu_visible = False
+        self._mouseover = False
+        self._scheduled_sort_id = None
 
-        # Drag and Drop
-        entries = [Gtk.TargetEntry.new(
-            'CHAT_LIST_ITEM',
-            Gtk.TargetFlags.SAME_APP,
-            0)]
-        self.drag_dest_set(
-            Gtk.DestDefaults.MOTION | Gtk.DestDefaults.DROP,
-            entries,
-            Gdk.DragAction.MOVE)
+        hover_controller = Gtk.EventControllerMotion()
+        self._connect(hover_controller, "enter", self._on_cursor_enter)
+        self._connect(hover_controller, "leave", self._on_cursor_leave)
+        self.add_controller(hover_controller)
 
-        self._drag_row: Optional[ChatListRow] = None
+        drop_target = Gtk.DropTarget(
+            formats=Gdk.ContentFormats.new_for_gtype(ChatListRow),
+            actions=Gdk.DragAction.MOVE,
+        )
+        self._connect(drop_target, "drop", self._on_drop)
+        self.add_controller(drop_target)
+
         self._chat_order: list[ChatListRow] = []
 
-        self.register_events([
-            ('account-enabled', ged.GUI2, self._on_account_changed),
-            ('account-disabled', ged.GUI2, self._on_account_changed),
-            ('bookmarks-received', ged.GUI1, self._on_bookmarks_received),
-        ])
+        self.register_events(
+            [
+                ("account-enabled", ged.GUI2, self._on_account_changed),
+                ("account-disabled", ged.GUI2, self._on_account_changed),
+                ("bookmarks-received", ged.GUI1, self._on_bookmarks_received),
+            ]
+        )
 
-        self.connect('drag-data-received', self._on_drag_data_received)
-        self.connect('destroy', self._on_destroy)
+        self._timer_id = GLib.timeout_add_seconds(60, self._update_row_state)
 
-        self._timer_id = GLib.timeout_add_seconds(60, self._update_time)
-
-        self.show_all()
+    def do_unroot(self) -> None:
+        Gtk.ListBox.do_unroot(self)
+        self._disconnect_all()
+        self.unregister_events()
+        self._abort_scheduled_sort("unroot")
+        self.set_filter_func(None)
+        self.set_header_func(None)
+        self.set_sort_func(None)
+        GLib.source_remove(self._timer_id)
+        app.check_finalize(self)
 
     @property
     def workspace_id(self) -> str:
         return self._workspace_id
 
+    def get_row_count(self) -> int:
+        return get_listbox_row_count(self)
+
+    def _iterate_rows(self) -> Iterator[ChatListRow]:
+        for row in iterate_listbox_children(self):
+            yield cast(ChatListRow, row)
+
     def get_unread_count(self) -> int:
         return sum(chats.unread_count for chats in self._chats.values())
 
-    def get_chat_unread_count(self,
-                              account: str,
-                              jid: JID,
-                              include_silent: bool = False
-                              ) -> Optional[int]:
+    def get_chat_unread_count(
+        self, account: str, jid: JID, include_silent: bool = False
+    ) -> int | None:
         chat = self._chats.get((account, jid))
         if chat is not None:
             if include_silent:
@@ -120,30 +132,28 @@ class ChatList(Gtk.ListBox, EventHelper):
             return chat.unread_count
         return None
 
-    def set_chat_unread_count(self,
-                              account: str,
-                              jid: JID,
-                              count: int
-                              ) -> None:
+    def set_chat_unread_count(self, account: str, jid: JID, count: int) -> None:
         chat = self._chats.get((account, jid))
         if chat is not None:
             chat.unread_count = count
 
-    def set_filter(self, name: str) -> None:
-        self._current_filter = name
+    def set_filter(self, chat_filter: ChatFilters) -> None:
+        self._current_filter = chat_filter
         self.invalidate_filter()
 
     def set_filter_text(self, text: str) -> None:
         self._current_filter_text = text
         self.invalidate_filter()
 
-    def get_chat_type(self, account: str, jid: JID) -> Optional[str]:
+    def get_chat_type(
+        self, account: str, jid: JID
+    ) -> Literal["chat", "groupchat", "pm"] | None:
         row = self._chats.get((account, jid))
         if row is not None:
-            return row.type
+            return row.type  # type: ignore
         return None
 
-    def get_selected_chat(self) -> Optional[ChatListRow]:
+    def get_selected_chat(self) -> ChatListRow | None:
         row = cast(ChatListRow | None, self.get_selected_row())
         if row is None:
             return None
@@ -153,17 +163,22 @@ class ChatList(Gtk.ListBox, EventHelper):
         open_chats: OpenChatsSettingT = []
         for key, row in self._chats.items():
             account, jid = key
-            open_chats.append({'account': account,
-                               'jid': jid,
-                               'type': row.type,
-                               'pinned': row.is_pinned,
-                               'position': row.position})
+            open_chats.append(
+                {
+                    "account": account,
+                    "jid": jid,
+                    "type": row.type,  # type: ignore
+                    "pinned": row.is_pinned,
+                    "position": row.position,
+                }
+            )
         return open_chats
 
     def mark_as_read(self, account: str, jid: JID) -> None:
         chat = self._chats.get((account, jid))
-        if chat is not None:
+        if chat is not None and chat.get_real_unread_count() > 0:
             chat.reset_unread()
+            app.ged.raise_event(events.ChatRead(account=account, jid=jid))
 
     def toggle_chat_pinned(self, account: str, jid: JID) -> None:
         row = self._chats[(account, jid)]
@@ -176,43 +191,40 @@ class ChatList(Gtk.ListBox, EventHelper):
             row.position = self._chat_order.index(row)
 
         row.toggle_pinned()
-        self.invalidate_sort()
+        self.invalidate_sort(force=True)
 
-    def add_chat(self,
-                 account: str,
-                 jid: JID,
-                 type_: str,
-                 pinned: bool,
-                 position: int
-                 ) -> None:
+    def add_chat(
+        self,
+        account: str,
+        jid: JID,
+        type_: Literal["chat", "groupchat", "pm"],
+        pinned: bool,
+        position: int,
+    ) -> None:
 
         key = (account, jid)
         if self._chats.get(key) is not None:
             # Chat is already in the List
             return
 
-        row = ChatListRow(self._workspace_id,
-                          account,
-                          jid,
-                          type_,
-                          pinned,
-                          position)
+        row = ChatListRow(self._workspace_id, account, jid, type_, pinned, position)
 
         self._chats[key] = row
         if pinned:
             self._chat_order.insert(position, row)
 
-        row.connect('drag-begin', self._on_row_drag_begin)
-        row.connect('unread-changed', self._on_row_unread_changed)
+        row.connect("unread-changed", self._on_row_unread_changed)
+        row.connect("context-menu-state-changed", self._on_context_menu_state_changed)
 
-        self.add(row)
+        self.append(row)
 
     def select_chat(self, account: str, jid: JID) -> None:
         row = self._chats[(account, jid)]
         self.select_row(row)
 
-    def select_next_chat(self, direction: Direction,
-                         unread_first: bool = False) -> None:
+    def select_next_chat(
+        self, direction: Direction, unread_first: bool = False
+    ) -> None:
         # Selects the next chat, but prioritizes chats with unread messages.
         row = self.get_selected_chat()
         if row is None:
@@ -232,12 +244,12 @@ class ChatList(Gtk.ListBox, EventHelper):
             while True:
                 if direction == Direction.NEXT:
                     index += 1
-                    if index >= len(self.get_children()):
+                    if index >= self.get_row_count():
                         index = 0
                 else:
                     index -= 1
                     if index < 0:
-                        index = len(self.get_children()) - 1
+                        index = self.get_row_count() - 1
 
                 row = self.get_row_at_index(index)
                 if row is None:
@@ -262,7 +274,7 @@ class ChatList(Gtk.ListBox, EventHelper):
             if direction == Direction.NEXT:
                 next_row = self.get_row_at_index(0)
             else:
-                last = len(self.get_children()) - 1
+                last = self.get_row_count() - 1
                 next_row = self.get_row_at_index(last)
             assert isinstance(next_row, ChatListRow)
             self.select_chat(next_row.account, next_row.jid)
@@ -278,19 +290,16 @@ class ChatList(Gtk.ListBox, EventHelper):
             self.select_chat(row.account, row.jid)
 
     def get_chat_list_rows(self) -> list[ChatListRow]:
-        return cast(list[ChatListRow], self.get_children())
+        return list(self._iterate_rows())
 
-    def remove_chat(self,
-                    account: str,
-                    jid: JID,
-                    emit_unread: bool = True
-                    ) -> None:
+    def remove_chat(self, account: str, jid: JID, emit_unread: bool = True) -> None:
 
         row = self._chats.pop((account, jid))
+
         if row.is_pinned:
             self._chat_order.remove(row)
         self.remove(row)
-        row.destroy()
+
         if emit_unread:
             self._emit_unread_changed()
 
@@ -301,16 +310,21 @@ class ChatList(Gtk.ListBox, EventHelper):
             self.remove_chat(account, jid)
         self._emit_unread_changed()
 
+    def clear_chat_list_row(self, account: str, jid: JID) -> None:
+        chat = self._chats.get((account, jid))
+        if chat is not None:
+            chat.clear()
+
     def contains_chat(self, account: str, jid: JID) -> bool:
         return self._chats.get((account, jid)) is not None
 
     def process_event(self, event: events.ChatListEventT) -> None:
-        if isinstance(event, (events.MessageReceived,
-                              events.MamMessageReceived,
-                              events.GcMessageReceived)):
+        if isinstance(event, events.MessageReceived):
             self._on_message_received(event)
-        elif isinstance(event, events.MessageUpdated):
-            self._on_message_updated(event)
+        elif isinstance(event, events.MessageDeleted):
+            self._on_message_deleted(event)
+        elif isinstance(event, events.MessageCorrected):
+            self._on_message_corrected(event)
         elif isinstance(event, events.MessageModerated):
             self._on_message_moderated(event)
         elif isinstance(event, events.PresenceReceived):
@@ -319,134 +333,114 @@ class ChatList(Gtk.ListBox, EventHelper):
             self._on_message_sent(event)
         elif isinstance(event, events.JingleRequestReceived):
             self._on_jingle_request_received(event)
-        elif isinstance(event, events.FileRequestReceivedEvent):  # pyright: ignore [reportUnnecessaryIsInstance] # noqa: E501
+        elif isinstance(
+            event, events.FileRequestReceivedEvent
+        ):  # pyright: ignore [reportUnnecessaryIsInstance] # noqa: E501
             self._on_file_request_received(event)
         else:
-            log.warning('Unhandled Event: %s', event.name)
+            log.warning("Unhandled Event: %s", event.name)
 
     def _set_placeholder(self) -> None:
-        button = Gtk.Button.new_with_label(_('Start Chat'))
-        button.get_style_context().add_class('suggested-action')
-        button.set_halign(Gtk.Align.CENTER)
-        button.set_valign(Gtk.Align.CENTER)
-        button.connect('clicked', self._on_start_chat_clicked)
-        button.show()
+        button = Gtk.Button(
+            label=_("Start Chat"),
+            halign=Gtk.Align.CENTER,
+            valign=Gtk.Align.CENTER,
+            action_name="app.start-chat",
+            action_target=GLib.Variant("as", ["", ""]),
+        )
+        button.add_css_class("suggested-action")
         self.set_placeholder(button)
 
     def _emit_unread_changed(self) -> None:
         count = self.get_unread_count()
         chat_list = self.get_parent()
         assert chat_list is not None
-        chat_list.emit('unread-count-changed',
-                       self._workspace_id,
-                       count)
+        chat_list.emit("unread-count-changed", self._workspace_id, count)
 
-    def _get_row_before(self, row: ChatListRow) -> Optional[ChatListRow]:
+    def _get_row_before(self, row: ChatListRow) -> ChatListRow | None:
         row_before = self.get_row_at_index(row.get_index() - 1)
         if row_before is None:
             return
         return cast(ChatListRow, row_before)
 
-    def _get_row_after(self, row: ChatListRow) -> Optional[ChatListRow]:
+    def _get_row_after(self, row: ChatListRow) -> ChatListRow | None:
         row_after = self.get_row_at_index(row.get_index() + 1)
         if row_after is None:
             return
         return cast(ChatListRow, row_after)
 
     def _get_last_row(self) -> ChatListRow:
-        index = len(self.get_children()) - 1
+        index = self.get_row_count() - 1
         last_row = self.get_row_at_index(index)
         assert last_row is not None
         return cast(ChatListRow, last_row)
 
-    def _on_row_drag_begin(self,
-                           row: ChatListRow,
-                           _drag_context: Gdk.DragContext
-                           ) -> None:
-
-        self._drag_row = row
-
     def _on_row_unread_changed(self, row: ChatListRow) -> None:
         self._emit_unread_changed()
 
-    def _on_drag_data_received(self,
-                               _widget: Gtk.Widget,
-                               _drag_context: Gdk.DragContext,
-                               _x_coord: int,
-                               y_coord: int,
-                               selection_data: Gtk.SelectionData,
-                               _info: int,
-                               _time: int
-                               ) -> None:
+    def _on_context_menu_state_changed(
+        self, row: ChatListRow, menu_is_visible: bool
+    ) -> None:
 
-        item_type = selection_data.get_data_type().name()
-        if item_type != 'CHAT_LIST_ITEM':
-            log.debug('Unknown item type dropped')
-            return
+        self._context_menu_visible = menu_is_visible
+        self._schedule_sort()
 
-        assert self._drag_row is not None
+    def _on_drop(
+        self, _drop_target: Gtk.DropTarget, value: GObject.Value, _x: float, y: float
+    ) -> bool:
+        target_row = self.get_row_at_y(int(y))
 
-        if not self._drag_row.is_pinned:
-            log.debug('Dropped row is not pinned')
-            return
+        if not value or not isinstance(target_row, ChatListRow):
+            # Reject drop
+            return False
 
-        row = cast(ChatListRow | None, self.get_row_at_y(y_coord))
-        if row is not None:
-            alloc = row.get_allocation()
-            hover_row_y = alloc.y
-            hover_row_height = alloc.height
+        if isinstance(value, ChatListRow):
+            if not value.is_pinned or not target_row.is_pinned:
+                log.debug("Only pinned rows can be reordered")
+                return False
 
-            if y_coord < hover_row_y + hover_row_height / 2:
-                row_before = self._get_row_before(row)
-                row_after = row
-            else:
-                row_before = row
-                row_after = self._get_row_after(row)
-        else:
-            row_before = self._get_last_row()
-            row_after = None
+            self._change_pinned_order(value, target_row)
+            return True
 
-        if self._drag_row in (row_before, row_after):
-            log.debug('Dropped row on self')
-            return
+        # Reject drop
+        log.debug("Unknown item type dropped")
+        return False
 
-        if row_before is not None and not row_before.is_pinned:
-            log.debug('Dropped under not pinned row')
-            return
-
-        self._change_pinned_order(row_before)
-
-    def _change_pinned_order(self, row_before: Optional[ChatListRow]) -> None:
-        assert self._drag_row is not None
-
-        self._chat_order.remove(self._drag_row)
-
-        if row_before is None:
-            self._chat_order.insert(0, self._drag_row)
-        else:
-            offset = 0
-            if row_before.position < self._drag_row.position:
-                offset = 1
-            self._chat_order.insert(
-                row_before.position + offset, self._drag_row)
+    def _change_pinned_order(
+        self, drag_row: ChatListRow, target_row: ChatListRow
+    ) -> None:
+        self._chat_order.remove(drag_row)
+        self._chat_order.insert(target_row.position, drag_row)
 
         for row in self._chat_order:
             row.position = self._chat_order.index(row)
 
-        self.emit('chat-order-changed')
-        self.invalidate_sort()
+        self.emit("chat-order-changed")
+        self.invalidate_sort(force=True)
 
-    def _update_time(self) -> bool:
-        for _key, row in self._chats.items():
-            row.update_time()
+    def _update_row_state(self) -> bool:
+        for row in self._chats.values():
+            row.update_row_state()
         return True
 
     def _filter_func(self, row: ChatListRow) -> bool:
-        is_groupchat = row.type == 'groupchat'
-        if self._current_filter == 'chats' and is_groupchat:
+        account = self._current_filter.account
+        if account is not None and account != row.account:
             return False
 
-        if self._current_filter == 'group_chats' and not is_groupchat:
+        group = self._current_filter.group
+        if (
+            group is not None
+            and isinstance(row.contact, BareContact)
+            and group not in row.contact.groups
+        ):
+            return False
+
+        is_groupchat = row.type == "groupchat"
+        if self._current_filter.type == ChatTypeFilter.CHAT and is_groupchat:
+            return False
+
+        if self._current_filter.type == ChatTypeFilter.GROUPCHAT and not is_groupchat:
             return False
 
         if not self._current_filter_text:
@@ -474,8 +468,9 @@ class ChatList(Gtk.ListBox, EventHelper):
                     row.set_header_type(None)
 
     def _sort_func(self, row1: ChatListRow, row2: ChatListRow) -> int:
-        if self._mouseover:
-            log.debug('Mouseover active, don’t sort rows')
+        if not self._force_sort and self._is_sort_inhibited():
+            self._rows_need_sort = True
+            log.debug("Delay sorting because it is inhibited")
             return 0
 
         # Sort pinned rows according to stored order
@@ -493,93 +488,128 @@ class ChatList(Gtk.ListBox, EventHelper):
         # Sort by timestamp
         return -1 if row1.timestamp > row2.timestamp else 1
 
-    def _on_mouse_focus_changed(self,
-                                _widget: Gtk.ListBox,
-                                event: Gdk.EventCrossing
-                                ) -> None:
+    def invalidate_sort(self, *, force: bool = False) -> bool:  # pyright: ignore
+        log.debug("Try sorting chatlist")
+        if not force and self._is_sort_inhibited():
+            log.debug("Abort sorting because it is inhibited")
+            return False
 
-        if event.type == Gdk.EventType.ENTER_NOTIFY:
-            self._mouseover = True
+        self._rows_need_sort = False
+        self._force_sort = force
+        Gtk.ListBox.invalidate_sort(self)
+        self._force_sort = False
+        log.debug("Sorting successful")
+        return True
 
-        if event.type == Gdk.EventType.LEAVE_NOTIFY:
-            if event.detail != Gdk.NotifyType.INFERIOR:
-                # Not hovering a Gtk.ListBoxRow (row is INFERIOR)
-                self._mouseover = False
+    def _is_sort_inhibited(self) -> bool:
+        return self._mouseover or self._context_menu_visible
+
+    def _schedule_sort(self) -> None:
+        self._abort_scheduled_sort("schedule is renewed")
+        log.debug("Schedule sort")
+        self._scheduled_sort_id = GLib.timeout_add(100, self._execute_scheduled_sort)
+
+    def _abort_scheduled_sort(self, reason: str) -> None:
+        if self._scheduled_sort_id is not None:
+            log.debug("Abort scheduled sort, reason: %s", reason)
+            GLib.source_remove(self._scheduled_sort_id)
+        self._scheduled_sort_id = None
+
+    def _execute_scheduled_sort(self) -> int:
+        log.debug("Execute scheduled sort")
+        if not self._rows_need_sort:
+            log.debug("Abort scheduled sort, reason: no rows changed")
+            self._scheduled_sort_id = None
+            return GLib.SOURCE_REMOVE
+
+        sort_executed = self.invalidate_sort()
+        if sort_executed:
+            self._scheduled_sort_id = None
+            return GLib.SOURCE_REMOVE
+
+        return GLib.SOURCE_CONTINUE
+
+    def _on_cursor_enter(
+        self,
+        _controller: Gtk.EventControllerMotion,
+        _x: int,
+        _y: int,
+    ) -> None:
+        self._mouseover = True
+        self._abort_scheduled_sort("mouse over list")
+
+    def _on_cursor_leave(self, _controller: Gtk.EventControllerMotion) -> None:
+        self._mouseover = False
+        self._schedule_sort()
 
     @staticmethod
-    def _on_start_chat_clicked(_button: Gtk.Button) -> None:
-        app.app.activate_action('start-chat', GLib.Variant('as', ['', '']))
+    def _get_nick_for_received_message(account: str, message: Message) -> str:
+
+        if message.direction == ChatDirection.OUTGOING:
+            return _("Me")
+
+        if message.type in (MessageType.GROUPCHAT, MessageType.PM):
+            return get_nickname_from_message(message)
+
+        return ""
 
     @staticmethod
-    def _get_nick_for_received_message(event: MessageEventT) -> str:
-        nick = _('Me')
-        if event.properties.type.is_groupchat:
-            event_nick = event.properties.muc_nickname
-            our_nick = get_group_chat_nick(event.account, event.jid)
-            if event_nick != our_nick:
-                nick = event_nick
-        else:
-            con = app.get_client(event.account)
-            own_jid = con.get_own_jid()
-            if not own_jid.bare_match(event.properties.from_):
-                nick = ''
-        return nick
-
-    @staticmethod
-    def _add_unread(row: ChatListRow, event: MessageEventT) -> None:
-        if event.properties.is_carbon_message:
-            if event.properties.carbon.is_sent:
-                return
-
-        if event.properties.is_from_us():
+    def _add_unread(row: ChatListRow, event: events.MessageReceived) -> None:
+        message = event.message
+        if message.direction == ChatDirection.OUTGOING:
             # Last message was from us (1:1), reset counter
             row.reset_unread()
             return
 
         our_nick = get_group_chat_nick(event.account, event.jid)
-        if event.properties.muc_nickname == our_nick:
+        if message.resource == our_nick:
             # Last message was from us (MUC), reset counter
             row.reset_unread()
             return
 
         control = app.window.get_control()
-        if (app.window.is_active() and
-                row.is_selected() and
-                control.get_autoscroll()):
+        if app.window.is_active() and row.is_selected() and control.view_is_at_bottom():
             return
 
-        row.add_unread(event.msgtxt)
+        assert message.text is not None
+        row.add_unread(message.text)
 
-    def _on_message_received(self, event: MessageEventT) -> None:
-        if not event.msgtxt:
-            return
+    def _on_message_received(self, event: events.MessageReceived) -> None:
         row = self._chats.get((event.account, JID.from_string(event.jid)))
         if row is None:
             return
-        nick = self._get_nick_for_received_message(event)
-        row.set_nick(nick)
-        if event.name == 'mam-message-received':
-            row.set_timestamp(event.properties.mam.timestamp)
-        else:
-            row.set_timestamp(event.properties.timestamp)
 
-        row.set_stanza_id(event.stanza_id)
-        row.set_message_id(event.properties.id)
-        row.set_message_text(
-            event.msgtxt,
-            nickname=nick,
-            additional_data=event.additional_data)
+        message = event.message
+        if message.text is None:
+            return
+
+        assert message.id is not None
+
+        nick = self._get_nick_for_received_message(event.account, message)
+        row.set_nick(nick)
+        row.set_timestamp(message.timestamp)
+        row.set_stanza_id(message.stanza_id)
+        row.set_message_id(message.id)
+        row.set_message_text(message.text, nickname=nick, oob=message.oob)
 
         self._add_unread(row, event)
         row.changed()
 
-    def _on_message_updated(self, event: events.MessageUpdated) -> None:
+    def _on_message_deleted(self, event: events.MessageDeleted) -> None:
+        # TODO
+        pass
+
+    def _on_message_corrected(self, event: events.MessageCorrected) -> None:
         row = self._chats.get((event.account, JID.from_string(event.jid)))
         if row is None:
             return
 
-        if event.correct_id == row.message_id:
-            row.set_message_text(event.msgtxt, event.nickname)
+        if event.correction_id == row.message_id:
+            text = event.message.text
+            assert text is not None
+            row.set_message_text(
+                text, self._get_nick_for_received_message(event.account, event.message)
+            )
 
     def _on_message_moderated(self, event: events.MessageModerated) -> None:
         row = self._chats.get((event.account, event.jid))
@@ -587,36 +617,22 @@ class ChatList(Gtk.ListBox, EventHelper):
             return
 
         if event.moderation.stanza_id == row.stanza_id:
-            text = get_retraction_text(
-                event.account,
-                event.moderation.moderator_jid,
-                event.moderation.reason)
+            text = get_moderation_text(event.moderation.by, event.moderation.reason)
             row.set_message_text(text)
 
     def _on_message_sent(self, event: events.MessageSent) -> None:
-        msgtext = event.message
-        if not msgtext:
-            return
-
         row = self._chats.get((event.account, JID.from_string(event.jid)))
         if row is None:
             return
 
-        client = app.get_client(event.account)
-        own_jid = client.get_own_jid()
+        message = event.message
+        assert message.text is not None
 
-        if own_jid.bare_match(event.jid):
-            nick = ''
-        else:
-            nick = _('Me')
-        row.set_nick(nick)
-
-        # Set timestamp if it's None (outgoing MUC messages)
-        row.set_timestamp(event.timestamp or time.time())
+        row.set_nick(_("Me"))
+        row.set_timestamp(message.timestamp)
         row.set_message_text(
-            event.message,
-            nickname=app.nicks[event.account],
-            additional_data=event.additional_data)
+            message.text, nickname=app.nicks[event.account], oob=message.oob
+        )
         row.changed()
 
     def _on_presence_received(self, event: events.PresenceReceived) -> None:
@@ -625,42 +641,31 @@ class ChatList(Gtk.ListBox, EventHelper):
             return
         row.update_avatar()
 
-    def _on_jingle_request_received(self,
-                                    event: events.JingleRequestReceived
-                                    ) -> None:
+    def _on_jingle_request_received(self, event: events.JingleRequestReceived) -> None:
         content_types: list[str] = []
         for item in event.contents:
             content_types.append(item.media)
-        if 'audio' in content_types or 'video' in content_types:
+        if "audio" in content_types or "video" in content_types:
             # AV Call received
             row = self._chats.get((event.account, JID.from_string(event.jid)))
             if row is None:
                 return
-            row.set_timestamp(time.time())
-            row.set_nick('')
-            row.set_message_text(
-                _('Call'), icon_name='call-start-symbolic')
+            row.set_timestamp(datetime.now().astimezone())
+            row.set_nick("")
+            row.set_message_text(_("Call"), icon_name="call-start-symbolic")
 
-    def _on_file_request_received(self,
-                                  event: events.FileRequestReceivedEvent
-                                  ) -> None:
+    def _on_file_request_received(self, event: events.FileRequestReceivedEvent) -> None:
         row = self._chats.get((event.account, event.jid))
         if row is None:
             return
-        row.set_timestamp(time.time())
-        row.set_nick('')
-        row.set_message_text(
-            _('File'), icon_name='text-x-generic-symbolic')
+        row.set_timestamp(datetime.now().astimezone())
+        row.set_nick("")
+        row.set_message_text(_("File"), icon_name="text-x-generic-symbolic")
 
     def _on_account_changed(self, *args: Any) -> None:
-        rows = cast(list[ChatListRow], self.get_children())
-        for row in rows:
+        for row in self._iterate_rows():
             row.update_account_identifier()
 
     def _on_bookmarks_received(self, _event: events.BookmarksReceived) -> None:
-        rows = cast(list[ChatListRow], self.get_children())
-        for row in rows:
+        for row in self._iterate_rows():
             row.update_name()
-
-    def _on_destroy(self, _widget: Gtk.Widget) -> None:
-        GLib.source_remove(self._timer_id)

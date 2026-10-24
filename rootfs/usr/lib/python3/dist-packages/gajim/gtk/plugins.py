@@ -1,22 +1,10 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
-from typing import Any
 from typing import Literal
-from typing import Optional
 
 import logging
 from enum import IntEnum
@@ -25,15 +13,17 @@ from pathlib import Path
 
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
+from gi.repository import Gio
 from gi.repository import Gtk
 
 from gajim.common import app
 from gajim.common import configpaths
 from gajim.common import ged
 from gajim.common.exceptions import PluginsystemError
-from gajim.common.helpers import open_uri
+from gajim.common.ged import EventHelper
 from gajim.common.i18n import _
 from gajim.common.types import PluginRepositoryT
+from gajim.common.util.uri import open_uri
 from gajim.plugins.events import PluginAdded
 from gajim.plugins.events import PluginRemoved
 from gajim.plugins.helpers import GajimPluginActivateException
@@ -42,10 +32,10 @@ from gajim.plugins.manifest import PluginManifest
 from gajim.gtk.builder import get_builder
 from gajim.gtk.dialogs import ConfirmationDialog
 from gajim.gtk.dialogs import DialogButton
-from gajim.gtk.dialogs import WarningDialog
-from gajim.gtk.filechoosers import ArchiveChooserDialog
-from gajim.gtk.util import EventHelper
-from gajim.gtk.util import load_icon_pixbuf
+from gajim.gtk.dialogs import SimpleDialog
+from gajim.gtk.filechoosers import FileChooserButton
+from gajim.gtk.filechoosers import Filter
+from gajim.gtk.widgets import GajimAppWindow
 
 log = logging.getLogger('gajim.gtk.plugins')
 
@@ -64,25 +54,39 @@ class Column(IntEnum):
     MANIFEST = 9
 
 
-class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
+class PluginsWindow(GajimAppWindow, EventHelper):
     def __init__(self) -> None:
-        Gtk.ApplicationWindow.__init__(self)
+        GajimAppWindow.__init__(
+            self,
+            name='PluginsWindow',
+            title=_('Plugins'),
+            default_height=500
+        )
+
         EventHelper.__init__(self)
 
-        self.set_application(app.app)
-        self.set_position(Gtk.WindowPosition.CENTER)
-        self.set_default_size(650, 500)
-        self.set_show_menubar(False)
-        self.set_title(_('Plugins'))
-
         self._ui = get_builder('plugins.ui')
-        self.add(self._ui.plugins_box)
+        self.set_child(self._ui.plugins_box)
+
+        self._file_chooser_button = FileChooserButton(
+            filters=[
+                Filter(name=_('All files'), patterns=['*']),
+                Filter(name=_('ZIP files'), patterns=['*.zip'], default=True)
+            ],
+            tooltip=_('Install Plugin from ZIP-File'),
+            icon_name='system-software-install-symbolic',
+        )
+        self._connect(
+            self._file_chooser_button, 'path-picked', self._on_install_plugin_from_zip
+        )
+        self._ui.toolbar.prepend(self._file_chooser_button)
+        self._ui.toolbar.reorder_child_after(self._ui.download_button)
 
         if app.is_flatpak():
-            self._ui.help_button.show()
-            self._ui.download_button.set_no_show_all(True)
-            self._ui.uninstall_plugin_button.set_no_show_all(True)
-            self._ui.install_from_zip_button.set_no_show_all(True)
+            self._ui.help_button.set_visible(True)
+            self._ui.download_button.set_visible(False)
+            self._ui.uninstall_plugin_button.set_visible(False)
+            self._file_chooser_button.set_visible(False)
 
         self._ui.liststore.set_sort_column_id(Column.NAME,
                                               Gtk.SortType.ASCENDING)
@@ -97,9 +101,19 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
         self._load_installed_manifests()
         self._load_repository_manifests()
 
-        self.connect('destroy', self._on_destroy)
-        self.connect('key-press-event', self._on_key_press)
-        self._ui.connect_signals(self)
+        self._connect(
+            self._ui.configure_plugin_button, 'clicked', self._on_configure_plugin
+        )
+        self._connect(
+            self._ui.plugins_treeview, 'query-tooltip', self._on_query_tooltip
+        )
+        self._connect(self._ui.treeview_selection, 'changed', self._selection_changed)
+        self._connect(self._ui.enabled_renderer, 'toggled', self._on_enabled_toggled)
+        self._connect(self._ui.help_button, 'clicked', self._on_help_clicked)
+        self._connect(
+            self._ui.uninstall_plugin_button, 'clicked', self._on_uninstall_plugin
+        )
+        self._connect(self._ui.download_button, 'clicked', self._on_download_clicked)
 
         self.register_events([
             ('plugin-removed', ged.GUI1, self._on_plugin_removed),
@@ -113,7 +127,9 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
         app.plugin_repository.connect('download-failed',
                                       self._on_download_failed)
 
-        self.show_all()
+    def _cleanup(self) -> None:
+        app.plugin_repository.disconnect(self)
+        self.unregister_events()
 
     def _on_render_enabled_cell(self,
                                 _tree_column: Gtk.TreeViewColumn,
@@ -141,8 +157,8 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
                           tooltip: Gtk.Tooltip) -> bool:
 
         context = treeview.get_tooltip_context(x_coord, y_coord, keyboard_mode)
-        has_row, _x, _y, model, _path, iter_ = context
-        if not has_row or model is None:
+        has_row, model, _path, iter_ = context
+        if not has_row:
             return False
 
         row = model[iter_]
@@ -161,20 +177,9 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
                 tooltip.set_text(plugin.available_text)
             else:
                 tooltip.set_text(row[Column.ERROR_TEXT])
-            return True
+            return Gdk.EVENT_STOP
 
-        return False
-
-    def _on_key_press(self, _widget: Gtk.Widget, event: Gdk.EventKey) -> None:
-        if event.keyval == Gdk.KEY_Escape:
-            self.destroy()
-
-    def _on_destroy(self, *args: Any) -> None:
-        self._ui.enabled_renderer.run_dispose()
-        self._ui.enabled_column.run_dispose()
-        self._ui.treeview_selection.run_dispose()
-        app.plugin_repository.disconnect(self)
-        app.check_finalize(self)
+        return Gdk.EVENT_PROPAGATE
 
     def _selection_changed(self,
                            treeview_selection: Gtk.TreeSelection
@@ -259,7 +264,7 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
             return True, plugin.available_text
         return False, ''
 
-    def _get_plugin_row(self, short_name: str) -> Optional[Gtk.TreeModelRow]:
+    def _get_plugin_row(self, short_name: str) -> Gtk.TreeModelRow | None:
         iter_ = self._manifests.get(short_name)
         if iter_ is None:
             return None
@@ -268,7 +273,7 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
     def _add_manifest(self,
                       manifest: PluginManifest,
                       installed: bool,
-                      icon: Optional[GdkPixbuf.Pixbuf] = None) -> None:
+                      icon: Gio.Icon | None = None) -> None:
 
         restart = self._get_restart(manifest)
         has_error, error = self._get_error(manifest, installed)
@@ -298,7 +303,7 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
 
     def _get_plugin_icon(self,
                          manifest: PluginManifest
-                         ) -> Optional[GdkPixbuf.Pixbuf]:
+                         ) -> Gio.Icon | None:
 
         image_name = f'{manifest.short_name}.png'
         path = configpaths.get('PLUGINS_IMAGES') / image_name
@@ -313,7 +318,7 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
         if path.exists():
             return GdkPixbuf.Pixbuf.new_from_file_at_size(str(path), 16, 16)
 
-        return load_icon_pixbuf('applications-utilities')
+        return Gio.ThemedIcon(name='applications-utilities')
 
     def _on_enabled_toggled(self,
                             _cell: Gtk.CellRendererToggle,
@@ -331,7 +336,7 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
             try:
                 app.plugin_manager.activate_plugin(plugin)
             except GajimPluginActivateException as e:
-                WarningDialog(_('Plugin failed'), str(e))
+                SimpleDialog(_('Plugin Failed'), str(e))
                 return
 
         self._update_selected_plugin()
@@ -343,9 +348,9 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
             manifest = model.get_value(iter_, Column.MANIFEST)
             plugin = app.plugin_manager.get_plugin(manifest.short_name)
             assert plugin is not None
-            plugin.config_dialog(self)  # pyright: ignore
+            plugin.config_dialog(self.window)  # pyright: ignore
 
-    def _on_uninstall_plugin(self, _button: Gtk.ToolButton) -> None:
+    def _on_uninstall_plugin(self, _button: Gtk.Button) -> None:
         selection = self._ui.plugins_treeview.get_selection()
         model, iter_ = selection.get_selected()
         if not iter_:
@@ -353,15 +358,15 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
 
         manifest = model.get_value(iter_, Column.MANIFEST)
         plugin = app.plugin_manager.get_plugin(manifest.short_name)
+        error_text = _('Unable to properly remove the plugin')
         if plugin is None:
-            WarningDialog(_('Unable to properly remove the plugin'))
+            SimpleDialog(_('Warning'), error_text)
             return
 
         try:
             app.plugin_manager.uninstall_plugin(plugin)
         except PluginsystemError as error:
-            WarningDialog(_('Unable to properly remove the plugin'),
-                          str(error))
+            SimpleDialog(_('Warning'), f"{error_text}\n{error}")
             return
 
     def _on_plugin_removed(self, event: PluginRemoved) -> None:
@@ -395,46 +400,41 @@ class PluginsWindow(Gtk.ApplicationWindow, EventHelper):
             manifest = row[Column.MANIFEST]
             app.plugin_repository.download_plugins([manifest])
 
-    def _on_install_plugin_from_zip(self, _button: Gtk.ToolButton) -> None:
-        def _show_warn_dialog() -> None:
-            text = _('Archive is malformed')
-            WarningDialog(text, transient_for=self)
+    def _on_install_plugin_from_zip(
+        self, _button: FileChooserButton, paths: list[Path]
+    ) -> None:
+        if not paths:
+            return
 
-        def _on_plugin_exists(zip_filename: str) -> None:
-            def _on_yes():
-                plugin = app.plugin_manager.install_from_zip(zip_filename,
-                                                             overwrite=True)
-                if not plugin:
-                    _show_warn_dialog()
-                    return
+        zip_filename = str(paths[0])
 
-            ConfirmationDialog(
-                _('Overwrite Plugin?'),
-                _('Plugin already exists'),
-                _('Do you want to overwrite the currently installed version?'),
-                [DialogButton.make('Cancel'),
-                 DialogButton.make('Remove',
-                                   text=_('_Overwrite'),
-                                   callback=_on_yes)],
-                transient_for=self).show()
-
-        def _try_install(paths: list[str]) -> None:
-            zip_filename = paths[0]
-            try:
-                plugin = app.plugin_manager.install_from_zip(zip_filename)
-            except PluginsystemError as er_type:
-                error_text = str(er_type)
-                if error_text == _('Plugin already exists'):
-                    _on_plugin_exists(zip_filename)
-                    return
-
-                WarningDialog(error_text, f'"{zip_filename}"')
-                return
+        def _on_overwrite():
+            plugin = app.plugin_manager.install_from_zip(zip_filename,
+                                                         overwrite=True)
             if not plugin:
-                _show_warn_dialog()
+                SimpleDialog(_('Archive Malformed'), _('Archive is malformed'))
                 return
 
-        ArchiveChooserDialog(_try_install, transient_for=self)
+        try:
+            plugin = app.plugin_manager.install_from_zip(zip_filename)
+        except PluginsystemError as er_type:
+            error_text = str(er_type)
+            if error_text == _('Plugin already exists'):
+                ConfirmationDialog(
+                    _('Overwrite Plugin?'),
+                    _('Do you want to overwrite the currently installed version?'),
+                    [DialogButton.make('Cancel'),
+                     DialogButton.make('Remove',
+                                       text=_('_Overwrite'),
+                                       callback=_on_overwrite)],
+                )
+                return
+
+            SimpleDialog(error_text, f'"{zip_filename}"')
+            return
+
+        if not plugin:
+            SimpleDialog(_('Archive Malformed'), _('Archive is malformed'))
 
     def _on_download_started(self,
                              _repository: PluginRepositoryT,

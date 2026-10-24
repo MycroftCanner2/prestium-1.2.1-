@@ -1,60 +1,47 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
 from typing import cast
-from typing import Generator
 from typing import Literal
-from typing import Optional
-from typing import Union
 
 import logging
-import time
+from collections.abc import Generator
 from datetime import datetime
 from datetime import timedelta
 
-from gi.repository import Gdk
 from gi.repository import Gio
+from gi.repository import GLib
 from gi.repository import GObject
+from gi.repository import Graphene
 from gi.repository import Gtk
 from nbxmpp.errors import StanzaError
-from nbxmpp.modules.security_labels import Displaymarking
 from nbxmpp.protocol import JID
-from nbxmpp.structs import CommonError
 from nbxmpp.structs import MucSubject
 
 from gajim.common import app
 from gajim.common import events
 from gajim.common import types
-from gajim.common.helpers import AdditionalDataDict
-from gajim.common.helpers import get_start_of_day
+from gajim.common.const import Direction
 from gajim.common.helpers import to_user_string
 from gajim.common.modules.contacts import BareContact
 from gajim.common.modules.contacts import GroupchatContact
 from gajim.common.modules.httpupload import HTTPFileTransfer
-from gajim.common.storage.archive import ConversationRow
+from gajim.common.storage.archive.const import ChatDirection
+from gajim.common.storage.archive.models import Message
 from gajim.common.types import ChatContactT
+from gajim.common.util.datetime import get_start_of_day
 
 from gajim.gtk.conversation.rows.base import BaseRow
 from gajim.gtk.conversation.rows.call import CallRow
 from gajim.gtk.conversation.rows.command_output import CommandOutputRow
 from gajim.gtk.conversation.rows.date import DateRow
+from gajim.gtk.conversation.rows.encryption_info import EncryptionInfoRow
 from gajim.gtk.conversation.rows.file_transfer import FileTransferRow
-from gajim.gtk.conversation.rows.file_transfer_jingle import \
-    FileTransferJingleRow
+from gajim.gtk.conversation.rows.file_transfer_jingle import FileTransferJingleRow
 from gajim.gtk.conversation.rows.info import InfoMessage
 from gajim.gtk.conversation.rows.message import MessageRow
 from gajim.gtk.conversation.rows.muc_join_left import MUCJoinLeft
@@ -62,33 +49,30 @@ from gajim.gtk.conversation.rows.muc_subject import MUCSubject
 from gajim.gtk.conversation.rows.read_marker import ReadMarkerRow
 from gajim.gtk.conversation.rows.scroll_hint import ScrollHintRow
 from gajim.gtk.conversation.rows.user_status import UserStatus
+from gajim.gtk.conversation.rows.widgets import MessageRowActions
+from gajim.gtk.util.misc import iterate_listbox_children
 
-log = logging.getLogger('gajim.gtk.conversation_view')
+log = logging.getLogger("gajim.gtk.conversation_view")
 
 
 class ConversationView(Gtk.ScrolledWindow):
 
     __gsignals__ = {
-        'request-history': (
+        "request-history": (
             GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
             None,
-            (bool, )
+            (bool,),
         ),
-        'autoscroll-changed': (
-            GObject.SignalFlags.RUN_LAST,
-            None,
-            (bool,)
-        )
+        "autoscroll-changed": (GObject.SignalFlags.RUN_LAST, None, (bool,)),
     }
 
-    def __init__(self) -> None:
+    def __init__(self, message_row_actions: MessageRowActions) -> None:
         Gtk.ScrolledWindow.__init__(self)
 
         self.set_overlay_scrolling(False)
-        self.get_style_context().add_class('scrolled-no-border')
-        self.get_style_context().add_class('no-scroll-indicator')
-        self.get_style_context().add_class('scrollbar-style')
-        self.set_shadow_type(Gtk.ShadowType.IN)
+        self.add_css_class("scrolled-no-border")
+        self.add_css_class("no-scroll-indicator")
+        self.add_css_class("scrollbar-style")
         self.set_vexpand(True)
 
         self.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
@@ -100,14 +84,14 @@ class ConversationView(Gtk.ScrolledWindow):
         # Using set_hscroll_policy(Gtk.Scrollable.Policy.NEVER) would cause bad
         # performance during resize, and prevent the window from being shrunk
         # horizontally under certain conditions (applies to GroupchatControl)
-        self.get_hscrollbar().hide()
+        self.get_hscrollbar().set_visible(False)
+
+        self._message_row_actions = message_row_actions
+
+        self._contact: ChatContactT | None = None
+        self._client = None
 
         self._list_box = Gtk.ListBox()
-        self._list_box.set_selection_mode(Gtk.SelectionMode.NONE)
-        self._list_box.set_sort_func(self._sort_func)
-
-        self._contact: Optional[ChatContactT] = None
-        self._client = None
 
         # Keeps track of the number of rows shown in ConversationView
         self._row_count: int = 0
@@ -116,53 +100,52 @@ class ConversationView(Gtk.ScrolledWindow):
         # Keeps track of date rows we have added to the list
         self._active_date_rows: set[datetime] = set()
 
-        # message_id -> row mapping
         self._message_id_row_map: dict[str, MessageRow] = {}
+        self._stanza_id_row_map: dict[str, MessageRow] = {}
 
         self._read_marker_row = None
         self._scroll_hint_row = None
 
         self._current_upper: float = 0
         self._autoscroll: bool = True
-        self._request_history_at_upper: Optional[float] = None
+        self._request_history_at_upper: float | None = None
         self._upper_complete: bool = False
         self._lower_complete: bool = True
-        self._requesting: Optional[str] = None
+        self._requesting: str | None = None
         self._block_signals = False
 
         self._signal_handlers_enabled = False
         self._signal_handler_ids = (0, 0)
 
-        self.add(self._list_box)
-        self.set_focus_vadjustment(Gtk.Adjustment())
+        self.set_child(self._list_box)
 
-        app.window.get_action('scroll-view-up').connect(
-            'activate', self._on_scroll_view)
-        app.window.get_action('scroll-view-down').connect(
-            'activate', self._on_scroll_view)
+        app.window.get_action("scroll-view-up").connect(
+            "activate", self._on_scroll_view
+        )
+        app.window.get_action("scroll-view-down").connect(
+            "activate", self._on_scroll_view
+        )
 
     def copy_selected_messages(self) -> None:
-        format_string = app.settings.get('date_time_format')
-        selection_text = ''
+        format_string = app.settings.get("date_time_format")
+        selection_text = ""
         for row in cast(list[BaseRow], self._list_box.get_selected_rows()):
             if isinstance(row, MessageRow):
                 timestamp_formatted = row.timestamp.strftime(format_string)
-                selection_text += (f'{timestamp_formatted} - {row.name}: '
-                                   f'{row.get_text()}\n')
+                selection_text += (
+                    f"{timestamp_formatted} - {row.name}:\n" f"{row.get_text()}\n"
+                )
 
-        clip = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-        clip.set_text(selection_text, -1)
+        self.get_clipboard().set(selection_text)
 
         self.disable_row_selection()
 
-    def enable_row_selection(self,
-                             log_line_id: Optional[int]
-                             ) -> None:
+    def enable_row_selection(self, pk: int | None) -> None:
 
         self._list_box.set_selection_mode(Gtk.SelectionMode.MULTIPLE)
 
-        if log_line_id is not None:
-            row = self.get_row_by_log_line_id(log_line_id)
+        if pk is not None:
+            row = self.get_row_by_pk(pk)
             self._list_box.select_row(row)
 
         for row in self.iter_rows():
@@ -175,16 +158,13 @@ class ConversationView(Gtk.ScrolledWindow):
         for row in self.iter_rows():
             row.disable_selection_mode()
 
-    def _on_scroll_view(self,
-                        action: Gio.SimpleAction,
-                        _param: Literal[None]) -> None:
-
+    def _on_scroll_view(self, action: Gio.SimpleAction, _param: Literal[None]) -> None:
         action_name = action.get_name()
-        if action_name == 'scroll-view-down':
-            self.emit('scroll-child', Gtk.ScrollType.PAGE_DOWN, False)
+        if action_name == "scroll-view-down":
+            self.emit("scroll-child", Gtk.ScrollType.PAGE_DOWN, False)
 
-        elif action_name == 'scroll-view-up':
-            self.emit('scroll-child', Gtk.ScrollType.PAGE_UP, False)
+        elif action_name == "scroll-view-up":
+            self.emit("scroll-child", Gtk.ScrollType.PAGE_UP, False)
 
     def _enable_signal_handlers(self, enable: bool) -> None:
         if self._signal_handlers_enabled == enable:
@@ -193,10 +173,8 @@ class ConversationView(Gtk.ScrolledWindow):
         vadjustment = self.get_vadjustment()
 
         if enable:
-            upper_id = vadjustment.connect('notify::upper',
-                                           self._on_adj_upper_changed)
-            value_id = vadjustment.connect('notify::value',
-                                           self._on_adj_value_changed)
+            upper_id = vadjustment.connect("notify::upper", self._on_adj_upper_changed)
+            value_id = vadjustment.connect("notify::value", self._on_adj_value_changed)
             self._signal_handler_ids = (upper_id, value_id)
         else:
             upper_id, value_id = self._signal_handler_ids
@@ -224,26 +202,29 @@ class ConversationView(Gtk.ScrolledWindow):
         self.disable_row_selection()
 
         self._read_marker_row = ReadMarkerRow(self._contact)
-        self._list_box.add(self._read_marker_row)
+        self._list_box.append(self._read_marker_row)
 
         self._scroll_hint_row = ScrollHintRow(self._contact.account)
-        self._list_box.add(self._scroll_hint_row)
+        self._list_box.append(self._scroll_hint_row)
 
         app.settings.disconnect_signals(self)
 
-        app.settings.connect_signal('print_join_left',
-                                    self._on_contact_setting_changed,
-                                    account=contact.account,
-                                    jid=contact.jid)
+        app.settings.connect_signal(
+            "print_join_left",
+            self._on_contact_setting_changed,
+            account=contact.account,
+            jid=contact.jid,
+        )
 
-        app.settings.connect_signal('print_status',
-                                    self._on_contact_setting_changed,
-                                    account=contact.account,
-                                    jid=contact.jid)
+        app.settings.connect_signal(
+            "print_status",
+            self._on_contact_setting_changed,
+            account=contact.account,
+            jid=contact.jid,
+        )
 
         self._block_signals = False
         self._enable_signal_handlers(True)
-        self._emit('request-history', True)
 
     def get_autoscroll(self) -> bool:
         return self._autoscroll
@@ -253,8 +234,16 @@ class ConversationView(Gtk.ScrolledWindow):
 
     def _emit(self, signal_name: str, *args: Any) -> None:
         if not self._block_signals:
-            log.debug('emit %s, %s', signal_name, args)
-            self.emit(signal_name, *args)
+            log.debug("emit %s, %s", signal_name, args)
+            GLib.idle_add(self.emit, signal_name, *args)
+
+    def _reset_list_box(self) -> None:
+        self._list_box.set_selection_mode(Gtk.SelectionMode.NONE)
+        # Performance: Disable sort function before removing all rows
+        self._list_box.set_sort_func(None)
+        self._list_box.remove_all()
+
+        self._list_box.set_sort_func(self._sort_func)
 
     def _reset(self) -> None:
         self._current_upper = 0
@@ -265,12 +254,12 @@ class ConversationView(Gtk.ScrolledWindow):
         self._requesting = None
         self.set_history_complete(True, False)
 
-        for row in self._list_box.get_children():
-            row.destroy()
+        self._reset_list_box()
 
         self._row_count = 0
         self._active_date_rows = set()
         self._message_id_row_map = {}
+        self._stanza_id_row_map = {}
         self._read_marker_row = None
         self._scroll_hint_row = None
 
@@ -290,37 +279,43 @@ class ConversationView(Gtk.ScrolledWindow):
     def get_lower_complete(self) -> bool:
         return self._lower_complete
 
-    def _on_adj_upper_changed(self,
-                              adj: Gtk.Adjustment,
-                              _pspec: GObject.ParamSpec) -> None:
+    def _scroll_to_pos_idle(self, adj: Gtk.Adjustment, value: float) -> None:
+        if value == -1:
+            # scroll to end
+            value = adj.get_upper() - adj.get_page_size()
 
+        GLib.idle_add(adj.set_value, value)
+
+    def _on_adj_upper_changed(
+        self, adj: Gtk.Adjustment, _pspec: GObject.ParamSpec
+    ) -> None:
         upper = adj.get_upper()
         diff = upper - self._current_upper
 
         if diff != 0:
             self._current_upper = upper
             if self._autoscroll:
-                adj.set_value(adj.get_upper() - adj.get_page_size())
+                self._scroll_to_pos_idle(adj, -1)
             else:
                 # Workaround
                 # https://gitlab.gnome.org/GNOME/gtk/merge_requests/395
                 self.set_kinetic_scrolling(True)
-                if self._requesting == 'before':
-                    adj.set_value(adj.get_value() + diff)
+                if self._requesting == "before":
+                    self._scroll_to_pos_idle(adj, adj.get_value() + diff)
 
         if upper == adj.get_page_size():
             # There is no scrollbar
             if not self._block_signals:
-                self._emit('request-history', True)
+                self._emit("request-history", True)
             self._lower_complete = True
             self._autoscroll = True
-            self._emit('autoscroll-changed', self._autoscroll)
+            self._emit("autoscroll-changed", self._autoscroll)
 
         self._requesting = None
 
-    def _on_adj_value_changed(self,
-                              adj: Gtk.Adjustment,
-                              _pspec: GObject.ParamSpec) -> None:
+    def _on_adj_value_changed(
+        self, adj: Gtk.Adjustment, _pspec: GObject.ParamSpec
+    ) -> None:
 
         if self._requesting is not None:
             return
@@ -328,7 +323,7 @@ class ConversationView(Gtk.ScrolledWindow):
         bottom = adj.get_upper() - adj.get_page_size()
 
         self._autoscroll = bottom - adj.get_value() < 1
-        self._emit('autoscroll-changed', self._autoscroll)
+        self._emit("autoscroll-changed", self._autoscroll)
 
         if self._upper_complete:
             self._request_history_at_upper = None
@@ -343,7 +338,7 @@ class ConversationView(Gtk.ScrolledWindow):
 
         self._request_history_at_upper = None
 
-        distance = adj.get_page_size() * 2
+        distance = adj.get_page_size()
         if adj.get_value() < distance:
             # Load messages when we are near the top
             if self._upper_complete:
@@ -352,19 +347,18 @@ class ConversationView(Gtk.ScrolledWindow):
             # Workaround: https://gitlab.gnome.org/GNOME/gtk/merge_requests/395
             self.set_kinetic_scrolling(False)
             if not self._block_signals:
-                self._emit('request-history', True)
-            self._requesting = 'before'
+                self._emit("request-history", True)
+            self._requesting = "before"
 
-        elif (adj.get_upper() - (adj.get_value() + adj.get_page_size()) <
-                distance):
+        elif adj.get_upper() - (adj.get_value() + adj.get_page_size()) < distance:
             # ..or near the bottom
             if self._lower_complete:
                 return
             # Workaround: https://gitlab.gnome.org/GNOME/gtk/merge_requests/395
             self.set_kinetic_scrolling(False)
             if not self._block_signals:
-                self._emit('request-history', False)
-            self._requesting = 'after'
+                self._emit("request-history", False)
+            self._requesting = "after"
 
     @property
     def contact(self) -> types.ChatContactT:
@@ -376,31 +370,42 @@ class ConversationView(Gtk.ScrolledWindow):
         assert row is not None
         return cast(BaseRow, row)
 
-    def get_first_message_row(self) -> Optional[MessageRow]:
-        for row in self._list_box.get_children():
+    def get_first_row(self) -> MessageRow | CallRow | FileTransferJingleRow | None:
+        for row in iterate_listbox_children(self._list_box):
+            if isinstance(row, MessageRow | CallRow | FileTransferJingleRow):
+                return row
+        return None
+
+    def get_last_row(self) -> MessageRow | CallRow | FileTransferJingleRow | None:
+        children = reversed(list(iterate_listbox_children(self._list_box)))
+        for row in children:
+            if isinstance(row, MessageRow | CallRow | FileTransferJingleRow):
+                return row
+        return None
+
+    def get_first_message_row(self) -> MessageRow | None:
+        for row in iterate_listbox_children(self._list_box):
             if isinstance(row, MessageRow):
                 return row
         return None
 
-    def get_last_message_row(self) -> Optional[MessageRow]:
-        children = self._list_box.get_children()
-        children.reverse()
+    def get_last_message_row(self) -> MessageRow | None:
+        children = reversed(list(iterate_listbox_children(self._list_box)))
         for row in children:
             if isinstance(row, MessageRow):
                 return row
         return None
 
-    def get_first_event_row(self) -> Optional[Union[InfoMessage, MUCJoinLeft]]:
-        for row in self._list_box.get_children():
-            if isinstance(row, (InfoMessage, MUCJoinLeft)):
+    def get_first_event_row(self) -> InfoMessage | MUCJoinLeft | None:
+        for row in iterate_listbox_children(self._list_box):
+            if isinstance(row, InfoMessage | MUCJoinLeft):
                 return row
         return None
 
-    def get_last_event_row(self) -> Optional[Union[InfoMessage, MUCJoinLeft]]:
-        children = self._list_box.get_children()
-        children.reverse()
+    def get_last_event_row(self) -> InfoMessage | MUCJoinLeft | None:
+        children = reversed(list(iterate_listbox_children(self._list_box)))
         for row in children:
-            if isinstance(row, (InfoMessage, MUCJoinLeft)):
+            if isinstance(row, InfoMessage | MUCJoinLeft):
                 return row
         return None
 
@@ -410,48 +415,45 @@ class ConversationView(Gtk.ScrolledWindow):
             return 0
         return -1 if row1.timestamp < row2.timestamp else 1
 
-    def add_muc_subject(self,
-                        subject: MucSubject,
-                        timestamp: Optional[float] = None
-                        ) -> None:
+    def add_muc_subject(
+        self, subject: MucSubject, timestamp: float | None = None
+    ) -> None:
 
         muc_subject = MUCSubject(self.contact.account, subject, timestamp)
         self._insert_message(muc_subject)
 
-    def add_muc_user_left(self,
-                          event: events.MUCUserLeft,
-                          error: bool = False
-                          ) -> None:
+    def add_muc_user_left(self, event: events.MUCUserLeft, error: bool = False) -> None:
 
         assert isinstance(self._contact, GroupchatContact)
-        if not self._contact.settings.get('print_join_left'):
+        if not self._contact.settings.get("print_join_left"):
             return
-        join_left = MUCJoinLeft('muc-user-left',
-                                self._contact.account,
-                                event.nick,
-                                reason=event.reason,
-                                error=error,
-                                timestamp=event.timestamp)
+        join_left = MUCJoinLeft(
+            "muc-user-left",
+            self._contact.account,
+            event.nick,
+            reason=event.reason,
+            error=error,
+            timestamp=event.timestamp,
+        )
         self._insert_message(join_left)
 
     def add_muc_user_joined(self, event: events.MUCUserJoined) -> None:
         assert isinstance(self._contact, GroupchatContact)
-        if not self._contact.settings.get('print_join_left'):
+        if not self._contact.settings.get("print_join_left"):
             return
-        join_left = MUCJoinLeft('muc-user-joined',
-                                self._contact.account,
-                                event.nick,
-                                timestamp=event.timestamp)
+        join_left = MUCJoinLeft(
+            "muc-user-joined",
+            self._contact.account,
+            event.nick,
+            timestamp=event.timestamp,
+        )
         self._insert_message(join_left)
 
     def add_user_status(self, name: str, show: str, status: str) -> None:
         user_status = UserStatus(self.contact.account, name, show, status)
         self._insert_message(user_status)
 
-    def add_info_message(self,
-                         text: str,
-                         timestamp: Optional[float] = None
-                         ) -> None:
+    def add_info_message(self, text: str, timestamp: datetime | None = None) -> None:
 
         message = InfoMessage(self.contact.account, text, timestamp)
         self._insert_message(message)
@@ -460,102 +462,88 @@ class ConversationView(Gtk.ScrolledWindow):
         transfer_row = FileTransferRow(self.contact.account, transfer)
         self._insert_message(transfer_row)
 
-    def add_jingle_file_transfer(self,
-                                 event: Union[
-                                     events.FileRequestReceivedEvent,
-                                     events.FileRequestSent,
-                                     None] = None,
-                                 db_message: Optional[ConversationRow] = None
-                                 ) -> None:
+    def add_jingle_file_transfer(
+        self,
+        event: events.FileRequestReceivedEvent | events.FileRequestSent | None = None,
+        message: Message | None = None,
+    ) -> None:
 
         assert isinstance(self._contact, BareContact)
         jingle_transfer_row = FileTransferJingleRow(
-            self._contact.account,
-            self._contact,
-            event=event,
-            db_message=db_message)
+            self._contact.account, self._contact, event=event, message=message
+        )
         self._insert_message(jingle_transfer_row)
 
-    def add_call_message(self,
-                         event: Optional[events.JingleRequestReceived] = None,
-                         db_message: Optional[ConversationRow] = None
-                         ) -> None:
+    def add_encryption_info(self, event: events.EncryptionInfo) -> None:
+        assert self._contact is not None
+        self._insert_message(EncryptionInfoRow(event))
+
+    def add_call_message(
+        self,
+        event: events.JingleRequestReceived | None = None,
+        message: Message | None = None,
+    ) -> None:
         assert isinstance(self._contact, BareContact)
         call_row = CallRow(
-            self._contact.account,
-            self._contact,
-            event=event,
-            db_message=db_message)
+            self._contact.account, self._contact, event=event, message=message
+        )
         self._insert_message(call_row)
 
     def add_command_output(self, text: str, is_error: bool) -> None:
-        command_output_row = CommandOutputRow(
-            self.contact.account, text, is_error)
+        command_output_row = CommandOutputRow(self.contact.account, text, is_error)
         self._insert_message(command_output_row)
 
-    def add_message(self,
-                    text: str,
-                    kind: str,
-                    name: str,
-                    timestamp: float,
-                    log_line_id: Optional[int] = None,
-                    message_id: Optional[str] = None,
-                    stanza_id: Optional[str] = None,
-                    display_marking: Optional[Displaymarking] = None,
-                    additional_data: Optional[AdditionalDataDict] = None,
-                    marker: Optional[str] = None,
-                    error: Union[CommonError, StanzaError, None] = None
-                    ) -> None:
+    def add_message_from_db(self, message: Message) -> None:
+        message_row = MessageRow.from_db_row(self.contact, message)
+        message_row.connect(
+            "state-flags-changed", self._on_message_row_state_flags_changed
+        )
+        message_id = message.id
+        stanza_id = message.stanza_id
 
-        if not timestamp:
-            timestamp = time.time()
-
-        message_row = MessageRow(
-            self.contact.account,
-            self.contact,
-            message_id,
-            stanza_id,
-            timestamp,
-            kind,
-            name,
-            text,
-            additional_data=additional_data,
-            display_marking=display_marking,
-            marker=marker,
-            error=error,
-            log_line_id=log_line_id)
+        if stanza_id is not None:
+            self._stanza_id_row_map[stanza_id] = message_row
 
         if message_id is not None:
             self._message_id_row_map[message_id] = message_row
 
-        if kind == 'incoming':
+        if message.corrections:
+            # Store the same MessageRow object also with the message id
+            # of the last correction, because we need it for XEP-0184 Receipts
+            # which does not reference the original message id.
+            corr_message_id = message.get_last_correction().id
+            if corr_message_id is not None:
+                self._message_id_row_map[corr_message_id] = message_row
+
+        if message.direction == ChatDirection.INCOMING:
             assert self._read_marker_row is not None
-            self._read_marker_row.set_last_incoming_timestamp(
-                message_row.timestamp)
-        if (marker is not None and marker == 'displayed' and
-                message_id is not None):
+            self._read_marker_row.set_last_incoming_timestamp(message_row.timestamp)
+
+        if message.markers:
+            assert message_id is not None
             self.set_read_marker(message_id)
 
         self._insert_message(message_row)
 
     def _insert_message(self, message: BaseRow) -> None:
-        self._list_box.add(message)
+        self._list_box.append(message)
+
         self._add_date_row(message.timestamp)
         self._check_for_merge(message)
         assert self._read_marker_row is not None
 
-        if message.kind == 'incoming':
+        if message.direction == ChatDirection.INCOMING:
             if message.timestamp > self._read_marker_row.timestamp:
-                self._read_marker_row.hide()
+                self._read_marker_row.set_visible(False)
 
     def _add_date_row(self, timestamp: datetime) -> None:
-        start_of_day = get_start_of_day(timestamp)
+        start_of_day = get_start_of_day(timestamp.astimezone())
         if start_of_day in self._active_date_rows:
             return
 
         date_row = DateRow(self.contact.account, start_of_day)
         self._active_date_rows.add(start_of_day)
-        self._list_box.add(date_row)
+        self._list_box.append(date_row)
 
         row = self._list_box.get_row_at_index(date_row.get_index() + 1)
         if row is None:
@@ -570,17 +558,16 @@ class ConversationView(Gtk.ScrolledWindow):
         if not isinstance(message, MessageRow):
             return
 
-        if not app.settings.get('chat_merge_consecutive_nickname'):
+        if not app.settings.get("chat_merge_consecutive_nickname"):
             return
 
         ancestor = self._find_ancestor(message)
         if ancestor is None:
             self._update_descendants(message)
         else:
-            if message.is_mergeable(ancestor):
-                message.set_merged(True)
+            message.set_merged(message.is_mergeable(ancestor))
 
-    def _find_ancestor(self, message: MessageRow) -> Optional[MessageRow]:
+    def _find_ancestor(self, message: MessageRow) -> MessageRow | None:
         index = message.get_index()
         while index != 0:
             index -= 1
@@ -619,58 +606,40 @@ class ConversationView(Gtk.ScrolledWindow):
             row.set_merged(merge)
             return
 
-    def reduce_message_count(self, before: bool) -> bool:
-        success = False
-        row_count = len(self._list_box.get_children())
-        while row_count > self._max_row_count:
-            if before:
-                if self._reduce_messages_before():
-                    row_count -= 1
-                    success = True
-            else:
-                self._reduce_messages_after()
-                row_count -= 1
-                success = True
+    def _on_message_row_state_flags_changed(
+        self, row: MessageRow, previous_flags: Gtk.StateFlags
+    ) -> None:
+        if self._list_box.get_selection_mode() == Gtk.SelectionMode.MULTIPLE:
+            # Message row selection active, hide MessageRowActions
+            self._message_row_actions.hide_actions()
+            return
 
-        return success
+        current_flags = self.get_state_flags()
 
-    def _reduce_messages_before(self) -> bool:
-        success = False
+        if (
+            current_flags & Gtk.StateFlags.BACKDROP
+            or previous_flags & Gtk.StateFlags.BACKDROP
+        ):
+            # Don't react to backdrop changes and focus changes when in background
+            return
 
-        # We want to keep relevant DateRows when removing rows
-        row1 = self._get_row_at_index(2)
-        row2 = self._get_row_at_index(3)
+        if previous_flags & Gtk.StateFlags.PRELIGHT:
+            self._message_row_actions.hide_actions()
+        else:
+            success, point = row.compute_point(self, Graphene.Point.zero())
+            if not success:
+                return
 
-        if row1.type == 'date' and row2.type == 'date':
-            # First two rows are date rows,
-            # it’s safe to remove the fist row
-            row1.destroy()
-            success = True
+            self._message_row_actions.update(point.y, row)
 
-        if row1.type == 'date' and row2.type != 'date':
-            # First one is a date row, keep it and
-            # remove the second row instead
-            row2.destroy()
-            success = True
-
-        if row1.type != 'date':
-            # Not a date row, safe to remove
-            row1.destroy()
-            success = True
-
-        return success
-
-    def _reduce_messages_after(self) -> None:
-        row = self._get_row_at_index(len(self._list_box.get_children()) - 1)
-        row.destroy()
-
-    def remove_message(self, log_line_id: int) -> None:
-        row = self.get_row_by_log_line_id(log_line_id)
+    def remove_message(self, pk: int) -> None:
+        row = self.get_row_by_pk(pk)
         if row is None:
             return
 
+        self._remove_from_maps(row)
         index = row.get_index()
-        row.destroy()
+        self._list_box.remove(row)
         decendant_row = self._list_box.get_row_at_index(index)
         if isinstance(decendant_row, MessageRow):
             # Unset possible merged state if we delete a 'top level' message.
@@ -678,53 +647,119 @@ class ConversationView(Gtk.ScrolledWindow):
             # unset merged state.
             decendant_row.set_merged(False)
 
-    def scroll_to_message_and_highlight(self, log_line_id: int) -> None:
-        highlight_row = None
-        for row in cast(list[BaseRow], self._list_box.get_children()):
-            row.get_style_context().remove_class(
-                'conversation-search-highlight')
-            if row.log_line_id == log_line_id:
-                highlight_row = row
+    def _remove_from_maps(self, row: MessageRow) -> None:
+        for key, val in dict(self._message_id_row_map).items():
+            if val is row:
+                del self._message_id_row_map[key]
 
-        if highlight_row is not None:
-            highlight_row.get_style_context().add_class(
-                'conversation-search-highlight')
-            # This scrolls the ListBox to the highlighted row
-            highlight_row.grab_focus()
+        for key, val in dict(self._stanza_id_row_map).items():
+            if val is row:
+                del self._stanza_id_row_map[key]
+
+    def acknowledge_message(self, event: events.MessageAcknowledged) -> None:
+        row = self.get_row_by_pk(event.pk)
+        if row is None:
+            return
+
+        if event.stanza_id is not None:
+            self._stanza_id_row_map[event.stanza_id] = row
+        row.set_acknowledged(event.stanza_id)
+        self._check_for_merge(row)
+
+    def scroll_to_message_and_highlight(self, pk: int) -> None:
+        highlight_row = None
+        for row in cast(list[BaseRow], iterate_listbox_children(self._list_box)):
+            if row.pk == pk:
+                highlight_row = row
+                break
+
+        if highlight_row is None:
+            return
+
+        # Scroll ListBox to row and highlight it
+        coordinates = highlight_row.translate_coordinates(self._list_box, 0, 0)
+        if coordinates is None:
+            return
+
+        _x_coord, y_coord = coordinates
+        _mimimum_site, natural_size = highlight_row.get_preferred_size()
+        adjustment = self._list_box.get_adjustment()
+        assert adjustment is not None
+        adjustment.set_value(
+            y_coord - (adjustment.get_page_size() - natural_size.height) / 2
+        )
+
+        highlight_row.remove_css_class("conversation-row-highlight")
+        highlight_row.add_css_class("conversation-row-highlight")
+
+        GLib.timeout_add(1500, self._remove_highligh_class, highlight_row)
+
+    def _remove_highligh_class(self, highlight_row: BaseRow) -> None:
+        highlight_row.remove_css_class("conversation-row-highlight")
 
     def scroll_to_end(self) -> None:
-        adj = self.get_vadjustment()
-        adj.set_value(adj.get_upper() - adj.get_page_size())
+        self._scroll_to_pos_idle(self.get_vadjustment(), -1)
 
-    def _get_row_by_message_id(self, id_: str) -> Optional[MessageRow]:
-        return self._message_id_row_map.get(id_)
+    def _get_row_by_message_id(self, message_id: str) -> MessageRow | None:
+        return self._message_id_row_map.get(message_id)
 
-    def get_row_by_log_line_id(self, log_line_id: int) -> Optional[MessageRow]:
-        for row in cast(list[BaseRow], self._list_box.get_children()):
+    def _get_row_by_stanza_id(self, stanza_id: str) -> MessageRow | None:
+        return self._stanza_id_row_map.get(stanza_id)
+
+    def _get_message_row_by_direction(
+        self, pk: int, direction: Direction | None = None
+    ) -> MessageRow | None:
+
+        row = self.get_row_by_pk(pk)
+        if row is None:
+            return None
+
+        if direction is None:
+            return row
+
+        index = row.get_index()
+        while True:
+            if direction == Direction.PREV:
+                index -= 1
+            else:
+                index += 1
+
+            row = self._list_box.get_row_at_index(index)
+            if row is None:
+                return None
+
+            if isinstance(row, MessageRow):
+                return row
+
+    def get_prev_message_row(self, pk: int | None) -> MessageRow | None:
+        if pk is None:
+            return self.get_last_message_row()
+        return self._get_message_row_by_direction(pk, direction=Direction.PREV)
+
+    def get_next_message_row(self, pk: int | None) -> MessageRow | None:
+        if pk is None:
+            return None
+        return self._get_message_row_by_direction(pk, direction=Direction.NEXT)
+
+    def get_row_by_pk(self, pk: int) -> MessageRow | None:
+        for row in cast(list[BaseRow], iterate_listbox_children(self._list_box)):
             if not isinstance(row, MessageRow):
                 continue
-            if row.log_line_id == log_line_id:
+            if pk in {row.pk, row.orig_pk}:
                 return row
-        return None
 
-    def get_row_by_stanza_id(self, stanza_id: str) -> Optional[MessageRow]:
-        for row in cast(list[BaseRow], self._list_box.get_children()):
-            if not isinstance(row, MessageRow):
-                continue
-            if row.stanza_id == stanza_id:
-                return row
         return None
 
     def iter_rows(self) -> Generator[BaseRow, None, None]:
-        yield from cast(list[BaseRow], self._list_box.get_children())
+        yield from cast(list[BaseRow], iterate_listbox_children(self._list_box))
 
-    def remove_rows_by_type(self, row_type: str) -> None:
+    def _remove_rows_by_type(self, row_type: str) -> None:
         for row in self.iter_rows():
             if row.type == row_type:
-                row.destroy()
+                self._list_box.remove(row)
 
     def update_call_rows(self) -> None:
-        for row in cast(list[BaseRow], self._list_box.get_children()):
+        for row in cast(list[BaseRow], iterate_listbox_children(self._list_box)):
             if isinstance(row, CallRow):
                 row.update()
 
@@ -733,7 +768,6 @@ class ConversationView(Gtk.ScrolledWindow):
         if row is None:
             return
 
-        row.set_displayed()
         assert self._read_marker_row is not None
         timestamp = row.timestamp + timedelta(microseconds=1)
         if self._read_marker_row.timestamp > timestamp:
@@ -741,55 +775,67 @@ class ConversationView(Gtk.ScrolledWindow):
 
         self._read_marker_row.set_timestamp(timestamp)
 
-    def update_avatars(self) -> None:
-        for row in cast(list[BaseRow], self._list_box.get_children()):
-            if isinstance(row, MessageRow):
-                row.update_avatar()
+    def correct_message(self, event: events.MessageCorrected) -> None:
+        message_row = self._get_row_by_message_id(event.correction_id)
+        if message_row is None:
+            return
 
-    def correct_message(self,
-                        correct_id: str,
-                        text: str,
-                        nickname: Optional[str]
-                        ) -> None:
+        # Store the message row also with the correction message id
+        # because e.g. message receipts reference this id.
+        if event.message.id is not None:
+            self._message_id_row_map[event.message.id] = message_row
 
-        message_row = self._get_row_by_message_id(correct_id)
+        message_row.refresh()
+
+        assert self._read_marker_row is not None
+        timestamp = message_row.timestamp + timedelta(microseconds=1)
+        if self._read_marker_row.timestamp == timestamp:
+            # This exact message has been marked as read
+            # -> set read marker to before this message
+            self._read_marker_row.set_timestamp(
+                message_row.timestamp - timedelta(microseconds=1), force=True
+            )
+
+    def show_message_moderation(self, stanza_id: str, text: str) -> None:
+        message_row = self._get_row_by_stanza_id(stanza_id)
         if message_row is not None:
-            message_row.set_correction(text, nickname)
-            message_row.set_merged(False)
+            message_row.set_moderated(text)
 
-    def show_message_retraction(self, stanza_id: str, text: str) -> None:
-        message_row = self.get_row_by_stanza_id(stanza_id)
+    def update_message_reactions(self, reaction_id: str) -> None:
+        if isinstance(self._contact, GroupchatContact):
+            message_row = self._get_row_by_stanza_id(reaction_id)
+        else:
+            message_row = self._get_row_by_message_id(reaction_id)
+
         if message_row is not None:
-            message_row.set_retracted(text)
+            message_row.update_reactions()
 
-    def show_receipt(self, id_: str) -> None:
+    def set_receipt(self, id_: str) -> None:
         message_row = self._get_row_by_message_id(id_)
-        if message_row is not None:
-            message_row.set_receipt()
+        if message_row is None:
+            return
+
+        if message_row.last_message_id == id_:
+            message_row.set_receipt(True)
+            self._check_for_merge(message_row)
 
     def show_error(self, id_: str, error: StanzaError) -> None:
         message_row = self._get_row_by_message_id(id_)
         if message_row is not None:
-            message_row.set_error(to_user_string(error))
+            message_row.show_error(to_user_string(error))
             message_row.set_merged(False)
 
-    def _on_contact_setting_changed(self,
-                                    value: Any,
-                                    setting: str,
-                                    _account: Optional[str],
-                                    _jid: Optional[JID]) -> None:
+    def _on_contact_setting_changed(
+        self, value: Any, setting: str, _account: str | None, _jid: JID | None
+    ) -> None:
 
-        if setting == 'print_join_left':
+        if setting == "print_join_left":
             if value:
                 return
-            self.remove_rows_by_type('muc-user-joined')
-            self.remove_rows_by_type('muc-user-left')
+            self._remove_rows_by_type("muc-user-joined")
+            self._remove_rows_by_type("muc-user-left")
 
-        if setting == 'print_status':
+        if setting == "print_status":
             if value:
                 return
-            self.remove_rows_by_type('muc-user-status')
-
-    def remove(self, widget: Gtk.Widget) -> None:
-        self._list_box.remove(widget)
-        widget.destroy()
+            self._remove_rows_by_type("muc-user-status")

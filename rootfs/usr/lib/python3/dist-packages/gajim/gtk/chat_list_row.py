@@ -1,27 +1,15 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from __future__ import annotations
 
 from typing import Any
-from typing import Optional
+from typing import Literal
 
-import pickle
 from datetime import datetime
 from urllib.parse import urlparse
 
-import cairo
 from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GLib
@@ -31,50 +19,53 @@ from nbxmpp import JID
 
 from gajim.common import app
 from gajim.common.const import AvatarSize
-from gajim.common.const import KindConstant
+from gajim.common.const import Draft
 from gajim.common.const import RowHeaderType
-from gajim.common.helpers import AdditionalDataDict
-from gajim.common.helpers import get_group_chat_nick
-from gajim.common.helpers import get_groupchat_name
-from gajim.common.helpers import get_retraction_text
-from gajim.common.helpers import get_uf_relative_time
-from gajim.common.helpers import message_needs_highlight
 from gajim.common.i18n import _
 from gajim.common.modules.contacts import BareContact
 from gajim.common.modules.contacts import GroupchatContact
 from gajim.common.modules.contacts import GroupchatParticipant
-from gajim.common.preview_helpers import filename_from_uri
-from gajim.common.preview_helpers import format_geo_coords
-from gajim.common.preview_helpers import guess_simple_file_type
-from gajim.common.preview_helpers import split_geo_uri
+from gajim.common.modules.contacts import ResourceContact
+from gajim.common.modules.message_util import get_nickname_from_message
+from gajim.common.storage.archive import models as mod
+from gajim.common.storage.archive.const import ChatDirection
+from gajim.common.storage.archive.const import MessageType
 from gajim.common.storage.draft import DraftStorage
 from gajim.common.types import ChatContactT
-from gajim.common.types import OneOnOneContactT
+from gajim.common.util.muc import get_groupchat_name
+from gajim.common.util.muc import message_needs_highlight
+from gajim.common.util.preview import filename_from_uri
+from gajim.common.util.preview import format_geo_coords
+from gajim.common.util.preview import guess_simple_file_type
+from gajim.common.util.preview import split_geo_uri
+from gajim.common.util.user_strings import get_moderation_text
+from gajim.common.util.user_strings import get_uf_relative_time
 
 from gajim.gtk.builder import get_builder
 from gajim.gtk.menus import get_chat_list_row_menu
-from gajim.gtk.util import GajimPopover
+from gajim.gtk.util.classes import SignalManager
+from gajim.gtk.widgets import GajimPopover
 
 
-class ChatListRow(Gtk.ListBoxRow):
+class ChatListRow(Gtk.ListBoxRow, SignalManager):
 
     __gsignals__ = {
-        'unread-changed': (
-            GObject.SignalFlags.RUN_LAST,
-            None,
-            ()),
+        "unread-changed": (GObject.SignalFlags.RUN_LAST, None, ()),
+        "context-menu-state-changed": (GObject.SignalFlags.RUN_LAST, None, (bool,)),
     }
 
-    def __init__(self,
-                 workspace_id: str,
-                 account: str,
-                 jid: JID,
-                 type_: str,
-                 pinned: bool,
-                 position: int
-                 ) -> None:
+    def __init__(
+        self,
+        workspace_id: str,
+        account: str,
+        jid: JID,
+        type_: Literal["chat", "groupchat", "pm"],
+        pinned: bool,
+        position: int,
+    ) -> None:
 
         Gtk.ListBoxRow.__init__(self)
+        SignalManager.__init__(self)
 
         self.account = account
         self.jid = jid
@@ -87,121 +78,124 @@ class ChatListRow(Gtk.ListBoxRow):
 
         self._client = app.get_client(account)
 
-        self.contact = self._client.get_module('Contacts').get_contact(jid)
+        self.contact = self._client.get_module("Contacts").get_contact(jid)
+        assert isinstance(
+            self.contact, BareContact | GroupchatContact | GroupchatParticipant
+        )
         self._connect_contact_signals()
 
         self.contact_name: str = self.contact.name
         self.timestamp: float = 0
-        self.stanza_id: Optional[str] = None
-        self.message_id: Optional[str] = None
+        self.stanza_id: str | None = None
+        self.message_id: str | None = None
 
         self._unread_count: int = 0
         self._needs_muc_highlight: bool = False
         self._pinned: bool = pinned
 
-        self.get_style_context().add_class('chatlist-row')
+        self.add_css_class("chatlist-row")
 
-        self._ui = get_builder('chat_list_row.ui')
-        self._ui.connect_signals(self)
-        self.add(self._ui.eventbox)
+        self._ui = get_builder("chat_list_row.ui")
+        self.set_child(self._ui.mainbox)
 
-        self.connect('state-flags-changed', self._on_state_flags_changed)
-        self.connect('destroy', self._on_destroy)
+        self._connect(self._ui.close_button, "clicked", self._on_close_button_clicked)
+
+        self._menu_popover = GajimPopover(None)
+        self._connect(self._menu_popover, "closed", self._on_context_popover_closed)
+        self._ui.mainbox.append(self._menu_popover)
+
+        self._connect(self, "state-flags-changed", self._on_state_flags_changed)
+
+        gesture_middle_click = Gtk.GestureClick(button=Gdk.BUTTON_MIDDLE)
+        self._connect(gesture_middle_click, "pressed", self._on_row_clicked)
+        self.add_controller(gesture_middle_click)
+
+        gesture_secondary_click = Gtk.GestureClick(button=Gdk.BUTTON_SECONDARY)
+        self._connect(gesture_secondary_click, "pressed", self._on_row_clicked)
+        self.add_controller(gesture_secondary_click)
 
         app.settings.connect_signal(
-            'mute_until',
+            "mute_until",
             self._on_mute_setting_changed,
             self.contact.account,
-            self.contact.jid)
+            self.contact.jid,
+        )
         self._on_mute_setting_changed()
 
-        # Drag and Drop
-        entries = [Gtk.TargetEntry.new(
-            'CHAT_LIST_ITEM',
-            Gtk.TargetFlags.SAME_APP,
-            0)]
-        self.drag_source_set(
-            Gdk.ModifierType.BUTTON1_MASK,
-            entries,
-            Gdk.DragAction.MOVE)
-        self.connect('drag-begin', self._on_drag_begin)
-        self.connect('drag-end', self._on_drag_end)
-        self.connect('drag-data-get', self._on_drag_data_get)
+        drag_source = Gtk.DragSource(actions=Gdk.DragAction.MOVE)
+        self._connect(drag_source, "prepare", self._on_prepare)
+        self._connect(drag_source, "drag-begin", self._on_drag_begin)
+        self._connect(drag_source, "drag-end", self._on_drag_end)
+        self.add_controller(drag_source)
 
-        if self.type == 'groupchat':
-            self._ui.group_chat_indicator.show()
+        if self.type == "groupchat":
+            self._ui.group_chat_indicator.set_visible(True)
 
         self.update_avatar()
         self.update_name()
         self.update_account_identifier()
 
-        app.storage.drafts.connect('draft-update', self._on_draft_update)
+        app.storage.drafts.connect("draft-update", self._on_draft_update)
 
-        if (isinstance(self.contact, GroupchatContact) and
-                not self.contact.can_notify()):
-            self._ui.unread_label.get_style_context().add_class(
-                'unread-counter-silent')
+        if isinstance(self.contact, GroupchatContact) and not self.contact.can_notify():
+            self._ui.unread_label.add_css_class("unread-counter-silent")
 
-        self._display_last_conversation_line()
+        self._display_last_conversation_row()
 
-    def _display_last_conversation_line(self) -> None:
-        line = app.storage.archive.get_last_conversation_line(
-            self.contact.account, self.contact.jid)
-        if line is None:
-            self.show_all()
+    def _display_last_conversation_row(self) -> None:
+        message = app.storage.archive.get_last_conversation_row(
+            self.contact.account, self.contact.jid
+        )
+        if message is None:
+            self.set_visible(True)
             return
 
-        if line.message is not None:
-            message_text = line.message
+        assert isinstance(
+            self.contact, BareContact | GroupchatContact | GroupchatParticipant
+        )
 
-            if line.additional_data is not None:
-                retracted_by = line.additional_data.get_value(
-                    'retracted', 'by')
-                if retracted_by is not None:
-                    reason = line.additional_data.get_value(
-                        'retracted', 'reason')
-                    message_text = get_retraction_text(
-                        self.account, retracted_by, reason)
+        if message.text is not None:
+            message_text = message.text
 
-            me_nickname = None
-            if line.kind in (KindConstant.CHAT_MSG_SENT,
-                             KindConstant.SINGLE_MSG_SENT):
-                self.set_nick(_('Me'))
-                me_nickname = app.nicks[self.contact.account]
+            if message.corrections:
+                message_text = message.get_last_correction().text
+                assert message_text is not None
 
-            if line.kind == KindConstant.GC_MSG:
-                our_nick = get_group_chat_nick(
-                    self.contact.account, self.contact.jid)
-                if line.contact_name == our_nick:
-                    self.set_nick(_('Me'))
-                    me_nickname = our_nick
+            if message.moderation is not None:
+                message_text = get_moderation_text(
+                    message.moderation.by, message.moderation.reason
+                )
+
+            # Nickname
+            nickname = None
+            if (
+                message.type == MessageType.CHAT
+                and message.direction == ChatDirection.OUTGOING
+            ):
+                self.set_nick(_("Me"))
+                nickname = app.nicks[self.contact.account]
+
+            elif message.type in (MessageType.GROUPCHAT, MessageType.PM):
+                nickname = get_nickname_from_message(message) or None
+                if message.direction == ChatDirection.OUTGOING:
+                    self.set_nick(_("Me"))
                 else:
-                    self.set_nick(line.contact_name)
-                    me_nickname = line.contact_name
+                    self.set_nick(nickname)
 
-            self.set_message_text(
-                message_text,
-                nickname=me_nickname,
-                additional_data=line.additional_data)
+            self.set_message_text(message_text, nickname=nickname, oob=message.oob)
 
-            self.set_timestamp(line.time)
+            self.set_timestamp(message.timestamp)
 
-            self.stanza_id = line.stanza_id
-            self.message_id = line.message_id
+            self.stanza_id = message.stanza_id
+            self.message_id = message.id
 
-        if line.kind in (KindConstant.FILE_TRANSFER_INCOMING,
-                         KindConstant.FILE_TRANSFER_OUTGOING):
-            self.set_message_text(
-                _('File'), icon_name='text-x-generic-symbolic')
-            self.set_timestamp(line.time)
+        if message.filetransfers:
+            self.set_message_text(_("File"), icon_name="text-x-generic-symbolic")
+            self.set_timestamp(message.timestamp)
 
-        if line.kind in (KindConstant.CALL_INCOMING,
-                         KindConstant.CALL_OUTGOING):
-            self.set_message_text(
-                _('Call'), icon_name='call-start-symbolic')
-            self.set_timestamp(line.time)
-
-        self.show_all()
+        if message.call is not None:
+            self.set_message_text(_("Call"), icon_name="call-start-symbolic")
+            self.set_timestamp(message.timestamp)
 
     @property
     def is_pinned(self) -> bool:
@@ -209,8 +203,11 @@ class ChatListRow(Gtk.ListBoxRow):
 
     @property
     def unread_count(self) -> int:
-        if (self.contact.is_groupchat and not self.contact.can_notify() and
-                not self._needs_muc_highlight):
+        if (
+            isinstance(self.contact, GroupchatContact)
+            and not self.contact.can_notify()
+            and not self._needs_muc_highlight
+        ):
             return 0
         return self._unread_count
 
@@ -218,16 +215,16 @@ class ChatListRow(Gtk.ListBoxRow):
     def unread_count(self, value: int) -> None:
         self._unread_count = value
         self._update_unread()
-        self.emit('unread-changed')
+        self.emit("unread-changed")
 
-    def get_header_type(self) -> Optional[RowHeaderType]:
+    def get_header_type(self) -> RowHeaderType | None:
         header = self.get_header()
         if header is None:
             return None
         assert isinstance(header, RowHeader)
         return header.type
 
-    def set_header_type(self, header_type: Optional[RowHeaderType]) -> None:
+    def set_header_type(self, header_type: RowHeaderType | None) -> None:
         if header_type == self.get_header_type():
             return
 
@@ -240,101 +237,124 @@ class ChatListRow(Gtk.ListBoxRow):
         else:
             self.set_header(self._conversations_header)
 
+    def clear(self) -> None:
+        self.timestamp = 0
+        self.stanza_id = None
+        self.message_id = None
+        self.set_message_text("")
+        self.set_nick("")
+
     def set_message_id(self, message_id: str) -> None:
         self.message_id = message_id
 
-    def set_message_text(self,
-                         text: str,
-                         nickname: Optional[str] = None,
-                         icon_name: Optional[str] = None,
-                         additional_data: Optional[AdditionalDataDict] = None
-                         ) -> None:
+    def set_message_text(
+        self,
+        text: str,
+        nickname: str | None = None,
+        icon_name: str | None = None,
+        oob: list[mod.OOB] | None = None,
+    ) -> None:
+
+        assert isinstance(
+            self.contact, BareContact | GroupchatContact | GroupchatParticipant
+        )
 
         draft = app.storage.drafts.get(self.contact)
         if draft is not None:
             self._show_draft(draft)
             return
 
-        self._ui.message_label.get_style_context().remove_class('draft')
+        self._ui.message_label.remove_css_class("draft")
 
         icon = None
         if icon_name is not None:
             icon = Gio.Icon.new_for_string(icon_name)
-        if additional_data is not None:
-            if app.preview_manager.is_previewable(text, additional_data):
-                scheme = urlparse(text).scheme
-                if scheme == 'geo':
-                    location = split_geo_uri(text)
-                    icon = Gio.Icon.new_for_string('mark-location')
-                    text = format_geo_coords(
-                        float(location.lat), float(location.lon))
-                else:
-                    file_name = filename_from_uri(text)
-                    icon, file_type = guess_simple_file_type(text)
-                    text = f'{file_type} ({file_name})'
+
+        if app.preview_manager.is_previewable(text, oob or []):
+            scheme = urlparse(text).scheme
+            if scheme == "geo":
+                location = split_geo_uri(text)
+                icon = Gio.Icon.new_for_string("mark-location")
+                text = format_geo_coords(float(location.lat), float(location.lon))
+            else:
+                file_name = filename_from_uri(text)
+                icon, file_type = guess_simple_file_type(text)
+                text = f"{file_type} ({file_name})"
 
         text = GLib.markup_escape_text(text)
-        if text.startswith('/me') and nickname is not None:
+        if text.startswith("/me ") and nickname is not None:
             nickname = GLib.markup_escape_text(nickname)
-            text = text.replace('/me', f'* {nickname}', 1)
-            text = f'<i>{text}</i>'
+            text = text.replace("/me", f"* {nickname}", 1)
+            text = f"<i>{text}</i>"
 
         # Split by newline and display last line (or first, if last is newline)
-        lines = text.split('\n')
+        lines = text.split("\n")
         text = lines[-1] or lines[0]
         self._ui.message_label.set_markup(text)
 
         if icon is None:
-            self._ui.message_icon.hide()
+            self._ui.message_icon.set_visible(False)
         else:
-            self._ui.message_icon.set_from_gicon(icon, Gtk.IconSize.MENU)
-            self._ui.message_icon.show()
+            self._ui.message_icon.set_from_gicon(icon)
+            self._ui.message_icon.set_visible(True)
 
-    def set_nick(self, nickname: str) -> None:
+    def set_nick(self, nickname: str | None) -> None:
         self._ui.nick_label.set_visible(bool(nickname))
-        self._ui.nick_label.set_text(
-            _('%(nickname)s:') % {'nickname': nickname})
+        self._ui.nick_label.set_text(_("%(nickname)s:") % {"nickname": nickname})
 
     def get_real_unread_count(self) -> int:
         return self._unread_count
 
-    def set_stanza_id(self, stanza_id: str) -> None:
+    def set_stanza_id(self, stanza_id: str | None) -> None:
         self.stanza_id = stanza_id
 
-    def set_timestamp(self, timestamp: float) -> None:
-        self.timestamp = timestamp
+    def set_timestamp(self, timestamp: datetime) -> None:
+        self.timestamp = timestamp.timestamp()
         self.update_time()
 
     def update_account_identifier(self) -> None:
         account_class = app.css_config.get_dynamic_class(self.account)
-        self._ui.account_identifier.get_style_context().add_class(account_class)
+        self._ui.account_identifier.add_css_class(account_class)
         show = len(app.settings.get_active_accounts()) > 1
         self._ui.account_identifier.set_visible(show)
 
     def update_avatar(self) -> None:
         scale = self.get_scale_factor()
-        surface = self.contact.get_avatar(AvatarSize.ROSTER, scale)
-        self._ui.avatar_image.set_from_surface(surface)
+        assert isinstance(
+            self.contact, BareContact | GroupchatContact | GroupchatParticipant
+        )
+        texture = self.contact.get_avatar(AvatarSize.ROSTER, scale)
+        self._ui.avatar_image.set_pixel_size(AvatarSize.ROSTER)
+        self._ui.avatar_image.set_from_paintable(texture)
 
     def update_name(self) -> None:
-        if self.type == 'pm':
+        assert isinstance(
+            self.contact, BareContact | GroupchatContact | GroupchatParticipant
+        )
+        if self.type == "pm":
             client = app.get_client(self.account)
             muc_name = get_groupchat_name(client, self.jid.new_as_bare())
-            self._ui.name_label.set_text(f'{self.contact.name} ({muc_name})')
+            self._ui.name_label.set_text(f"{self.contact.name} ({muc_name})")
             return
 
         self.contact_name = self.contact.name
         if self.jid == self._client.get_own_jid().bare:
-            self.contact_name = _('Note to myself')
+            self.contact_name = _("Note to myself")
         self._ui.name_label.set_text(self.contact_name)
 
     def update_time(self) -> None:
         if self.timestamp == 0:
             return
         self._ui.timestamp_label.set_text(
-            get_uf_relative_time(datetime.fromtimestamp(self.timestamp)))
+            get_uf_relative_time(datetime.fromtimestamp(self.timestamp))
+        )
+
+    def update_row_state(self) -> None:
+        self.update_time()
+        self._ui.mute_image.set_visible(self.contact.is_muted)
 
     def add_unread(self, text: str) -> None:
+        assert self.message_id is not None
         self._unread_count += 1
         self._update_unread()
         app.storage.cache.set_unread_count(
@@ -342,32 +362,32 @@ class ChatListRow(Gtk.ListBoxRow):
             self.jid,
             self.get_real_unread_count(),
             self.message_id,
-            self.timestamp)
+            self.timestamp,
+        )
 
-        if self.contact.is_groupchat:
-            needs_highlight = message_needs_highlight(
-                text,
-                self.contact.nickname,
-                self._client.get_own_jid().bare)
-            if needs_highlight:
+        if (
+            isinstance(self.contact, GroupchatContact)
+            and self.contact.nickname is not None
+        ):
+            if message_needs_highlight(
+                text, self.contact.nickname, self._client.get_own_jid().bare
+            ):
                 self._needs_muc_highlight = True
-                self._ui.unread_label.get_style_context().remove_class(
-                    'unread-counter-silent')
+                self._ui.unread_label.remove_css_class("unread-counter-silent")
 
-        self.emit('unread-changed')
+        self.emit("unread-changed")
 
     def reset_unread(self) -> None:
         self._needs_muc_highlight = False
         self._unread_count = 0
         self._update_unread()
-        self.emit('unread-changed')
+        self.emit("unread-changed")
 
         app.storage.cache.reset_unread_count(self.account, self.jid)
 
         # Add class again in case we were mentioned previously
-        if self.contact.is_groupchat and not self.contact.can_notify():
-            self._ui.unread_label.get_style_context().add_class(
-                'unread-counter-silent')
+        if isinstance(self.contact, GroupchatContact) and not self.contact.can_notify():
+            self._ui.unread_label.add_css_class("unread-counter-silent")
 
     def toggle_pinned(self) -> None:
         self._pinned = not self._pinned
@@ -381,187 +401,238 @@ class ChatListRow(Gtk.ListBoxRow):
     def _get_unread_string(count: int) -> str:
         if count < 1000:
             return str(count)
-        return '999+'
+        return "999+"
 
     def _on_mute_setting_changed(self, *args: Any) -> None:
         self._ui.mute_image.set_visible(self.contact.is_muted)
 
-    def _on_draft_update(self,
-                         _draft_storage: DraftStorage,
-                         _signal_name: str,
-                         contact: ChatContactT,
-                         draft: str
-                         ) -> None:
+    def _on_draft_update(
+        self,
+        _draft_storage: DraftStorage,
+        _signal_name: str,
+        contact: ChatContactT,
+        draft: Draft | None,
+    ) -> None:
 
         if contact != self.contact:
             return
 
         self._show_draft(draft)
 
-    def _show_draft(self, draft: str) -> None:
-        if not draft:
-            self._ui.message_label.get_style_context().remove_class('draft')
-            self._display_last_conversation_line()
+    def _show_draft(self, draft: Draft | None) -> None:
+        if draft is None:
+            self._ui.message_label.remove_css_class("draft")
+            self._display_last_conversation_row()
             return
 
-        self.set_nick('')
-        self._ui.message_label.set_text(_('Draft: %s') % draft)
-        self._ui.message_label.get_style_context().add_class('draft')
+        self.set_nick("")
+        self._ui.message_label.set_text(_("Draft: %s") % draft.text)
+        self._ui.message_label.add_css_class("draft")
 
-    def _on_state_flags_changed(self,
-                                _row: ChatListRow,
-                                _flags: Gtk.StateFlags
-                                ) -> None:
+    def _on_state_flags_changed(
+        self, _row: ChatListRow, _flags: Gtk.StateFlags
+    ) -> None:
         state = self.get_state_flags()
         if (state & Gtk.StateFlags.PRELIGHT) != 0:
             self._ui.revealer.set_reveal_child(True)
         else:
             self._ui.revealer.set_reveal_child(False)
 
-    def _on_destroy(self, _row: ChatListRow) -> None:
+    def do_unroot(self) -> None:
+        self._disconnect_all()
+
+        app.storage.drafts.disconnect_all_from_obj(self)
         app.settings.disconnect_signals(self)
+
+        self._client.disconnect_all_from_obj(self)
         self.contact.disconnect_all_from_obj(self)
         if isinstance(self.contact, GroupchatParticipant):
             self.contact.room.disconnect_all_from_obj(self)
 
+        del self._menu_popover
+        Gtk.ListBoxRow.do_unroot(self)
         app.check_finalize(self)
 
     def _on_close_button_clicked(self, _button: Gtk.Button) -> None:
         app.window.activate_action(
-            'remove-chat',
-            GLib.Variant('as', [self.account, str(self.jid)]))
+            "win.remove-chat", GLib.Variant("as", [self.account, str(self.jid)])
+        )
 
-    def _on_row_button_press_event(self,
-                                   _widget: Gtk.EventBox,
-                                   event: Gdk.EventButton
-                                   ) -> None:
+    def _on_row_clicked(
+        self,
+        gesture_click: Gtk.GestureClick,
+        _n_press: int,
+        x: float,
+        y: float,
+    ) -> int:
 
-        if event.button == Gdk.BUTTON_SECONDARY:
-            self._popup_menu(event)
-
-        elif event.button == Gdk.BUTTON_MIDDLE:
+        if gesture_click.get_current_button() == Gdk.BUTTON_MIDDLE:
             app.window.activate_action(
-                'remove-chat',
-                GLib.Variant('as', [self.account, str(self.jid)]))
+                "win.remove-chat", GLib.Variant("as", [self.account, str(self.jid)])
+            )
+        elif gesture_click.get_current_button() == Gdk.BUTTON_SECONDARY:
+            self._raise_context_popover(x, y)
 
-    def _popup_menu(self, event: Gdk.EventButton):
+        return Gdk.EVENT_STOP
+
+    def _raise_context_popover(self, x: float, y: float):
         menu = get_chat_list_row_menu(
-            self.workspace_id, self.account, self.jid, self._pinned)
+            self.workspace_id, self.account, self.jid, self._pinned
+        )
 
-        event_widget = Gtk.get_event_widget(event)
-        x = event.x
-        if isinstance(event_widget, Gtk.Button):
-            # When the event is triggered by pressing the close button we get
-            # a x coordinate relative to the window of the close button, which
-            # would be a very low x integer as the close button is small, this
-            # leads to opening the menu far away from the mouse. We overwrite
-            # the x coordinate with an approx. position of the close button.
-            x = self.get_allocated_width() - 10
+        self._menu_popover.set_menu_model(menu)
+        self._menu_popover.set_pointing_to_coord(x=x, y=y)
+        self.emit("context-menu-state-changed", True)
+        self._menu_popover.popup()
 
-        popover = GajimPopover(menu, relative_to=self)
-        popover.set_pointing_to_coord(x=x, y=event.y)
-        popover.popup()
+    def _on_context_popover_closed(self, _popover: Gtk.Popover) -> None:
+        self.emit("context-menu-state-changed", False)
 
-    def _on_drag_begin(self,
-                       row: ChatListRow,
-                       drag_context: Gdk.DragContext
-                       ) -> None:
+    def _on_prepare(
+        self, _drag_source: Gtk.DragSource, _x: float, _y: float
+    ) -> Gdk.ContentProvider:
+        value = GObject.Value()
+        value.init(ChatListRow)
+        value.set_object(self)
 
-        # Use rendered ChatListRow as drag icon
-        alloc = self.get_allocation()
-        surface = cairo.ImageSurface(
-            cairo.Format.ARGB32, alloc.width, alloc.height)
-        context = cairo.Context(surface)
-        self.draw(context)
-        Gtk.drag_set_icon_surface(drag_context, surface)
+        return Gdk.ContentProvider.new_for_value(value)
 
-        app.window.highlight_dnd_targets(row, True)
+    def _on_drag_begin(self, _drag_source: Gtk.DragSource, drag: Gdk.Drag) -> None:
+        assert not isinstance(self.contact, ResourceContact)
 
-    def _on_drag_end(self,
-                     row: ChatListRow,
-                     _drag_context: Gdk.DragContext
-                     ) -> None:
+        is_LTR = bool(self.get_direction() == Gtk.TextDirection.LTR)
 
-        app.window.highlight_dnd_targets(row, False)
+        Gtk.DragIcon.set_from_paintable(
+            drag,
+            Gtk.WidgetPaintable().new(self),
+            hot_x=0 if is_LTR else self.get_width(),
+            hot_y=0,
+        )
 
-    def _on_drag_data_get(self,
-                          row: ChatListRow,
-                          _drag_context: Gdk.DragContext,
-                          selection_data: Gtk.SelectionData,
-                          _info: int,
-                          _time: int
-                          ) -> None:
+        app.window.highlight_dnd_targets(self, True)
 
-        app.window.highlight_dnd_targets(row, False)
-        drop_type = Gdk.Atom.intern_static_string('CHAT_LIST_ITEM')
-        byte_data = pickle.dumps((self.account, self.jid, self.workspace_id))
-        selection_data.set(drop_type, 8, byte_data)
+    def _on_drag_end(
+        self, _drag_source: Gtk.DragSource, _drag: Gdk.Drag, _delete_data: bool
+    ) -> None:
+        app.window.highlight_dnd_targets(self, False)
 
     def _connect_contact_signals(self) -> None:
+        self.contact.connect("chatstate-update", self._on_chatstate_update)
         if isinstance(self.contact, BareContact):
-            self.contact.connect('presence-update', self._on_presence_update)
-            self.contact.connect('chatstate-update', self._on_chatstate_update)
-            self.contact.connect('nickname-update', self._on_nickname_update)
-            self.contact.connect('caps-update', self._on_avatar_update)
-            self.contact.connect('avatar-update', self._on_avatar_update)
+            self.contact.connect("presence-update", self._on_presence_update)
+            self.contact.connect("nickname-update", self._on_nickname_update)
+            self.contact.connect("caps-update", self._on_avatar_update)
+            self.contact.connect("avatar-update", self._on_avatar_update)
 
         elif isinstance(self.contact, GroupchatContact):
-            self.contact.connect('avatar-update', self._on_avatar_update)
+            self.contact.connect("avatar-update", self._on_avatar_update)
+            self.contact.connect("disco-info-update", self._on_disco_info_update)
+            self.contact.connect("state-changed", self._on_muc_state_changed)
+            self.contact.connect("mam-sync-started", self._on_mam_sync_changed)
+            self.contact.connect("mam-sync-finished", self._on_mam_sync_changed)
+            self.contact.connect("mam-sync-error", self._on_mam_sync_error)
+
+            self._client.connect_signal("state-changed", self._on_client_state_changed)
 
         elif isinstance(self.contact, GroupchatParticipant):
-            self.contact.connect('chatstate-update', self._on_chatstate_update)
-            self.contact.connect('user-joined', self._on_muc_user_update)
-            self.contact.connect('user-left', self._on_muc_user_update)
-            self.contact.connect('user-avatar-update', self._on_muc_user_update)
-            self.contact.connect('user-status-show-changed',
-                                 self._on_muc_user_update)
+            self.contact.connect("user-joined", self._on_muc_user_update)
+            self.contact.connect("user-left", self._on_muc_user_update)
+            self.contact.connect("user-avatar-update", self._on_muc_user_update)
+            self.contact.connect("user-status-show-changed", self._on_muc_user_update)
 
-            self.contact.room.connect('room-left', self._on_muc_update)
-            self.contact.room.connect('room-destroyed', self._on_muc_update)
-            self.contact.room.connect('room-kicked', self._on_muc_update)
+            self.contact.room.connect("room-left", self._on_muc_update)
+            self.contact.room.connect("room-destroyed", self._on_muc_update)
+            self.contact.room.connect("room-kicked", self._on_muc_update)
 
         else:
-            raise TypeError('Unkown contact type: %s' % type(self.contact))
+            raise TypeError("Unknown contact type: %s" % type(self.contact))
 
-    def _on_presence_update(self,
-                            _contact: ChatContactT,
-                            _signal_name: str
-                            ) -> None:
+    def _on_presence_update(self, _contact: ChatContactT, _signal_name: str) -> None:
         self.update_avatar()
 
-    def _on_avatar_update(self,
-                          _contact: ChatContactT,
-                          _signal_name: str
-                          ) -> None:
+    def _on_avatar_update(self, _contact: ChatContactT, _signal_name: str) -> None:
         self.update_avatar()
 
-    def _on_muc_user_update(self,
-                            _contact: GroupchatParticipant,
-                            _signal_name: str,
-                            *args: Any
-                            ) -> None:
+    def _on_disco_info_update(self, _contact: ChatContactT, _signal_name: str) -> None:
+        self.update_name()
+
+    def _on_client_state_changed(self, *args: Any) -> None:
+        self._update_joined_state()
+
+    def _on_muc_state_changed(self, *args: Any) -> None:
+        self._update_joined_state()
+
+    def _update_joined_state(self) -> None:
+        self._reset_connection_icon()
+
+        assert isinstance(self.contact, GroupchatContact)
+        if self.contact.is_joining:
+            self._ui.connection_icon.set_from_icon_name("feather-refresh-cw-symbolic")
+            self._ui.connection_icon.add_css_class("spin")
+            self._ui.connection_icon.add_css_class("dim-label")
+            self._ui.connection_icon.set_tooltip_text(_("Joining Group Chat…"))
+            self._ui.connection_icon.set_visible(True)
+        elif self.contact.is_not_joined or not self._client.state.is_available:
+            self._ui.connection_icon.set_from_icon_name("feather-zap-symbolic")
+            self._ui.connection_icon.add_css_class("warning-color")
+            self._ui.connection_icon.set_tooltip_text(_("Not connected"))
+            self._ui.connection_icon.set_visible(True)
+
+    def _on_mam_sync_changed(
+        self, _contact: GroupchatContact, signal_name: str
+    ) -> None:
+
+        self._reset_connection_icon()
+
+        if signal_name == "mam-sync-started":
+            self._ui.connection_icon.set_from_icon_name("feather-refresh-cw-symbolic")
+            self._ui.connection_icon.add_css_class("spin")
+            self._ui.connection_icon.add_css_class("info-color")
+            self._ui.connection_icon.set_tooltip_text(_("Fetching messages…"))
+            self._ui.connection_icon.set_visible(True)
+
+    def _on_mam_sync_error(
+        self, _contact: GroupchatContact, _signal_name: str, error_text: str
+    ) -> None:
+
+        self._reset_connection_icon()
+        self._ui.connection_icon.set_from_icon_name("feather-zap-symbolic")
+        self._ui.connection_icon.add_css_class("error-color")
+        self._ui.connection_icon.set_tooltip_text(
+            _("There has been an error while trying to fetch messages: %s") % error_text
+        )
+        self._ui.connection_icon.set_visible(True)
+
+    def _reset_connection_icon(self) -> None:
+        self._ui.connection_icon.set_visible(False)
+        self._ui.connection_icon.remove_css_class("spin")
+        self._ui.connection_icon.remove_css_class("dim-label")
+        self._ui.connection_icon.remove_css_class("info-color")
+        self._ui.connection_icon.remove_css_class("warning-color")
+        self._ui.connection_icon.remove_css_class("error-color")
+
+    def _on_muc_user_update(
+        self, _contact: GroupchatParticipant, _signal_name: str, *args: Any
+    ) -> None:
         self.update_avatar()
 
-    def _on_muc_update(self,
-                       _contact: GroupchatContact,
-                       _signal_name: str,
-                       *args: Any
-                       ) -> None:
+    def _on_muc_update(
+        self, _contact: GroupchatContact, _signal_name: str, *args: Any
+    ) -> None:
         self.update_avatar()
 
-    def _on_chatstate_update(self,
-                             contact: OneOnOneContactT,
-                             _signal_name: str
-                             ) -> None:
+    def _on_chatstate_update(self, contact: ChatContactT, _signal_name: str) -> None:
+        if contact.is_groupchat:
+            assert isinstance(contact, GroupchatContact)
+            self._ui.chatstate_image.set_visible(contact.has_composing_participants())
+            return
+
         if contact.chatstate is None:
-            self._ui.chatstate_image.hide()
+            self._ui.chatstate_image.set_visible(False)
         else:
             self._ui.chatstate_image.set_visible(contact.chatstate.is_composing)
 
-    def _on_nickname_update(self,
-                            _contact: ChatContactT,
-                            _signal_name: str
-                            ) -> None:
+    def _on_nickname_update(self, _contact: ChatContactT, _signal_name: str) -> None:
         self.update_name()
 
 
@@ -571,17 +642,15 @@ class RowHeader(Gtk.Box):
         self.type = header_type
 
         if header_type == RowHeaderType.CONVERSATIONS:
-            text = _('Conversations')
+            text = _("Conversations")
         else:
-            text = _('Pinned')
+            text = _("Pinned")
 
         label = Gtk.Label(label=text)
         label.set_halign(Gtk.Align.START)
 
-        self.add(label)
+        self.append(label)
 
-        self.get_style_context().add_class('header-box')
+        self.add_css_class("header-box")
         if header_type == RowHeaderType.PINNED:
-            self.get_style_context().add_class('header-box-first')
-
-        self.show_all()
+            self.add_css_class("header-box-first")

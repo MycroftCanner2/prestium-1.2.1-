@@ -1,23 +1,11 @@
 # This file is part of Gajim.
 #
-# Gajim is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published
-# by the Free Software Foundation; version 3 only.
-#
-# Gajim is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Gajim. If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-only
 
 from typing import Any
-from typing import Optional
 
 import logging
 
-from gi.repository import Gdk
 from gi.repository import Gtk
 from gi.repository import GtkSource
 
@@ -26,69 +14,73 @@ from gajim.common import ged
 from gajim.common.i18n import _
 from gajim.common.styling import PreBlock
 
-from gajim.gtk.util import get_source_view_style_scheme
+from gajim.gtk.util.classes import SignalManager
+from gajim.gtk.util.styling import get_source_view_style_scheme
 
-log = logging.getLogger('gajim.gtk.conversation.code_widget')
+log = logging.getLogger("gajim.gtk.conversation.code_widget")
 
 
-class CodeWidget(Gtk.Box):
+class CodeWidget(Gtk.Box, SignalManager):
     def __init__(self, account: str) -> None:
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
-        self.set_vexpand(True)
-        self.get_style_context().add_class('code-widget')
+        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL, vexpand=True)
+        SignalManager.__init__(self)
+
+        self.add_css_class("code-widget")
 
         self._account = account
 
         header = Gtk.Box()
         header.set_spacing(6)
-        header.get_style_context().add_class('code-widget-header')
+        header.add_css_class("code-widget-header")
         self._lang_label = Gtk.Label()
-        header.add(self._lang_label)
+        header.append(self._lang_label)
 
-        copy_button = Gtk.Button.new_from_icon_name(
-            'edit-copy-symbolic', Gtk.IconSize.MENU)
-        copy_button.set_tooltip_text(_('Copy code snippet'))
-        copy_button.connect('clicked', self._on_copy)
-        header.add(copy_button)
-        self.add(header)
+        copy_button = Gtk.Button.new_from_icon_name("edit-copy-symbolic")
+        copy_button.set_tooltip_text(_("Copy code snippet"))
+        self._connect(copy_button, "clicked", self._on_copy)
+        header.append(copy_button)
+        self.append(header)
 
         self._textview = CodeTextview()
         self._scrolled = Gtk.ScrolledWindow()
-        self._scrolled.set_policy(Gtk.PolicyType.AUTOMATIC,
-                                  Gtk.PolicyType.NEVER)
+        self._scrolled.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.NEVER)
         self._scrolled.set_hexpand(True)
         self._scrolled.set_vexpand(True)
         self._scrolled.set_propagate_natural_width(True)
         self._scrolled.set_propagate_natural_height(True)
         self._scrolled.set_max_content_height(400)
-        self._scrolled.add(self._textview)
+        self._scrolled.set_child(self._textview)
 
-        self.add(self._scrolled)
+        self.append(self._scrolled)
+
+    def do_unroot(self) -> None:
+        self._disconnect_all()
+
+        Gtk.Box.do_unroot(self)
+        app.check_finalize(self)
 
     def _on_copy(self, _button: Gtk.Button) -> None:
-        text = self._textview.get_code()
-        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-        clipboard.set_text(text, -1)
+        self.get_clipboard().set(self._textview.get_code())
 
     def add_content(self, block: PreBlock):
         code, lang = self._prepare_code(block.text)
         if lang is None:
-            self._lang_label.set_text(_('Code snippet'))
+            self._lang_label.set_text(_("Code snippet"))
         else:
             lang_name = self._textview.set_language(lang)
-            self._lang_label.set_text(_('Code snippet (%s)') % lang_name)
+            self._lang_label.set_text(_("Code snippet (%s)") % lang_name)
 
         self._textview.print_code(code)
 
     @staticmethod
-    def _prepare_code(text: str) -> tuple[str, Optional[str]]:
+    def _prepare_code(text: str) -> tuple[str, str | None]:
         text = text.strip()
-        code_start = text.partition('\n')[0]
+        code_start = text.partition("\n")[0]
         lang = None
         if len(code_start) > 3:
             lang = code_start[3:]
 
-        code = text.partition('\n')[2][:-4]
+        code = text.partition("\n")[2][:-4]
         return code, lang
 
 
@@ -104,13 +96,19 @@ class CodeTextview(GtkSource.View):
 
         self._source_manager = GtkSource.LanguageManager.get_default()
 
-        app.ged.register_event_handler('style-changed',
-                                       ged.GUI1,
-                                       self._on_style_changed)
+        app.ged.register_event_handler(
+            "style-changed", ged.GUI1, self._on_style_changed
+        )
 
         style_scheme = get_source_view_style_scheme()
         if style_scheme is not None:
             self.get_buffer().set_style_scheme(style_scheme)
+
+    def do_unroot(self) -> None:
+        app.ged.remove_event_handler("style-changed", ged.GUI1, self._on_style_changed)
+
+        GtkSource.View.do_unroot(self)
+        app.check_finalize(self)
 
     def _on_style_changed(self, *args: Any) -> None:
         style_scheme = get_source_view_style_scheme()
@@ -120,9 +118,9 @@ class CodeTextview(GtkSource.View):
     def set_language(self, language_string: str) -> str:
         lang = self._source_manager.get_language(language_string)
         if lang is None:
-            return _('Unknown language')
+            return _("Unknown language")
 
-        log.debug('Code snippet lang: %s', lang.get_name())
+        log.debug("Code snippet lang: %s", lang.get_name())
         self.get_buffer().set_language(lang)
         return lang.get_name()
 
@@ -132,6 +130,10 @@ class CodeTextview(GtkSource.View):
         return buffer_.get_text(start, end, False)
 
     def print_code(self, code: str) -> None:
-        self.set_show_line_numbers(True)
         buffer_ = self.get_buffer()
         buffer_.insert(buffer_.get_start_iter(), code)
+
+        if buffer_.get_line_count() == 1:
+            # Add some space at the bottom so that scrollbar
+            # does not overlap content, which makes text hard to select
+            self.set_pixels_below_lines(10)
