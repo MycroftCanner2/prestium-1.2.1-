@@ -17,7 +17,7 @@ do
 done
 
 # Checking live-boot
-if [ ! -e /bin/live-boot ]
+if [ ! -e /usr/bin/live-boot ]
 then
 	echo
 	echo "W: live-boot-initramfs-tools (backend) installed without live-boot,"
@@ -27,11 +27,11 @@ fi
 
 [ "${QUIET}" ] || echo -n " core"
 
-mkdir -p "${DESTDIR}/bin"
-cp -a /bin/live-boot "${DESTDIR}/bin"
+mkdir -p "${DESTDIR}/usr/bin"
+cp -a /usr/bin/live-boot "${DESTDIR}/usr/bin"
 
-mkdir -p "${DESTDIR}/lib/live"
-cp -a /lib/live/boot "${DESTDIR}/lib/live"
+mkdir -p "${DESTDIR}/usr/lib/live"
+cp -a /usr/lib/live/boot "${DESTDIR}/usr/lib/live"
 
 mkdir -p "${DESTDIR}/etc/live"
 if [ -e /etc/live/boot.conf ]
@@ -133,6 +133,12 @@ then
 	manual_add_modules vfat
 fi
 
+# Filesystem: exfat
+if [ "${DISABLE_EXFAT:-}" != "true" ] && [ "${DISABLE_EXFAT:-}" != "yes" ]
+then
+	manual_add_modules exfat
+fi
+
 # Filesystem: ntfs
 if [ "${DISABLE_NTFS:-}" != "true" ] && [ "${DISABLE_NTFS:-}" != "yes" ]
 then
@@ -147,6 +153,11 @@ then
 	# The BusyBox mount does not support dm-verity so we use the util-linux version.
 	copy_exec /bin/mount /bin
 fi
+
+# pmem devices for HTTP boot support
+manual_add_modules of_pmem
+manual_add_modules nd_pmem
+manual_add_modules nfit
 
 [ "${QUIET}" ] || echo -n " devices"
 # Hardware: cdrom

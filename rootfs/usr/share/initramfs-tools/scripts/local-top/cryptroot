@@ -5,16 +5,17 @@ PREREQ="cryptroot-prepare"
 #
 # Standard initramfs preamble
 #
-prereqs()
-{
-	# Make sure that cryptroot is run last in local-top
-	local req
-	for req in "${0%/*}"/*; do
-		script="${req##*/}"
-		if [ "$script" != "${0##*/}" ]; then
-			printf '%s\n' "$script"
-		fi
-	done
+prereqs() {
+    # Make sure that cryptroot is run last in local-top
+    local req script="${0##*/}" dir
+    dir="$DESTDIR/scripts/${CRYPTROOT_STAGE-local-top}"
+    for req in "$dir"/*; do
+        test -x "$req" || continue
+        req="${req##*/}"
+        if [ "$req" != "$script" ]; then
+            printf '%s\n' "$req"
+        fi
+    done
 }
 
 case $1 in

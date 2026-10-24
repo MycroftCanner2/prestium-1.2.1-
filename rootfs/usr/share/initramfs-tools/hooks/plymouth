@@ -38,7 +38,7 @@ case "${THEME_NAME}" in
 		;;
 
 	*)
-		PLUGINS="text.so details.so label.so"
+		PLUGINS="text.so details.so label-pango.so"
 		;;
 esac
 
@@ -77,11 +77,12 @@ do
 done
 
 # copy base themes and logo
-cp -a "${THEMES}/details" "${DESTDIR}/${THEMES}"
-cp -a "${THEMES}/text" "${DESTDIR}/${THEMES}"
+cp -dRp "${THEMES}/details" "${DESTDIR}/${THEMES}"
+cp -dRp "${THEMES}/text" "${DESTDIR}/${THEMES}"
 
 if [ -f /etc/os-release ]
 then
+	mkdir -p "${DESTDIR}/etc"
 	cp /etc/os-release "${DESTDIR}/etc"
 fi
 
@@ -95,27 +96,34 @@ case "${THEME_NAME}" in
 
 		# fontconfig
 		mkdir -p "${DESTDIR}/etc/fonts/conf.d"
-		cp -a /etc/fonts/fonts.conf "${DESTDIR}/etc/fonts"
+		cp -dRp /etc/fonts/fonts.conf "${DESTDIR}/etc/fonts"
 		cp -rL /etc/fonts/conf.d/60-latin.conf "${DESTDIR}/etc/fonts/conf.d"
 		mkdir -p "${DESTDIR}/var/cache/fontconfig"
 		# This is only needed because fc-cache bellow fails if the directory doesn't exist
 		mkdir -p "${DESTDIR}/usr/local/share/fonts"
 
-		# fonts-dejavu
-		if [ -e /usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf ]
-		then
-			mkdir -p "${DESTDIR}/usr/share/fonts/truetype/dejavu"
-			cp -a /usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf "${DESTDIR}/usr/share/fonts/truetype/dejavu"
-			cp -a /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf  "${DESTDIR}/usr/share/fonts/truetype/dejavu"
-		fi
+		# Fallback fonts
+		mkdir -p ${DESTDIR}/usr/share/fonts
+		DEFAULT_FONT=$(fc-match -f %{file} 2> /dev/null)
+		[ ! -z "$DEFAULT_FONT" -a ! -f "${DESTDIR}${DEFAULT_FONT}" ] && copy_file font "$DEFAULT_FONT"
+		DEFAULT_MONOSPACE_FONT=$(fc-match -f %{file} monospace 2> /dev/null)
+		[ ! -z "$DEFAULT_MONOSPACE_FONT" -a ! -f "${DESTDIR}${DEFAULT_MONOSPACE_FONT}" ] && copy_file font "$DEFAULT_MONOSPACE_FONT"
+
+		[ ! -z "$DEFAULT_FONT" ] && ln -s "$DEFAULT_FONT" ${DESTDIR}/usr/share/fonts/Plymouth.ttf
+		[ ! -z "$DEFAULT_MONOSPACE_FONT" ] && ln -s "$DEFAULT_MONOSPACE_FONT" ${DESTDIR}/usr/share/fonts/Plymouth-monospace.ttf
 		case "${THEME_NAME}" in
 			spinner|bgrt)
 				# ATM, this is needed by the spinner and bgrt themes
 				if [ -e /usr/share/fonts/opentype/cantarell/Cantarell-Regular.otf ]
 				then
 					mkdir -p "${DESTDIR}/usr/share/fonts/opentype/cantarell"
-					cp -a /usr/share/fonts/opentype/cantarell/Cantarell-Regular.otf "${DESTDIR}/usr/share/fonts/opentype/cantarell"
-					cp -a /usr/share/fonts/opentype/cantarell/Cantarell-Light.otf "${DESTDIR}/usr/share/fonts/opentype/cantarell"
+					cp -dRp /usr/share/fonts/opentype/cantarell/Cantarell-Regular.otf "${DESTDIR}/usr/share/fonts/opentype/cantarell"
+					cp -dRp /usr/share/fonts/opentype/cantarell/Cantarell-Light.otf "${DESTDIR}/usr/share/fonts/opentype/cantarell"
+				fi
+				if [ -e /usr/share/fonts/opentype/cantarell/Cantarell-VF.otf ]
+				then
+					mkdir -p "${DESTDIR}/usr/share/fonts/opentype/cantarell"
+					cp -dRp /usr/share/fonts/opentype/cantarell/Cantarell-VF.otf "${DESTDIR}/usr/share/fonts/opentype/cantarell"
 				fi
 				# We continue to the default case here
 				;;
@@ -175,10 +183,10 @@ mkdir -p "${DESTDIR}/etc/plymouth"
 
 if [ -r /etc/plymouth/plymouthd.conf ]
 then
-	cp -a /etc/plymouth/plymouthd.conf "${DESTDIR}/etc/plymouth/"
+	cp -dRp /etc/plymouth/plymouthd.conf "${DESTDIR}/etc/plymouth/"
 fi
 
-cp -a /usr/share/plymouth/plymouthd.defaults "${DESTDIR}/usr/share/plymouth/"
+cp -dRp /usr/share/plymouth/plymouthd.defaults "${DESTDIR}/usr/share/plymouth/"
 
 # temporarily include dummy root account lookup (#691598)
 if ! grep -qs '^root:' "${DESTDIR}/etc/passwd"

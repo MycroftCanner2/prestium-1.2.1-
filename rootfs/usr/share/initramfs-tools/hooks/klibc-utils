@@ -27,10 +27,11 @@ for src in /usr/lib/klibc/bin/*; do
 		;;
 	*)
 		# Don't install commands that already exist in /bin or /sbin
-		if ! [ -e "${DESTDIR}/sbin/$command" ]; then
-			cp -pnL "$src" "${DESTDIR}/bin"
+		if ! [ -e "${DESTDIR}/sbin/$command" ] \
+		   && ! [ -e "${DESTDIR}/bin/$command" ]; then
+			cp -pL "$src" "${DESTDIR}/bin"
 		fi
 		;;
 	esac
 done
-cp -pL /lib/klibc-*.so "${DESTDIR}/lib"
+cp -pL /usr/lib/klibc-*.so "${DESTDIR}/lib"

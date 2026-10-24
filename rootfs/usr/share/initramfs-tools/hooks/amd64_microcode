@@ -31,7 +31,7 @@ verbose()
     :
 }
 
-AUCODE_FW_DIR=/lib/firmware/amd-ucode
+AUCODE_FW_DIR=/usr/lib/firmware/amd-ucode
 AMD64UCODE_INITRAMFS=auto
 [ -r ${AMD64UCODE_CONFIG} ] && . ${AMD64UCODE_CONFIG}
 

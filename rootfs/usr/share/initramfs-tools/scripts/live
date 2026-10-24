@@ -1,6 +1,6 @@
 # Live system filesystem mounting			-*- shell-script -*-
 
-. /bin/live-boot
+. /usr/bin/live-boot
 
 live_top()
 {

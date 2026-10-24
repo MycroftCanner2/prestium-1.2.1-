@@ -17,9 +17,9 @@ esac
 
 . /usr/share/initramfs-tools/hook-functions
 
-copy_exec /bin/ntfs-3g /bin
+copy_exec /usr/bin/ntfs-3g /usr/bin
 
-ln -s /bin/ntfs-3g "${DESTDIR}/sbin/mount.ntfs-3g"
-ln -s /bin/ntfs-3g "${DESTDIR}/sbin/mount.ntfs"
+ln -s /usr/bin/ntfs-3g "${DESTDIR}/usr/sbin/mount.ntfs-3g"
+ln -s /usr/bin/ntfs-3g "${DESTDIR}/usr/sbin/mount.ntfs"
 
 exit 0

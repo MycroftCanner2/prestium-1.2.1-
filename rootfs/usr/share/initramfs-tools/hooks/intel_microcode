@@ -45,7 +45,7 @@ if [ -z "${IUCODE_TOOL}" ] && [ -x /usr/sbin/iucode_tool ] ; then
 	IUCODE_TOOL=/usr/sbin/iucode_tool
 fi
 
-IUCODE_FW_DIR=/lib/firmware/intel-ucode
+IUCODE_FW_DIR=/usr/lib/firmware/intel-ucode
 if [ "$MODULES" = "most" ]; then
 	IUCODE_TOOL_INITRAMFS=early
 	IUCODE_TOOL_SCANCPUS=no
