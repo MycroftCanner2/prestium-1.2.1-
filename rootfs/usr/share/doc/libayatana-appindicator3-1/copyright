@@ -8,8 +8,9 @@ Files: .build.yml
  AUTHORS
  CMakeLists.txt
  ChangeLog
+ INSTALL.md
  NEWS
- README
+ README.md
  bindings/CMakeLists.txt
  bindings/mono/ApplicationIndicatorCustom.cs.in
  bindings/mono/CMakeLists.txt
@@ -44,6 +45,7 @@ Files: .build.yml
  src/AyatanaAppIndicator-0.1.metadata
  src/AyatanaAppIndicator3-0.1.metadata
  src/CMakeLists.txt
+ src/app-indicator.symbols
  src/ayatana-appindicator-0.1.pc.in
  src/ayatana-appindicator3-0.1.pc.in
  src/notification-item.xml
@@ -113,7 +115,7 @@ License: GPL-3
 
 Files: debian/*
 Copyright: 2009-2011, Canonical Ltd.
-  2015-2023, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+  2015-2024, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 License: GPL-3
 
 Files: debian/patches/*

@@ -1,29 +1,41 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: phc-winner-argon2
 Source: https://github.com/P-H-C/phc-winner-argon2
 Upstream-Contact: https://github.com/P-H-C/phc-winner-argon2/issues
+Files-Excluded:
+# non-source
+  argon2-specs.pdf
+# Windows build
+  Argon2.sln
+  vs2015
 
 Files: *
-Copyright: 2015, Daniel Dinu
-           2015, Dmitry Khovratovich
-           2015, Jean-Philippe Aumasson
-           2015, Samuel Neves
+Copyright: 2015 Daniel Dinu <dumitru-daniel.dinu@uni.lu>
+           2015 Dmitry Khovratovich <khovratovich@gmail.com>
+           2015 Jean-Philippe Aumasson <jeanphilippe.aumasson@gmail.com>
+           2015 Samuel Neves <sneves@dei.uc.pt>
 License: CC0 or Apache-2.0
 
 Files: src/blake2/*
-Copyright: 2013-2015, Samuel Neves
+Copyright: 2013-2015 Samuel Neves <sneves@dei.uc.pt>
 License: CC0 or Apache-2.0
 
 Files: src/encoding.c
-Copyright: 2015, Thomas Pornin
+Copyright: 2015 Thomas Pornin <pornin@bolet.org>
 License: CC0 or Apache-2.0
 
 Files: debian/*
-Copyright: 2016, Luca Bruno <lucab@debian.org>
-License: CC0
-
-Files: debian/argon2.1
-Copyright: 2016, Daniel Kahn Gillmor <dkg@fifthhorseman.net>
+Copyright: 2016-2018 Luca Bruno <lucab@debian.org>
+           2016      Daniel Kahn Gillmor <dkg@debian.org>
+           2017      Tyler Hicks <code@tyhicks.com>
+           2018      Jonas Meurer <jonas@freesources.org>
+           2018      Matthew Garrett <mjg59@google.com>
+           2019      Samuel Thibault <sthibault@debian.org>
+           2022-2023 Laurent Bigonville <bigon@debian.org>
+           2023      Ondřej Nový <onovy@debian.org>
+           2023      Bastian Germann <bage@debian.org>
+           2023      Guilhem Moulin <guilhem@debian.org>
+           2023      Sven Geuer <debmaint@g-e-u-e-r.de>
 License: CC0
 
 License: CC0

@@ -1,21 +1,14 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libcap-ng
 Upstream-Contact: Steve Grubb <sgrubb@redhat.com>
-Source: https://people.redhat.com/sgrubb/libcap-ng
+Source: https://github.com/stevegrubb/libcap-ng
 
 Files: *
-Copyright: 2009-2022 Red Hat Inc.
+Copyright: 2009-2023 Red Hat Inc.
 License: LGPL-2.1+
 
-Files: src/lookup_table.c
-       src/test/lib_test.c
-       src/test/Makefile.am
-       bindings/Makefile.am
-       bindings/python/Makefile.am
-       bindings/python3/Makefile.am
-       m4/Makefile.am
-       utils/Makefile.am
-Copyright: 2009-2017 Red Hat Inc., Durham, North Carolina.
+Files: m4/Makefile.am
+Copyright: 2009 Red Hat Inc., Durham, North Carolina.
 License: LGPL-2.1+
 
 Files: utils/*.c
@@ -30,17 +23,9 @@ License: GPL-2+
 
 Files: debian/*
 Copyright: 2009 Pierre Chifflier <pollux@debian.org>
-           2020-2022 Håvard F. Aasen <havard.f.aasen@pfft.no>
+           2020-2024 Håvard F. Aasen <havard.f.aasen@pfft.no>
 License: GPL-3
  See `/usr/share/common-licenses/GPL-3'
-
-Files: debian/patches/*
-Copyright: Håvard F. Aasen <havard.f.aasen@pfft.no>
-License: LGPL-2.1+
-
-Files: debian/patches/04-log-error.patch
-Copyright: Steve Grubb <sgrubb@redhat.com>
-License: LGPL-2.1+
 
 License: LGPL-2.1+
     This library is free software; you can redistribute it and/or

@@ -304,7 +304,6 @@ Files: android/log.c
  tools/obex-client-tool.c
  tools/obex-server-tool.c
  tools/obexctl.c
- tools/parser/amp.c
  tools/parser/avrcp.c
  tools/parser/smp.c
  tools/rfcomm-tester.c
@@ -332,9 +331,7 @@ Files: android/log.c
 Copyright: 2008-2016, Intel Corporation.
 License: GPL-2+
 
-Files: emulator/amp.c
- emulator/amp.h
- emulator/btdev.c
+Files: emulator/btdev.c
  emulator/btdev.h
  emulator/bthost.c
  emulator/bthost.h
@@ -517,9 +514,7 @@ Files: emulator/b1ee.c
  obexd/plugins/filesystem.c
  obexd/plugins/pbap.c
  obexd/plugins/phonebook-dummy.c
- obexd/plugins/syncevolution.c
  tools/advtest.c
- tools/amptest.c
  tools/btattach.c
  tools/btconfig.c
  tools/btinfo.c
@@ -634,7 +629,6 @@ Files: attrib/gatttool.h
  attrib/utils.c
  obexd/plugins/mas.c
  obexd/plugins/messages-dummy.c
- obexd/plugins/messages-tracker.c
  obexd/plugins/messages.h
  obexd/plugins/phonebook-tracker.c
  obexd/src/manager.h
@@ -703,7 +697,7 @@ Copyright: 2012-2013, BMW Car IT GmbH.
   2013, BMW Car IT GmbH.
 License: GPL-2+
 
-Files: profiles/input/suspend-dummy.c
+Files:
  profiles/input/suspend-none.c
  profiles/input/suspend.h
  profiles/scanparam/scan.c
@@ -810,13 +804,6 @@ Files: obexd/client/map.c
 Copyright: 2011, Bartosz Szatkowski <bulislaw@linux.com> for Comarch
 License: GPL-2+
 
-Files: lib/a2mp.h
- lib/amp.h
-Copyright: 2010-2011, Code Aurora Forum.
-  2012, Code Aurora Forum.
-  2012, Intel Corporation.
-License: GPL-2+
-
 Files: src/error.c
  src/error.h
 Copyright: 2004-2010, Marcel Holtmann <marcel@holtmann.org>
@@ -919,10 +906,6 @@ Files: tools/btmon-logger.c
 Copyright: 2002-2010, Marcel Holtmann <marcel@holtmann.org>
   2011-2014, Intel Corporation
   2017-2018, Codecoup
-License: GPL-2+
-
-Files: plugins/wiimote.c
-Copyright: 2011-2012, David Herrmann <dh.herrmann@googlemail.com>
 License: GPL-2+
 
 Files: obexd/plugins/phonebook-ebook.c
