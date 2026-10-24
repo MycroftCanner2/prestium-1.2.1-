@@ -6,6 +6,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libglu1-mesa
+/usr/share/doc/libglu1-mesa/changelog.Debian.amd64.gz
 /usr/share/doc/libglu1-mesa/changelog.Debian.gz
 /usr/share/doc/libglu1-mesa/copyright
 /usr/share/lintian

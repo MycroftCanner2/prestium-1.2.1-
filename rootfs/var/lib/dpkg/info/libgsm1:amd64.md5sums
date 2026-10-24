@@ -1,7 +1,8 @@
-a6d9d76abfda42c674ab6e50f7fd8694  usr/lib/x86_64-linux-gnu/libgsm.so.1.0.19
+d5ad1d6d4b87d512d29a4be209c2b14f  usr/lib/x86_64-linux-gnu/libgsm.so.1.0.19
 fec37d187957fa14187a13974a68e5bf  usr/share/doc/libgsm1/MACHINES
 54ae8c881529bb90f37806faeb892749  usr/share/doc/libgsm1/README
 bc3960a4cf763f7764bae3336ed4682d  usr/share/doc/libgsm1/README.Debian
-99307a2c5023f9851426db0faec3bb2a  usr/share/doc/libgsm1/changelog.Debian.gz
+148539a408a703607c787fb09c74359a  usr/share/doc/libgsm1/changelog.Debian.amd64.gz
+7b24903352b83be37e75ea43914a8599  usr/share/doc/libgsm1/changelog.Debian.gz
 f5a100aeeaa387b787d32a6a400ffea6  usr/share/doc/libgsm1/changelog.gz
 7c6e40597575feee9f1717c96fbf2f1d  usr/share/doc/libgsm1/copyright

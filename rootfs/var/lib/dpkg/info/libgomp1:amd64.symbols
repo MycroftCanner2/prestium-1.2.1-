@@ -22,11 +22,14 @@ libgomp.so.1 libgomp1 #MINVER#
  GOMP_4.5@GOMP_4.5 6
  GOMP_5.0.1@GOMP_5.0.1 11
  GOMP_5.0@GOMP_5.0 9
+ GOMP_5.1.1@GOMP_5.1.1 13
+ GOMP_5.1.2@GOMP_5.1.2 14
  GOMP_5.1@GOMP_5.1 12
  GOMP_PLUGIN_1.0@GOMP_PLUGIN_1.0 5
  GOMP_PLUGIN_1.1@GOMP_PLUGIN_1.1 6
  GOMP_PLUGIN_1.2@GOMP_PLUGIN_1.2 9
  GOMP_PLUGIN_1.3@GOMP_PLUGIN_1.3 10
+ GOMP_PLUGIN_1.4@GOMP_PLUGIN_1.4 13
  GOMP_PLUGIN_acc_default_dim@GOMP_PLUGIN_1.2 9
  GOMP_PLUGIN_acc_thread@GOMP_PLUGIN_1.0 5
  GOMP_PLUGIN_async_unmap_vars@GOMP_PLUGIN_1.0 5
@@ -38,7 +41,9 @@ libgomp.so.1 libgomp1 #MINVER#
  GOMP_PLUGIN_malloc@GOMP_PLUGIN_1.0 5
  GOMP_PLUGIN_malloc_cleared@GOMP_PLUGIN_1.0 5
  GOMP_PLUGIN_realloc@GOMP_PLUGIN_1.0 5
+ GOMP_PLUGIN_target_rev@GOMP_PLUGIN_1.4 13
  GOMP_PLUGIN_target_task_completion@GOMP_PLUGIN_1.1 6
+ GOMP_add_alloc@GOMP_5.1.2 14
  GOMP_alloc@GOMP_5.0.1 11
  GOMP_atomic_end@GOMP_1.0 4.2.1
  GOMP_atomic_start@GOMP_1.0 4.2.1
@@ -56,6 +61,7 @@ libgomp.so.1 libgomp1 #MINVER#
  GOMP_doacross_wait@GOMP_4.5 6
  GOMP_error@GOMP_5.1 12
  GOMP_free@GOMP_5.0.1 11
+ GOMP_is_alloc@GOMP_5.1.2 14
  GOMP_loop_doacross_dynamic_start@GOMP_4.5 6
  GOMP_loop_doacross_guided_start@GOMP_4.5 6
  GOMP_loop_doacross_runtime_start@GOMP_4.5 6
@@ -161,6 +167,7 @@ libgomp.so.1 libgomp1 #MINVER#
  GOMP_target_end_data@GOMP_4.0 4.9
  GOMP_target_enter_exit_data@GOMP_4.5 6
  GOMP_target_ext@GOMP_4.5 6
+ GOMP_target_map_indirect_ptr@GOMP_5.1.2 14
  GOMP_target_update@GOMP_4.0 4.9
  GOMP_target_update_ext@GOMP_4.5 6
  GOMP_task@GOMP_2.0 4.4
@@ -173,6 +180,7 @@ libgomp.so.1 libgomp1 #MINVER#
  GOMP_taskloop_ull@GOMP_4.5 6
  GOMP_taskwait@GOMP_2.0 4.4
  GOMP_taskwait_depend@GOMP_5.0 9
+ GOMP_taskwait_depend_nowait@GOMP_5.1.1 13
  GOMP_taskyield@GOMP_3.0 4.7
  GOMP_teams4@GOMP_5.1 12
  GOMP_teams@GOMP_4.0 4.9
@@ -193,7 +201,9 @@ libgomp.so.1 libgomp1 #MINVER#
  OMP_5.0.1@OMP_5.0.1 11
  OMP_5.0.2@OMP_5.0.2 12
  OMP_5.0@OMP_5.0 9
+ OMP_5.1.1@OMP_5.1.1 13
  OMP_5.1@OMP_5.1 12
+ OMP_5.2@OMP_5.2 13
  acc_async_test@OACC_2.0 5
  acc_async_test_all@OACC_2.0 5
  acc_async_test_all_h_@OACC_2.0 5
@@ -369,6 +379,7 @@ libgomp.so.1 libgomp1 #MINVER#
  omp_get_initial_device_@OMP_4.5 6
  omp_get_level@OMP_3.0 4.4
  omp_get_level_@OMP_3.0 4.4
+ omp_get_mapped_ptr@OMP_5.1.1 13
  omp_get_max_active_levels@OMP_3.0 4.4
  omp_get_max_active_levels_@OMP_3.0 4.4
  omp_get_max_task_priority@OMP_4.5 6
@@ -424,6 +435,8 @@ libgomp.so.1 libgomp1 #MINVER#
  omp_get_wtick_@OMP_2.0 4.2.1
  omp_get_wtime@OMP_2.0 4.2.1
  omp_get_wtime_@OMP_2.0 4.2.1
+ omp_in_explicit_task@OMP_5.2 13
+ omp_in_explicit_task_@OMP_5.2 13
  omp_in_final@OMP_3.1 4.7
  omp_in_final_@OMP_3.1 4.7
  omp_in_parallel@OMP_1.0 4.2.1
@@ -486,9 +499,12 @@ libgomp.so.1 libgomp1 #MINVER#
  omp_target_associate_ptr@OMP_4.5 6
  omp_target_disassociate_ptr@OMP_4.5 6
  omp_target_free@OMP_4.5 6
+ omp_target_is_accessible@OMP_5.1.1 13
  omp_target_is_present@OMP_4.5 6
  omp_target_memcpy@OMP_4.5 6
+ omp_target_memcpy_async@OMP_5.1.1 13
  omp_target_memcpy_rect@OMP_4.5 6
+ omp_target_memcpy_rect_async@OMP_5.1.1 13
  omp_test_lock@OMP_1.0 4.2.1
  omp_test_lock@OMP_3.0 4.4
  omp_test_lock_@OMP_1.0 4.2.1

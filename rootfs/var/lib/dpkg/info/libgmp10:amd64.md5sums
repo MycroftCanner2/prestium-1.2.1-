@@ -1,5 +1,5 @@
-7859e5253b7f725eb57d12bf26a80e0a  usr/lib/x86_64-linux-gnu/libgmp.so.10.4.1
+efbc21ca1547eeacf5dc27001bd1ef39  usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0
 061786ca72ba56ab851af66f5b4566b4  usr/share/doc/libgmp10/README.Debian
-3a1138ccf34db97664b235482f93a455  usr/share/doc/libgmp10/changelog.Debian.gz
-03b728a270d58c61a72bdd6cc4da398d  usr/share/doc/libgmp10/changelog.gz
+6b12f6d8a8d77c95e5f712315cb6930e  usr/share/doc/libgmp10/changelog.Debian.gz
+bc6b053bd77f451225ddf6e2a1808fec  usr/share/doc/libgmp10/changelog.gz
 b83aca9c3c7f257e7b9ca756fa8a6480  usr/share/doc/libgmp10/copyright

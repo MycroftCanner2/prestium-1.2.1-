@@ -114,6 +114,9 @@
 /usr/share/locale/id
 /usr/share/locale/id/LC_MESSAGES
 /usr/share/locale/id/LC_MESSAGES/gnome-online-accounts.mo
+/usr/share/locale/ie
+/usr/share/locale/ie/LC_MESSAGES
+/usr/share/locale/ie/LC_MESSAGES/gnome-online-accounts.mo
 /usr/share/locale/is
 /usr/share/locale/is/LC_MESSAGES
 /usr/share/locale/is/LC_MESSAGES/gnome-online-accounts.mo
@@ -231,6 +234,9 @@
 /usr/share/locale/uk
 /usr/share/locale/uk/LC_MESSAGES
 /usr/share/locale/uk/LC_MESSAGES/gnome-online-accounts.mo
+/usr/share/locale/uz
+/usr/share/locale/uz/LC_MESSAGES
+/usr/share/locale/uz/LC_MESSAGES/gnome-online-accounts.mo
 /usr/share/locale/vi
 /usr/share/locale/vi/LC_MESSAGES
 /usr/share/locale/vi/LC_MESSAGES/gnome-online-accounts.mo

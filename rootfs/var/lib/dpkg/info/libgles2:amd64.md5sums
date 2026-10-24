@@ -1,5 +1,6 @@
-82f32a2f41c33d0884ae5c45b363b381  usr/lib/x86_64-linux-gnu/libGLESv2.so.2.1.0
+527e5b4dbd0d0574c4e8ed6f065acda4  usr/lib/x86_64-linux-gnu/libGLESv2.so.2.1.0
 2295a81abfbf493c2fefd51c81b8618e  usr/share/bug/libgles2/control
-f2ff9c20bab60349c1d7996f5f448be5  usr/share/doc/libgles2/changelog.Debian.gz
-96aa9f3a44040e7d50de816f57487503  usr/share/doc/libgles2/copyright
+76b9c4cefd4624ef0102d95f0de77e19  usr/share/doc/libgles2/changelog.Debian.amd64.gz
+1f6f161612be6125ef4ceff8f1c996a1  usr/share/doc/libgles2/changelog.Debian.gz
+ba0c09cf9de1643aaab0fd695a6d7476  usr/share/doc/libgles2/copyright
 c892a92ca2f1c99b9fd25bdb589b6b7c  usr/share/lintian/overrides/libgles2

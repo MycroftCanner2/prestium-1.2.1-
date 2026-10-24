@@ -2,11 +2,11 @@
 
 set -e
 
-if [ "$1" = configure ]; then
+if [ "$1" = configure -a -f /usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper ]; then
     # If we have setcap is installed, try setting cap_net_bind_service,cap_net_admin+ep,
     # which allows us to install our helper binary without the setuid bit.
     if command -v setcap > /dev/null; then
-        if setcap cap_net_bind_service,cap_net_admin+ep /usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper; then
+        if setcap cap_sys_nice,cap_net_bind_service,cap_net_admin+ep /usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper; then
             echo "Setcap worked! gst-ptp-helper is not suid!"
         else
             echo "Setcap failed on gst-ptp-helper, falling back to setuid" >&2
@@ -21,4 +21,3 @@ fi
 
 
 exit 0
-

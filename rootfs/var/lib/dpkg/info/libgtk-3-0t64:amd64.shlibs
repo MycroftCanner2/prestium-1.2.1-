@@ -1,0 +1,4 @@
+libgdk-3 0 libgtk-3-0t64 (>= 3.24.49)
+libgtk-3 0 libgtk-3-0t64 (>= 3.24.49)
+udeb: libgdk-3 0 libgtk-3-0-udeb (>= 3.24.49)
+udeb: libgtk-3 0 libgtk-3-0-udeb (>= 3.24.49)

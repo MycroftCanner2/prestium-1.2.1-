@@ -10,6 +10,7 @@ libgfortran.so.5 libgfortran5 #MINVER#
  GFORTRAN_10.2@GFORTRAN_10.2 10.2
  GFORTRAN_10@GFORTRAN_10 10
  GFORTRAN_12@GFORTRAN_12 11.2
+ GFORTRAN_13@GFORTRAN_13 13
  GFORTRAN_8@GFORTRAN_8 8
  GFORTRAN_9.2@GFORTRAN_9.2 9.1
  GFORTRAN_9@GFORTRAN_9 9
@@ -90,9 +91,11 @@ libgfortran.so.5 libgfortran5 #MINVER#
  __ieee_exceptions_MOD_ieee_all@GFORTRAN_8 8
  __ieee_exceptions_MOD_ieee_get_flag@GFORTRAN_8 8
  __ieee_exceptions_MOD_ieee_get_halting_mode@GFORTRAN_8 8
+ __ieee_exceptions_MOD_ieee_get_modes@GFORTRAN_13 13
  __ieee_exceptions_MOD_ieee_get_status@GFORTRAN_8 8
  __ieee_exceptions_MOD_ieee_set_flag@GFORTRAN_8 8
  __ieee_exceptions_MOD_ieee_set_halting_mode@GFORTRAN_8 8
+ __ieee_exceptions_MOD_ieee_set_modes@GFORTRAN_13 13
  __ieee_exceptions_MOD_ieee_set_status@GFORTRAN_8 8
  __ieee_exceptions_MOD_ieee_support_flag_10@GFORTRAN_8 8
  __ieee_exceptions_MOD_ieee_support_flag_16@GFORTRAN_8 8

@@ -12,6 +12,6 @@ b1e523da41112d37077271b1d6fd306e  usr/share/color/icc/ghostscript/esrgb.icc
 b70d32fbbc782deaf46e49175e2a3cd5  usr/share/color/icc/ghostscript/scrgb.icc
 79e8621d62557a547d591527405a388a  usr/share/color/icc/ghostscript/sgray.icc
 27d2435a749ae91e9974bf7a109a03e5  usr/share/color/icc/ghostscript/srgb.icc
-9016591bd5667fac78aedf730ab7538d  usr/share/doc/libgs-common/NEWS.Debian.gz
-7e058835d44671156560c22c319a805b  usr/share/doc/libgs-common/changelog.Debian.gz
-ff53460a658fc499b3f55e36021ff95b  usr/share/doc/libgs-common/copyright
+7e7792848ad0f56e6fb989fe2b146ea9  usr/share/doc/libgs-common/NEWS.Debian.gz
+c577ea78c2730ec5e2ee6b46a4b0983d  usr/share/doc/libgs-common/changelog.Debian.gz
+419ca45c200ef21e84ae9ffcdf3a2c6c  usr/share/doc/libgs-common/copyright

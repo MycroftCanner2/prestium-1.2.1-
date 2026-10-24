@@ -9,6 +9,7 @@
 /usr/share/bug/libglvnd0/control
 /usr/share/doc
 /usr/share/doc/libglvnd0
+/usr/share/doc/libglvnd0/changelog.Debian.amd64.gz
 /usr/share/doc/libglvnd0/changelog.Debian.gz
 /usr/share/doc/libglvnd0/copyright
 /usr/share/lintian

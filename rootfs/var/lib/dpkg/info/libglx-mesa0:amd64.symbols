@@ -1,5 +1,6 @@
 libGLX_mesa.so.0 libglx-mesa0
  MesaGLInteropGLXExportObject@Base 12.0.4
+ MesaGLInteropGLXFlushObjects@Base 23.3.0~
  MesaGLInteropGLXQueryDeviceInfo@Base 12.0.4
  __glx_Main@Base 17.0.0~
  glAccum@Base 0
@@ -324,6 +325,8 @@ libGLX_mesa.so.0 libglx-mesa0
  glFramebufferTexture@Base 0
  glFramebufferTextureLayer@Base 0
  glFramebufferTextureLayerEXT@Base 0
+ glFramebufferTextureMultisampleMultiviewOVR@Base 24.3.0~rc1
+ glFramebufferTextureMultiviewOVR@Base 24.3.0~rc1
  glFrontFace@Base 0
  glFrustum@Base 0
  glFrustumf@Base 0
@@ -1015,6 +1018,8 @@ libGLX_mesa.so.0 libglx-mesa0
  glTexStorage2DMultisample@Base 0
  glTexStorage3D@Base 0
  glTexStorage3DMultisample@Base 0
+ glTexStorageAttribs2DEXT@Base 24.2.0~rc1
+ glTexStorageAttribs3DEXT@Base 24.2.0~rc1
  glTexSubImage1D@Base 0
  glTexSubImage2D@Base 0
  glTexSubImage3D@Base 0

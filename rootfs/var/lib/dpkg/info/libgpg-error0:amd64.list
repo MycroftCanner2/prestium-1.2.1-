@@ -1,8 +1,8 @@
 /.
-/lib
-/lib/x86_64-linux-gnu
-/lib/x86_64-linux-gnu/libgpg-error.so.0.33.1
 /usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libgpg-error.so.0.38.0
 /usr/share
 /usr/share/doc
 /usr/share/doc/libgpg-error0
@@ -10,4 +10,4 @@
 /usr/share/doc/libgpg-error0/changelog.Debian.gz
 /usr/share/doc/libgpg-error0/changelog.gz
 /usr/share/doc/libgpg-error0/copyright
-/lib/x86_64-linux-gnu/libgpg-error.so.0
+/usr/lib/x86_64-linux-gnu/libgpg-error.so.0

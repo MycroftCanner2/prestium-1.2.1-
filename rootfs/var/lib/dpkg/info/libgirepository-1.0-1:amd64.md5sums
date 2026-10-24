@@ -1,3 +1,4 @@
-f9afda64d4d100a612d3fad4c1c73c6c  usr/lib/x86_64-linux-gnu/libgirepository-1.0.so.1.0.0
-23ac82945996e2dee5ce5c1f3269804a  usr/share/doc/libgirepository-1.0-1/changelog.Debian.gz
-6d825dba2ec2a7c4098e3207df623ad9  usr/share/doc/libgirepository-1.0-1/copyright
+165d5208e2b2f1703beff10111bc15cc  usr/lib/x86_64-linux-gnu/libgirepository-1.0.so.1.0.0
+00fac10da312dcc97ed576b683a2c53c  usr/share/doc/libgirepository-1.0-1/changelog.Debian.gz
+76969c0c2651b6df0ac75f740c092416  usr/share/doc/libgirepository-1.0-1/copyright
+7923e84ae053958e770289eca83f8013  usr/share/lintian/overrides/libgirepository-1.0-1
