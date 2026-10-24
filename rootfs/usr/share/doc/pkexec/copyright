@@ -1,12 +1,11 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: polkit
-Source: https://www.freedesktop.org/software/polkit/releases/
+Source: https://github.com/polkit-org/polkit/
 
 Files:
  *
- polkit-pkla-compat/*
 Copyright:
- 2008-2021 Red Hat, Inc.
+ 2008-2024 Red Hat, Inc.
  2010 Antoine Jacoutot
  2009-2010 Andrew Psaltis
  2011 Google Inc.
@@ -17,17 +16,6 @@ Copyright:
  2019 Wu Xiaotian
  2020 Karl Ove Hufthammer
 License: LGPL-2.0+ and Expat
-
-Files: subprojects/packagecache/mocklibc-1.0-2-wrap.zip
-Copyright: 2019 The Meson development team
-License: Expat
-
-Files:
- polkit-pkla-compat/test/mocklibc/*
- subprojects/packagecache/mocklibc-1.0.tar.gz
- test/mocklibc/*
-Copyright: 2011 Google Inc.
-License: Apache-2.0
 
 License: LGPL-2.0+
  This package is free software; you can redistribute it and/or
@@ -45,22 +33,6 @@ License: LGPL-2.0+
  .
  On Debian systems, the complete text of the GNU Lesser General
  Public License can be found in "/usr/share/common-licenses/LGPL-2".
-
-License: Apache-2.0
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
- .
- http://www.apache.org/licenses/LICENSE-2.0
- .
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- .
- On Debian systems, the complete text of the Apache version 2.0 license
- can be found in "/usr/share/common-licenses/Apache-2.0"
 
 License: Expat
  Permission is hereby granted, free of charge, to any person obtaining a copy

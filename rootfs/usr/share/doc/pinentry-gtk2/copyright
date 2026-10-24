@@ -4,7 +4,7 @@ Upstream-Contact: gnupg-devel@gnupg.org
 Source: https://gnupg.org/ftp/gcrypt/pinentry/
 
 Files: *
-Copyright: 2002-2021, g10 Code GmbH
+Copyright: 2002-2024, g10 Code GmbH
 License: GPL-2+
 
 Files: fltk/*
@@ -43,10 +43,12 @@ Files: m4/pkg.m4
 Copyright: 2004 Scott James Remnant <scott@netsplit.com>
 License: GPL-2+
 
-Files: m4/qt.m4
-Copyright: 1997 Janos Farkas (chexum@shadow.banki.hu)o
- 1997,98,99 Stephan Kulow (coolo@kde.org)
- 2002 g10 Code GmbH
+Files: m4/qt5.m4
+Copyright: 2015 Intevation GmbH
+License: GPL-2+
+
+Files: m4/qt6.m4
+Copyright: 2016 Intevation GmbH
 License: GPL-2+
 
 Files: pinentry/argparse.c
@@ -59,7 +61,7 @@ Copyright: 1999, Robert Bihlmeyer <robbe@orcus.priv.at>
  2001, 2002, 2003, 2004, 2007 g10 Code GmbH
 License: GPL-2+
 
-Files: secmem/memory.h
+Files: secmem/secmem.h
 Copyright: 1998,1999 Free Software Foundation, Inc.
  1999,2000 Robert Bihlmeyer <robbe@orcus.priv.at>
 License: GPL-2+
@@ -77,8 +79,20 @@ Copyright: 2002, 2008 Klarälvdalens Datakonsult AB <steffen@klaralvdalens-datak
  2007 Ingo Klöcker
 License: GPL-2+
 
+Files: qt5/pinentrydialog.*
+Copyright: 2002, 2008 Klarälvdalens Datakonsult AB <steffen@klaralvdalens-datakonsult.se>
+ 2007 Ingo Klöcker
+ 2016 Intevation GmbH
+ 2021, 2022 g10 Code GmbH
+License: GPL-2+
+
 Files: qt/pinentryconfirm.*
 Copyright: 2011 Ben Kibbey <bjk@luxsci.net>
+License: GPL-2+
+
+Files: qt5/pinentryconfirm.*
+Copyright: 2011 Ben Kibbey <bjk@luxsci.net>
+ 2022 g10 Code GmbH
 License: GPL-2+
 
 Files: qt/main.cpp
@@ -87,9 +101,25 @@ Copyright: 2002, 2008 Klarälvdalens Datakonsult AB (KDAB)
  2007 Ingo Klöcker
 License: GPL-2+
 
+Files: qt5/main.cpp
+Copyright: 2002, 2008 Klarälvdalens Datakonsult AB (KDAB)
+ 2003, 2021 g10 Code GmbH
+ 2007 Ingo Klöcker
+License: GPL-2+
+
 Files: qt/Makefile.am
 Copyright: 2002 Klarälvdalens Datakonsult AB (KDAB)
  2008 g10 Code GmbH
+License: GPL-2+
+
+Files: qt5/Makefile.am
+Copyright: 2002 Klarälvdalens Datakonsult AB (KDAB)
+ 2002, 2008, 2015 g10 Code GmbH
+License: GPL-2+
+
+Files: qt5/pinlineedit.*
+Copyright: 2018 Damien Goutte-Gattat
+ 2021 g10 Code GmbH
 License: GPL-2+
 
 Files: debian/*

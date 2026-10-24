@@ -8,9 +8,11 @@ Copyright: © 2003-2006 Red Hat Inc. <http://www.redhat.com/>
            © 2004 Rob Taylor
            © 2004 Anders Carlsson
            © 2005 Colin Walters
-           © 2005-2022 Collabora Ltd.
+           © 2005-2025 Collabora Ltd.
+           © 2008 Mathias Hasselmann and/or Openismus
            © 2011 Barry Warsaw
            © 2016 Simon McVittie
+           © 2016 GNOME Wiki contributors
 License: Expat
 
 Files: subprojects/dbus-gmain/*

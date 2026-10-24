@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="iso-8859-1"?> <!-- -*-html-helper-*- -->
+<?xml version="1.0" encoding="utf-8"?> <!-- -*-html-helper-*- -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<title>PulseAudio Volume Control 5.0</title>
+<meta charset="utf-8" />
+<title>PulseAudio Volume Control 6.1</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-<h1><a name="top">PulseAudio Volume Control 5.0</a></h1>
+<h1><a name="top">PulseAudio Volume Control 6.1</a></h1>
 
 <ul class="toc">
     <li><a href="#license">License</a></li>
@@ -37,6 +38,34 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 General Public License for more details.</p>
 
 <h2><a name="news">News</a></h2>
+
+<div class="news-date">Fri Aug 01 2024: </div>
+<p class="news-text">
+<a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-6.1.tar.xz">Version 6.1</a> released.
+Changes:</p>
+<ul>
+<li>Fix translations not being correctly picked up.</li>
+<li>Fix bug where cards don't go away when unplugged.</li>
+<li>Fix app naming in desktop file (Volume Control).</li>
+<li>Fix Bluetooth codec selection alignment.</li>
+<li>Update Swedish translation.</li>
+</ul>
+
+<div class="news-date">Tue May 21 2024: </div>
+<p class="news-text">
+<a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-6.0.tar.xz">Version 6.0</a> released.
+Changes:</p>
+<ul>
+<li>Migrate from Gtk 3 to 4.</li>
+<li>Embed UI resources in executable.</li>
+<li>Rename "Set as fallback" to "Default" for better legibility.</li>
+<li>Support 144 Hz monitors with level bars.</li>
+<li>App icons will fallback to generic rather than missing image,
+and this will be more common with Gtk 4.</li>
+<li>Lots of translation updates.</li>
+<li>Drop autotools build in favour of meson.</li>
+<li>Make libcanberra dependency optional.</li>
+</ul>
 
 <div class="news-date">Sun Aug 15 2021: </div>
 <p class="news-text">
@@ -191,7 +220,7 @@ compilation and <tt>make install</tt> (as root) for installation of
 
 <p>The newest release is always available from <a href="http://freedesktop.org/software/pulseaudio/pavucontrol/">http://freedesktop.org/software/pulseaudio/pavucontrol/</a></p>
 
-<p>The current release is <a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-5.0.tar.gz">5.0</a></p>
+<p>The current release is <a href="http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-6.1.tar.gz">6.1</a></p>
 
 <p>Get <tt>pavucontrol</tt>'s development sources from the git <a href="https://gitlab.freedesktop.org/pulseaudio/pavucontrol.git">repository</a> (<a href="https://gitlab.freedesktop.org/pulseaudio/pavucontrol">GitLab</a>): </p>
 

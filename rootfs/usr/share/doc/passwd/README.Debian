@@ -1,13 +1,14 @@
-Read this file first for a brief overview of the new versions of login
-and passwd.
+Read this file first for a brief overview of the current version
+of passwd.
 
 
 ---Shadow passwords
 
 The command `shadowconfig on' will turn on shadow password support.
-`shadowconfig off' will turn it back off.  If you turn on shadow
-password support, you'll gain the ability to set password ages and
-expirations with chage(1).
+This is the default. Turning off shadow passwords is not supported
+anymore.
+Together with shadow passwords, you get the ability to set password ages
+and expirations with chage(1).
 
 NOTE: If you use the nscd package, you may have problems with a
 slight delay in updating the password information. You may notice
@@ -27,7 +28,7 @@ support. PAM documentation is available in several formats in the
 libpam-doc package.
 
 
----MD5 Encryption
+---Encryption
 
 This is enabled now using the /etc/pam.d/* files. Examples are given.
 

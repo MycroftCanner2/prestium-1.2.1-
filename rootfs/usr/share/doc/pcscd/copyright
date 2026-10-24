@@ -51,7 +51,12 @@ License: ISC
  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
+Files: etc/fr.apdu.pcsclite.metainfo.xml
+Copyright: 2024, Ludovic Rousseau <ludovic.rousseau@free.fr>
+License: MIT
+ /use/share/common-licenses/MIT
+
 Files: debian/*  src/spy/*
-Copyright: 2002-2022, Ludovic Rousseau <ludovic.rousseau@free.fr>
+Copyright: 2002-2025, Ludovic Rousseau <ludovic.rousseau@free.fr>
 License: GPL-3+
  /usr/share/common-licenses/GPL-3

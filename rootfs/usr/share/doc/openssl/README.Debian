@@ -11,12 +11,12 @@ Instead of `<application>` please call now `openssl <application>`
 eg: 
 instead of `req` please call `openssl req`
 
-TLS protovol version and RSA key size
+TLS protocol version and RSA key size
 -------------------------------------
 The default system global policy is to support TLSv1.2+ and security level two.
 Please see
-  https://www.openssl.org/docs/man1.1.1/man5/config.html
-  https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_security_level.html#DEFAULT-CALLBACK-BEHAVIOUR
+  https://docs.openssl.org/3.3/man5/config
+  https://docs.openssl.org/3.3/man3/SSL_CTX_set_security_level/#description
 for configurations details of `MinProtocol' and `CipherString' in
 /etc/ssl/openssl.cnf case you really require to support legacy systems.
 
@@ -31,6 +31,13 @@ a result, the following algorithms in libcrypto have been disabled:
 
 Also see the patents section in the README file.
 
+
+Providers
+---------
+
+The legacy provider is shipped as a separate package named
+openssl-provider-legacy. See README-PROVIDERS.md for mode information about
+providers in openssl.
 
 Self-signed certs and webservers:
 ---------------------------------

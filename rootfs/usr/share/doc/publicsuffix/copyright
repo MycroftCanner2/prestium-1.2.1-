@@ -4,7 +4,7 @@ Upstream-Contact: Public Suffix List <contact@publicsuffix.org>
 Source: https://publicsuffix.org/
 
 Files: *
-Copyright: 2010-2022 PSL maintainers,
+Copyright: 2010-2023 PSL maintainers,
  Daniel Veditz,
  Ehsan Akhgari,
  Gervase Markham,
