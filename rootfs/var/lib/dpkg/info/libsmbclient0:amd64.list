@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libsmbclient.so.0.8.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libsmbclient0
+/usr/share/doc/libsmbclient0/changelog.Debian.gz
+/usr/share/doc/libsmbclient0/copyright
+/usr/share/man
+/usr/share/man/man7
+/usr/share/man/man7/libsmbclient.7.gz
+/usr/lib/x86_64-linux-gnu/libsmbclient.so.0

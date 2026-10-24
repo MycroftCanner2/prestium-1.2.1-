@@ -1,5 +1,6 @@
 libstartup-notification-1.so.0 libstartup-notification0 #MINVER#
 | libstartup-notification-private
+* Build-Depends-Package: libstartup-notification0-dev
  sn_display_error_trap_pop@Base 0.2
  sn_display_error_trap_push@Base 0.2
  sn_display_get_x_connection@Base 0.10

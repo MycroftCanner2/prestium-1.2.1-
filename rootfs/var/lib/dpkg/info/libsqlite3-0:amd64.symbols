@@ -110,6 +110,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3BtreeMaxRecordSize@Base 3.37.0
  sqlite3BtreeNewDb@Base 3.37.0
  sqlite3BtreeNext@Base 3.37.0
+ sqlite3BtreeOffset@Base 3.43.0
  sqlite3BtreeOpen@Base 3.37.0
  sqlite3BtreePager@Base 3.37.0
  sqlite3BtreePayload@Base 3.37.0
@@ -196,6 +197,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3DbSpanDup@Base 3.37.0
  sqlite3DbStrDup@Base 3.37.0
  sqlite3DbStrNDup@Base 3.37.0
+ sqlite3DbpageRegister@Base 3.46.1-5~
  sqlite3DbstatRegister@Base 3.37.0
  sqlite3DecOrHexToI64@Base 3.37.0
  sqlite3DefaultMutex@Base 3.37.0
@@ -205,10 +207,12 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3DeleteFrom@Base 3.37.0
  sqlite3DeleteIndexSamples@Base 3.37.0
  sqlite3DeleteTable@Base 3.37.0
+ sqlite3DeleteTableGeneric@Base 3.45.0
  sqlite3DeleteTrigger@Base 3.37.0
  sqlite3DeleteTriggerStep@Base 3.37.0
  sqlite3Dequote@Base 3.37.0
  sqlite3DequoteExpr@Base 3.37.0
+ sqlite3DequoteNumber@Base 3.46.0
  sqlite3DequoteToken@Base 3.37.0
  sqlite3Detach@Base 3.37.0
  sqlite3DropIndex@Base 3.37.0
@@ -229,6 +233,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3Expr@Base 3.37.0
  sqlite3ExprAddCollateString@Base 3.37.0
  sqlite3ExprAddCollateToken@Base 3.37.0
+ sqlite3ExprAddFunctionOrderBy@Base 3.44.0
  sqlite3ExprAffinity@Base 3.37.0
  sqlite3ExprAlloc@Base 3.37.0
  sqlite3ExprAnalyzeAggList@Base 3.37.0
@@ -258,8 +263,10 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3ExprCompareCollSeq@Base 3.37.0
  sqlite3ExprCompareSkip@Base 3.37.0
  sqlite3ExprCoveredByIndex@Base 3.37.0
+ sqlite3ExprDataType@Base 3.42.0
  sqlite3ExprDeferredDelete@Base 3.37.0
  sqlite3ExprDelete@Base 3.37.0
+ sqlite3ExprDeleteGeneric@Base 3.45.0
  sqlite3ExprDup@Base 3.37.0
  sqlite3ExprForVectorField@Base 3.37.0
  sqlite3ExprFunction@Base 3.37.0
@@ -271,12 +278,10 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3ExprImpliesExpr@Base 3.37.0
  sqlite3ExprImpliesNonNullRow@Base 3.37.0
  sqlite3ExprIsConstant@Base 3.37.0
- sqlite3ExprIsConstantNotJoin@Base 3.37.0
  sqlite3ExprIsConstantOrFunction@Base 3.37.0
  sqlite3ExprIsConstantOrGroupBy@Base 3.37.0
  sqlite3ExprIsInteger@Base 3.37.0
- sqlite3ExprIsTableConstant@Base 3.37.0
- sqlite3ExprIsTableConstraint@Base 3.38.3
+ sqlite3ExprIsSingleTableConstraint@Base 3.42.0
  sqlite3ExprIsVector@Base 3.37.0
  sqlite3ExprListAppend@Base 3.37.0
  sqlite3ExprListAppendGrow@Base 3.37.0
@@ -285,6 +290,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3ExprListCheckLength@Base 3.37.0
  sqlite3ExprListCompare@Base 3.37.0
  sqlite3ExprListDelete@Base 3.37.0
+ sqlite3ExprListDeleteGeneric@Base 3.45.0
  sqlite3ExprListDup@Base 3.37.0
  sqlite3ExprListFlags@Base 3.37.0
  sqlite3ExprListSetName@Base 3.37.0
@@ -293,7 +299,9 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3ExprListToValues@Base 3.37.0
  sqlite3ExprNNCollSeq@Base 3.37.0
  sqlite3ExprNeedsNoAffinityChange@Base 3.37.0
+ sqlite3ExprOrderByAggregateError@Base 3.44.0
  sqlite3ExprReferencesUpdatedColumn@Base 3.37.0
+ sqlite3ExprSetErrorOffset@Base 3.43.0
  sqlite3ExprSetHeightAndFlags@Base 3.37.0
  sqlite3ExprSimplifiedAndOr@Base 3.37.0
  sqlite3ExprSkipCollate@Base 3.37.0
@@ -326,6 +334,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3FkOldmask@Base 3.37.0
  sqlite3FkReferences@Base 3.37.0
  sqlite3FkRequired@Base 3.37.0
+ sqlite3FpDecode@Base 3.43.0
  sqlite3FreeIndex@Base 3.37.0
  sqlite3Fts3AllSegdirs@Base 3.37.0
  sqlite3Fts3CacheDeferredDoclists@Base 3.37.0
@@ -341,6 +350,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3Fts3EvalPhraseStats@Base 3.37.0
  sqlite3Fts3EvalTestDeferred@Base 3.37.0
  sqlite3Fts3ExprFree@Base 3.37.0
+ sqlite3Fts3ExprIterate@Base 3.42.0
  sqlite3Fts3ExprParse@Base 3.37.0
  sqlite3Fts3FirstFilter@Base 3.37.0
  sqlite3Fts3FreeDeferredDoclists@Base 3.37.0
@@ -360,6 +370,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3Fts3InitHashTable@Base 3.37.0
  sqlite3Fts3InitTok@Base 3.37.0
  sqlite3Fts3InitTokenizer@Base 3.37.0
+ sqlite3Fts3IntegrityCheck@Base 3.45.1
  sqlite3Fts3IsIdChar@Base 3.37.0
  sqlite3Fts3MIBufferFree@Base 3.37.0
  sqlite3Fts3MallocZero@Base 3.37.0
@@ -449,6 +460,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3IsLikeFunction@Base 3.37.0
  sqlite3IsMemdb@Base 3.40.1
  sqlite3IsNaN@Base 3.37.0
+ sqlite3IsOverflow@Base 3.45.3
  sqlite3IsReadOnly@Base 3.37.0
  sqlite3IsRowid@Base 3.37.0
  sqlite3IsShadowTableOf@Base 3.37.0
@@ -488,11 +500,14 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3MayAbort@Base 3.37.0
  sqlite3MemCompare@Base 3.37.0
  sqlite3MemJournalOpen@Base 3.37.0
+ sqlite3MemSetArrayInt64@Base 3.46.0
  sqlite3MemSetDefault@Base 3.37.0
  sqlite3MemdbInit@Base 3.37.0
  sqlite3MemoryBarrier@Base 3.37.0
  sqlite3MisuseError@Base 3.37.0
  sqlite3MulInt64@Base 3.37.0
+ sqlite3MultiValues@Base 3.46.0
+ sqlite3MultiValuesEnd@Base 3.46.0
  sqlite3MultiWrite@Base 3.37.0
  sqlite3MutexAlloc@Base 3.37.0
  sqlite3MutexEnd@Base 3.37.0
@@ -545,6 +560,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3OsUnlock@Base 3.37.0
  sqlite3OsWrite@Base 3.37.0
  sqlite3PCacheBufferSetup@Base 3.37.0
+ sqlite3PCacheIsDirty@Base 3.45.0
  sqlite3PCachePercentDirty@Base 3.37.0
  sqlite3PCacheSetDefault@Base 3.37.0
  sqlite3PExpr@Base 3.37.0
@@ -561,6 +577,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3PagerCommitPhaseOne@Base 3.37.0
  sqlite3PagerCommitPhaseTwo@Base 3.37.0
  sqlite3PagerDataVersion@Base 3.37.0
+ sqlite3PagerDirectReadOk@Base 3.45.0
  sqlite3PagerDontWrite@Base 3.37.0
  sqlite3PagerExclusiveLock@Base 3.37.0
  sqlite3PagerFile@Base 3.37.0
@@ -655,9 +672,14 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3PrimaryKeyIndex@Base 3.37.0
  sqlite3PrngRestoreState@Base 3.37.0
  sqlite3PrngSaveState@Base 3.37.0
+ sqlite3ProgressCheck@Base 3.42.0
  sqlite3Put4byte@Base 3.37.0
  sqlite3PutVarint@Base 3.37.0
  sqlite3QuoteValue@Base 3.38.0
+ sqlite3RCStrNew@Base 3.43.0
+ sqlite3RCStrRef@Base 3.43.0
+ sqlite3RCStrResize@Base 3.43.0
+ sqlite3RCStrUnref@Base 3.43.0
  sqlite3ReadOnlyShadowTables@Base 3.37.0
  sqlite3ReadSchema@Base 3.37.0
  sqlite3RealSameAsInt@Base 3.37.0
@@ -699,6 +721,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3RowSetInsert@Base 3.37.0
  sqlite3RowSetNext@Base 3.37.0
  sqlite3RowSetTest@Base 3.37.0
+ sqlite3RowidAlias@Base 3.44.0
  sqlite3RowidConstraint@Base 3.37.0
  sqlite3RtreeInit@Base 3.37.0
  sqlite3RunParser@Base 3.37.0
@@ -711,8 +734,8 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3SchemaToIndex@Base 3.37.0
  sqlite3SectorSize@Base 3.37.0
  sqlite3Select@Base 3.37.0
- sqlite3SelectAddColumnTypeAndCollation@Base 3.37.0
  sqlite3SelectDelete@Base 3.37.0
+ sqlite3SelectDeleteGeneric@Base 3.45.0
  sqlite3SelectDestInit@Base 3.37.0
  sqlite3SelectDup@Base 3.37.0
  sqlite3SelectExprHeight@Base 3.37.0
@@ -760,6 +783,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3StrIHash@Base 3.37.0
  sqlite3Strlen30@Base 3.37.0
  sqlite3SubInt64@Base 3.37.0
+ sqlite3SubqueryColumnTypes@Base 3.42.0
  sqlite3SubselectError@Base 3.37.0
  sqlite3SystemError@Base 3.37.0
  sqlite3TableAffinity@Base 3.37.0
@@ -772,6 +796,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3ThreadCreate@Base 3.37.0
  sqlite3ThreadJoin@Base 3.37.0
  sqlite3TokenInit@Base 3.37.0
+ sqlite3TouchRegister@Base 3.42.0
  sqlite3TransferBindings@Base 3.37.0
  sqlite3TreeTrace@Base 3.39.0
  sqlite3TriggerColmask@Base 3.37.0
@@ -800,6 +825,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3Utf16to8@Base 3.37.0
  sqlite3Utf8CharLen@Base 3.37.0
  sqlite3Utf8Read@Base 3.37.0
+ sqlite3Utf8ReadLimited@Base 3.45.0
  sqlite3VListAdd@Base 3.37.0
  sqlite3VListNameToNum@Base 3.37.0
  sqlite3VListNumToName@Base 3.37.0
@@ -809,6 +835,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3ValueBytes@Base 3.37.0
  sqlite3ValueFree@Base 3.37.0
  sqlite3ValueFromExpr@Base 3.37.0
+ sqlite3ValueIsOfClass@Base 3.43.0
  sqlite3ValueNew@Base 3.37.0
  sqlite3ValueSetNull@Base 3.37.0
  sqlite3ValueSetStr@Base 3.37.0
@@ -911,6 +938,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3VdbeMemStringify@Base 3.37.0
  sqlite3VdbeMemTooBig@Base 3.37.0
  sqlite3VdbeMemTranslate@Base 3.37.0
+ sqlite3VdbeMemZeroTerminateIfAble@Base 3.43.0
  sqlite3VdbeMultiLoad@Base 3.37.0
  sqlite3VdbeNextOpcode@Base 3.37.0
  sqlite3VdbeOneByteSerialTypeLen@Base 3.37.0
@@ -949,6 +977,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3VdbeTransferError@Base 3.37.0
  sqlite3VdbeTypeofColumn@Base 3.40.0
  sqlite3VdbeUsesBtree@Base 3.37.0
+ sqlite3VdbeValueListFree@Base 3.42.0
  sqlite3VectorErrorMsg@Base 3.37.0
  sqlite3VectorFieldSubexpr@Base 3.37.0
  sqlite3ViewGetColumnNames@Base 3.37.0
@@ -976,6 +1005,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3VtabSync@Base 3.37.0
  sqlite3VtabUnlock@Base 3.37.0
  sqlite3VtabUnlockList@Base 3.37.0
+ sqlite3VtabUsesAllSchemas@Base 3.42.0
  sqlite3WalBeginReadTransaction@Base 3.37.0
  sqlite3WalBeginWriteTransaction@Base 3.37.0
  sqlite3WalCallback@Base 3.37.0
@@ -998,6 +1028,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3WalUndo@Base 3.37.0
  sqlite3WalkExpr@Base 3.37.0
  sqlite3WalkExprList@Base 3.37.0
+ sqlite3WalkExprNN@Base 3.43.0
  sqlite3WalkSelect@Base 3.37.0
  sqlite3WalkSelectExpr@Base 3.37.0
  sqlite3WalkSelectFrom@Base 3.37.0
@@ -1052,6 +1083,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3WindowUpdate@Base 3.37.0
  sqlite3WithAdd@Base 3.37.0
  sqlite3WithDelete@Base 3.37.0
+ sqlite3WithDeleteGeneric@Base 3.45.0
  sqlite3WithDup@Base 3.37.0
  sqlite3WithPush@Base 3.37.0
  sqlite3WritableSchema@Base 3.37.0
@@ -1171,11 +1203,13 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3_free_table@Base 3.5.9
  sqlite3_get_autocommit@Base 3.5.9
  sqlite3_get_auxdata@Base 3.5.9
+ sqlite3_get_clientdata@Base 3.44.0
  sqlite3_get_table@Base 3.5.9
  sqlite3_global_recover@Base 3.5.9
  sqlite3_hard_heap_limit64@Base 3.30.1+fossil191229
  sqlite3_initialize@Base 3.6.0
  sqlite3_interrupt@Base 3.5.9
+ sqlite3_is_interrupted@Base 3.42.0
  sqlite3_keyword_check@Base 3.24.0
  sqlite3_keyword_count@Base 3.24.0
  sqlite3_keyword_name@Base 3.24.0
@@ -1251,6 +1285,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3_serialize@Base 3.36.0
  sqlite3_set_authorizer@Base 3.5.9
  sqlite3_set_auxdata@Base 3.5.9
+ sqlite3_set_clientdata@Base 3.44.0
  sqlite3_set_last_insert_rowid@Base 3.19.0
  sqlite3_shutdown@Base 3.6.0
  sqlite3_sleep@Base 3.5.9
@@ -1263,6 +1298,7 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3_status@Base 3.6.0
  sqlite3_step@Base 3.5.9
  sqlite3_stmt_busy@Base 3.7.10
+ sqlite3_stmt_explain@Base 3.43.0
  sqlite3_stmt_isexplain@Base 3.29.0
  sqlite3_stmt_readonly@Base 3.7.4
  sqlite3_stmt_status@Base 3.6.4
@@ -1342,11 +1378,13 @@ libsqlite3.so.0 libsqlite3-0 #MINVER#
  sqlite3aGTb@Base 3.37.0
  sqlite3aLTb@Base 3.37.0
  sqlite3changegroup_add@Base 3.13.0
+ sqlite3changegroup_add_change@Base 3.46.0
  sqlite3changegroup_add_strm@Base 3.13.0
  sqlite3changegroup_delete@Base 3.13.0
  sqlite3changegroup_new@Base 3.13.0
  sqlite3changegroup_output@Base 3.13.0
  sqlite3changegroup_output_strm@Base 3.13.0
+ sqlite3changegroup_schema@Base 3.44.0
  sqlite3changeset_apply@Base 3.13.0
  sqlite3changeset_apply_strm@Base 3.13.0
  sqlite3changeset_apply_v2@Base 3.23.0

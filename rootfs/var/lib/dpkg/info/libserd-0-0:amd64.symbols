@@ -42,6 +42,7 @@ libserd-0.so.0 libserd-0-0 #MINVER#
  serd_reader_set_default_graph@Base 0.14.0~dfsg0
  serd_reader_set_error_sink@Base 0.18.0~dfsg0
  serd_reader_set_strict@Base 0.22.0~dfsg0
+ serd_reader_skip_until_byte@Base 0.32.0
  serd_reader_start_source_stream@Base 0.28.0~dfsg0
  serd_reader_start_stream@Base 0.18.0~dfsg0
  serd_strerror@Base 0.5.0

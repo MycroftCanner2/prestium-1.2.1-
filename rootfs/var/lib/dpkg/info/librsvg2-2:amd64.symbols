@@ -16,6 +16,7 @@ librsvg-2.so.2 librsvg2-2 #MINVER#
  rsvg_handle_get_intrinsic_size_in_pixels@Base 2.52.5
  rsvg_handle_get_metadata@Base 2.14.4
  rsvg_handle_get_pixbuf@Base 2.14.4
+ rsvg_handle_get_pixbuf_and_error@Base 2.58.93
  rsvg_handle_get_pixbuf_sub@Base 2.14.4
  rsvg_handle_get_position_sub@Base 2.26.0
  rsvg_handle_get_title@Base 2.14.4
@@ -37,6 +38,7 @@ librsvg-2.so.2 librsvg2-2 #MINVER#
  rsvg_handle_render_layer@Base 2.46.0
  rsvg_handle_set_base_gfile@Base 2.32.0
  rsvg_handle_set_base_uri@Base 2.14.4
+ rsvg_handle_set_cancellable_for_rendering@Base 2.58.93
  rsvg_handle_set_dpi@Base 2.14.4
  rsvg_handle_set_dpi_x_y@Base 2.14.4
  rsvg_handle_set_size_callback@Base 2.14.4

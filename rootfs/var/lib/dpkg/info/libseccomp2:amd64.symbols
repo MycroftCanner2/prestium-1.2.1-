@@ -10,6 +10,7 @@ libseccomp.so.2 libseccomp2 #MINVER#
  seccomp_attr_get@Base 0.0.0~20120605
  seccomp_attr_set@Base 0.0.0~20120605
  seccomp_export_bpf@Base 0.0.0~20120605
+ seccomp_export_bpf_mem@Base 2.6.0
  seccomp_export_pfc@Base 0.0.0~20120605
  seccomp_init@Base 0.0.0~20120605
  seccomp_load@Base 0.0.0~20120605
@@ -20,6 +21,7 @@ libseccomp.so.2 libseccomp2 #MINVER#
  seccomp_notify_id_valid@Base 2.5.0
  seccomp_notify_receive@Base 2.5.0
  seccomp_notify_respond@Base 2.5.0
+ seccomp_precompute@Base 2.6.0
  seccomp_release@Base 0.0.0~20120605
  seccomp_reset@Base 0.0.0~20120605
  seccomp_rule_add@Base 0.0.0~20120605
@@ -31,4 +33,7 @@ libseccomp.so.2 libseccomp2 #MINVER#
  seccomp_syscall_resolve_name_arch@Base 2.1.0
  seccomp_syscall_resolve_name_rewrite@Base 2.2.1
  seccomp_syscall_resolve_num_arch@Base 2.1.0
+ seccomp_transaction_commit@Base 2.6.0
+ seccomp_transaction_reject@Base 2.6.0
+ seccomp_transaction_start@Base 2.6.0
  seccomp_version@Base 2.3.0

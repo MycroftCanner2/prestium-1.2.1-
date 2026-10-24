@@ -1,0 +1,6 @@
+277d37b3a70c41ef45b0f19b3bbb0061  usr/lib/x86_64-linux-gnu/libsphinxad.so.3.0.0
+2af8e4a8cd8b6ad5cd692555debb4440  usr/lib/x86_64-linux-gnu/libsphinxbase.so.3.0.0
+df97ad2729d9837edab15ec20b1228f7  usr/share/doc/libsphinxbase3t64/changelog.Debian.amd64.gz
+63ec6bb3d4603983104adc1d956df284  usr/share/doc/libsphinxbase3t64/changelog.Debian.gz
+31210cd2849564bdfe49e7376d0ebc39  usr/share/doc/libsphinxbase3t64/copyright
+1274021b87e1b1840c6da3e161682069  usr/share/lintian/overrides/libsphinxbase3t64

@@ -3,6 +3,8 @@ libstdc++.so.6 libstdc++6 #MINVER#
  CXXABI_1.3.11@CXXABI_1.3.11 10.2
  CXXABI_1.3.12@CXXABI_1.3.12 9
  CXXABI_1.3.13@CXXABI_1.3.13 11
+ CXXABI_1.3.14@CXXABI_1.3.14 13
+ CXXABI_1.3.15@CXXABI_1.3.15 14
  CXXABI_1.3.1@CXXABI_1.3.1 4.1.1
  CXXABI_1.3.2@CXXABI_1.3.2 4.3
  CXXABI_1.3.3@CXXABI_1.3.3 4.3
@@ -38,6 +40,9 @@ libstdc++.so.6 libstdc++6 #MINVER#
  GLIBCXX_3.4.29@GLIBCXX_3.4.29 11
  GLIBCXX_3.4.2@GLIBCXX_3.4.2 4.1.1
  GLIBCXX_3.4.30@GLIBCXX_3.4.30 12
+ GLIBCXX_3.4.31@GLIBCXX_3.4.31 13
+ GLIBCXX_3.4.32@GLIBCXX_3.4.32 13.1
+ GLIBCXX_3.4.33@GLIBCXX_3.4.33 14
  GLIBCXX_3.4.3@GLIBCXX_3.4.3 4.1.1
  GLIBCXX_3.4.4@GLIBCXX_3.4.4 4.1.1
  GLIBCXX_3.4.5@GLIBCXX_3.4.5 4.1.1
@@ -585,7 +590,12 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNKSt11__timepunctIwE8_M_am_pmEPPKw@GLIBCXX_3.4 4.1.1
  _ZNKSt11__timepunctIwE9_M_monthsEPPKw@GLIBCXX_3.4 4.1.1
  _ZNKSt11logic_error4whatEv@GLIBCXX_3.4 4.1.1
+ _ZNKSt12__basic_fileIcE13native_handleEv@GLIBCXX_3.4.33 14
  _ZNKSt12__basic_fileIcE7is_openEv@GLIBCXX_3.4 4.1.1
+ _ZNKSt12__shared_ptrINSt10filesystem28recursive_directory_iterator10_Dir_stackELN9__gnu_cxx12_Lock_policyE2EEcvbEv@GLIBCXX_3.4.31 13
+ _ZNKSt12__shared_ptrINSt10filesystem4_DirELN9__gnu_cxx12_Lock_policyE2EEcvbEv@GLIBCXX_3.4.31 13
+ _ZNKSt12__shared_ptrINSt10filesystem7__cxx1128recursive_directory_iterator10_Dir_stackELN9__gnu_cxx12_Lock_policyE2EEcvbEv@GLIBCXX_3.4.31 13
+ _ZNKSt12__shared_ptrINSt10filesystem7__cxx114_DirELN9__gnu_cxx12_Lock_policyE2EEcvbEv@GLIBCXX_3.4.31 13
  _ZNKSt12bad_weak_ptr4whatEv@GLIBCXX_3.4.15 4.6
  _ZNKSt12future_error4whatEv@GLIBCXX_3.4.14 4.5
  _ZNKSt12strstreambuf6pcountEv@GLIBCXX_3.4 4.1.1
@@ -756,6 +766,13 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNKSt5ctypeIwE8do_widenEc@GLIBCXX_3.4 4.1.1
  _ZNKSt5ctypeIwE9do_narrowEPKwS2_cPc@GLIBCXX_3.4 4.1.1
  _ZNKSt5ctypeIwE9do_narrowEwc@GLIBCXX_3.4 4.1.1
+ _ZNKSt6chrono4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE@GLIBCXX_3.4.31 13
+ _ZNKSt6chrono4tzdb12current_zoneEv@GLIBCXX_3.4.31 13
+ _ZNKSt6chrono9time_zone15_M_get_sys_infoENS_10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEE@GLIBCXX_3.4.31 13
+ _ZNKSt6chrono9time_zone17_M_get_local_infoENS_10time_pointINS_7local_tENS_8durationIlSt5ratioILl1ELl1EEEEEE@GLIBCXX_3.4.31 13
+ _ZNKSt6chrono9tzdb_list14const_iteratordeEv@GLIBCXX_3.4.31 13
+ _ZNKSt6chrono9tzdb_list5beginEv@GLIBCXX_3.4.31 13
+ _ZNKSt6chrono9tzdb_list5frontEv@GLIBCXX_3.4.31 13
  _ZNKSt6locale2id5_M_idEv@GLIBCXX_3.4 4.1.1
  _ZNKSt6locale4nameB5cxx11Ev@GLIBCXX_3.4.21 5.2
  _ZNKSt6locale4nameEv@GLIBCXX_3.4 4.1.1
@@ -3761,12 +3778,21 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNSt6__norm15_List_node_base7reverseEv@GLIBCXX_3.4.9 4.2.1
  _ZNSt6__norm15_List_node_base8transferEPS0_S1_@GLIBCXX_3.4.9 4.2.1
  _ZNSt6__norm15_List_node_base9_M_unhookEv@GLIBCXX_3.4.14 4.5
+ _ZNSt6chrono11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE@GLIBCXX_3.4.31 13
+ _ZNSt6chrono11reload_tzdbEv@GLIBCXX_3.4.31 13
+ _ZNSt6chrono12current_zoneEv@GLIBCXX_3.4.31 13
  _ZNSt6chrono12system_clock12is_monotonicE@GLIBCXX_3.4.11 4.4
  _ZNSt6chrono12system_clock3nowEv@GLIBCXX_3.4.11 4.4
+ _ZNSt6chrono13get_tzdb_listEv@GLIBCXX_3.4.31 13
+ _ZNSt6chrono14remote_versionB5cxx11Ev@GLIBCXX_3.4.31 13
  _ZNSt6chrono3_V212steady_clock3nowEv@GLIBCXX_3.4.19 4.8
  _ZNSt6chrono3_V212steady_clock9is_steadyE@GLIBCXX_3.4.19 4.8
  _ZNSt6chrono3_V212system_clock3nowEv@GLIBCXX_3.4.19 4.8
  _ZNSt6chrono3_V212system_clock9is_steadyE@GLIBCXX_3.4.19 4.8
+ _ZNSt6chrono8get_tzdbEv@GLIBCXX_3.4.31 13
+ _ZNSt6chrono9tzdb_list11erase_afterENS0_14const_iteratorE@GLIBCXX_3.4.31 13
+ _ZNSt6chrono9tzdb_list14const_iteratorppEi@GLIBCXX_3.4.31 13
+ _ZNSt6chrono9tzdb_list14const_iteratorppEv@GLIBCXX_3.4.31 13
  _ZNSt6gslice8_IndexerC1EmRKSt8valarrayImES4_@GLIBCXX_3.4 4.1.1
  _ZNSt6gslice8_IndexerC2EmRKSt8valarrayImES4_@GLIBCXX_3.4 4.1.1
  _ZNSt6locale11_M_coalesceERKS_S1_i@GLIBCXX_3.4 4.1.1
@@ -3879,6 +3905,7 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_S_compareEmm@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm@GLIBCXX_3.4.21 5.2
+ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m@GLIBCXX_3.4.32 13.1
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcOS3_@GLIBCXX_3.4.23 10.2
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_@GLIBCXX_3.4.23 10.2
@@ -3898,6 +3925,7 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13shrink_to_fitEv@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc@GLIBCXX_3.4.21 5.2
+ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_replace_coldEPcmPKcmm@GLIBCXX_3.4.31 13
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E@GLIBCXX_3.4.26 9
  _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE18_M_construct_aux_2Emc@GLIBCXX_3.4.21 5.2
@@ -4031,6 +4059,7 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_M_replaceEmmPKwm@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_S_compareEmm@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_capacityEm@GLIBCXX_3.4.21 5.2
+ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_S_allocateERS3_m@GLIBCXX_3.4.32 13.1
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderC1EPwOS3_@GLIBCXX_3.4.23 10.2
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderC1EPwRKS3_@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderC2EPwOS3_@GLIBCXX_3.4.23 10.2
@@ -4050,6 +4079,7 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE13_S_copy_charsEPwS5_S5_@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE13shrink_to_fitEv@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE14_M_replace_auxEmmmw@GLIBCXX_3.4.21 5.2
+ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE15_M_replace_coldEPwmPKwmm@GLIBCXX_3.4.31 13
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE16_M_get_allocatorEv@GLIBCXX_3.4.21 5.2
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE17_S_to_string_viewESt17basic_string_viewIwS2_E@GLIBCXX_3.4.26 9
  _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE18_M_construct_aux_2Emw@GLIBCXX_3.4.21 5.2
@@ -4869,6 +4899,7 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZNVSt9__atomic011atomic_flag5clearESt12memory_order@GLIBCXX_3.4.11 4.4
  _ZSt10adopt_lock@GLIBCXX_3.4.11 4.4
  _ZSt10defer_lock@GLIBCXX_3.4.11 4.4
+ _ZSt10from_charsPKcS0_RDF128_St12chars_format@GLIBCXX_3.4.31 13
  _ZSt10from_charsPKcS0_RdSt12chars_format@GLIBCXX_3.4.29 11
  _ZSt10from_charsPKcS0_ReSt12chars_format@GLIBCXX_3.4.29 11
  _ZSt10from_charsPKcS0_RfSt12chars_format@GLIBCXX_3.4.29 11
@@ -4885,6 +4916,50 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZSt14set_unexpectedPFvvE@GLIBCXX_3.4 4.1.1
  _ZSt15_Fnv_hash_bytesPKvmm@CXXABI_1.3.5 4.3
  _ZSt15__once_callable@GLIBCXX_3.4.11 4.4
+ _ZSt15__try_use_facetINSt7__cxx1110moneypunctIcLb0EEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx1110moneypunctIcLb1EEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx1110moneypunctIwLb0EEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx1110moneypunctIwLb1EEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx117collateIcEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx117collateIwEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx118messagesIcEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx118messagesIwEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx118numpunctIcEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx118numpunctIwEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx118time_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx118time_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx119money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx119money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx119money_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetINSt7__cxx119money_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt10moneypunctIcLb0EEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt10moneypunctIcLb1EEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt10moneypunctIwLb0EEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt10moneypunctIwLb1EEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt11__timepunctIcEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt11__timepunctIwEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt5ctypeIcEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt5ctypeIwEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7codecvtIcc11__mbstate_tEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7codecvtIwc11__mbstate_tEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7collateIcEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7collateIwEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt7num_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8messagesIcEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8messagesIwEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8numpunctIcEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8numpunctIwEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8time_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8time_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8time_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt8time_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt9money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt9money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt9money_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
+ _ZSt15__try_use_facetISt9money_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEEEPKT_RKSt6locale@GLIBCXX_3.4.31 13
  _ZSt15future_category@GLIBCXX_3.4.14 4.5
  _ZSt15future_categoryv@GLIBCXX_3.4.15 4.6
  _ZSt15get_new_handlerv@GLIBCXX_3.4.20 4.9
@@ -4923,13 +4998,18 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZSt20__throw_length_errorPKc@GLIBCXX_3.4 4.1.1
  _ZSt20__throw_out_of_rangePKc@GLIBCXX_3.4 4.1.1
  _ZSt20__throw_system_errori@GLIBCXX_3.4.11 4.4
+ _ZSt20__to_chars_float16_tPcS_fSt12chars_format@GLIBCXX_3.4.31 13
  _ZSt21_Rb_tree_rotate_rightPSt18_Rb_tree_node_baseRS0_@GLIBCXX_3.4 4.1.1
  _ZSt21__copy_streambufs_eofIcSt11char_traitsIcEElPSt15basic_streambufIT_T0_ES6_Rb@GLIBCXX_3.4.9 4.2.1
  _ZSt21__copy_streambufs_eofIwSt11char_traitsIwEElPSt15basic_streambufIT_T0_ES6_Rb@GLIBCXX_3.4.9 4.2.1
  _ZSt21__glibcxx_assert_failPKciS0_S0_@GLIBCXX_3.4.30 12
  _ZSt21__throw_bad_exceptionv@GLIBCXX_3.4 4.1.1
  _ZSt21__throw_runtime_errorPKc@GLIBCXX_3.4 4.1.1
+ _ZSt21__to_chars_bfloat16_tPcS_fSt12chars_format@GLIBCXX_3.4.31 13
+ _ZSt21ios_base_library_initv@GLIBCXX_3.4.32 13.1
+ _ZSt22__from_chars_float16_tPKcS0_RfSt12chars_format@GLIBCXX_3.4.31 13
  _ZSt22__throw_overflow_errorPKc@GLIBCXX_3.4 4.1.1
+ _ZSt23__from_chars_bfloat16_tPKcS0_RfSt12chars_format@GLIBCXX_3.4.31 13
  _ZSt23__throw_underflow_errorPKc@GLIBCXX_3.4 4.1.1
  _ZSt24__throw_invalid_argumentPKc@GLIBCXX_3.4 4.1.1
  _ZSt24__throw_out_of_range_fmtPKcz@GLIBCXX_3.4.20 4.9
@@ -4963,6 +5043,9 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZSt7getlineIwSt11char_traitsIwESaIwEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E@GLIBCXX_3.4 4.1.1
  _ZSt7getlineIwSt11char_traitsIwESaIwEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_ES4_@GLIBCXX_3.4 4.1.1
  _ZSt7nothrow@GLIBCXX_3.4 4.1.1
+ _ZSt8to_charsPcS_DF128_@GLIBCXX_3.4.31 13
+ _ZSt8to_charsPcS_DF128_St12chars_format@GLIBCXX_3.4.31 13
+ _ZSt8to_charsPcS_DF128_St12chars_formati@GLIBCXX_3.4.31 13
  _ZSt8to_charsPcS_d@GLIBCXX_3.4.29 11
  _ZSt8to_charsPcS_dSt12chars_format@GLIBCXX_3.4.29 11
  _ZSt8to_charsPcS_dSt12chars_formati@GLIBCXX_3.4.29 11
@@ -5131,6 +5214,13 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZStrsIwSt11char_traitsIwEERSt13basic_istreamIT_T0_ES6_St8_SetfillIS3_E@GLIBCXX_3.4 4.1.1
  _ZStrsIwSt11char_traitsIwESaIwEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE@GLIBCXX_3.4.21 5.2
  _ZStrsIwSt11char_traitsIwESaIwEERSt13basic_istreamIT_T0_ES7_RSbIS4_S5_T1_E@GLIBCXX_3.4 4.1.1
+ _ZTIDF128_@CXXABI_1.3.14 13
+ _ZTIDF16_@CXXABI_1.3.14 13
+ _ZTIDF16b@CXXABI_1.3.14 13
+ _ZTIDF32_@CXXABI_1.3.14 13
+ _ZTIDF32x@CXXABI_1.3.14 13
+ _ZTIDF64_@CXXABI_1.3.14 13
+ _ZTIDF64x@CXXABI_1.3.14 13
  _ZTIDd@CXXABI_1.3.4 4.3
  _ZTIDe@CXXABI_1.3.4 4.3
  _ZTIDf@CXXABI_1.3.4 4.3
@@ -5204,6 +5294,13 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZTINSt7__cxx119money_putIwSt19ostreambuf_iteratorIwSt11char_traitsIwEEEE@GLIBCXX_3.4.21 5.2
  _ZTINSt8ios_base7failureB5cxx11E@GLIBCXX_3.4.21 5.2
  _ZTINSt8ios_base7failureE@GLIBCXX_3.4 4.1.1
+ _ZTIPDF128_@CXXABI_1.3.14 13
+ _ZTIPDF16_@CXXABI_1.3.14 13
+ _ZTIPDF16b@CXXABI_1.3.14 13
+ _ZTIPDF32_@CXXABI_1.3.14 13
+ _ZTIPDF32x@CXXABI_1.3.14 13
+ _ZTIPDF64_@CXXABI_1.3.14 13
+ _ZTIPDF64x@CXXABI_1.3.14 13
  _ZTIPDd@CXXABI_1.3.4 4.3
  _ZTIPDe@CXXABI_1.3.4 4.3
  _ZTIPDf@CXXABI_1.3.4 4.3
@@ -5211,6 +5308,13 @@ libstdc++.so.6 libstdc++6 #MINVER#
  _ZTIPDn@CXXABI_1.3.5 4.3
  _ZTIPDs@CXXABI_1.3.3 4.3
  _ZTIPDu@CXXABI_1.3.12 9
+ _ZTIPKDF128_@CXXABI_1.3.14 13
+ _ZTIPKDF16_@CXXABI_1.3.14 13
+ _ZTIPKDF16b@CXXABI_1.3.14 13
+ _ZTIPKDF32_@CXXABI_1.3.14 13
+ _ZTIPKDF32x@CXXABI_1.3.14 13
+ _ZTIPKDF64_@CXXABI_1.3.14 13
+ _ZTIPKDF64x@CXXABI_1.3.14 13
  _ZTIPKDd@CXXABI_1.3.4 4.3
  _ZTIPKDe@CXXABI_1.3.4 4.3
  _ZTIPKDf@CXXABI_1.3.4 4.3
@@ -5944,6 +6048,7 @@ libstdc++.so.6 libstdc++6 #MINVER#
  __cxa_bad_cast@CXXABI_1.3 4.1.1
  __cxa_bad_typeid@CXXABI_1.3 4.1.1
  __cxa_begin_catch@CXXABI_1.3 4.1.1
+ __cxa_call_terminate@CXXABI_1.3.15 14
  __cxa_call_unexpected@CXXABI_1.3 4.1.1
  __cxa_current_exception_type@CXXABI_1.3 4.1.1
  __cxa_deleted_virtual@CXXABI_1.3.6 4.3

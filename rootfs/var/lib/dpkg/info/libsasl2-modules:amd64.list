@@ -13,7 +13,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libsasl2-modules
-/usr/share/doc/libsasl2-modules/NEWS.Debian.gz
 /usr/share/doc/libsasl2-modules/changelog.Debian.gz
 /usr/share/doc/libsasl2-modules/copyright
 /usr/lib/x86_64-linux-gnu/sasl2/libanonymous.so

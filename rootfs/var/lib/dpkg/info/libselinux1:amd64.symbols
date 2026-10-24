@@ -2,6 +2,8 @@ libselinux.so.1 libselinux1 #MINVER#
 * Build-Depends-Package: libselinux1-dev
  LIBSELINUX_1.0@LIBSELINUX_1.0 3.1~
  LIBSELINUX_3.4@LIBSELINUX_3.4 3.4
+ LIBSELINUX_3.5@LIBSELINUX_3.5 3.5
+ LIBSELINUX_3.8@LIBSELINUX_3.8 3.8-1
  avc_add_callback@LIBSELINUX_1.0 3.1~
  avc_audit@LIBSELINUX_1.0 3.1~
  avc_av_stats@LIBSELINUX_1.0 3.1~
@@ -67,6 +69,8 @@ libselinux.so.1 libselinux1 #MINVER#
  getpeercon_raw@LIBSELINUX_1.0 3.1~
  getpidcon@LIBSELINUX_1.0 3.1~
  getpidcon_raw@LIBSELINUX_1.0 3.1~
+ getpidprevcon@LIBSELINUX_3.5 3.5
+ getpidprevcon_raw@LIBSELINUX_3.5 3.5
  getprevcon@LIBSELINUX_1.0 3.1~
  getprevcon_raw@LIBSELINUX_1.0 3.1~
  getseuser@LIBSELINUX_1.0 3.1~

@@ -1,4 +1,5 @@
-38b3ecc149dd7a901fdb1be4a4a62c96  usr/lib/x86_64-linux-gnu/librubberband.so.2.2.1
-1c2112c45ca539494e4542887ec8f4de  usr/share/doc/librubberband2/changelog.Debian.gz
-517d03fd9c934ecc107404c5dcf1845e  usr/share/doc/librubberband2/changelog.gz
-6acc14eeba3dab912a60a11add0c2698  usr/share/doc/librubberband2/copyright
+e66928bd85acc81a28412749a5343120  usr/lib/x86_64-linux-gnu/librubberband.so.2.3.0
+9e01b637dbb0970e201c8d8fab1c5c98  usr/share/doc/librubberband2/changelog.Debian.amd64.gz
+de261554cfff7b57d6a71b024b865f13  usr/share/doc/librubberband2/changelog.Debian.gz
+d42774af51d16ecc208839dec249a93a  usr/share/doc/librubberband2/changelog.gz
+fcc2b0a4b421e73376e9f09dd55927f4  usr/share/doc/librubberband2/copyright

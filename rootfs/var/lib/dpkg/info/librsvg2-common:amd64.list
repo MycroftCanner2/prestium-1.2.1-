@@ -5,7 +5,7 @@
 /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0
 /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0
 /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
-/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader_svg.so
 /usr/share
 /usr/share/doc
 /usr/share/doc/librsvg2-common
