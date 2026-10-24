@@ -25,7 +25,7 @@ from . import gpgme
 del absolute_import, print_function
 
 productname = 'gpg'
-versionstr = "1.18.0"
+versionstr = "1.24.2"
 gpgme_versionstr = gpgme.GPGME_VERSION
 in_tree_build = bool(gpgme.cvar.gpg_in_tree_build)
 is_beta = False
