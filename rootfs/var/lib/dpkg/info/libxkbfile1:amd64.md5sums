@@ -1,4 +1,5 @@
-dd2c605356d50023c1dc310bd8e7f62a  usr/lib/x86_64-linux-gnu/libxkbfile.so.1.0.2
-36bf8d98c60d5d35838f6cc2370a4481  usr/share/doc/libxkbfile1/changelog.Debian.gz
+9eda1511aff479fab8f193d3e2415217  usr/lib/x86_64-linux-gnu/libxkbfile.so.1.0.2
+b1cd47edcbe9c26198a4988d6e6088fa  usr/share/doc/libxkbfile1/changelog.Debian.amd64.gz
+ccf5bf278fcf6be6dcde4ed753509bac  usr/share/doc/libxkbfile1/changelog.Debian.gz
 86368babb167dfbaaae553afa0076d1f  usr/share/doc/libxkbfile1/changelog.gz
 f54c058173d01b14ec6a5822036c647e  usr/share/doc/libxkbfile1/copyright

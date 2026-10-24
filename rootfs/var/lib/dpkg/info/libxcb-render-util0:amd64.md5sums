@@ -1,7 +1,6 @@
-d80bc27fbe8a17013494e679cca64c1e  usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0
+55d9e0d7e042d081fef3fe02502bee31  usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0
 a5a2e0733022706879ae66643a7dd3e2  usr/share/doc/libxcb-render-util0/NEWS.gz
-0177c5d3c33c32783a1380221fb5f42b  usr/share/doc/libxcb-render-util0/README
-5319d304e45df1993b3ec69af1ea8ce9  usr/share/doc/libxcb-render-util0/changelog.Debian.amd64.gz
-cfda6aa7303cb20e524ae7e4b6025991  usr/share/doc/libxcb-render-util0/changelog.Debian.gz
-67f7ac6110335fbc23695a998ec1ce5a  usr/share/doc/libxcb-render-util0/changelog.gz
-86dbf1f44f333f570403aa0a731d2694  usr/share/doc/libxcb-render-util0/copyright
+c58407b7381af97f36313cc1eada4f59  usr/share/doc/libxcb-render-util0/README.md
+4930f53ee2cec3beb24ee63e060140df  usr/share/doc/libxcb-render-util0/changelog.Debian.gz
+f8f2b40b1bbec5f09ee957cbb3103b22  usr/share/doc/libxcb-render-util0/changelog.gz
+1a55b621c7fd2efbbe95374485ea64b9  usr/share/doc/libxcb-render-util0/copyright

@@ -1,8 +1,9 @@
-39659aef6e0dc831f4491cc298e7ef37  usr/bin/libwacom-list-devices
-982232b187ad22c09be073b09cc36794  usr/bin/libwacom-list-local-devices
-0ec291f67ef0de262845b0d805116e0a  usr/bin/libwacom-show-stylus
-4427716698acd4a1468fc099d9cba70a  usr/bin/libwacom-update-db
-0f5700f55e1b9c817677edddf0e63caa  usr/share/doc/libwacom-bin/changelog.Debian.gz
+eb045174679079a732ff01fdd9e36393  usr/bin/libwacom-list-devices
+1def9ea496f0d4dee91a815e9a929440  usr/bin/libwacom-list-local-devices
+ad68ffeaecbb5347e408ea4505255e3c  usr/bin/libwacom-show-stylus
+7d346d20f61ceb1a2d03e3eb7f5011b5  usr/bin/libwacom-update-db
+e5de684e29e0911b1721ac413935f5af  usr/share/doc/libwacom-bin/changelog.Debian.gz
 180d92a6a450dea26100d99fa84c3b69  usr/share/doc/libwacom-bin/copyright
-03352af0716dc2a229d4b9ff0f09fd40  usr/share/man/man1/libwacom-list-devices.1.gz
-b157bb0ac4b837a272f305fae001a8db  usr/share/man/man1/libwacom-list-local-devices.1.gz
+3e5e71f665cd0a5a94c9b3cb02653926  usr/share/man/man1/libwacom-list-devices.1.gz
+8ea24ee7bc298a4a78f2fae35ca825df  usr/share/man/man1/libwacom-list-local-devices.1.gz
+a3550d16cd142462c61f567adffa5959  usr/share/man/man1/libwacom-show-stylus.1.gz

@@ -1,9 +1,8 @@
-8b7d7ae5cefb78bf45fabb088080153b  usr/lib/x86_64-linux-gnu/libvolume_key.so.1.2.3
+04dc0cb9aeaab30f6583c99de4d80b35  usr/lib/x86_64-linux-gnu/libvolume_key.so.1.2.3
 9b129cfc8fcead7f83f7057574f7f37c  usr/share/doc/libvolume-key1/AUTHORS
 8e91d70a445e05bc4f9c71c0262d9fe1  usr/share/doc/libvolume-key1/NEWS.gz
 b5e9db1fe3fd249cfe909c0d2e978209  usr/share/doc/libvolume-key1/README.gz
-ccfb1a2f51bae5b37363e4eebe750bb1  usr/share/doc/libvolume-key1/changelog.Debian.amd64.gz
-664fc9f7f2c43c900ea6f45dddcec6f3  usr/share/doc/libvolume-key1/changelog.Debian.gz
+a547784eb739370ee7a611ae009152cb  usr/share/doc/libvolume-key1/changelog.Debian.gz
 de5baebcaf4ea1ab4e08e2e60d82fdc9  usr/share/doc/libvolume-key1/changelog.gz
 658c706b429e693dd73a4f04123db7aa  usr/share/doc/libvolume-key1/copyright
 b6ec12210fb144f19b5df0afbf46e0dc  usr/share/locale/as/LC_MESSAGES/volume_key.mo

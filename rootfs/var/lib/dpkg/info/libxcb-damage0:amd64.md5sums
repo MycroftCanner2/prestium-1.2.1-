@@ -1,4 +1,5 @@
-6e1f691a691533bc6020a6ca6dc52ebd  usr/lib/x86_64-linux-gnu/libxcb-damage.so.0.0.0
-4d3f6c5e663b4c989f34755f4e5d2fd7  usr/share/doc/libxcb-damage0/changelog.Debian.gz
-a18c03e2a4373db97932f881a8c74993  usr/share/doc/libxcb-damage0/changelog.gz
+8099334188ef0cdefa0eb62f7a56de1f  usr/lib/x86_64-linux-gnu/libxcb-damage.so.0.0.0
+20ae54a1abf72546f118af6c259728d9  usr/share/doc/libxcb-damage0/changelog.Debian.amd64.gz
+9399a0718c2a8fa26deb729ba8248908  usr/share/doc/libxcb-damage0/changelog.Debian.gz
+dc29c34021a204fa784bb60bfee5683a  usr/share/doc/libxcb-damage0/changelog.gz
 618ee90893b45d0d0c19d41a3a3d2e7d  usr/share/doc/libxcb-damage0/copyright

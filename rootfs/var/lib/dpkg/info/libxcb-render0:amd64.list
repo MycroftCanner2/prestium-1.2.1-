@@ -6,6 +6,7 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libxcb-render0
+/usr/share/doc/libxcb-render0/changelog.Debian.amd64.gz
 /usr/share/doc/libxcb-render0/changelog.Debian.gz
 /usr/share/doc/libxcb-render0/changelog.gz
 /usr/share/doc/libxcb-render0/copyright

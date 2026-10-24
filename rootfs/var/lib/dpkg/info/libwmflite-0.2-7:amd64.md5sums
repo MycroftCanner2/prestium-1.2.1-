@@ -1,5 +1,6 @@
-49616c72686174a62e534f6b4f2475e3  usr/lib/x86_64-linux-gnu/libwmflite-0.2.so.7.0.5
+2a79ce976d5ade14608b0db47b05c6da  usr/lib/x86_64-linux-gnu/libwmflite-0.2.so.7.0.6
 6f254727f02bf5fdb9183bacfcd1444b  usr/share/doc/libwmflite-0.2-7/NEWS.Debian.gz
-35430bcdaf087022cca6030eb7efefc1  usr/share/doc/libwmflite-0.2-7/changelog.Debian.gz
-bf64caa60eef795e93f36e7ce23d033b  usr/share/doc/libwmflite-0.2-7/changelog.gz
-5807518dfde783894fd3f6352caa547c  usr/share/doc/libwmflite-0.2-7/copyright
+89ce872c47ff471ede2cf6279b6aeda4  usr/share/doc/libwmflite-0.2-7/changelog.Debian.amd64.gz
+3365f96a4bee74d72fb088fef77c7387  usr/share/doc/libwmflite-0.2-7/changelog.Debian.gz
+a921f42e6d7ef8cf4d69adde51a67fbc  usr/share/doc/libwmflite-0.2-7/changelog.gz
+13a1e138ca8f248f4848ac9980616e8d  usr/share/doc/libwmflite-0.2-7/copyright

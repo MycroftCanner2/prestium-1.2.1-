@@ -7,8 +7,7 @@
 /usr/share/doc
 /usr/share/doc/libxcb-keysyms1
 /usr/share/doc/libxcb-keysyms1/NEWS.gz
-/usr/share/doc/libxcb-keysyms1/README
-/usr/share/doc/libxcb-keysyms1/changelog.Debian.amd64.gz
+/usr/share/doc/libxcb-keysyms1/README.md
 /usr/share/doc/libxcb-keysyms1/changelog.Debian.gz
 /usr/share/doc/libxcb-keysyms1/changelog.gz
 /usr/share/doc/libxcb-keysyms1/copyright

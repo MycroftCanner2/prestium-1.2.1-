@@ -1,4 +1,5 @@
-a5aa28524b52a3a60b4d0fc4e9ef5e7b  usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0
-4d3f6c5e663b4c989f34755f4e5d2fd7  usr/share/doc/libxcb-xfixes0/changelog.Debian.gz
-a18c03e2a4373db97932f881a8c74993  usr/share/doc/libxcb-xfixes0/changelog.gz
+6004425be7db882e494ae71f5d949f36  usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0
+20ae54a1abf72546f118af6c259728d9  usr/share/doc/libxcb-xfixes0/changelog.Debian.amd64.gz
+bf2bd582e27dff22a77f52d1c5594621  usr/share/doc/libxcb-xfixes0/changelog.Debian.gz
+dc29c34021a204fa784bb60bfee5683a  usr/share/doc/libxcb-xfixes0/changelog.gz
 618ee90893b45d0d0c19d41a3a3d2e7d  usr/share/doc/libxcb-xfixes0/copyright

@@ -1,3 +1,3 @@
-6ec4ddb4b773bdcf4d71380429473cf0  usr/lib/x86_64-linux-gnu/libwayland-server.so.0.21.0
-7eda56bfcc7a9bfab46f5c108bb6b567  usr/share/doc/libwayland-server0/changelog.Debian.gz
-720b260842ebac8323a8e0c291bf0786  usr/share/doc/libwayland-server0/copyright
+d81b75395e3aa07cf33e2a85f39c3b96  usr/lib/x86_64-linux-gnu/libwayland-server.so.0.23.1
+b18b70c112d096f126b4275a0d81fae6  usr/share/doc/libwayland-server0/changelog.Debian.gz
+b036e446733d767bc1131beb1c506b33  usr/share/doc/libwayland-server0/copyright

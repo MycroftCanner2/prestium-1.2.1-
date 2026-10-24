@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.21.0
+/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.23.1
 /usr/share
 /usr/share/doc
 /usr/share/doc/libwayland-egl1

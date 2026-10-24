@@ -2,7 +2,7 @@
 d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/locale/C/Compose
 bc0443ffae5a06179e9063f36b533860  usr/share/X11/locale/C/XI18N_OBJS
 2bfc6a5fad315280aab0eb9aa438b37b  usr/share/X11/locale/C/XLC_LOCALE
-2f05fa9378970aff465fb7fae3eecd3b  usr/share/X11/locale/am_ET.UTF-8/Compose
+5929a7dc09d32f7840491d8bd3e6524c  usr/share/X11/locale/am_ET.UTF-8/Compose
 d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/locale/am_ET.UTF-8/XI18N_OBJS
 d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/locale/am_ET.UTF-8/XLC_LOCALE
 f6fc4ad7d172c2407369b84770f779a6  usr/share/X11/locale/armscii-8/Compose
@@ -15,7 +15,7 @@ d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/locale/cs_CZ.UTF-8/XLC_LOCALE
 f81b57fc00d746c0d95396b414a66fd1  usr/share/X11/locale/el_GR.UTF-8/Compose
 d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/locale/el_GR.UTF-8/XI18N_OBJS
 d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/locale/el_GR.UTF-8/XLC_LOCALE
-b10ee2e6ecd3d47491234a9e247c3c09  usr/share/X11/locale/en_US.UTF-8/Compose
+911d25f2c90ebc62fabafad659548e31  usr/share/X11/locale/en_US.UTF-8/Compose
 1bb4b16be622a8898f1b898f8a047f1a  usr/share/X11/locale/en_US.UTF-8/XI18N_OBJS
 5d58e0f76fcf6d1ef850559adc1604ab  usr/share/X11/locale/en_US.UTF-8/XLC_LOCALE
 bf7c194a75b008b1b7a2ad3cee1dc171  usr/share/X11/locale/fi_FI.UTF-8/Compose
@@ -128,7 +128,7 @@ e5467dd3a5783de0dc07d760d8d8fd37  usr/share/X11/locale/mulelao-1/XLC_LOCALE
 d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/locale/nokhchi-1/Compose
 ba6e90cde52c3e0324aff1beec106f30  usr/share/X11/locale/nokhchi-1/XI18N_OBJS
 89c7e4d928079b574be03460c583b0d6  usr/share/X11/locale/nokhchi-1/XLC_LOCALE
-18fc662bebc1fb519ff490a96bd6a19d  usr/share/X11/locale/pt_BR.UTF-8/Compose
+d21e0b26ad7d87363afc1a6b1f3f69f9  usr/share/X11/locale/pt_BR.UTF-8/Compose
 43ad17f4090019da2d25579ace4476b5  usr/share/X11/locale/pt_BR.UTF-8/XI18N_OBJS
 aba3b6c4eb25f0d814aa5d9cf1656ca4  usr/share/X11/locale/pt_BR.UTF-8/XLC_LOCALE
 2c4d73fd34ebf5d8be86d5e60416d5df  usr/share/X11/locale/pt_PT.UTF-8/Compose
@@ -188,7 +188,7 @@ e5ca47a49de1ce07541dd997c6df98c6  usr/share/X11/locale/zh_TW.UTF-8/XLC_LOCALE
 aea2125f15a1810e3918936021aa208b  usr/share/X11/locale/zh_TW/Compose
 6aa745531f36e329e11e3de6f20cc258  usr/share/X11/locale/zh_TW/XI18N_OBJS
 91eafa5b4020805eec60a87dedfb5b38  usr/share/X11/locale/zh_TW/XLC_LOCALE
-14aa3a86c5aa5ade8d3fff9eaea97244  usr/share/doc/libx11-data/changelog.Debian.gz
-5150cde351b6ee8a47bf0adfa0486995  usr/share/doc/libx11-data/changelog.gz
+cc1f7a1c3cf5d2ffe492ded41e8364ed  usr/share/doc/libx11-data/changelog.Debian.gz
+a40090dc88de414fb17dcc06026c61cf  usr/share/doc/libx11-data/changelog.gz
 6121e1d103eb0c51500be21cdd73e4b4  usr/share/doc/libx11-data/copyright
-4afad9e3200e6b0a95ce3e96fb48445d  usr/share/man/man5/Compose.5.gz
+305d120c3c1d72030f5fcd810ecac42a  usr/share/man/man5/Compose.5.gz

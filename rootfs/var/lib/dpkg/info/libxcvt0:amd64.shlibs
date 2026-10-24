@@ -1,2 +1,2 @@
-libxcvt 0 libxcvt0 (>= 0.1.2)
-udeb: libxcvt 0 libxcvt0-udeb (>= 0.1.2)
+libxcvt 0 libxcvt0 (>= 0.1.3)
+udeb: libxcvt 0 libxcvt0-udeb (>= 0.1.3)

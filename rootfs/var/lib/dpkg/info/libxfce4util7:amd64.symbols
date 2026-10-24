@@ -4,6 +4,18 @@ libxfce4util.so.7 libxfce4util7 #MINVER#
  libxfce4util_micro_version@Base 4.9.0
  libxfce4util_minor_version@Base 4.9.0
  xfce_append_quoted@Base 4.15.3
+ xfce_consolekit_can_hibernate@Base 4.19.2
+ xfce_consolekit_can_hybrid_sleep@Base 4.19.2
+ xfce_consolekit_can_power_off@Base 4.19.2
+ xfce_consolekit_can_reboot@Base 4.19.2
+ xfce_consolekit_can_suspend@Base 4.19.2
+ xfce_consolekit_get@Base 4.19.2
+ xfce_consolekit_get_type@Base 4.19.2
+ xfce_consolekit_hibernate@Base 4.19.2
+ xfce_consolekit_hybrid_sleep@Base 4.19.2
+ xfce_consolekit_power_off@Base 4.19.2
+ xfce_consolekit_reboot@Base 4.19.2
+ xfce_consolekit_suspend@Base 4.19.2
  xfce_create_shared_thumbnail_path@Base 4.17.1
  xfce_expand_desktop_entry_field_codes@Base 4.15.3
  xfce_expand_variables@Base 4.9.0
@@ -68,6 +80,18 @@ libxfce4util.so.7 libxfce4util7 #MINVER#
  xfce_resource_push_path@Base 4.9.0
  xfce_resource_save_location@Base 4.9.0
  xfce_str_replace@Base 4.17.2
+ xfce_systemd_can_hibernate@Base 4.19.2
+ xfce_systemd_can_hybrid_sleep@Base 4.19.2
+ xfce_systemd_can_power_off@Base 4.19.2
+ xfce_systemd_can_reboot@Base 4.19.2
+ xfce_systemd_can_suspend@Base 4.19.2
+ xfce_systemd_get@Base 4.19.2
+ xfce_systemd_get_type@Base 4.19.2
+ xfce_systemd_hibernate@Base 4.19.2
+ xfce_systemd_hybrid_sleep@Base 4.19.2
+ xfce_systemd_power_off@Base 4.19.2
+ xfce_systemd_reboot@Base 4.19.2
+ xfce_systemd_suspend@Base 4.19.2
  xfce_textdomain@Base 4.9.0
  xfce_unescape_desktop_entry_value@Base 4.17.1
  xfce_utf8_remove_controls@Base 4.9.0

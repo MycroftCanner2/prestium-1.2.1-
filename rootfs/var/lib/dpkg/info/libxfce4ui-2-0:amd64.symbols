@@ -4,6 +4,8 @@ libxfce4ui-2.so.0 libxfce4ui-2-0 #MINVER#
  libxfce4ui_major_version@Base 4.11.0
  libxfce4ui_micro_version@Base 4.11.0
  libxfce4ui_minor_version@Base 4.11.0
+ xfce_clipboard_manager_get_type@Base 4.19.5
+ xfce_clipboard_manager_new@Base 4.19.5
  xfce_dialog_confirm@Base 4.11.0
  xfce_dialog_confirm_close_tabs@Base 4.15.0
  xfce_dialog_show_error@Base 4.11.0

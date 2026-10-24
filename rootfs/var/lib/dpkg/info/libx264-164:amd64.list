@@ -6,5 +6,6 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/libx264-164
+/usr/share/doc/libx264-164/changelog.Debian.amd64.gz
 /usr/share/doc/libx264-164/changelog.Debian.gz
 /usr/share/doc/libx264-164/copyright

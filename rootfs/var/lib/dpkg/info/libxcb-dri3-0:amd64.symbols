@@ -23,6 +23,8 @@ libxcb-dri3.so.0 libxcb-dri3-0 #MINVER#
  xcb_dri3_fd_from_fence_unchecked@Base 0
  xcb_dri3_fence_from_fd@Base 0
  xcb_dri3_fence_from_fd_checked@Base 0
+ xcb_dri3_free_syncobj@Base 1.17.0
+ xcb_dri3_free_syncobj_checked@Base 1.17.0
  xcb_dri3_get_supported_modifiers@Base 1.13
  xcb_dri3_get_supported_modifiers_reply@Base 1.13
  xcb_dri3_get_supported_modifiers_screen_modifiers@Base 1.13
@@ -34,6 +36,8 @@ libxcb-dri3.so.0 libxcb-dri3-0 #MINVER#
  xcb_dri3_get_supported_modifiers_window_modifiers_end@Base 1.13
  xcb_dri3_get_supported_modifiers_window_modifiers_length@Base 1.13
  xcb_dri3_id@Base 0
+ xcb_dri3_import_syncobj@Base 1.17.0
+ xcb_dri3_import_syncobj_checked@Base 1.17.0
  xcb_dri3_open@Base 0
  xcb_dri3_open_reply@Base 0
  xcb_dri3_open_reply_fds@Base 0
@@ -47,3 +51,5 @@ libxcb-dri3.so.0 libxcb-dri3-0 #MINVER#
  xcb_dri3_query_version_unchecked@Base 0
  xcb_dri3_set_drm_device_in_use@Base 1.15
  xcb_dri3_set_drm_device_in_use_checked@Base 1.15
+ xcb_dri3_syncobj_end@Base 1.17.0
+ xcb_dri3_syncobj_next@Base 1.17.0

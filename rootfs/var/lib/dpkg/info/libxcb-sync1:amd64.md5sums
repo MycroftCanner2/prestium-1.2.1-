@@ -1,4 +1,5 @@
-9e5e045bc732d3959a32a3a6268d4afc  usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0
-4d3f6c5e663b4c989f34755f4e5d2fd7  usr/share/doc/libxcb-sync1/changelog.Debian.gz
-a18c03e2a4373db97932f881a8c74993  usr/share/doc/libxcb-sync1/changelog.gz
+f77e4daaf0c1e4495b6c6b5656e47c93  usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0
+20ae54a1abf72546f118af6c259728d9  usr/share/doc/libxcb-sync1/changelog.Debian.amd64.gz
+548c9599c8c197456800bcdcbbb1e805  usr/share/doc/libxcb-sync1/changelog.Debian.gz
+dc29c34021a204fa784bb60bfee5683a  usr/share/doc/libxcb-sync1/changelog.gz
 618ee90893b45d0d0c19d41a3a3d2e7d  usr/share/doc/libxcb-sync1/copyright

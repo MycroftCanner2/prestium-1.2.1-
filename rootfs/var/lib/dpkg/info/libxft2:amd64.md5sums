@@ -1,4 +1,5 @@
-571eba6a747a4e6ca8a1bc62f6fc0124  usr/lib/x86_64-linux-gnu/libXft.so.2.3.6
-662d59eaa9db463b7c83d7415b55bb26  usr/share/doc/libxft2/changelog.Debian.gz
+aacbc22402c3eb3d2b355f1f4413f1c3  usr/lib/x86_64-linux-gnu/libXft.so.2.3.6
+4d63714c7d558f16c83ac90d45907cc5  usr/share/doc/libxft2/changelog.Debian.amd64.gz
+cab9fc74f2e335f32cc29d6dcce78502  usr/share/doc/libxft2/changelog.Debian.gz
 e9d0908c902e7b4191e0fdf77b3563bd  usr/share/doc/libxft2/changelog.gz
 46a31477b69ef550bd7d3fa0429854f3  usr/share/doc/libxft2/copyright

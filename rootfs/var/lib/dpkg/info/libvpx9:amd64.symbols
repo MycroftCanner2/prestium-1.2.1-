@@ -1,4 +1,4 @@
-libvpx.so.7 libvpx7 #MINVER#
+libvpx.so.9 libvpx9 #MINVER#
 * Build-Depends-Package: libvpx-dev
  vpx_codec_build_config@Base 1.6.0
  vpx_codec_control_@Base 1.6.0

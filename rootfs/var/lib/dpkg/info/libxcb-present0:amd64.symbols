@@ -12,6 +12,12 @@ libxcb-present.so.0 libxcb-present0 #MINVER#
  xcb_present_pixmap_notifies_iterator@Base 1.12
  xcb_present_pixmap_notifies_length@Base 1.12
  xcb_present_pixmap_sizeof@Base 0
+ xcb_present_pixmap_synced@Base 1.17.0
+ xcb_present_pixmap_synced_checked@Base 1.17.0
+ xcb_present_pixmap_synced_notifies@Base 1.17.0
+ xcb_present_pixmap_synced_notifies_iterator@Base 1.17.0
+ xcb_present_pixmap_synced_notifies_length@Base 1.17.0
+ xcb_present_pixmap_synced_sizeof@Base 1.17.0
  xcb_present_query_capabilities@Base 0
  xcb_present_query_capabilities_reply@Base 0
  xcb_present_query_capabilities_unchecked@Base 0

@@ -14,7 +14,9 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkCmdBeginRenderPass2@Base 1.2.131.2
  vkCmdBeginRenderPass@Base 1.2.131.2
  vkCmdBeginRendering@Base 1.3.204.0
+ vkCmdBindDescriptorSets2@Base 1.4.304.0
  vkCmdBindDescriptorSets@Base 1.2.131.2
+ vkCmdBindIndexBuffer2@Base 1.4.304.0
  vkCmdBindIndexBuffer@Base 1.2.131.2
  vkCmdBindPipeline@Base 1.2.131.2
  vkCmdBindVertexBuffers2@Base 1.3.204.0
@@ -52,7 +54,12 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkCmdNextSubpass@Base 1.2.131.2
  vkCmdPipelineBarrier2@Base 1.3.204.0
  vkCmdPipelineBarrier@Base 1.2.131.2
+ vkCmdPushConstants2@Base 1.4.304.0
  vkCmdPushConstants@Base 1.2.131.2
+ vkCmdPushDescriptorSet2@Base 1.4.304.0
+ vkCmdPushDescriptorSet@Base 1.4.304.0
+ vkCmdPushDescriptorSetWithTemplate2@Base 1.4.304.0
+ vkCmdPushDescriptorSetWithTemplate@Base 1.4.304.0
  vkCmdResetEvent2@Base 1.3.204.0
  vkCmdResetEvent@Base 1.2.131.2
  vkCmdResetQueryPool@Base 1.2.131.2
@@ -71,10 +78,13 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkCmdSetEvent2@Base 1.3.204.0
  vkCmdSetEvent@Base 1.2.131.2
  vkCmdSetFrontFace@Base 1.3.204.0
+ vkCmdSetLineStipple@Base 1.4.304.0
  vkCmdSetLineWidth@Base 1.2.131.2
  vkCmdSetPrimitiveRestartEnable@Base 1.3.204.0
  vkCmdSetPrimitiveTopology@Base 1.3.204.0
  vkCmdSetRasterizerDiscardEnable@Base 1.3.204.0
+ vkCmdSetRenderingAttachmentLocations@Base 1.4.304.0
+ vkCmdSetRenderingInputAttachmentIndices@Base 1.4.304.0
  vkCmdSetScissor@Base 1.2.131.2
  vkCmdSetScissorWithCount@Base 1.3.204.0
  vkCmdSetStencilCompareMask@Base 1.2.131.2
@@ -89,6 +99,9 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkCmdWaitEvents@Base 1.2.131.2
  vkCmdWriteTimestamp2@Base 1.3.204.0
  vkCmdWriteTimestamp@Base 1.2.131.2
+ vkCopyImageToImage@Base 1.4.304.0
+ vkCopyImageToMemory@Base 1.4.304.0
+ vkCopyMemoryToImage@Base 1.4.304.0
  vkCreateBuffer@Base 1.2.131.2
  vkCreateBufferView@Base 1.2.131.2
  vkCreateCommandPool@Base 1.2.131.2
@@ -171,6 +184,7 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkGetDeviceGroupSurfacePresentModesKHR@Base 1.2.131.2
  vkGetDeviceImageMemoryRequirements@Base 1.3.204.0
  vkGetDeviceImageSparseMemoryRequirements@Base 1.3.204.0
+ vkGetDeviceImageSubresourceLayout@Base 1.4.304.0
  vkGetDeviceMemoryCommitment@Base 1.2.131.2
  vkGetDeviceMemoryOpaqueCaptureAddress@Base 1.2.131.2
  vkGetDeviceProcAddr@Base 1.2.131.2
@@ -187,6 +201,7 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkGetImageMemoryRequirements@Base 1.2.131.2
  vkGetImageSparseMemoryRequirements2@Base 1.2.131.2
  vkGetImageSparseMemoryRequirements@Base 1.2.131.2
+ vkGetImageSubresourceLayout2@Base 1.4.304.0
  vkGetImageSubresourceLayout@Base 1.2.131.2
  vkGetInstanceProcAddr@Base 1.2.131.2
  vkGetPhysicalDeviceDisplayPlaneProperties2KHR@Base 1.2.131.2
@@ -225,9 +240,11 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkGetPrivateData@Base 1.3.204.0
  vkGetQueryPoolResults@Base 1.2.131.2
  vkGetRenderAreaGranularity@Base 1.2.131.2
+ vkGetRenderingAreaGranularity@Base 1.4.304.0
  vkGetSemaphoreCounterValue@Base 1.2.131.2
  vkGetSwapchainImagesKHR@Base 1.2.131.2
  vkInvalidateMappedMemoryRanges@Base 1.2.131.2
+ vkMapMemory2@Base 1.4.304.0
  vkMapMemory@Base 1.2.131.2
  vkMergePipelineCaches@Base 1.2.131.2
  vkQueueBindSparse@Base 1.2.131.2
@@ -244,7 +261,9 @@ libvulkan.so.1 libvulkan1 #MINVER#
  vkSetEvent@Base 1.2.131.2
  vkSetPrivateData@Base 1.3.204.0
  vkSignalSemaphore@Base 1.2.131.2
+ vkTransitionImageLayout@Base 1.4.304.0
  vkTrimCommandPool@Base 1.2.131.2
+ vkUnmapMemory2@Base 1.4.304.0
  vkUnmapMemory@Base 1.2.131.2
  vkUpdateDescriptorSetWithTemplate@Base 1.2.131.2
  vkUpdateDescriptorSets@Base 1.2.131.2

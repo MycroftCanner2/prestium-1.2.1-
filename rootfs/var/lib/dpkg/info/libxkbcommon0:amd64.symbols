@@ -5,6 +5,7 @@ libxkbcommon.so.0 libxkbcommon0 #MINVER#
  V_0.7.0@V_0.7.0 0.7.0
  V_0.8.0@V_0.8.0 0.8.0
  V_1.0.0@V_1.0.0 1.0.0
+ V_1.6.0@V_1.6.0 1.6.0
  xkb_compose_state_feed@V_0.5.0 0.5.0
  xkb_compose_state_get_compose_table@V_0.5.0 0.5.0
  xkb_compose_state_get_one_sym@V_0.5.0 0.5.0
@@ -14,6 +15,12 @@ libxkbcommon.so.0 libxkbcommon0 #MINVER#
  xkb_compose_state_ref@V_0.5.0 0.5.0
  xkb_compose_state_reset@V_0.5.0 0.5.0
  xkb_compose_state_unref@V_0.5.0 0.5.0
+ xkb_compose_table_entry_keysym@V_1.6.0 1.6.0
+ xkb_compose_table_entry_sequence@V_1.6.0 1.6.0
+ xkb_compose_table_entry_utf8@V_1.6.0 1.6.0
+ xkb_compose_table_iterator_free@V_1.6.0 1.6.0
+ xkb_compose_table_iterator_new@V_1.6.0 1.6.0
+ xkb_compose_table_iterator_next@V_1.6.0 1.6.0
  xkb_compose_table_new_from_buffer@V_0.5.0 0.5.0
  xkb_compose_table_new_from_file@V_0.5.0 0.5.0
  xkb_compose_table_new_from_locale@V_0.5.0 0.5.0

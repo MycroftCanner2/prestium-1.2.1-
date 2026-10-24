@@ -1,3 +1,4 @@
-4b447dbfd2acdd4623bc919c2aeac2e5  usr/lib/x86_64-linux-gnu/libx264.so.164
-7bab866e7d37a3b6303645437255f884  usr/share/doc/libx264-164/changelog.Debian.gz
+ad58638ebaa18247c635bf93783fde36  usr/lib/x86_64-linux-gnu/libx264.so.164
+274b2f5da5fdb0eb05701e4b1e15bd6e  usr/share/doc/libx264-164/changelog.Debian.amd64.gz
+6481c5de0276a427cc8f29ed54daa355  usr/share/doc/libx264-164/changelog.Debian.gz
 8472efe9e2b7510ef5375a6dfcaeeb2d  usr/share/doc/libx264-164/copyright

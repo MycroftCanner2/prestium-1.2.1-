@@ -1,4 +1,5 @@
-9c7d6a4c7219634c3cf8f941de8e4c79  usr/lib/x86_64-linux-gnu/libxcb-xv.so.0.0.0
-4d3f6c5e663b4c989f34755f4e5d2fd7  usr/share/doc/libxcb-xv0/changelog.Debian.gz
-a18c03e2a4373db97932f881a8c74993  usr/share/doc/libxcb-xv0/changelog.gz
+7b6de1bf894db8890e1e65aa5b25db7b  usr/lib/x86_64-linux-gnu/libxcb-xv.so.0.0.0
+20ae54a1abf72546f118af6c259728d9  usr/share/doc/libxcb-xv0/changelog.Debian.amd64.gz
+318c6ac1093eca52e92c911b736bd1a1  usr/share/doc/libxcb-xv0/changelog.Debian.gz
+dc29c34021a204fa784bb60bfee5683a  usr/share/doc/libxcb-xv0/changelog.gz
 618ee90893b45d0d0c19d41a3a3d2e7d  usr/share/doc/libxcb-xv0/copyright

@@ -1,4 +1,5 @@
-71a38ba00d9cffebdabbe7dc20fc90d6  usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
-c5dd2ed740051c2e5b842080550dafe4  usr/share/doc/libxfixes3/changelog.Debian.gz
+5ab6ef60b56428edc692cac1f5f48ae0  usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+25a33d438ef567ed69b29999e372a956  usr/share/doc/libxfixes3/changelog.Debian.amd64.gz
+8334985ba568c202f256246085f517f2  usr/share/doc/libxfixes3/changelog.Debian.gz
 59e9627c1ce048cd14b147990cd3bfb4  usr/share/doc/libxfixes3/changelog.gz
 4971272ebcf7ee7796b87562d878b300  usr/share/doc/libxfixes3/copyright

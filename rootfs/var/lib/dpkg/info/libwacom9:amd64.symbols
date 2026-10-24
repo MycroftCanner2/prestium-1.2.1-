@@ -1,6 +1,16 @@
 libwacom.so.9 libwacom9 #MINVER#
 * Build-Depends-Package: libwacom-dev
  LIBWACOM_2.0@LIBWACOM_2.0 2.0.0
+ LIBWACOM_2.12@LIBWACOM_2.12 2.13.0
+ LIBWACOM_2.14@LIBWACOM_2.14 2.14.0
+ LIBWACOM_2.9@LIBWACOM_2.9 2.9.0
+ libwacom_builder_destroy@LIBWACOM_2.12 2.13.0
+ libwacom_builder_new@LIBWACOM_2.12 2.13.0
+ libwacom_builder_set_bustype@LIBWACOM_2.12 2.13.0
+ libwacom_builder_set_device_name@LIBWACOM_2.12 2.13.0
+ libwacom_builder_set_match_name@LIBWACOM_2.12 2.13.0
+ libwacom_builder_set_uniq@LIBWACOM_2.12 2.13.0
+ libwacom_builder_set_usbid@LIBWACOM_2.12 2.13.0
  libwacom_compare@LIBWACOM_2.0 2.0.0
  libwacom_database_destroy@LIBWACOM_2.0 2.0.0
  libwacom_database_new@LIBWACOM_2.0 2.0.0
@@ -15,6 +25,8 @@ libwacom.so.9 libwacom9 #MINVER#
  libwacom_get_button_flag@LIBWACOM_2.0 2.0.0
  libwacom_get_button_led_group@LIBWACOM_2.0 2.0.0
  libwacom_get_class@LIBWACOM_2.0 2.0.0
+ libwacom_get_dial2_num_modes@LIBWACOM_2.12 2.13.0
+ libwacom_get_dial_num_modes@LIBWACOM_2.12 2.13.0
  libwacom_get_height@LIBWACOM_2.0 2.0.0
  libwacom_get_integration_flags@LIBWACOM_2.0 2.0.0
  libwacom_get_layout_filename@LIBWACOM_2.0 2.0.0
@@ -23,6 +35,9 @@ libwacom.so.9 libwacom9 #MINVER#
  libwacom_get_model_name@LIBWACOM_2.0 2.0.0
  libwacom_get_name@LIBWACOM_2.0 2.0.0
  libwacom_get_num_buttons@LIBWACOM_2.0 2.0.0
+ libwacom_get_num_dials@LIBWACOM_2.12 2.13.0
+ libwacom_get_num_keys@LIBWACOM_2.9 2.9.0
+ libwacom_get_num_rings@LIBWACOM_2.12 2.13.0
  libwacom_get_num_strips@LIBWACOM_2.0 2.0.0
  libwacom_get_paired_device@LIBWACOM_2.0 2.0.0
  libwacom_get_product_id@LIBWACOM_2.0 2.0.0
@@ -30,6 +45,7 @@ libwacom.so.9 libwacom9 #MINVER#
  libwacom_get_ring_num_modes@LIBWACOM_2.0 2.0.0
  libwacom_get_status_leds@LIBWACOM_2.0 2.0.0
  libwacom_get_strips_num_modes@LIBWACOM_2.0 2.0.0
+ libwacom_get_styli@LIBWACOM_2.14 2.14.0
  libwacom_get_supported_styli@LIBWACOM_2.0 2.0.0
  libwacom_get_vendor_id@LIBWACOM_2.0 2.0.0
  libwacom_get_width@LIBWACOM_2.0 2.0.0
@@ -45,7 +61,9 @@ libwacom.so.9 libwacom9 #MINVER#
  libwacom_match_get_match_string@LIBWACOM_2.0 2.0.0
  libwacom_match_get_name@LIBWACOM_2.0 2.0.0
  libwacom_match_get_product_id@LIBWACOM_2.0 2.0.0
+ libwacom_match_get_uniq@LIBWACOM_2.12 2.13.0
  libwacom_match_get_vendor_id@LIBWACOM_2.0 2.0.0
+ libwacom_new_from_builder@LIBWACOM_2.12 2.13.0
  libwacom_new_from_name@LIBWACOM_2.0 2.0.0
  libwacom_new_from_path@LIBWACOM_2.0 2.0.0
  libwacom_new_from_usbid@LIBWACOM_2.0 2.0.0
@@ -58,7 +76,9 @@ libwacom.so.9 libwacom9 #MINVER#
  libwacom_stylus_get_name@LIBWACOM_2.0 2.0.0
  libwacom_stylus_get_num_buttons@LIBWACOM_2.0 2.0.0
  libwacom_stylus_get_paired_ids@LIBWACOM_2.0 2.0.0
+ libwacom_stylus_get_paired_styli@LIBWACOM_2.14 2.14.0
  libwacom_stylus_get_type@LIBWACOM_2.0 2.0.0
+ libwacom_stylus_get_vendor_id@LIBWACOM_2.14 2.14.0
  libwacom_stylus_has_eraser@LIBWACOM_2.0 2.0.0
  libwacom_stylus_has_lens@LIBWACOM_2.0 2.0.0
  libwacom_stylus_has_wheel@LIBWACOM_2.0 2.0.0

@@ -1,4 +1,5 @@
-a55e308cd17770838fd94500d4ea67a3  usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
-b975094ec674dc5e4a5a79937351be44  usr/share/doc/libxinerama1/changelog.Debian.gz
+82a81829f8678487761a83dfeae39562  usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+739253c12fe44268aa3f74d711ee2027  usr/share/doc/libxinerama1/changelog.Debian.amd64.gz
+225b27ca5eb9eef98d8c54e48e8e84d9  usr/share/doc/libxinerama1/changelog.Debian.gz
 82c07e060b4ebcff0ce5074358bf7241  usr/share/doc/libxinerama1/changelog.gz
 8fdd34040015283cd73da6400545ce8d  usr/share/doc/libxinerama1/copyright

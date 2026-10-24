@@ -1,1 +1,2 @@
-libxkbcommon 0 libxkbcommon0 (>= 1.5.0)
+libxkbcommon 0 libxkbcommon0 (>= 1.7.0)
+udeb: libxkbcommon 0 libxkbcommon0-udeb (>= 1.7.0)

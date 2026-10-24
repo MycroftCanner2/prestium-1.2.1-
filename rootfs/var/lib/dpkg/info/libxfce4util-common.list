@@ -61,6 +61,9 @@
 /usr/share/locale/eu
 /usr/share/locale/eu/LC_MESSAGES
 /usr/share/locale/eu/LC_MESSAGES/libxfce4util.mo
+/usr/share/locale/fa_IR
+/usr/share/locale/fa_IR/LC_MESSAGES
+/usr/share/locale/fa_IR/LC_MESSAGES/libxfce4util.mo
 /usr/share/locale/fi
 /usr/share/locale/fi/LC_MESSAGES
 /usr/share/locale/fi/LC_MESSAGES/libxfce4util.mo
@@ -172,6 +175,9 @@
 /usr/share/locale/sv
 /usr/share/locale/sv/LC_MESSAGES
 /usr/share/locale/sv/LC_MESSAGES/libxfce4util.mo
+/usr/share/locale/te
+/usr/share/locale/te/LC_MESSAGES
+/usr/share/locale/te/LC_MESSAGES/libxfce4util.mo
 /usr/share/locale/th
 /usr/share/locale/th/LC_MESSAGES
 /usr/share/locale/th/LC_MESSAGES/libxfce4util.mo

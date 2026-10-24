@@ -1,1 +1,1 @@
-libxcb-shape 0 libxcb-shape0 (>= 1.15)
+libxcb-shape 0 libxcb-shape0 (>= 1.17.0)
