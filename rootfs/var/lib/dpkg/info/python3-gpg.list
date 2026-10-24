@@ -5,7 +5,7 @@
 /usr/lib/python3/dist-packages
 /usr/lib/python3/dist-packages/gpg
 /usr/lib/python3/dist-packages/gpg/__init__.py
-/usr/lib/python3/dist-packages/gpg/_gpgme.cpython-311-x86_64-linux-gnu.so
+/usr/lib/python3/dist-packages/gpg/_gpgme.cpython-313-x86_64-linux-gnu.so
 /usr/lib/python3/dist-packages/gpg/callbacks.py
 /usr/lib/python3/dist-packages/gpg/constants
 /usr/lib/python3/dist-packages/gpg/constants/__init__.py
@@ -38,11 +38,13 @@
 /usr/lib/python3/dist-packages/gpg/results.py
 /usr/lib/python3/dist-packages/gpg/util.py
 /usr/lib/python3/dist-packages/gpg/version.py
-/usr/lib/python3/dist-packages/gpg-1.18.0-py3.11.egg-info
+/usr/lib/python3/dist-packages/gpg-1.24.2.egg-info
+/usr/lib/python3/dist-packages/gpg-1.24.2.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/gpg-1.24.2.egg-info/dependency_links.txt
+/usr/lib/python3/dist-packages/gpg-1.24.2.egg-info/top_level.txt
 /usr/share
 /usr/share/doc
 /usr/share/doc/python3-gpg
-/usr/share/doc/python3-gpg/changelog.Debian.amd64.gz
 /usr/share/doc/python3-gpg/changelog.Debian.gz
 /usr/share/doc/python3-gpg/changelog.gz
 /usr/share/doc/python3-gpg/copyright

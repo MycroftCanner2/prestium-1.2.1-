@@ -1,22 +1,34 @@
 #!/bin/sh
 set -e
-# Automatically added by dh_installinit/13.11.4
+# Automatically added by dh_installinit/13.24.2
 if [ "$1" = "remove" ] && [ -x "/etc/init.d/pcscd" ] ; then
 	chmod -x "/etc/init.d/pcscd" >/dev/null || true
 fi
-if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+if [ -z "$DPKG_ROOT" ] && [ "$1" = "purge" ] ; then
 	update-rc.d pcscd remove >/dev/null
 fi
 # End automatically added section
-# Automatically added by dh_installdeb/13.11.4
+# Automatically added by dh_installdeb/13.24.2
 dpkg-maintscript-helper rm_conffile /etc/reader.conf.d/0comments 1.9.3-2\~ pcscd -- "$@"
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_runit/2.16.4
+# Unfortunately, we can not assume, that bin:runit-helper package
+# is installed at postrm stage.
+#
+# The only other option is embed whole runit-helper script here,
+# into postrm script of -run package, but it would be like static
+# linking, requiring rebuild of all reverse dependencies on every
+# change of dh-runit.
+if [ -z "${DPKG_ROOT:-}" ] && [ -x /usr/lib/runit-helper/runit-helper ] ; then
+   NAME='pcscd' ENABLE='yes' ONUPGRADE='restart' /usr/lib/runit-helper/runit-helper postrm "$@"
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
 	systemctl --system daemon-reload >/dev/null || true
 fi
 # End automatically added section
-# Automatically added by dh_installsystemd/13.11.4
+# Automatically added by dh_installsystemd/13.24.2
 if [ "$1" = "purge" ]; then
 	if [ -x "/usr/bin/deb-systemd-helper" ]; then
 		deb-systemd-helper purge 'pcscd.service' 'pcscd.socket' >/dev/null || true

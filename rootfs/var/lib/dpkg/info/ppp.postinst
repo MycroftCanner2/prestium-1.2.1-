@@ -61,8 +61,7 @@ case "$1" in
     ;;
 esac
 
-# Automatically added by dh_installdeb/13.7.1
-dpkg-maintscript-helper rm_conffile /etc/bash_completion.d/pon 2.4.7-1\+2\~ -- "$@"
+# Automatically added by dh_installdeb/13.24.1
 dpkg-maintscript-helper rm_conffile /etc/init.d/pppd-dns 2.4.8-1\+1\~exp1\~ -- "$@"
 # End automatically added section
 

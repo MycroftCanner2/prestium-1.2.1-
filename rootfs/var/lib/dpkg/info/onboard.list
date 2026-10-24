@@ -54,12 +54,17 @@
 /usr/lib/python3/dist-packages/Onboard/__init__.py
 /usr/lib/python3/dist-packages/Onboard/canonical_equivalents.py
 /usr/lib/python3/dist-packages/Onboard/definitions.py
-/usr/lib/python3/dist-packages/Onboard/osk.cpython-311-x86_64-linux-gnu.so
+/usr/lib/python3/dist-packages/Onboard/osk.cpython-313-x86_64-linux-gnu.so
 /usr/lib/python3/dist-packages/Onboard/pypredict
 /usr/lib/python3/dist-packages/Onboard/pypredict/__init__.py
-/usr/lib/python3/dist-packages/Onboard/pypredict/lm.cpython-311-x86_64-linux-gnu.so
+/usr/lib/python3/dist-packages/Onboard/pypredict/lm.cpython-313-x86_64-linux-gnu.so
 /usr/lib/python3/dist-packages/Onboard/pypredict/lm_wrapper.py
 /usr/lib/python3/dist-packages/Onboard/settings.py
+/usr/lib/python3/dist-packages/Onboard/test
+/usr/lib/python3/dist-packages/Onboard/test/__init__.py
+/usr/lib/python3/dist-packages/Onboard/test/test_LayoutLoaderSVG.py
+/usr/lib/python3/dist-packages/Onboard/test/test_migration.py
+/usr/lib/python3/dist-packages/Onboard/test/test_translations.py
 /usr/lib/python3/dist-packages/Onboard/utils.py
 /usr/lib/python3/dist-packages/onboard-1.4.1.egg-info
 /usr/lib/python3/dist-packages/onboard-1.4.1.egg-info/PKG-INFO
@@ -72,7 +77,6 @@
 /usr/share/doc
 /usr/share/doc/onboard
 /usr/share/doc/onboard/HACKING
-/usr/share/doc/onboard/changelog.Debian.amd64.gz
 /usr/share/doc/onboard/changelog.Debian.gz
 /usr/share/doc/onboard/changelog.gz
 /usr/share/doc/onboard/copyright

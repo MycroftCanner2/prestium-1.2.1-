@@ -1,0 +1,15 @@
+c72246579c4437c07cebb86fbcbc6d90  usr/lib/python3/dist-packages/itsdangerous-2.2.0.dist-info/INSTALLER
+efe68e07ab85dba520899092c41d09cb  usr/lib/python3/dist-packages/itsdangerous-2.2.0.dist-info/METADATA
+24019423ea7c0c2df41c8272a3791e7b  usr/lib/python3/dist-packages/itsdangerous-2.2.0.dist-info/WHEEL
+866d841a306d06d56c1e214ffc807d80  usr/lib/python3/dist-packages/itsdangerous/__init__.py
+4b381b08cdbe91f6b1c1805a86838113  usr/lib/python3/dist-packages/itsdangerous/_json.py
+30dee923dab9d4a21145cb9190d2208b  usr/lib/python3/dist-packages/itsdangerous/encoding.py
+4512693a7f146d9e43fee771be783ea4  usr/lib/python3/dist-packages/itsdangerous/exc.py
+d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/itsdangerous/py.typed
+81f97ae15517c9d08836c1503a85f39b  usr/lib/python3/dist-packages/itsdangerous/serializer.py
+e9b499a2148b7cddc6e05dd314599923  usr/lib/python3/dist-packages/itsdangerous/signer.py
+277f346ca1795f288b790fcb3013cba6  usr/lib/python3/dist-packages/itsdangerous/timed.py
+35f5c852418817babb6080e78d3c5689  usr/lib/python3/dist-packages/itsdangerous/url_safe.py
+6697d900d67fa642c93ac1dddac43043  usr/share/doc/python3-itsdangerous/changelog.Debian.gz
+9b935bf93ecf0ca06fe91c7c649c2cd0  usr/share/doc/python3-itsdangerous/changelog.gz
+28799dc670b62d5588410581b1fd2daa  usr/share/doc/python3-itsdangerous/copyright

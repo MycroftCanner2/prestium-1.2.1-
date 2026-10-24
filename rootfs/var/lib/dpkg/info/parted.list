@@ -1,8 +1,8 @@
 /.
-/sbin
-/sbin/parted
-/sbin/partprobe
 /usr
+/usr/sbin
+/usr/sbin/parted
+/usr/sbin/partprobe
 /usr/share
 /usr/share/doc
 /usr/share/lintian

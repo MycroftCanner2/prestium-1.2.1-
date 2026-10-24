@@ -5,12 +5,12 @@
 /usr/lib/python3/dist-packages
 /usr/lib/python3/dist-packages/LibAppArmor
 /usr/lib/python3/dist-packages/LibAppArmor/LibAppArmor.py
-/usr/lib/python3/dist-packages/LibAppArmor/_LibAppArmor.cpython-311-x86_64-linux-gnu.so
+/usr/lib/python3/dist-packages/LibAppArmor/_LibAppArmor.cpython-313-x86_64-linux-gnu.so
 /usr/lib/python3/dist-packages/LibAppArmor/__init__.py
-/usr/lib/python3/dist-packages/LibAppArmor-3.0.8.egg-info
-/usr/lib/python3/dist-packages/LibAppArmor-3.0.8.egg-info/PKG-INFO
-/usr/lib/python3/dist-packages/LibAppArmor-3.0.8.egg-info/dependency_links.txt
-/usr/lib/python3/dist-packages/LibAppArmor-3.0.8.egg-info/top_level.txt
+/usr/lib/python3/dist-packages/LibAppArmor-4.1.0.egg-info
+/usr/lib/python3/dist-packages/LibAppArmor-4.1.0.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/LibAppArmor-4.1.0.egg-info/dependency_links.txt
+/usr/lib/python3/dist-packages/LibAppArmor-4.1.0.egg-info/top_level.txt
 /usr/share
 /usr/share/doc
 /usr/share/doc/python3-libapparmor

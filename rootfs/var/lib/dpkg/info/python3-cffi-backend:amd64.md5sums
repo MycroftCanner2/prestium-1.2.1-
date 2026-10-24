@@ -1,5 +1,4 @@
-9d82daedab4e197c46627458d6980be1  usr/lib/python3/dist-packages/_cffi_backend.cpython-311-x86_64-linux-gnu.so
-91c6fc51e8e3105604073ce3640de96f  usr/share/doc/python3-cffi-backend/changelog.Debian.amd64.gz
-9cc2bb47d1ab9746ebc8938622365bb9  usr/share/doc/python3-cffi-backend/changelog.Debian.gz
-7c792436e5e7dbbef40900bbb9e0bd02  usr/share/doc/python3-cffi-backend/changelog.gz
-fb51e244671192d4651dd49e41ebc39e  usr/share/doc/python3-cffi-backend/copyright
+1bf943b39a007dde896ec67115238898  usr/lib/python3/dist-packages/_cffi_backend.cpython-313-x86_64-linux-gnu.so
+b8d91af3e4c3506c0f01e1cf2acfa2a3  usr/share/doc/python3-cffi-backend/changelog.Debian.gz
+6dbced6c27285a82eadf944cff865c9b  usr/share/doc/python3-cffi-backend/changelog.gz
+f779d92b9057c63fcfc147768a4021da  usr/share/doc/python3-cffi-backend/copyright

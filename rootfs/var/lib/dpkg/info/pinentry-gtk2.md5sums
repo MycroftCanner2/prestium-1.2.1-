@@ -1,7 +1,7 @@
-30148f96bd90cf152c33c97456ab337f  usr/bin/pinentry-gtk-2
+bfb9769a2625f57106ab554ac6d7a1e3  usr/bin/pinentry-gtk-2
 6299308dfdae2cb789988d943eeec9b1  usr/share/doc/pinentry-gtk2/AUTHORS
-1d8cb324fbdd15f46f2078be04f3bf1a  usr/share/doc/pinentry-gtk2/NEWS.gz
-36a6342e53938e79ba965f42eb82bd46  usr/share/doc/pinentry-gtk2/changelog.Debian.gz
-0da065fb10297de993b2a389c9db6736  usr/share/doc/pinentry-gtk2/changelog.gz
-69344716d6ce32f72ffc59b0cd97a5b7  usr/share/doc/pinentry-gtk2/copyright
+98e78a8a53e910b12014ab446e8b38b8  usr/share/doc/pinentry-gtk2/NEWS.gz
+a382ca707cd7cf01820e33ae5e831b70  usr/share/doc/pinentry-gtk2/changelog.Debian.gz
+cd6918a19c474f2ebb8c2c5b91368b85  usr/share/doc/pinentry-gtk2/changelog.gz
+0960e9ef042bffefc2c3f249cf0477be  usr/share/doc/pinentry-gtk2/copyright
 e092c6c496b67adc8d9a15d18542a3b3  usr/share/man/man1/pinentry-gtk-2.1.gz

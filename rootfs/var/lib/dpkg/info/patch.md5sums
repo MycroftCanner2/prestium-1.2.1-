@@ -1,9 +1,8 @@
-2b75cc721dae7cc7572df5bfd987fa3a  usr/bin/patch
+f25f3e5e5ba909d863b3835388c66b0c  usr/bin/patch
 885a4bd9fb34f545c04de0919ec6379a  usr/share/doc/patch/AUTHORS
-0389eaf61cfeea384fa43b9ce5809c89  usr/share/doc/patch/NEWS.Debian.gz
-36509667b1376b824dc16cd69cc89893  usr/share/doc/patch/NEWS.gz
-08acdd2506a9cdfd437e21b4739429cc  usr/share/doc/patch/README
-9e88846e7b284214235560ed48d4a70f  usr/share/doc/patch/changelog.Debian.gz
-dd3067d0686439a7c98f3b02f18e9bdc  usr/share/doc/patch/changelog.gz
-b288ee880145818094e8d6d6a3bc5026  usr/share/doc/patch/copyright
-8dabc87c675f5e0fa1358388336b7397  usr/share/man/man1/patch.1.gz
+d43a9e5fbfc7097b927f976e5cd594e8  usr/share/doc/patch/NEWS.gz
+7755922b8750c801904fcfe44fb77643  usr/share/doc/patch/README
+daaabd7eec6d47c305566b51fb23d4c3  usr/share/doc/patch/changelog.Debian.gz
+968595f04a8397ea2a9b49a638f9180a  usr/share/doc/patch/changelog.gz
+08ff94549a2731c594293e541e0e1de8  usr/share/doc/patch/copyright
+4a175b4db7b81475f4c6763ad92a12ed  usr/share/man/man1/patch.1.gz

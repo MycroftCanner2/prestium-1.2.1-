@@ -13,10 +13,10 @@
 /usr/lib/python3/dist-packages/idna/package_data.py
 /usr/lib/python3/dist-packages/idna/py.typed
 /usr/lib/python3/dist-packages/idna/uts46data.py
-/usr/lib/python3/dist-packages/idna-3.3.egg-info
-/usr/lib/python3/dist-packages/idna-3.3.egg-info/PKG-INFO
-/usr/lib/python3/dist-packages/idna-3.3.egg-info/dependency_links.txt
-/usr/lib/python3/dist-packages/idna-3.3.egg-info/top_level.txt
+/usr/lib/python3/dist-packages/idna-3.10.dist-info
+/usr/lib/python3/dist-packages/idna-3.10.dist-info/INSTALLER
+/usr/lib/python3/dist-packages/idna-3.10.dist-info/METADATA
+/usr/lib/python3/dist-packages/idna-3.10.dist-info/WHEEL
 /usr/share
 /usr/share/doc
 /usr/share/doc/python3-idna

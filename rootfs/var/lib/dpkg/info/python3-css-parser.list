@@ -61,12 +61,13 @@
 /usr/lib/python3/dist-packages/css_parser/tokenize2.py
 /usr/lib/python3/dist-packages/css_parser/util.py
 /usr/lib/python3/dist-packages/css_parser/version.py
-/usr/lib/python3/dist-packages/css_parser-1.0.8.egg-info
-/usr/lib/python3/dist-packages/css_parser-1.0.8.egg-info/PKG-INFO
-/usr/lib/python3/dist-packages/css_parser-1.0.8.egg-info/dependency_links.txt
-/usr/lib/python3/dist-packages/css_parser-1.0.8.egg-info/top_level.txt
+/usr/lib/python3/dist-packages/css_parser-1.0.10.egg-info
+/usr/lib/python3/dist-packages/css_parser-1.0.10.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/css_parser-1.0.10.egg-info/dependency_links.txt
+/usr/lib/python3/dist-packages/css_parser-1.0.10.egg-info/top_level.txt
 /usr/share
 /usr/share/doc
 /usr/share/doc/python3-css-parser
+/usr/share/doc/python3-css-parser/CSSUTILS_README.txt.gz
 /usr/share/doc/python3-css-parser/changelog.Debian.gz
 /usr/share/doc/python3-css-parser/copyright

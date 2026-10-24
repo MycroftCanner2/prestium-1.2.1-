@@ -1,13 +1,13 @@
 05d7ec6e1f1fdae1c945ee0a63af3b85  usr/share/dbus-1/services/org.onboard.Onboard.service
-7d684aa6aadd67b31295c260207ce5ca  usr/share/doc/onboard-common/changelog.Debian.gz
+f8819038187889c4c606911f92706586  usr/share/doc/onboard-common/changelog.Debian.gz
 8dee7061f02d202c60d9c7ff2fe4cd5f  usr/share/doc/onboard-common/changelog.gz
-77e4cfde99df8d0e95989a10e50daecd  usr/share/doc/onboard-common/copyright
+89bab192f6fc69f392e66c381b6ea564  usr/share/doc/onboard-common/copyright
 739264861b5785491fa1a99dfcdacac2  usr/share/doc/onboard/AUTHORS
 85c259b13c91ad9d7061fe04771170e7  usr/share/doc/onboard/CHANGELOG
 8627f63bfdc5232ee71861789f27f036  usr/share/doc/onboard/NEWS.gz
 08c211cdf32911d1c641aca03e8fd739  usr/share/doc/onboard/README.gz
 ff21fcb4c90bdaadba24a8c4be477a68  usr/share/doc/onboard/onboard-default-settings.gschema.override.example
-1c001fb21d1a3e9d01198da55586be21  usr/share/doc/onboard/onboard-defaults.conf.example.gz
+2eac4c778083c0404db76ebace17011a  usr/share/doc/onboard/onboard-defaults.conf.example.gz
 14bf0bc3b163ccda0364b7adcb6483af  usr/share/help/C/onboard/custom-defaults.page
 4081637c807e70ae97a6ec9e540df05a  usr/share/help/C/onboard/dm-gdm.page
 d11516e549d4fc72b559c957b93ab1f0  usr/share/help/C/onboard/dm-index.page
@@ -27,7 +27,7 @@ e5e3c0dda8faa5b27c9888a7b851a0d6  usr/share/help/C/onboard/figures/alt-key.png
 4be17beaf2dde85d567045a93d27c31c  usr/share/help/C/onboard/figures/layer3-button.png
 0aa294003c21e3e07f9a81f5e13ede31  usr/share/help/C/onboard/figures/middle-click-button.png
 9870923f355e83eaac0c905a364b5b5d  usr/share/help/C/onboard/figures/move-button.png
-6d725fb4847423fdbd08ccd699f785bc  usr/share/help/C/onboard/figures/onboard-icon.png
+144137b61a8910c0eed72c4f38c07790  usr/share/help/C/onboard/figures/onboard-icon.png
 215027600ee51c94c03e7d3d58e561f9  usr/share/help/C/onboard/figures/onboard_compact_nightshade_prediction.png
 f149f0c74238bd7c09bd1b318dc452a5  usr/share/help/C/onboard/figures/prediction-buttons.png
 28f475b3111b0ca65957a877113b40c3  usr/share/help/C/onboard/figures/right-click-button.png

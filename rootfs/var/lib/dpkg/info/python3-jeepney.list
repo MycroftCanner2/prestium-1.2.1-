@@ -26,7 +26,6 @@
 /usr/lib/python3/dist-packages/jeepney/io/threading.py
 /usr/lib/python3/dist-packages/jeepney/io/trio.py
 /usr/lib/python3/dist-packages/jeepney/low_level.py
-/usr/lib/python3/dist-packages/jeepney/routing.py
 /usr/lib/python3/dist-packages/jeepney/tests
 /usr/lib/python3/dist-packages/jeepney/tests/__init__.py
 /usr/lib/python3/dist-packages/jeepney/tests/secrets_introspect.xml
@@ -36,12 +35,12 @@
 /usr/lib/python3/dist-packages/jeepney/tests/test_bus_messages.py
 /usr/lib/python3/dist-packages/jeepney/tests/test_fds.py
 /usr/lib/python3/dist-packages/jeepney/tests/test_low_level.py
-/usr/lib/python3/dist-packages/jeepney/tests/test_routing.py
+/usr/lib/python3/dist-packages/jeepney/tests/test_wrappers.py
 /usr/lib/python3/dist-packages/jeepney/wrappers.py
-/usr/lib/python3/dist-packages/jeepney-0.8.0.dist-info
-/usr/lib/python3/dist-packages/jeepney-0.8.0.dist-info/METADATA
-/usr/lib/python3/dist-packages/jeepney-0.8.0.dist-info/RECORD
-/usr/lib/python3/dist-packages/jeepney-0.8.0.dist-info/WHEEL
+/usr/lib/python3/dist-packages/jeepney-0.9.0.dist-info
+/usr/lib/python3/dist-packages/jeepney-0.9.0.dist-info/INSTALLER
+/usr/lib/python3/dist-packages/jeepney-0.9.0.dist-info/METADATA
+/usr/lib/python3/dist-packages/jeepney-0.9.0.dist-info/WHEEL
 /usr/share
 /usr/share/doc
 /usr/share/doc/python3-jeepney

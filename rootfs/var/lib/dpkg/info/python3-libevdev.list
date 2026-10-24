@@ -9,7 +9,10 @@
 /usr/lib/python3/dist-packages/libevdev/const.py
 /usr/lib/python3/dist-packages/libevdev/device.py
 /usr/lib/python3/dist-packages/libevdev/event.py
-/usr/lib/python3/dist-packages/libevdev-0.5.egg-info
+/usr/lib/python3/dist-packages/libevdev-0.11.egg-info
+/usr/lib/python3/dist-packages/libevdev-0.11.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/libevdev-0.11.egg-info/dependency_links.txt
+/usr/lib/python3/dist-packages/libevdev-0.11.egg-info/top_level.txt
 /usr/share
 /usr/share/doc
 /usr/share/doc/python3-libevdev

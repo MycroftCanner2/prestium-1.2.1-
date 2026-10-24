@@ -1,0 +1,8 @@
+188c69e51672b31caf89b379404ca82b  usr/lib/python3/dist-packages/gnupg.py
+c72246579c4437c07cebb86fbcbc6d90  usr/lib/python3/dist-packages/python_gnupg-0.5.4.dist-info/INSTALLER
+a4120282c81d8f39012188e47061e42e  usr/lib/python3/dist-packages/python_gnupg-0.5.4.dist-info/METADATA
+271089d4c62e8bcb2b8930874163964d  usr/lib/python3/dist-packages/python_gnupg-0.5.4.dist-info/WHEEL
+ced072bcee664f9749e58526775c5238  usr/lib/python3/dist-packages/python_gnupg-0.5.4.dist-info/top_level.txt
+440de1e6602804c254415e714245d4fb  usr/share/doc/python3-gnupg/changelog.Debian.gz
+b653b89447af04c482f30762c66d8838  usr/share/doc/python3-gnupg/copyright
+38e185559b89aa50504e0f16e56dd890  usr/share/lintian/overrides/python3-gnupg

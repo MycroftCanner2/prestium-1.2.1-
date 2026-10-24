@@ -1,8 +1,15 @@
 #!/bin/sh
 set -e
 
-# Automatically added by dh_installdeb/13.11.4
+# Automatically added by dh_installdeb/13.24.2
 dpkg-maintscript-helper rm_conffile /etc/ssh/moduli 1:7.9p1-8\~ -- "$@"
+# End automatically added section
+# Automatically added by dh_installsystemduser/13.24.2
+if [ "$1" = "purge" ]; then
+	if [ -z "$DPKG_ROOT" ] && [ -x "/usr/bin/deb-systemd-helper" ] ; then
+		deb-systemd-helper --user purge 'ssh-agent.socket' >/dev/null || true
+	fi
+fi
 # End automatically added section
 
 

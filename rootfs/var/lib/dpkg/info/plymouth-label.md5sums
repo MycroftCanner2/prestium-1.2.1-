@@ -1,4 +1,4 @@
-4e7acd634ccd0707a6290c76a78c7a06  usr/lib/x86_64-linux-gnu/plymouth/label.so
-416a193d6be1053e103a8d18d27724a3  usr/share/doc/plymouth-label/changelog.Debian.gz
-784349295b1c6370de5ff585743264db  usr/share/doc/plymouth-label/changelog.gz
+fbd5daad692e903a6564ab8840563fcb  usr/lib/x86_64-linux-gnu/plymouth/label-freetype.so
+bf910a5905f11c0f4aff421285a1fde2  usr/lib/x86_64-linux-gnu/plymouth/label-pango.so
+fa856aa3a4685e794b6f7b6ff94ba947  usr/share/doc/plymouth-label/changelog.Debian.gz
 fac32bda1cab0ce9d7cc74a97852d80e  usr/share/doc/plymouth-label/copyright

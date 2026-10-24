@@ -1,7 +1,7 @@
-18bf4609fc28ac0776db4e7b6d39c28b  usr/bin/pinentry-gnome3
+da7f846ea97009e2a24e8fa77a3f9ee7  usr/bin/pinentry-gnome3
 6299308dfdae2cb789988d943eeec9b1  usr/share/doc/pinentry-gnome3/AUTHORS
-1d8cb324fbdd15f46f2078be04f3bf1a  usr/share/doc/pinentry-gnome3/NEWS.gz
-5042a32783d68fe6883b49bf9f1904d9  usr/share/doc/pinentry-gnome3/changelog.Debian.gz
-0da065fb10297de993b2a389c9db6736  usr/share/doc/pinentry-gnome3/changelog.gz
-69344716d6ce32f72ffc59b0cd97a5b7  usr/share/doc/pinentry-gnome3/copyright
+98e78a8a53e910b12014ab446e8b38b8  usr/share/doc/pinentry-gnome3/NEWS.gz
+19b16e9b2eed7438f4eb49976977f3af  usr/share/doc/pinentry-gnome3/changelog.Debian.gz
+cd6918a19c474f2ebb8c2c5b91368b85  usr/share/doc/pinentry-gnome3/changelog.gz
+0960e9ef042bffefc2c3f249cf0477be  usr/share/doc/pinentry-gnome3/copyright
 7471dfda62c7d6d9e79a0f56358026f8  usr/share/man/man1/pinentry-gnome3.1.gz

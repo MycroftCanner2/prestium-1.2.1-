@@ -1,0 +1,9 @@
+74576b5bbb4629822b31786e144805bc  usr/lib/python3/dist-packages/cairo/__init__.py
+c04922141a78f4480eef24bf18c2f367  usr/lib/python3/dist-packages/cairo/__init__.pyi
+229eb462d11201e7ef22b56c752bf8ff  usr/lib/python3/dist-packages/cairo/_cairo.cpython-313-x86_64-linux-gnu.so
+d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/cairo/py.typed
+c72246579c4437c07cebb86fbcbc6d90  usr/lib/python3/dist-packages/pycairo-1.27.0.dist-info/INSTALLER
+28e66bc1143c4cf416979ba7bb49239f  usr/lib/python3/dist-packages/pycairo-1.27.0.dist-info/METADATA
+d9e0cd62c6ba5399d9fdb688369fe65f  usr/share/doc/python3-cairo/NEWS.gz
+d7a553538aa02fe7ac1d39194d984165  usr/share/doc/python3-cairo/changelog.Debian.gz
+c50877d988b70d389c9df781a2b7dbb3  usr/share/doc/python3-cairo/copyright

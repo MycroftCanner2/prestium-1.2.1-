@@ -4,7 +4,7 @@
 /usr/bin/pavucontrol
 /usr/share
 /usr/share/applications
-/usr/share/applications/pavucontrol.desktop
+/usr/share/applications/org.pulseaudio.pavucontrol.desktop
 /usr/share/doc
 /usr/share/doc/pavucontrol
 /usr/share/doc/pavucontrol/README.gz
@@ -73,6 +73,9 @@
 /usr/share/locale/hu
 /usr/share/locale/hu/LC_MESSAGES
 /usr/share/locale/hu/LC_MESSAGES/pavucontrol.mo
+/usr/share/locale/id
+/usr/share/locale/id/LC_MESSAGES
+/usr/share/locale/id/LC_MESSAGES/pavucontrol.mo
 /usr/share/locale/it
 /usr/share/locale/it/LC_MESSAGES
 /usr/share/locale/it/LC_MESSAGES/pavucontrol.mo
@@ -121,6 +124,9 @@
 /usr/share/locale/pt_BR
 /usr/share/locale/pt_BR/LC_MESSAGES
 /usr/share/locale/pt_BR/LC_MESSAGES/pavucontrol.mo
+/usr/share/locale/ro
+/usr/share/locale/ro/LC_MESSAGES
+/usr/share/locale/ro/LC_MESSAGES/pavucontrol.mo
 /usr/share/locale/ru
 /usr/share/locale/ru/LC_MESSAGES
 /usr/share/locale/ru/LC_MESSAGES/pavucontrol.mo
@@ -166,5 +172,5 @@
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/pavucontrol.1.gz
-/usr/share/pavucontrol
-/usr/share/pavucontrol/pavucontrol.glade
+/usr/share/metainfo
+/usr/share/metainfo/org.pulseaudio.pavucontrol.metainfo.xml

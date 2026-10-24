@@ -27,9 +27,8 @@
 /usr/share/doc/openbox
 /usr/share/doc/openbox/AUTHORS
 /usr/share/doc/openbox/COMPLIANCE
-/usr/share/doc/openbox/NEWS.Debian.gz
 /usr/share/doc/openbox/README
-/usr/share/doc/openbox/build.html
+/usr/share/doc/openbox/changelog.Debian.amd64.gz
 /usr/share/doc/openbox/changelog.Debian.gz
 /usr/share/doc/openbox/changelog.gz
 /usr/share/doc/openbox/config.html

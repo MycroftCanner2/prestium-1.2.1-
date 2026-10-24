@@ -1,1 +1,7 @@
+/etc/default/pcscd
 /etc/init.d/pcscd
+/etc/sv/pcscd/.meta/installed
+/etc/sv/pcscd/control/h
+/etc/sv/pcscd/finish
+/etc/sv/pcscd/log/run
+/etc/sv/pcscd/run

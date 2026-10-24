@@ -1,8 +1,10 @@
-2922961fd3e4fa81a81070b8ee7f404e  usr/lib/python3/dist-packages/libevdev-0.5.egg-info
+7f8e1fa7da79e5535f36fbc65727f7e4  usr/lib/python3/dist-packages/libevdev-0.11.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/libevdev-0.11.egg-info/dependency_links.txt
+62f8c5782fbff9955eee277c389f2c35  usr/lib/python3/dist-packages/libevdev-0.11.egg-info/top_level.txt
 a9e09892ddd681eea7d5e2dfda558f03  usr/lib/python3/dist-packages/libevdev/__init__.py
-82499a660e48df56e08140c30fb5268f  usr/lib/python3/dist-packages/libevdev/_clib.py
-1421b90a7842cca6d29d4b30e3e4a577  usr/lib/python3/dist-packages/libevdev/const.py
-4701cecfb54a0d721c59ad295b724b0b  usr/lib/python3/dist-packages/libevdev/device.py
-6370e401325f61db62cfc8dd2c7ccd5d  usr/lib/python3/dist-packages/libevdev/event.py
-eaec2b6a45c6e4dfde63c2a8915ec930  usr/share/doc/python3-libevdev/changelog.Debian.gz
-b7acde091b58ab23219ed03dd6bc7762  usr/share/doc/python3-libevdev/copyright
+87bea671e27135ad91519b5c2c348474  usr/lib/python3/dist-packages/libevdev/_clib.py
+85cb6793fa4f1f7b8d1831db96745b64  usr/lib/python3/dist-packages/libevdev/const.py
+72194fb40ec1a75a5dc8591850b2afda  usr/lib/python3/dist-packages/libevdev/device.py
+69e53f6d5045a47be8c91ce06ea2acd6  usr/lib/python3/dist-packages/libevdev/event.py
+e7f72b9de4d84744c1927f8a644f62fa  usr/share/doc/python3-libevdev/changelog.Debian.gz
+f7717bdfecb2600a74cba3c89cf40236  usr/share/doc/python3-libevdev/copyright

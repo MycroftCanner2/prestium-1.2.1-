@@ -21,12 +21,9 @@ if which update-menus >/dev/null 2>&1; then
 	update-menus ;
 fi
 
-# Automatically added by dh_installdeb/13.6
-dpkg-maintscript-helper rm_conffile /etc/xdg/openbox/autostart.sh 3.5.0-1 -- "$@"
-# End automatically added section
-# Automatically added by dh_installmenu/13.6
+# Automatically added by dh_installmenu/13.20
 inst=/etc/menu-methods/openbox
 if [ "$1" = "remove" ] && [ -f "$inst" ]; then chmod a-x $inst ; fi
-if [ -x "`command -v update-menus`" ]; then update-menus ; fi
+if [ -x "`command -v update-menus`" ] && [ -x "$DPKG_ROOT`command -v update-menus`" ]; then update-menus ; fi
 # End automatically added section
 

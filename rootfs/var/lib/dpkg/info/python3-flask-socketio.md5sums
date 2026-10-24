@@ -1,0 +1,13 @@
+c72246579c4437c07cebb86fbcbc6d90  usr/lib/python3/dist-packages/Flask_SocketIO-5.5.1.dist-info/INSTALLER
+a8068bdb94dd15dfc814f6f9d56cc273  usr/lib/python3/dist-packages/Flask_SocketIO-5.5.1.dist-info/METADATA
+68e6e969da03b3fdebefe35680a5c606  usr/lib/python3/dist-packages/Flask_SocketIO-5.5.1.dist-info/WHEEL
+c4e2ca84534019449bcd7af7f4dab91f  usr/lib/python3/dist-packages/Flask_SocketIO-5.5.1.dist-info/top_level.txt
+5c271419b56fd689dec38a187502df00  usr/lib/python3/dist-packages/flask_socketio/__init__.py
+57ad901c532ee037be3d6d361c0148c0  usr/lib/python3/dist-packages/flask_socketio/namespace.py
+eb531b9349cf7a902b09f3f7742a135c  usr/lib/python3/dist-packages/flask_socketio/test_client.py
+ecdffa7b330fdd463a9698397d8a563d  usr/share/doc/python3-flask-socketio/README.md
+53fc0e2169fce81a991f8d714c27fc71  usr/share/doc/python3-flask-socketio/SECURITY.md
+5ecaeeadf89a82af133b85c4e69080d8  usr/share/doc/python3-flask-socketio/changelog.Debian.gz
+f625f0c27a0d08b385fef31d03734e4b  usr/share/doc/python3-flask-socketio/changelog.gz
+f3770dc35143bc7fec49f85a6b40c58e  usr/share/doc/python3-flask-socketio/copyright
+b7e5a48afa219012bc7b8cf15c937c26  usr/share/man/man1/flask-socketio.1.gz

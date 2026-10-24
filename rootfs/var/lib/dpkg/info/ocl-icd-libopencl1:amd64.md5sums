@@ -1,11 +1,10 @@
-12cac5957ea0aa9eaac1cc165c340c06  usr/lib/x86_64-linux-gnu/libOpenCL.so.1.0.0
+efb65ea589cee36375f78c9035a70d82  usr/lib/x86_64-linux-gnu/libOpenCL.so.1.0.0
 e8b65987f9c29caa62f97125423caa58  usr/share/doc-base/ocl-icd-libopencl1.ocl-icd-libopencl1
-ef7347e53b36f80817fddea311f8dd73  usr/share/doc/ocl-icd-libopencl1/NEWS.Debian.gz
 3f0ea8a225c3e7d86a36e1b136117287  usr/share/doc/ocl-icd-libopencl1/README
 46d3ab3cad520eb216edfc91493071e1  usr/share/doc/ocl-icd-libopencl1/README.Debian.gz
-000d2974a394d16cbd4bea36fe264df6  usr/share/doc/ocl-icd-libopencl1/changelog.Debian.gz
-e66999d81fd6a4a97080e131ad9d9e04  usr/share/doc/ocl-icd-libopencl1/changelog.gz
-90fe90618230eb8dbb8ecd29c71f0436  usr/share/doc/ocl-icd-libopencl1/copyright
-df92784f3e20c2ef999f184c9822594d  usr/share/doc/ocl-icd-libopencl1/html/libOpenCL.html
+621a6893e9e24dd19462626f9bd385a5  usr/share/doc/ocl-icd-libopencl1/changelog.Debian.gz
+1ac521084579abe0d2c3c5415a2cb38d  usr/share/doc/ocl-icd-libopencl1/changelog.gz
+877de79ad9e7043c30b4a9d08e109b85  usr/share/doc/ocl-icd-libopencl1/copyright
+4176c6a75b0d2c657a2c8129ad58226a  usr/share/doc/ocl-icd-libopencl1/html/libOpenCL.html
 fcfbd061fc4f20241ca88904b8a6a249  usr/share/lintian/overrides/ocl-icd-libopencl1
-8df2c13c7f02978755d9e3a7cdad2d65  usr/share/man/man7/libOpenCL.7.gz
+7c55000ba435ff7f7362704e4d3aed37  usr/share/man/man7/libOpenCL.7.gz
