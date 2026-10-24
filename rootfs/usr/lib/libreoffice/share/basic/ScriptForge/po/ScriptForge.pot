@@ -7,14 +7,14 @@
 #  *** are part of the LibreOffice project.                          ***
 #  *********************************************************************
 #  
-#  ScriptForge Release 7.4
+#  ScriptForge Release 25.2
 #  -----------------------
 #  
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.libreoffice.org/enter_bug.cgi?product=LibreOffice&bug_status=UNCONFIRMED&component=UI\n"
-"POT-Creation-Date: 2022-05-04 18:07:20\n"
+"POT-Creation-Date: 2024-08-13 13:35:41\n"
 "PO-Revision-Date: YYYY-MM-DD HH:MM:SS\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -410,6 +410,19 @@ msgid  ""
 "The operation is rejected.\n"
 "\n"
 "« %1 » = %2"
+msgstr ""
+
+#. SF_FileSystem not supported method error message
+#. %1: A method name
+#. %2: An identifier
+#. %3: A file or folder name
+#, kde-format
+msgctxt "FILESYSTEM"
+msgid  ""
+"The method « %2 » is not applicable on a document's internal file "
+"system.\n"
+"\n"
+"« %1 » = '%3'"
 msgstr ""
 
 #. SF_Services.CreateScriptService error message
@@ -872,6 +885,21 @@ msgid  ""
 "controls."
 msgstr ""
 
+#. SF_Writer._ParseRange (textrange)
+#. %1: An identifier
+#. %2: A string
+#. %3: An identifier
+#. %4: A file name
+#, kde-format
+msgctxt "WRITERRANGE"
+msgid  ""
+"The given text range does not correspond with a valid position in "
+"the text.\n"
+"\n"
+"« %1 » = %2\n"
+"« %3 » = %4"
+msgstr ""
+
 #. SF_Dialog creation
 #. %1: An identifier
 #. %2: A string
@@ -926,6 +954,35 @@ msgid  ""
 "The requested method could not be executed."
 msgstr ""
 
+#. SF_Dialog Page Manager setting
+#. %1: An identifier
+#. %2: A list of names separated by commas
+#. %3: An identifier
+#. %4: A list of names separated by commas
+#. %5: An identifier
+#. %6: A list of names separated by commas
+#, kde-format
+msgctxt "PAGEMANAGER"
+msgid  ""
+"The Page Manager could not be setup due to inconsistent arguments.\n"
+"\n"
+" %1 : « %2 »\n"
+" %3 : « %4 »\n"
+" %5 : « %6 »"
+msgstr ""
+
+#. SF_Dialog CreateControl
+#. %1: An identifier
+#. %2: A string
+#. %3: A dialog name
+#, kde-format
+msgctxt "DUPLICATECONTROL"
+msgid  ""
+"A control with the same name exists already in the dialog '%3'.\n"
+"\n"
+"« %1 » = %2"
+msgstr ""
+
 #. SF_Database when running update SQL statement
 #. %1: The concerned method
 #, kde-format
@@ -945,6 +1002,68 @@ msgid  ""
 "Check its syntax, table and/or field names, ...\n"
 "\n"
 "SQL Statement : « %1 »"
+msgstr ""
+
+#. SF_Database can't interpret SQL statement
+#. %1: The statement
+#. %2: a WHERE clause
+#. %3: a ORDER BY clause
+#, kde-format
+msgctxt "SQLSYNTAX2"
+msgid  ""
+"An SQL statement could not be interpreted or executed by the "
+"database system.\n"
+"Check its syntax, table and/or field names, ...\n"
+"\n"
+"SQL Statement : « %1 »\n"
+"combined with\n"
+"    « %2 »\n"
+"    « %3 »"
+msgstr ""
+
+#. SF_Dataset can't read field values or store field updates
+msgctxt "NOCURRENTRECORD"
+msgid  ""
+"A database record could not be retrieved, inserted or updated by the "
+"database system.\n"
+"The current record could not be determined."
+msgstr ""
+
+#. SF_Database can't store field updates
+#. %1: The field name
+#. %2: the value to store in the field
+#, kde-format
+msgctxt "RECORDUPDATE"
+msgid  ""
+"A database record could not be inserted or updated by the database "
+"system.\n"
+"Possible reasons:\n"
+"- the field is not updatable\n"
+"- a [NULL] value is provided which is forbidden for the field\n"
+"- the type of value and the type of field are incompatible\n"
+"- the input binary file does not exist or is empty\n"
+"- the field type is not supported\n"
+"\n"
+"Field name : « %1 »\n"
+"Field value :  « %2 »\n"
+"Field type :  « %3 »"
+msgstr ""
+
+#. SF_Dataset.ExportToFile error message
+#. %1: An identifier
+#. %2: A file name
+#. %3: An identifier
+#. %4: True or False
+#. 
+#, kde-format
+msgctxt "FIELDEXPORT"
+msgid  ""
+"The database field could not be exported.\n"
+"Either the destination file must not be overwritten, or it has a "
+"read-only attribute set.\n"
+"\n"
+"%1 = '%2'\n"
+"%3 = %4"
 msgstr ""
 
 #. SF_Exception.PythonShell error messageAPSO: to leave unchanged

@@ -53,6 +53,16 @@ Type Window
 	WindowTitle				As String		&apos;	Only mean to identify new documents
 	WindowFileName			As String		&apos;	URL of file name
 	DocumentType			As String		&apos;	Writer, Calc, ...
+	ParentName				As String		&apos;	Identifier of the parent Base file when Window is a subcomponent
+End Type
+
+Type _Toolbar				&apos;	Proto-toolbar object. Passed to the &quot;Toolbar&quot; service, a full ScriptForge Toolbar object will be returned
+	Component				As Object		&apos;	com.sun.star.lang.XComponent
+	ResourceURL				As String		&apos;	Toolbar internal name
+	UIName					As String		&apos;	Toolbar external name, may be &quot;&quot;
+	UIConfigurationManager	As Object		&apos;	com.sun.star.ui.XUIConfigurationManager
+	ElementsInfoIndex		As Long			&apos;	Index of the toolbar in the getElementsInfo(0) array
+	Storage					As Long			&apos;	One of the toolbar location constants
 End Type
 
 &apos;	The progress/status bar of the active window
@@ -68,20 +78,27 @@ Const WELCOMESCREEN				= &quot;WELCOMESCREEN&quot;
 Const BASEDOCUMENT				= &quot;Base&quot;
 Const CALCDOCUMENT				= &quot;Calc&quot;
 Const DRAWDOCUMENT				= &quot;Draw&quot;
+Const FORMDOCUMENT				= &quot;FormDocument&quot;
 Const IMPRESSDOCUMENT			= &quot;Impress&quot;
 Const MATHDOCUMENT				= &quot;Math&quot;
 Const WRITERDOCUMENT			= &quot;Writer&quot;
 
-&apos;	Window subtypes - Not supported yet
-Const BASETABLE					= &quot;BASETABLE&quot;
-Const BASEQUERY					= &quot;BASEQUERY&quot;
-Const BASEREPORT				= &quot;BASEREPORT&quot;
-Const BASEDIAGRAM				= &quot;BASEDIAGRAM&quot;
+&apos;	Window subtypes
+Const TABLEDATA					= &quot;TableData&quot;
+Const QUERYDATA					= &quot;QueryData&quot;
+Const SQLDATA					= &quot;SqlData&quot;
+Const BASEREPORT				= &quot;BaseReport&quot;
+Const BASEDIAGRAM				= &quot;BaseDiagram&quot;
 
 &apos;	Macro execution modes
 Const cstMACROEXECNORMAL		= 0		&apos;	Default, execution depends on user configuration and choice
 Const cstMACROEXECNEVER			= 1		&apos;	Macros are not executed
 Const cstMACROEXECALWAYS		= 2		&apos;	Macros are always executed
+
+&apos;	Toolbar locations
+Const cstBUILTINTOOLBAR			= 0		&apos;	Standard toolbar
+Const cstCUSTOMTOOLBAR			= 1		&apos;	Toolbar added by user and stored in the LibreOffice application
+Const cstCUSTOMDOCTOOLBAR		= 2		&apos;	Toolbar added by user solely for a single document
 
 REM ===================================================== CONSTRUCTOR/DESTRUCTOR
 
@@ -1061,21 +1078,19 @@ Check:
 
 Try:
 	Set oStatusbar = _SF_.Statusbar
-	With oStatusbar
-		If IsNull(oStatusbar) Then		&apos;	Initial call
-			Set oComp = StarDesktop.CurrentComponent
-			If Not IsNull(oComp) Then
-				Set oControl = Nothing
-				If SF_Session.HasUnoProperty(oComp, &quot;CurrentController&quot;) Then Set oControl = oComp.CurrentController
-				If Not IsNull(oControl) Then
-					If SF_Session.HasUnoMethod(oControl, &quot;getStatusIndicator&quot;) Then oStatusbar = oControl.getStatusIndicator()
-				End If
-			End If
-			If Not IsNull(oStatusbar) Then
-				.start(&quot;&quot;, 100)
+	If IsNull(oStatusbar) Then		&apos;	Initial call
+		Set oComp = StarDesktop.CurrentComponent
+		If Not IsNull(oComp) Then
+			Set oControl = Nothing
+			If SF_Session.HasUnoProperty(oComp, &quot;CurrentController&quot;) Then Set oControl = oComp.CurrentController
+			If Not IsNull(oControl) Then
+				If SF_Session.HasUnoMethod(oControl, &quot;getStatusIndicator&quot;) Then oStatusbar = oControl.getStatusIndicator()
 			End If
 		End If
-		If Not IsNull(oStatusbar) Then
+		If Not IsNull(oStatusbar) Then oStatusBar.start(&quot;&quot;, 100)
+	End If
+	If Not IsNull(oStatusbar) Then
+		With oStatusbar
 			If Len(Text) = 0 And Percentage = -1 Then
 				.end()
 				Set oStatusbar = Nothing
@@ -1083,8 +1098,8 @@ Try:
 				If Len(Text) &gt; 0 Then .setText(Text)
 				If Percentage &gt;= 0 And Percentage &lt;= 100 Then .setValue(Percentage)
 			End If
-		End If
-	End With
+		End With
+	End If
 
 Finally:
 	Set _SF_.Statusbar = oStatusbar
@@ -1143,11 +1158,11 @@ Try:
 		Set oFixedText = .ProgressBarText
 		Set oProgressBar = .ProgressBarBar
 	End With
-	With oDialog
-		bFirstCall = ( IsNull(oDialog) )
-		If Not bFirstCall Then bFirstCall = Not ._IsStillAlive(False)	&apos;	False to not raise an error
-		If bFirstCall Then Set oDialog = CreateScriptService(&quot;SFDialogs.Dialog&quot;, &quot;GlobalScope&quot;, &quot;ScriptForge&quot;, &quot;dlgProgress&quot;, _Context)
 
+	bFirstCall = ( IsNull(oDialog) )
+	If Not bFirstCall Then bFirstCall = Not oDialog._IsStillAlive(False)	&apos;	False to not raise an error
+	If bFirstCall Then Set oDialog = CreateScriptService(&quot;SFDialogs.Dialog&quot;, &quot;GlobalScope&quot;, &quot;ScriptForge&quot;, &quot;dlgProgress&quot;, _Context)
+	With oDialog
 		If Not IsNull(oDialog) Then
 			If Len(Title) = 0 And Len(Text) = 0 And Percentage = -1 Then
 				Set oDialog = .Dispose()
@@ -1239,6 +1254,53 @@ Public Sub _CloseProgressBar(Optional ByRef poEvent As Object)
 End Sub			&apos;	ScriptForge.SF_UI._CloseProgressBar
 
 REM -----------------------------------------------------------------------------
+Function _GetConfigurationManager(ByRef poComponent) As String
+&apos;&apos;&apos;	Derives the argument to be passed to a configuration manager
+&apos;&apos;&apos;	(managing the user interface elements like menus, toolbars, ...)
+&apos;&apos;&apos;	from the nature of the component
+&apos;&apos;&apos;	Args:
+&apos;&apos;&apos;		poComponent: any component in desktop, typically a document but not only
+
+Dim sConfigurationManager As String			&apos;	Return value
+Dim oWindow As Object						&apos;	Window type
+
+Check:
+&apos;	On Local Error GoTo Catch
+	If IsNull(poComponent) Then GoTo Catch
+
+Try:
+	Set oWindow = _IdentifyWindow(poComponent)
+
+	&apos;		Derive the name of the UI configuration manager from the component type
+	With oWindow
+		Select Case .WindowName
+			Case BASICIDE		:	sConfigurationManager = &quot;com.sun.star.script.BasicIDE&quot;
+			Case WELCOMESCREEN	:	sConfigurationManager = &quot;com.sun.star.frame.StartModule&quot;
+			Case Else
+				Select Case .DocumentType
+					Case BASEDOCUMENT		:	sConfigurationManager = &quot;com.sun.star.sdb.OfficeDatabaseDocument&quot;
+					Case CALCDOCUMENT		:	sConfigurationManager = &quot;com.sun.star.sheet.SpreadsheetDocument&quot;
+					Case DRAWDOCUMENT		:	sConfigurationManager = &quot;com.sun.star.drawing.DrawingDocument&quot;
+					Case FORMDOCUMENT		:	sConfigurationManager = &quot;com.sun.star.sdb.FormDesign&quot;
+					Case IMPRESSDOCUMENT	:	sConfigurationManager = &quot;com.sun.star.presentation.PresentationDocument&quot;
+					Case MATHDOCUMENT		:	sConfigurationManager = &quot;com.sun.star.formula.FormulaProperties&quot;
+					Case WRITERDOCUMENT		:	sConfigurationManager = &quot;com.sun.star.text.TextDocument&quot;
+					Case TABLEDATA, QUERYDATA, SQLDATA
+												sConfigurationManager = &quot;com.sun.star.sdb.DataSourceBrowser&quot;
+					Case Else				:	sConfigurationManager = &quot;&quot;
+				End Select
+		End Select
+	End With
+
+Finally:
+	_GetConfigurationManager = sConfigurationManager
+	Exit Function
+Catch:
+	On Local Error GoTo 0
+	GoTo Finally
+End Function		&apos;	ScriptForge.SF_UI._GetConfigurationManager
+
+REM -----------------------------------------------------------------------------
 Public Function _IdentifyWindow(ByRef poComponent As Object) As Object
 &apos;&apos;&apos;	Return a Window object (definition on top of module) based on component given as argument
 &apos;&apos;&apos;	Is a shortcut to explore the most relevant properties or objects bound to a UNO component
@@ -1246,7 +1308,8 @@ Public Function _IdentifyWindow(ByRef poComponent As Object) As Object
 Dim oWindow As Window				&apos;	Return value
 Dim sImplementation As String		&apos;	Component&apos;s implementationname
 Dim sIdentifier As String			&apos;	Component&apos;s identifier
-Dim vArg As Variant					&apos;	One single item of the Args UNO property
+Dim vSelection As Variant			&apos;	Array of poCOmponent.Selection property values
+Dim iCommandType As Integer			&apos;	Datasheet type
 Dim FSO As Object					&apos;	Alias for SF_FileSystem
 
 	If SF_Utils._ErrorHandling() Then On Local Error GoTo Catch
@@ -1261,6 +1324,7 @@ Dim FSO As Object					&apos;	Alias for SF_FileSystem
 		.WindowTitle = &quot;&quot;
 		.WindowFileName = &quot;&quot;
 		.DocumentType = &quot;&quot;
+		.ParentName = &quot;&quot;
 		If IsNull(poComponent) Then GoTo Finally
 		If SF_Session.HasUnoProperty(poComponent, &quot;ImplementationName&quot;) Then sImplementation = poComponent.ImplementationName
 		If SF_Session.HasUnoProperty(poComponent, &quot;Identifier&quot;) Then sIdentifier = poComponent.Identifier
@@ -1272,7 +1336,20 @@ Dim FSO As Object					&apos;	Alias for SF_FileSystem
 				.WindowFileName = SF_Utils._GetPropertyValue(poComponent.Args, &quot;URL&quot;)
 				If Len(.WindowFileName) &gt; 0 Then .WindowName = FSO.GetName(FSO._ConvertFromUrl(.WindowFileName))
 				.DocumentType = BASEDOCUMENT
-			Case &quot;org.openoffice.comp.dbu.ODatasourceBrowser&quot;
+			Case &quot;org.openoffice.comp.dbu.ODatasourceBrowser&quot;		&apos;	Base datasheet (table, query or sql) in read mode
+				Set .Frame = poComponent.Frame
+				If Not IsEmpty(poComponent.Selection) Then		&apos;	Empty for (F4) DatasourceBrowser !!
+					vSelection = poComponent.Selection
+					.WindowName = SF_Utils._GetPropertyValue(vSelection, &quot;Command&quot;)
+					iCommandType = SF_Utils._GetPropertyValue(vSelection, &quot;CommandType&quot;)
+					Select Case iCommandType
+						Case com.sun.star.sdb.CommandType.TABLE		:	.DocumentType = TABLEDATA
+						Case com.sun.star.sdb.CommandType.QUERY		:	.DocumentType = QUERYDATA
+						Case com.sun.star.sdb.CommandType.COMMAND	:	.DocumentType = SQLDATA
+					End Select
+					.ParentName = SF_Utils._GetPropertyValue(vSelection, &quot;DataSourceName&quot;)
+					.WindowTitle = .WindowName
+				End If
 			Case &quot;org.openoffice.comp.dbu.OTableDesign&quot;, &quot;org.openoffice.comp.dbu.OQueryDesign&quot;			&apos;	Table or Query in Edit mode
 			Case &quot;org.openoffice.comp.dbu.ORelationDesign&quot;
 			Case &quot;com.sun.star.comp.sfx2.BackingComp&quot;				&apos;		Welcome screen
@@ -1286,6 +1363,7 @@ Dim FSO As Object					&apos;	Alias for SF_FileSystem
 					If SF_Session.HasUnoProperty(poComponent, &quot;Title&quot;) Then .WindowTitle = poComponent.Title
 					Select Case sIdentifier
 						Case &quot;com.sun.star.sdb.FormDesign&quot;							&apos;	Form
+							.DocumentType = FORMDOCUMENT
 						Case &quot;com.sun.star.sdb.TextReportDesign&quot;					&apos;	Report
 						Case &quot;com.sun.star.text.TextDocument&quot;						&apos;	Writer
 							.DocumentType = WRITERDOCUMENT
@@ -1312,6 +1390,113 @@ Finally:
 Catch:
 	GoTo Finally
 End Function		&apos;	ScriptForge.SF_UI._IdentifyWindow
+
+REM -----------------------------------------------------------------------------
+Public Function _ListToolbars(ByRef poComponent As Object) As Object
+&apos;&apos;&apos;	Returns a SF_Dictionary object containing a list of all available
+&apos;&apos;&apos;	toolbars in the given component
+&apos;&apos;&apos;	A toolbar may be located:
+&apos;&apos;&apos;		- builtin in the LibreOffice configuration, but dependent on the component type
+&apos;&apos;&apos;		- added by the user and stored in the LibreOffice configuration of the user
+&apos;&apos;&apos;		- added by the user and stored in the component/document itself
+&apos;&apos;&apos;	The output dictionary has as
+&apos;&apos;&apos;		key: the UIName of the toolbar when not blank, otherwise the last component of its ResourceURL
+&apos;&apos;&apos;		item: a _Toolbar object (see top of module)
+&apos;&apos;&apos;	Menubar, statusbar and popup menus are ignored.
+&apos;&apos;&apos;	Args:
+&apos;&apos;&apos;		poComponent: any component in desktop, typically a document but not only
+
+Dim oToolbarsDict As Object					&apos;	Return value
+Dim oConfigMgr As Object					&apos;	com.sun.star.ui.ModuleUIConfigurationManagerSupplier
+Dim sConfigurationManager As String			&apos;	Derived from the component&apos;s type
+Dim oUIConfigMgr As Object					&apos;	com.sun.star.comp.framework.ModuleUIConfigurationManager
+Dim vCommandBars As Variant					&apos;	Array of  bars in component
+Dim vCommandBar As Variant					&apos;	Array of PropertyValue about a single bar
+Dim oToolbar As Object						&apos;	Toolbar description as a _Toolbar object
+Dim sResourceURL As String					&apos;	Toolbar internal name as &quot;private:resource/toolbar/...&quot;
+Dim sUIName As String						&apos;	Toolbar external name, may be zero-length string
+Dim sBarName As String						&apos;	External bar name: either UIName or last component of resource URL
+Dim i As Long
+
+Const cstCUSTOM = &quot;custom_&quot;
+
+Check:
+&apos;	On Local Error GoTo Catch
+	If IsNull(poComponent) Then GoTo Catch
+
+Try:
+	Set oToolbarsDict = CreateScriptService(&quot;Dictionary&quot;, True)	&apos;	with case-sensitive comparison of keys
+
+	&apos;	1. Collect all builtin and custom toolbars stored in the LibreOffice configuration files
+
+	&apos;		Derive the name of the UI configuration manager from the component type
+	sConfigurationManager = _GetConfigurationManager(poComponent)
+
+	Set oConfigMgr = SF_Utils._GetUNOService(&quot;ModuleUIConfigurationManagerSupplier&quot;)
+	Set oUIConfigMgr = oConfigMgr.getUIConfigurationManager(sConfigurationManager)
+	vCommandBars = oUIConfigMgr.getUIElementsInfo(com.sun.star.ui.UIElementType.TOOLBAR)
+
+	&apos;		Ignore statusbar, menubar and popup menus. Store toolbars in dictionary
+	For i = 0 To UBound(vCommandBars)
+		vCommandBar = vCommandBars(i)
+		sResourceURL = SF_Utils._GetPropertyValue(vCommandBar, &quot;ResourceURL&quot;)
+		sUIName = SF_Utils._GetPropertyValue(vCommandBar, &quot;UIName&quot;)
+		If Len(sUIName) &gt; 0 Then sBarName = sUIName Else sBarName = Split(sResourceURL, &quot;/&quot;)(2)
+		&apos;	Store a new entry in the returned dictionary
+		If Not oToolbarsDict.Exists(sBarName) Then
+			Set oToolbar = New _Toolbar
+			With oToolbar
+				Set .Component = poComponent
+				.ResourceURL = sResourceURL
+				.UIName = sUIName
+				Set .UIConfigurationManager = oUIConfigMgr
+				.ElementsInfoIndex = i
+				&apos;	Distinguish builtin and custom toolbars stored in the application
+				If SF_String.StartsWith(sBarName, cstCUSTOM, CaseSensitive := True) Then
+					.Storage = cstCUSTOMTOOLBAR
+					sBarName = Mid(sBarName, Len(cstCUSTOM) + 1)
+				Else
+					.Storage = cstBUILTINTOOLBAR
+				End If
+			End With
+			oToolbarsDict.Add(sBarName, oToolbar)
+		End If
+	Next i
+
+	&apos;	2. Collect all toolbars stored in the current component/document
+
+	&apos;	Some components (e.g. datasheets) cannot contain own toolbars
+	If SF_Session.HasUnoMethod(poComponent, &quot;getUIConfigurationManager&quot;) Then
+		Set oUIConfigMgr = poComponent.getUIConfigurationManager
+		vCommandBars = oUIConfigMgr.getUIElementsInfo(com.sun.star.ui.UIElementType.TOOLBAR)
+		For i = 0 To UBound(vCommandBars)
+			vCommandBar = vCommandBars(i)
+			sResourceURL = SF_Utils._GetPropertyValue(vCommandBar, &quot;ResourceURL&quot;)
+			sUIName = SF_Utils._GetPropertyValue(vCommandBar, &quot;UIName&quot;)
+			If Len(sUIName) &gt; 0 Then sBarName = sUIName Else sBarName = Split(sResourceURL, &quot;/&quot;)(2)
+			&apos;	Store a new entry in the returned dictionary
+			If Not oToolbarsDict.Exists(sBarName) Then
+				Set oToolbar = New _Toolbar
+				With oToolbar
+					Set .Component = poComponent
+					.ResourceURL = sResourceURL
+					.UIName = sUIName
+					Set .UIConfigurationManager = oUIConfigMgr
+					.ElementsInfoIndex = i
+					.Storage = cstCUSTOMDOCTOOLBAR
+				End With
+				oToolbarsDict.Add(sBarName, oToolbar)
+			End If
+		Next i
+	End If
+
+Finally:
+	Set _ListToolbars = oToolbarsDict
+	Exit Function
+Catch:
+	Set oToolbarsDict = Nothing
+	GoTo Finally
+End Function		&apos;	ScriptForge.SF_UI._ListToolbars
 
 REM -----------------------------------------------------------------------------
 Public Function _PosSize() As Object

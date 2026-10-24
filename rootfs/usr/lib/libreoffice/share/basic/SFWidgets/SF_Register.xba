@@ -22,10 +22,19 @@ Option Explicit
 &apos;&apos;&apos;				Register the list of services implemented by the current library
 &apos;&apos;&apos;			- _NewMenu
 &apos;&apos;&apos;				Create a new menu service instance.
-&apos;&apos;&apos;				Called from SFDocuments services with CreateMenu()
+&apos;&apos;&apos;				Called from SFDocuments services with doc.CreateMenu(...)
+&apos;&apos;&apos;			- _NewContextMenu
+&apos;&apos;&apos;				Create a new context menu service instance.
+&apos;&apos;&apos;				Called from SFDocuments services with doc.ContextMenus(...)
 &apos;&apos;&apos;			- _NewPopupMenu
 &apos;&apos;&apos;				Create a new popup menu service instance.
-&apos;&apos;&apos;				Called from CreateScriptService()
+&apos;&apos;&apos;				Called from CreateScriptService(&quot;PopupMenu, ...)
+&apos;&apos;&apos;			- _NewToolbar
+&apos;&apos;&apos;				Create a new toolbar service instance.
+&apos;&apos;&apos;				Called from SFDocuments services with doc.Toolbars(...)
+&apos;&apos;&apos;			- _NewToolbarButton
+&apos;&apos;&apos;				Create a new toolbarbutton service instance.
+&apos;&apos;&apos;				Called from a Toolbar service with toolbar.ToolbarButtons(...)
 &apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;&apos;
 
 REM ================================================================== EXCEPTIONS
@@ -51,12 +60,58 @@ Public Sub RegisterScriptServices() As Variant
 
 	With GlobalScope.ScriptForge.SF_Services
 		.RegisterService(&quot;Menu&quot;,				&quot;SFWidgets.SF_Register._NewMenu&quot;)			&apos;	Reference to the function initializing the service
+		.RegisterService(&quot;ContextMenu&quot;,			&quot;SFWidgets.SF_Register._NewContextMenu&quot;)	&apos;	id.
 		.RegisterService(&quot;PopupMenu&quot;,			&quot;SFWidgets.SF_Register._NewPopupMenu&quot;)		&apos;	id.
+		.RegisterService(&quot;Toolbar&quot;,				&quot;SFWidgets.SF_Register._NewToolbar&quot;)		&apos;	id.
+		.RegisterService(&quot;ToolbarButton&quot;,		&quot;SFWidgets.SF_Register._NewToolbarButton&quot;)	&apos;	id.
 	End With
 
 End Sub			&apos;	SFWidgets.SF_Register.RegisterScriptServices
 
 REM =========================================================== PRIVATE FUNCTIONS
+
+REM -----------------------------------------------------------------------------
+Public Function _NewContextMenu(Optional ByVal pvArgs As Variant) As Object
+&apos;&apos;&apos;	Create a new instance of the SF_ContextMenu class
+&apos;&apos;&apos;	Args:
+&apos;&apos;&apos;		Component: the document&apos;s component requesting a context menu
+&apos;&apos;&apos;		ContextMenuName: a private:resource/popupmenu/... reference
+&apos;&apos;&apos;		SubmenuChar: Delimiter used in menu trees
+&apos;&apos;&apos;	Returns: the instance or Nothing
+
+Dim oMenu As Object					&apos;	Return value
+Dim Component As Object				&apos;	The document&apos;s component requesting a context menu
+Dim ContextMenuName As String		&apos;	A &quot;private:resource/popupmenu/...&quot; reference
+Dim SubmenuChar As String			&apos;	Delimiter in menu trees
+
+	If ScriptForge.SF_Utils._ErrorHandling() Then On Local Error GoTo Catch
+	Set oMenu = Nothing
+
+Check:
+	&apos;	Get arguments, their check has been done upstream
+	If IsMissing(pvArgs) Or IsEmpty(pvArgs) Then pvArgs = Array()
+	If Not IsArray(pvArgs) Then pvArgs = Array(pvArgs)
+	If UBound(pvArgs) &gt;= 0 Then Set Component = pvArgs(0) Else Set Component = Nothing
+	If UBound(pvArgs) &gt;= 1 Then ContextMenuName = pvArgs(1) Else ContextMenuName = &quot;&quot;
+	If UBound(pvArgs) &gt;= 2 Then SubmenuChar = pvArgs(2) Else SubmenuChar = &quot;&gt;&quot;
+
+Try:
+	If Not IsNull(Component) Then
+		Set oMenu = New SF_ContextMenu
+		With oMenu
+			Set .[Me] = oMenu
+			._Initialize(Component, ContextMenuName, SubmenuChar)
+		End With
+	Else
+		Set oMenu = Nothing
+	End If
+
+Finally:
+	Set _NewContextMenu = oMenu
+	Exit Function
+Catch:
+	GoTo Finally
+End Function	&apos;	SFWidgets.SF_Register._NewContextMenu
 
 REM -----------------------------------------------------------------------------
 Public Function _NewMenu(Optional ByVal pvArgs As Variant) As Object
@@ -113,7 +168,7 @@ Public Function _NewPopupMenu(Optional ByVal pvArgs As Variant) As Object
 &apos;&apos;&apos;	Create a new instance of the SF_PopupMenu class
 &apos;&apos;&apos;	Args:
 &apos;&apos;&apos;		Event: a mouse event
-&apos;&apos;&apos;			If the event has no source or is not a mouse event, the menu is displayed above ThisComponent
+&apos;&apos;&apos;			If the event has no source or is not a mouse event, the menu is displayed above the actual window
 &apos;&apos;&apos;		X, Y: forced coordinates
 &apos;&apos;&apos;		SubmenuChar: Delimiter used in menu trees
 &apos;&apos;&apos;	Returns: the instance or Nothing
@@ -123,14 +178,18 @@ Dim Event As Variant				&apos;	Mouse event
 Dim X As Long						&apos;	Mouse click coordinates
 Dim Y As Long
 Dim SubmenuChar As String			&apos;	Delimiter in menu trees
-Dim oSession As Object				&apos;	ScriptForge.SF_Session
 Dim vUno As Variant					&apos;	UNO type split into an array
 Dim sEventType As String			&apos;	Event type, must be &quot;MouseEvent&quot;
 Dim oControl As Object				&apos;	The dialog or form control view which triggered the event
+Dim oWindow As Object				&apos;	ui.Window type
+Dim oSession As Object				:	Set oSession = ScriptForge.SF_Services.CreateScriptService(&quot;ScriptForge.Session&quot;)
+Dim oUi As Object					:	Set oUi = ScriptForge.SF_Services.CreateScriptService(&quot;ScriptForge.UI&quot;)
 
 	If ScriptForge.SF_Utils._ErrorHandling() Then On Local Error GoTo Catch
+	Set oMenu = Nothing
 
 Check:
+	&apos;	Check and get arguments, their number may vary
 	If IsMissing(pvArgs) Or IsEmpty(pvArgs) Then pvArgs = Array()
 	If Not IsArray(pvArgs) Then pvArgs = Array(pvArgs)
 	If UBound(pvArgs) &gt;= 0 Then Event = pvArgs(0) Else Event = Nothing
@@ -142,10 +201,9 @@ Check:
 	If Not ScriptForge.SF_Utils._Validate(X, &quot;X&quot;, ScriptForge.V_NUMERIC) Then GoTo Finally
 	If Not ScriptForge.SF_Utils._Validate(Y, &quot;Y&quot;, ScriptForge.V_NUMERIC) Then GoTo Finally
 	If Not ScriptForge.SF_Utils._Validate(SubmenuChar, &quot;SubmenuChar&quot;, V_STRING) Then GoTo Finally
-	Set oMenu = Nothing
 
 Try:
-	Set oSession = ScriptForge.SF_Services.CreateScriptService(&quot;Session&quot;)
+	&apos;	Find and identify the control that triggered the popup menu
 	Set oControl = Nothing
 	If Not IsNull(Event) Then
 		&apos;	Determine the X, Y coordinates
@@ -158,9 +216,12 @@ Try:
 			If oSession.HasUnoProperty(Event, &quot;Source&quot;) Then Set oControl = Event.Source.Peer
 		End If
 	End If
-	&apos;	If not a mouse event, if no control, ...
+	&apos;	If not a mouse event, if no control, find what can be decent alternatives: (a menu header in) the actual window
 	If IsNull(oControl) Then
-		If Not IsNull(ThisComponent) Then Set oControl = ThisComponent.CurrentController.Frame.getContainerWindow()
+		Set oWindow = oUi._IdentifyWindow(StarDesktop.getCurrentComponent())	&apos;	A menu has been clicked necessarily in the current window
+		With oWindow
+			If Not IsNull(.Frame) Then Set oControl = .Frame.getContainerWindow()
+		End With
 	End If
 
 	If Not IsNull(oControl) Then
@@ -180,5 +241,70 @@ Catch:
 	GoTo Finally
 End Function	&apos;	SFWidgets.SF_Register._NewPopupMenu
 
-REM ============================================== END OF SFWidgets.SF_REGISTER
+REM -----------------------------------------------------------------------------
+Public Function _NewToolbar(Optional ByVal pvArgs As Variant) As Object
+&apos;&apos;&apos;	Create a new instance of the SF_Toolbar class
+&apos;&apos;&apos;	The &quot;Toolbar&quot; service must not be invoked directly in a user script
+&apos;&apos;&apos;	Args:
+&apos;&apos;&apos;		ToolbarDesc: a proto-toolbar object type. See ScriptForge.SF_UI for a detailed description
+&apos;&apos;&apos;	Returns:
+&apos;&apos;&apos;		the instance or Nothing
+
+Dim oToolbar As Object			&apos;	Return value
+Dim oToolbarDesc As Object		&apos;	A proto-toolbar description
+
+	If ScriptForge.SF_Utils._ErrorHandling() Then On Local Error GoTo Catch
+	Set oToolbar = Nothing
+
+Check:
+	Set oToolbarDesc = pvArgs(0)
+
+Try:
+	Set oToolbar = New SF_Toolbar
+	With oToolbar
+		Set .[Me] = oToolbar
+		._Initialize(oToolbarDesc)
+	End With
+
+Finally:
+	Set _NewToolbar = oToolbar
+	Exit Function
+Catch:
+	GoTo Finally
+End Function	&apos;	SFWidgets.SF_Register._NewToolbar
+
+REM -----------------------------------------------------------------------------
+Public Function _NewToolbarButton(Optional ByVal pvArgs As Variant) As Object
+&apos;&apos;&apos;	Create a new instance of the SF_ToolbarButton class
+&apos;&apos;&apos;	The &quot;ToolbarButton&quot; service must not be invoked directly in a user script
+&apos;&apos;&apos;	Args:
+&apos;&apos;&apos;		ToolbarButtonDesc: a proto-toolbarButton object type. See SFWidgets.SF_Toolbar for a detailed description
+&apos;&apos;&apos;	Returns:
+&apos;&apos;&apos;		the instance or Nothing
+
+Dim oToolbarButton As Object		&apos;	Return value
+Dim oToolbarButtonDesc As Object	&apos;	A proto-toolbarbutton description
+
+	If ScriptForge.SF_Utils._ErrorHandling() Then On Local Error GoTo Catch
+	Set oToolbarButton = Nothing
+
+Check:
+	Set oToolbarButtonDesc = pvArgs(0)
+
+Try:
+	Set oToolbarButton = New SF_ToolbarButton
+	With oToolbarButton
+		Set .[Me] = oToolbarButton
+		._Initialize(oToolbarButtonDesc)
+	End With
+
+Finally:
+	Set _NewToolbarButton = oToolbarButton
+	Exit Function
+Catch:
+	GoTo Finally
+End Function	&apos;	SFWidgets.SF_Register._NewToolbarButton
+
+
+REM ============================================== END OF SFWIDGETS.SF_REGISTER
 </script:module>

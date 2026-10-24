@@ -6,4 +6,7 @@
  <library:element library:name="SF_PopupMenu"/>
  <library:element library:name="SF_Menu"/>
  <library:element library:name="SF_MenuListener"/>
+ <library:element library:name="SF_Toolbar"/>
+ <library:element library:name="SF_ToolbarButton"/>
+ <library:element library:name="SF_ContextMenu"/>
 </library:library>
