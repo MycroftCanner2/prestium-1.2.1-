@@ -6,20 +6,18 @@
 [Device]
 Name=Huion H950P
 ModelName=
-DeviceMatch=usb:256c:006d
-Class=Bamboo
+DeviceMatch=usb|256c|006d|HID 256c:006d Pen;usb|256c|006d|HID 256c:006d Pad;usb|256c|006d|HUION Huion Tablet_H950P;usb|256c|006d|HUION Huion Tablet_H950P Pad;
 Width=9
 Height=5
 IntegratedIn=
 Layout=huion-h950p.svg
-Styli=0xffffd;
+Styli=@generic-no-eraser;
 
 [Features]
 Stylus=true
 Reversible=true
 Touch=false
-Buttons=8
 
 [Buttons]
 Left=A;B;C;D;E;F;G;H
-EvdevCodes=0x100;0x101;0x102;0x103;0x104;0x105;0x106;0x107
+EvdevCodes=BTN_0;BTN_1;BTN_2;BTN_3;BTN_4;BTN_5;BTN_6;BTN_7
