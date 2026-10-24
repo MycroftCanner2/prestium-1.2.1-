@@ -45,6 +45,7 @@ AttrPalmPressureThreshold=150
 MatchName=* Touchpad
 MatchDMIModalias=dmi:*svnDellInc.:pnXPS159500:*
 ModelTouchpadVisibleMarker=0
+ModelTouchpadPhantomClicks=1
 
 [Dell Latitude D620 Trackpoint]
 MatchName=*DualPoint Stick
@@ -83,6 +84,11 @@ MatchName=*DualPoint Stick
 MatchDMIModalias=dmi:*svnDellInc.:pnLatitudeE7470*
 AttrTrackpointMultiplier=0.125
 
+[Latitude 7275]
+MatchName=*AT Translated Set 2 keyboard*
+MatchDMIModalias=dmi:*:svnDellInc.:pnLatitude7275:*
+ModelTabletModeNoSuspend=1
+
 [Latitude 7480 Touchpad]
 MatchName=DLL07A0*
 MatchDMIModalias=dmi:**bvnDellInc.:*:pnLatitude7480*
@@ -98,7 +104,7 @@ AttrTrackpointMultiplier=0.3
 MatchBus=i2c
 MatchUdevType=touchpad
 MatchDMIModalias=dmi:*svnDellInc.:pnPrecision7?50*
-AttrInputPropDisable=INPUT_PROP_BUTTONPAD
+AttrInputProp=-INPUT_PROP_BUTTONPAD
 
 # The touch device has the same vid/pid as the totem, the MatchName
 # directive is required here
@@ -109,9 +115,9 @@ MatchVendor=0x2575
 MatchProduct=0x0204
 ModelDellCanvasTotem=1
 
-[Dell Latitude 5290 2-in-1]
+[Dell 2-in-1 Models]
 MatchName=AT Translated Set 2 keyboard
-MatchDMIModalias=dmi:*:svnDellInc.:pnLatitude52902-in-1:*
+MatchDMIModalias=dmi:*:svnDellInc.:pn*2-in-1:*
 ModelTabletModeNoSuspend=1
 
 # This is a true pressurepad so disable pressure for contact size
@@ -120,4 +126,42 @@ ModelTabletModeNoSuspend=1
 MatchBus=i2c
 MatchVendor=0x27C6
 MatchProduct=0x0F60
-AttrEventCodeDisable=ABS_MT_PRESSURE;ABS_PRESSURE;
+ModelPressurePad=1
+
+[Dell Mayabay Touchpad]
+MatchBus=i2c
+MatchVendor=0x06CB
+MatchProduct=0xCFA0
+ModelPressurePad=1
+
+[Dell Precision 5480]
+MatchBus=i2c
+MatchVendor=0x0488
+MatchProduct=0x1063
+MatchUdevType=touchpad
+MatchDMIModalias=dmi:*svnDellInc.:pnPrecision5480*
+ModelTouchpadVisibleMarker=0
+
+[Dell laptop 14 Synaptics touchpad]
+MatchBus=i2c
+MatchVendor=0x06CB
+MatchProduct=0xCFF8
+ModelPressurePad=1
+
+[Dell laptop 16 Synaptics touchpad]
+MatchBus=i2c
+MatchVendor=0x06CB
+MatchProduct=0xCFF9
+ModelPressurePad=1
+
+[Dell laptop 14 Goodix touchpad]
+MatchBus=i2c
+MatchVendor=0x27C6
+MatchProduct=0x0F61
+ModelPressurePad=1
+
+[Dell laptop 16 Goodix touchpad]
+MatchBus=i2c
+MatchVendor=0x27C6
+MatchProduct=0x0F62
+ModelPressurePad=1

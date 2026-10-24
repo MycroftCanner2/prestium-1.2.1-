@@ -5,12 +5,6 @@ MatchName=*Synaptics*
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPad*:*
 AttrThumbPressureThreshold=100
 
-[Lenovo ThinkPad 13 2nd Generation TrackPoint]
-MatchUdevType=pointingstick
-MatchName=*ETPS/2 Elantech TrackPoint*
-MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPad132ndGen*
-AttrTrackpointMultiplier=1.75
-
 [Lenovo x230 Touchpad]
 MatchName=*SynPS/2 Synaptics TouchPad
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadX230*
@@ -29,30 +23,41 @@ ModelLenovoT450Touchpad=1
 [Lenovo T470 Trackpoint]
 MatchName=*TPPS/2 IBM TrackPoint
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadT470:*
-AttrTrackpointMultiplier=0.4
+AttrTrackpointMultiplier=0.75
 
 [Lenovo T480 Trackpoint]
 MatchName=*TPPS/2 IBM TrackPoint
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadT480:*
-AttrTrackpointMultiplier=0.4
+AttrTrackpointMultiplier=0.75
+
+[Lenovo A485 Trackpoint]
+MatchName=*TPPS/2 IBM TrackPoint
+MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadA485:*
+AttrTrackpointMultiplier=0.75
 
 # Touchpad is a clickpad but INPUT_PROP_BUTTONPAD is not set, see
 # https://gitlab.freedesktop.org/libinput/libinput/issues/177
 [Lenovo T480s Touchpad]
 MatchName=Elan Touchpad
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadT480s*
-AttrInputPropEnable=INPUT_PROP_BUTTONPAD
+AttrInputProp=+INPUT_PROP_BUTTONPAD
 
 # Touchpad is a clickpad but INPUT_PROP_BUTTONPAD is not set, see
 # https://gitlab.freedesktop.org/libinput/libinput/issues/177
 [Lenovo T490s Touchpad]
 MatchName=Elan Touchpad
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadT490s*
-AttrInputPropEnable=INPUT_PROP_BUTTONPAD
+AttrInputProp=+INPUT_PROP_BUTTONPAD
 
 [Lenovo T490s Trackpoint]
 MatchName=*TPPS/2 IBM TrackPoint
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadT490s:*
+AttrTrackpointMultiplier=0.4
+
+[Lenovo P14s Gen 1 AMD Trackpoint]
+MatchUdevType=pointingstick
+MatchName=*TPPS/2 Elan TrackPoint*
+MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadP14sGen1*
 AttrTrackpointMultiplier=0.4
 
 # Touchpad is a clickpad but INPUT_PROP_BUTTONPAD is not set, see
@@ -60,22 +65,32 @@ AttrTrackpointMultiplier=0.4
 [Lenovo L380 Touchpad]
 MatchName=Elan Touchpad
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadL380*
-AttrInputPropEnable=INPUT_PROP_BUTTONPAD
+AttrInputProp=+INPUT_PROP_BUTTONPAD
 
-[Lenovo X200 Trackpoint]
+[Lenovo X200/201 Trackpoint]
 MatchName=*TPPS/2 IBM TrackPoint
 MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX20?:*
-AttrTrackpointMultiplier=1.25
+AttrTrackpointMultiplier=0.25
 
-[Lenovo X200x Trackpoint]
+[Lenovo X200s/201s Trackpoint]
 MatchName=*TPPS/2 IBM TrackPoint
 MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX20??:*
-AttrTrackpointMultiplier=1.25
+AttrTrackpointMultiplier=0.25
 
 [Lenovo X230 Trackpoint]
 MatchName=*TPPS/2 IBM TrackPoint
 MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX230:*
 AttrTrackpointMultiplier=0.25
+
+[Lenovo X280 Trackpoint]
+MatchName=*TPPS/2 Elan TrackPoint
+MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX280:*
+AttrTrackpointMultiplier=0.5
+
+[Lenovo X280 Touchpad]
+MatchName=Synaptics TM3381-002
+MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadX280*
+AttrPalmSizeThreshold=6
 
 [Lenovo P50 Touchpad]
 MatchName=SynPS/2 Synaptics TouchPad
@@ -147,7 +162,7 @@ AttrTrackpointMultiplier=1.25
 MatchBus=i2c
 MatchVendor=0x06CB
 MatchProduct=0xCE37
-AttrEventCodeDisable=ABS_MT_PRESSURE;ABS_PRESSURE;
+ModelPressurePad=1
 
 [Lenovo Yoga C930 Tablet]
 MatchBus=i2c
@@ -160,7 +175,7 @@ AttrTabletSmoothing=1
 [Lenovo Carbon X1 6th gen]
 MatchName=Synaptics TM3288-011
 MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX1Carbon6th:*
-AttrEventCodeDisable=ABS_MT_TOOL_TYPE
+AttrEventCode=-ABS_MT_TOOL_TYPE
 ModelLenovoX1Gen6Touchpad=1
 
 [Lenovo X41 Tablet]
@@ -201,7 +216,7 @@ MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX200Tablet:*
 ModelTabletModeNoSuspend=1
 
 [Lenovo X201 Tablet]
-MatchName=At Translated Set 2 keyboard
+MatchName=AT Translated Set 2 keyboard
 MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX201Tablet:*
 ModelTabletModeNoSuspend=1
 
@@ -224,14 +239,32 @@ ModelTabletModeNoSuspend=1
 
 # Misidentified as an external keyboard by libinput
 # Tested on Legion 5 15AR05H
-[Lenovo Legion 5 Keyboard]
+[Lenovo Legion 5 Keyboard (C100)]
 MatchUdevType=keyboard
 MatchBus=usb
 MatchVendor=0x048D
 MatchProduct=0xC100
 AttrKeyboardIntegration=internal
 
-[Lenovo Legion 5 Keyboard]
+# Tested on Legion 5 15ARH7H, should also work for Legion 5 Pro 16ARH7H
+# 048d:c102 Integrated Technology Express, Inc. ITE Device(8910)
+[Lenovo Legion 5 Keyboard (C102)]
+MatchUdevType=keyboard
+MatchBus=usb
+MatchVendor=0x048D
+MatchProduct=0xC102
+AttrKeyboardIntegration=internal
+
+# Tested on Legion Pro 5 16IRX8
+# 048d:c103 Integrated Technology Express, Inc. ITE Device(8910)
+[Lenovo Legion 5 Keyboard (C103)]
+MatchUdevType=keyboard
+MatchBus=usb
+MatchVendor=0x048D
+MatchProduct=0xC103
+AttrKeyboardIntegration=internal
+
+[Lenovo Legion 5 Keyboard (C955)]
 MatchUdevType=keyboard
 MatchBus=usb
 MatchVendor=0x048D
@@ -244,6 +277,11 @@ MatchUdevType=keyboard
 MatchBus=usb
 MatchVendor=0x048D
 MatchProduct=0xC101
+AttrKeyboardIntegration=internal
+
+[Lenovo Legion 5i Keyboard]
+MatchName=ITE Tech. Inc. ITE Device(8910) Keyboard
+MatchDMIModalias=dmi:*svnLENOVO:*pvrLegion515IAH7H:*
 AttrKeyboardIntegration=internal
 
 [Lenovo Legion 7 Keyboard]
@@ -267,12 +305,19 @@ MatchVendor=0x048D
 MatchProduct=0xC967
 AttrKeyboardIntegration=internal
 
+[Lenovo Legion Slim 7 Gen 8]
+MatchUdevType=keyboard
+MatchBus=usb
+MatchVendor=0x048D
+MatchProduct=0xC987
+AttrKeyboardIntegration=internal
+
 # https://gitlab.freedesktop.org/libinput/libinput/-/issues/604
 [Lenovo Yoga Slim 9 14ITL5 Pressurepad]
 MatchBus=i2c
 MatchVendor=0x27C6
 MatchProduct=0x01E8
-AttrEventCodeDisable=ABS_MT_PRESSURE;ABS_PRESSURE;
+ModelPressurePad=1
 
 # Duet 7i tablet switch activated by folding keyboard cover, or removing it.
 # We must not disable volume rocker 'keyboard'.
@@ -294,3 +339,81 @@ MatchUdevType=touchpad
 MatchName=*SynPS/2 Synaptics TouchPad
 MatchDMIModalias=dmi:*svnLENOVO:*:pvrLenovoYoga2Pro*
 AttrPressureRange=50:45
+
+[Lenovo Legion 7i 4090 Keyboard]
+MatchUdevType=keyboard
+MatchBus=usb
+MatchDMIModalias=dmi:*svnLENOVO:*:pvrLegionY9000PIRX8H*
+AttrKeyboardIntegration=internal
+
+[Lenovo LOQ 15IRH8 Keyboard]
+MatchUdevType=keyboard
+MatchBus=usb
+MatchVendor=0x048D
+MatchProduct=0xC986
+AttrKeyboardIntegration=internal
+
+[Lenovo ThinkPad E14 v2]
+MatchUdevType=touchpad
+MatchName=*Elan Touchpad
+MatchDMIModalias=dmi:*svnLENOVO:*:pvrThinkPadE14Gen2*
+AttrPalmPressureThreshold=300
+AttrPressureRange=10:8
+
+# White Backlit Keyboard
+[Lenovo Ideapad Gaming 3]
+MatchUdevType=keyboard
+MatchBus=usb
+MatchVendor=0x048D
+MatchProduct=0xC966
+AttrKeyboardIntegration=internal
+
+[Lenovo Thinkpad Yoga X390]
+MatchUdevType=pointingstick
+MatchName=*TPPS/2 Elan TrackPoint*
+MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX390Yoga*:*
+AttrTrackpointMultiplier=0.4
+
+# This should cover all keyboards that are misidentified as external.
+# Tested on Lenovo Legion 5 Pro (2023)
+[Lenovo 16ARX8 keyboard]
+MatchName=ITE Tech. Inc. ITE Device(8910) Keyboard
+MatchUdevType=keyboard
+MatchDMIModalias=dmi:*svnLENOVO:*
+AttrKeyboardIntegration=internal
+
+# Some ThinkBook 14 G7+ ASP models come with pressure pads that were not
+# correctly declared as such.
+[Lenovo ThinkBook 14 G7+ ASP touchpad]
+MatchName=*GXTP5100*
+MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkBook14G7+ASP*:*
+MatchUdevType=touchpad
+ModelPressurePad=1
+
+# The ThinkBook 14 G6+ IMH also has a similar issue as the G7+ mentioned above.
+[Lenovo ThinkBook 14 G6+ IMH]
+MatchName=*GXTP5100*
+MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkBook14G6+IMH*:*
+MatchUdevType=touchpad
+ModelPressurePad=1
+
+# Lenovo Yoga Slim 7i Carbon sends bogus ABS_MT_TOOL_TYPE MT_TOOL_PALM events
+[Lenovo Yoga Slim 7i Carbon]
+MatchName=* Touchpad
+MatchDMIModalias=dmi:*:svnLENOVO:*pvrYogaSlim7Carbon13IAP7:*
+AttrEventCode=-ABS_MT_TOOL_TYPE
+
+# The ThinkPad X9 15 Gen 1 Forcepad touchpad is not
+# detected as a pressure pad
+[Lenovo ThinkPad X9 15 Gen 1]
+MatchName=*GXTP5100*
+MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadX9-15Gen1*:*
+MatchUdevType=touchpad
+ModelPressurePad=1
+
+# The ThinkBook 14 G7+ IAH also has a similar issue as the ASP mentioned above.
+[Lenovo ThinkBook 14 G7+ IAH touchpad]
+MatchName=*GXTP5100*
+MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkBook14G7+IAH*:*
+MatchUdevType=touchpad
+ModelPressurePad=1

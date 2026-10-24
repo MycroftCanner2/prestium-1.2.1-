@@ -7,7 +7,7 @@
 [Device]
 Name=Chuwi Minibook X
 Class=ISDV4
-DeviceMatch=i2c:27c6:011a
+DeviceMatch=i2c|27c6|011a
 Width=9
 Height=6
 IntegratedIn=Display;System;
@@ -16,4 +16,3 @@ Styli=0x621
 [Features]
 Stylus=true
 Touch=true
-Buttons=0
