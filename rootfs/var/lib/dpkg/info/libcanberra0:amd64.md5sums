@@ -1,7 +1,7 @@
-2024fdb755f3a811c870dbe6a25104b1  usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-alsa.so
-85d097b9c24b974471e40416abb7873a  usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+5207f1002a47eababf51fce0a5d816ed  usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-alsa.so
+8329aeeaba5841c6b3f3725b3ef45f75  usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
 f011d3c88113ca69a5e093c8d050e48e  usr/share/doc/libcanberra0/README.Debian
 b70806e71cde511ad40751b08bf21bca  usr/share/doc/libcanberra0/README.gz
-69cc00f98e6d7162f405d3494fe9766c  usr/share/doc/libcanberra0/changelog.Debian.gz
+871e8f66147078ea4b5bff54c9dd1e5b  usr/share/doc/libcanberra0/changelog.Debian.gz
 ee9552e21635b25ba74d5069d5df57f3  usr/share/doc/libcanberra0/copyright
-1605ce86605ad8ad28d6340eb4b0ceed  usr/share/lintian/overrides/libcanberra0
+38b371e64e694f00d941a33d0be69226  usr/share/lintian/overrides/libcanberra0

@@ -1,0 +1,4 @@
+bc4ba2ec40c881ed0ff6af1425cfa38f  usr/lib/x86_64-linux-gnu/libbd_mdraid.so.3.0.0
+4f9b43b56a478782a8ccb65f29ed710d  usr/share/doc/libblockdev-mdraid3/changelog.Debian.gz
+922c155bcf341a506fc85204b120a511  usr/share/doc/libblockdev-mdraid3/copyright
+a656badcca6bdf82768b5bcf45a528a6  usr/share/lintian/overrides/libblockdev-mdraid3

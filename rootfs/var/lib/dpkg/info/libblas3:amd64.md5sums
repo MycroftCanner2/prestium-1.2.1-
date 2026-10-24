@@ -1,4 +1,4 @@
-eaf8abe2c1ee15de2bcc2e4a1f09b8e6  usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0
-9cb1cdcf5c5f79b8298b4a3392655410  usr/share/doc/libblas3/changelog.Debian.gz
-7f261ca47f2dabe7c7fca7c028e65138  usr/share/doc/libblas3/copyright
+6d626366790d2b00bcd2c18e6f553cc6  usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.1
+745d53eb93f52f912bb0f42b97007063  usr/share/doc/libblas3/changelog.Debian.gz
+7f31c090e81ae4ce6fc9f298e24652e2  usr/share/doc/libblas3/copyright
 fdf0f0418f059a7a6268705df5c65e21  usr/share/lintian/overrides/libblas3

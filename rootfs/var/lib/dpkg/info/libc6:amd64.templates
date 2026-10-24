@@ -172,11 +172,11 @@ Description-sv.UTF-8: Vill du uppgradera glibc nu?
  .
  Om du vill avbryta uppgraderingen nu och fortsätta senare anger du Nej på frågan nedan.
 Description-tr.UTF-8: glibc paketini şimdi yükseltmek istiyor musunuz?
- NSS kullanan hizmetler ve programlar yeniden başlatılmalıdır. Başlatılmazlarsa, kimlik arama veya doğrulama gibi işlemleri düzgün yapamayacaklardır. Kurulum süreci ssh ve telnetd gibi bazı hizmetleri yeniden başlatmayı başarabilmekle birlikte, her hizmeti kendiliğinden yeniden başlatamaz. glibc yükseltmesinden sonra elle yeniden başlatmanız gereken hizmetlerden biri de xdm'dir. Çünkü onun kendiliğinden yeniden başlatılması, açılmış X11 oturumlarının kopmasına sebep olabilir.
+ NSS kullanan hizmetler ve programlar yeniden başlatılmalıdır. Başlatılmazlarsa, kimlik arama veya doğrulama gibi işlemleri düzgün yapamayacaklardır. Kurulum süreci ssh ve telnetd gibi bazı hizmetleri yeniden başlatmayı başarabilmekle birlikte; her hizmeti kendiliğinden yeniden başlatamaz. glibc yükseltmesinden sonra elle yeniden başlatmanız gereken hizmetlerden biri de xdm'dir. Çünkü onun kendiliğinden yeniden başlatılması, açılmış X11 oturumlarının kopmasına sebep olabilir.
  .
- Bu betik, yükseltme işlemi yapılmadan önce bu hizmetlerin yeniden başlatılması gerektiğini algıladı: ${services}
+ Bu betik, yükseltme işlemi yapılmadan önce şu hizmetlerin yeniden başlatılması gerektiğini algıladı: ${services}
  .
- Eğer yükseltme işlemini şimdi durdurup sonra sürdürmek istiyorsanız, aşağıdaki soruya "Hayır" yanıtını verin.
+ Eğer yükseltme işlemini şimdi durdurup sonra sürdürmek istiyorsanız, lütfen aşağıdaki soruya "Hayır" yanıtını verin.
 Description-vi.UTF-8: Bạn có muốn nâng cấp glibc ngay bây giờ không?
  Các dịch vụ và chương trình đều đang chạy dựa vào NSS thì cần phải được khởi chạy lại: không thì chúng không còn có khả năng tra tìm hay xác thực lại. Tiến trình cài đặt có khả năng khởi chạy lại một số dịch vụ riêng (v.d. ssh hoặc têlnetd) nhưng không thể tự động khởi chạy lại các chương trình khác. Một chương trình như vậy mà cần phải bị dừng chạy rồi được khởi chạy lại bằng sau khi nâng cấp glibc là xdm, vì việc tự động cài đặt có thể ngắt kết nối đến phiên chạy X11 đang hoạt động.
  .
@@ -306,9 +306,9 @@ Description-sv.UTF-8: Tjänster att starta om för uppgradering av GNU libc-bibl
  .
  Observera: omstart av sshd/telnetd ska inte påverka befintliga anslutningar.
 Description-tr.UTF-8: GNU libc kitaplığının yükseltmesi için yeniden başlatılacak olan hizmetler:
- NSS kullanan hizmetler ve programlar yeniden başlatılmalıdır. Başlatılmazlarsa, kimlik arama veya doğrulama gibi işlemleri düzgün yapamayacaklardır. Örneğin ssh hizmeti ile oturum açamayabilirsiniz. Yeniden başlatılacak hizmetlere ilişkin init.d betiklerinin boşluklarla ayrılmış aşağıdaki listesini inceleyin ve gerekiyorsa düzeltin.
+ NSS kullanan hizmetler ve programlar yeniden başlatılmalıdır. Başlatılmazlarsa, kimlik arama veya doğrulama gibi işlemleri düzgün yapamayacaklardır. Örneğin ssh hizmeti ile oturum açamayabilirsiniz. Lütfen yeniden başlatılacak hizmetlere ilişkin init.d betiklerinin boşluklarla ayrılmış aşağıdaki listesini inceleyin ve gerekiyorsa düzeltin.
  .
- Not: sshd/telnetd hizmetlerinin yeniden başlatılması varolan bağlantıları etkilemez.
+ Not: sshd/telnetd hizmetlerinin yeniden başlatılması, varolan bağlantıları etkilemez.
 Description-vi.UTF-8: Các dịch vụ cần khởi chạy lại để nâng cấp thư viện libc GNU:
  Các dịch vụ và chương trình đều đang chạy khi sử dụng NSS thì cần phải được khởi chạy lại: không thì không còn có khả năng tra tìm hay xác thực lại (đối với dịch vụ như SSH, trường hợp này có thể ngăn cản bạn đăng nhập). Hãy xem lại danh sách định giới bằng dấu cách các văn lệnh init.d cho dịch vụ cần khởi chạy lại ngay bây giờ, và sửa nếu thích hợp.
  .
@@ -488,7 +488,7 @@ Description-tr.UTF-8: GNU libc kitaplığının yükseltmesi sırasında bazı h
  .
  ${services}
  .
- Bu hizmetleri "invoke-rc.d <hizmet> start" komutunu kullanarak elle başlatmanız gerekecektedir.
+ Bu hizmetleri "invoke-rc.d <hizmet_adı> start" komutunu kullanarak elle başlatmanız gerekecektedir.
 Description-vi.UTF-8: Lỗi khởi chạy lại một số dịch vụ để nâng cấp libc GNU.
  Những dịch vụ theo đây không thể được khởi chạy lại để nâng cấp thư viện libc GNU:
  .
@@ -579,6 +579,8 @@ Description: Restart services during package upgrades without asking?
  you wish to restart.  You can choose this option to avoid being prompted;
  instead, all necessary restarts will be done for you automatically so you
  can avoid being asked questions on each library upgrade.
+Description-ca.UTF-8: Durant les actualització de paquets, voleu que els serveis siguin reiniciats sense preguntar?
+ Hi ha serveis instal·lats al sistema que s'han de reiniciar quan s'actualitzen determinades biblioteques, com ara la «libpam», la «libc» i la «libssl». Com que aquests reinicis poden causar interrupcions del servei al sistema, normalment se us demanarà en cada actualització per a la llista de serveis que voleu reiniciar. Podeu triar aquesta opció per a evitar ser preguntat; en el seu lloc, es faran automàticament tots els reinicis necessaris per a vosaltres, de manera que podreu evitar que se us pregunti cada cop que hi hagi una actualització de la biblioteca.
 Description-cs.UTF-8: Restartovat služby při aktualizaci balíku bez ptaní?
  V systému jsou nainstalovány služby, které je nutno při aktualizaci určitých knihoven (libpam, libc nebo libssl) restartovat. Během restartu služeb jsou tyto po nějakou dobu nedostupné. Abychom předešli nechtěné nedostupnosti, je při každé aktualizaci nabídnut seznam služeb, které se mají restartovat. Povolíte-li tuto možnost, budou se všechny potřebné služby restartovat při aktualizaci knihoven automaticky bez ptaní.
 Description-da.UTF-8: Genstart tjenester under pakkeopgraderinger uden at spørge?
@@ -622,7 +624,7 @@ Description-sk.UTF-8: Reštartovať služby počas aktualizácie balíka bez pý
 Description-sv.UTF-8: Ska tjänster startas om vid paketuppgraderingar utan att först fråga?
  Det finns tjänster installerade på systemet som behöver startas om när vissa bibliotek, exempelvis libpam, libc och libssl, uppgraderas. Eftersom dessa omstarter kan orsaka avbrott i tjänsten ställs normalt en fråga vid varje uppgradering där en lista med tjänster som ska startas om presenteras. Du kan välja att aktivera detta alternativ för att undvika att frågan ställs. Istället kommer alla nödvändiga omstarter att göras automatiskt.
 Description-tr.UTF-8: Hizmetler paket yükseltme işlemi sırasında size sorulmadan yeniden başlatılsın mı?
- Sisteminizde libpam, libc ve libssl gibi bazı kitaplıklar yükseltildiğinde yeniden başlatılması gereken hizmetler kurulu. Yeniden başlatma işlemleri sisteminizin sunduğu hizmetlerde kesintilere neden olabileceğinden dolayı her yükseltme işlemi sırasında yeniden başlatmak istediğiniz hizmetler için onayınız alınacaktır. Eğer onayınızın alınmasını istemiyorsanız, "Evet" seçeneğini kullanabilirsiniz. Bu seçeneği seçerseniz, bir kitaplık yükseltmesi yapılırken gereken tüm yeniden başlatma işlemleri size sorulmaksızın kendiliğinden yapılacaktır.
+ Sisteminizde libpam, libc ve libssl gibi bazı kitaplıkların yükseltildiğinde yeniden başlatılması gereken hizmetler kurulu. Yeniden başlatma işlemleri sisteminizin sunduğu hizmetlerde kesintilere neden olabileceğinden dolayı her yükseltme işlemi sırasında yeniden başlatmak istediğiniz hizmetler için onayınız alınacaktır. Eğer onayınızın alınmasını istemiyorsanız, "Evet" seçeneğini kullanabilirsiniz. Bu seçeneği seçerseniz, bir kitaplık yükseltmesi yapılırken gereken tüm yeniden başlatma işlemleri size sorulmaksızın kendiliğinden yapılacaktır.
 Description-zh_CN.UTF-8: 要在升级时自动重启服务吗？
  您系统中部分运行中的服务由于依赖或使用了当前正在更新的库（如 libpam、libc、libssl 等），需要重新启动。鉴于此类重启的操作可能会导致系统中的服务被中断，每次更新时系统通常会提示您选择需要重启的服务。您可以勾选该选项，让系统在后续遇到此类更新时自动重启必要的服务，同时避免在更新时出现此提示。
 
@@ -632,6 +634,8 @@ Description: Kernel must be upgraded
  This version of the GNU libc requires kernel version ${kernel_ver} or
  later.  Please upgrade your kernel and reboot before installing glibc.
  You may need to use "apt -f install" after reboot to solve dependencies.
+Description-ca.UTF-8: S'ha d'actualitzar el nucli
+ Aquesta versió de la «GNU libc» requereix la versió del nucli ${kernel_ver} o posterior. Actualitzeu el nucli i reinicieu abans d'instal·lar la «glibc». És possible que hàgiu d'utilitzar «apt -f install» després de reiniciar per a resoldre dependències.
 Description-cs.UTF-8: Je nutné aktualizovat jádro
  Tato verze GNU libc vyžaduje jádro verze ${kernel_ver} nebo novější. Před instalací glibc nejprve aktualizujte jádro a restartujte počítač. Po restartu možná budete muset vyřešit závislosti příkazem „apt -f install“.
 Description-de.UTF-8: Kernel muss aktualisiert werden.
@@ -652,8 +656,10 @@ Description-ro.UTF-8: Nucleul trebuie să fie înnoit
  Această versiune a bibliotecii libc GNU necesită versiunea nucleului ${kernel_ver} sau o versiune ulterioară.  Actualizați nucleul și să reporniți înainte de a instala glibc. Este posibil să fie nevoie să utilizați comanda «apt -f install» după repornire, pentru a rezolva problemele de dependențe.
 Description-sk.UTF-8: Kernel sa musí aktualizovať
  Táto verzia GNU libc vyžaduje verziu kernelu ${kernel_ver} alebo neskoršiu. Aktualizujte prosím Váš kernel a reštartujte systém pred inštaláciou glibc. V prípade chýbajúcich závislostí po reštarte, použite príkaz "apt -f install".
+Description-sv.UTF-8: Kärnan måste uppgraderas
+ Den här versionen av GNU libc behöver åtminstone version ${kernel_ver} av kärnan. Uppgradera kärnan och starta om systemet före glibc installeras. Det kan tänkas att du behöver köra "apt -f install" för att lösa beroendeknutar efter omstart.
 Description-tr.UTF-8: Linux çekirdeği güncellenmelidir
- GNU libc kitaplığının bu sürümü ${kernel_ver} çekirdek sürümü ya da daha yenisi ile çalışabilmektedir. GNU libc kurulumu öncesinde çekirdek sürümünüzü güncelleyin ve sisteminizi yeniden başlatın. Bağımlılık sorunlarını gidermek için, yeniden başlatmanız sonrasında "apt -f install" komutunu kullanmanız gerekebilir.
+ GNU libc kitaplığının bu sürümü ${kernel_ver} çekirdek sürümü veya daha yenisi ile çalışabilmektedir. GNU libc kurulumu öncesinde çekirdek sürümünüzü güncelleyin ve sisteminizi yeniden başlatın. Bağımlılık sorunlarını gidermek için, yeniden başlatmanız sonrasında "apt -f install" komutunu kullanmanız gerekebilir.
 Description-zh_CN.UTF-8: 内核需要升级
  此版本的 GNU glibc 需要版本为 ${kernel_ver} 或更高版本的内核。安装 glibc 前请先升级你的内核并重启计算机。重启后你可能需要使用 "apt -f install" 来解决依赖问题。
 
@@ -663,6 +669,8 @@ Description: Kernel version not supported
  This version of the GNU libc requires kernel version ${kernel_ver} or
  later.  Older versions might work but are not officially supported by
  Debian.  Please consider upgrading your kernel.
+Description-ca.UTF-8: La versió del nucli no és compatible
+ Aquesta versió de la «GNU libc» requereix la versió del nucli ${kernel_ver} o posterior. Versions més antigues poden funcionar però oficialment no són compatibles amb Debian. Considereu l'actualització del nucli.
 Description-cs.UTF-8: Nepodporovaná verze jádra
  Tato verze GNU libc vyžaduje jádro verze ${kernel_ver} nebo novější. Starší verze možná mohou fungovat, ale není to oficiálně podporováno. Zvažte prosím aktualizaci jádra.
 Description-da.UTF-8: Kerneversion er ikke understøttet
@@ -691,7 +699,9 @@ Description-ru.UTF-8: Версия ядра не поддерживается
  Для данной версии GNU libc требуется ядро версии ${kernel_ver} или новее. Более старые версии могут работать, но они официально не поддерживаются в Debian. Рассмотрите возможность обновления ядра.
 Description-sk.UTF-8: Verzia kernelu nie je podporovaná
  Táto verzia GNU libc vyžaduje verziu kernelu ${kernel_ver} alebo neskoršiu. Staršia verzia môže fungovať, ale nie je oficiálne podporovaná Debianom. Zvážte prosím aktualizáciu vášho kernelu.
+Description-sv.UTF-8: Kärnans version har inget stöd
+ Den här versionen av GNU libc behöver åtminstone version ${kernel_ver} av kärnan. Äldre versioner kan eventuellt fungera men det finns inget officiellt stöd för dessa från Debianprojektet. Överväg att uppgradera din kärna.
 Description-tr.UTF-8: Linux çekirdeği sürümü desteklenmiyor
- GNU libc kitaplığının bu sürümü ${kernel_ver} çekirdek sürümü ya da daha yenisi ile çalışabilmektedir. Eski sürümler ile çalışabilse de, eski sürümler Debian tarafından desteklenmemektedir. Çekirdek sürümünüzü güncelleme konusunu değerlendirin.
+ GNU libc kitaplığının bu sürümü ${kernel_ver} çekirdek sürümü veya daha yenisi ile çalışabilmektedir. Eski sürümler ile çalışabilse de, bu önceki sürümler Debian tarafından desteklenmemektedir. Çekirdek sürümünüzü güncelleme konusunu değerlendirin.
 Description-zh_CN.UTF-8: 不支持的内核版本
  此版本的 GNU glibc 需要版本为 ${kernel_ver} 或更高版本的内核。  使用旧版本内核时系统可能会正常运行，但是此类情况不被 Debian 正式支持。请考虑升级你的内核。

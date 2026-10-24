@@ -1,0 +1,4 @@
+c6bc479f901bb5fe1b00060f36f7a623  usr/lib/x86_64-linux-gnu/libboost_json.so.1.83.0
+46cdf891b546faf7b45a03fc51b4ff5a  usr/share/doc/libboost-json1.83.0/changelog.Debian.gz
+6a70c00fc4a21b8da6d647a5afc88b7c  usr/share/doc/libboost-json1.83.0/copyright
+0bf0385037db55780a171b1f70eaba1e  usr/share/lintian/overrides/libboost-json1.83.0

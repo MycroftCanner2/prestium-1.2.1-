@@ -1,5 +1,8 @@
-cb6866e6e76cfb274d3451312bfe6968  usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11600.0
-ed1a51eb950145e76a00219ccbec0af0  usr/share/doc/libcairo-gobject2/changelog.Debian.gz
-c469214872b9c2f3b8faa436381c5fbc  usr/share/doc/libcairo-gobject2/changelog.gz
+639750ffbf8d132abcbf4fca97dd7705  usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11804.4
+b4d844ecc03dc5fff2b34f7eba866ded  usr/share/doc/libcairo-gobject2/AUTHORS.gz
+678db4a85cda2b6444963f0ed369eaf9  usr/share/doc/libcairo-gobject2/NEWS.gz
+fe7397f739bf2e9210b342b2e3e4758c  usr/share/doc/libcairo-gobject2/README.md.gz
+64eb553b0d28ef06968fb32f2687f8d2  usr/share/doc/libcairo-gobject2/changelog.Debian.amd64.gz
+a3eeba449e1d3433457a2570adbbfcbb  usr/share/doc/libcairo-gobject2/changelog.Debian.gz
 41415fa26ea46ed229d8970220db4f41  usr/share/doc/libcairo-gobject2/copyright
-47464ab1fd401b17724f2d331403afa8  usr/share/lintian/overrides/libcairo-gobject2
+3c060c8b2a4f9d4014ceb2f9a84f66e9  usr/share/lintian/overrides/libcairo-gobject2

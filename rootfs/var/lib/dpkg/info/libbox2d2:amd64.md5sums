@@ -1,4 +1,5 @@
-50fd5bc39d626ea69bfc9f28d78ec369  usr/lib/x86_64-linux-gnu/libbox2d.so.2.4.1
-107ada41b850573fed59c91349727338  usr/share/doc/libbox2d2/changelog.Debian.gz
+d5cee403ef38641f295c3db48d343ed5  usr/lib/x86_64-linux-gnu/libbox2d.so.2.4.1
+c2acc24af51025733d3fcb25f946f0b6  usr/share/doc/libbox2d2/changelog.Debian.amd64.gz
+9c8cab69b4551427d6c744b292fa8231  usr/share/doc/libbox2d2/changelog.Debian.gz
 b5f096daa860c1aaaf6651d1c197af9b  usr/share/doc/libbox2d2/changelog.gz
 f49715eed4884cd6f7175fbe47eafb5c  usr/share/doc/libbox2d2/copyright

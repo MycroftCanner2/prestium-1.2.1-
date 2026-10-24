@@ -1,0 +1,4 @@
+0fec32f04e847d60bd24be08e68c0c54  usr/lib/x86_64-linux-gnu/libbd_nvme.so.3.0.0
+78ec501c17d5b303fa086ded016b987f  usr/share/doc/libblockdev-nvme3/changelog.Debian.gz
+922c155bcf341a506fc85204b120a511  usr/share/doc/libblockdev-nvme3/copyright
+ee9e72c5c701c8ee9dcd95dc895936ff  usr/share/lintian/overrides/libblockdev-nvme3

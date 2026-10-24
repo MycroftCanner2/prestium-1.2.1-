@@ -1,0 +1,4 @@
+dd393c272bb8880b3ac647d6891183ae  usr/lib/x86_64-linux-gnu/libbd_crypto.so.3.0.0
+65a153178fb2b974e1549b13019893ec  usr/share/doc/libblockdev-crypto3/changelog.Debian.gz
+922c155bcf341a506fc85204b120a511  usr/share/doc/libblockdev-crypto3/copyright
+130002d3718a4153d76a6e62d9dc502d  usr/share/lintian/overrides/libblockdev-crypto3

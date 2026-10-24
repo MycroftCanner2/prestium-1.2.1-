@@ -51,6 +51,9 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_font_options_destroy@Base 1.2.4
  cairo_font_options_equal@Base 1.2.4
  cairo_font_options_get_antialias@Base 1.2.4
+ cairo_font_options_get_color_mode@Base 1.17.8
+ cairo_font_options_get_color_palette@Base 1.17.8
+ cairo_font_options_get_custom_palette_color@Base 1.17.8
  cairo_font_options_get_hint_metrics@Base 1.2.4
  cairo_font_options_get_hint_style@Base 1.2.4
  cairo_font_options_get_subpixel_order@Base 1.2.4
@@ -58,6 +61,9 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_font_options_hash@Base 1.2.4
  cairo_font_options_merge@Base 1.2.4
  cairo_font_options_set_antialias@Base 1.2.4
+ cairo_font_options_set_color_mode@Base 1.17.8
+ cairo_font_options_set_color_palette@Base 1.17.8
+ cairo_font_options_set_custom_palette_color@Base 1.17.8
  cairo_font_options_set_hint_metrics@Base 1.2.4
  cairo_font_options_set_hint_style@Base 1.2.4
  cairo_font_options_set_subpixel_order@Base 1.2.4
@@ -81,6 +87,7 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_get_font_matrix@Base 1.2.4
  cairo_get_font_options@Base 1.2.4
  cairo_get_group_target@Base 1.2.4
+ cairo_get_hairline@Base 1.17.8
  cairo_get_line_cap@Base 1.2.4
  cairo_get_line_join@Base 1.2.4
  cairo_get_line_width@Base 1.2.4
@@ -157,6 +164,7 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_pattern_destroy@Base 1.2.4
  cairo_pattern_get_color_stop_count@Base 1.4.10
  cairo_pattern_get_color_stop_rgba@Base 1.4.10
+ cairo_pattern_get_dither@Base 1.18.0
  cairo_pattern_get_extend@Base 1.2.4
  cairo_pattern_get_filter@Base 1.2.4
  cairo_pattern_get_linear_points@Base 1.4.10
@@ -168,6 +176,7 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_pattern_get_type@Base 1.2.4
  cairo_pattern_get_user_data@Base 1.4.10
  cairo_pattern_reference@Base 1.2.4
+ cairo_pattern_set_dither@Base 1.18.0
  cairo_pattern_set_extend@Base 1.2.4
  cairo_pattern_set_filter@Base 1.2.4
  cairo_pattern_set_matrix@Base 1.2.4
@@ -178,6 +187,7 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_pdf_surface_create@Base 1.2.4
  cairo_pdf_surface_create_for_stream@Base 1.2.4
  cairo_pdf_surface_restrict_to_version@Base 1.10.0
+ cairo_pdf_surface_set_custom_metadata@Base 1.17.8
  cairo_pdf_surface_set_metadata@Base 1.15.8
  cairo_pdf_surface_set_page_label@Base 1.15.8
  cairo_pdf_surface_set_size@Base 1.2.4
@@ -278,6 +288,7 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_set_font_matrix@Base 1.2.4
  cairo_set_font_options@Base 1.2.4
  cairo_set_font_size@Base 1.2.4
+ cairo_set_hairline@Base 1.17.8
  cairo_set_line_cap@Base 1.2.4
  cairo_set_line_join@Base 1.2.4
  cairo_set_line_width@Base 1.2.4
@@ -368,13 +379,17 @@ libcairo.so.2 libcairo2 #MINVER#
  cairo_translate@Base 1.2.4
  cairo_user_font_face_create@Base 1.7.2
  cairo_user_font_face_get_init_func@Base 1.7.2
+ cairo_user_font_face_get_render_color_glyph_func@Base 1.17.8
  cairo_user_font_face_get_render_glyph_func@Base 1.7.2
  cairo_user_font_face_get_text_to_glyphs_func@Base 1.7.2
  cairo_user_font_face_get_unicode_to_glyph_func@Base 1.7.2
  cairo_user_font_face_set_init_func@Base 1.7.2
+ cairo_user_font_face_set_render_color_glyph_func@Base 1.17.8
  cairo_user_font_face_set_render_glyph_func@Base 1.7.2
  cairo_user_font_face_set_text_to_glyphs_func@Base 1.7.2
  cairo_user_font_face_set_unicode_to_glyph_func@Base 1.7.2
+ cairo_user_scaled_font_get_foreground_marker@Base 1.17.8
+ cairo_user_scaled_font_get_foreground_source@Base 1.17.8
  cairo_user_to_device@Base 1.2.4
  cairo_user_to_device_distance@Base 1.2.4
  cairo_version@Base 1.2.4

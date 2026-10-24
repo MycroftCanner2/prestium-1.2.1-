@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libbsd.so.0.11.7
+/usr/lib/x86_64-linux-gnu/libbsd.so.0.12.2
 /usr/share
 /usr/share/doc
 /usr/share/doc/libbsd0

@@ -1,9 +1,9 @@
 /.
-/lib
-/lib/x86_64-linux-gnu
-/lib/x86_64-linux-gnu/libcap.so.2.66
-/lib/x86_64-linux-gnu/libpsx.so.2.66
 /usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libcap.so.2.75
+/usr/lib/x86_64-linux-gnu/libpsx.so.2.75
 /usr/share
 /usr/share/doc
 /usr/share/doc/libcap2
@@ -11,5 +11,5 @@
 /usr/share/doc/libcap2/changelog.Debian.gz
 /usr/share/doc/libcap2/changelog.gz
 /usr/share/doc/libcap2/copyright
-/lib/x86_64-linux-gnu/libcap.so.2
-/lib/x86_64-linux-gnu/libpsx.so.2
+/usr/lib/x86_64-linux-gnu/libcap.so.2
+/usr/lib/x86_64-linux-gnu/libpsx.so.2

@@ -3,10 +3,6 @@
 /etc/libccid_Info.plist
 /etc/reader.conf.d
 /etc/reader.conf.d/libccidtwin
-/lib
-/lib/udev
-/lib/udev/rules.d
-/lib/udev/rules.d/92-libccid.rules
 /usr
 /usr/lib
 /usr/lib/pcsc
@@ -17,12 +13,14 @@
 /usr/lib/pcsc/drivers/ifd-ccid.bundle/Contents/Linux/libccid.so
 /usr/lib/pcsc/drivers/serial
 /usr/lib/pcsc/drivers/serial/libccidtwin.so
+/usr/lib/udev
+/usr/lib/udev/rules.d
+/usr/lib/udev/rules.d/92-libccid.rules
 /usr/share
 /usr/share/doc
 /usr/share/doc/libccid
 /usr/share/doc/libccid/README
 /usr/share/doc/libccid/README.Debian
 /usr/share/doc/libccid/changelog.Debian.gz
-/usr/share/doc/libccid/changelog.gz
 /usr/share/doc/libccid/copyright
 /usr/lib/pcsc/drivers/ifd-ccid.bundle/Contents/Info.plist

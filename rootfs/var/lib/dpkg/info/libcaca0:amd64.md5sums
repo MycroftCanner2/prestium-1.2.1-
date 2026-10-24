@@ -1,6 +1,6 @@
-757e59f824119d39bd4aa7966f5e2262  usr/lib/x86_64-linux-gnu/caca/libgl_plugin.so.0.0.0
-2e555fa570af23fc933b84d3f65b9b90  usr/lib/x86_64-linux-gnu/caca/libx11_plugin.so.0.0.0
-3b8f00fe25d316981c698f79654c5446  usr/lib/x86_64-linux-gnu/libcaca++.so.0.99.20
-3ed552ae88d335a2a66dafae680d815e  usr/lib/x86_64-linux-gnu/libcaca.so.0.99.20
-8293fca0f662a2a5068a2fecd2b606c2  usr/share/doc/libcaca0/changelog.Debian.gz
+ba7f1af4e06bcb63c96c7de6f14662ba  usr/lib/x86_64-linux-gnu/caca/libgl_plugin.so.0.0.0
+dc433a7859581ba5c847a5a49372ae23  usr/lib/x86_64-linux-gnu/caca/libx11_plugin.so.0.0.0
+6d5ce684a34a3337a6aab7a165413e79  usr/lib/x86_64-linux-gnu/libcaca++.so.0.99.20
+74a0fb593fd40619d9102d6340528673  usr/lib/x86_64-linux-gnu/libcaca.so.0.99.20
+4d9e3a2e042c429a9f2b5c342af7716c  usr/share/doc/libcaca0/changelog.Debian.gz
 eff5afb87b4c576cf83933bc418f3ced  usr/share/doc/libcaca0/copyright

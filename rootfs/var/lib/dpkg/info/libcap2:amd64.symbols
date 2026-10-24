@@ -1,9 +1,7 @@
 libcap.so.2 libcap2 #MINVER#
 * Build-Depends-Package: libcap-dev
+ _IO_stdin_used@Base 1:2.75
  __execable_dl_loader@Base 1:2.63
- __so_start@Base 1:2.63
- _libcap_initialize@Base 1:2.63
- _libcap_strdup@Base 1:2.10
  cap_clear@Base 1:2.10
  cap_clear_flag@Base 1:2.10
  cap_compare@Base 1:2.10
@@ -73,11 +71,11 @@ libcap.so.2 libcap2 #MINVER#
  psx_load_syscalls@Base 1:2.31
 libpsx.so.2 libcap2 #MINVER#
 * Build-Depends-Package: libcap-dev
+ _IO_stdin_used@Base 1:2.75
  __execable_dl_loader@Base 1:2.63
  __psx_syscall@Base 1:2.63
- __so_start@Base 1:2.63
+ __real_pthread_create@Base 1:2.73
  __wrap_pthread_create@Base 1:2.63
- psx_action_key@Base 1:2.63
  psx_load_syscalls@Base 1:2.63
  psx_set_sensitivity@Base 1:2.63
  psx_syscall3@Base 1:2.63
