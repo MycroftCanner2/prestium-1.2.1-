@@ -130,11 +130,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>chemin_icone</var></title>
-	<p>Indique l'icône affichée dans le cadre de la boîte de dialogue. Quatre icônes prédéfinies sont également disponibles en utilisant l'un des mots-clés suivants : 'info', 'warning', 'question' et 'error'.</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>largeur</var></title>
 	<p>Indique la largeur de la boîte de dialogue.</p>
       </item>

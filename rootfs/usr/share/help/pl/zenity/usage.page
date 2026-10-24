@@ -8,13 +8,13 @@
     <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
       <mal:name>Piotr Drąg</mal:name>
       <mal:email>piotrdrag@gmail.com</mal:email>
-      <mal:years>2017-2019</mal:years>
+      <mal:years>2017-2023</mal:years>
     </mal:credit>
   
     <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
       <mal:name>Aviary.pl</mal:name>
       <mal:email>community-poland@mozilla.org</mal:email>
-      <mal:years>2017-2019</mal:years>
+      <mal:years>2017-2023</mal:years>
     </mal:credit>
   </info>
 <title>Użycie</title>
@@ -109,11 +109,6 @@
       <item>
         <title><cmd>--title</cmd>=<var>tytuł</var></title>
 	<p>Określa tytuł okna.</p>
-      </item>
-
-      <item>
-        <title><cmd>--window-icon</cmd>=<var>ścieżka-do-ikony</var></title>
-	<p>Określa ikonę wyświetlaną w ramce okna. Dostępne są także cztery standardowe ikony, które można określić słowami kluczowymi „info” (informacja), „warning” (ostrzeżenie), „question” (pytanie) i „error” (błąd).</p>
       </item>
 
       <item>

@@ -8,17 +8,17 @@
     <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
       <mal:name>Piotr Drąg</mal:name>
       <mal:email>piotrdrag@gmail.com</mal:email>
-      <mal:years>2017-2019</mal:years>
+      <mal:years>2017-2023</mal:years>
     </mal:credit>
   
     <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
       <mal:name>Aviary.pl</mal:name>
       <mal:email>community-poland@mozilla.org</mal:email>
-      <mal:years>2017-2019</mal:years>
+      <mal:years>2017-2023</mal:years>
     </mal:credit>
   </info>
   <title>Ikona powiadomienia</title>
-    <p>Użyj opcji <cmd>--notification</cmd>, aby utworzyć ikonę powiadomienia.</p>
+    <p>Użyj opcji <cmd>--notification</cmd>, aby utworzyć powiadomienie na pulpicie.</p>
 
   <terms>
     <item>
@@ -26,11 +26,20 @@
       <p>Określa tekst wyświetlany w obszarze powiadamiania.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>tekst</var>', message: '<var>tekst</var>', tooltip: '<var>tekst</var>', visible: '<var>tekst</var>',</title>
+      <title><cmd>--icon</cmd>=<var>ścieżka</var></title>
+      <p>Ustawia ikonę powiadomienia za pomocą ciągu zawierającego ścieżkę do prawidłowej ikony na komputerze.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Nasłuchuje polecenia na standardowym wejściu. Należy podać co najmniej jedno polecenie. Polecenia są rozdzielane przecinkami. Po poleceniu musi być dwukropek i wartość.</p>
       <note style="tip">
-        <p>Polecenie <cmd>icon</cmd> przyjmuje także wartości czterech standardowych ikon: <var>error</var> (błąd), <var>info</var> (informacja), <var>question</var> (pytanie) i <var>warning</var> (ostrzeżenie).</p>
+        <p>Polecenie <cmd>icon</cmd> przyjmuje także wartości nazw motywu ikon w zgodzie ze specyfikacją nazywania ikon FreeDesktop.org: <var>dialog-error</var> (okno z błędem), <var>dialog-information</var> (okno z informacją) i <var>security-high</var> (wysoki poziom zagrożenia bezpieczeństwa).</p>
       </note>
+      <p>Przykłady:</p>
+      <code>
+      message: Cześć, nazywam się Alicja
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -38,8 +47,8 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
     --text="Niezbędne są aktualizacje systemu."
   </code>
 

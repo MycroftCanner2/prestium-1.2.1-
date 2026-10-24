@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" style="task 2column" id="index" xml:lang="hu">
+
+  <info>
+    <title type="link" role="trail">Fájlhenger</title>
+    <title type="link">Fájlhenger súgó</title>
+    <title type="text">Fájlhenger súgó</title>
+    <revision pkgversion="3.8" date="2013-02-24" status="review"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Ismerje meg a fájlokat és mappákat tartalmazó tömörített archívumok használatát és kezelését.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2012, 2013, 2014, 2016.</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Úr Balázs</mal:name>
+      <mal:email>ur.balazs at fsf dot hu</mal:email>
+      <mal:years>2014, 2018, 2021, 2024.</mal:years>
+    </mal:credit>
+  </info>
+  
+  <title><media type="image" its:translate="no" width="48px" height="48px" src="figures/org.gnome.FileRoller.svg"/> Fájlhenger</title>
+  
+  <section id="managing-archives" style="2column">
+    <title>Archívumok kezelése</title>
+  </section>
+
+  <section id="advanced-options" style="2column">
+    <title>Speciális beállítások</title>
+  </section>
+
+  <section id="troubleshooting" style="2column">
+    <title>Hibaelhárítás</title>
+  </section>
+
+</page>

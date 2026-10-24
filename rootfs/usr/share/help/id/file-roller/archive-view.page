@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="id">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Menilik arsip yang ada dan isinya.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Andika Triwidada</mal:name>
+      <mal:email>andika@gmail.com</mal:email>
+      <mal:years>2013, 2014, 2016, 2020, 2021.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Tilik suatu arsip</title>
+
+  <p>Ada dua cara untuk melihat suatu arsip:</p>
+
+  <terms>
+    <item>
+      <title>Tilik semua berkas</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>Anda boleh memakai kepala kolom yang disinggung di atas (nama, ukuran…) untuk mengurutkan berkas dalam arsip Anda. Lakukan ini dengan mengkliknya; Anda dapat menjungkit untuk membalik urutan.</p>
+      </note>
+    </item>
+    <item>
+      <title>Tilik sebagai folder</title>
+      <p>Tilikan ini menampilkan struktur direktori klasik. Untuk memakai ini, tekan tombol menu di pojok kanan atas jendela dan klik <gui style="menuitem">Tilik sebagai Folder</gui>.</p>
+      <note style="tip">
+	<p>Ketika melihat arsip Anda dengan cara ini, Anda dapat menekan <key>F9</key>, atau menekan tombol menu di pojok kanan atas jendela dan memilih <gui style="menu">Bilah Sisi</gui>, untuk melihat tilikan pohon dari folder pada panel sisi. Ini memungkinkan Anda menavigasi dengan mudah antar folder.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Buka berkas dalam arsip Anda</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Buka berkas dengan aplikasi yang berbeda dengan mengikuti langkah-langkah ini:</p>
+      <steps>
+        <item>
+          <p>Klik kanan pada berkas.</p>
+        </item>
+        <item>
+          <p>Klik <gui style="menuitem">Buka Dengan…</gui>.</p>
+        </item>
+        <item>
+          <p>Pilih aplikasi yang ingin Anda pakai dan klik <gui style="menuitem">Pilih</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

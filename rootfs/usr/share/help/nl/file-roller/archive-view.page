@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="nl">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons GelijkDelen 3.0</p>
+    </license>
+    <desc>Bekijk de inhoud van een bestaand archief.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Nathan Follens</mal:name>
+      <mal:email>nfollens@gnome.org</mal:email>
+      <mal:years>2022.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Een archief bekijken</title>
+
+  <p>Er zijn twee manieren om een archief te bekijken:</p>
+
+  <terms>
+    <item>
+      <title>Alle bestanden bekijken</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>U kunt de kolomtitels hierboven vermeld (naam, grootte, …) gebruiken om de bestanden in uw archief te sorteren. Doe dit door erop te klikken; nogmaals klikken draait de sorteervolgorde om.</p>
+      </note>
+    </item>
+    <item>
+      <title>Bekijken als map</title>
+      <p>Dit overzicht geeft de klassieke mappenstructuur weer. Om dit te gebruiken drukt u op de menuknop in de rechterbovenhoek van het venster en selecteert u <gui style="menuitem">Weergeven als een map</gui>.</p>
+      <note style="tip">
+	<p>Terwijl u op deze manier uw archief bekijkt, kunt u op <key>F9</key> drukken, of op de menuknop in de rechterbovenhoek van het venster drukken en <gui style="menu">Zijbalk</gui> selecteren, om een boomoverzicht van de mappen te kunnen bekijken in de zijbalk. Hiermee kunt u eenvoudig bladeren tussen mappen.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Bestanden openen in uw archief</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Open het bestand met een andere toepassing door de volgende stappen te volgen:</p>
+      <steps>
+        <item>
+          <p>Rechterklik op het bestand.</p>
+        </item>
+        <item>
+          <p>Klik op <gui style="menuitem">Openen met…</gui>.</p>
+        </item>
+        <item>
+          <p>Selecteer de toepassing die u wilt gebruiken en klik op <gui style="menuitem">Selecteren</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

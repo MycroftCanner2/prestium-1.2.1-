@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" style="task 2column" id="index" xml:lang="pl">
+
+  <info>
+    <title type="link" role="trail">File Roller</title>
+    <title type="link">File Roller</title>
+    <title type="text">File Roller</title>
+    <revision pkgversion="3.8" date="2013-02-24" status="review"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Zarządzanie skompresowanymi archiwami z plikami i katalogami.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Piotr Drąg</mal:name>
+      <mal:email>piotrdrag@gmail.com</mal:email>
+      <mal:years>2017-2023</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Aviary.pl</mal:name>
+      <mal:email>community-poland@mozilla.org</mal:email>
+      <mal:years>2017-2023</mal:years>
+    </mal:credit>
+  </info>
+  
+  <title><media type="image" its:translate="no" width="48px" height="48px" src="figures/org.gnome.FileRoller.svg"/> File Roller</title>
+  
+  <section id="managing-archives" style="2column">
+    <title>Zarządzanie archiwami</title>
+  </section>
+
+  <section id="advanced-options" style="2column">
+    <title>Zaawansowane opcje</title>
+  </section>
+
+  <section id="troubleshooting" style="2column">
+    <title>Rozwiązywanie problemów</title>
+  </section>
+
+</page>

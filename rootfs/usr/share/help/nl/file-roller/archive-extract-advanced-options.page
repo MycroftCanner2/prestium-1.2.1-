@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-extract-advanced-options" xml:lang="nl">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#advanced-options"/>
+    <revision pkgversion="3.4" date="2012-03-06" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Stel uw voorkeuren in voor het uitpakken van archieven.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Nathan Follens</mal:name>
+      <mal:email>nfollens@gnome.org</mal:email>
+      <mal:years>2022.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Geavanceerde opties voor uitpakken van archieven</title>
+
+  <p><app>File Roller</app> offers different options for
+  <link xref="archive-extract">extracting an archive</link>. You can see these
+  options in the <gui>Extract</gui> dialog. At the bottom of this dialog, you
+  can decide if you want to extract:</p>
+
+  <terms>
+    <item>
+      <title><gui>Alle bestanden</gui></title>
+      <p>Alle bestanden en mappen in het archief zullen uitgepakt worden.</p>
+    </item>
+    <item>
+      <title><gui>Geselecteerde bestanden</gui></title>
+      <p><app>File Roller</app> extracts only the selected files.</p>
+      <note>
+        <p>Voordat u op <gui style="button">Uitpakken</gui> klikt moet u de bestanden die u wilt uitpakken selecteren. Klik hiervoor op de bestandsnaam. Gebruik de <key>Ctrl</key>- en <key>Shift</key>-toetsen om meer dan een bestand te selecteren.</p>
+      </note>
+    </item>
+    <item>
+      <title><gui>Bestanden</gui></title>
+      <p>U kunt de namen van de bestanden die u wilt uitpakken invoeren. Scheid aparte bestanden met een puntkomma (<key>;</key>).</p>
+      <note>
+        <p>De bestandsnaam moet gevolgd worden door een bestandsextensie. U kunt de asterisk (<key>*</key>) gebruiken als jokerteken. Om alle <file>.txt</file>-bestanden te selecteren kunt u bijvoorbeeld <file>*.txt</file> intypen.</p>
+      </note>
+    </item>
+  </terms>
+
+  <p>In de bestandskiezer kunt u verder nog volgende opties aanvinken:</p>
+  <terms>
+    <item>
+      <title><gui>Mappenstructuur behouden</gui></title>
+      <p>Vink deze optie aan als u de mappenstructuur wilt behouden zoals in uw archief.</p>
+    </item>
+    <item>
+      <title><gui>Nieuwere bestanden niet overschrijven</gui></title>
+      <p>Deze optie zal bestaande bestanden met dezelfde naam en een recentere wijzigingsdatum dan de bestanden in het archief niet overschrijven.</p>
+    </item>
+  </terms>
+
+  <p>Deze <gui>Acties</gui> worden weergeven onderaan het dialoogvenster.</p>
+
+</page>

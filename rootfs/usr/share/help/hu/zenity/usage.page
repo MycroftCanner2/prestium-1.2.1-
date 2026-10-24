@@ -106,11 +106,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>ikonútvonal</var></title>
-	<p>Az ablakkeretben megjelenő ikon megadása. A következő kulcsszavak megadásával elérhető 4 alapértelmezett ikon is: „info”, „warning” (figyelmeztetés), „question” (kérdés) és „error” (hiba).</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>szélesség</var></title>
 	<p>Az ablak szélességének megadása.</p>
       </item>

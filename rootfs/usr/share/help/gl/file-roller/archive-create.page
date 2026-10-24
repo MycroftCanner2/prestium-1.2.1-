@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="gl">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Engadir ficheiros e cartafoles ao novo arquivo.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Fran Diéguez</mal:name>
+      <mal:email>frandieguez@gnome.org</mal:email>
+      <mal:years>2012-2022</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Crear un arquivo novo</title>
+
+  <p>Create a new archive with <app>File Roller</app> by following these
+  steps:</p>
+
+  <steps>
+    <item>
+      <p>Prema no botón de menú na esquina superior dereita da xanela e seleccione <gui style="menuitem">New arquivo</gui>.</p>
+    </item>
+    <item>
+      <p>Déalle nome ao novo arquivo e seleccione o formato de ficheiro desde a lista despregábel.</p>
+    </item>
+    <item>
+      <p>Seleccione a localización onde se gardará o ficheiro do arquivo.</p>
+    </item>
+    <item>
+      <p>Prema <gui>Crear</gui> para continuar.</p>
+      <note style="tip">
+	<p>Ao premer en <gui>Outras opcións</gui> pode estabelecer un contrasinal ou dividir o seu novo arquivo en ficheiros máis pequenos seleccionando a opción relevante e especificando o volume de cada parte en <gui>MB</gui>. Estas opcións só están dispoñíbeis se o formato de arquivo selecionado o admite.</p>
+      </note>
+    </item>
+    <item>
+      <p>Engada os ficheiros e cartafoles que queira ao arquivo premendo <gui>+</gui> no botón da barra de ferramentas. Marque o cadro a carón dos ficheiros e cartafoles que desexa engadir.</p>
+      <note style="tip">
+	<p>Non todos os formatos de ficheiro admiten cartafoles: se o formato de ficheiro que usa non é compatíbel, non se lle advertirá. Se o formato de ficheiro que esta usando non admite cartafoles, os ficheiros dos cartafoles engadiranse, pero non o cartafol en si mesmo.</p>
+      </note>
+    </item>
+    <item>
+      <p>Cando remate de engadir ficheiros, o arquivo estará listo; non ten que gardalo.</p>
+    </item>
+  </steps>
+
+</page>

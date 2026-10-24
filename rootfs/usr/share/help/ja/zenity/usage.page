@@ -106,11 +106,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>アイコンのパス</var></title>
-	<p>ダイアログのウィンドウフレームに表示するアイコンを指定します。「info」、「warning」、「question」および「error」というキーワードで提供される 4 つのストックアイコンも利用可能です。</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>幅</var></title>
 	<p>ダイアログの幅を指定します。</p>
       </item>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="gl">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+    <desc>Ver un arquivo existente e o seu contido.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Fran Diéguez</mal:name>
+      <mal:email>frandieguez@gnome.org</mal:email>
+      <mal:years>2012-2022</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Ver un arquivo</title>
+
+  <p>Hai dúas formas de ver un arquivo:</p>
+
+  <terms>
+    <item>
+      <title>Ver todos os ficheiros</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>Pode usar as cabeceiras das columnas mencionadas (nome, tamaño) para ordenar os ficheiros do arquivo. Fágao premendo sobre elas, pode inverter a orde.</p>
+      </note>
+    </item>
+    <item>
+      <title>Ver como un cartafol</title>
+      <p>Esta vista mostra a estrutura clásica de cartafoles. Para usala, prema no botón de menú na esquina superior dereita da xanela e seleccione <gui style="menuitem">Ver como un cartafol</gui>.</p>
+      <note style="tip">
+	<p>Mentres estea vendo o arquivo desta maneira, prema <key>F9</key>, ou prema o botón de menú na esquina superior dereita da xanela e seleccione <gui style="menu">Barra lateral</gui>, para ver unha vista en árbore dos cartafoles no panel lateral. Isto permítelle navegar de forma doada entre os cartafoles.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Abrir ficheiros no arquivo</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Abra o ficheiro con outra aplicación seguindo estes pasos:</p>
+      <steps>
+        <item>
+          <p>Prema co botón dereito sobre o ficheiro.</p>
+        </item>
+        <item>
+          <p>Prema en <gui style="menuitem">Abrir con…</gui>.</p>
+        </item>
+        <item>
+          <p>Seleccione a aplicación que quere usar e prema <gui style="menuitem">Seleccionar</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

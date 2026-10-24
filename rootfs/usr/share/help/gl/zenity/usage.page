@@ -106,11 +106,6 @@
       </item>
 
       <item>
-        <title><option>--window-icon</option>=<var>ruta_de_icona</var></title>
-	<p>Especifica a icona que se mostra no marco da xanela do diálogo. Hai 4 iconas dispoñíbeis, fornecendo as palabras chave seguintes - «info», «warning», «question» e «erro».</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>anchura</var></title>
 	<p>Especifica o ancho dun diálogo</p>
       </item>

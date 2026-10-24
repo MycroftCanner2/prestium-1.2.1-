@@ -8,13 +8,13 @@
     <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
       <mal:name>Piotr Drąg</mal:name>
       <mal:email>piotrdrag@gmail.com</mal:email>
-      <mal:years>2017-2019</mal:years>
+      <mal:years>2017-2023</mal:years>
     </mal:credit>
   
     <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
       <mal:name>Aviary.pl</mal:name>
       <mal:email>community-poland@mozilla.org</mal:email>
-      <mal:years>2017-2019</mal:years>
+      <mal:years>2017-2023</mal:years>
     </mal:credit>
   </info>
   <title>Okno formularza</title>
@@ -30,7 +30,7 @@
       </item>
 
       <item>
-        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+        <title><cmd>--add-password</cmd>=<var>NazwaPola</var></title>
 	<p>Dodaje nowy wpis hasła w oknie formularza (ukrywa tekst).</p>
       </item>
 

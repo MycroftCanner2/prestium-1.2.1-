@@ -12,7 +12,7 @@
     </mal:credit>
   </info>
   <title>Értesítési ikon</title>
-    <p>A <cmd>--notification</cmd> kapcsoló használatával értesítési ikont hozhat létre.</p>
+    <p>A <cmd>--notification</cmd> kapcsoló használatával passzív asztali értesítést hozhat létre.</p>
 
   <terms>
     <item>
@@ -20,11 +20,20 @@
       <p>Az értesítési területen megjelenítendő szöveg megadása.</p>
     </item>
     <item>
-      <title><cmd>--listen</cmd>=icon: '<var>szöveg</var>', message: '<var>szöveg</var>', tooltip: '<var>szöveg</var>', visible: '<var>szöveg</var>',</title>
+      <title><cmd>--icon</cmd>=<var>útvonal</var></title>
+      <p>Az értesítési ikon beállítása a rendszerben lévő érvényes ikonra mutató útvonalat tartalmazó karakterlánc használatával.</p>
+    </item>
+    <item>
+      <title><cmd>--listen</cmd></title>
       <p>Parancsokat vár a szabványos bemeneten. Legalább egy parancsot meg kell adni. A parancsokat vesszők választják el. Egy parancsot kettőspontnak és értéknek kell követnie.</p>
       <note style="tip">
-        <p>Az <cmd>icon</cmd> parancs elfogad négy alap ikonértéket is, mint az <var>error</var>, <var>info</var>, <var>question</var> és <var>warning</var>.</p>
+        <p>A <cmd>icon</cmd> parancs elfogadja a FreeDesktop.org ikonelnevezési specifikációja szerinti ikontémák névértékeit is, mint például <var>dialog-error</var>, <var>dialog-information</var> és <var>security-high</var>.</p>
       </note>
+      <p>Ilyenek például:</p>
+      <code>
+      message: Helló, a nevem János
+      icon: /usr/share/pixmaps/monitor.xpm
+      </code>
     </item>
   </terms>
 
@@ -32,8 +41,8 @@
   <code>
   #!/bin/sh
 
-  zenity --notification\
-    --window-icon="info" \
+  zenity --notification \
+    --icon="/usr/share/pixmaps/monitor.xpm" \
     --text="Rendszerfrissítés szükséges!"
   </code>
 

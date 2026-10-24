@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="pl">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Dodawanie plików i katalogów do nowego archiwum.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Piotr Drąg</mal:name>
+      <mal:email>piotrdrag@gmail.com</mal:email>
+      <mal:years>2017-2023</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Aviary.pl</mal:name>
+      <mal:email>community-poland@mozilla.org</mal:email>
+      <mal:years>2017-2023</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Tworzenie nowego archiwum</title>
+
+  <p>Aby utworzyć nowe archiwum za pomocą programu <app>File Roller</app>:</p>
+
+  <steps>
+    <item>
+      <p>Kliknij przycisk menu w górnym prawym rogu okna i wybierz <gui style="menuitem">Nowe archiwum</gui>.</p>
+    </item>
+    <item>
+      <p>Nazwij nowe archiwum i wybierz format pliku z rozwijanej listy.</p>
+    </item>
+    <item>
+      <p>Wybierz położenie, w którym archiwum zostanie zapisane.</p>
+    </item>
+    <item>
+      <p>Kliknij przycisk <gui>Utwórz</gui>, aby kontynuować.</p>
+      <note style="tip">
+	<p>Klikając <gui>Inne opcje</gui> można ustawić hasło lub podzielić nowe archiwum na kilka mniejszych zaznaczając odpowiednią opcję i podając rozmiar każdej części w <gui>megabajtach</gui>. Te opcje są dostępne tylko, jeśli wybrany format pliku archiwum je obsługuje.</p>
+      </note>
+    </item>
+    <item>
+      <p>Dodaj pliki i katalogi do archiwum klikając przycisk <gui>+</gui> na pasku nagłówka. Zaznacz pola wyboru obok plików i katalogów, które mają zostać dodane.</p>
+      <note style="tip">
+	<p>Nie wszystkie formaty archiwów obsługują katalogi, a brak obsługi nie jest sygnalizowany dla użytkownika. W takim przypadku pliki z katalogów zostaną dodane, ale same katalogu nie.</p>
+      </note>
+    </item>
+    <item>
+      <p>Po ukończeniu dodawania plików archiwum jest gotowe — nie trzeba go zapisywać.</p>
+    </item>
+  </steps>
+
+</page>

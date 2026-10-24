@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-create" xml:lang="nl">
+
+  <info>
+    <title type="sort" its:translate="no">1</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2012-01-18" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Voeg bestanden of mappen toe aan een nieuw archief.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Nathan Follens</mal:name>
+      <mal:email>nfollens@gnome.org</mal:email>
+      <mal:years>2022.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Een nieuw archief aanmaken</title>
+
+  <p>Create a new archive with <app>File Roller</app> by following these
+  steps:</p>
+
+  <steps>
+    <item>
+      <p>Druk op de menuknop in de rechterbovenhoek van het venster en selecteer <gui style="menuitem">Nieuw archief</gui>.</p>
+    </item>
+    <item>
+      <p>Geef een naam aan uw nieuwe archiefbestand en selecteer het bestandsformaat uit de keuzelijst.</p>
+    </item>
+    <item>
+      <p>Kies de locatie waar het archiefbestand opgeslagen zal worden.</p>
+    </item>
+    <item>
+      <p>Klik op <gui>Aanmaken</gui> om verder te gaan.</p>
+      <note style="tip">
+	<p>Door op <gui>Overige instellingen</gui> te klikken kunt u een wachtwoord instellen of uw nieuwe archief splitsen in kleinere, aparte bestanden door de relevantie optie te selecteren en het volume voor elk deel in <gui>MB</gui> in te stellen. Deze opties zijn enkel beschikbaar als het gekozen bestandsformaat ze ondersteunt.</p>
+      </note>
+    </item>
+    <item>
+      <p>Voeg de gewenste bestanden en mappen toe aan uw archief door op <gui>+</gui> in de kopbalk te drukken. Vink het vakje aan naast de bestanden en mappen die u wilt toevoegen.</p>
+      <note style="tip">
+	<p>Niet alle archiefbestandsformaten bieden ondersteuning voor mappen — als het bestandsformaat dat u gebruikt geen ondersteuning biedt, wordt u daarover niet gewaarschuwd. Als het bestandsformaat dat u gebruikt geen ondersteuning biedt voor mappen, zullen de bestanden in de mappen wel toegevoegd worden, maar niet de mappen zelf.</p>
+      </note>
+    </item>
+    <item>
+      <p>Wanneer u klaar bent met het toevoegen van bestanden is uw archief af; u hoeft het niet op te slaan.</p>
+    </item>
+  </steps>
+
+</page>

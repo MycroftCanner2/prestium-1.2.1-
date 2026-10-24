@@ -24,7 +24,7 @@
       </item>
 
       <item>
-        <title><cmd>--add-password</cmd>=<var>FieldName</var></title>
+        <title><cmd>--add-password</cmd>=<var>Mezőnév</var></title>
 	<p>Új jelszóbeviteli mező hozzáadása az Űrlapok ablakhoz. (szöveg elrejtése)</p>
       </item>
 

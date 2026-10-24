@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="hu">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+    <desc>Meglévő archívum és a tartalmának megjelenítése.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2012, 2013, 2014, 2016.</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Úr Balázs</mal:name>
+      <mal:email>ur.balazs at fsf dot hu</mal:email>
+      <mal:years>2014, 2018, 2021, 2024.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Meglévő archívum megjelenítése</title>
+
+  <p>Két módon jelenítheti meg az archívumot:</p>
+
+  <terms>
+    <item>
+      <title>Minden fájl megjelenítése</title>
+      <p>Nyomja meg az ablak jobb felső sarkában lévő menügombot, és válassza a <gui style="menuitem">Minden fájl megjelenítése</gui> menüpontot. A <app>Fájlhenger</app> felsorolja az archívumban található összes fájlt. Láthatja a nevüket, méretüket, típusukat, az utolsó módosításuk dátumát és a helyüket.</p>
+      <note style="tip">
+	<p>Az előbb említett oszlopfejlécek (név, méret, …) segítségével rendezheti az archívumban lévő fájlokat. Ehhez kattintson rájuk, a rendezési sorrend megfordításához pedig kattintson rájuk még egyszer.</p>
+      </note>
+    </item>
+    <item>
+      <title>Megjelenítés mappaként</title>
+      <p>Ez a nézet a klasszikus könyvtárszerkezetet jeleníti meg. A használatához nyomja meg az ablak jobb felső sarkában lévő menügombot, és válassza a <gui style="menuitem">Megjelenítés mappaként</gui> menüpontot.</p>
+      <note style="tip">
+	<p>Az archívum ilyen formában való megjelenítésekor megnyomhatja az <key>F9</key> billentyűt, vagy nyomja meg az ablak jobb felső sarkában lévő menügombot, és válassza az <gui style="menu">Oldalsáv</gui> menüpontot. Ekkor megjelenik a mappák fanézete az oldalsávban, amelynek segítségével egyszerűen navigálhat a mappák között.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Az archívumban lévő fájlok megnyitása</title>
+
+    <p>Az archívumban lévő fájlokat a fájlnévre való dupla kattintással, vagy a fájl helyi menüjének <gui style="menuitem">Megnyitás</gui> pontjának kiválasztásával nyithatja meg. A <app>Fájlhenger</app> ekkor megnyitja a fájlt az adott fájltípushoz tartozó alapértelmezett alkalmazással.</p>
+
+    <note>
+      <p>A fájl megnyitásához másik alkalmazás segítségével:</p>
+      <steps>
+        <item>
+          <p>Kattintson a jobb egérgombbal a fájlra.</p>
+        </item>
+        <item>
+          <p>Kattintson a <gui style="menuitem">Megnyitás ezzel…</gui> menüpontra.</p>
+        </item>
+        <item>
+          <p>Válassza ki a használni kívánt alkalmazást, és nyomja meg a <gui style="menuitem">Kiválasztás</gui> gombot.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>

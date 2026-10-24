@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-edit" xml:lang="nl">
+
+  <info>
+    <title type="sort" its:translate="no">3</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <link type="seealso" xref="archive-create"/>
+    <revision pkgversion="3.4" date="2011-12-08" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.12" date="2014-03-23" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <desc>Wijzig de inhoud van uw archief.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Nathan Follens</mal:name>
+      <mal:email>nfollens@gnome.org</mal:email>
+      <mal:years>2022.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Een archief bewerken</title>
+
+  <p>With <app>File Roller</app> you can edit an existing archive by adding
+  new files, removing unwanted ones or by renaming them. You can work with
+  folders in the same way as with files.</p>
+
+  <terms>
+    <item>
+      <title>Bestanden toevoegen</title>
+      <p>Voeg bestanden toe aan een bestaand archief door de instructies te volgen voor het <link xref="archive-create">aanmaken van een archief</link>.</p>
+    </item>
+    <item>
+      <title>Bestanden verwijderen</title>
+      <p>Rechterklik op het bestand en selecteer <gui style="menuitem">Verwijderen</gui>, of druk op <key>Delete</key>.</p>
+    </item>
+    <item>
+    <title>Bestanden hernoemen</title>
+      <p>Rechterklik op de bestandsnaam en selecteer <gui style="menuitem">Hernoemen…</gui>, of druk op <key>F2</key>. Voer de nieuwe bestandsnaam in in het dialoogvenster en bevestig de nieuwe naam.</p>
+    </item>
+  </terms>
+
+</page>

@@ -112,11 +112,6 @@
       </item>
 
       <item>
-        <title><cmd>--window-icon</cmd>=<var>icon_path</var></title>
-	<p>Määrittää kuvakkeen, joka näytetään ikkunan kehyksessä. Saatavilla on myös neljä valmista kuvaketta, jotka saa käyttöön seuraavilla avainsanoilla - "info" (tietoa), "warning" (varoitus), "question" (kysymys) ja "error" (virhe).</p>
-      </item>
-
-      <item>
         <title><cmd>--width</cmd>=<var>width</var></title>
 	<p>Määrittää ikkunan leveyden.</p>
       </item>

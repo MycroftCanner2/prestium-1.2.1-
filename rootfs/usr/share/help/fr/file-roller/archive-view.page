@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="archive-view" xml:lang="fr">
+
+  <info>
+    <title type="sort" its:translate="no">4</title>
+    <link type="guide" xref="index#managing-archives"/>
+    <revision pkgversion="3.4" date="2011-12-12" status="review"/>
+    <revision pkgversion="3.6" date="2012-08-05" status="review"/>
+    <revision pkgversion="3.8" date="2013-03-25" status="candidate"/>
+    <revision pkgversion="3.34" date="2020-02-09" status="candidate"/>
+
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Paternité - Partage dans les Mêmes Conditions 3.0</p>
+    </license>
+    <desc>Afficher une archive existante et son contenu.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jonathan Ernst</mal:name>
+      <mal:email>jonathan@ernstfamily.ch</mal:email>
+      <mal:years>2006</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2006-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Frédéric Péters</mal:name>
+      <mal:email>fpeters@0d.be</mal:email>
+      <mal:years>2008</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Alain Lojewski</mal:name>
+      <mal:email>allomervan@gmail.com</mal:email>
+      <mal:years>2011-2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mickael Albertus</mal:name>
+      <mal:email>mickael.albertus@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Alexandre Franke</mal:name>
+      <mal:email>alexandre.franke@gmail.com</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Charles Monzat</mal:name>
+      <mal:email>charles.monzat@free.fr</mal:email>
+      <mal:years>2020</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Guillaume Bernard</mal:name>
+      <mal:email>associations@guillaume-bernard.fr</mal:email>
+      <mal:years>2020-2021</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Affichage d’une archive</title>
+
+  <p>Il y a deux façons d’afficher une archive :</p>
+
+  <terms>
+    <item>
+      <title>Affichage de tous les fichiers</title>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">View All Files</gui>.
+      <app>File Roller</app> will list all files
+      inside the archive. You will see their names, sizes, types, dates of the
+      last modification and locations.</p>
+      <note style="tip">
+	<p>Vous pouvez utiliser les en-têtes des colonnes ci-dessus (nom, taille…) pour trier les fichiers de votre archive. Cliquez seulement dessus et une seconde fois sur le même pour inverser l’ordre de tri.</p>
+      </note>
+    </item>
+    <item>
+      <title>Affichage comme un dossier</title>
+      <p>Cette vue affiche la structure classique d’un répertoire. Pour l’obtenir, cliquez sur le bouton de menu situé dans le coin supérieur droit de la fenêtre et sélectionnez <gui style="menuitem">Afficher comme un dossier</gui>.</p>
+      <note style="tip">
+	<p>Quand vous affichez votre archive de cette façon, vous pouvez appuyer sur <key>F9</key> ou cliquer sur le bouton de menu situé dans le coin supérieur droit de la fenêtre et sélectionner <gui style="menu">Panneau latéral</gui>, pour ouvrir le panneau latéral et y afficher vos dossiers sous forme d’arborescence. Vous pouvez ainsi vous déplacer plus facilement parmi les dossiers.</p>
+      </note>
+    </item>
+  </terms>
+
+  <section id="file-open">
+    <title>Ouverture des fichiers contenus dans votre archive</title>
+
+    <p>Open files which are in your archive by double-clicking on the file
+    name, or by right-clicking on the file name and selecting
+    <gui style="menuitem">Open</gui>. <app>File Roller</app> will open the
+    file with the default application for that file type.</p>
+
+    <note>
+      <p>Pour ouvrir le fichier avec une autre application, suivez ces étapes :</p>
+      <steps>
+        <item>
+          <p>Faites un clic droit sur le fichier.</p>
+        </item>
+        <item>
+          <p>Cliquez sur <gui style="menuitem">Ouvrir avec</gui>.</p>
+        </item>
+        <item>
+          <p>Sélectionnez l’application que vous souhaitez utiliser et cliquez sur <gui style="menuitem">Sélectionner</gui>.</p>
+        </item>
+      </steps>
+    </note>
+  </section>
+
+</page>
