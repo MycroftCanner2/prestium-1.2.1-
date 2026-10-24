@@ -2,64 +2,70 @@
 #
 # This file is part of nbxmpp.
 #
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 3
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-or-later
 
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+import datetime as dt
 import logging
 
-from nbxmpp.namespaces import Namespace
-from nbxmpp.structs import StanzaHandler
-from nbxmpp.modules.date_and_time import parse_datetime
 from nbxmpp.modules.base import BaseModule
+from nbxmpp.modules.date_and_time import parse_datetime
+from nbxmpp.namespaces import Namespace
+from nbxmpp.protocol import Message
+from nbxmpp.protocol import Presence
+from nbxmpp.structs import MessageProperties
+from nbxmpp.structs import PresenceProperties
+from nbxmpp.structs import StanzaHandler
 
-log = logging.getLogger('nbxmpp.m.delay')
+if TYPE_CHECKING:
+    from nbxmpp.client import Client
+
+log = logging.getLogger("nbxmpp.m.delay")
 
 
 class Delay(BaseModule):
-    def __init__(self, client):
+    def __init__(self, client: Client) -> None:
         BaseModule.__init__(self, client)
 
         self._client = client
         self.handlers = [
-            StanzaHandler(name='message',
-                          callback=self._process_message_delay,
-                          ns=Namespace.DELAY2,
-                          priority=15),
-            StanzaHandler(name='presence',
-                          callback=self._process_presence_delay,
-                          ns=Namespace.DELAY2,
-                          priority=15)
+            StanzaHandler(
+                name="message",
+                callback=self._process_message_delay,
+                ns=Namespace.DELAY2,
+                priority=15,
+            ),
+            StanzaHandler(
+                name="presence",
+                callback=self._process_presence_delay,
+                ns=Namespace.DELAY2,
+                priority=15,
+            ),
         ]
 
-    def _process_message_delay(self, _client, stanza, properties):
+    def _process_message_delay(
+        self, _client: Client, stanza: Message, properties: MessageProperties
+    ) -> None:
+        # Determine if delay is from the server
+        # Some servers use the bare jid, others the domain
+        our_jid = self._client.get_bound_jid()
+        jids = [our_jid.bare, our_jid.domain]
+
+        if properties.from_muc:
+            muc_jid = properties.jid
+            jids += [muc_jid.bare, muc_jid.domain]
+
         if properties.is_muc_subject:
             # MUC Subjects can have a delay timestamp
             # to indicate when the user has set the subject,
             # the 'from' attr on these delays is the MUC server
             # but we treat it as user timestamp
-            jids = [properties.jid.bare,
-                    properties.jid.domain]
-
             properties.user_timestamp = parse_delay(stanza, from_=jids)
 
         else:
-            if properties.from_muc:
-                # Some servers use the MUC JID, others the domain
-                jids = [properties.jid.bare,
-                        properties.jid.domain]
-            else:
-                jids = [self._client.get_bound_jid().domain]
-
             server_delay = parse_delay(stanza, from_=jids)
             if server_delay is not None:
                 properties.has_server_delay = True
@@ -68,12 +74,20 @@ class Delay(BaseModule):
             properties.user_timestamp = parse_delay(stanza, not_from=jids)
 
     @staticmethod
-    def _process_presence_delay(_client, stanza, properties):
+    def _process_presence_delay(
+        _client: Client, stanza: Presence, properties: PresenceProperties
+    ) -> None:
         properties.user_timestamp = parse_delay(stanza)
 
 
-def parse_delay(stanza, epoch=True, convert='utc', from_=None, not_from=None):
-    '''
+def parse_delay(
+    stanza: Message | Presence,
+    epoch: bool = True,
+    convert: str = "utc",
+    from_: list[str] | None = None,
+    not_from: list[str] | None = None,
+) -> dt.datetime | float | None:
+    """
     Returns the first valid delay timestamp that matches
 
     :param epoch:      Returns the timestamp as epoch
@@ -85,17 +99,17 @@ def parse_delay(stanza, epoch=True, convert='utc', from_=None, not_from=None):
 
     :param not_from:   Matches only delays that have the according
                        from attr not set
-    '''
-    delays = stanza.getTags('delay', namespace=Namespace.DELAY2)
+    """
+    delays = stanza.getTags("delay", namespace=Namespace.DELAY2)
 
     for delay in delays:
-        stamp = delay.getAttr('stamp')
+        stamp = delay.getAttr("stamp")
         if stamp is None:
-            log.warning('Invalid timestamp received: %s', stamp)
+            log.warning("Invalid timestamp received: %s", stamp)
             log.warning(stanza)
             continue
 
-        delay_from = delay.getAttr('from')
+        delay_from = delay.getAttr("from")
         if from_ is not None:
             if delay_from not in from_:
                 continue
@@ -103,10 +117,9 @@ def parse_delay(stanza, epoch=True, convert='utc', from_=None, not_from=None):
             if delay_from in not_from:
                 continue
 
-        timestamp = parse_datetime(stamp, check_utc=True,
-                                   epoch=epoch, convert=convert)
+        timestamp = parse_datetime(stamp, check_utc=True, epoch=epoch, convert=convert)
         if timestamp is None:
-            log.warning('Invalid timestamp received: %s', stamp)
+            log.warning("Invalid timestamp received: %s", stamp)
             log.warning(stanza)
             continue
 

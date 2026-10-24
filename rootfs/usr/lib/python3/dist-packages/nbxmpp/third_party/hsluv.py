@@ -2,57 +2,44 @@
 #
 # Copyright (c) 2015 Alexei Boronine
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX-License-Identifier: MIT
 
 import math
 
-m = [[3.240969941904521, -1.537383177570093, -0.498610760293],
-     [-0.96924363628087, 1.87596750150772, 0.041555057407175],
-     [0.055630079696993, -0.20397695888897, 1.056971514242878]]
-minv = [[0.41239079926595, 0.35758433938387, 0.18048078840183],
-        [0.21263900587151, 0.71516867876775, 0.072192315360733],
-        [0.019330818715591, 0.11919477979462, 0.95053215224966]]
-refY = 1.0
-refU = 0.19783000664283
-refV = 0.46831999493879
-kappa = 903.2962962
-epsilon = 0.0088564516
-hex_chars = "0123456789abcdef"
+m = [
+    [3.240969941904521, -1.537383177570093, -0.498610760293],
+    [-0.96924363628087, 1.87596750150772, 0.041555057407175],
+    [0.055630079696993, -0.20397695888897, 1.056971514242878],
+]
+minv = [
+    [0.41239079926595, 0.35758433938387, 0.18048078840183],
+    [0.21263900587151, 0.71516867876775, 0.072192315360733],
+    [0.019330818715591, 0.11919477979462, 0.95053215224966],
+]
+REF_Y = 1.0
+REF_U = 0.19783000664283
+REF_V = 0.46831999493879
+KAPPA = 903.2962962
+EPSILON = 0.0088564516
+HEX_CHARS = "0123456789abcdef"
 
 
 def _distance_line_from_origin(line):
-    v = math.pow(line['slope'], 2) + 1
-    return math.fabs(line['intercept']) / math.sqrt(v)
+    v = math.pow(line["slope"], 2) + 1
+    return math.fabs(line["intercept"]) / math.sqrt(v)
 
 
 def _length_of_ray_until_intersect(theta, line):
-    return line['intercept'] / (math.sin(theta) -
-                                line['slope'] * math.cos(theta))
+    return line["intercept"] / (math.sin(theta) - line["slope"] * math.cos(theta))
 
 
 def _get_bounds(l):
     result = []
     sub1 = math.pow(l + 16, 3) / 1560896
-    if sub1 > epsilon:
+    if sub1 > EPSILON:
         sub2 = sub1
     else:
-        sub2 = l / kappa
+        sub2 = l / KAPPA
     _g = 0
     while _g < 3:
         c = _g
@@ -65,16 +52,17 @@ def _get_bounds(l):
             t = _g1
             _g1 = _g1 + 1
             top1 = (284517 * m1 - 94839 * m3) * sub2
-            top2 = ((838422 * m3 + 769860 * m2 + 731718 * m1) *
-                    l * sub2 - (769860 * t) * l)
+            top2 = (838422 * m3 + 769860 * m2 + 731718 * m1) * l * sub2 - (
+                769860 * t
+            ) * l
             bottom = (632260 * m3 - 126452 * m2) * sub2 + 126452 * t
-            result.append({'slope': top1 / bottom, 'intercept': top2 / bottom})
+            result.append({"slope": top1 / bottom, "intercept": top2 / bottom})
     return result
 
 
 def _max_safe_chroma_for_l(l):
     bounds = _get_bounds(l)
-    _hx_min = 1.7976931348623157e+308
+    _hx_min = 1.7976931348623157e308
     _g = 0
     while _g < 2:
         i = _g
@@ -92,11 +80,11 @@ def _max_safe_chroma_for_l(l):
 def _max_chroma_for_lh(l, h):
     hrad = h / 360 * math.pi * 2
     bounds = _get_bounds(l)
-    _hx_min = 1.7976931348623157e+308
+    _hx_min = 1.7976931348623157e308
     _g = 0
     while _g < len(bounds):
         bound = bounds[_g]
-        _g = (_g + 1)
+        _g = _g + 1
         length = _length_of_ray_until_intersect(hrad, bound)
         if length >= 0:
             if math.isnan(_hx_min):
@@ -109,14 +97,14 @@ def _max_chroma_for_lh(l, h):
 
 
 def _dot_product(a, b):
-    sum = 0
+    sum_ = 0
     _g1 = 0
     _g = len(a)
     while _g1 < _g:
         i = _g1
         _g1 = _g1 + 1
-        sum += a[i] * b[i]
-    return sum
+        sum_ += a[i] * b[i]
+    return sum_
 
 
 def _from_linear(c):
@@ -135,28 +123,33 @@ def xyz_to_rgb(_hx_tuple):
     return [
         _from_linear(_dot_product(m[0], _hx_tuple)),
         _from_linear(_dot_product(m[1], _hx_tuple)),
-        _from_linear(_dot_product(m[2], _hx_tuple))]
+        _from_linear(_dot_product(m[2], _hx_tuple)),
+    ]
 
 
 def rgb_to_xyz(_hx_tuple):
-    rgbl = [_to_linear(_hx_tuple[0]),
-            _to_linear(_hx_tuple[1]),
-            _to_linear(_hx_tuple[2])]
-    return [_dot_product(minv[0], rgbl),
-            _dot_product(minv[1], rgbl),
-            _dot_product(minv[2], rgbl)]
+    rgbl = [
+        _to_linear(_hx_tuple[0]),
+        _to_linear(_hx_tuple[1]),
+        _to_linear(_hx_tuple[2]),
+    ]
+    return [
+        _dot_product(minv[0], rgbl),
+        _dot_product(minv[1], rgbl),
+        _dot_product(minv[2], rgbl),
+    ]
 
 
 def _y_to_l(y):
-    if y <= epsilon:
-        return y / refY * kappa
-    return 116 * math.pow(y / refY, 0.333333333333333315) - 16
+    if y <= EPSILON:
+        return y / REF_Y * KAPPA
+    return 116 * math.pow(y / REF_Y, 0.333333333333333315) - 16
 
 
 def _l_to_y(l):
     if l <= 8:
-        return refY * l / kappa
-    return refY * math.pow((l + 16) / 116, 3)
+        return REF_Y * l / KAPPA
+    return REF_Y * math.pow((l + 16) / 116, 3)
 
 
 def xyz_to_luv(_hx_tuple):
@@ -175,8 +168,8 @@ def xyz_to_luv(_hx_tuple):
     l = _y_to_l(y)
     if l == 0:
         return [0, 0, 0]
-    u = 13 * l * (var_u - refU)
-    v = 13 * l * (var_v - refV)
+    u = 13 * l * (var_u - REF_U)
+    v = 13 * l * (var_v - REF_V)
     return [l, u, v]
 
 
@@ -186,8 +179,8 @@ def luv_to_xyz(_hx_tuple):
     v = float(_hx_tuple[2])
     if l == 0:
         return [0, 0, 0]
-    var_u = u / (13 * l) + refU
-    var_v = v / (13 * l) + refV
+    var_u = u / (13 * l) + REF_U
+    var_v = v / (13 * l) + REF_V
     y = _l_to_y(l)
     x = 0 - ((9 * y * var_u) / (((var_u - 4) * var_v) - var_u * var_v))
     z = (((9 * y) - (15 * var_v * y)) - (var_v * x)) / (3 * var_v)
@@ -286,23 +279,23 @@ def rgb_to_hex(_hx_tuple):
         digit2 = int(c % 16)
         digit1 = int((c - digit2) / 16)
 
-        h += hex_chars[digit1] + hex_chars[digit2]
+        h += HEX_CHARS[digit1] + HEX_CHARS[digit2]
     return h
 
 
-def hex_to_rgb(hex):
-    hex = hex.lower()
+def hex_to_rgb(hex_):
+    hex_ = hex_.lower()
     ret = []
     _g = 0
     while _g < 3:
         i = _g
         _g = _g + 1
         index = i * 2 + 1
-        _hx_str = hex[index]
-        digit1 = hex_chars.find(_hx_str)
+        _hx_str = hex_[index]
+        digit1 = HEX_CHARS.find(_hx_str)
         index1 = i * 2 + 2
-        str1 = hex[index1]
-        digit2 = hex_chars.find(str1)
+        str1 = hex_[index1]
+        digit2 = HEX_CHARS.find(str1)
         n = digit1 * 16 + digit2
         ret.append(n / 255.0)
     return ret

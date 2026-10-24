@@ -1,93 +1,82 @@
-##   dispatcher.py
-##
-##   Copyright (C) 2003-2005 Alexey "Snake" Nezhdanov
-##       modified by Dimitur Kirov <dkirov@gmail.com>
-##
-##   This program is free software; you can redistribute it and/or modify
-##   it under the terms of the GNU General Public License as published by
-##   the Free Software Foundation; either version 2, or (at your option)
-##   any later version.
-##
-##   This program is distributed in the hope that it will be useful,
-##   but WITHOUT ANY WARRANTY; without even the implied warranty of
-##   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##   GNU General Public License for more details.
-
+# Copyright (C) 2003-2005 Alexey "Snake" Nezhdanov
+#     modified by Dimitur Kirov <dkirov@gmail.com>
+#
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 """
 Main xmpp decision making logic. Provides library with methods to assign
 different handlers to different XMPP stanzas and namespaces
 """
 
-import sys
-import re
-import uuid
-import logging
 import inspect
+import logging
+import re
+import sys
+import uuid
 from xml.parsers.expat import ExpatError
 
-from nbxmpp.simplexml import NodeBuilder
-from nbxmpp.plugin import PlugIn
+from nbxmpp.modules.activity import Activity
+from nbxmpp.modules.adhoc import AdHoc
+from nbxmpp.modules.annotations import Annotations
+from nbxmpp.modules.attention import Attention
+from nbxmpp.modules.blocking import Blocking
+from nbxmpp.modules.captcha import Captcha
+from nbxmpp.modules.chat_markers import ChatMarkers
+from nbxmpp.modules.chatstates import Chatstates
+from nbxmpp.modules.correction import Correction
+from nbxmpp.modules.delay import Delay
+from nbxmpp.modules.discovery import Discovery
+from nbxmpp.modules.eme import EME
+from nbxmpp.modules.entity_caps import EntityCaps
+from nbxmpp.modules.http_auth import HTTPAuth
+from nbxmpp.modules.http_upload import HTTPUpload
+from nbxmpp.modules.ibb import IBB
+from nbxmpp.modules.idle import Idle
+from nbxmpp.modules.iq import BaseIq
+from nbxmpp.modules.location import Location
+from nbxmpp.modules.message import BaseMessage
+from nbxmpp.modules.misc import unwrap_carbon
+from nbxmpp.modules.misc import unwrap_mam
+from nbxmpp.modules.mood import Mood
+from nbxmpp.modules.muc import MUC
+from nbxmpp.modules.muclumbus import Muclumbus
+from nbxmpp.modules.nickname import Nickname
+from nbxmpp.modules.omemo import OMEMO
+from nbxmpp.modules.oob import OOB
+from nbxmpp.modules.openpgp import OpenPGP
+from nbxmpp.modules.pgplegacy import PGPLegacy
+from nbxmpp.modules.presence import BasePresence
+from nbxmpp.modules.pubsub import PubSub
+from nbxmpp.modules.receipts import Receipts
+from nbxmpp.modules.register import Register
+from nbxmpp.modules.security_labels import SecurityLabels
+from nbxmpp.modules.software_version import SoftwareVersion
+from nbxmpp.modules.tune import Tune
+from nbxmpp.modules.user_avatar import UserAvatar
+from nbxmpp.modules.vcard_avatar import VCardAvatar
 from nbxmpp.namespaces import Namespace
-from nbxmpp.protocol import NodeProcessed
+from nbxmpp.plugin import PlugIn
+from nbxmpp.protocol import ERR_FEATURE_NOT_IMPLEMENTED
+from nbxmpp.protocol import Error
 from nbxmpp.protocol import InvalidFrom
 from nbxmpp.protocol import InvalidJid
 from nbxmpp.protocol import InvalidStanza
 from nbxmpp.protocol import Iq
-from nbxmpp.protocol import Presence
 from nbxmpp.protocol import Message
-from nbxmpp.protocol import Protocol
 from nbxmpp.protocol import Node
-from nbxmpp.protocol import Error
-from nbxmpp.protocol import ERR_FEATURE_NOT_IMPLEMENTED
-from nbxmpp.modules.eme import EME
-from nbxmpp.modules.http_auth import HTTPAuth
-from nbxmpp.modules.presence import BasePresence
-from nbxmpp.modules.message import BaseMessage
-from nbxmpp.modules.iq import BaseIq
-from nbxmpp.modules.nickname import Nickname
-from nbxmpp.modules.delay import Delay
-from nbxmpp.modules.muc import MUC
-from nbxmpp.modules.idle import Idle
-from nbxmpp.modules.pgplegacy import PGPLegacy
-from nbxmpp.modules.vcard_avatar import VCardAvatar
-from nbxmpp.modules.captcha import Captcha
-from nbxmpp.modules.entity_caps import EntityCaps
-from nbxmpp.modules.blocking import Blocking
-from nbxmpp.modules.pubsub import PubSub
-from nbxmpp.modules.activity import Activity
-from nbxmpp.modules.tune import Tune
-from nbxmpp.modules.mood import Mood
-from nbxmpp.modules.location import Location
-from nbxmpp.modules.user_avatar import UserAvatar
-from nbxmpp.modules.openpgp import OpenPGP
-from nbxmpp.modules.omemo import OMEMO
-from nbxmpp.modules.annotations import Annotations
-from nbxmpp.modules.muclumbus import Muclumbus
-from nbxmpp.modules.software_version import SoftwareVersion
-from nbxmpp.modules.adhoc import AdHoc
-from nbxmpp.modules.ibb import IBB
-from nbxmpp.modules.discovery import Discovery
-from nbxmpp.modules.chat_markers import ChatMarkers
-from nbxmpp.modules.receipts import Receipts
-from nbxmpp.modules.oob import OOB
-from nbxmpp.modules.correction import Correction
-from nbxmpp.modules.attention import Attention
-from nbxmpp.modules.security_labels import SecurityLabels
-from nbxmpp.modules.chatstates import Chatstates
-from nbxmpp.modules.register import Register
-from nbxmpp.modules.http_upload import HTTPUpload
-from nbxmpp.modules.misc import unwrap_carbon
-from nbxmpp.modules.misc import unwrap_mam
+from nbxmpp.protocol import NodeProcessed
+from nbxmpp.protocol import Presence
+from nbxmpp.protocol import Protocol
+from nbxmpp.simplexml import NodeBuilder
 from nbxmpp.util import get_properties_struct
 
-
-log = logging.getLogger('nbxmpp.dispatcher')
+log = logging.getLogger("nbxmpp.dispatcher")
 
 #: default timeout to wait for response for our id
 DEFAULT_TIMEOUT_SECONDS = 25
 
-XML_DECLARATION = '<?xml version=\'1.0\'?>'
+XML_DECLARATION = "<?xml version='1.0'?>"
+
 
 # FIXME: ugly
 class Dispatcher:
@@ -105,12 +94,12 @@ class Dispatcher:
     """
 
     def PlugIn(self, client_obj, after_SASL=False, old_features=None):
-        if client_obj.protocol_type == 'XMPP':
+        if client_obj.protocol_type == "XMPP":
             XMPPDispatcher().PlugIn(client_obj)
-        elif client_obj.protocol_type == 'BOSH':
+        elif client_obj.protocol_type == "BOSH":
             BOSHDispatcher().PlugIn(client_obj, after_SASL, old_features)
         else:
-            assert False # should never be reached
+            assert False  # should never be reached
 
     @classmethod
     def get_instance(cls, *args, **kwargs):
@@ -141,28 +130,36 @@ class XMPPDispatcher(PlugIn):
         self._eventHandler = None
         self._cycleHandlers = []
         self._exported_methods = [
-            self.RegisterHandler, self.RegisterDefaultHandler,
-            self.RegisterEventHandler, self.UnregisterCycleHandler,
-            self.RegisterCycleHandler, self.RegisterHandlerOnce,
-            self.UnregisterHandler, self.RegisterProtocol,
+            self.RegisterHandler,
+            self.RegisterDefaultHandler,
+            self.RegisterEventHandler,
+            self.UnregisterCycleHandler,
+            self.RegisterCycleHandler,
+            self.RegisterHandlerOnce,
+            self.UnregisterHandler,
+            self.RegisterProtocol,
             self.SendAndCallForResponse,
-            self.getAnID, self.Event, self.send, self.get_module]
+            self.getAnID,
+            self.Event,
+            self.send,
+            self.get_module,
+        ]
 
         # \ufddo -> \ufdef range
-        c = '\ufdd0'
+        c = "\ufdd0"
         r = c
-        while c < '\ufdef':
+        while c < "\ufdef":
             c = chr(ord(c) + 1)
-            r += '|' + c
+            r += "|" + c
 
         # \ufffe-\uffff, \u1fffe-\u1ffff, ..., \u10fffe-\u10ffff
-        c = '\ufffe'
-        r += '|' + c
-        r += '|' + chr(ord(c) + 1)
-        while c < '\U0010fffe':
+        c = "\ufffe"
+        r += "|" + c
+        r += "|" + chr(ord(c) + 1)
+        while c < "\U0010fffe":
             c = chr(ord(c) + 0x10000)
-            r += '|' + c
-            r += '|' + chr(ord(c) + 1)
+            r += "|" + c
+            r += "|" + chr(ord(c) + 1)
 
         self.invalid_chars_re = re.compile(r)
 
@@ -188,43 +185,43 @@ class XMPPDispatcher(PlugIn):
         return self._modules[name]
 
     def _register_modules(self):
-        self._modules['BasePresence'] = BasePresence(self._owner)
-        self._modules['BaseMessage'] = BaseMessage(self._owner)
-        self._modules['BaseIq'] = BaseIq(self._owner)
-        self._modules['EME'] = EME(self._owner)
-        self._modules['HTTPAuth'] = HTTPAuth(self._owner)
-        self._modules['Nickname'] = Nickname(self._owner)
-        self._modules['MUC'] = MUC(self._owner)
-        self._modules['Delay'] = Delay(self._owner)
-        self._modules['Captcha'] = Captcha(self._owner)
-        self._modules['Idle'] = Idle(self._owner)
-        self._modules['PGPLegacy'] = PGPLegacy(self._owner)
-        self._modules['VCardAvatar'] = VCardAvatar(self._owner)
-        self._modules['EntityCaps'] = EntityCaps(self._owner)
-        self._modules['Blocking'] = Blocking(self._owner)
-        self._modules['PubSub'] = PubSub(self._owner)
-        self._modules['Mood'] = Mood(self._owner)
-        self._modules['Activity'] = Activity(self._owner)
-        self._modules['Tune'] = Tune(self._owner)
-        self._modules['Location'] = Location(self._owner)
-        self._modules['UserAvatar'] = UserAvatar(self._owner)
-        self._modules['OpenPGP'] = OpenPGP(self._owner)
-        self._modules['OMEMO'] = OMEMO(self._owner)
-        self._modules['Annotations'] = Annotations(self._owner)
-        self._modules['Muclumbus'] = Muclumbus(self._owner)
-        self._modules['SoftwareVersion'] = SoftwareVersion(self._owner)
-        self._modules['AdHoc'] = AdHoc(self._owner)
-        self._modules['IBB'] = IBB(self._owner)
-        self._modules['Discovery'] = Discovery(self._owner)
-        self._modules['ChatMarkers'] = ChatMarkers(self._owner)
-        self._modules['Receipts'] = Receipts(self._owner)
-        self._modules['OOB'] = OOB(self._owner)
-        self._modules['Correction'] = Correction(self._owner)
-        self._modules['Attention'] = Attention(self._owner)
-        self._modules['SecurityLabels'] = SecurityLabels(self._owner)
-        self._modules['Chatstates'] = Chatstates(self._owner)
-        self._modules['Register'] = Register(self._owner)
-        self._modules['HTTPUpload'] = HTTPUpload(self._owner)
+        self._modules["BasePresence"] = BasePresence(self._owner)
+        self._modules["BaseMessage"] = BaseMessage(self._owner)
+        self._modules["BaseIq"] = BaseIq(self._owner)
+        self._modules["EME"] = EME(self._owner)
+        self._modules["HTTPAuth"] = HTTPAuth(self._owner)
+        self._modules["Nickname"] = Nickname(self._owner)
+        self._modules["MUC"] = MUC(self._owner)
+        self._modules["Delay"] = Delay(self._owner)
+        self._modules["Captcha"] = Captcha(self._owner)
+        self._modules["Idle"] = Idle(self._owner)
+        self._modules["PGPLegacy"] = PGPLegacy(self._owner)
+        self._modules["VCardAvatar"] = VCardAvatar(self._owner)
+        self._modules["EntityCaps"] = EntityCaps(self._owner)
+        self._modules["Blocking"] = Blocking(self._owner)
+        self._modules["PubSub"] = PubSub(self._owner)
+        self._modules["Mood"] = Mood(self._owner)
+        self._modules["Activity"] = Activity(self._owner)
+        self._modules["Tune"] = Tune(self._owner)
+        self._modules["Location"] = Location(self._owner)
+        self._modules["UserAvatar"] = UserAvatar(self._owner)
+        self._modules["OpenPGP"] = OpenPGP(self._owner)
+        self._modules["OMEMO"] = OMEMO(self._owner)
+        self._modules["Annotations"] = Annotations(self._owner)
+        self._modules["Muclumbus"] = Muclumbus(self._owner)
+        self._modules["SoftwareVersion"] = SoftwareVersion(self._owner)
+        self._modules["AdHoc"] = AdHoc(self._owner)
+        self._modules["IBB"] = IBB(self._owner)
+        self._modules["Discovery"] = Discovery(self._owner)
+        self._modules["ChatMarkers"] = ChatMarkers(self._owner)
+        self._modules["Receipts"] = Receipts(self._owner)
+        self._modules["OOB"] = OOB(self._owner)
+        self._modules["Correction"] = Correction(self._owner)
+        self._modules["Attention"] = Attention(self._owner)
+        self._modules["SecurityLabels"] = SecurityLabels(self._owner)
+        self._modules["Chatstates"] = Chatstates(self._owner)
+        self._modules["Register"] = Register(self._owner)
+        self._modules["HTTPUpload"] = HTTPUpload(self._owner)
 
         for instance in self._modules.values():
             for handler in instance.handlers:
@@ -236,12 +233,12 @@ class XMPPDispatcher(PlugIn):
         """
         # FIXME: inject dependencies, do not rely that they are defined by our
         # owner
-        self.RegisterNamespace('unknown')
+        self.RegisterNamespace("unknown")
         self.RegisterNamespace(Namespace.STREAMS)
         self.RegisterNamespace(self._owner.defaultNamespace)
-        self.RegisterProtocol('iq', Iq)
-        self.RegisterProtocol('presence', Presence)
-        self.RegisterProtocol('message', Message)
+        self.RegisterProtocol("iq", Iq)
+        self.RegisterProtocol("presence", Presence)
+        self.RegisterProtocol("message", Message)
         self.RegisterDefaultHandler(self.returnStanzaHandler)
         self.RegisterEventHandler(self._owner._caller._event_dispatcher)
         self._register_modules()
@@ -255,7 +252,7 @@ class XMPPDispatcher(PlugIn):
         self._owner.lastErrNode = None
         self._owner.lastErr = None
         self._owner.lastErrCode = None
-        if hasattr(self._owner, 'StreamInit'):
+        if hasattr(self._owner, "StreamInit"):
             self._owner.StreamInit()
         else:
             self.StreamInit()
@@ -281,22 +278,22 @@ class XMPPDispatcher(PlugIn):
         self.Stream._dispatch_depth = 2
         self.Stream.stream_header_received = self._check_stream_start
         self.Stream.features = None
-        self._metastream = Node('stream:stream')
+        self._metastream = Node("stream:stream")
         self._metastream.setNamespace(self._owner.Namespace)
-        self._metastream.setAttr('version', '1.0')
-        self._metastream.setAttr('xmlns:stream', Namespace.STREAMS)
-        self._metastream.setAttr('to', self._owner.Server)
-        self._metastream.setAttr('xml:lang', self._owner.lang)
-        self._owner.send("%s%s>" % (XML_DECLARATION,
-                                    str(self._metastream)[:-2]))
+        self._metastream.setAttr("version", "1.0")
+        self._metastream.setAttr("xmlns:stream", Namespace.STREAMS)
+        self._metastream.setAttr("to", self._owner.Server)
+        self._metastream.setAttr("xml:lang", self._owner.lang)
+        self._owner.send("%s%s>" % (XML_DECLARATION, str(self._metastream)[:-2]))
 
     def _check_stream_start(self, ns, tag, _attrs):
-        if ns != Namespace.STREAMS or tag != 'stream':
-            raise ValueError('Incorrect stream start: '
-                             '(%s,%s). Terminating.' % (tag, ns))
+        if ns != Namespace.STREAMS or tag != "stream":
+            raise ValueError(
+                "Incorrect stream start: " "(%s,%s). Terminating." % (tag, ns)
+            )
 
     def replace_non_character(self, data):
-        return re.sub(self.invalid_chars_re, '\ufffd', data)
+        return re.sub(self.invalid_chars_re, "\ufffd", data)
 
     def ProcessNonBlocking(self, data):
         """
@@ -324,15 +321,15 @@ class XMPPDispatcher(PlugIn):
             self.Stream.Parse(data)
             # end stream:stream tag received
             if self.Stream and self.Stream.has_received_endtag():
-                self._owner.disconnect(self.Stream.streamError)
+                self._owner.disconnect(self.Stream.stream_error)
                 return 0
         except ExpatError as error:
-            log.error('Invalid XML received from server. Forcing disconnect.')
+            log.error("Invalid XML received from server. Forcing disconnect.")
             log.error(error)
             self._owner.Connection.disconnect()
             return 0
         except ValueError as error:
-            log.debug('ValueError: %s', error)
+            log.debug("ValueError: %s", error)
             self._owner.Connection.pollend()
             return 0
         if len(self._pendingExceptions) > 0:
@@ -340,7 +337,7 @@ class XMPPDispatcher(PlugIn):
             sys.excepthook(*_pendingException)
             return None
         if len(data) == 0:
-            return '0'
+            return "0"
         return len(data)
 
     def RegisterNamespace(self, xmlns):
@@ -353,8 +350,8 @@ class XMPPDispatcher(PlugIn):
         """
         log.debug('Registering namespace "%s"', xmlns)
         self.handlers[xmlns] = {}
-        self.RegisterProtocol('unknown', Protocol, xmlns=xmlns)
-        self.RegisterProtocol('default', Protocol, xmlns=xmlns)
+        self.RegisterProtocol("unknown", Protocol, xmlns=xmlns)
+        self.RegisterProtocol("default", Protocol, xmlns=xmlns)
 
     def RegisterProtocol(self, tag_name, proto, xmlns=None):
         """
@@ -366,16 +363,17 @@ class XMPPDispatcher(PlugIn):
         if not xmlns:
             xmlns = self._owner.defaultNamespace
         log.debug('Registering protocol "%s" as %s(%s)', tag_name, proto, xmlns)
-        self.handlers[xmlns][tag_name] = {'type': proto, 'default': []}
+        self.handlers[xmlns][tag_name] = {"type": proto, "default": []}
 
-    def RegisterNamespaceHandler(self, xmlns, handler, typ='', ns='', system=0):
+    def RegisterNamespaceHandler(self, xmlns, handler, typ="", ns="", system=0):
         """
         Register handler for processing all stanzas for specified namespace
         """
-        self.RegisterHandler('default', handler, typ, ns, xmlns, system)
+        self.RegisterHandler("default", handler, typ, ns, xmlns, system)
 
-    def RegisterHandler(self, name, handler, typ='', ns='', xmlns=None,
-                        system=False, priority=50):
+    def RegisterHandler(
+        self, name, handler, typ="", ns="", xmlns=None, system=False, priority=50
+    ):
         """
         Register user callback as stanzas handler of declared type
 
@@ -400,11 +398,17 @@ class XMPPDispatcher(PlugIn):
             xmlns = self._owner.defaultNamespace
 
         if not typ and not ns:
-            typ = 'default'
+            typ = "default"
 
         log.debug(
             'Registering handler %s for "%s" type->%s ns->%s(%s) priority->%s',
-            handler, name, typ, ns, xmlns, priority)
+            handler,
+            name,
+            typ,
+            ns,
+            xmlns,
+            priority,
+        )
 
         if xmlns not in self.handlers:
             self.RegisterNamespace(xmlns)
@@ -416,13 +420,15 @@ class XMPPDispatcher(PlugIn):
             self.handlers[xmlns][name][specific] = []
 
         self.handlers[xmlns][name][specific].append(
-            {'func': handler,
-             'system': system,
-             'priority': priority,
-             'specific': specific})
+            {
+                "func": handler,
+                "system": system,
+                "priority": priority,
+                "specific": specific,
+            }
+        )
 
-    def RegisterHandlerOnce(self, name, handler, typ='', ns='', xmlns=None,
-                            system=0):
+    def RegisterHandlerOnce(self, name, handler, typ="", ns="", xmlns=None, system=0):
         """
         Unregister handler after first call (not implemented yet)
         """
@@ -431,7 +437,7 @@ class XMPPDispatcher(PlugIn):
             xmlns = self._owner.defaultNamespace
         self.RegisterHandler(name, handler, typ, ns, xmlns, system)
 
-    def UnregisterHandler(self, name, handler, typ='', ns='', xmlns=None):
+    def UnregisterHandler(self, name, handler, typ="", ns="", xmlns=None):
         """
         Unregister handler. "typ" and "ns" must be specified exactly the same as
         with registering.
@@ -439,7 +445,7 @@ class XMPPDispatcher(PlugIn):
         if not xmlns:
             xmlns = self._owner.defaultNamespace
         if not typ and not ns:
-            typ = 'default'
+            typ = "default"
         if xmlns not in self.handlers:
             return
         if name not in self.handlers[xmlns]:
@@ -449,16 +455,26 @@ class XMPPDispatcher(PlugIn):
         if specific not in self.handlers[xmlns][name]:
             return
         for handler_dict in self.handlers[xmlns][name][specific]:
-            if handler_dict['func'] == handler:
+            if handler_dict["func"] == handler:
                 try:
                     self.handlers[xmlns][name][specific].remove(handler_dict)
                     log.debug(
                         'Unregister handler %s for "%s" type->%s ns->%s(%s)',
-                        handler, name, typ, ns, xmlns)
+                        handler,
+                        name,
+                        typ,
+                        ns,
+                        xmlns,
+                    )
                 except ValueError:
                     log.warning(
                         'Unregister failed: %s for "%s" type->%s ns->%s(%s)',
-                        handler, name, typ, ns, xmlns)
+                        handler,
+                        name,
+                        typ,
+                        ns,
+                        xmlns,
+                    )
 
     def RegisterDefaultHandler(self, handler):
         """
@@ -479,7 +495,7 @@ class XMPPDispatcher(PlugIn):
         Return stanza back to the sender with <feature-not-implemented/> error
         set
         """
-        if stanza.getType() in ('get', 'set'):
+        if stanza.getType() in ("get", "set"):
             conn._owner.send(Error(stanza, ERR_FEATURE_NOT_IMPLEMENTED))
 
     def RegisterCycleHandler(self, handler):
@@ -508,7 +524,7 @@ class XMPPDispatcher(PlugIn):
         if self._eventHandler:
             self._eventHandler(realm, event, data)
         else:
-            log.warning('Received unhandled event: %s', event)
+            log.warning("Received unhandled event: %s", event)
 
     def dispatch(self, stanza):
         """
@@ -516,7 +532,7 @@ class XMPPDispatcher(PlugIn):
         apppropriate handlers for it. Called by simplexml
         """
 
-        self.Event('', 'STANZA RECEIVED', stanza)
+        self.Event("", "STANZA RECEIVED", stanza)
 
         self.Stream._mini_dom = None
 
@@ -524,44 +540,44 @@ class XMPPDispatcher(PlugIn):
         self._owner.Smacks.count_incoming(stanza.getName())
 
         name = stanza.getName()
-        if name == 'features':
+        if name == "features":
             self._owner.got_features = True
             self.Stream.features = stanza
-        elif name == 'error':
-            if stanza.getTag('see-other-host'):
+        elif name == "error":
+            if stanza.getTag("see-other-host"):
                 self._owner.got_see_other_host = stanza
 
         xmlns = stanza.getNamespace()
 
         if xmlns not in self.handlers:
-            log.warning('Unknown namespace: %s', xmlns)
-            xmlns = 'unknown'
+            log.warning("Unknown namespace: %s", xmlns)
+            xmlns = "unknown"
         # features stanza has been handled before
         if name not in self.handlers[xmlns]:
-            if name not in ('features', 'stream'):
-                log.warning('Unknown stanza: %s', stanza)
+            if name not in ("features", "stream"):
+                log.warning("Unknown stanza: %s", stanza)
             else:
-                log.debug('Got %s / %s stanza', xmlns, name)
-            name = 'unknown'
+                log.debug("Got %s / %s stanza", xmlns, name)
+            name = "unknown"
         else:
-            log.debug('Got %s / %s stanza', xmlns, name)
+            log.debug("Got %s / %s stanza", xmlns, name)
 
         # Convert simplexml to Protocol object
         try:
-            stanza = self.handlers[xmlns][name]['type'](node=stanza)
+            stanza = self.handlers[xmlns][name]["type"](node=stanza)
         except InvalidJid:
-            log.warning('Invalid JID, ignoring stanza')
+            log.warning("Invalid JID, ignoring stanza")
             log.warning(stanza)
             return
 
         own_jid = self._owner.get_bound_jid()
         properties = get_properties_struct(name, own_jid)
 
-        if name == 'iq':
+        if name == "iq":
             if stanza.getFrom() is None and own_jid is not None:
                 stanza.setFrom(own_jid.bare)
 
-        if name == 'message':
+        if name == "message":
             # https://tools.ietf.org/html/rfc6120#section-8.1.1.1
             # If the stanza does not include a 'to' address then the client MUST
             # treat it as if the 'to' address were included with a value of the
@@ -572,7 +588,7 @@ class XMPPDispatcher(PlugIn):
                 stanza.setTo(own_jid)
 
             elif not to.bare_match(own_jid):
-                log.warning('Message addressed to someone else: %s', stanza)
+                log.warning("Message addressed to someone else: %s", stanza)
                 return
 
             if stanza.getFrom() is None:
@@ -598,20 +614,19 @@ class XMPPDispatcher(PlugIn):
                 return
 
         typ = stanza.getType()
-        if name == 'message' and not typ:
-            typ = 'normal'
+        if name == "message" and not typ:
+            typ = "normal"
         elif not typ:
-            typ = ''
+            typ = ""
 
         stanza.props = stanza.getProperties()
-        log.debug('type: %s, properties: %s', typ, stanza.props)
+        log.debug("type: %s, properties: %s", typ, stanza.props)
 
         _id = stanza.getID()
         processed = False
         if _id in self._expected:
             cb, args = self._expected[_id]
-            log.debug('Expected stanza arrived. Callback %s(%s) found',
-                      cb, args)
+            log.debug("Expected stanza arrived. Callback %s(%s) found", cb, args)
             try:
                 if args is None:
                     cb(self, stanza)
@@ -622,7 +637,7 @@ class XMPPDispatcher(PlugIn):
             return
 
         # Gather specifics depending on stanza properties
-        specifics = ['default']
+        specifics = ["default"]
         if typ and typ in self.handlers[xmlns][name]:
             specifics.append(typ)
         for prop in stanza.props:
@@ -633,24 +648,24 @@ class XMPPDispatcher(PlugIn):
 
         # Create the handler chain
         chain = []
-        chain += self.handlers[xmlns]['default']['default']
+        chain += self.handlers[xmlns]["default"]["default"]
         for specific in specifics:
             chain += self.handlers[xmlns][name][specific]
 
         # Sort chain with priority
-        chain.sort(key=lambda x: x['priority'])
+        chain.sort(key=lambda x: x["priority"])
 
         for handler in chain:
-            if not processed or handler['system']:
+            if not processed or handler["system"]:
                 try:
-                    log.info('Call handler: %s', handler['func'].__qualname__)
+                    log.info("Call handler: %s", handler["func"].__qualname__)
                     # Backwards compatibility until all handlers support
                     # properties
-                    signature = inspect.signature(handler['func'])
+                    signature = inspect.signature(handler["func"])
                     if len(signature.parameters) > 2:
-                        handler['func'](self, stanza, properties)
+                        handler["func"](self, stanza, properties)
                     else:
-                        handler['func'](self, stanza)
+                        handler["func"](self, stanza)
                 except NodeProcessed:
                     processed = True
                 except Exception:
@@ -681,13 +696,13 @@ class XMPPDispatcher(PlugIn):
             if ID is None:
                 stanza.setID(self.getAnID())
                 ID = stanza.getID()
-            if self._owner._registered_name and not stanza.getAttr('from'):
-                stanza.setAttr('from', self._owner._registered_name)
+            if self._owner._registered_name and not stanza.getAttr("from"):
+                stanza.setAttr("from", self._owner._registered_name)
 
         self._owner.Connection.send(stanza, now)
 
         # If no ID then it is a whitespace
-        if hasattr(self._owner, 'Smacks') and ID:
+        if hasattr(self._owner, "Smacks") and ID:
             self._owner.Smacks.save_in_queue(stanza)
 
         return ID
@@ -710,12 +725,12 @@ class BOSHDispatcher(XMPPDispatcher):
         self.Stream.stream_header_received = self._check_stream_start
         self.Stream.features = self.old_features
 
-        self._metastream = Node('stream:stream')
+        self._metastream = Node("stream:stream")
         self._metastream.setNamespace(self._owner.Namespace)
-        self._metastream.setAttr('version', '1.0')
-        self._metastream.setAttr('xmlns:stream', Namespace.STREAMS)
-        self._metastream.setAttr('to', self._owner.Server)
-        self._metastream.setAttr('xml:lang', self._owner.lang)
+        self._metastream.setAttr("version", "1.0")
+        self._metastream.setAttr("xmlns:stream", Namespace.STREAMS)
+        self._metastream.setAttr("to", self._owner.Server)
+        self._metastream.setAttr("xml:lang", self._owner.lang)
 
         self.restart = True
         self._owner.Connection.send_init(after_SASL=self.after_SASL)
@@ -729,20 +744,20 @@ class BOSHDispatcher(XMPPDispatcher):
     def ProcessNonBlocking(self, data=None):
         if self.restart:
             fromstream = self._metastream
-            fromstream.setAttr('from', fromstream.getAttr('to'))
-            fromstream.delAttr('to')
-            data = '%s%s>%s' % (XML_DECLARATION, str(fromstream)[:-2], data)
+            fromstream.setAttr("from", fromstream.getAttr("to"))
+            fromstream.delAttr("to")
+            data = "%s%s>%s" % (XML_DECLARATION, str(fromstream)[:-2], data)
             self.restart = False
         return XMPPDispatcher.ProcessNonBlocking(self, data)
 
     def dispatch(self, stanza):
-        if stanza.getName() == 'body' and stanza.getNamespace() == Namespace.HTTP_BIND:
+        if stanza.getName() == "body" and stanza.getNamespace() == Namespace.HTTP_BIND:
 
             stanza_attrs = stanza.getAttrs()
-            if 'authid' in stanza_attrs:
+            if "authid" in stanza_attrs:
                 # should be only in init response
                 # auth module expects id of stream in document attributes
-                self.Stream._document_attrs['id'] = stanza_attrs['authid']
+                self.Stream._document_attrs["id"] = stanza_attrs["authid"]
             self._owner.Connection.handle_body_attrs(stanza_attrs)
 
             children = stanza.getChildren()

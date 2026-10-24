@@ -2,51 +2,53 @@
 #
 # This file is part of nbxmpp.
 #
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 3
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; If not, see <http://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: GPL-3.0-or-later
 
-from nbxmpp.namespaces import Namespace
-from nbxmpp.structs import StanzaHandler
-from nbxmpp.modules.date_and_time import parse_datetime
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from nbxmpp.modules.base import BaseModule
+from nbxmpp.modules.date_and_time import parse_datetime
+from nbxmpp.namespaces import Namespace
+from nbxmpp.protocol import Presence
+from nbxmpp.structs import PresenceProperties
+from nbxmpp.structs import StanzaHandler
+
+if TYPE_CHECKING:
+    from nbxmpp.client import Client
 
 
 class Idle(BaseModule):
-    def __init__(self, client):
+    def __init__(self, client: Client) -> None:
         BaseModule.__init__(self, client)
 
         self._client = client
         self.handlers = [
-            StanzaHandler(name='presence',
-                          callback=self._process_idle,
-                          ns=Namespace.IDLE,
-                          priority=15)
+            StanzaHandler(
+                name="presence",
+                callback=self._process_idle,
+                ns=Namespace.IDLE,
+                priority=15,
+            )
         ]
 
-    def _process_idle(self, _client, stanza, properties):
-        idle_tag = stanza.getTag('idle', namespace=Namespace.IDLE)
+    def _process_idle(
+        self, _client: Client, stanza: Presence, properties: PresenceProperties
+    ) -> None:
+        idle_tag = stanza.getTag("idle", namespace=Namespace.IDLE)
         if idle_tag is None:
             return
 
-        since = idle_tag.getAttr('since')
+        since = idle_tag.getAttr("since")
         if since is None:
-            self._log.warning('No since attr in idle node')
+            self._log.warning("No since attr in idle node")
             self._log.warning(stanza)
             return
 
-        timestamp = parse_datetime(since, convert='utc', epoch=True)
+        timestamp = parse_datetime(since, convert="utc", epoch=True)
         if timestamp is None:
-            self._log.warning('Invalid timestamp received: %s', since)
+            self._log.warning("Invalid timestamp received: %s", since)
             self._log.warning(stanza)
 
         properties.idle_timestamp = timestamp
