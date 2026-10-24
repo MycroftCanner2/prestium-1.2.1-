@@ -5,10 +5,10 @@
 <title>XfceScreensaver: libxfce4ui Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="libxfce4ui Reference Manual">
-<link rel="up" href="libxfce4ui-sm.html" title="Part V. Xfce Session Management Support">
+<link rel="up" href="ch01.html" title="[Insert title here]">
 <link rel="prev" href="XfceSMClient.html" title="XfceSMClient">
-<link rel="next" href="api-index-full.html" title="Index of all symbols">
-<meta name="generator" content="GTK-Doc V1.33.1 (XML mode)">
+<link rel="next" href="XfceFilenameInput.html" title="XfceFilenameInput">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,9 +20,9 @@
                   <a href="#XfceScreensaver.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="libxfce4ui-sm.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="XfceSMClient.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="api-index-full.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="XfceFilenameInput.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="XfceScreensaver"></a><div class="titlepage"></div>
@@ -89,6 +89,11 @@
 <td class="property_name"><a class="link" href="XfceScreensaver.html#XfceScreensaver--lock-command" title="The “lock-command” property">lock-command</a></td>
 <td class="property_flags">Read / Write / Construct</td>
 </tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfceScreensaver.html#XfceScreensaver--lock-on-sleep" title="The “lock-on-sleep” property">lock-on-sleep</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
 </tbody>
 </table></div>
 </div>
@@ -125,7 +130,7 @@
 <a name="xfce-screensaver-new"></a><h3>xfce_screensaver_new ()</h3>
 <pre class="programlisting"><a class="link" href="XfceScreensaver.html" title="XfceScreensaver"><span class="returnvalue">XfceScreensaver</span></a> *
 xfce_screensaver_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>Creates a new <a class="link" href="XfceScreensaver.html" title="XfceScreensaver"><span class="type">XfceScreensaver</span></a> object or increases the refrence count
+<p>Creates a new <a class="link" href="XfceScreensaver.html" title="XfceScreensaver"><span class="type">XfceScreensaver</span></a> object or increases the reference count
 of the current object.</p>
 <div class="refsect3">
 <a name="xfce-screensaver-new.returns"></a><h4>Returns</h4>
@@ -133,7 +138,7 @@ of the current object.</p>
 <code class="function">g_object_unref()</code> when no longer used. </p>
 <p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
-<p class="since">Since: <a class="link" href="api-index-4-18.html#api-index-4.18.2">4.18.2</a></p>
+<p class="since">Since: <a class="link" href="api-index-4-18-2.html#api-index-4.18.2">4.18.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -164,13 +169,13 @@ screensaver inhibit the <a class="link" href="XfceScreensaver.html" title="XfceS
 </tr>
 <tr>
 <td class="parameter_name"><p>inhibit</p></td>
-<td class="parameter_description"><p>wether to inhibit the screensaver from activating.</p></td>
+<td class="parameter_description"><p>whether to inhibit the screensaver from activating</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since: <a class="link" href="api-index-4-18.html#api-index-4.18.2">4.18.2</a></p>
+<p class="since">Since: <a class="link" href="api-index-4-18-2.html#api-index-4.18.2">4.18.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -199,7 +204,7 @@ fallback scripts such as xdg-screensaver.</p>
 <a name="xfce-screensaver-lock.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if the lock attempt returns success, <code class="literal">FALSE</code> otherwise.</p>
 </div>
-<p class="since">Since: <a class="link" href="api-index-4-18.html#api-index-4.18.2">4.18.2</a></p>
+<p class="since">Since: <a class="link" href="api-index-4-18-2.html#api-index-4.18.2">4.18.2</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -214,23 +219,32 @@ fallback scripts such as xdg-screensaver.</p>
 <div class="refsect2">
 <a name="XfceScreensaver--heartbeat-command"></a><h3>The <code class="literal">“heartbeat-command”</code> property</h3>
 <pre class="programlisting">  “heartbeat-command”        <span class="type">char</span> *</pre>
-<p>Inhibit the screensaver from activating, i.e. xscreensaver-command -deactivate.</p>
+<p>Inhibit the screensaver from activating, e.g. xscreensaver-command --deactivate.</p>
 <p>Owner: XfceScreensaver</p>
 <p>Flags: Read / Write / Construct</p>
-<p>Default value: "xscreensaver-command -deactivate"</p>
+<p>Default value: NULL</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="XfceScreensaver--lock-command"></a><h3>The <code class="literal">“lock-command”</code> property</h3>
 <pre class="programlisting">  “lock-command”             <span class="type">char</span> *</pre>
-<p>Lock the desktop, i.e. xscreensaver-command -lock.</p>
+<p>Lock the desktop, e.g. xscreensaver-command --lock.</p>
 <p>Owner: XfceScreensaver</p>
 <p>Flags: Read / Write / Construct</p>
-<p>Default value: "xscreensaver-command -lock"</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfceScreensaver--lock-on-sleep"></a><h3>The <code class="literal">“lock-on-sleep”</code> property</h3>
+<pre class="programlisting">  “lock-on-sleep”            <span class="type">gboolean</span></pre>
+<p>Whether to lock before suspend/hibernate.</p>
+<p>Owner: XfceScreensaver</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: FALSE</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.33.1</div>
+<hr>Generated by GTK-Doc V1.34.0</div>
 </body>
 </html>

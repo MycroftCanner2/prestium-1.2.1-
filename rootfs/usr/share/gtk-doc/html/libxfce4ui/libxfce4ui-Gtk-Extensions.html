@@ -5,10 +5,10 @@
 <title>Gtk Extensions: libxfce4ui Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="libxfce4ui Reference Manual">
-<link rel="up" href="libxfce4ui-extensions.html" title="Part III. Xfce UI Extensions">
+<link rel="up" href="ch01.html" title="[Insert title here]">
 <link rel="prev" href="libxfce4ui-Gdk-Extensions.html" title="Gdk Extensions">
-<link rel="next" href="libxfce4ui-widgets.html" title="Part IV. Xfce UI Widget">
-<meta name="generator" content="GTK-Doc V1.33.1 (XML mode)">
+<link rel="next" href="libxfce4ui-XfceDialogs.html" title="XfceDialogs">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,9 +18,9 @@
                   <a href="#libxfce4ui-Gtk-Extensions.description" class="shortcut">Description</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="libxfce4ui-extensions.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="libxfce4ui-Gdk-Extensions.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="libxfce4ui-widgets.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="libxfce4ui-XfceDialogs.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="libxfce4ui-Gtk-Extensions"></a><div class="titlepage"></div>
@@ -181,14 +181,6 @@ justifications.
 <span class="returnvalue">void</span>
 </td>
 <td class="function_name">
-<a class="link" href="libxfce4ui-Gtk-Extensions.html#xfce-gtk-menu-append-seperator" title="xfce_gtk_menu_append_seperator ()">xfce_gtk_menu_append_seperator</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
 <a class="link" href="libxfce4ui-Gtk-Extensions.html#xfce-gtk-menu-append-separator" title="xfce_gtk_menu_append_separator ()">xfce_gtk_menu_append_separator</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
@@ -339,28 +331,28 @@ xfce_gtk_menu_item_new (<em class="parameter"><code>const <span class="type">gch
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip_text</p></td>
-<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
 <td class="parameter_description"><p><span class="type">GCallback</span> which will be triggered on activation, or NULL. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or NULL.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_to_append_item</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -368,7 +360,7 @@ xfce_gtk_menu_item_new (<em class="parameter"><code>const <span class="type">gch
 <div class="refsect3">
 <a name="xfce-gtk-menu-item-new.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkMenuItem</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -401,33 +393,33 @@ In order to prevent G_GNUC_BEGIN_IGNORE_DEPRECATIONS in all xfce projects, this 
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip_text</p></td>
-<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
 <td class="parameter_description"><p><span class="type">GCallback</span> which will be triggered on activation, or NULL. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or NULL.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>image</p></td>
-<td class="parameter_description"><p>a widget to set as the image for the menu item, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>a widget to set as the image for the menu item, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_to_append_item</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -435,7 +427,7 @@ In order to prevent G_GNUC_BEGIN_IGNORE_DEPRECATIONS in all xfce projects, this 
 <div class="refsect3">
 <a name="xfce-gtk-image-menu-item-new.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkImageMenuItem</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -468,33 +460,33 @@ xfce_gtk_image_menu_item_new_from_icon_name
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip_text</p></td>
-<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
 <td class="parameter_description"><p><span class="type">GCallback</span> which will be triggered on activation, or NULL. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or NULL.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_name</p></td>
-<td class="parameter_description"><p>name of the icon to use for the <span class="type">GtkImageMenuItem</span>, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>name of the icon to use for the <span class="type">GtkImageMenuItem</span>, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_to_append_item</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -502,7 +494,7 @@ xfce_gtk_image_menu_item_new_from_icon_name
 <div class="refsect3">
 <a name="xfce-gtk-image-menu-item-new-from-icon-name.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkImageMenuItem</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -534,23 +526,23 @@ xfce_gtk_check_menu_item_new (<em class="parameter"><code>const <span class="typ
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip_text</p></td>
-<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
 <td class="parameter_description"><p><span class="type">GCallback</span> which will be triggered on activation, or NULL. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or NULL.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>active</p></td>
@@ -559,8 +551,8 @@ xfce_gtk_check_menu_item_new (<em class="parameter"><code>const <span class="typ
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_to_append_item</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -568,7 +560,7 @@ xfce_gtk_check_menu_item_new (<em class="parameter"><code>const <span class="typ
 <div class="refsect3">
 <a name="xfce-gtk-check-menu-item-new.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkCheckMenuItem</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -601,23 +593,23 @@ In order to simplify usage, a <span class="type">GtkCheckMenuItem</span> is crea
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip_text</p></td>
-<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Tooltip to add on the passed item, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
 <td class="parameter_description"><p><span class="type">GCallback</span> which will be triggered on activation, or NULL. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or NULL.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>active</p></td>
@@ -626,8 +618,8 @@ In order to simplify usage, a <span class="type">GtkCheckMenuItem</span> is crea
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_to_append_item</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -635,7 +627,7 @@ In order to simplify usage, a <span class="type">GtkCheckMenuItem</span> is crea
 <div class="refsect3">
 <a name="xfce-gtk-radio-menu-item-new.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkCheckMenuItem</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -664,13 +656,13 @@ xfce_gtk_menu_item_new_from_action_entry
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or NULL.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_to_append_item</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -678,7 +670,7 @@ xfce_gtk_menu_item_new_from_action_entry
 <div class="refsect3">
 <a name="xfce-gtk-menu-item-new-from-action-entry.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkMenuItem</span> or NULL. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -708,8 +700,8 @@ xfce_gtk_toggle_menu_item_new_from_action_entry
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or NULL.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>active</p></td>
@@ -718,8 +710,8 @@ xfce_gtk_toggle_menu_item_new_from_action_entry
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_to_append_item</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the item should be appended, or NULL. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -727,7 +719,7 @@ xfce_gtk_toggle_menu_item_new_from_action_entry
 <div class="refsect3">
 <a name="xfce-gtk-toggle-menu-item-new-from-action-entry.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkMenuItem</span> or NULL. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -756,8 +748,8 @@ xfce_gtk_tool_button_new_from_action_entry
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or <code class="literal">NULL</code>.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>toolbar_to_append_item</p></td>
@@ -770,7 +762,7 @@ xfce_gtk_tool_button_new_from_action_entry
 <div class="refsect3">
 <a name="xfce-gtk-tool-button-new-from-action-entry.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkToolButton</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -800,8 +792,8 @@ xfce_gtk_toggle_tool_button_new_from_action_entry
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_param</p></td>
-<td class="parameter_description"><p>optional callback parameter, or <code class="literal">NULL</code>.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>optional callback parameter, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>active</p></td>
@@ -819,9 +811,9 @@ xfce_gtk_toggle_tool_button_new_from_action_entry
 <div class="refsect3">
 <a name="xfce-gtk-toggle-tool-button-new-from-action-entry.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkToggleToolButton</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
-<p class="since">Since: <a class="link" href="api-index-4-18.html#api-index-4.17.6">4.17.6</a></p>
+<p class="since">Since: <a class="link" href="api-index-4-17-6.html#api-index-4.17.6">4.17.6</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -975,7 +967,7 @@ xfce_gtk_get_action_entry_by_id (<em class="parameter"><code>const <a class="lin
 <div class="refsect3">
 <a name="xfce-gtk-get-action-entry-by-id.returns"></a><h4>Returns</h4>
 <p>The matching <a class="link" href="libxfce4ui-Gtk-Extensions.html#XfceGtkActionEntry" title="XfceGtkActionEntry"><span class="type">XfceGtkActionEntry</span></a> or NULL if not found. </p>
-<p><span class="annotation">[<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
 </div>
@@ -1061,7 +1053,7 @@ Tab sometimes becomes ISO_Left_Tab (e.g. in Ctrl+Shift+Tab) so check both here.<
 </div>
 <div class="refsect3">
 <a name="xfce-gtk-handle-tab-accels.returns"></a><h4>Returns</h4>
-<p> a boolean that is TRUE if the event was handled, otherwise it is FALSE</p>
+<p> a boolean that is GDK_EVENT_STOP (TRUE) if the event was handled, otherwise it is GDK_EVENT_PROPAGATE (FALSE)</p>
 </div>
 </div>
 <hr>
@@ -1116,29 +1108,6 @@ exists in <em class="parameter"><code>entries</code></em>
 </div>
 <hr>
 <div class="refsect2">
-<a name="xfce-gtk-menu-append-seperator"></a><h3>xfce_gtk_menu_append_seperator ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-xfce_gtk_menu_append_seperator (<em class="parameter"><code><span class="type">GtkMenuShell</span> *menu</code></em>);</pre>
-<p>Convenience method do add separators, used to prevent code duplication</p>
-<div class="refsect3">
-<a name="xfce-gtk-menu-append-seperator.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>menu</p></td>
-<td class="parameter_description"><p><span class="type">GtkMenuShell</span> on which the separator should be appended</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<p class="since">Since: <a class="link" href="api-index-4-16.html#api-index-4.16">4.16</a></p>
-</div>
-<hr>
-<div class="refsect2">
 <a name="xfce-gtk-menu-append-separator"></a><h3>xfce_gtk_menu_append_separator ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 xfce_gtk_menu_append_separator (<em class="parameter"><code><span class="type">GtkMenuShell</span> *menu</code></em>);</pre>
@@ -1185,14 +1154,14 @@ is added for <a class="link" href="libxfce4ui-XfceDialogs.html#xfce-message-dial
 <tbody>
 <tr>
 <td class="parameter_name"><p>stock_id</p></td>
-<td class="parameter_description"><p>the name of the stock item.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>the name of the stock item. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>label</p></td>
-<td class="parameter_description"><p>the text of the button, with an underscore in front of
-the mnemonic character.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>the text of the button, with an underscore
+in front of the mnemonic character. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1200,7 +1169,7 @@ the mnemonic character.</p></td>
 <div class="refsect3">
 <a name="xfce-gtk-button-new-mixed.returns"></a><h4>Returns</h4>
 <p>the newly created <span class="type">GtkButton</span> widget. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -1233,7 +1202,7 @@ a <span class="type">GtkAlignment</span> widget to which children of the frame s
 <tr>
 <td class="parameter_name"><p>container_return</p></td>
 <td class="parameter_description"><p>return location for the frame's container. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1241,7 +1210,7 @@ a <span class="type">GtkAlignment</span> widget to which children of the frame s
 <div class="refsect3">
 <a name="xfce-gtk-frame-box-new.returns"></a><h4>Returns</h4>
 <p>the newly created <span class="type">GtkFrame</span> widget. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -1278,7 +1247,7 @@ xfce_gtk_frame_box_new_with_content (<em class="parameter"><code>const <span cla
 <div class="refsect3">
 <a name="xfce-gtk-frame-box-new-with-content.returns"></a><h4>Returns</h4>
 <p>the newly created <span class="type">GtkFrame</span> widget. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -1363,22 +1332,22 @@ caused the initiation of the popup. Only if no such event is available,
 <tr>
 <td class="parameter_name"><p>parent_menu_shell</p></td>
 <td class="parameter_description"><p>the menu shell containing the triggering menu item, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent_menu_item</p></td>
 <td class="parameter_description"><p>the menu item whose activation triggered the popup, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
 <td class="parameter_description"><p>a user supplied function used to position the menu, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
 <td class="parameter_description"><p>user supplied data to be passed to func. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>button</p></td>
@@ -1518,8 +1487,8 @@ xfce_gtk_menu_item_set_accel_label (<em class="parameter"><code><span class="typ
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL to show no accelerator</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>Unique path, used to identify the accelerator, or NULL to show no accelerator. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1651,17 +1620,17 @@ To be extended if required.</p>
 <div class="refsect2">
 <a name="XfceGtkActionEntry"></a><h3>XfceGtkActionEntry</h3>
 <pre class="programlisting">typedef struct {
-  guint            id;
-  const gchar     *accel_path;
-  const gchar     *default_accelerator;
+  guint id;
+  const gchar *accel_path;
+  const gchar *default_accelerator;
 
   /* menu_item data is optional, only relevant if there exists a menu_item for that accelerator */
-  XfceGtkMenuItem  menu_item_type;
-  gchar           *menu_item_label_text;
-  gchar           *menu_item_tooltip_text;
-  const gchar     *menu_item_icon_name;
+  XfceGtkMenuItem menu_item_type;
+  gchar *menu_item_label_text;
+  gchar *menu_item_tooltip_text;
+  const gchar *menu_item_icon_name;
 
-  GCallback        callback;
+  GCallback callback;
 } XfceGtkActionEntry;
 </pre>
 <p>Replacement for the deprecated <span class="type">GtkActionEntry</span>.
@@ -1729,6 +1698,6 @@ to signal that the accelerator was activated and handled</p></td>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.33.1</div>
+<hr>Generated by GTK-Doc V1.34.0</div>
 </body>
 </html>

@@ -5,10 +5,10 @@
 <title>Spawn: libxfce4ui Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="libxfce4ui Reference Manual">
-<link rel="up" href="libxfce4ui-fundamentals.html" title="Part II. Xfce Fundamentals">
+<link rel="up" href="ch01.html" title="[Insert title here]">
 <link rel="prev" href="libxfce4ui-libxfce4ui-config.html" title="libxfce4ui config">
-<link rel="next" href="libxfce4ui-extensions.html" title="Part III. Xfce UI Extensions">
-<meta name="generator" content="GTK-Doc V1.33.1 (XML mode)">
+<link rel="next" href="libxfce4ui-Gdk-Extensions.html" title="Gdk Extensions">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,9 +18,9 @@
                   <a href="#libxfce4ui-Spawn.description" class="shortcut">Description</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="libxfce4ui-fundamentals.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="libxfce4ui-libxfce4ui-config.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="libxfce4ui-extensions.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="libxfce4ui-Gdk-Extensions.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="libxfce4ui-Spawn"></a><div class="titlepage"></div>
@@ -121,7 +121,7 @@ child's exit status. This because only one <code class="function">g_child_watch_
 Unix (per PID) and this is already internally needed for a proper
 startup notification implementation.</p>
 <div class="example">
-<a name="id-1.3.3.7.2.5"></a><p class="title"><b>Example 2. Spawning with a child watch</b></p>
+<a name="id-1.2.3.7.2.5"></a><p class="title"><b>Example 2. Spawning with a child watch</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -181,13 +181,13 @@ startup notification implementation.</p>
 <td class="parameter_name"><p>screen</p></td>
 <td class="parameter_description"><p>a <span class="type">GdkScreen</span> or <code class="literal">NULL</code> to use the active screen,
 see <a class="link" href="libxfce4ui-Gdk-Extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>working_directory</p></td>
 <td class="parameter_description"><p>child's current working directory or <code class="literal">NULL</code> to
 inherit parent's. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
@@ -198,7 +198,7 @@ inherit parent's. </p></td>
 <td class="parameter_name"><p>envp</p></td>
 <td class="parameter_description"><p>child's environment vector or <code class="literal">NULL</code> to inherit
 parent's. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>flags</p></td>
@@ -226,18 +226,18 @@ available 0 is valid too.</p></td>
 <tr>
 <td class="parameter_name"><p>startup_icon_name</p></td>
 <td class="parameter_description"><p>application icon or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>child_watch_closure</p></td>
 <td class="parameter_description"><p>closure that is triggered when the child exists
 or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
 <td class="parameter_description"><p>return location for errors or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -280,13 +280,13 @@ xfce_spawn_on_screen (<em class="parameter"><code><span class="type">GdkScreen</
 <td class="parameter_name"><p>screen</p></td>
 <td class="parameter_description"><p>a <span class="type">GdkScreen</span> or <code class="literal">NULL</code> to use the active screen,
 see <a class="link" href="libxfce4ui-Gdk-Extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>working_directory</p></td>
 <td class="parameter_description"><p>child's current working directory or <code class="literal">NULL</code> to
 inherit parent's. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
@@ -297,7 +297,7 @@ inherit parent's. </p></td>
 <td class="parameter_name"><p>envp</p></td>
 <td class="parameter_description"><p>child's environment vector or <code class="literal">NULL</code> to inherit
 parent's. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>flags</p></td>
@@ -324,12 +324,12 @@ available 0 is valid too.</p></td>
 <tr>
 <td class="parameter_name"><p>startup_icon_name</p></td>
 <td class="parameter_description"><p>application icon or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
 <td class="parameter_description"><p>return location for errors or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -369,13 +369,13 @@ xfce_spawn (<em class="parameter"><code><span class="type">GdkScreen</span> *scr
 <td class="parameter_name"><p>screen</p></td>
 <td class="parameter_description"><p>a <span class="type">GdkScreen</span> or <code class="literal">NULL</code> to use the active screen,
 see <a class="link" href="libxfce4ui-Gdk-Extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>working_directory</p></td>
 <td class="parameter_description"><p>child's current working directory or <code class="literal">NULL</code> to
 inherit parent's. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
@@ -386,7 +386,7 @@ inherit parent's. </p></td>
 <td class="parameter_name"><p>envp</p></td>
 <td class="parameter_description"><p>child's environment vector or <code class="literal">NULL</code> to inherit
 parent's. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>flags</p></td>
@@ -413,7 +413,7 @@ available 0 is valid too.</p></td>
 <tr>
 <td class="parameter_name"><p>startup_icon_name</p></td>
 <td class="parameter_description"><p>application icon or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>child_process</p></td>
@@ -424,7 +424,7 @@ available 0 is valid too.</p></td>
 <tr>
 <td class="parameter_name"><p>error</p></td>
 <td class="parameter_description"><p>return location for errors or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -466,7 +466,7 @@ to the standard error output.</p>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
 <td class="parameter_description"><p>a <span class="type">GdkScreen</span> or <code class="literal">NULL</code> to use the active screen, see <a class="link" href="libxfce4ui-Gdk-Extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>command_line</p></td>
@@ -487,7 +487,7 @@ in a terminal.</p></td>
 <tr>
 <td class="parameter_name"><p>error</p></td>
 <td class="parameter_description"><p>location for a <span class="type">GError</span> or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -527,7 +527,7 @@ to the standard error output.</p>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
 <td class="parameter_description"><p>a <span class="type">GdkScreen</span> or <code class="literal">NULL</code> to use the active screen, see <a class="link" href="libxfce4ui-Gdk-Extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>command_line</p></td>
@@ -553,7 +553,7 @@ in a terminal.</p></td>
 <tr>
 <td class="parameter_name"><p>error</p></td>
 <td class="parameter_description"><p>location for a <span class="type">GError</span> or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -570,6 +570,6 @@ is set.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.33.1</div>
+<hr>Generated by GTK-Doc V1.34.0</div>
 </body>
 </html>

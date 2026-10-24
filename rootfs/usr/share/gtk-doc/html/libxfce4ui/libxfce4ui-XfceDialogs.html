@@ -5,10 +5,10 @@
 <title>XfceDialogs: libxfce4ui Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="libxfce4ui Reference Manual">
-<link rel="up" href="libxfce4ui-widgets.html" title="Part IV. Xfce UI Widget">
-<link rel="prev" href="libxfce4ui-widgets.html" title="Part IV. Xfce UI Widget">
-<link rel="next" href="XfceFilenameInput.html" title="XfceFilenameInput">
-<meta name="generator" content="GTK-Doc V1.33.1 (XML mode)">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4ui-Gtk-Extensions.html" title="Gtk Extensions">
+<link rel="next" href="XfceTitledDialog.html" title="XfceTitledDialog">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,9 +18,9 @@
                   <a href="#libxfce4ui-XfceDialogs.description" class="shortcut">Description</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="libxfce4ui-widgets.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="libxfce4ui-widgets.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="XfceFilenameInput.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4ui-Gtk-Extensions.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfceTitledDialog.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="libxfce4ui-XfceDialogs"></a><div class="titlepage"></div>
@@ -219,7 +219,7 @@ following format <em class="parameter"><code>type</code></em>
 <p>To clarify this behaviour see the example below. We create a dialog with
 two stock buttons, a <span class="type">GdkPixbuf</span> button and a mixed button.</p>
 <div class="example">
-<a name="id-1.5.2.8.2.8"></a><p class="title"><b>Example 3. Creating a Xfce Message Dialog</b></p>
+<a name="id-1.2.6.8.2.8"></a><p class="title"><b>Example 3. Creating a Xfce Message Dialog</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -256,7 +256,9 @@ two stock buttons, a <span class="type">GdkPixbuf</span> button and a mixed butt
 </div>
 
 </div>
-<br class="example-break"><div class="refsect3">
+<br class="example-break"><p>The caller is responsible for destroying the dialog with <code class="function">gtk_widget_destroy()</code>
+when it is no longer required.</p>
+<div class="refsect3">
 <a name="xfce-message-dialog-new.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
@@ -268,12 +270,12 @@ two stock buttons, a <span class="type">GdkPixbuf</span> button and a mixed butt
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>title</p></td>
 <td class="parameter_description"><p>title of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>stock_id</p></td>
@@ -306,7 +308,7 @@ two stock buttons, a <span class="type">GdkPixbuf</span> button and a mixed butt
 <div class="refsect3">
 <a name="xfce-message-dialog-new.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkMessageDialog</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -334,12 +336,12 @@ language bindings to use.</p>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>title</p></td>
 <td class="parameter_description"><p>title of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_stock_id</p></td>
@@ -372,7 +374,7 @@ language bindings to use.</p>
 <div class="refsect3">
 <a name="xfce-message-dialog-new-valist.returns"></a><h4>Returns</h4>
 <p>A new <span class="type">GtkMessageDialog</span>. </p>
-<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -401,12 +403,12 @@ dialog using <span class="type">gtk_dialog_run</span> and return the response id
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>title</p></td>
 <td class="parameter_description"><p>title of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>stock_id</p></td>
@@ -469,26 +471,26 @@ is also send to the server: user language and the <a href="/usr/share/gtk-doc/ht
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>component</p></td>
 <td class="parameter_description"><p>name of the component opening the help page or <code class="literal">NULL</code>. If the
 value is <code class="literal">NULL</code> the target will be the main page of the
 documentation website. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>page</p></td>
 <td class="parameter_description"><p>subpage of the <em class="parameter"><code>component</code></em>
 on the website or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>offset</p></td>
 <td class="parameter_description"><p>anchor offset in <em class="parameter"><code>page</code></em>
 or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -526,31 +528,31 @@ or <em class="parameter"><code>version</code></em>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>component</p></td>
 <td class="parameter_description"><p>name of the component opening the help page or <code class="literal">NULL</code>. If the
 value is <code class="literal">NULL</code> the target will be the main page of the
 documentation website. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>page</p></td>
 <td class="parameter_description"><p>subpage of the <em class="parameter"><code>component</code></em>
 on the website or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>offset</p></td>
 <td class="parameter_description"><p>anchor offset in <em class="parameter"><code>page</code></em>
 or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>version</p></td>
 <td class="parameter_description"><p>alternative version, or <code class="literal">NULL</code> to use <a href="/usr/share/gtk-doc/html/libxfce4util/libxfce4util-Version-Information.html#xfce-version-string"><code class="function">xfce_version_string()</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -580,12 +582,12 @@ xfce_dialog_show_info (<em class="parameter"><code><span class="type">GtkWindow<
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>secondary_text</p></td>
 <td class="parameter_description"><p>secondary text of the dialog or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>primary_format</p></td>
@@ -625,12 +627,12 @@ xfce_dialog_show_warning (<em class="parameter"><code><span class="type">GtkWind
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>secondary_text</p></td>
 <td class="parameter_description"><p>secondary text of the dialog or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>primary_format</p></td>
@@ -672,12 +674,12 @@ displaying <em class="parameter"><code>error</code></em>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
 <td class="parameter_description"><p>a <span class="type">GError</span>, which gives a more precise description of the problem or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>primary_format</p></td>
@@ -721,7 +723,7 @@ button text can be set by <em class="parameter"><code>action</code></em>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>stock_id</p></td>
@@ -732,23 +734,23 @@ button text can be set by <em class="parameter"><code>action</code></em>
 <td class="parameter_name"><p>confirm_label</p></td>
 <td class="parameter_description"><p>if non-<code class="literal">NULL</code>, this text is used on the confirm button together with the <em class="parameter"><code>stock_id</code></em>
 icon. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>secondary_text</p></td>
 <td class="parameter_description"><p>secondary text in the dialog. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>primary_format</p></td>
 <td class="parameter_description"><p>the <code class="function">printf()</code>-style format for the dialog question. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>...</p></td>
 <td class="parameter_description"><p>argument list for the <em class="parameter"><code>primary_format</code></em>
 . </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -797,7 +799,7 @@ may be <code class="literal">NULL</code>.</p>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
 <td class="parameter_description"><p>transient parent of the dialog, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>num_tabs</p></td>
@@ -812,7 +814,7 @@ may be <code class="literal">NULL</code>.</p>
 <tr>
 <td class="parameter_name"><p>confirm_box_checked</p></td>
 <td class="parameter_description"><p>state of confirmation checkbox. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -830,7 +832,7 @@ and <span class="type">GTK_RESPONSE_NONE</span> for an error.</p>
 <a name="libxfce4ui-XfceDialogs.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="XFCE-BUTTON-TYPE-MIXED:CAPS"></a><h3>XFCE_BUTTON_TYPE_MIXED</h3>
-<pre class="programlisting">#define XFCE_BUTTON_TYPE_MIXED  "button-mixed"
+<pre class="programlisting">#define XFCE_BUTTON_TYPE_MIXED "button-mixed"
 </pre>
 <p>This allows you to easily create mixed buttons in a dialog.
 param1 is used for the stock_id, param2 for the label and
@@ -848,6 +850,6 @@ param3 for the response_id.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.33.1</div>
+<hr>Generated by GTK-Doc V1.34.0</div>
 </body>
 </html>
