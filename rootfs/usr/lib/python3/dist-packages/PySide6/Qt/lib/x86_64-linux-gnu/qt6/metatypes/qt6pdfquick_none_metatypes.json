@@ -1,0 +1,857 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PdfBookmarkModel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1540"
+                    }
+                ],
+                "className": "QQuickPdfBookmarkModel",
+                "lineNumber": 26,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "document",
+                        "notify": "documentChanged",
+                        "read": "document",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickPdfDocument*",
+                        "user": false,
+                        "write": "setDocument"
+                    }
+                ],
+                "qualifiedClassName": "QQuickPdfBookmarkModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "documentChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPdfBookmarkModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpdfbookmarkmodel_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PdfDocument"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QPdfDocument"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1295"
+                    }
+                ],
+                "className": "QQuickPdfDocument",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 30,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "source",
+                        "notify": "sourceChanged",
+                        "read": "source",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "write": "setSource"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "maxPageWidth",
+                        "notify": "metaDataChanged",
+                        "read": "maxPageWidth",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "name": "maxPageHeight",
+                        "notify": "metaDataChanged",
+                        "read": "maxPageHeight",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "name": "error",
+                        "notify": "errorChanged",
+                        "read": "error",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "name": "title",
+                        "notify": "metaDataChanged",
+                        "read": "title",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "name": "subject",
+                        "notify": "metaDataChanged",
+                        "read": "subject",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "name": "author",
+                        "notify": "metaDataChanged",
+                        "read": "author",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 7,
+                        "name": "keywords",
+                        "notify": "metaDataChanged",
+                        "read": "keywords",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 8,
+                        "name": "producer",
+                        "notify": "metaDataChanged",
+                        "read": "producer",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 9,
+                        "name": "creator",
+                        "notify": "metaDataChanged",
+                        "read": "creator",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 10,
+                        "name": "creationDate",
+                        "notify": "metaDataChanged",
+                        "read": "creationDate",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QDateTime",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 11,
+                        "name": "modificationDate",
+                        "notify": "metaDataChanged",
+                        "read": "modificationDate",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QDateTime",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickPdfDocument",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "sourceChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "errorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "metaDataChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpdfdocument_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PdfLinkModel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1295"
+                    }
+                ],
+                "className": "QQuickPdfLinkModel",
+                "lineNumber": 26,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "document",
+                        "notify": "documentChanged",
+                        "read": "document",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickPdfDocument*",
+                        "user": false,
+                        "write": "setDocument"
+                    }
+                ],
+                "qualifiedClassName": "QQuickPdfLinkModel",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPdfLinkModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpdflinkmodel_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PdfPageImage"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1540"
+                    }
+                ],
+                "className": "QQuickPdfPageImage",
+                "lineNumber": 25,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "document",
+                        "notify": "documentChanged",
+                        "read": "document",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickPdfDocument*",
+                        "user": false,
+                        "write": "setDocument"
+                    }
+                ],
+                "qualifiedClassName": "QQuickPdfPageImage",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "documentChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickImage"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpdfpageimage_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Foreign",
+                        "value": "QPdfLink"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "pdfLink"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1540"
+                    }
+                ],
+                "className": "QPdfLinkForeign",
+                "gadget": true,
+                "lineNumber": 26,
+                "qualifiedClassName": "QPdfLinkForeign"
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Extended",
+                        "value": "QPdfPageNavigator"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "PdfPageNavigator"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1295"
+                    }
+                ],
+                "className": "QQuickPdfPageNavigator",
+                "lineNumber": 34,
+                "object": true,
+                "qualifiedClassName": "QQuickPdfPageNavigator",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpdfpagenavigator_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PdfSearchModel"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1295"
+                    }
+                ],
+                "className": "QQuickPdfSearchModel",
+                "lineNumber": 26,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "page",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "boundingPolygonsOnPage",
+                        "returnType": "QList<QPolygonF>"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "document",
+                        "notify": "documentChanged",
+                        "read": "document",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickPdfDocument*",
+                        "user": false,
+                        "write": "setDocument"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "currentPage",
+                        "notify": "currentPageChanged",
+                        "read": "currentPage",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setCurrentPage"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "currentResult",
+                        "notify": "currentResultChanged",
+                        "read": "currentResult",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setCurrentResult"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "currentResultLink",
+                        "notify": "currentResultLinkChanged",
+                        "read": "currentResultLink",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QPdfLink",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "currentPageBoundingPolygons",
+                        "notify": "currentPageBoundingPolygonsChanged",
+                        "read": "currentPageBoundingPolygons",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<QPolygonF>",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "name": "currentResultBoundingPolygons",
+                        "notify": "currentResultBoundingPolygonsChanged",
+                        "read": "currentResultBoundingPolygons",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<QPolygonF>",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 6,
+                        "name": "currentResultBoundingRect",
+                        "notify": "currentResultBoundingRectChanged",
+                        "read": "currentResultBoundingRect",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QRectF",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickPdfSearchModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "currentPageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "currentResultChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "currentResultLinkChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "currentPageBoundingPolygonsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "currentResultBoundingPolygonsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "name": "currentResultBoundingRectChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPdfSearchModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpdfsearchmodel_p.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "PdfSelection"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "1295"
+                    }
+                ],
+                "className": "QQuickPdfSelection",
+                "lineNumber": 30,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "name": "clear",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "name": "selectAll",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "name": "copyToClipboard",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "protected",
+                        "arguments": [
+                            {
+                                "name": "query",
+                                "type": "Qt::InputMethodQuery"
+                            },
+                            {
+                                "name": "argument",
+                                "type": "QVariant"
+                            }
+                        ],
+                        "index": 11,
+                        "name": "inputMethodQuery",
+                        "returnType": "QVariant"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "document",
+                        "notify": "documentChanged",
+                        "read": "document",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickPdfDocument*",
+                        "user": false,
+                        "write": "setDocument"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "page",
+                        "notify": "pageChanged",
+                        "read": "page",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setPage"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "renderScale",
+                        "notify": "renderScaleChanged",
+                        "read": "renderScale",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qreal",
+                        "user": false,
+                        "write": "setRenderScale"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "from",
+                        "notify": "fromChanged",
+                        "read": "from",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QPointF",
+                        "user": false,
+                        "write": "setFrom"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "to",
+                        "notify": "toChanged",
+                        "read": "to",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QPointF",
+                        "user": false,
+                        "write": "setTo"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "name": "hold",
+                        "notify": "holdChanged",
+                        "read": "hold",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setHold"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 6,
+                        "name": "text",
+                        "notify": "textChanged",
+                        "read": "text",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 7,
+                        "name": "geometry",
+                        "notify": "selectedAreaChanged",
+                        "read": "geometry",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<QPolygonF>",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickPdfSelection",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "documentChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "pageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "renderScaleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "fromChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "toChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "name": "holdChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "name": "textChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "name": "selectedAreaChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickItem"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquickpdfselection_p.h",
+        "outputRevision": 68
+    }
+]
