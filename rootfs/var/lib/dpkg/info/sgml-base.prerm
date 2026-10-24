@@ -22,7 +22,7 @@ fi
 
 ## ---------------------------------------------------------------------- 
 ## automatically generated debhelper commands
-# Automatically added by dh_usrlocal/13.9.1
+# Automatically added by dh_usrlocal/13.24.2
 (
 	while read dir; do
 		rmdir "$dir" 2>/dev/null || true

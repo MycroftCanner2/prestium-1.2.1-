@@ -1,7 +1,7 @@
 143dd060cd683f7da6fa97b4de08f0bc  usr/share/bug/vlc-data/control
 db5a9ef7d588ac8bafe061d1968be5cd  usr/share/bug/vlc-data/presubj
-28ae0cae253d0fa5c90cc014428364ef  usr/share/doc/vlc-data/changelog.Debian.gz
-d0f6aa630ac462c7dfd9b25f6a31d3bb  usr/share/doc/vlc-data/changelog.gz
+9e7291bd9f45a227e76d3205360c3341  usr/share/doc/vlc-data/changelog.Debian.gz
+1eda20efaa3c18d6d1dd8c1b30a5dba3  usr/share/doc/vlc-data/changelog.gz
 2cf769622e05d506a35a12f5cbc6c24b  usr/share/doc/vlc-data/copyright
 31e0c0fc9bf9664197c1f98d34f9c3a0  usr/share/doc/vlc/fortunes.txt.gz
 96e80844c2fc2dea3485b7cb6eb797a1  usr/share/doc/vlc/lua/README.txt.gz
@@ -15,14 +15,13 @@ d0f6aa630ac462c7dfd9b25f6a31d3bb  usr/share/doc/vlc-data/changelog.gz
 fd6613d4f71a6714720f97bc07db7f61  usr/share/doc/vlc/lua/meta/fetcher/README.txt
 3cbd68087191f3bb96b732b353a7e7d3  usr/share/doc/vlc/lua/meta/reader/README.txt
 4efa568e18eabd8f5740b5acbf8dc971  usr/share/doc/vlc/lua/meta/reader/filename.lua
-015314044aa6524acfed5ce9d2a35b9c  usr/share/doc/vlc/lua/playlist/README.txt
+db56cadfa716eb9cfe2fe6af17bf90d4  usr/share/doc/vlc/lua/playlist/README.txt
 8796a1f0af7dcd4f165fd4f6893ca3b8  usr/share/doc/vlc/lua/playlist/liveleak.lua
-f092090c743970a1d36a13998fb4e934  usr/share/doc/vlc/lua/playlist/youtube.lua.gz
 ae18db0c977053c7d3707cb0cbe5ff0b  usr/share/doc/vlc/lua/sd/README.txt
 4c4299d9222917fe2bcbb14fc5f9b550  usr/share/doc/vlc/lua/sd/icast.lua.gz
 3d4624b1c21f8cf02b7c46697e03240a  usr/share/doc/vlc/lua/sd/icecast.lua
-d5c77a2f10a86d60b12532376812a330  usr/share/icons/hicolor/128x128/apps/vlc-kb.png
-07c00f8c17b97faffd9f5b03385a5980  usr/share/icons/hicolor/128x128/apps/vlc-xmas.png
+f5deda0ea9d3715f70fe0c657462707b  usr/share/icons/hicolor/128x128/apps/vlc-kb.png
+79effb4727ca86c307694c5c8f5c040b  usr/share/icons/hicolor/128x128/apps/vlc-xmas.png
 4bc61fc36dfe84f904218699c1e6c6da  usr/share/icons/hicolor/128x128/apps/vlc.png
 28219046aa007a04696d0de017bc7691  usr/share/icons/hicolor/16x16/apps/vlc.png
 a08e07c6269ed32da2978b115b4362ad  usr/share/icons/hicolor/16x16/apps/vlc.xpm
@@ -30,7 +29,7 @@ b396ed0788aa57c51aaa514d3bf4b05e  usr/share/icons/hicolor/256x256/apps/vlc.png
 fc1bd133df0cf22d9bdcd8393ee06ac1  usr/share/icons/hicolor/32x32/apps/vlc-xmas.xpm
 2cc6e1cc4000c750a23596b3dbeaf47c  usr/share/icons/hicolor/32x32/apps/vlc.png
 8139fb1c22ee07bcba5f72a2cdc03886  usr/share/icons/hicolor/32x32/apps/vlc.xpm
-b9b65f608e7fa061190875f0da241bac  usr/share/icons/hicolor/48x48/apps/vlc-xmas.png
+85bdedf2365f7dd8859f4da9fcf5fbe3  usr/share/icons/hicolor/48x48/apps/vlc-xmas.png
 8409f3c01d9a26b09fc8de5911f263a1  usr/share/icons/hicolor/48x48/apps/vlc.png
 0fb1bca2dae062de609ebfea3de17a4a  usr/share/vlc/lua/http/css/main.css
 9b560ac335850d39f48f60c389953b5f  usr/share/vlc/lua/http/css/mobile.css
@@ -65,7 +64,7 @@ ed2e174cd1ee0ace7f94a0eee608bf1e  usr/share/vlc/lua/http/dialogs/mosaic_window.h
 4743f4b1508d6e2885cb3e2ab1587629  usr/share/vlc/lua/http/images/Folder-48.png
 c060535924e3d9806695fe92ab0bf49c  usr/share/vlc/lua/http/images/Other-48.png
 e0d1a6c8778e2839eff8203139673df0  usr/share/vlc/lua/http/images/Video-48.png
-660a21fe3f8dcb2a4c04294161f3e5da  usr/share/vlc/lua/http/images/buttons.png
+0f7b7f36dce5de61e46e90865c6f6e7f  usr/share/vlc/lua/http/images/buttons.png
 c9d3c069a660e0ae1dc8da905c8d8c4b  usr/share/vlc/lua/http/images/speaker-32.png
 4bc61fc36dfe84f904218699c1e6c6da  usr/share/vlc/lua/http/images/vlc-48.png
 28219046aa007a04696d0de017bc7691  usr/share/vlc/lua/http/images/vlc16x16.png

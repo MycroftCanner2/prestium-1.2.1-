@@ -8,11 +8,10 @@
 /usr/share/doc
 /usr/share/doc/python3
 /usr/share/doc/python3/README.Debian
-/usr/share/doc/python3/changelog.Debian.amd64.gz
 /usr/share/doc/python3/changelog.Debian.gz
 /usr/share/doc/python3/copyright
 /usr/share/doc/python3/python-policy.txt.gz
-/usr/share/doc/python3.11
+/usr/share/doc/python3.13
 /usr/share/doc-base
 /usr/share/doc-base/python3.python-policy
 /usr/share/lintian
@@ -29,7 +28,7 @@
 /usr/bin/pdb3
 /usr/bin/pydoc3
 /usr/bin/pygettext3
-/usr/share/doc/python3.11/python-policy.txt.gz
+/usr/share/doc/python3.13/python-policy.txt.gz
 /usr/share/man/man1/pdb3.1.gz
 /usr/share/man/man1/pydoc3.1.gz
 /usr/share/man/man1/pygettext3.1.gz

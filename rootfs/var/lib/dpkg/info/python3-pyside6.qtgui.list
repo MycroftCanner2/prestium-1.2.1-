@@ -1,0 +1,13 @@
+/.
+/usr
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/PySide6
+/usr/lib/python3/dist-packages/PySide6/QtGui.abi3.so
+/usr/lib/python3/dist-packages/PySide6/QtGui.pyi
+/usr/share
+/usr/share/doc
+/usr/share/doc/python3-pyside6.qtgui
+/usr/share/doc/python3-pyside6.qtgui/changelog.Debian.gz
+/usr/share/doc/python3-pyside6.qtgui/copyright

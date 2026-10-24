@@ -1,10 +1,10 @@
-e0087307694742d75a43c7440bf00296  bin/sed
+b6c6822493e7283148b92d2f4b578bac  usr/bin/sed
 952dca4356e3ed648c4d64ccd92c5956  usr/share/doc/sed/AUTHORS
 8e3af9bec58c1601710e892535c92230  usr/share/doc/sed/BUGS.gz
 2a2ee8599733f43e5c9fd8beebb62194  usr/share/doc/sed/NEWS.gz
 2e9ea11519bebc9369c326e703adc9ae  usr/share/doc/sed/README
 0a780d3b647d2596a48d23179f38b481  usr/share/doc/sed/THANKS.gz
-354037a4cd6ecda07b12f7c0dcd4ff42  usr/share/doc/sed/changelog.Debian.gz
+b61d12db821c5d46493b3f2dd8f95ea9  usr/share/doc/sed/changelog.Debian.gz
 77eeda047206461393f7434bcd303eec  usr/share/doc/sed/changelog.gz
 6808fcdfb23022a3c2b0be562f83a102  usr/share/doc/sed/copyright
 dad8b4da08a3d734dbc9b744c8ab8bbc  usr/share/doc/sed/examples/dc.sed

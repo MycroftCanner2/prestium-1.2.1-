@@ -71,7 +71,10 @@
 /usr/lib/python3/dist-packages/stem/util/test_tools.py
 /usr/lib/python3/dist-packages/stem/util/tor_tools.py
 /usr/lib/python3/dist-packages/stem/version.py
-/usr/lib/python3/dist-packages/stem-1.8.1.egg-info
+/usr/lib/python3/dist-packages/stem-1.8.2.egg-info
+/usr/lib/python3/dist-packages/stem-1.8.2.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/stem-1.8.2.egg-info/dependency_links.txt
+/usr/lib/python3/dist-packages/stem-1.8.2.egg-info/top_level.txt
 /usr/share
 /usr/share/doc
 /usr/share/doc/python3-stem

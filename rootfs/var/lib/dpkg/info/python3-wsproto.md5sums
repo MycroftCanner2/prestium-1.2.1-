@@ -1,0 +1,17 @@
+1419d75f0d52ce0e30821fe933ddbf83  usr/lib/python3/dist-packages/wsproto-1.2.0.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/wsproto-1.2.0.egg-info/dependency_links.txt
+d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/wsproto-1.2.0.egg-info/requires.txt
+2f33c37e080ebe1a1d88229e185396c6  usr/lib/python3/dist-packages/wsproto-1.2.0.egg-info/top_level.txt
+153b87acc06b14280d7d7da40c10f9e0  usr/lib/python3/dist-packages/wsproto/__init__.py
+d20f9933833d4c0fddbb93f05df21df4  usr/lib/python3/dist-packages/wsproto/connection.py
+2bb324c9d5fd3845ea79c6ff11c9d245  usr/lib/python3/dist-packages/wsproto/events.py
+07545f564ca4d1972387687f89426827  usr/lib/python3/dist-packages/wsproto/extensions.py
+09fdeb7d140312c5ddbb413f298af5e8  usr/lib/python3/dist-packages/wsproto/frame_protocol.py
+37c9837af5fdfc0618c809318c3eca31  usr/lib/python3/dist-packages/wsproto/handshake.py
+3522f1a61602da93a3a5e4600cc1f05f  usr/lib/python3/dist-packages/wsproto/py.typed
+b47e0556ad624250e971609ca82a4cc4  usr/lib/python3/dist-packages/wsproto/typing.py
+7197cbafcb5c2829a2084b4a322b0c2e  usr/lib/python3/dist-packages/wsproto/utilities.py
+d9d11167c22b51c50c6cd7dc2385fdae  usr/share/doc/python3-wsproto/README.rst.gz
+7f8ff42e4c5ed4d63ec6a9b985cb6c78  usr/share/doc/python3-wsproto/changelog.Debian.gz
+babd48dab097209086df39649fafaaf7  usr/share/doc/python3-wsproto/changelog.gz
+bb8b4033213f109329402523543522df  usr/share/doc/python3-wsproto/copyright

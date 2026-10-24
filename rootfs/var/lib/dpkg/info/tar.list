@@ -1,8 +1,8 @@
 /.
-/bin
-/bin/tar
 /etc
 /usr
+/usr/bin
+/usr/bin/tar
 /usr/lib
 /usr/lib/mime
 /usr/lib/mime/packages
@@ -79,6 +79,9 @@
 /usr/share/locale/ja
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/tar.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/tar.mo
 /usr/share/locale/ko
 /usr/share/locale/ko/LC_MESSAGES
 /usr/share/locale/ko/LC_MESSAGES/tar.mo

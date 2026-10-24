@@ -6,6 +6,10 @@
 /usr/lib/mime/packages/vlc
 /usr/share
 /usr/share/applications
+/usr/share/applications/vlc-openbd.desktop
+/usr/share/applications/vlc-opencda.desktop
+/usr/share/applications/vlc-opendvd.desktop
+/usr/share/applications/vlc-openvcd.desktop
 /usr/share/applications/vlc.desktop
 /usr/share/bug
 /usr/share/bug/vlc

@@ -1,0 +1,14 @@
+c72246579c4437c07cebb86fbcbc6d90  usr/lib/python3/dist-packages/simple_websocket-1.1.0.dist-info/INSTALLER
+bf772a0f5519dff81f6bc73bcb768fdf  usr/lib/python3/dist-packages/simple_websocket-1.1.0.dist-info/METADATA
+68e6e969da03b3fdebefe35680a5c606  usr/lib/python3/dist-packages/simple_websocket-1.1.0.dist-info/WHEEL
+7eb82d871f9ca8dc2388457e24a85219  usr/lib/python3/dist-packages/simple_websocket-1.1.0.dist-info/top_level.txt
+76ad4f3cc0ada1119df049f7414099e9  usr/lib/python3/dist-packages/simple_websocket/__init__.py
+87f626e34a911f2445e94b8333fb150b  usr/lib/python3/dist-packages/simple_websocket/aiows.py
+44e2ec0c3001c1e0fe5c86b959c70e44  usr/lib/python3/dist-packages/simple_websocket/asgi.py
+d91ca7f73f91c24deb932e3d6ed916e1  usr/lib/python3/dist-packages/simple_websocket/errors.py
+d5b216a74e333ec4ce697c1c8e875583  usr/lib/python3/dist-packages/simple_websocket/ws.py
+4f6a3263596f0734988f1985ad176cf3  usr/share/doc/python3-simple-websocket/README.md
+337afec54b07f260c56d3e4a9e621c97  usr/share/doc/python3-simple-websocket/changelog.Debian.gz
+512f347932015191c2ce0bf5491f3919  usr/share/doc/python3-simple-websocket/changelog.gz
+f891066c4a3320154939d3a216d02e20  usr/share/doc/python3-simple-websocket/copyright
+d9839217a8772de2ed5bb22c9af1659b  usr/share/man/man1/simple-websocket.1.gz

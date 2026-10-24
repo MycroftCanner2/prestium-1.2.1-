@@ -1,9 +1,9 @@
-442be74786948719ff65a5d45aa1ed2d  usr/bin/tint2
-69326f8ff490be8a8715151ba7ed3e96  usr/bin/tint2conf
+40dfc9288b169173c46cd11d88647ee4  usr/bin/tint2
+c83fea4ae5e9014d6631b45ea5ba9570  usr/bin/tint2conf
 0c29bdcdc5c4fd67a5baac56c80d974a  usr/share/applications/tint2.desktop
 e2c2f0e4210c048ccfaa19a8970d6cd4  usr/share/applications/tint2conf.desktop
 b20af72667f79240bdfd2750a39ac472  usr/share/doc/tint2/AUTHORS
-c2f96bff4f26c0e68841b49cfccebf0f  usr/share/doc/tint2/changelog.Debian.gz
+70972b717017d76cf644c612984acf6f  usr/share/doc/tint2/changelog.Debian.gz
 c1fc45c85ad92f998541297cc6a4b880  usr/share/doc/tint2/changelog.gz
 11b64e867370f15bec2596fc07db8efb  usr/share/doc/tint2/copyright
 318194ad681e435c8bb3eaba6aa6fdf7  usr/share/doc/tint2/html/images/panel_padding.jpg
@@ -25,7 +25,7 @@ e78411c12c6e119369c48571bb925ee3  usr/share/locale/pl/LC_MESSAGES/tint2conf.mo
 bf6baa7392d6793d96766c84cd39e898  usr/share/man/man1/tint2.1.gz
 ef1fe1b7cb7dacd7c19cd3024467c91f  usr/share/man/man1/tint2conf.1.gz
 4eb5b316fafbc297f8e882e43e2aa5ed  usr/share/mime/packages/tint2conf.xml
-8af241da05803a60ccf1a52849b9ec78  usr/share/tint2/default_icon.png
+935788a434ff57957882a0745c3f9c2b  usr/share/tint2/default_icon.png
 9773c35137cd1bec157c58b49d7c521f  usr/share/tint2/horizontal-dark-opaque.tint2rc
 26e89d42b4fc3fc8b194654490416527  usr/share/tint2/horizontal-dark-transparent.tint2rc
 996a812cb43ff57035540738c6caf7d3  usr/share/tint2/horizontal-icon-only.tint2rc

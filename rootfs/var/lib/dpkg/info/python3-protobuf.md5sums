@@ -11,7 +11,7 @@ f3093978c1d7cfd5ef564831d44c115c  usr/lib/python3/dist-packages/google/protobuf/
 1b430efd5020f7d56ee147bcdf649803  usr/lib/python3/dist-packages/google/protobuf/empty_pb2.py
 0f0b97703384affe04048108792d3a68  usr/lib/python3/dist-packages/google/protobuf/field_mask_pb2.py
 d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/google/protobuf/internal/__init__.py
-791b88e5b4a437e740df436659d667da  usr/lib/python3/dist-packages/google/protobuf/internal/_api_implementation.cpython-311-x86_64-linux-gnu.so
+7978841879752d26cae94c83d668c210  usr/lib/python3/dist-packages/google/protobuf/internal/_api_implementation.cpython-313-x86_64-linux-gnu.so
 d50d04059a6e55add10818237489f971  usr/lib/python3/dist-packages/google/protobuf/internal/api_implementation.py
 8ae6d84345182b9c767992318c44b898  usr/lib/python3/dist-packages/google/protobuf/internal/builder.py
 107ec01280d4a9709f4cd26da4e77963  usr/lib/python3/dist-packages/google/protobuf/internal/containers.py
@@ -29,7 +29,7 @@ a95c2f1d948490f1ae99808629024ab2  usr/lib/python3/dist-packages/google/protobuf/
 c866842dc8f900744dc142b76f703ecb  usr/lib/python3/dist-packages/google/protobuf/message_factory.py
 29e4ed7a09c9b4e3759ad165b9644cd4  usr/lib/python3/dist-packages/google/protobuf/proto_builder.py
 d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/google/protobuf/pyext/__init__.py
-44f2a52119d4f80073375961396ef418  usr/lib/python3/dist-packages/google/protobuf/pyext/_message.cpython-311-x86_64-linux-gnu.so
+9970aafbe6aefe2547f5e5711506b174  usr/lib/python3/dist-packages/google/protobuf/pyext/_message.cpython-313-x86_64-linux-gnu.so
 f2013b1e09f7f32131b3424c9540a8b2  usr/lib/python3/dist-packages/google/protobuf/pyext/cpp_message.py
 41edf358310e5d59516c910b657eb6f2  usr/lib/python3/dist-packages/google/protobuf/reflection.py
 ce25e7d6330617a27ce365aed2ac2613  usr/lib/python3/dist-packages/google/protobuf/service.py
@@ -46,10 +46,10 @@ d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/google/protobuf/
 13d1d8f697c91897672eb5370cf9d52d  usr/lib/python3/dist-packages/google/protobuf/util/json_format_pb2.py
 9cf0c77e15930529ec0f976607b0c9c5  usr/lib/python3/dist-packages/google/protobuf/util/json_format_proto3_pb2.py
 89bc719237648e43afe825660062a3ed  usr/lib/python3/dist-packages/google/protobuf/wrappers_pb2.py
-bc80c0a8f64abed659b800450ed3ea4a  usr/lib/python3/dist-packages/protobuf-4.21.12.egg-info/PKG-INFO
+6b3285f4788306e1cff61173384e7687  usr/lib/python3/dist-packages/protobuf-4.21.12.egg-info/PKG-INFO
 68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/protobuf-4.21.12.egg-info/dependency_links.txt
 0cfa9f600839f57e90e5559b8ee54864  usr/lib/python3/dist-packages/protobuf-4.21.12.egg-info/namespace_packages.txt
 0cfa9f600839f57e90e5559b8ee54864  usr/lib/python3/dist-packages/protobuf-4.21.12.egg-info/top_level.txt
-b0c104001f280e59c5453023b5a9ea7e  usr/share/doc/python3-protobuf/changelog.Debian.gz
+312c6e905a51110a8e4a7565e31c2fd6  usr/share/doc/python3-protobuf/changelog.Debian.gz
 4f0c9244248e5fde3abab8d0ff21d4e6  usr/share/doc/python3-protobuf/changelog.gz
 803940863fba8664d83a8b8fd4a01fb0  usr/share/doc/python3-protobuf/copyright

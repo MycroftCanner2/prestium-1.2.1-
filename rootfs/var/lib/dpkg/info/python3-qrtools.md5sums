@@ -1,4 +1,6 @@
-1ef35699e9afdaf27ce67837da263590  usr/lib/python3/dist-packages/qrtools-2.1.egg-info
-e6f973dbb5b11d36137b9a1ba35ae9d9  usr/lib/python3/dist-packages/qrtools.py
-f2b253e921925248d9123f12ebc7401c  usr/share/doc/python3-qrtools/changelog.Debian.gz
+b59eaf694a2fbb4e58f5f97f3930112b  usr/lib/python3/dist-packages/qrtools-2.1.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/qrtools-2.1.egg-info/dependency_links.txt
+821f4cebd3c94c7e10ac18e66347cf10  usr/lib/python3/dist-packages/qrtools-2.1.egg-info/top_level.txt
+6664f96514af6f8b6f33ccd632edf782  usr/lib/python3/dist-packages/qrtools.py
+17c562eb692de455a781ff23ab7f4360  usr/share/doc/python3-qrtools/changelog.Debian.gz
 5eff7c7e5b517a94d0dfc091d1d05147  usr/share/doc/python3-qrtools/copyright

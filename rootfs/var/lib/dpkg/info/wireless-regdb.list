@@ -1,11 +1,11 @@
 /.
-/lib
-/lib/firmware
-/lib/firmware/regulatory.db-debian
-/lib/firmware/regulatory.db-upstream
-/lib/firmware/regulatory.db.p7s-debian
-/lib/firmware/regulatory.db.p7s-upstream
 /usr
+/usr/lib
+/usr/lib/firmware
+/usr/lib/firmware/regulatory.db-debian
+/usr/lib/firmware/regulatory.db-upstream
+/usr/lib/firmware/regulatory.db.p7s-debian
+/usr/lib/firmware/regulatory.db.p7s-upstream
 /usr/share
 /usr/share/doc
 /usr/share/doc/wireless-regdb

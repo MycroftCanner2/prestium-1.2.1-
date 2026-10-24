@@ -1,9 +1,8 @@
 b270fc01aa7eb0551a9156726430c73e  usr/sbin/install-sgmlcatalog
 bff8aff2a7ca7f2f91892b6c9e90a354  usr/sbin/update-catalog
-2e3135f6ca15f0fe5b5cbc92f3240448  usr/share/doc/sgml-base/NEWS.Debian.gz
 b2ccbd94f349a6b03b3a0894d2702979  usr/share/doc/sgml-base/README.Debian
 08869a145ab87027534e36d6891aa735  usr/share/doc/sgml-base/TODO
-a3b7a016a959976ed323fa0b949ebf4e  usr/share/doc/sgml-base/changelog.gz
+b4047b981eb7bc88fa7167ae64cd70f7  usr/share/doc/sgml-base/changelog.gz
 70857bf7e59db4c5a9f09a1a37900020  usr/share/doc/sgml-base/copyright
 b3353e4b8ded5ea3d513ec89f19dfdb5  usr/share/doc/sgml-base/examples/postinst
 a09ff886485748f7e34fd757a4dc8e40  usr/share/doc/sgml-base/examples/postrm

@@ -10,9 +10,6 @@
 /etc/sudoers
 /etc/sudoers.d
 /etc/sudoers.d/README
-/lib
-/lib/systemd
-/lib/systemd/system
 /usr
 /usr/bin
 /usr/bin/cvtsudoers
@@ -21,6 +18,8 @@
 /usr/include
 /usr/include/sudo_plugin.h
 /usr/lib
+/usr/lib/systemd
+/usr/lib/systemd/system
 /usr/lib/tmpfiles.d
 /usr/lib/tmpfiles.d/sudo.conf
 /usr/libexec
@@ -130,6 +129,10 @@
 /usr/share/locale/hu/LC_MESSAGES
 /usr/share/locale/hu/LC_MESSAGES/sudo.mo
 /usr/share/locale/hu/LC_MESSAGES/sudoers.mo
+/usr/share/locale/id
+/usr/share/locale/id/LC_MESSAGES
+/usr/share/locale/id/LC_MESSAGES/sudo.mo
+/usr/share/locale/id/LC_MESSAGES/sudoers.mo
 /usr/share/locale/it
 /usr/share/locale/it/LC_MESSAGES
 /usr/share/locale/it/LC_MESSAGES/sudo.mo
@@ -239,8 +242,8 @@
 /var/lib
 /var/lib/sudo
 /var/lib/sudo/lectured
-/lib/systemd/system/sudo.service
 /usr/bin/sudoedit
+/usr/lib/systemd/system/sudo.service
 /usr/libexec/sudo/libsudo_util.so
 /usr/libexec/sudo/libsudo_util.so.0
 /usr/share/man/man8/sudoedit.8.gz

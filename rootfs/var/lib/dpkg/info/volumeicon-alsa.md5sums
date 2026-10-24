@@ -1,43 +1,49 @@
-e981f635c6a18b14cee38b254e9d7b3d  usr/bin/volumeicon
-64740ed74438e174433013d77c24a1c4  usr/share/doc/volumeicon-alsa/changelog.Debian.amd64.gz
-830a4d945ac21b614e11d72a36779a76  usr/share/doc/volumeicon-alsa/changelog.Debian.gz
+90f561a899e4a43523955e7ef583d63b  usr/bin/volumeicon
+b6c015a428e86edc98fec3b731727632  usr/share/doc/volumeicon-alsa/changelog.Debian.amd64.gz
+1b729f2b08361db45a7b0d75fc362da7  usr/share/doc/volumeicon-alsa/changelog.Debian.gz
 f5dd4ae19c2f508fd3b0beef650f1302  usr/share/doc/volumeicon-alsa/changelog.gz
-b130aecc2a2051622f32219619b95b22  usr/share/doc/volumeicon-alsa/copyright
+fcbd28732ee8d26550dcb97fcdfce540  usr/share/doc/volumeicon-alsa/copyright
 717412673876632f89ed771c81e91b99  usr/share/locale/bs/LC_MESSAGES/volumeicon.mo
 42516f501779d1676dbf05d4cd66cc3e  usr/share/locale/de/LC_MESSAGES/volumeicon.mo
-ee5345a6f663f4fabe7be34fe1f9830e  usr/share/locale/fr/LC_MESSAGES/volumeicon.mo
+250d99285fb6ed3696d0262f8f8c4ef0  usr/share/locale/es/LC_MESSAGES/volumeicon.mo
+4dce6be0a8eccdc45e4893d7d2307d56  usr/share/locale/fr/LC_MESSAGES/volumeicon.mo
 0ed959f811d621850e1824235f638540  usr/share/locale/hr/LC_MESSAGES/volumeicon.mo
+835c9fd93c1e2d1e84d3c7c5f1102832  usr/share/locale/id/LC_MESSAGES/volumeicon.mo
+926912be791393a50e0f8df566c3b4c3  usr/share/locale/ka/LC_MESSAGES/volumeicon.mo
+b537db2850178bcfb9e6f66a1cdb5f73  usr/share/locale/lt/LC_MESSAGES/volumeicon.mo
 a359d5aea0700afe9f7e250258dc6b95  usr/share/locale/pl/LC_MESSAGES/volumeicon.mo
 f915d497bebe919717a47fe3ca4eedcc  usr/share/locale/ru/LC_MESSAGES/volumeicon.mo
 b039e25f4fad14a020449972a2cb45fa  usr/share/locale/sr/LC_MESSAGES/volumeicon.mo
+9aa7e0c2a2590cbcbc903bbb0a3f4494  usr/share/locale/tr/LC_MESSAGES/volumeicon.mo
+3568f862fd823a90e1ca84897e0cbc9c  usr/share/locale/uk/LC_MESSAGES/volumeicon.mo
 3495244fe984da9928f82ae826e9a327  usr/share/man/man1/volumeicon.1.gz
-050a3befbd144f668a455f329200952e  usr/share/man/man5/volumeicon.5.gz
+a7c4139ca1437044b8d41803ff256d9b  usr/share/man/man5/volumeicon.5.gz
 ebb00dbabf612228e9cb0bc98666044f  usr/share/volumeicon/gui/appicon.svg
 dd6a4a4827fc996be387ff1cb12498ce  usr/share/volumeicon/gui/preferences.ui
-7d031a0046e7d089d46072f4ee82aed9  usr/share/volumeicon/icons/Black Gnome/1.png
-48fc746a5a75f120e09fe929835d922c  usr/share/volumeicon/icons/Black Gnome/2.png
-48fc746a5a75f120e09fe929835d922c  usr/share/volumeicon/icons/Black Gnome/3.png
-3fe095cd99078bf759080b2dddba0327  usr/share/volumeicon/icons/Black Gnome/4.png
-3fe095cd99078bf759080b2dddba0327  usr/share/volumeicon/icons/Black Gnome/5.png
-3fe095cd99078bf759080b2dddba0327  usr/share/volumeicon/icons/Black Gnome/6.png
-44330066ab291489691b14b9de6ea052  usr/share/volumeicon/icons/Black Gnome/7.png
-44330066ab291489691b14b9de6ea052  usr/share/volumeicon/icons/Black Gnome/8.png
+e14056780cde6e6e23a28e4c88359d61  usr/share/volumeicon/icons/Black Gnome/1.png
+f1aefec504d8ae76d00332832d7d6a60  usr/share/volumeicon/icons/Black Gnome/2.png
+f1aefec504d8ae76d00332832d7d6a60  usr/share/volumeicon/icons/Black Gnome/3.png
+7036fc99b188f8993705c10903457052  usr/share/volumeicon/icons/Black Gnome/4.png
+7036fc99b188f8993705c10903457052  usr/share/volumeicon/icons/Black Gnome/5.png
+7036fc99b188f8993705c10903457052  usr/share/volumeicon/icons/Black Gnome/6.png
+8e40cc010d697bd11e7695bb6e2f1516  usr/share/volumeicon/icons/Black Gnome/7.png
+8e40cc010d697bd11e7695bb6e2f1516  usr/share/volumeicon/icons/Black Gnome/8.png
 458ef22ad160a4c4f80ebf911649973d  usr/share/volumeicon/icons/Blue Bar/1.png
-b90d056600b016c9b54217c0aa5b5ad2  usr/share/volumeicon/icons/Blue Bar/2.png
-7f7ad207b91f2d2ee39769d38088049a  usr/share/volumeicon/icons/Blue Bar/3.png
-3562abc00f50c8a6232476847293c2d3  usr/share/volumeicon/icons/Blue Bar/4.png
-a4f49c6afffef56e96a555ff214fd6fe  usr/share/volumeicon/icons/Blue Bar/5.png
-780942095a64ee55ce47d752d2976b9e  usr/share/volumeicon/icons/Blue Bar/6.png
-77315f3c0f9dbe33eedde08aa3b1a6a0  usr/share/volumeicon/icons/Blue Bar/7.png
-8d8a4a51b9cdd591cd15fdf1c0b53342  usr/share/volumeicon/icons/Blue Bar/8.png
-67b35efb88e60b34094e3db43d097b2b  usr/share/volumeicon/icons/White Gnome/1.png
-0ad0c279498c7cff288bb3543d32b71c  usr/share/volumeicon/icons/White Gnome/2.png
-0ad0c279498c7cff288bb3543d32b71c  usr/share/volumeicon/icons/White Gnome/3.png
-1136c29f5abb8b1cb2c6d2de4eca0466  usr/share/volumeicon/icons/White Gnome/4.png
-1136c29f5abb8b1cb2c6d2de4eca0466  usr/share/volumeicon/icons/White Gnome/5.png
-1136c29f5abb8b1cb2c6d2de4eca0466  usr/share/volumeicon/icons/White Gnome/6.png
-919ee7cf5a4a4bf02263a3b99fc0b292  usr/share/volumeicon/icons/White Gnome/7.png
-919ee7cf5a4a4bf02263a3b99fc0b292  usr/share/volumeicon/icons/White Gnome/8.png
+52192288df10c6ab90902542237df9ed  usr/share/volumeicon/icons/Blue Bar/2.png
+51ea0da0ce53dfa78d3862afbf7ef011  usr/share/volumeicon/icons/Blue Bar/3.png
+670d7b0dbd8a9bdf38b276fb731361a2  usr/share/volumeicon/icons/Blue Bar/4.png
+fae799e878428c8a9e7f10041909b4ca  usr/share/volumeicon/icons/Blue Bar/5.png
+2cd559a08c5fa2066c08696e8d9d3f6e  usr/share/volumeicon/icons/Blue Bar/6.png
+e5f1f65874a48f266c272d2f3fc48bd1  usr/share/volumeicon/icons/Blue Bar/7.png
+af1d1d6521ba85f75235a37e4751ad21  usr/share/volumeicon/icons/Blue Bar/8.png
+3a176af0df4e9d3f0a23b04dbf858e60  usr/share/volumeicon/icons/White Gnome/1.png
+dadb5019a9e169f15fca73b7246814b4  usr/share/volumeicon/icons/White Gnome/2.png
+dadb5019a9e169f15fca73b7246814b4  usr/share/volumeicon/icons/White Gnome/3.png
+02031caa8c7cb8c04884ba74800816fa  usr/share/volumeicon/icons/White Gnome/4.png
+02031caa8c7cb8c04884ba74800816fa  usr/share/volumeicon/icons/White Gnome/5.png
+02031caa8c7cb8c04884ba74800816fa  usr/share/volumeicon/icons/White Gnome/6.png
+fec2730ecfc508ad65960c27d53c4149  usr/share/volumeicon/icons/White Gnome/7.png
+fec2730ecfc508ad65960c27d53c4149  usr/share/volumeicon/icons/White Gnome/8.png
 458ef22ad160a4c4f80ebf911649973d  usr/share/volumeicon/icons/tango/1.png
 ecefebbb7121829298bcf3da6f80b780  usr/share/volumeicon/icons/tango/2.png
 ecefebbb7121829298bcf3da6f80b780  usr/share/volumeicon/icons/tango/3.png

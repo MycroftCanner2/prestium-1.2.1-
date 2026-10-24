@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/PyQt5
+/usr/lib/python3/dist-packages/PyQt5/QtMultimedia.abi3.so
+/usr/lib/python3/dist-packages/PyQt5/QtMultimedia.pyi
+/usr/lib/python3/dist-packages/PyQt5/QtMultimediaWidgets.abi3.so
+/usr/lib/python3/dist-packages/PyQt5/QtMultimediaWidgets.pyi
+/usr/share
+/usr/share/doc
+/usr/share/doc/python3-pyqt5.qtmultimedia
+/usr/share/doc/python3-pyqt5.qtmultimedia/NEWS.gz
+/usr/share/doc/python3-pyqt5.qtmultimedia/changelog.Debian.gz
+/usr/share/doc/python3-pyqt5.qtmultimedia/changelog.gz
+/usr/share/doc/python3-pyqt5.qtmultimedia/copyright

@@ -7,10 +7,10 @@
 /usr/share
 /usr/share/doc
 /usr/share/doc/wget
-/usr/share/doc/wget/AUTHORS
+/usr/share/doc/wget/AUTHORS.gz
 /usr/share/doc/wget/MAILING-LIST
 /usr/share/doc/wget/NEWS.gz
-/usr/share/doc/wget/README
+/usr/share/doc/wget/README.gz
 /usr/share/doc/wget/changelog.Debian.gz
 /usr/share/doc/wget/changelog.gz
 /usr/share/doc/wget/copyright
@@ -104,6 +104,10 @@
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/wget-gnulib.mo
 /usr/share/locale/ja/LC_MESSAGES/wget.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/wget-gnulib.mo
+/usr/share/locale/ka/LC_MESSAGES/wget.mo
 /usr/share/locale/ko
 /usr/share/locale/ko/LC_MESSAGES
 /usr/share/locale/ko/LC_MESSAGES/wget-gnulib.mo

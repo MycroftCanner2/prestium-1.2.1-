@@ -7,13 +7,14 @@
 /usr/share/doc/shared-mime-info
 /usr/share/doc/shared-mime-info/NEWS.gz
 /usr/share/doc/shared-mime-info/README.md
+/usr/share/doc/shared-mime-info/changelog.Debian.amd64.gz
 /usr/share/doc/shared-mime-info/changelog.Debian.gz
 /usr/share/doc/shared-mime-info/copyright
 /usr/share/doc/shared-mime-info/shared-mime-info-spec.html
-/usr/share/doc/shared-mime-info/shared-mime-info-spec.html/b518.html
+/usr/share/doc/shared-mime-info/shared-mime-info-spec.html/b521.html
 /usr/share/doc/shared-mime-info/shared-mime-info-spec.html/index.html
 /usr/share/doc/shared-mime-info/shared-mime-info-spec.html/x34.html
-/usr/share/doc/shared-mime-info/shared-mime-info-spec.html/x497.html
+/usr/share/doc/shared-mime-info/shared-mime-info-spec.html/x500.html
 /usr/share/doc/shared-mime-info/shared-mime-info-spec.pdf
 /usr/share/doc/shared-mime-info/shared-mime-info-spec.xml.gz
 /usr/share/doc-base
@@ -128,6 +129,9 @@
 /usr/share/locale/id
 /usr/share/locale/id/LC_MESSAGES
 /usr/share/locale/id/LC_MESSAGES/shared-mime-info.mo
+/usr/share/locale/is
+/usr/share/locale/is/LC_MESSAGES
+/usr/share/locale/is/LC_MESSAGES/shared-mime-info.mo
 /usr/share/locale/it
 /usr/share/locale/it/LC_MESSAGES
 /usr/share/locale/it/LC_MESSAGES/shared-mime-info.mo
@@ -200,6 +204,9 @@
 /usr/share/locale/rw
 /usr/share/locale/rw/LC_MESSAGES
 /usr/share/locale/rw/LC_MESSAGES/shared-mime-info.mo
+/usr/share/locale/si
+/usr/share/locale/si/LC_MESSAGES
+/usr/share/locale/si/LC_MESSAGES/shared-mime-info.mo
 /usr/share/locale/sk
 /usr/share/locale/sk/LC_MESSAGES
 /usr/share/locale/sk/LC_MESSAGES/shared-mime-info.mo

@@ -1,4 +1,5 @@
-850d877e6af595ed63d787749de6fde8  usr/share/doc/udhcpd/changelog.Debian.amd64.gz
-97e7de86dda5614669562d712e97eb73  usr/share/doc/udhcpd/changelog.Debian.gz
+70173b5efa6baccb28bbbafd978d40a0  usr/lib/systemd/system/udhcpd.service
+ba938602ffd9d7a525d99ad190b1bee6  usr/share/doc/udhcpd/changelog.Debian.gz
 e4a6f98fa82c414802eae075f1e6e837  usr/share/doc/udhcpd/copyright
-f106ac9c2d82687151ea6cac42288317  usr/share/man/man5/udhcpd.conf.5.gz
+4a70b85556947faa37210cd379f1e834  usr/share/lintian/overrides/udhcpd
+c40f6fd40c54d07f9663f592c8345d21  usr/share/man/man5/udhcpd.conf.5.gz

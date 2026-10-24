@@ -1,8 +1,8 @@
 /.
-/lib
-/lib/runit-helper
-/lib/runit-helper/runit-helper
 /usr
+/usr/lib
+/usr/lib/runit-helper
+/usr/lib/runit-helper/runit-helper
 /usr/share
 /usr/share/doc
 /usr/share/doc/runit-helper

@@ -75,12 +75,12 @@ cleanup_biarch_dirs() {
 
 case "$1" in
     configure)
-	# Skip the conversion for buildds.
-	# Note that such systems will be *UNSUPPORTED* in the future.
+	# skipping the conversion is not supported anymore
 	if [ -e /etc/unsupported-skip-usrmerge-conversion ] && \
 	    grep -q 'this system will not be supported in the future' \
 	      /etc/unsupported-skip-usrmerge-conversion; then
-	  echo "W: /etc/unsupported-skip-usrmerge-conversion exists." >&2
+	  echo "E: /etc/unsupported-skip-usrmerge-conversion exists." >&2
+	  exit 1
 	else
 	  maybe_convert "$@" || { echo "E: usrmerge failed." >&2; exit 1; }
 	  cleanup_biarch_dirs
@@ -88,7 +88,7 @@ case "$1" in
     ;;
 esac
 
-# Automatically added by dh_installdeb/13.11.4
+# Automatically added by dh_installdeb/13.23
 dpkg-maintscript-helper rm_conffile /etc/dpkg/dpkg.cfg.d/usrmerge 19\~ usrmerge -- "$@"
 # End automatically added section
 
