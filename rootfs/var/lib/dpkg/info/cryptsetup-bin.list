@@ -1,12 +1,12 @@
 /.
-/sbin
-/sbin/cryptsetup
-/sbin/integritysetup
-/sbin/veritysetup
 /usr
 /usr/lib
 /usr/lib/tmpfiles.d
 /usr/lib/tmpfiles.d/cryptsetup.conf
+/usr/sbin
+/usr/sbin/cryptsetup
+/usr/sbin/integritysetup
+/usr/sbin/veritysetup
 /usr/share
 /usr/share/bug
 /usr/share/bug/cryptsetup-bin

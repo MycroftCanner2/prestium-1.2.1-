@@ -14,6 +14,14 @@ Description: Possible debconf database corruption
  .
  Some questions are likely to be asked after this message in order to
  leave the dictionaries system in a (provisionally) working state.
+Description-ca.UTF-8: Possible corrupció de la base de dades «debconf»
+ Manca la configuració per a «${question}», però els paquets que proporcionen candidats estan instal·lats: «${class_packages}».
+ .
+ Això pot ser degut a la corrupció a la base de dades «debconf». Vegeu «Debconf database corruption» a «/usr/share/doc/dictionaries-common/README.problems».
+ .
+ En aquest cas, executar «/usr/share/debconf/fix_db.pl» pot ajudar a posar la base de dades «debconf» en un estat consistent.
+ .
+ És probable que es facin algunes preguntes després d'aquest missatge per tal de deixar el sistema de diccionaris en un estat (provisionalment) funcional.
 Description-da.UTF-8: Debconf-databasen kan være ødelagt
  Indstillingen for »${question}« mangler, men pakker der tilbyder kandidater er installeret: »${class_packages}«.
  .
@@ -205,6 +213,14 @@ Description: Invalid configuration value for default dictionary
  renaming (e.g.: wenglish -> wamerican). In this case it is harmless and
  everything will be fixed after you select your default in the menu(s)
  shown after this message.
+Description-ca.UTF-8: El valor de configuració per al diccionari predeterminat no és vàlid
+ S'ha trobat un valor no vàlid per a una configuració de «dictionaries-common». «${value}» no correspon a cap paquet instal·lat al sistema.
+ .
+ La causa habitual són problemes en algun moment durant la instal·lació de paquets, on els paquets que proveeixen «${value}» estaven seleccionats per a la seua instal·lació però finalment no han estat instal·lats a causa d'errors en altres paquets.
+ .
+ Per a solucionar aquest error, reinstal·leu (o instal·leu) el paquet que proveeix «${value}». Després, si no voleu aquest paquet al vostre sistema, elimineu-lo, i això també n'eliminarà la configuració. Un menú d'opcions es mostrarà després d'aquest missatge per tal de deixar el sistema en un estat funcional fins que arregleu el problema.
+ .
+ Aquest missatge d'error també pot aparèixer quan es reanomenen diccionaris o llistes de paraules (p.e. «wenglish» -> «wamerican»). En aquest cas no passa res i tot s'arreglarà quan seleccioneu el valor predeterminat des dels menús que es mostraran després d'aquest missatge.
 Description-da.UTF-8: Ugyldig konfigurationsværdi for standardordbog
  En ugyldig værdi er blevet fundet i en konfigurationsindstilling for dictionaries-common. »${value}« svarer ikke til en installeret pakke på systemet.
  .
@@ -391,7 +407,7 @@ Choices-ast.UTF-8: ${echoices}, Axuste manual d'enllaces simbólicos
 Choices-bg.UTF-8: ${echoices}, Ръчна настройка на символните връзки
 Choices-bn.UTF-8: ${echoices}, ম্যানুয়াল সিমলিঙ্ক সেটিং
 Choices-bs.UTF-8: ${echoices}, Ručno podešavanje simboličkih linkova
-Choices-ca.UTF-8: ${echoices}, establiment manual dels enllaços
+Choices-ca.UTF-8: ${echoices}, Establiment manual dels enllaços
 Choices-cs.UTF-8: ${echoices}, Ruční nastavení symbolických odkazů
 Choices-da.UTF-8: ${echoices}, Manuel opsætning af symbolsk henvisning
 Choices-de.UTF-8: ${echoices}, Manuelle Einrichtung von symbolischen Verweisen
@@ -447,6 +463,14 @@ Description: System default ispell dictionary:
  .
  The default ispell dictionary can be changed at any time by running
  "select-default-ispell".
+Description-ca.UTF-8: Diccionari «ispell» predeterminat del sistema:
+ Indiqueu quin diccionari «ispell» s'ha d'utilitzar com a predeterminat del sistema quan no s'especifiqui cap altre diccionari de correcció ortogràfica.
+ .
+ Això estableix els enllaços simbòlics «/usr/lib/ispell/default.aff» i «/usr/lib/ispell/default.hash», així com els valors globals predeterminats de l'«ispell» «ispell-wrapper» i l'Emacs .
+ .
+ Utilitzeu «Establiment manual dels enllaços» si voleu gestionar els enllaços simbòlics pel vostre compte. En aquest cas, l'«ispell» no tindrà cap valor predeterminat global per a «ispell-wrapper» o l'Emacs.
+ .
+ El diccionari «ispell» per defecte es pot canviar en qualsevol moment mitjançant l'ordre «select-default-ispell».
 Description-cs.UTF-8: Který slovník má být v systému výchozí?
  Vyberte, který slovník má být v systému použit jako výchozí v případě, že není vybrán jiný.
  .
@@ -657,7 +681,7 @@ Choices-ast.UTF-8: ${echoices}, Axuste manual d'enllaces simbólicos
 Choices-bg.UTF-8: ${echoices}, Ръчна настройка на символните връзки
 Choices-bn.UTF-8: ${echoices}, ম্যানুয়াল সিমলিঙ্ক সেটিং
 Choices-bs.UTF-8: ${echoices}, Ručno podešavanje simboličkih linkova
-Choices-ca.UTF-8: ${echoices}, establiment manual dels enllaços
+Choices-ca.UTF-8: ${echoices}, Establiment manual dels enllaços
 Choices-cs.UTF-8: ${echoices}, Ruční nastavení symbolických odkazů
 Choices-da.UTF-8: ${echoices}, Manuel opsætning af symbolsk henvisning
 Choices-de.UTF-8: ${echoices}, Manuelle Einrichtung von symbolischen Verweisen
@@ -707,6 +731,10 @@ Description: System default wordlist:
  .
  The default wordlist can be changed at any time by running
  "select-default-wordlist".
+Description-ca.UTF-8: Llista de paraules predeterminada del sistema:
+ Indiqueu a quina llista de paraules ha d'apuntar l'enllaç simbòlic «/usr/share/dict/words». Això proporcionarà una llista senzilla de paraules de diccionari per a la verificació ortogràfica bàsica i les cerques de paraules. Utilitzeu «Establiment manual dels enllaços» si voleu gestionar aquest enllaç simbòlic.
+ .
+ La llista de paraules per defecte es pot canviar en qualsevol moment mitjançant l'ordre «select-default-wordlist».
 Description-cs.UTF-8: Který seznam slov má být v systému výchozí?
  Určete, na který seznam slov má ukazovat odkaz „/usr/share/dict/words“. Tento seznam slov slouží pro základní kontrolu překlepů a vyhledávání slov. Chcete-li si symbolický odkaz spravovat sami, zvolte „Ruční nastavení symbolických odkazů“.
  .
@@ -818,6 +846,10 @@ Description: Remove obsolete /etc/dictionary link?
  You will be asked to explicitly select the default wordlist during
  installation of wordlist packages. You can change your selection at any
  time by running "select-default-wordlist".
+Description-ca.UTF-8: Voleu eliminar l'enllaç «/etc/dictionary» obsolet?
+ Aquest sistema té un enllaç simbòlic obsolet «/etc/dictionary». Això ja no té sentit i hauria d'eliminar-se.
+ .
+ Se us demanarà que seleccioneu explícitament la llista de paraules per defecte durant la instal·lació de paquets de llistes de paraules. Podeu canviar la vostra selecció en qualsevol moment executant «select-default-wordlist».
 Description-da.UTF-8: Fjern forældet /etc/dictionary-henvisning?
  Dette system har en forældet symbolsk henvisning »/etc/dictionary«. Denne er ikke længere meningsfuld og bør fjernes.
  .
@@ -920,6 +952,14 @@ Description: Problems rebuilding an ${xxpell} hash file (${hashfile})
  .
  Until this problem is fixed you will not be able to use ${xxpell}
  with "${hashfile}".
+Description-ca.UTF-8: Hi ha hagut problemes en reconstruir el fitxer de taula de dispersió de «${xxpell} (${hashfile})
+ Ha ocorregut el següent error:
+ .
+ ${errormsg}
+ .
+ Aquest error ha estat causat pel paquet que proveeix «${hashfile}», encara que pot ser activat durant la instal·lació d'algun altre paquet. Envieu un informe de fallada pel paquet que proveeix «${hashfile}».
+ .
+ Fins que no es solucione aquest problema no podreu utilitzar ${xxpell} amb «${hashfile}».
 Description-da.UTF-8: Problemer under genopbygning af en ${xxpell}-hashfil (${hashfile})
  Den følgende fejl opstod:
  .
@@ -1106,6 +1146,10 @@ Description: Default values for ispell dictionary/wordlist not set
  .
  You should instead use the "select-default-ispell" or
  "select-default-wordlist" commands for that purpose.
+Description-ca.UTF-8: Els valors per defecte per al diccionari/llista de paraules d'«ispell» no estan establerts
+ Executar «dpkg-reconfigure dictionaries-common» no establirà els valors per defecte per al diccionari/llista de paraules d'«ispell». Executar «dpkg-reconfigure ispell» no establirà el diccionari «ispell» per defecte.
+ .
+ S'haurien d'utilitzar les ordres «select-default-ispell» o «select-default-wordlist» per a aquest propòsit.
 Description-da.UTF-8: Standardværdier for ispell-ordbog og ordliste er ikke sat
  Du kan ikke sætte standardværdierne for ispell-ordbog eller -ordliste ved at køre »dpkg-reconfigure dictionaries-common«. Kørsel af »dpkg-reconfigure ispell« vil ikke sætte ispells standardordbog.
  .

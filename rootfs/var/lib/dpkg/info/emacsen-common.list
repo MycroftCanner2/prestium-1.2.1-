@@ -24,6 +24,9 @@
 /usr/share/doc/emacsen-common/sample-package-remove-foo
 /usr/share/emacsen-common
 /usr/share/emacsen-common/debian-startup.el
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/emacsen-common
 /var
 /var/lib
 /var/lib/emacsen-common

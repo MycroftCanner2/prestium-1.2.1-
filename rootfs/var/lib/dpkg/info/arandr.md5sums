@@ -1,6 +1,8 @@
 2a463e3c0479851fa3dc183a2c91a832  usr/bin/arandr
 b9efa34fdc9484262f75d8e0671a4d1a  usr/bin/unxrandr
-cc3cf14dbd009eb4bd7f2f00fe5165d0  usr/lib/python3/dist-packages/arandr-0.1.11.egg-info
+8393127e2c5c01d84c7ed0b0458f6579  usr/lib/python3/dist-packages/arandr-0.1.11.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/arandr-0.1.11.egg-info/dependency_links.txt
+50340598e8d31e97df44fe957d0f9c7c  usr/lib/python3/dist-packages/arandr-0.1.11.egg-info/top_level.txt
 d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/screenlayout/__init__.py
 8cdf50df7658687ca3edde6236c06194  usr/lib/python3/dist-packages/screenlayout/auxiliary.py
 857b161fb3db9bef1a2f9beb0b17e3af  usr/lib/python3/dist-packages/screenlayout/demo.py
@@ -15,7 +17,7 @@ e19c8cf7dbb1ea6bf3b6da42b89632e4  usr/lib/python3/dist-packages/screenlayout/xra
 f3cb2b430f79e57855f1fd3827ebfb1a  usr/share/doc/arandr/NEWS.gz
 cbbd7f556f5b235d89bcc6e80eb75de1  usr/share/doc/arandr/README.gz
 c6e7e4c4d27db33e44714881263b4ea4  usr/share/doc/arandr/TODO
-ea87496d7bde1d8e6fe9dd5ff89593bc  usr/share/doc/arandr/changelog.Debian.gz
+f7211dfad90c787b54777489760e8080  usr/share/doc/arandr/changelog.Debian.gz
 607b46b1c646202eece71d753745a3a4  usr/share/doc/arandr/changelog.gz
 1b4df0f05fb50120982ef7e363e7387f  usr/share/doc/arandr/copyright
 319af9508008b59890d020ba698337af  usr/share/locale/ar/LC_MESSAGES/arandr.mo
@@ -56,5 +58,5 @@ c87ef5b0964130ce26a3bd83263275d6  usr/share/locale/tr/LC_MESSAGES/arandr.mo
 bc6b808fd8654af7848aa8505b18ce76  usr/share/locale/uk/LC_MESSAGES/arandr.mo
 ff1f0ed37b8fed370b5d1abd6548d50e  usr/share/locale/zh_CN/LC_MESSAGES/arandr.mo
 c3b17efaf8d13c965c0dec09c2a29711  usr/share/locale/zh_Hant/LC_MESSAGES/arandr.mo
-26db7da5182c59f1e6e79552c4072efd  usr/share/man/man1/arandr.1.gz
-55e55dc06e763727bb45a6e7092d9079  usr/share/man/man1/unxrandr.1.gz
+58d568873b08766263d50194a6663c22  usr/share/man/man1/arandr.1.gz
+6b9345b9428d8a1dc6baefee1da3146d  usr/share/man/man1/unxrandr.1.gz

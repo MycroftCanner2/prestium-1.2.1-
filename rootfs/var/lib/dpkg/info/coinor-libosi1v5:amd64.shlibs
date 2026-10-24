@@ -1,2 +1,2 @@
-libOsi 1 coinor-libosi1v5
-libOsiCommonTests 1 coinor-libosi1v5
+libOsi 1 coinor-libosi1v5 (>= 0.108.10+ds)
+libOsiCommonTests 1 coinor-libosi1v5 (>= 0.108.10+ds)

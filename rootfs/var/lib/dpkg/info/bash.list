@@ -1,6 +1,4 @@
 /.
-/bin
-/bin/bash
 /etc
 /etc/bash.bashrc
 /etc/skel
@@ -9,6 +7,7 @@
 /etc/skel/.profile
 /usr
 /usr/bin
+/usr/bin/bash
 /usr/bin/bashbug
 /usr/bin/clear_console
 /usr/share
@@ -164,4 +163,4 @@
 /usr/share/man/man7/bash-builtins.7.gz
 /usr/share/menu
 /usr/share/menu/bash
-/bin/rbash
+/usr/bin/rbash

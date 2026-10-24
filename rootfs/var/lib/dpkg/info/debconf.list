@@ -28,7 +28,6 @@
 /usr/share/debconf/frontend
 /usr/share/doc
 /usr/share/doc/debconf
-/usr/share/doc/debconf/NEWS.Debian.gz
 /usr/share/doc/debconf/README.Debian
 /usr/share/doc/debconf/changelog.gz
 /usr/share/doc/debconf/copyright

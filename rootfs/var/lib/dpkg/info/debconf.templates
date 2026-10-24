@@ -32,6 +32,7 @@ Choices-id.UTF-8: Dialog, Bacabaris (Readline), Gnome, Kde, Penyunting, Tak-Inte
 Choices-is.UTF-8: Samskiptagluggi, Leslína, Gnome, Kde, Ritill, Ógagnvirkt
 Choices-it.UTF-8: Dialog, Readline, Gnome, Kde, Editor, Non-interattiva
 Choices-ja.UTF-8: ダイアログ, Readline, Gnome, Kde, エディタ, 非対話的
+Choices-ka.UTF-8: Dialog, Readline, Gnome, Kde, რედაქტორი, არაინტერაქტიური
 Choices-kk.UTF-8: Сұхбат, Жолды оқу, Gnome, Kde, Түзетуші, Интерактивті емес
 Choices-km.UTF-8: ប្រអប់, បន្ទាត់អាន, Gnome, Kde, កម្មវិធី​និពន្ធ, គ្មាន​អន្តរកម្ម
 Choices-ko.UTF-8: 다이얼로그 방식, 리드라인 방식, Gnome, Kde, 편집기 방식, 물어보지 않음 방식
@@ -49,7 +50,7 @@ Choices-pa.UTF-8: ਵਾਰਤਾਲਾਪ, ਲਾਇਨ ਪੜ੍ਹੋ, Gnome,
 Choices-pl.UTF-8: Dialog, Readline, Gnome, Kde, Edytor, Nieinteraktywny
 Choices-pt.UTF-8: Dialog, Readline, Gnome, Kde, Editor, Não-interactivo
 Choices-pt_BR.UTF-8: Dialog, Readline, Gnome, Kde, Editor, Noninteractive
-Choices-ro.UTF-8: Dialog, Linie interactivă, Gnome, Kde, Editor, Non-interactiv
+Choices-ro.UTF-8: Dialog, Linie de comandă interactivă, Gnome, Kde, Editor, Non-interactivă
 Choices-ru.UTF-8: диалоговый, из командной строки, Gnome, Kde, из текстового редактора, пакетный
 Choices-si.UTF-8: සංවාදය, කියවීම් පේළිය, Gnome, Kde, සකසනය, අන්තර්ක්‍රියාකාරී නොවන
 Choices-sk.UTF-8: Dialóg, Readline, Gnome, Kde, Editor, Neinteraktívne
@@ -204,6 +205,10 @@ Description-ja.UTF-8: 利用するインターフェイス:
  設定に debconf を用いるパッケージは、共通のルック＆フィールを用います。どの種類のユーザインターフェイスを用いるかを選んでください。
  .
  「ダイアログ」は全画面の文字ベースのインターフェイスです。「readline」はより伝統的なプレーンテキストのインターフェイスです。「gnome」と「kde」は近代的な X のインターフェイスで、それぞれのデスクトップに適しています (ほかの X 環境で利用することもできます)。「エディタ」を用いるとあなたの好きなテキストエディタを用いることができます。「非対話的」を選ぶとまったく質問をしなくなります。
+Description-ka.UTF-8: აირჩიეთ ინტერფეისი:
+ პაკეტებს, რომლებიც იყენებენ debconf-ს კონფიგურაციისთვის, ერთნაირი გარეგნობა აქვთ. შეგიძლიათ, აირჩიოთ სასურველი ინტერფეისი.
+ .
+ წინაბოლო dialog სრულეკრანიანი, ტექსტური ინტერფეისია იმ დროს, როცა წინაბოლო readline უფრო ტრადიციულ, უბრალო ტექსტურ ინტერფეისს იყენებს და გვაქვს კიდევ ორი, GNOME-ის და KDE-ის თანამედროვე გრაფიკული ინტერფეისები, რომლებიც შესაბამისი სამუშაო გარემოსთვისაა განკუთვნილი (მათი გამოყენება ნებისმიერ X გარემოში შეგიძლიათ). რედაქტორის წინაბოლო საშუალებას გაძლევთ, მორგება თქვენთვის სასურველი ტექსტური რედაქტორით განახორციელოთ. წინაბოლო noninteractive კითხვებს არ სვამს.
 Description-kk.UTF-8: Қолданылатын интерфейс:
  Бапталу үшін debconf қолданылатын дестелерде бапталу түрі бірдей болады. Олар қолданатын интерфейсті таңдай аласыз.
  .
@@ -273,9 +278,9 @@ Description-pt_BR.UTF-8: Interface a ser usada:
  .
  A interface dialog é em tela cheia e baseada em texto, enquanto a interface readline usa uma interface mais tradicional de texto puro e as interfaces gnome e kde são interfaces X modernas, se adequando aos respectivos ambientes (mas podem ser usadas em qualquer ambiente X). A interface editor permite que você configure os pacotes usando seu editor de textos favorito. A interface não-interativa ("noninteractive") nunca faz perguntas a você.
 Description-ro.UTF-8: Interfața folosită:
- Pachetele care folosesc debconf pentru configurare, sunt asemănătoare în aspect și comportament. Puteți selecta tipul de interfață utilizat de ele.
+ Pachetele care folosesc «debconf» pentru configurare, sunt asemănătoare în aspect și comportament. Puteți selecta tipul de interfață utilizat de acestea.
  .
- Interfața dialog este o interfață în mod text, pe tot ecranul, în timp ce linia de comandă folosește o interfață în mod text, mai tradițională, și, atât interfața gnome cât și kde sunt interfețe moderne în X, care se încadrează în mediile respective (dar pot fi folosite în orice mediu X). Interfața editor vă permite sa configurați lucrurile folosind editorul de text preferat de dvs. Interfața non-interactivă nu vă întreabă niciodată nimic.
+ Interfața dialog este o interfață în mod text, pe tot ecranul, în timp ce linia de comandă folosește o interfață în mod text, mai tradițională, și, atât interfața Gnome cât și interfața KDE sunt interfețe moderne în X, care se încadrează în mediile respective (dar pot fi folosite în orice mediu X). Interfața editor vă permite sa configurați lucrurile folosind editorul de text preferat de dvs. Interfața non-interactivă nu vă întreabă niciodată nimic.
 Description-ru.UTF-8: Интерфейс настройки пакетов:
  Пакеты, использующие debconf, обладают единообразным интерфейсом настройки. Вы можете выбрать наиболее подходящий.
  .
@@ -387,6 +392,7 @@ Choices-id.UTF-8: kritis, tinggi, sedang, rendah
 Choices-is.UTF-8: mikilvægt, mikill, miðlungs, lítill
 Choices-it.UTF-8: critica, alta, media, bassa
 Choices-ja.UTF-8: 重要, 高, 中, 低
+Choices-ka.UTF-8: კრიტიკული, მაღალი, საშუალო, დაბალი
 Choices-kk.UTF-8: қатаң, жоғары, орташа, төмен
 Choices-km.UTF-8: សំខាន់បំផុត, ខ្ពស់, មធ្យម, ទាប
 Choices-ko.UTF-8: 중요, 높음, 중간, 낮음
@@ -405,7 +411,7 @@ Choices-pa.UTF-8: ਨਾਜ਼ੁਕ, ਜਿਆਦਾ, ਮੱਧਮ, ਘੱਟ
 Choices-pl.UTF-8: krytyczny, wysoki, średni, niski
 Choices-pt.UTF-8: crítica, elevada, média, baixa
 Choices-pt_BR.UTF-8: crítica, alta, média, baixa
-Choices-ro.UTF-8: critic, ridicat, mediu, scăzut
+Choices-ro.UTF-8: critică, ridicată, medie, scăzută
 Choices-ru.UTF-8: критический, высокий, средний, низкий
 Choices-si.UTF-8: දරුණු, ඉහළ, මධ්‍යම, අඩු
 Choices-sk.UTF-8: kritická, vysoká, stredná, nízka
@@ -716,6 +722,15 @@ Description-ja.UTF-8: より低い優先度の質問を無視:
   - 「低」は、ほとんどの場合にデフォルトの回答でかまわないような、ささいな項目用です。
  .
  注意: ここで何を選択しても、以前に行った質問は dpkg-reconfigure プログラムを使用して表示できます。
+Description-ka.UTF-8: გამოტოვებული იქნება კითხვები, რომლის პრიორიტეტიც ნაკლები იქნება, ვიდრე:
+ Debconf კითხვებს პრიორიტეტებს ანიჭებს. აირჩიეთ უმდაბლესი პრიორიტეტი, რომლის ნახვაც გნებავთ:
+   - 'critical' მხოლოდ მაშინ გკითხავთ, თუ არსებობს შანსი, სისტემა გააფუჭოთ.
+     ეს, მხოლოდ, მაშინ აირჩიეთ, თუ ან მწვანე ბრძანებით, ან გეჩქარებათ.
+   - 'high' მნიშვნელოვანი კითხვებისთვის
+   - 'medium' ნორმალური კითხვებისთვის
+   - 'low' შეშლილებისთვისაა, რომლებსაც ყველაფრის დანახვა სურთ
+ .
+ დაიმახსოვრეთ, რომ არ აქვს მნიშვნელობა, აქ რომელ დონეს აირჩევთ, ყველა კითხვას მაინც დაინახავთ, თუ პაკეტის თავიდან მორგებას dpkg-reconfigure-ით განახორციელებთ.
 Description-kk.UTF-8: Приоритеті келесіден төмен сұрақтарды елемеу:
  Debconf сізге қойылатын сұрақтарды маңызы бойынша келесідей бөледі. Көргіңіз келетін ең төмен дәрежені таңдаңыз:
    - 'катаң' тек жүйеңізге зақым келтіру қауіпі болса ғана сұрайды.
@@ -870,15 +885,15 @@ Description-pt_BR.UTF-8: Ignorar perguntas com uma prioridade menor que:
    - 'baixa' é para malucos por controle que desejam ver tudo
  .
  Note que, independentemente do que você escolher aqui, você poderá ver todas as perguntas caso você reconfigure um pacote com o comando dpkg-reconfigure.
-Description-ro.UTF-8: Ignoră întrebările cu prioritatea mai mică decât:
- Debconf prioritizează întrebările pe care vi le adresează. Alegeți cea mai  mică prioritate a întrebărilor pe care doriți să le vedeți:
-   - 'critic' apare doar când sistemul se poate să se strice.
-      Alegeți-o dacă sunteți începător, sau vă grăbiți.
-   - 'ridicat' este pentru întrebări destul de importante
-   - 'mediu' este pentru întrebări normale
-   - 'scăzut' este pentru obsedații de control care vor să vadă tot
+Description-ro.UTF-8: Ignoră întrebările cu prioritatea mai mică decât cea:
+ «debconf» prioritizează întrebările pe care vi le adresează. Alegeți cea mai mică prioritate a întrebărilor pe care doriți să le vedeți:
+   - „critică” afișează întrebări doar când sistemul ar putea să se strice.
+      Alegeți-o dacă sunteți începător, sau vă grăbiți;
+   - „ridicată” este pentru întrebări destul de importante;
+   - „medie” este pentru întrebări normale;
+   - „scăzută” este pentru obsedații de control care vor să vadă tot.
  .
- A se nota că indiferent ce nivel alegeți aici, veți putea să vedeți fiecare întrebare dacă reconfigurați un pachet cu dpkg-reconfigure.
+ Rețineți că indiferent ce nivel alegeți aici, veți putea să vedeți fiecare întrebare dacă reconfigurați un pachet cu «dpkg-reconfigure».
 Description-ru.UTF-8: Не задавать вопросы с приоритетом менее чем:
  Debconf различает степень важности задаваемых вам вопросов. Выберите наименьший уровень вопросов, которые хотите видеть: 
    - «критический» — Выдает только вопросы, критичные для работы системы.
@@ -1085,6 +1100,7 @@ Description-id.UTF-8: Memasang paket-paket
 Description-is.UTF-8: Set upp pakka
 Description-it.UTF-8: Installazione dei pacchetti in corso
 Description-ja.UTF-8: パッケージをインストールしています
+Description-ka.UTF-8: პაკეტების დაყენება
 Description-kk.UTF-8: Дестелерді орнату
 Description-km.UTF-8: កំពុង​ដំឡើង​កញ្ចប់​
 Description-ko.UTF-8: 패키지를 설치하는 중입니다
@@ -1157,6 +1173,7 @@ Description-id.UTF-8: Mohon menunggu...
 Description-is.UTF-8: Bíddu aðeins...
 Description-it.UTF-8: Attendere...
 Description-ja.UTF-8: しばらくお待ちください...
+Description-ka.UTF-8: გთხოვთ მოიცადოთ...
 Description-kk.UTF-8: Күте тұрыңыз...
 Description-km.UTF-8: សូម​រង់ចាំ...
 Description-ko.UTF-8: 잠시 기다리십시오...
@@ -1260,6 +1277,8 @@ Description-is.UTF-8: Skipti á miðli
 Description-it.UTF-8: Cambio supporto
  ${MESSAGE}
 Description-ja.UTF-8: メディアの変更
+ ${MESSAGE}
+Description-ka.UTF-8: მედიის ცვლილება
  ${MESSAGE}
 Description-kk.UTF-8: Дискті ауыстыру
  ${MESSAGE}

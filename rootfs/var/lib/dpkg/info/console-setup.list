@@ -1,11 +1,10 @@
 /.
-/bin
-/bin/setupcon
 /etc
 /etc/default
 /usr
 /usr/bin
 /usr/bin/ckbcomp
+/usr/bin/setupcon
 /usr/share
 /usr/share/bug
 /usr/share/bug/console-setup

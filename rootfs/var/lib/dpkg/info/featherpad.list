@@ -12,12 +12,14 @@
 /usr/share/doc/featherpad/copyright
 /usr/share/featherpad
 /usr/share/featherpad/help
-/usr/share/featherpad/help_ca
 /usr/share/icons
 /usr/share/icons/hicolor
 /usr/share/icons/hicolor/scalable
 /usr/share/icons/hicolor/scalable/apps
 /usr/share/icons/hicolor/scalable/apps/featherpad.svg
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/featherpad
 /usr/share/metainfo
 /usr/share/metainfo/featherpad.metainfo.xml
 /usr/bin/fpad

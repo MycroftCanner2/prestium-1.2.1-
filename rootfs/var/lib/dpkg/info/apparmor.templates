@@ -7,6 +7,10 @@ Description: Additional home directory locations:
  .
  Example: if user's directories are stored in /srv/nfs/home and /mnt/homes,
  you should enter "/srv/nfs/home/ /mnt/homes/".
+Description-ca.UTF-8: Ubicacions addicionals de directoris d'usuari:
+ Introduïu una llista separada per espais de qualsevol ubicació addicional per als directoris d'usuari. Aquestes ubicacions s'afegiran a les especificades a «/etc/apparmor.d/tunables/home» i han d'acabar amb una «/».
+ .
+ Exemple: si els directoris d'usuari s'emmagatzemen a «/srv/nfs/home» i a «/mnt/homes», caldria introduir «/srv/nfs/home/ /mnt/homes/».
 Description-cs.UTF-8: Další umístění domovských adresářů:
  Zadejte prosím mezerami oddělený seznam všech dalších umístění pro domovské adresáře uživatelů. Tato umístění rozšiřují ta, která jsou uvedena v /etc/apparmor.d/tunables/home a musí být zakončena '/'.
  .
@@ -47,6 +51,10 @@ Description-pt_BR.UTF-8: Locais adicionais de diretórios de usuário:
  Por favor, informe uma lista separada por espaços de quaisquer locais adicionais para diretórios de usuário. Esses locais são em adição aos especificados em /etc/apparmor.d/tunables/home e devem terminar com "/".
  .
  Exemplo: caso os diretórios dos usuários sejam armazenados em /srv/nfs/home e /mnt/homes, você deve informar "/srv/nfs/home/ /mnt/homes/".
+Description-ro.UTF-8: Locații suplimentare din directorul „Acasă” (directorul personal):
+ Introduceți o listă separată de spații cu orice locații suplimentare pentru directoarele „Acasă” ale utilizatorilor. Aceste locații sunt în plus față de cele specificate în fișierul „/etc/apparmor.d/tunables/home” și trebuie să se încheie cu un caracter „/”.
+ .
+ Exemplu: dacă directoarele utilizatorului sunt stocate în „/srv/nfs/home” și „/mnt/homes”, ar trebui să introduceți „/srv/nfs/home/ /mnt/homes/”.
 Description-ru.UTF-8: Дополнительные места расположения домашних каталогов:
  Введите через пробел дополнительные места расположения домашних каталогов пользователей. Эти места добавятся к указанным в /etc/apparmor.d/tunables/home и должны заканчиваться символом «/».
  .

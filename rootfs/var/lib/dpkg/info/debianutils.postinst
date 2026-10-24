@@ -1,4 +1,6 @@
-#! /bin/sh -e
+#! /bin/sh
+
+set -e
 
 ua() {
 	update-alternatives --install /usr/bin/which which /usr/bin/which.debianutils 0 \
@@ -35,3 +37,5 @@ case "$1" in
         exit 1
     ;;
 esac
+
+

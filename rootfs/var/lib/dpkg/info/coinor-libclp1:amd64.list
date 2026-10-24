@@ -2,9 +2,9 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libClp.so.1.14.6
-/usr/lib/x86_64-linux-gnu/libClpSolver.so.1.14.6
-/usr/lib/x86_64-linux-gnu/libOsiClp.so.1.14.6
+/usr/lib/x86_64-linux-gnu/libClp.so.1.14.10
+/usr/lib/x86_64-linux-gnu/libClpSolver.so.1.14.10
+/usr/lib/x86_64-linux-gnu/libOsiClp.so.1.14.10
 /usr/share
 /usr/share/doc
 /usr/share/doc/coinor-libclp1

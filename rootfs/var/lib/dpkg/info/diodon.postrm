@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installdeb/13.20
+dpkg-maintscript-helper mv_conffile /etc/xdg/autostart/diodon.desktop /etc/xdg/autostart/diodon-autostart.desktop 1.11.1-1\~ diodon -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/apport/crashdb.conf.d/diodon-crashdb.conf 1.11.1-1\~ diodon -- "$@"
+# End automatically added section
+# Automatically added by dh_icons/13.20
+if command -v update-icon-caches >/dev/null; then
+	update-icon-caches /usr/share/icons/Yaru /usr/share/icons/elementary-xfce /usr/share/icons/elementary-xfce-dark /usr/share/icons/elementary-xfce-darker /usr/share/icons/ubuntu-mono-dark /usr/share/icons/ubuntu-mono-light
+fi
+# End automatically added section

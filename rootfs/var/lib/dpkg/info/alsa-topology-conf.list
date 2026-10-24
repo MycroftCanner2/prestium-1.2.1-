@@ -1,8 +1,8 @@
 /.
-/lib
-/lib/firmware
-/lib/firmware/skl_hda_dsp_generic-tplg.bin
 /usr
+/usr/lib
+/usr/lib/firmware
+/usr/lib/firmware/skl_hda_dsp_generic-tplg.bin
 /usr/share
 /usr/share/alsa
 /usr/share/alsa/topology

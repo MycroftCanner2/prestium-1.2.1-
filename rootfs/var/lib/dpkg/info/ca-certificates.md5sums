@@ -38,7 +38,6 @@ c171ac81ae44b81c50c011cc0104eb65  usr/share/ca-certificates/mozilla/Certum_Trust
 79d4bd47dab532e540af03377ab4436a  usr/share/ca-certificates/mozilla/CommScope_Public_Trust_ECC_Root-02.crt
 6b77590ca81c0169ba2997d3080085fa  usr/share/ca-certificates/mozilla/CommScope_Public_Trust_RSA_Root-01.crt
 3f8b34ad0312758956d670c7f4256fb8  usr/share/ca-certificates/mozilla/CommScope_Public_Trust_RSA_Root-02.crt
-a22a580eec5fdd8e3f2a066c1c5a1a5c  usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt
 4b7348260de7c8799fccedb50d246cab  usr/share/ca-certificates/mozilla/D-TRUST_BR_Root_CA_1_2020.crt
 7201cc4fb7761f01d0ae3f9a9fb8dc0b  usr/share/ca-certificates/mozilla/D-TRUST_BR_Root_CA_2_2023.crt
 7d8f21b5d0ecd9b5607c3c0404680ec0  usr/share/ca-certificates/mozilla/D-TRUST_EV_Root_CA_1_2020.crt
@@ -144,13 +143,12 @@ a64d53544df4c1537d21e2785ad667c0  usr/share/ca-certificates/mozilla/certSIGN_Roo
 02b103e1007760678a9b4d9273217452  usr/share/ca-certificates/mozilla/e-Szigno_Root_CA_2017.crt
 7f410e2d89378c8a2032084b1aa31851  usr/share/ca-certificates/mozilla/ePKI_Root_Certification_Authority.crt
 21a05696c75d321aed0325626ea49516  usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_C3.crt
-506dd1e02c9a023ef36524115d9abb9a  usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_G3.crt
 faea44d1935ff0209bd4c5143be83358  usr/share/ca-certificates/mozilla/emSign_Root_CA_-_C1.crt
 bdd1808b5bc69b587c2bd9df10e6c800  usr/share/ca-certificates/mozilla/emSign_Root_CA_-_G1.crt
 1d75e56163a0d456f1f187804d54341d  usr/share/ca-certificates/mozilla/vTrus_ECC_Root_CA.crt
 8b8fa208468666176ad30bfd95f47743  usr/share/ca-certificates/mozilla/vTrus_Root_CA.crt
 25a21d3c6652577a71ee32a438babe5d  usr/share/doc/ca-certificates/README.Debian
-c2331d51d8e37bbe6480f8c2d4a2b7e8  usr/share/doc/ca-certificates/changelog.gz
+7223ab547f1db9658dad77d7854f9e0e  usr/share/doc/ca-certificates/changelog.gz
 ae5b36b514e3f12ce1aa8e2ee67f3d7e  usr/share/doc/ca-certificates/copyright
 5ce4affbb807ef10acd0b83dcb621547  usr/share/doc/ca-certificates/examples/ca-certificates-local/Makefile
 747e0bb01ae1887a0b5bd50e2fc5e840  usr/share/doc/ca-certificates/examples/ca-certificates-local/README

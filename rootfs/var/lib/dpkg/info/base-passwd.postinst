@@ -64,23 +64,18 @@ if [ ! -e "$DPKG_ROOT/etc/group" ] ; then
 	cp "$DPKG_ROOT/usr/share/base-passwd/group.master" "$DPKG_ROOT/etc/group"
 fi
 
-if [ "$2" = "3.2.2" ] && [ -f /etc/passwd.org ] ; then
-	cat <<EOF
-
-You are upgrading from version 3.2.2 of base-passwd which had a nasty
-bug: it swapped the uid and gid of local accounts.  If you have not
-fixed this problem manually I can undo the changes by restoring your
-previous passwd file from the backup /etc/passwd.org.
-
-EOF
-
-	askyesno "Should I restore your passwd? [Y/n]"
-
-	if [ "$a" = "y" ] ; then
-		cat /etc/passwd.org > /etc/passwd
-		changes=1
-	fi
+if [ ! -e "$DPKG_ROOT/etc/subuid" ] ; then
+	touch "$DPKG_ROOT/etc/subuid"
+	chown 0:0 "$DPKG_ROOT/etc/subuid"
+	chmod 644 "$DPKG_ROOT/etc/subuid"
 fi
+
+if [ ! -e "$DPKG_ROOT/etc/subgid" ] ; then
+	touch "$DPKG_ROOT/etc/subgid"
+	chown 0:0 "$DPKG_ROOT/etc/subgid"
+	chmod 644 "$DPKG_ROOT/etc/subgid"
+fi
+
 
 tmp=$(mktemp)
 if [ -n "$2" ] && ! update-passwd --dry-run > "$tmp" ; then

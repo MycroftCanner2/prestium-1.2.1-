@@ -1,5 +1,5 @@
-f274214ef587852124696e298164791e  usr/lib/x86_64-linux-gnu/libOsi.so.1.13.6
-ed6c17005e782f216c118d153a6f52fe  usr/lib/x86_64-linux-gnu/libOsiCommonTests.so.1.13.6
-01855531c76114ced49eddc05a09b3d7  usr/share/doc/coinor-libosi1v5/changelog.Debian.gz
-54ee022b90164c55969330ef7b7ebc72  usr/share/doc/coinor-libosi1v5/copyright
+378e3f28a43d3e66b481071d351eab4b  usr/lib/x86_64-linux-gnu/libOsi.so.1.13.10
+d250a5dfb2a2c70fbd948a23e4d9a978  usr/lib/x86_64-linux-gnu/libOsiCommonTests.so.1.13.10
+b23edb61635f36e4db34e7d91b18a298  usr/share/doc/coinor-libosi1v5/changelog.Debian.gz
+59a6088ae8a2ebedd119ffa41376afcb  usr/share/doc/coinor-libosi1v5/copyright
 ca42126cf9fa56b47bf5f0391d756b19  usr/share/lintian/overrides/coinor-libosi1v5

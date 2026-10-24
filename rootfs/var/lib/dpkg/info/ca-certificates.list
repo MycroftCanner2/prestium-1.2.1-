@@ -49,7 +49,6 @@
 /usr/share/ca-certificates/mozilla/CommScope_Public_Trust_ECC_Root-02.crt
 /usr/share/ca-certificates/mozilla/CommScope_Public_Trust_RSA_Root-01.crt
 /usr/share/ca-certificates/mozilla/CommScope_Public_Trust_RSA_Root-02.crt
-/usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt
 /usr/share/ca-certificates/mozilla/D-TRUST_BR_Root_CA_1_2020.crt
 /usr/share/ca-certificates/mozilla/D-TRUST_BR_Root_CA_2_2023.crt
 /usr/share/ca-certificates/mozilla/D-TRUST_EV_Root_CA_1_2020.crt
@@ -155,7 +154,6 @@
 /usr/share/ca-certificates/mozilla/e-Szigno_Root_CA_2017.crt
 /usr/share/ca-certificates/mozilla/ePKI_Root_Certification_Authority.crt
 /usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_C3.crt
-/usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_G3.crt
 /usr/share/ca-certificates/mozilla/emSign_Root_CA_-_C1.crt
 /usr/share/ca-certificates/mozilla/emSign_Root_CA_-_G1.crt
 /usr/share/ca-certificates/mozilla/vTrus_ECC_Root_CA.crt

@@ -1,6 +1,11 @@
-038170c95d94437d6e02a0f631524119  usr/bin/curl
-2df99cdc69d160e14e77601e8961a792  usr/share/doc/curl/changelog.Debian.gz
-0a7d15f1f7beb98774b69a1e88bc2119  usr/share/doc/curl/changelog.gz
-f9f6598312858fead4eed4d151197550  usr/share/doc/curl/copyright
-44ba31c9dceb262766e093e2bfd9f539  usr/share/man/man1/curl.1.gz
-5af0593e6eaf8d1e3bd86b0092ea7009  usr/share/zsh/vendor-completions/_curl
+649916f3018696ec5928a6cb019f0362  usr/bin/curl
+78f260911fb7f60b6e0e524743bf2360  usr/bin/wcurl
+2bcd8f2198ba105716f3bdfd3478762e  usr/share/doc/curl/NEWS.Debian.gz
+a57b381d303c66863c109e18936999f1  usr/share/doc/curl/README.Debian
+63ead899ca8412e4ebaa4fd365a19cbe  usr/share/doc/curl/changelog.Debian.gz
+7b38128913fcc930862d439edae97971  usr/share/doc/curl/changelog.gz
+200a7db36e5c09d45cd102ca67ac9381  usr/share/doc/curl/copyright
+42a96fd05dfefde93cb36a5c90989483  usr/share/fish/vendor_completions.d/curl.fish
+86ab61bf6cc88975a3f7ec752507896f  usr/share/man/man1/curl.1.gz
+c9f7499bbf8cf5a64b534986908cc914  usr/share/man/man1/wcurl.1.gz
+fc09ebacfe76e1d6323f91274da4fad5  usr/share/zsh/vendor-completions/_curl

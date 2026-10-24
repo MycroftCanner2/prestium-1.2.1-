@@ -1,9 +1,9 @@
 /.
-/sbin
-/sbin/cfdisk
-/sbin/fdisk
-/sbin/sfdisk
 /usr
+/usr/sbin
+/usr/sbin/cfdisk
+/usr/sbin/fdisk
+/usr/sbin/sfdisk
 /usr/share
 /usr/share/bash-completion
 /usr/share/bash-completion/completions
@@ -12,6 +12,7 @@
 /usr/share/bash-completion/completions/sfdisk
 /usr/share/doc
 /usr/share/doc/fdisk
+/usr/share/doc/fdisk/NEWS.Debian.gz
 /usr/share/doc/fdisk/changelog.Debian.gz
 /usr/share/doc/fdisk/changelog.gz
 /usr/share/doc/fdisk/copyright

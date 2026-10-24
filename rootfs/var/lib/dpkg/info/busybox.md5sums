@@ -1,9 +1,10 @@
-63f50a75b677b71fd7bd0f6624306982  bin/busybox
-850d877e6af595ed63d787749de6fde8  usr/share/doc/busybox/changelog.Debian.amd64.gz
-5d0c9a0c9512dbf6a6b8f6a597447554  usr/share/doc/busybox/changelog.Debian.gz
+f0290849647032e604ab9f269e6951d5  usr/bin/busybox
+3f48cad79e056f8465a512c628cf2c86  usr/share/doc/busybox/changelog.Debian.amd64.gz
+4097946cb81ff2a304637efe9d3f6661  usr/share/doc/busybox/changelog.Debian.gz
 e4a6f98fa82c414802eae075f1e6e837  usr/share/doc/busybox/copyright
 a2bf2460962dc2c1a2986833b744ab6d  usr/share/doc/busybox/mdev.txt.gz
 923ceec813f3e45f099767d6f5e02107  usr/share/doc/busybox/syslog.conf.txt
 2029cc4b85b2536fc257447aa4a00168  usr/share/initramfs-tools/conf-hooks.d/busybox
-ff0c38ecb2edc241b7e5fdac08b8fcdb  usr/share/initramfs-tools/hooks/zz-busybox
-bb94a917f0868b4b6153c584a62e8e30  usr/share/man/man1/busybox.1.gz
+757cbe0826f0b096a7b5c7bc1d399f7b  usr/share/initramfs-tools/hooks/zz-busybox
+c3e38d230d32482050ebe998612a7fc6  usr/share/lintian/overrides/busybox
+037014448481e07df1eb2333967aa65f  usr/share/man/man1/busybox.1.gz

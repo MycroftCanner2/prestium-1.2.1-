@@ -11,6 +11,12 @@ Description: Continue with cryptsetup removal?
  .
  Do not choose this option if you want to lock the dm-crypt devices
  before package removal.
+Description-ca.UTF-8: Voleu continuar amb l'eliminació del «cryptsetup»?
+ Aquest sistema té dispositius «dm-crypt» desbloquejats: ${cryptmap}
+ .
+ Si aquests dispositius es gestionen amb el «cryptsetup», és possible que no pugueu bloquejar els dispositius després de l'eliminació del paquet, tot i que es poden utilitzar altres eines per a gestionar dispositius «dm-crypt». Qualsevol apagada o reinici del sistema bloquejarà els dispositius.
+ .
+ No trieu aquesta opció si voleu bloquejar els dispositius «dm-crypt» abans de l'eliminació del paquet.
 Description-cs.UTF-8: Pokračovat v odstraňování cryptsetup?
  Tento systém má odemčená zařízení dm-crypt: ${cryptmap}
  .

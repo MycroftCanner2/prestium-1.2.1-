@@ -1,7 +1,7 @@
 /.
-/bin
-/bin/busybox
 /usr
+/usr/bin
+/usr/bin/busybox
 /usr/share
 /usr/share/doc
 /usr/share/doc/busybox
@@ -15,6 +15,9 @@
 /usr/share/initramfs-tools/conf-hooks.d/busybox
 /usr/share/initramfs-tools/hooks
 /usr/share/initramfs-tools/hooks/zz-busybox
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/busybox
 /usr/share/man
 /usr/share/man/man1
 /usr/share/man/man1/busybox.1.gz

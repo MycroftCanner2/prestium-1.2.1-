@@ -14,7 +14,20 @@ fi
 
 /usr/lib/emacsen-common/emacs-package-install --postinst emacsen-common
 
-# Automatically added by dh_installdeb/13.11.3
+# Reinstall all flavors during upgrade.  See the comments in the
+# preinst and https://bugs.debian.org/1106291
+
+for flavor in /var/lib/emacsen-common/state/flavor/pending/*[!~]; do
+    case "$flavor" in
+        */pending/\**) break ;; # no flavors
+    esac
+    flavor="$(basename "$flavor")"
+    echo "Reinstalling emacsen flavor $flavor after emacsen-common upgrade" 1>&2
+    /usr/lib/emacsen-common/emacs-install "$flavor"
+    rm "/var/lib/emacsen-common/state/flavor/pending/$flavor"
+done
+
+# Automatically added by dh_installdeb/13.24.2
 dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/00debian-vars.el 3.0.3\~ emacsen-common -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.el 3.0.3\~ emacsen-common -- "$@"
 # End automatically added section

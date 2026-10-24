@@ -13,9 +13,11 @@
 /usr/share/bug/bubblewrap
 /usr/share/doc
 /usr/share/doc/bubblewrap
+/usr/share/doc/bubblewrap/NEWS.Debian.gz
 /usr/share/doc/bubblewrap/README.Debian.gz
 /usr/share/doc/bubblewrap/README.md.gz
 /usr/share/doc/bubblewrap/changelog.Debian.gz
+/usr/share/doc/bubblewrap/changelog.gz
 /usr/share/doc/bubblewrap/copyright
 /usr/share/doc/bubblewrap/examples
 /usr/share/doc/bubblewrap/examples/bubblewrap-shell.sh

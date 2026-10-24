@@ -2,8 +2,8 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libOsi.so.1.13.6
-/usr/lib/x86_64-linux-gnu/libOsiCommonTests.so.1.13.6
+/usr/lib/x86_64-linux-gnu/libOsi.so.1.13.10
+/usr/lib/x86_64-linux-gnu/libOsiCommonTests.so.1.13.10
 /usr/share
 /usr/share/doc
 /usr/share/doc/coinor-libosi1v5

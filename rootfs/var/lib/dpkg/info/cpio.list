@@ -1,8 +1,8 @@
 /.
-/bin
-/bin/cpio
-/bin/mt-gnu
 /usr
+/usr/bin
+/usr/bin/cpio
+/usr/bin/mt-gnu
 /usr/share
 /usr/share/doc
 /usr/share/doc/cpio
@@ -12,6 +12,9 @@
 /usr/share/doc/cpio/changelog.gz
 /usr/share/doc/cpio/copyright
 /usr/share/locale
+/usr/share/locale/bg
+/usr/share/locale/bg/LC_MESSAGES
+/usr/share/locale/bg/LC_MESSAGES/cpio.mo
 /usr/share/locale/da
 /usr/share/locale/da/LC_MESSAGES
 /usr/share/locale/da/LC_MESSAGES/cpio.mo
@@ -48,6 +51,9 @@
 /usr/share/locale/ja
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/cpio.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/cpio.mo
 /usr/share/locale/ko
 /usr/share/locale/ko/LC_MESSAGES
 /usr/share/locale/ko/LC_MESSAGES/cpio.mo
@@ -94,3 +100,4 @@
 /usr/share/man/man1
 /usr/share/man/man1/cpio.1.gz
 /usr/share/man/man1/mt-gnu.1.gz
+/usr/share/man/man8

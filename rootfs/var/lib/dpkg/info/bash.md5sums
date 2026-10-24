@@ -1,7 +1,7 @@
-2a76f5df90ba1375b6e6d825c4a28b2d  bin/bash
-12c7981c8fed81743552e47dd4b1483e  usr/bin/bashbug
-1beed4021b9f91e24b98b98e326b6970  usr/bin/clear_console
-b0840061f097580c502a10137ba09af6  usr/share/debianutils/shells.d/bash
+9c5c87555c7f6864b5853080f1aaf6b8  usr/bin/bash
+1b100dfa9d6605d728360123a40b41cf  usr/bin/bashbug
+e87849f4a5bfcbb5be50cebd1e082286  usr/bin/clear_console
+017a419724a16784bf96f676659217f4  usr/share/debianutils/shells.d/bash
 1a40818cede744b44e13d7792f5efddc  usr/share/doc/bash/CHANGES.gz
 e33c919ed8b88f5895591eb2aed571af  usr/share/doc/bash/COMPAT.gz
 ab78b78be766692463cb112b88d5a74f  usr/share/doc/bash/INTRO.gz
@@ -12,8 +12,8 @@ c2737a3f295b4b1ddc40605d2053531a  usr/share/doc/bash/RBASH
 5dac7b9b6332d9845e315cf8fd50ea89  usr/share/doc/bash/README.abs-guide
 007dea9b8141f038c602b23f78509e34  usr/share/doc/bash/README.commands.gz
 9b463610f80c54e22bb845da563040d6  usr/share/doc/bash/README.gz
-1f9777255e061668ef290898f03754da  usr/share/doc/bash/changelog.Debian.amd64.gz
-b4b49cbcd859181d46d5cb3482fb30d0  usr/share/doc/bash/changelog.Debian.gz
+285cff56b345d65111815081f2af4887  usr/share/doc/bash/changelog.Debian.amd64.gz
+4759befac3640745d8eb090e3feaa2da  usr/share/doc/bash/changelog.Debian.gz
 1a40818cede744b44e13d7792f5efddc  usr/share/doc/bash/changelog.gz
 a7b4d52dcef4931d6a74b71e0f25f568  usr/share/doc/bash/copyright
 244319c9dd88c980910aacd76477b8d9  usr/share/doc/bash/inputrc.arrows

@@ -2,13 +2,12 @@
 /etc
 /etc/dbus-1
 /etc/dbus-1/system.d
-/lib
-/lib/systemd
-/lib/systemd/system
-/lib/systemd/system/dbus.socket
-/lib/systemd/system/sockets.target.wants
 /usr
 /usr/lib
+/usr/lib/systemd
+/usr/lib/systemd/system
+/usr/lib/systemd/system/dbus.socket
+/usr/lib/systemd/system/sockets.target.wants
 /usr/lib/sysusers.d
 /usr/lib/sysusers.d/dbus.conf
 /usr/share
@@ -25,4 +24,4 @@
 /usr/share/lintian
 /usr/share/lintian/overrides
 /usr/share/lintian/overrides/dbus-system-bus-common
-/lib/systemd/system/sockets.target.wants/dbus.socket
+/usr/lib/systemd/system/sockets.target.wants/dbus.socket

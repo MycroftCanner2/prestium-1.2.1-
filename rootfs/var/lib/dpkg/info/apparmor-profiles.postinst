@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/bin.ping"
     if [ -f "$APP_PROFILE" ]; then
@@ -19,7 +19,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/php-fpm"
     if [ -f "$APP_PROFILE" ]; then
@@ -38,7 +38,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/samba-bgqd"
     if [ -f "$APP_PROFILE" ]; then
@@ -57,7 +57,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/samba-dcerpcd"
     if [ -f "$APP_PROFILE" ]; then
@@ -76,7 +76,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/samba-rpcd"
     if [ -f "$APP_PROFILE" ]; then
@@ -95,7 +95,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/samba-rpcd-classic"
     if [ -f "$APP_PROFILE" ]; then
@@ -114,7 +114,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/samba-rpcd-spoolss"
     if [ -f "$APP_PROFILE" ]; then
@@ -133,7 +133,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/sbin.klogd"
     if [ -f "$APP_PROFILE" ]; then
@@ -152,7 +152,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/sbin.syslog-ng"
     if [ -f "$APP_PROFILE" ]; then
@@ -171,7 +171,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/sbin.syslogd"
     if [ -f "$APP_PROFILE" ]; then
@@ -190,7 +190,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.avahi-daemon"
     if [ -f "$APP_PROFILE" ]; then
@@ -209,7 +209,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.dnsmasq"
     if [ -f "$APP_PROFILE" ]; then
@@ -228,7 +228,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.identd"
     if [ -f "$APP_PROFILE" ]; then
@@ -247,7 +247,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.mdnsd"
     if [ -f "$APP_PROFILE" ]; then
@@ -266,7 +266,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.nmbd"
     if [ -f "$APP_PROFILE" ]; then
@@ -285,7 +285,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.nscd"
     if [ -f "$APP_PROFILE" ]; then
@@ -304,7 +304,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.smbd"
     if [ -f "$APP_PROFILE" ]; then
@@ -323,7 +323,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.smbldap-useradd"
     if [ -f "$APP_PROFILE" ]; then
@@ -342,7 +342,7 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_apparmor/3.0.8-3
+# Automatically added by dh_apparmor/4.1.0-1
 if [ "$1" = "configure" ]; then
     APP_PROFILE="/etc/apparmor.d/usr.sbin.traceroute"
     if [ -f "$APP_PROFILE" ]; then
@@ -361,7 +361,8 @@ if [ "$1" = "configure" ]; then
     fi
 fi
 # End automatically added section
-# Automatically added by dh_installdeb/13.11.4
+# Automatically added by dh_installdeb/13.24.2
+dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.bin.chromium-browser 4.1.0\~beta5-6\~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.lib.dovecot.anvil 2.13-3\~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.lib.dovecot.auth 2.13-3\~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.lib.dovecot.config 2.13-3\~ -- "$@"
@@ -379,4 +380,5 @@ dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.lib.dovecot.pop3 2.13-3\
 dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.lib.dovecot.pop3-login 2.13-3\~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.lib.dovecot.ssl-params 2.13-3\~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/apparmor.d/usr.sbin.dovecot 2.13-3\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/apparmor.d/zgrep 4.1.0\~beta5-6\~ -- "$@"
 # End automatically added section

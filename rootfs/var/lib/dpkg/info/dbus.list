@@ -4,15 +4,14 @@
 /etc/default/dbus
 /etc/init.d
 /etc/init.d/dbus
-/lib
-/lib/systemd
-/lib/systemd/system
-/lib/systemd/system/dbus.service
-/lib/systemd/system/multi-user.target.wants
 /usr
 /usr/lib
 /usr/lib/dbus-1.0
 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/systemd
+/usr/lib/systemd/system
+/usr/lib/systemd/system/dbus.service
+/usr/lib/systemd/system/multi-user.target.wants
 /usr/share
 /usr/share/bug
 /usr/share/bug/dbus
@@ -31,4 +30,4 @@
 /var
 /var/lib
 /var/lib/dbus
-/lib/systemd/system/multi-user.target.wants/dbus.service
+/usr/lib/systemd/system/multi-user.target.wants/dbus.service

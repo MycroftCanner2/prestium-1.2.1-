@@ -14,13 +14,14 @@ in_sysroot () {
     fi
 }
 
-if [ "$1" = configure ]; then
-    in_sysroot adduser --system \
-            --quiet \
-            --home /nonexistent \
-            --no-create-home \
-            --disabled-password \
-            --group "$MESSAGEUSER"
-fi
+case "$1" in
+    (configure | abort-upgrade | abort-deconfigure | abort-remove)
+        if command -v systemd-sysusers >/dev/null; then
+            systemd-sysusers ${DPKG_ROOT:+--root="$DPKG_ROOT"} dbus.conf
+        else
+            in_sysroot adduser --system --quiet --group "$MESSAGEUSER"
+        fi
+        ;;
+esac
 
 

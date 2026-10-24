@@ -1,4 +1,4 @@
-auto
+manual
 /usr/sbin/iptables
 iptables-restore
 /usr/sbin/iptables-restore
