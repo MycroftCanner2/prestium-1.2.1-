@@ -2,24 +2,28 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-mimearchive">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>MHTML web archive</comment>
-  <comment xml:lang="zh_TW">MHTML 網頁封存檔</comment>
-  <comment xml:lang="zh_CN">MHTML 网络归档</comment>
+  <comment xml:lang="zh-Hant-TW">MHTML 網頁封存檔</comment>
+  <comment xml:lang="zh-Hans-CN">MHTML 网络归档</comment>
   <comment xml:lang="uk">вебархів MHTML</comment>
   <comment xml:lang="tr">MHTML web arşivi</comment>
   <comment xml:lang="sv">MHTML-webbarkiv</comment>
-  <comment xml:lang="sr">МХТМЛ веб архива</comment>
+  <comment xml:lang="sr-Cyrl">МХТМЛ веб архива</comment>
+  <comment xml:lang="sq">arkiv web MHTML</comment>
   <comment xml:lang="sl">Spletni arhiv MHTML</comment>
+  <comment xml:lang="si">MHTML වෙබ් සංරක්ෂිතය</comment>
   <comment xml:lang="sk">Webový archív MHTML</comment>
   <comment xml:lang="ru">Веб-архив MHTML</comment>
-  <comment xml:lang="pt_BR">Pacote web MHTML</comment>
+  <comment xml:lang="pt-BR">Pacote web MHTML</comment>
   <comment xml:lang="pt">arquivo web MHTML</comment>
   <comment xml:lang="pl">Archiwum witryny MHTML</comment>
   <comment xml:lang="oc">archiu web MHTML</comment>
+  <comment xml:lang="nl">MHTML-webarchief</comment>
   <comment xml:lang="lv">MHTML tīmekļa arhīvs</comment>
   <comment xml:lang="ko">MHTML 웹 보관 파일</comment>
-  <comment xml:lang="kk">MHTML веб архиві</comment>
+  <comment xml:lang="kk-Cyrl">MHTML веб архиві</comment>
   <comment xml:lang="ja">MHTML Web アーカイブ</comment>
   <comment xml:lang="it">Archivio web MHTML</comment>
+  <comment xml:lang="is">MHTML vefsafnskrá</comment>
   <comment xml:lang="id">Arsip web MHTML</comment>
   <comment xml:lang="ia">Archivo web MHTML</comment>
   <comment xml:lang="hu">MHTML webarchívum</comment>
@@ -32,13 +36,14 @@
   <comment xml:lang="fi">MHTML-kooste</comment>
   <comment xml:lang="eu">MHTML web artxiboa</comment>
   <comment xml:lang="es">archivador web MHTML</comment>
-  <comment xml:lang="en_GB">MHTML web archive</comment>
+  <comment xml:lang="en-GB">MHTML web archive</comment>
   <comment xml:lang="el">Συμπιεσμένο αρχείο ιστού MHTML</comment>
   <comment xml:lang="de">MHTML-Webarchiv</comment>
   <comment xml:lang="da">MHTML-webarkiv</comment>
   <comment xml:lang="cs">webový archiv MHTML</comment>
   <comment xml:lang="ca">arxiu web MHTML</comment>
   <comment xml:lang="bg">Архив — MHTML</comment>
+  <comment xml:lang="be-Cyrl">вэб-архіў MHTML</comment>
   <comment xml:lang="ar">أرشيف ويب MHTML</comment>
   <comment xml:lang="af">MHTML-webargief</comment>
   <acronym>MHTML</acronym>

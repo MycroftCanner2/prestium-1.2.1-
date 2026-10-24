@@ -2,19 +2,20 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="audio/AMR-WB">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>AMR-WB audio</comment>
-  <comment xml:lang="zh_TW">AMR-WB 音訊</comment>
-  <comment xml:lang="zh_CN">AMR-WB 音频</comment>
+  <comment xml:lang="zh-Hant-TW">AMR-WB 音訊</comment>
+  <comment xml:lang="zh-Hans-CN">AMR-WB 音频</comment>
   <comment xml:lang="vi">Âm thanh AMR-WB</comment>
   <comment xml:lang="uk">звук AMR-WB</comment>
   <comment xml:lang="tr">AMR-WB sesi</comment>
   <comment xml:lang="sv">AMR-WB-ljud</comment>
-  <comment xml:lang="sr">АМР-ВБ звук</comment>
-  <comment xml:lang="sq">Audio AMR-WB</comment>
+  <comment xml:lang="sr-Cyrl">АМР-ВБ звук</comment>
+  <comment xml:lang="sq">audio AMR-WB</comment>
   <comment xml:lang="sl">Zvočna datoteka AMR-WB</comment>
+  <comment xml:lang="si">AMR-WB ශ්‍රව්‍ය</comment>
   <comment xml:lang="sk">Zvuk AMR-WB</comment>
   <comment xml:lang="ru">Аудио AMR-WB</comment>
   <comment xml:lang="ro">Audio AMR-WB</comment>
-  <comment xml:lang="pt_BR">Áudio AMR-WB</comment>
+  <comment xml:lang="pt-BR">Áudio AMR-WB</comment>
   <comment xml:lang="pt">áudio AMR-WB</comment>
   <comment xml:lang="pl">Plik dźwiękowy AMR-WB</comment>
   <comment xml:lang="oc">àudio AMR-WB</comment>
@@ -24,10 +25,11 @@
   <comment xml:lang="lv">AMR-WB audio</comment>
   <comment xml:lang="lt">AMR-WB garso įrašas</comment>
   <comment xml:lang="ko">AMR-WB 오디오</comment>
-  <comment xml:lang="kk">AMR-WB аудиосы</comment>
+  <comment xml:lang="kk-Cyrl">AMR-WB аудиосы</comment>
   <comment xml:lang="ka">AMR-WB აუდიო</comment>
   <comment xml:lang="ja">AMR-WB オーディオ</comment>
   <comment xml:lang="it">Audio AMR-WB</comment>
+  <comment xml:lang="is">AMR-WB hljóðskrá</comment>
   <comment xml:lang="id">Audio AMR-WB</comment>
   <comment xml:lang="ia">Audio AMR-WB</comment>
   <comment xml:lang="hu">AMR-WB hang</comment>
@@ -40,16 +42,17 @@
   <comment xml:lang="fo">AMR-WB ljóður</comment>
   <comment xml:lang="fi">AMR-WB-ääni</comment>
   <comment xml:lang="eu">AMR-WB audioa</comment>
-  <comment xml:lang="es">audio AMR-WB</comment>
+  <comment xml:lang="es">sonido AMR-WB</comment>
   <comment xml:lang="eo">AMR-WB-sondosiero</comment>
-  <comment xml:lang="en_GB">AMR-WB audio</comment>
+  <comment xml:lang="en-GB">AMR-WB audio</comment>
   <comment xml:lang="el">Ήχος AMR-WB</comment>
   <comment xml:lang="de">AMR-WB-Audio</comment>
   <comment xml:lang="da">AMR-WB-lyd</comment>
   <comment xml:lang="cs">zvuk AMR-WB</comment>
   <comment xml:lang="ca">àudio AMR-WB</comment>
   <comment xml:lang="bg">Аудио — AMR-WB</comment>
-  <comment xml:lang="be@latin">Aŭdyjo AMR-WB</comment>
+  <comment xml:lang="be-Latn">Aŭdyjo AMR-WB</comment>
+  <comment xml:lang="be-Cyrl">аўдыя AMR-WB</comment>
   <comment xml:lang="ar">صوت AMR-WB</comment>
   <comment xml:lang="af">AMR-WB-oudio</comment>
   <acronym>AMR-WB</acronym>

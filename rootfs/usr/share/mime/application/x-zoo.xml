@@ -2,19 +2,20 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-zoo">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>Zoo archive</comment>
-  <comment xml:lang="zh_TW">Zoo 封存檔</comment>
-  <comment xml:lang="zh_CN">Zoo 归档文件</comment>
+  <comment xml:lang="zh-Hant-TW">Zoo 封存檔</comment>
+  <comment xml:lang="zh-Hans-CN">Zoo 归档文件</comment>
   <comment xml:lang="vi">Kho nén zoo</comment>
   <comment xml:lang="uk">архів zoo</comment>
   <comment xml:lang="tr">Zoo arşivi</comment>
   <comment xml:lang="sv">Zoo-arkiv</comment>
-  <comment xml:lang="sr">Зoo архива</comment>
-  <comment xml:lang="sq">Arkiv zoo</comment>
+  <comment xml:lang="sr-Cyrl">Зoo архива</comment>
+  <comment xml:lang="sq">arkiv zoo</comment>
   <comment xml:lang="sl">Datoteka arhiva ZOO</comment>
+  <comment xml:lang="si">සත්වෝද්යාන ලේඛනාගාරය</comment>
   <comment xml:lang="sk">Archív Zoo</comment>
   <comment xml:lang="ru">Архив ZOO</comment>
   <comment xml:lang="ro">Arhivă Zoo</comment>
-  <comment xml:lang="pt_BR">Pacote Zoo</comment>
+  <comment xml:lang="pt-BR">Pacote Zoo</comment>
   <comment xml:lang="pt">arquivo Zoo</comment>
   <comment xml:lang="pl">Archiwum zoo</comment>
   <comment xml:lang="oc">archiu zoo</comment>
@@ -24,9 +25,10 @@
   <comment xml:lang="lv">Zoo arhīvs</comment>
   <comment xml:lang="lt">Zoo archyvas</comment>
   <comment xml:lang="ko">ZOO 압축 파일</comment>
-  <comment xml:lang="kk">Zoo архиві</comment>
+  <comment xml:lang="kk-Cyrl">Zoo архиві</comment>
   <comment xml:lang="ja">Zoo アーカイブ</comment>
   <comment xml:lang="it">Archivio zoo</comment>
+  <comment xml:lang="is">Zoo safnskrá</comment>
   <comment xml:lang="id">Arsip Zoo</comment>
   <comment xml:lang="ia">Archivo Zoo</comment>
   <comment xml:lang="hu">Zoo archívum</comment>
@@ -41,7 +43,7 @@
   <comment xml:lang="eu">Zoo artxiboa</comment>
   <comment xml:lang="es">archivador Zoo</comment>
   <comment xml:lang="eo">Zoo-arkivo</comment>
-  <comment xml:lang="en_GB">Zoo archive</comment>
+  <comment xml:lang="en-GB">Zoo archive</comment>
   <comment xml:lang="el">Συμπιεσμένο αρχείο Zoo</comment>
   <comment xml:lang="de">Zoo-Archiv</comment>
   <comment xml:lang="da">Zoo-arkiv</comment>
@@ -49,7 +51,8 @@
   <comment xml:lang="cs">archiv Zoo</comment>
   <comment xml:lang="ca">arxiu zoo</comment>
   <comment xml:lang="bg">Архив — zoo</comment>
-  <comment xml:lang="be@latin">Archiŭ zoo</comment>
+  <comment xml:lang="be-Latn">Archiŭ zoo</comment>
+  <comment xml:lang="be-Cyrl">архіў zoo</comment>
   <comment xml:lang="az">Zoo arxivi</comment>
   <comment xml:lang="ar">أرشيف Zoo</comment>
   <comment xml:lang="af">Zoo-argief</comment>

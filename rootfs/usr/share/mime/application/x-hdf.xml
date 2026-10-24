@@ -2,19 +2,20 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-hdf">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>HDF document</comment>
-  <comment xml:lang="zh_TW">HDF 文件</comment>
-  <comment xml:lang="zh_CN">HDF 文档</comment>
+  <comment xml:lang="zh-Hant-TW">HDF 文件</comment>
+  <comment xml:lang="zh-Hans-CN">HDF 文档</comment>
   <comment xml:lang="vi">Tài liệu HDF</comment>
   <comment xml:lang="uk">документ HDF</comment>
   <comment xml:lang="tr">HDF belgesi</comment>
   <comment xml:lang="sv">HDF-dokument</comment>
-  <comment xml:lang="sr">ХДФ документ</comment>
-  <comment xml:lang="sq">Dokument HDF</comment>
+  <comment xml:lang="sr-Cyrl">ХДФ документ</comment>
+  <comment xml:lang="sq">dokument HDF</comment>
   <comment xml:lang="sl">Dokument HDF</comment>
+  <comment xml:lang="si">HDF ලේඛනය</comment>
   <comment xml:lang="sk">Dokument HDF</comment>
   <comment xml:lang="ru">Документ HDF</comment>
   <comment xml:lang="ro">Document HDF</comment>
-  <comment xml:lang="pt_BR">Documento HDF</comment>
+  <comment xml:lang="pt-BR">Documento HDF</comment>
   <comment xml:lang="pt">documento HDF</comment>
   <comment xml:lang="pl">Dokument HDF</comment>
   <comment xml:lang="oc">document HDF</comment>
@@ -25,9 +26,10 @@
   <comment xml:lang="lv">HDF dokuments</comment>
   <comment xml:lang="lt">HDF dokumentas</comment>
   <comment xml:lang="ko">HDF 문서</comment>
-  <comment xml:lang="kk">HDF құжаты</comment>
+  <comment xml:lang="kk-Cyrl">HDF құжаты</comment>
   <comment xml:lang="ja">HDF ドキュメント</comment>
   <comment xml:lang="it">Documento HDF</comment>
+  <comment xml:lang="is">HDF skjal</comment>
   <comment xml:lang="id">Dokumen HDF</comment>
   <comment xml:lang="ia">Documento HDF</comment>
   <comment xml:lang="hu">HDF-dokumentum</comment>
@@ -42,7 +44,7 @@
   <comment xml:lang="eu">HDF dokumentua</comment>
   <comment xml:lang="es">documento HDF</comment>
   <comment xml:lang="eo">HDF-dokumento</comment>
-  <comment xml:lang="en_GB">HDF document</comment>
+  <comment xml:lang="en-GB">HDF document</comment>
   <comment xml:lang="el">Έγγραφο HDF</comment>
   <comment xml:lang="de">HDF-Dokument</comment>
   <comment xml:lang="da">HDF-dokument</comment>
@@ -50,7 +52,8 @@
   <comment xml:lang="cs">dokument HDF</comment>
   <comment xml:lang="ca">document HDF</comment>
   <comment xml:lang="bg">Документ — HDF</comment>
-  <comment xml:lang="be@latin">Dakument HDF</comment>
+  <comment xml:lang="be-Latn">Dakument HDF</comment>
+  <comment xml:lang="be-Cyrl">дакумент HDF</comment>
   <comment xml:lang="az">HDF sənədi</comment>
   <comment xml:lang="ast">Documentu HDF</comment>
   <comment xml:lang="ar">مستند HDF</comment>
