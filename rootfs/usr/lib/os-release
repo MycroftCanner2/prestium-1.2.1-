@@ -1,8 +1,8 @@
 PRETTY_NAME="Prestium"
 NAME="Prestium"
-VERSION_ID="1.8"
-VERSION="1.8 (bookworm)"
+VERSION_ID="1.9"
+VERSION="1.9 (trixie)"
 ID=prestium
 ID_LIKE=debian
-VERSION_CODENAME=bookworm
+VERSION_CODENAME=trixie
 HOME_URL="https://prestium.org/"
