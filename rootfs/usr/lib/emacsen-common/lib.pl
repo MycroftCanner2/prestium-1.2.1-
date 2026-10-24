@@ -25,7 +25,7 @@ sub glob_in_dir
   my ($dir, $pattern) = @_;
   my $oldir = getcwd;
   chdir($dir) or die "chdir $dir: $!";
-  my @files = glob("*[!~]");
+  my @files = glob($pattern);
   chdir($oldir);
   return \@files;
 }
@@ -38,7 +38,7 @@ sub validate_add_on_pkg
     if(-e "$lib_dir/packages/compat/$pkg")
     {
       print STDERR "ERROR: $pkg is broken - called $script as an old-style add-on, but has compat file.\n";
-      #exit(1);
+      #exit(2);
     }
   }
   else # New invocation style.
@@ -46,7 +46,7 @@ sub validate_add_on_pkg
     unless(-e "$lib_dir/packages/compat/$pkg")
     {
       print STDERR "ERROR: $pkg is broken - called $script as a new-style add-on, but has no compat file.\n";
-      #exit(1);
+      #exit(2);
     }
   }
 }

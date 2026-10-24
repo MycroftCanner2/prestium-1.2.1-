@@ -38,7 +38,7 @@ elsif(scalar(@ARGV) == 2 && $ARGV[0] eq '--prerm')
 else
 {
   usage(*STDERR{IO});
-  exit(1);
+  exit(2);
 }
 
 my @ordered_pkg_list =
@@ -58,14 +58,22 @@ foreach my $pkg (@ordered_pkg_list)
   }
   else # Old-style package.
   {
+    # We've completely ignored
+    # /var/lib/emacsen-common/state/flavor/pending/ here (whether it's
+    # relevant or not) because old style packages should be irrelevant
+    # now.
     $failed = -e $script && (system($script, $flavor, @installed_flavors) != 0);
   }
   if($failed)
   {
     print STDERR "ERROR: remove script from $pkg package failed\n";
-    exit(1);
+    exit(2);
   }
 }
+
+my $pending_flavor = "/var/lib/emacsen-common/state/flavor/pending/$flavor";
+die "ERROR: cannot unlink $pending_flavor: $!, "
+    unless (unlink($pending_flavor) or $!{ENOENT});
 
 # Silence "single use" warning.
 $::installed_flavor_state_dir = $::installed_flavor_state_dir;

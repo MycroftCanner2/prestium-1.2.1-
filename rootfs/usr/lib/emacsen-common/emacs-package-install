@@ -47,14 +47,14 @@ elsif (scalar(@ARGV) == 2)
   else
   {
     usage(*STDERR{IO});
-    exit(1);
+    exit(2);
   }
   $pkg = $ARGV[1];
 }
 else
 {
   usage(*STDERR{IO});
-  exit(1);
+  exit(2);
 }
 
 if($context eq 'preinst')
@@ -87,7 +87,7 @@ foreach my $pkg (@pkgs_to_handle)
       if(-e $script && (system($script, $flavor) != 0))
       {
         print STDERR "ERROR: install script from $pkg package failed\n";
-        exit(1);
+        exit(2);
       }
     }
   }
@@ -102,7 +102,7 @@ foreach my $pkg (@pkgs_to_handle)
       if(-e $script && (system($script, $flavor, @installed_flavors) != 0))
       {
         print STDERR "ERROR: install script from $pkg package failed\n";
-        exit(1);
+        exit(2);
       }
     }
   }
