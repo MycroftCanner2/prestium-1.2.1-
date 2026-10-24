@@ -10,7 +10,7 @@
 # vim:syntax=apparmor
 # Last Modified: Wed Aug 31 11:14:09 2005
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -49,4 +49,7 @@ include <tunables/global>
   /usr/share/icons/** r,
   /usr/share/pixmaps r,
   /usr/share/pixmaps/** r,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/usr.lib.RealPlayer10.realplay>
 }

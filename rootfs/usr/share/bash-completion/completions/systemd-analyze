@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # systemd-analyze(1) completion                      -*- shell-script -*-
 # SPDX-License-Identifier: LGPL-2.1-or-later
 #
@@ -33,7 +34,7 @@ __get_machines() {
 }
 
 __get_units_all() {
-    systemctl list-units --no-legend --no-pager --plain --all | \
+    systemctl list-units --no-legend --no-pager --plain --all $1 | \
         { while read -r a b c; do echo " $a"; done }
 }
 
@@ -51,6 +52,10 @@ __get_syscall_sets() {
     done
 }
 
+__get_architectures() {
+    systemd-analyze --no-legend --no-pager architectures | { while read -r a b; do echo " $a"; done }
+}
+
 _systemd_analyze() {
     local i verb comps mode
     local cur=${COMP_WORDS[COMP_CWORD]} prev=${COMP_WORDS[COMP_CWORD-1]} words cword
@@ -62,7 +67,7 @@ _systemd_analyze() {
     )
 
     local -A VERBS=(
-        [STANDALONE]='time blame plot unit-paths exit-status calendar timestamp timespan'
+        [STANDALONE]='time blame unit-files unit-paths exit-status compare-versions calendar timestamp timespan pcrs srk has-tpm2 smbios11'
         [CRITICAL_CHAIN]='critical-chain'
         [DOT]='dot'
         [DUMP]='dump'
@@ -72,11 +77,15 @@ _systemd_analyze() {
         [SECURITY]='security'
         [CONDITION]='condition'
         [INSPECT_ELF]='inspect-elf'
+        [PLOT]='plot'
+        [ARCHITECTURES]='architectures'
+        [FDSTORE]='fdstore'
+        [CAPABILITY]='capability'
     )
 
-    local CONFIGS='systemd/bootchart.conf systemd/coredump.conf systemd/journald.conf
+    local CONFIGS='locale.conf systemd/bootchart.conf systemd/coredump.conf systemd/journald.conf
                        systemd/journal-remote.conf systemd/journal-upload.conf systemd/logind.conf
-                       systemd/resolved.conf systemd/networkd.conf systemd/resolved.conf
+                       systemd/resolved.conf systemd/networkd.conf systemd/pstore.conf systemd/resolved.conf
                        systemd/sleep.conf systemd/system.conf systemd/timedated.conf
                        systemd/timesyncd.conf systemd/user.conf udev/udev.conf'
 
@@ -89,6 +98,12 @@ _systemd_analyze() {
             break
         fi
     done
+
+    if __contains_word "--user" ${COMP_WORDS[*]}; then
+        mode=--user
+    else
+        mode=--system
+    fi
 
     if __contains_word "$prev" ${OPTS[ARG]}; then
         case $prev in
@@ -120,7 +135,7 @@ _systemd_analyze() {
         if [[ $cur = -* ]]; then
             comps='--help --version --system --user --fuzz --no-pager'
         else
-            comps=$( __get_units_all )
+            comps=$( __get_units_all $mode )
         fi
 
     elif __contains_word "$verb" ${VERBS[DOT]}; then
@@ -132,7 +147,7 @@ _systemd_analyze() {
         if [[ $cur = -* ]]; then
             comps='--help --version --system --user --no-pager'
         else
-            comps=$( __get_units_all )
+            comps=$( __get_units_all $mode )
         fi
 
     elif __contains_word "$verb" ${VERBS[SECCOMP_FILTER]}; then
@@ -146,7 +161,8 @@ _systemd_analyze() {
         if [[ $cur = -* ]]; then
             comps='--help --version --system --user --global --man=no --generators=yes --root --image --recursive-errors=no --recursive-errors=yes --recursive-errors=one'
         else
-            comps=$( compgen -A file -- "$cur" )
+            comps=$( compgen -A file -- "$cur";
+                     __get_units_all $mode )
             compopt -o filenames
         fi
 
@@ -165,11 +181,6 @@ _systemd_analyze() {
         if [[ $cur = -* ]]; then
             comps='--help --version --no-pager --system --user -H --host -M --machine --offline --threshold --security-policy --json=off --json=pretty --json=short --root --image --profile=default --profile=nonetwork --profile=strict --profile=trusted'
         elif ! __contains_word "--offline" ${COMP_WORDS[*]}; then
-            if __contains_word "--user" ${COMP_WORDS[*]}; then
-                mode=--user
-            else
-                mode=--system
-            fi
             comps=$( __get_services $mode )
         else
             comps="$CONFIGS $( compgen -A file -- "$cur" )"
@@ -180,11 +191,6 @@ _systemd_analyze() {
         if [[ $cur = -* ]]; then
             comps='--help --version --system --user --global --no-pager --root --image'
         elif [[ $prev = "-u" ]] || [[ $prev = "--unit" ]]; then
-            if __contains_word "--user" ${COMP_WORDS[*]}; then
-                mode=--user
-            else
-                mode=--system
-            fi
             comps=$( __get_services $mode )
         fi
 
@@ -194,6 +200,30 @@ _systemd_analyze() {
         else
             comps=$( compgen -A file -- "$cur" )
             compopt -o filenames
+        fi
+
+    elif __contains_word "$verb" ${VERBS[PLOT]}; then
+        if [[ $cur = -* ]]; then
+            comps='--help --version --system --user --global --no-pager --json=off --json=pretty --json=short --table --no-legend --scale-svg --detailed'
+        fi
+
+    elif __contains_word "$verb" ${VERBS[ARCHITECTURES]}; then
+        if [[ $cur = -* ]]; then
+            comps='--help --version --no-pager --json=off --json=pretty --json=short --no-legend'
+        else
+            comps=$( __get_architectures )
+        fi
+
+    elif __contains_word "$verb" ${VERBS[FDSTORE]}; then
+        if [[ $cur = -* ]]; then
+            comps='--help --version --system --user --global -H --host -M --machine --no-pager --json=off --json=pretty --json=short --root --image'
+        else
+            comps=$( __get_services $mode )
+        fi
+
+    elif __contains_word "$verb" ${VERBS[CAPABILITY]}; then
+        if [[ $cur = -* ]]; then
+            comps='--help --version --no-pager --json=off --json=pretty --json=short -m --mask'
         fi
     fi
 

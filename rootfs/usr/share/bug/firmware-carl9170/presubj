@@ -1,0 +1,6 @@
+Please check whether your bug is a known issue in Linux by consulting the bug tracking system.
+
+Please note that the device can be very sensitive to the USB connection.
+Also, it is a known issue that the hardware cannot support frame aggregation and quality of service features (also known as WMM, Wi-Fi Multimedia) at the same time. According to the upstream maintainers, this makes this hardware "unsuitable for any serious 802.11n setup."
+
+It is also known that it struggles at high throughput when cryptographic functions are offloaded to the device. One can set the kernel parameter 'nohwcrypt=1' to disable this.

@@ -8,7 +8,7 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -19,4 +19,7 @@ include <tunables/global>
 
   /usr/sbin/in.ntalkd   r,
   /{,var/}run/utmp		r,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/usr.sbin.in.ntalkd>
 }

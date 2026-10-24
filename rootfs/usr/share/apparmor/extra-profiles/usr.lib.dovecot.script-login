@@ -10,18 +10,18 @@
 # ------------------------------------------------------------------
 # vim: ft=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile dovecot-script-login /usr/lib/dovecot/script-login flags=(complain) {
+profile dovecot-script-login /usr/lib*/dovecot/script-login flags=(complain) {
   include <abstractions/base>
   include <abstractions/dovecot-common>
   include <abstractions/nameservice>
 
   capability setuid,
 
-  /usr/lib/dovecot/script-login mrPx,
+  /usr/lib*/dovecot/script-login mrPx,
 
   # NOTE: You'll need to allow execution of your actual login script.
   # The recommended way is to add a rule for it in local/usr.lib.dovecot.script-login

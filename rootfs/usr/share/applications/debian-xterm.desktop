@@ -30,7 +30,6 @@
 # sale, use or other dealings in this Software without prior written
 # authorization.
 # -----------------------------------------------------------------------------
-
 [Desktop Entry]
 Name=XTerm
 #GenericName=Terminal
@@ -43,4 +42,4 @@ Icon=mini.xterm
 Categories=System;TerminalEmulator;
 Keywords=shell;prompt;command;commandline;cmd;
 StartupWMClass=XTerm
-X-Desktop-File-Install-Version=0.26
+X-Desktop-File-Install-Version=0.28

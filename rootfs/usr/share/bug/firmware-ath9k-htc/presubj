@@ -1,0 +1,7 @@
+Please take a brief look whether your report is a known issue:
+https://github.com/qca/open-ath9k-htc-firmware/wiki/Troubleshooting-and-bug-reporting
+https://github.com/qca/open-ath9k-htc-firmware/wiki/TODO
+
+In particular
+ * the device can be very sensitive to the USB connection
+ * power saving mode is not supported

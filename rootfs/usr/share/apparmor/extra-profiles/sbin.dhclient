@@ -19,14 +19,13 @@
 # /usr/bin/vmstat             mrix,
 # /usr/bin/w                  mrix,
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
 profile dhclient /{usr/,}sbin/dhclient {
   include <abstractions/base>
   include <abstractions/bash>
-  include <abstractions/openssl>
   include <abstractions/nameservice>
 
   capability net_raw,
@@ -87,5 +86,6 @@ profile dhclient /{usr/,}sbin/dhclient {
   /var/lib/dhcp/* rw,
   /{,var/}run/nm-dhclient-*.conf r,
 
+  # Site-specific additions and overrides. See local/README for details.
   include if exists <local/sbin.dhclient>
 }

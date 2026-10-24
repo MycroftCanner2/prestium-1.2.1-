@@ -9,17 +9,17 @@
 # ------------------------------------------------------------------
 # vim: ft=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile dovecot-ssl-params /usr/lib/dovecot/ssl-params flags=(complain) {
+profile dovecot-ssl-params /usr/lib*/dovecot/ssl-params flags=(complain) {
   include <abstractions/base>
   include <abstractions/dovecot-common>
 
   @{run}/dovecot/ssl-params rw,
   @{run}/dovecot/login/ssl-params rw,
-  /usr/lib/dovecot/ssl-params mr,
+  /usr/lib*/dovecot/ssl-params mr,
   /var/lib/dovecot/ssl-parameters.dat rw,
   /var/lib/dovecot/ssl-parameters.dat.tmp rwk,
 

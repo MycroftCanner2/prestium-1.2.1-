@@ -12,14 +12,13 @@
 # ------------------------------------------------------------------
 # vim: ft=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile dovecot-managesieve-login /usr/lib/dovecot/managesieve-login flags=(complain) {
+profile dovecot-managesieve-login /usr/lib*/dovecot/managesieve-login flags=(complain) {
   include <abstractions/base>
   include <abstractions/dovecot-common>
-  include <abstractions/openssl>
 
   capability setuid,
   capability sys_chroot,
@@ -28,7 +27,7 @@ profile dovecot-managesieve-login /usr/lib/dovecot/managesieve-login flags=(comp
   network inet6 stream,
   network unix stream,
 
-  /usr/lib/dovecot/managesieve-login mr,
+  /usr/lib*/dovecot/managesieve-login mr,
   @{run}/dovecot/login-master-notify* rw,
   @{run}/dovecot/login/ r,
   @{run}/dovecot/login/* rw,

@@ -10,7 +10,7 @@
 # vim:syntax=apparmor
 # Last Modified: Mon Aug 29 10:49:30 2005
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -24,4 +24,7 @@ include <tunables/global>
   /usr/lib/bonobo/servers r,
   /usr/lib/bonobo/servers/*.server r,
   /usr/lib/evolution-data-server-*/evolution-data-server-* Px,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/usr.lib.bonobo.bonobo-activation-server>
 }

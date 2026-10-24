@@ -1,0 +1,2 @@
+report-with: src:linux
+package-status: network-manager wpasupplicant

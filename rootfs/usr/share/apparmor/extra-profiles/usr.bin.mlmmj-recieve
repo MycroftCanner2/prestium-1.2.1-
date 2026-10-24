@@ -13,7 +13,7 @@
 # mlmmj upstream renamed the (misspelled) mlmmj-recieve to mlmmj-receive,
 # so this profile is probably superfluous
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -23,4 +23,7 @@ include <tunables/global>
   /usr/bin/mlmmj-process Px,
   /usr/bin/mlmmj-recieve mr,
   /var/spool/mlmmj/*/incoming/* w,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/usr.bin.mlmmj-recieve>
 }

@@ -1,0 +1,27 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2024 pyllyukko
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+abi <abi/4.0>,
+
+include <tunables/global>
+
+profile postfix-tlsproxy /usr/lib{,exec}/postfix/{bin/,sbin/,}tlsproxy {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+  include <abstractions/postfix-common>
+  include <abstractions/ssl_keys>
+
+  capability dac_read_search,
+
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}tlsproxy mrix,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-tlsproxy>
+}

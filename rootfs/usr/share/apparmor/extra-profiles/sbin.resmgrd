@@ -10,7 +10,7 @@
 # vim:syntax=apparmor
 # Last Modified: Mon Mar 13 15:55:30 2006
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -31,4 +31,7 @@ profile resmgrd /{usr/,}sbin/resmgrd {
   /{,var/}run/fence* lrw,
   /{,var/}run/resmgr/classes/** wl,
   /{run,var}/lock/LCK* lrw,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/sbin.resmgrd>
 }

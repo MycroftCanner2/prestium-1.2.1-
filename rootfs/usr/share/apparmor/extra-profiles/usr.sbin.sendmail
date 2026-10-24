@@ -11,7 +11,7 @@
 # support /etc/alternatives/ -- SuSE has no such mechanism. So, this
 # file supports _BOTH_ sendmail's sendmail and postfix's sendmail.
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -46,10 +46,10 @@ include <tunables/global>
   /root/dead.letter           w,
   /root/.forward              rw,
   /usr/kerberos/lib/lib*.so*  mr,
-  /usr/lib/postfix/{bin/,sbin/,}master     Px,
-  /usr/lib/postfix/{bin/,sbin/,}smtpd      Px,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}master     Px,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}smtpd      Px,
   /usr/lib/postfix            r,
-  /usr/lib/postfix/{bin/,sbin/,}showq      Px,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}showq      Px,
   /usr/lib/sasl2              r,
   /usr/lib/sasl2/*            mr,
   /usr/lib/sasl               r,
@@ -89,4 +89,7 @@ include <tunables/global>
   /var/spool/postfix/public/showq          w,
   /var/spool/postfix                       r,
   /var/spool/postfix/saved                 r,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/usr.sbin.sendmail>
 }

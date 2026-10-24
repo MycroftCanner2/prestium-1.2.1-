@@ -10,16 +10,15 @@
 # ------------------------------------------------------------------
 # vim: ft=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile dovecot-auth /usr/lib/dovecot/auth flags=(complain) {
+profile dovecot-auth /usr/lib*/dovecot/auth flags=(complain) {
   include <abstractions/authentication>
   include <abstractions/base>
   include <abstractions/mysql>
   include <abstractions/nameservice>
-  include <abstractions/openssl>
   include <abstractions/wutmp>
   include <abstractions/dovecot-common>
 
@@ -34,7 +33,7 @@ profile dovecot-auth /usr/lib/dovecot/auth flags=(complain) {
   /etc/my.cnf.d/*.cnf r,
 
   /etc/dovecot/* r,
-  /usr/lib/dovecot/auth mr,
+  /usr/lib*/dovecot/auth mr,
   /var/lib/dovecot/auth-chroot/* r,
 
   # kerberos replay cache

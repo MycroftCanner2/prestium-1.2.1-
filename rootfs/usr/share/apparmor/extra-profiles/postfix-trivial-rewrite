@@ -10,20 +10,23 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile postfix-trivial-rewrite /usr/lib/postfix/{bin/,sbin/,}trivial-rewrite {
+profile postfix-trivial-rewrite /usr/lib{,exec}/postfix/{bin/,sbin/,}trivial-rewrite {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/postfix-common>
 
   capability dac_read_search,
 
-  /usr/lib/postfix/{bin/,sbin/,}trivial-rewrite mrix,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}trivial-rewrite mrix,
 
   /etc/{m,fs}tab                              r,
   /var/spool/postfix/pid/unix.rewrite         rw,
   /{var/spool/postfix/,}private/rewrite       rw,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-trivial-rewrite>
 }

@@ -10,22 +10,21 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile postfix-smtpd /usr/lib/postfix/{bin/,sbin/,}smtpd {
+profile postfix-smtpd /usr/lib{,exec}/postfix/{bin/,sbin/,}smtpd {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/postfix-common>
-  include <abstractions/openssl>
   include <abstractions/ssl_certs>
   include <abstractions/ssl_keys>
 
   capability dac_override,
   capability dac_read_search,
 
-  /usr/lib/postfix/{bin/,sbin/,}smtpd         mrix,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}smtpd   mrix,
   /usr/sbin/postdrop                           rPx,
 
   /dev/urandom                                r,
@@ -45,6 +44,7 @@ profile postfix-smtpd /usr/lib/postfix/{bin/,sbin/,}smtpd {
 
   /{var/spool/postfix/,}incoming/*               rw,
   /{var/spool/postfix/,}pid/inet.*               rwk,
+  /{var/spool/postfix/,}pid/pass.smtpd           rwk,
   /{var/spool/postfix/,}private/anvil            rw,
   /{var/spool/postfix/,}private/proxymap         rw,
   /{var/spool/postfix/,}private/rewrite          rw,
@@ -52,4 +52,7 @@ profile postfix-smtpd /usr/lib/postfix/{bin/,sbin/,}smtpd {
   /{var/spool/postfix/,}public/cleanup           rw,
 
   /{,var/}run/sasl2/mux                             w,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-smtpd>
 }

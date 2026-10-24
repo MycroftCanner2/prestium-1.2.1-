@@ -11,12 +11,12 @@
 # ------------------------------------------------------------------
 # vim: ft=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 include <tunables/dovecot>
 
-profile dovecot-deliver /usr/lib/dovecot/deliver flags=(complain) {
+profile dovecot-deliver /usr/lib*/dovecot/deliver flags=(complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/dovecot-common>
@@ -32,7 +32,7 @@ profile dovecot-deliver /usr/lib/dovecot/deliver flags=(complain) {
   /etc/dovecot/dovecot-postfix.conf r, # ???
 
   @{HOME} r, # ???
-  /usr/lib/dovecot/deliver mr,
+  /usr/lib*/dovecot/deliver mr,
 
   # Site-specific additions and overrides. See local/README for details.
   include if exists <local/usr.lib.dovecot.deliver>

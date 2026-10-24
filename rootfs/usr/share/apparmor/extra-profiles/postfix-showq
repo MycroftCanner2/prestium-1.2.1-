@@ -10,16 +10,16 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
-profile postfix-showq /usr/lib/postfix/{bin/,sbin/,}showq {
+profile postfix-showq /usr/lib{,exec}/postfix/{bin/,sbin/,}showq {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/postfix-common>
 
-  /usr/lib/postfix/{bin/,sbin/,}showq                              mrix,
+  /usr/lib{,exec}/postfix/{bin/,sbin/,}showq                       mrix,
 
   /{var/spool/postfix/,}active/                                    r,
   /{var/spool/postfix/,}active/[0-9A-F]/[0-9A-F]/*                 r,
@@ -38,14 +38,19 @@ profile postfix-showq /usr/lib/postfix/{bin/,sbin/,}showq {
   /{var/spool/postfix/,}hold/[0-9A-F]/[0-9A-F]/*                   r,
   /{var/spool/postfix/,}hold/[0-9A-F]/[0-9A-F]/                    r,
   /{var/spool/postfix/,}hold/[0-9A-F]/                             r,
+  /{var/spool/postfix/,}hold/[0-9A-F]*                             r,
   /{var/spool/postfix/,}incoming/                                  r,
   /{var/spool/postfix/,}incoming/[0-9A-F]/[0-9A-F]/*               r,
   /{var/spool/postfix/,}incoming/[0-9A-F]/[0-9A-F]/                r,
   /{var/spool/postfix/,}incoming/[0-9A-F]/                         r,
+  /{var/spool/postfix/,}incoming/[0-9A-F]*                         r,
   /{var/spool/postfix/,}maildrop/                                  r,
   /{var/spool/postfix/,}maildrop/[0-9A-F]*[0-9A-F]                 r,
   /{var/spool/postfix/,}maildrop/[0-9A-F]/                         r,
   /{var/spool/postfix/,}pid/unix.showq                             rwk,
   owner /{var/spool/postfix,}/defer/[0-9A-F]/[0-9A-F]* r,
   owner /{var/spool/postfix,}/deferred/[0-9A-F]/[0-9A-F]* r,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/postfix-showq>
 }

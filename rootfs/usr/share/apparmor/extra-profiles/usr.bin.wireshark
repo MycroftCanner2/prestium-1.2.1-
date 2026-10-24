@@ -10,7 +10,7 @@
 #
 # ------------------------------------------------------------------
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 
@@ -99,4 +99,7 @@ include <tunables/global>
   # reading/writing pcaps
   /**pcap{,ng}{,.gz}       r,
   owner /**pcap{,ng}{,.gz} rw,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/usr.bin.wireshark>
 }

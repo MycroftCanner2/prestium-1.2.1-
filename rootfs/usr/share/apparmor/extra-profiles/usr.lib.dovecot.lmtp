@@ -9,16 +9,15 @@
 # ------------------------------------------------------------------
 # vim: ft=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 include <tunables/dovecot>
 
-profile dovecot-lmtp /usr/lib/dovecot/lmtp flags=(complain) {
+profile dovecot-lmtp /usr/lib*/dovecot/lmtp flags=(complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/dovecot-common>
-  include <abstractions/openssl>
   include <abstractions/ssl_certs>
   include <abstractions/ssl_keys>
 
@@ -35,7 +34,7 @@ profile dovecot-lmtp /usr/lib/dovecot/lmtp flags=(complain) {
   owner @{PROC}/@{pid}/stat r,
   @{PROC}/*/mounts r,
   /tmp/dovecot.lmtp.* rw,
-  /usr/lib/dovecot/lmtp mr,
+  /usr/lib*/dovecot/lmtp mr,
   @{run}/dovecot/mounts r,
 
   # Site-specific additions and overrides. See local/README for details.

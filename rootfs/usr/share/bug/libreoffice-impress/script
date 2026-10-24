@@ -1,8 +1,5 @@
 #!/bin/sh
 
 dpkg -l | grep nvidia >&3
-ucfq libreoffice-impress >&3
 #!/bin/sh
 if [ -x /usr/share/bug/libreoffice-core/script ]; then /usr/share/bug/libreoffice-core/script; fi
-#!/bin/sh
-if [ -x /usr/share/bug/libreoffice-draw/script ]; then /usr/share/bug/libreoffice-draw/script; fi

@@ -10,18 +10,17 @@
 # ------------------------------------------------------------------
 # vim: ft=apparmor
 
-abi <abi/3.0>,
+abi <abi/4.0>,
 
 include <tunables/global>
 include <tunables/dovecot>
 
-profile dovecot-imap /usr/lib/dovecot/imap flags=(complain) {
+profile dovecot-imap /usr/lib*/dovecot/imap flags=(complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/dovecot-common>
 
   capability setuid,
-  deny capability block_suspend,
 
   network unix stream,
 
@@ -38,7 +37,7 @@ profile dovecot-imap /usr/lib/dovecot/imap flags=(complain) {
   @{PROC}/@{pid}/attr/{apparmor/,}current rw,
   @{PROC}/@{pid}/stat r,
   /usr/bin/doveconf rix,
-  /usr/lib/dovecot/imap mrix,
+  /usr/lib*/dovecot/imap mrix,
   /usr/share/dovecot/** r,
   @{run}/dovecot/login/imap rw,
   @{run}/dovecot/auth-master rw,

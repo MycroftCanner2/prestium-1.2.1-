@@ -1,0 +1,75 @@
+# This profile allows almost everything and only exists to allow
+# unshare to work on a system with user namespace restrictions
+# being enforced.
+# unshare is allowed access to user namespaces and capabilities
+# within the user namespace, but its children do not have
+# capabilities, blocking unshare from being able to be used to
+# arbitrarily by-pass the user namespace restrictions.
+# We restrict x mapping of any code that is unknown while unshare
+# has privilige within the namespace. To help ensure unshare can't
+# be used to attack the kernel.
+#
+# disabled by default as it can break some use cases on a system that
+# doesn't have or has disable user namespace restrictions for unconfined
+
+abi <abi/4.0>,
+
+include <tunables/global>
+
+profile unshare /usr/bin/unshare flags=(attach_disconnected mediate_deleted) {
+  # not allow all, to allow for pix stack on systems that don't support
+  # rule priority.
+  #
+  # sadly we have to allow 'm' every where to allow children to work under
+  # profile stacking atm.
+  allow capability,
+  allow file rwmlk /{**,},
+  allow network,
+  allow unix,
+  allow ptrace,
+  allow signal,
+  allow mqueue,
+  allow io_uring,
+  allow userns,
+  allow mount,
+  allow umount,
+  allow pivot_root,
+  allow dbus,
+  # This will stack a target profile against unpriv_unshare
+  # Most of the comments for the pix transition in bwrap-userns-restrict
+  # also apply here, with the exception of unshare not using no-new-privs
+  # Thus, we only need a two-layer stack instead of a three-layer stack
+  audit allow pix /** -> &unpriv_unshare,
+
+  # the local include should not be used without understanding the userns
+  # restriction.
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/unshare-userns-restrict>
+}
+
+profile unpriv_unshare flags=(attach_disconnected mediate_deleted) {
+  # not allow all, to allow for pix stack
+  allow file rwlkm /{**,},
+  allow network,
+  allow unix,
+  allow ptrace,
+  allow signal,
+  allow mqueue,
+  allow io_uring,
+  allow userns,
+  allow mount,
+  allow umount,
+  allow pivot_root,
+  allow dbus,
+
+  # Maintain the stack against itself for further transitions
+  # If done recursively the stack will remove any duplicate
+  allow pix /** -> &unpriv_unshare,
+
+  audit deny capability,
+
+  # the local include should not be used without understanding the userns
+  # restriction.
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/unpriv_unshare>
+}
