@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.1 -->
+<!-- Generated with glade 3.40.0 -->
 <interface domain="svx">
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkImage" id="image1">
@@ -11,6 +11,11 @@
     <property name="visible">True</property>
     <property name="can-focus">False</property>
     <property name="icon-name">svx/res/galdetail.png</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="icon-name">cmd/sc_additionsdialog.png</property>
   </object>
   <object class="GtkTreeStore" id="liststore1">
     <columns>
@@ -106,6 +111,7 @@
                         <child internal-child="accessible">
                           <object class="AtkObject" id="themelist-atkobject">
                             <property name="AtkObject::accessible-name" translatable="yes" context="sidebargallery|RID_SVXSTR_GALLERYPROPS_GALTHEME">Gallery Theme</property>
+                            <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|THEMELIST">Click a theme to view the objects associated with the theme.</property>
                           </object>
                         </child>
                       </object>
@@ -116,30 +122,6 @@
                     <property name="top-attach">0</property>
                   </packing>
                 </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
               </object>
               <packing>
                 <property name="resize">False</property>
@@ -147,7 +129,7 @@
               </packing>
             </child>
             <child>
-              <!-- n-columns=1 n-rows=1 -->
+              <!-- n-columns=1 n-rows=2 -->
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
@@ -155,7 +137,7 @@
                 <property name="vexpand">True</property>
                 <property name="row-spacing">6</property>
                 <child>
-                  <!-- n-columns=1 n-rows=1 -->
+                  <!-- n-columns=3 n-rows=1 -->
                   <object class="GtkGrid">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
@@ -180,6 +162,11 @@
                                 <property name="events">GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_STRUCTURE_MASK</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="gallery-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|extended_tip|gallery">To insert a Gallery object, select the object, and then drag it into the document.</property>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -227,6 +214,11 @@
                                 </child>
                               </object>
                             </child>
+                            <child internal-child="accessible">
+                              <object class="AtkObject" id="gallerylist-atkobject">
+                                <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|extended_tip|gallery">To insert a Gallery object, select the object, and then drag it into the document.</property>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
@@ -255,6 +247,11 @@
                                 <property name="events">GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_STRUCTURE_MASK</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
+                                <child internal-child="accessible">
+                                  <object class="AtkObject" id="preview-atkobject">
+                                    <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|extended_tip|preview">Displays a large preview of the selected gallery item. Double click to close.</property>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -265,24 +262,6 @@
                         <property name="top-attach">0</property>
                       </packing>
                     </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
@@ -290,7 +269,7 @@
                   </packing>
                 </child>
                 <child>
-                  <!-- n-columns=1 n-rows=1 -->
+                  <!-- n-columns=6 n-rows=1 -->
                   <object class="GtkGrid">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
@@ -306,7 +285,7 @@
                         <property name="always-show-image">True</property>
                         <child internal-child="accessible">
                           <object class="AtkObject" id="icon-atkobject">
-                            <property name="AtkObject::accessible-name" translatable="yes" context="sidebargallery|RID_SVXSTR_GALLERY_THEMEITEMS">Theme Items</property>
+                            <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|extended_tip|icons">Displays the contents of the Gallery as icons.</property>
                           </object>
                         </child>
                       </object>
@@ -325,12 +304,31 @@
                         <property name="always-show-image">True</property>
                         <child internal-child="accessible">
                           <object class="AtkObject" id="list-atkobject">
-                            <property name="AtkObject::accessible-name" translatable="yes" context="sidebargallery|RID_SVXSTR_GALLERY_THEMEITEMS">Theme Items</property>
+                            <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|extended_tip|list">Displays the contents of the Gallery as small icons, with title and path information.</property>
                           </object>
                         </child>
                       </object>
                       <packing>
                         <property name="left-attach">1</property>
+                        <property name="top-attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="search">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="tooltip-text" translatable="yes" context="sidebargallery|RID_SVXSTR_GALLERY_SEARCH">Search for icons</property>
+                        <property name="hexpand">True</property>
+                        <property name="activates-default">True</property>
+                        <property name="truncate-multiline">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="search-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|extended_tip|value">Enter search text.</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left-attach">2</property>
                         <property name="top-attach">0</property>
                       </packing>
                     </child>
@@ -345,7 +343,7 @@
                         </attributes>
                       </object>
                       <packing>
-                        <property name="left-attach">2</property>
+                        <property name="left-attach">3</property>
                         <property name="top-attach">0</property>
                       </packing>
                     </child>
@@ -359,9 +357,14 @@
                         <property name="halign">end</property>
                         <property name="hexpand">True</property>
                         <property name="use-underline">True</property>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="insert-atkobject">
+                            <property name="AtkObject::accessible-description" translatable="yes" context="sidebargallery|extended_tip|insert">Adds a new theme to the Gallery and lets you choose the files to include in the theme.</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
-                        <property name="left-attach">2</property>
+                        <property name="left-attach">4</property>
                         <property name="top-attach">0</property>
                       </packing>
                     </child>
@@ -371,65 +374,19 @@
                         <property name="can-focus">True</property>
                         <property name="receives-default">True</property>
                         <property name="tooltip-text" translatable="yes" context="sidebargallery|btnMoreGalleries">Add more galleries via extension</property>
-                        <child>
-                          <placeholder/>
-                        </child>
+                        <property name="image">image3</property>
+                        <property name="always-show-image">True</property>
                       </object>
                       <packing>
-                        <property name="left-attach">3</property>
+                        <property name="left-attach">5</property>
                         <property name="top-attach">0</property>
                       </packing>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
                     </child>
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
                     <property name="top-attach">1</property>
                   </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
                 </child>
               </object>
               <packing>
@@ -443,59 +400,11 @@
             <property name="top-attach">0</property>
           </packing>
         </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
       </object>
       <packing>
         <property name="left-attach">0</property>
         <property name="top-attach">0</property>
       </packing>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-    <child>
-      <placeholder/>
     </child>
   </object>
 </interface>
