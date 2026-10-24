@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: game-music-emu
-Upstream-Contact: Shay Green <gblargg@gmail.com>
-Source: https://bitbucket.org/mpyne/game-music-emu/wiki/Home
+Upstream-Contact: Vitaly Novichkov admin@wohlnet.ru
+Source: https://github.com/libgme/game-music-emu
 
 Files: *
 Copyright: 2003-2009 Shay Green <gblargg@gmail.com>

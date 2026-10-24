@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Libfm
 Upstream-Contact: pcmanfm-develop@lists.sourceforge.net
-Source: https://sourceforge.net/projects/pcmanfm/files/
+Source: https://github.com/lxde/libfm
 
 Files: *
 Copyright: 2006-2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
@@ -9,6 +9,7 @@ Copyright: 2006-2014 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
            2010 Shae Smittle <starfall87@gmail.com>
            2012 Vadim Ushakov <igeekless@gmail.com>
            2012-2021 Andriy Grytsenko (LStranger) <andrej@rep.kiev.ua>
+           2021-2025 Ingo Brückl <ib@oddnet.de>
 License: GPL-2+
 
 Files: src/base/* src/extra/* src/job/*
@@ -48,11 +49,12 @@ Copyright: 2010 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 License: GPL-2+
 
 Files: debian/*
-Copyright: 2010-2012 Andrew Lee (李健秋) <ajqlee@debian.org>
-           2010 Justin B Rye <jbr@edlug.org.uk>
-           2010 Julien Lavergne <gilir@ubuntu.com>
-           2012 Sergey Slipchenko <faergeek@gmail.com>
+Copyright: 2010-2025 Andrew Lee (李健秋) <ajqlee@debian.org>
+           2010      Justin B Rye <jbr@edlug.org.uk>
+           2010      Julien Lavergne <gilir@ubuntu.com>
+           2012      Sergey Slipchenko <faergeek@gmail.com>
            2013-2021 Andriy Grytsenko (LStranger) <andrej@rep.kiev.ua>
+           2023      ChangZhuo Chen (陳昌倬) <czchen@debian.org>
 License: GPL-3+
 
 License: GPL-2+
@@ -118,8 +120,7 @@ License: LGPL-2.1+
  Lesser General Public License for more details.
  .
  You should have received a copy of the GNU Lesser General Public
- License along with this library; if not, write to the Free Software
- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ License along with this library; if not, see <http://www.gnu.org/licenses/>.
  .
  The complete text of the GNU Lesser General Public License
  can be found in /usr/share/common-licenses/LGPL-2.1 file.

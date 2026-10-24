@@ -4,7 +4,7 @@ Upstream-Contact: Graham Ollis <plicease@cpan.org>
 Source: https://metacpan.org/release/File-Listing
 
 Files: *
-Copyright: 1996-2020, Gisle Aas <gisle@activestate.com>
+Copyright: 1996-2022, Gisle Aas <gisle@activestate.com>
 License: Artistic or GPL-1+
 
 Files: debian/*

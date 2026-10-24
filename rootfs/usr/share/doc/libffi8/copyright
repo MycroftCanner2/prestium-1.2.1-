@@ -9,8 +9,8 @@ Upstream-Contact:
 
 Files: *
 Copyright:
-    Copyright (c) 1996-2011 Red Hat, Inc.
-    Copyright (C) 1996-2011 Anthony Green
+    Copyright (c) 1996-2025 Red Hat, Inc.
+    Copyright (C) 1996-2025 Anthony Green
     Copyright (C) 1996-2010 Free Software Foundation, Inc
     Copyright (c) 2003, 2004, 2006, 2007, 2008 Kaz Kojima
     Copyright (c) 2010, 2011, Plausible Labs Cooperative , Inc.
@@ -168,7 +168,7 @@ Copyright: (C) 2003-2004, 2006, 2009-2017 Free Software Foundation, Inc.
 License: GPL-2+
 
 Files: debian/*
-Copyright: (C) 2008, 2011 Matthias Klose <doko@debian.org>
+Copyright: (C) 2008-2025 Matthias Klose <doko@debian.org>
 License: GPL
  The Debian packaging is licensed under the GPL,
  see `/usr/share/common-licenses/GPL'.

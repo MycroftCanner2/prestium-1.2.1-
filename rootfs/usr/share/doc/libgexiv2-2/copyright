@@ -30,11 +30,11 @@ Copyright: 2009 Mike Gemuende <mike@gemuende.de>
            2021 Peter Kovář <peter.kovar@reflexion.tv>
 License: GPL-2+
 
-Files: test/python/gexiv2.py.in
+Files: test/python/gexiv2.py
 Copyright: 2014 Alexandre Rossi <alexandre.rossi@gmail.com>
 License: LGPL-2.1+
 
-Files: test/python/test_metadata.py.in
+Files: test/python/test_metadata.py
 Copyright: 2013 Robert Bruce Park <r@robru.ca>
 License: GPL-3+
 

@@ -4,7 +4,7 @@ Upstream-Contact: gnupg-devel@gnupg.org
 Source: https://gnupg.org/ftp/gcrypt/libgpg-error/
 
 Files: *
-Copyright: 2001-2004, 2010, 2012-2018, g10 Code GmbH
+Copyright: 2001-2004, 2010, 2012-2024, g10 Code GmbH
 License: LGPL-2.1+
 
 Files: src/b64dec.c
@@ -44,9 +44,19 @@ Copyright: 1995, 1996, 1997, 1999, 2005, 2007, 2008, 2010 Free Software Foundati
 License: LGPL-2.1+
 
 Files: doc/yat2m.c
-Copyright: 2005, 2013, 2015, 2016 g10 Code GmbH
+Copyright: 2005, 2013, 2015, 2016, 2017, 2023 g10 Code GmbH
  2006, 2008, 2011 Free Software Foundation, Inc.
 License: GPL-3+
+
+Files: debian/*
+Copyright: 2003-2012 Jose Carlos Garcia Sogo <jsogo@debian.org>
+ 2013-2022 Daniel Kahn Gillmor <dkg@fifthhorseman.net>
+ 2013 Daniel Leidert <dleidert@debian.org>
+ 2012, 2014 David Prévot <taffit@debian.org>
+ 2021 Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+ 2023 NIIBE Yutaka <gniibe@fsij.org>
+ 2023-2024  Andreas Metzler <ametzler@debian.org>
+License: LGPL-2.1+
 
 License: g10-permissive
  This file is free software; as a special exception the author gives
