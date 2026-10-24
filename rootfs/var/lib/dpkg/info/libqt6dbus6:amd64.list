@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libQt6DBus.so.6.8.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libqt6dbus6
+/usr/share/doc/libqt6dbus6/changelog.Debian.gz
+/usr/share/doc/libqt6dbus6/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libqt6dbus6
+/usr/lib/x86_64-linux-gnu/libQt6DBus.so.6

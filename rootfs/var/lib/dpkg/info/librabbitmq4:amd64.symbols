@@ -17,6 +17,7 @@ librabbitmq.so.4 librabbitmq4 #MINVER#
  amqp_channel_open@Base 0.6.0
  amqp_confirm_select@Base 0.6.0
  amqp_connection_close@Base 0.6.0
+ amqp_connection_update_secret@Base 0.12.0
  amqp_constant_is_hard_error@Base 0.6.0
  amqp_constant_name@Base 0.6.0
  amqp_consume_message@Base 0.6.0
@@ -65,6 +66,7 @@ librabbitmq.so.4 librabbitmq4 #MINVER#
  amqp_parse_url@Base 0.6.0
  amqp_pool_alloc@Base 0.6.0
  amqp_pool_alloc_bytes@Base 0.6.0
+ amqp_publisher_confirm_wait@Base 0.15.0
  amqp_queue_bind@Base 0.6.0
  amqp_queue_declare@Base 0.6.0
  amqp_queue_delete@Base 0.6.0
@@ -89,6 +91,7 @@ librabbitmq.so.4 librabbitmq4 #MINVER#
  amqp_socket_get_sockfd@Base 0.6.0
  amqp_socket_open@Base 0.6.0
  amqp_socket_open_noblock@Base 0.6.0
+ amqp_ssl_socket_enable_default_verify_paths@Base 0.14.0
  amqp_ssl_socket_get_context@Base 0.10.0
  amqp_ssl_socket_new@Base 0.6.0
  amqp_ssl_socket_set_cacert@Base 0.6.0

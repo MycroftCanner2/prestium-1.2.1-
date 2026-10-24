@@ -1,5 +1,5 @@
 libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
-| libqt5waylandcompositor5 #MINVER#, qtwayland-compositor-abi-5-15-8
+| libqt5waylandcompositor5 #MINVER#, qtwayland-compositor-abi-5-15-15
 * Build-Depends-Package: libqt5waylandcompositor5-dev
  Qt_5.0@Qt_5.0 5.7.0
  Qt_5.10@Qt_5.10 5.10.1
@@ -294,10 +294,14 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZN15QtWaylandServer10wl_pointer18pointer_set_cursorEPNS0_8ResourceEjP11wl_resourceii@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_pointer18send_axis_discreteEP11wl_resourceji@Qt_5 5.14.1
  _ZN15QtWaylandServer10wl_pointer18send_axis_discreteEji@Qt_5 5.14.1
+ _ZN15QtWaylandServer10wl_pointer18send_axis_value120EP11wl_resourceji@Qt_5 5.15.13
+ _ZN15QtWaylandServer10wl_pointer18send_axis_value120Eji@Qt_5 5.15.13
  _ZN15QtWaylandServer10wl_pointer20display_destroy_funcEP11wl_listenerPv@Qt_5 5.11.1
  _ZN15QtWaylandServer10wl_pointer21pointer_bind_resourceEPNS0_8ResourceE@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_pointer22m_wl_pointer_interfaceE@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_pointer24pointer_destroy_resourceEPNS0_8ResourceE@Qt_5 5.7.0
+ _ZN15QtWaylandServer10wl_pointer28send_axis_relative_directionEP11wl_resourcejj@Qt_5 5.15.13
+ _ZN15QtWaylandServer10wl_pointer28send_axis_relative_directionEjj@Qt_5 5.15.13
  _ZN15QtWaylandServer10wl_pointer3addEP9wl_clienti@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_pointer3addEP9wl_clientii@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_pointer4bindEP11wl_resource@Qt_5 5.7.0
@@ -330,11 +334,13 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZN15QtWaylandServer10wl_surface13handle_attachEP9wl_clientP11wl_resourceS4_ii@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface13handle_commitEP9wl_clientP11wl_resource@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface13handle_damageEP9wl_clientP11wl_resourceiiii@Qt_5 5.7.0
+ _ZN15QtWaylandServer10wl_surface13handle_offsetEP9wl_clientP11wl_resourceii@Qt_5 5.15.13
  _ZN15QtWaylandServer10wl_surface13surface_frameEPNS0_8ResourceEj@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface14handle_destroyEP9wl_clientP11wl_resource@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface14surface_attachEPNS0_8ResourceEP11wl_resourceii@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface14surface_commitEPNS0_8ResourceE@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface14surface_damageEPNS0_8ResourceEiiii@Qt_5 5.7.0
+ _ZN15QtWaylandServer10wl_surface14surface_offsetEPNS0_8ResourceEii@Qt_5 5.15.13
  _ZN15QtWaylandServer10wl_surface15surface_destroyEPNS0_8ResourceE@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface16surface_allocateEv@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface20display_destroy_funcEP11wl_listenerPv@Qt_5 5.11.1
@@ -350,7 +356,11 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZN15QtWaylandServer10wl_surface24surface_set_input_regionEPNS0_8ResourceEP11wl_resource@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface25surface_set_opaque_regionEPNS0_8ResourceEP11wl_resource@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface27handle_set_buffer_transformEP9wl_clientP11wl_resourcei@Qt_5 5.7.0
+ _ZN15QtWaylandServer10wl_surface27send_preferred_buffer_scaleEP11wl_resourcei@Qt_5 5.15.13
+ _ZN15QtWaylandServer10wl_surface27send_preferred_buffer_scaleEi@Qt_5 5.15.13
  _ZN15QtWaylandServer10wl_surface28surface_set_buffer_transformEPNS0_8ResourceEi@Qt_5 5.7.0
+ _ZN15QtWaylandServer10wl_surface31send_preferred_buffer_transformEP11wl_resourcej@Qt_5 5.15.13
+ _ZN15QtWaylandServer10wl_surface31send_preferred_buffer_transformEj@Qt_5 5.15.13
  _ZN15QtWaylandServer10wl_surface3addEP9wl_clienti@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface3addEP9wl_clientii@Qt_5 5.7.0
  _ZN15QtWaylandServer10wl_surface4bindEP11wl_resource@Qt_5 5.7.0
@@ -1961,8 +1971,10 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZN15QtWaylandServer27zxdg_toplevel_decoration_v1D2Ev@Qt_5 5.12.2
  _ZN15QtWaylandServer6wl_shm11send_formatEP11wl_resourcej@Qt_5 5.7.0
  _ZN15QtWaylandServer6wl_shm11send_formatEj@Qt_5 5.7.0
+ _ZN15QtWaylandServer6wl_shm11shm_releaseEPNS0_8ResourceE@Qt_5 5.15.13
  _ZN15QtWaylandServer6wl_shm12destroy_funcEP11wl_resource@Qt_5 5.7.0
  _ZN15QtWaylandServer6wl_shm12shm_allocateEv@Qt_5 5.7.0
+ _ZN15QtWaylandServer6wl_shm14handle_releaseEP9wl_clientP11wl_resource@Qt_5 5.15.13
  _ZN15QtWaylandServer6wl_shm15shm_create_poolEPNS0_8ResourceEjii@Qt_5 5.7.0
  _ZN15QtWaylandServer6wl_shm17shm_bind_resourceEPNS0_8ResourceE@Qt_5 5.7.0
  _ZN15QtWaylandServer6wl_shm18handle_create_poolEP9wl_clientP11wl_resourcejii@Qt_5 5.7.0
@@ -2140,6 +2152,8 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZN15QtWaylandServer9wl_output14handle_releaseEP9wl_clientP11wl_resource@Qt_5 5.14.1
  _ZN15QtWaylandServer9wl_output14output_releaseEPNS0_8ResourceE@Qt_5 5.14.1
  _ZN15QtWaylandServer9wl_output15output_allocateEv@Qt_5 5.7.0
+ _ZN15QtWaylandServer9wl_output16send_descriptionEP11wl_resourceRK7QString@Qt_5 5.15.13
+ _ZN15QtWaylandServer9wl_output16send_descriptionERK7QString@Qt_5 5.15.13
  _ZN15QtWaylandServer9wl_output20display_destroy_funcEP11wl_listenerPv@Qt_5 5.11.1
  _ZN15QtWaylandServer9wl_output20output_bind_resourceEPNS0_8ResourceE@Qt_5 5.7.0
  _ZN15QtWaylandServer9wl_output21m_wl_output_interfaceE@Qt_5 5.14.1
@@ -2158,6 +2172,8 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZN15QtWaylandServer9wl_output9send_doneEv@Qt_5 5.7.0
  _ZN15QtWaylandServer9wl_output9send_modeEP11wl_resourcejiii@Qt_5 5.7.0
  _ZN15QtWaylandServer9wl_output9send_modeEjiii@Qt_5 5.7.0
+ _ZN15QtWaylandServer9wl_output9send_nameEP11wl_resourceRK7QString@Qt_5 5.15.13
+ _ZN15QtWaylandServer9wl_output9send_nameERK7QString@Qt_5 5.15.13
  _ZN15QtWaylandServer9wl_outputC1EP10wl_displayi@Qt_5 5.7.0
  _ZN15QtWaylandServer9wl_outputC1EP11wl_resource@Qt_5 5.7.0
  _ZN15QtWaylandServer9wl_outputC1EP9wl_clientii@Qt_5 5.7.0
@@ -2921,6 +2937,7 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZN23QWaylandKeyboardPrivate19updateModifierStateEjj@Qt_5_PRIVATE_API 0 1
  _ZN23QWaylandKeyboardPrivate22keyboard_bind_resourceEPN15QtWaylandServer11wl_keyboard8ResourceE@Qt_5_PRIVATE_API 0 1
  _ZN23QWaylandKeyboardPrivate25keyboard_destroy_resourceEPN15QtWaylandServer11wl_keyboard8ResourceE@Qt_5_PRIVATE_API 0 1
+ _ZN23QWaylandKeyboardPrivate27checkAndRepairModifierStateEP9QKeyEvent@Qt_5_PRIVATE_API 0 1
  _ZN23QWaylandKeyboardPrivate27maybeUpdateXkbScanCodeTableEv@Qt_5_PRIVATE_API 0 1
  _ZN23QWaylandKeyboardPrivate3getEP16QWaylandKeyboard@Qt_5_PRIVATE_API 0 1
  _ZN23QWaylandKeyboardPrivate7focusedEP15QWaylandSurface@Qt_5_PRIVATE_API 0 1
@@ -3781,7 +3798,7 @@ libQt5WaylandCompositor.so.5 libqt5waylandcompositor5 #MINVER#
  _ZNK9QtWayland29ClientBufferIntegrationPlugin10metaObjectEv@Qt_5_PRIVATE_API 0 1
  _ZNK9QtWayland29ServerBufferIntegrationPlugin10metaObjectEv@Qt_5_PRIVATE_API 0 1
  _ZNK9QtWayland30HardwareLayerIntegrationPlugin10metaObjectEv@Qt_5_PRIVATE_API 0 1
- _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_@Qt_5 5.14.1
+ _ZNSt6vectorIjSaIjEE17_M_realloc_appendIJRKjEEEvDpOT_@Qt_5 5.15.13
  _ZTI12QWaylandDrag@Qt_5 5.7.0
  _ZTI12QWaylandSeat@Qt_5 5.9.0~rc
  _ZTI12QWaylandView@Qt_5 5.7.0

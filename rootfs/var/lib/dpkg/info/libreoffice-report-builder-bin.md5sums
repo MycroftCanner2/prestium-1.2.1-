@@ -1,6 +1,6 @@
-2e0bdbb643984b820f64017fd57aa51c  usr/lib/libreoffice/program/librptlo.so
-03eea27c4768ef0f1e7cd45cfb68a564  usr/lib/libreoffice/program/librptuilo.so
-b5620e39f2d57bc8a9d431ceddd9218a  usr/lib/libreoffice/program/librptxmllo.so
+2290c6917bbf20a44a4316174ca82792  usr/lib/libreoffice/program/librptlo.so
+15726492075f47bf034d8713044dbe70  usr/lib/libreoffice/program/librptuilo.so
+1b8c2fac995d95077526ed69093f27f2  usr/lib/libreoffice/program/librptxmllo.so
 7ab413e7638e0bf31a8ce0bf3b910ba8  usr/share/bug/libreoffice-report-builder-bin/presubj
-f402ffb9794cf8620045ba108f526052  usr/share/doc/libreoffice-report-builder-bin/changelog.Debian.gz
-3813907d8d86591fc9b8dd90da5209e0  usr/share/doc/libreoffice-report-builder-bin/copyright
+b93cdba40192a1d291953f93dac10ca8  usr/share/doc/libreoffice-report-builder-bin/changelog.Debian.gz
+bf1a13ff5f7945803d650b79293d1ffd  usr/share/doc/libreoffice-report-builder-bin/copyright

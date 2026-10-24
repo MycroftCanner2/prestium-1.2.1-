@@ -1,0 +1,50 @@
+Template: libreoffice-calc/no_nan_passing_support_warning
+Type: note
+Description: Architecture doesn't support "NaN passing"
+ LibreOffice Calc relies on a feature called "NaN passing" which is optional
+ in the IEEE 754 standard. Your architecture (riscv64) does not support it, though.
+ .
+ This package is shipped nevertheless for use cases where this does not matter
+ but you should be aware that Calc can give you wrong results, especially
+ with =IFERROR() etc.
+Description-ar.UTF-8: البنية لا تدعم ميزة "إعطاء شيء ليس رقمًا"
+ LibreOffice Calc يعتمد على ميزة تسمى "إعطاء شيء ليس رقمًا" التي اختيارية في معيار IEEE 754, لكن بنية نظامك (risv64) لا تدعمه.
+ .
+ ومع ذلك, هذه الحزمة مصممة حتى هذا الأمر لكن كن على علم بأن Calc سيعطيك نتائج خاطئة احياناً, خاصة مع =IFERROR() وما إلى ذلك.
+Description-ca.UTF-8: L'arquitectura no és compatible amb «NaN passing»
+ El LibreOffice Calc es basa en una característica anomenada «NaN passing» que a l'estàndard IEEE 754 és opcional. La vostra arquitectura (riscv64) no ho suporta, però.
+ .
+ Aquest paquet es proporciona, no obstant això, per a casos d'ús en els quals això no importa, però hauríeu de ser conscients que el Calc pot donar resultats erronis, especialment amb «=IFERROR()» etc.
+Description-cs.UTF-8: Architektura nepodporuje „předávání NaN“
+ LibreOffice Calc spoléhá na vlastnost nazvanou „předávání NaN“, která je ve standardu IEEE 754 volitelná. Vaše architektura (riscv64) ji bohužel nepodporuje.
+ .
+ Tento balík je i přes to dostupný pro případy, kde to nevadí, ale měli byste vědět, že vám Calc může vracet špatné výsledky, obzvláště s funkcemi =IFERROR() apod.
+Description-de.UTF-8: Architektur unterstützt kein »NaN passing«
+ LibreOffice Calc benötigt eine Funktionalität namens "NaN passing", welche im IEEE 754-Standard optional ist. Ihre Architektur (riscv64) unterstüzt diese allerdings nicht.
+ .
+ Dieses Paket wird trotzdem für Anwendungsfälle, bei denen dieses kein Problem ist, zur Verfügung gestellt. Bitte seien Sie allerdings vorsichtig; Calc kann falsche Ergebnisse liefern - insbesondere mit =IFERROR() etc.
+Description-es.UTF-8: La arquitectura no admite «NaN passing"»
+ LibreOffice Calc depende de una característica denominada «NaN passing» que es opcional en la norma IEEE 754. Sin embargo, su arquitectura (riscv64) no lo admite.
+ .
+ No obstante, este paquete se suministra para casos de uso en los que esto no es relevante, pero debe tener en cuenta que Calc puede generar resultados erróneos, especialmente con =IFERROR(), etc.
+Description-fr.UTF-8: Architecture ne gérant pas « passage de NaN »
+ Calc de LibreOffice repose sur une fonction appelée « NaN passing » (NaN – Not a Number ») qui est facultative dans la norme IEEE 754. Cependant votre architecture (riscv64) ne la gère pas.
+ .
+ Ce paquet est néanmoins fourni pour les cas où cela n’a aucune importance, mais vous devez être conscient que Calc peut donner des résultats faux, particulièrement avec =IFERROR(), etc.
+Description-gl.UTF-8: Esta arquitectura non permite o «paso de NaN»
+ LibreOffice Calc depende dunha capacidade chamada «paso de NaN» [NaN passing], unha parte opcional da norma IEEE 754. Porén, esta arquitectura (riscv64) non a inclúe.
+ .
+ Este paquete inclúese de tódolos xeitos para aqueles casos de uso nos que isto non importe, pero que saiba que Calc pode dar malos resultados, especialmente se emprega =SEÉRROR() ou semellantes.
+Description-nl.UTF-8: Architectuur ondersteunt "NaN passing" niet
+ LibreOffice Calc is gebaseerd op een functie genaamd "NaN passeren" die optioneel is in de IEEE 754 standaard. Uw architectuur (riscv64) ondersteunt deze functie echter niet.
+ .
+ Dit pakket wordt desalniettemin geleverd voor gebruikssituaties waarbij dit niet van belang is. U dient er echter rekening mee te houden dat Calc u onjuiste resultaten kan geven, vooral met =IFERROR() enz.
+Description-pt.UTF-8: Arquitectura não suporta "NaN passing"
+ O LibreOffice Calc confia numa funcionalidade chamada "NaN passing" a qual é opcional no standard IEEE 754. Contudo, a sua arquitectura (riscv64) não a suporta.
+ .
+ Não obstante, este pacote é enviado para casos de utilização onde isto não tem importância mas você deve ter atenção que o Calc pode dar-lhe resultados errados, especialmente com =IFERROR() etc.
+Description-pt_BR.UTF-8: A arquitetura não suporta "NaN passing"
+ O LibreOffice Calc depende de um recurso chamado "NaN passing", que é opcional no padrão IEEE 754. No entanto, sua arquitetura (riscv64) não oferece suporte a ele.
+ .
+ Mesmo assim, este pacote é enviado para casos de uso em que isso não importa, mas você deve estar ciente de que o Calc pode fornecer resultados errados, especialmente com =IFERROR() etc.
+

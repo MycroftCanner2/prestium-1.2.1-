@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libQt5Qml.so.5.15.8
+/usr/lib/x86_64-linux-gnu/libQt5Qml.so.5.15.15
 /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/qml
 /usr/lib/x86_64-linux-gnu/qt5/qml/builtins.qmltypes

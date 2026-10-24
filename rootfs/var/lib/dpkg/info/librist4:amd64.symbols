@@ -9,11 +9,14 @@ librist.so.4 librist4 #MINVER#
  evsocket_loop_single@Base 0.2.6+dfsg
  evsocket_loop_stop@Base 0.2.6+dfsg
  librist_api_version@Base 0.2.6+dfsg
+ librist_crypto_srp_create_verifier@Base 0.2.8+dfsg
+ librist_get_ng_constants@Base 0.2.8+dfsg
  librist_version@Base 0.2.6+dfsg
  rist_auth_handler_set@Base 0.2.7+dfsg
  rist_connection_status_callback_set@Base 0.2.6+dfsg
  rist_destroy@Base 0.2.6+dfsg
  rist_enable_eap_srp@Base 0.2.6+dfsg
+ rist_enable_eap_srp_2@Base 0.2.8+dfsg
  rist_flow_id_create@Base 0.2.6+dfsg
  rist_jitter_max_set@Base 0.2.6+dfsg
  rist_log@Base 0.2.6+dfsg
@@ -34,6 +37,10 @@ librist.so.4 librist4 #MINVER#
  rist_peer_config_free@Base 0.2.6+dfsg
  rist_peer_create@Base 0.2.6+dfsg
  rist_peer_destroy@Base 0.2.6+dfsg
+ rist_peer_get_cname@Base 0.2.11+dfsg
+ rist_peer_get_id@Base 0.2.8+dfsg
+ rist_peer_get_socket@Base 0.2.8+dfsg
+ rist_peer_update_secret@Base 0.2.8+dfsg
  rist_peer_weight_set@Base 0.2.7+dfsg
  rist_receiver_create@Base 0.2.6+dfsg
  rist_receiver_data_block_free2@Base 0.2.6+dfsg
@@ -51,6 +58,7 @@ librist.so.4 librist4 #MINVER#
  rist_sender_flow_id_set@Base 0.2.6+dfsg
  rist_sender_npd_disable@Base 0.2.6+dfsg
  rist_sender_npd_enable@Base 0.2.6+dfsg
+ rist_sender_npd_get@Base 0.2.11+dfsg
  rist_set_opt@Base 0.2.7+dfsg
  rist_start@Base 0.2.6+dfsg
  rist_stats_callback_set@Base 0.2.6+dfsg

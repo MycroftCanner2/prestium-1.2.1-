@@ -1,4 +1,5 @@
-00d65629a4f44f51eab87f64b45365f4  usr/lib/x86_64-linux-gnu/libraw1394.so.11.1.0
-69366ad7a468ca4fcb512133a97fc70c  usr/share/doc/libraw1394-11/changelog.Debian.gz
+c0e819b22a6f0b5460036ad2359c6756  usr/lib/x86_64-linux-gnu/libraw1394.so.11.1.0
+ddefc61af7656e04d4bf027b8608e668  usr/share/doc/libraw1394-11/changelog.Debian.amd64.gz
+03a3a61de02de6f8bc890e85c446a94b  usr/share/doc/libraw1394-11/changelog.Debian.gz
 1896301a6065d8ba76e287d072ed878c  usr/share/doc/libraw1394-11/changelog.gz
 46b5592273edd7b1f6f60d15a2437688  usr/share/doc/libraw1394-11/copyright

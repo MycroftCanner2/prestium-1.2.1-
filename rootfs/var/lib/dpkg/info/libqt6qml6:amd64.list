@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libQt6Qml.so.6.8.2
+/usr/lib/x86_64-linux-gnu/qt6
+/usr/lib/x86_64-linux-gnu/qt6/qml
+/usr/lib/x86_64-linux-gnu/qt6/qml/builtins.qmltypes
+/usr/share
+/usr/share/doc
+/usr/share/doc/libqt6qml6
+/usr/share/doc/libqt6qml6/changelog.Debian.gz
+/usr/share/doc/libqt6qml6/copyright
+/usr/lib/x86_64-linux-gnu/libQt6Qml.so.6

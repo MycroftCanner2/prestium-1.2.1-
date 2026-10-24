@@ -9,10 +9,19 @@ if [ "$1" = "upgrade" ] && dpkg --compare-versions "$2" lt-nl "1:7.4.1~rc1-3"; t
         fi
 fi
 
-# Automatically added by dh_installdeb/13.11.4
-dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.oosplash /etc/apparmor.d/usr.lib.libreoffice.program.oosplash 1:5.4.3-1 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.senddoc /etc/apparmor.d/usr.lib.libreoffice.program.senddoc 1:5.4.3-1 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.soffice.bin /etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin 1:5.4.3-1 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/apparmor.d/usr.lib.libreofficeprogram.xpdfimport /etc/apparmor.d/usr.lib.libreoffice.program.xpdfimport 1:5.4.3-1 -- "$@"
+# Automatically added by dh_installdeb/13.24.2
+dpkg-maintscript-helper symlink_to_dir /usr/lib/libreoffice/share/registry /etc/libreoffice/registry 4:25.2.1\~rc1-3\~ libreoffice-common -- "$@"
 # End automatically added section
+
+
+if [ "$1" = "upgrade" ] && dpkg --compare-versions "$2" lt 4:25.2.1~rc1-3; then
+	for i in pdfimport.xcd xsltfilter.xcd lingucomponent.xcd Langpack-en-US.xcd; do
+		rm -f /etc/libreoffice/registry/$i
+		ucf --purge /etc/libreoffice/registry/$i
+		ucfr --force --purge libreoffice-common /etc/libreoffice/registry/$i
+	done
+	rm -f /etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd
+	ucf --purge /etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd
+	ucfr --force --purge libreoffice-common /etc/libreoffice/registry/res/fcfg_langpack_en-US.xcd
+fi
 

@@ -1,5 +1,5 @@
 libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
-| libqt5waylandclient5 #MINVER#, qtwayland-client-abi-5-15-8
+| libqt5waylandclient5 #MINVER#, qtwayland-client-abi-5-15-15
 * Build-Depends-Package: libqt5waylandclient5-dev
  Qt_5.0@Qt_5.0 5.10.1
  Qt_5.10@Qt_5.10 5.10.1
@@ -209,8 +209,8 @@ libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
  _ZN15QtWaylandClient17QWaylandDataOfferD1Ev@Qt_5_PRIVATE_API 0 1
  _ZN15QtWaylandClient17QWaylandDataOfferD2Ev@Qt_5_PRIVATE_API 0 1
  _ZN15QtWaylandClient17QWaylandShmBuffer18imageInsideMarginsERK8QMargins@Qt_5_PRIVATE_API 0 1
- _ZN15QtWaylandClient17QWaylandShmBufferC1EPNS_15QWaylandDisplayERK5QSizeN6QImage6FormatEi@Qt_5_PRIVATE_API 0 1
- _ZN15QtWaylandClient17QWaylandShmBufferC2EPNS_15QWaylandDisplayERK5QSizeN6QImage6FormatEi@Qt_5_PRIVATE_API 0 1
+ _ZN15QtWaylandClient17QWaylandShmBufferC1EPNS_15QWaylandDisplayERK5QSizeN6QImage6FormatEd@Qt_5_PRIVATE_API 0 1
+ _ZN15QtWaylandClient17QWaylandShmBufferC2EPNS_15QWaylandDisplayERK5QSizeN6QImage6FormatEd@Qt_5_PRIVATE_API 0 1
  _ZN15QtWaylandClient17QWaylandShmBufferD0Ev@Qt_5_PRIVATE_API 0 1
  _ZN15QtWaylandClient17QWaylandShmBufferD1Ev@Qt_5_PRIVATE_API 0 1
  _ZN15QtWaylandClient17QWaylandShmBufferD2Ev@Qt_5_PRIVATE_API 0 1
@@ -593,8 +593,12 @@ libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
  _ZN9QtWayland10wl_pointer18handle_axis_sourceEPvP10wl_pointerj@Qt_5 5.14.1
  _ZN9QtWayland10wl_pointer19pointer_axis_sourceEj@Qt_5 5.14.1
  _ZN9QtWayland10wl_pointer20handle_axis_discreteEPvP10wl_pointerji@Qt_5 5.14.1
+ _ZN9QtWayland10wl_pointer20handle_axis_value120EPvP10wl_pointerji@Qt_5 5.15.13
  _ZN9QtWayland10wl_pointer21m_wl_pointer_listenerE@Qt_5 5.10.1
  _ZN9QtWayland10wl_pointer21pointer_axis_discreteEji@Qt_5 5.14.1
+ _ZN9QtWayland10wl_pointer21pointer_axis_value120Eji@Qt_5 5.15.13
+ _ZN9QtWayland10wl_pointer30handle_axis_relative_directionEPvP10wl_pointerjj@Qt_5 5.15.13
+ _ZN9QtWayland10wl_pointer31pointer_axis_relative_directionEjj@Qt_5 5.15.13
  _ZN9QtWayland10wl_pointer4initEP10wl_pointer@Qt_5 5.10.1
  _ZN9QtWayland10wl_pointer4initEP11wl_registryii@Qt_5 5.10.1
  _ZN9QtWayland10wl_pointer7releaseEv@Qt_5 5.10.1
@@ -620,12 +624,17 @@ libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
  _ZN9QtWayland10wl_surface17set_opaque_regionEP9wl_region@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface20set_buffer_transformEi@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface21m_wl_surface_listenerE@Qt_5 5.10.1
+ _ZN9QtWayland10wl_surface29handle_preferred_buffer_scaleEPvP10wl_surfacei@Qt_5 5.15.13
+ _ZN9QtWayland10wl_surface30surface_preferred_buffer_scaleEi@Qt_5 5.15.13
+ _ZN9QtWayland10wl_surface33handle_preferred_buffer_transformEPvP10wl_surfacej@Qt_5 5.15.13
+ _ZN9QtWayland10wl_surface34surface_preferred_buffer_transformEj@Qt_5 5.15.13
  _ZN9QtWayland10wl_surface4initEP10wl_surface@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface4initEP11wl_registryii@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface5frameEv@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface6attachEP9wl_bufferii@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface6commitEv@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface6damageEiiii@Qt_5 5.10.1
+ _ZN9QtWayland10wl_surface6offsetEii@Qt_5 5.15.13
  _ZN9QtWayland10wl_surface7destroyEv@Qt_5 5.10.1
  _ZN9QtWayland10wl_surface9interfaceEv@Qt_5 5.10.1
  _ZN9QtWayland10wl_surfaceC1EP10wl_surface@Qt_5 5.10.1
@@ -1454,6 +1463,7 @@ libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
  _ZN9QtWayland6wl_shm17m_wl_shm_listenerE@Qt_5 5.10.1
  _ZN9QtWayland6wl_shm4initEP11wl_registryii@Qt_5 5.10.1
  _ZN9QtWayland6wl_shm4initEP6wl_shm@Qt_5 5.10.1
+ _ZN9QtWayland6wl_shm7releaseEv@Qt_5 5.15.13
  _ZN9QtWayland6wl_shm9interfaceEv@Qt_5 5.10.1
  _ZN9QtWayland6wl_shmC1EP11wl_registryii@Qt_5 5.10.1
  _ZN9QtWayland6wl_shmC1EP6wl_shm@Qt_5 5.10.1
@@ -1552,13 +1562,17 @@ libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
  _ZN9QtWayland9wl_output10fromObjectEP9wl_output@Qt_5 5.12.5
  _ZN9QtWayland9wl_output11handle_doneEPvP9wl_output@Qt_5 5.10.1
  _ZN9QtWayland9wl_output11handle_modeEPvP9wl_outputjiii@Qt_5 5.10.1
+ _ZN9QtWayland9wl_output11handle_nameEPvP9wl_outputPKc@Qt_5 5.15.13
  _ZN9QtWayland9wl_output11output_doneEv@Qt_5 5.10.1
  _ZN9QtWayland9wl_output11output_modeEjiii@Qt_5 5.10.1
+ _ZN9QtWayland9wl_output11output_nameERK7QString@Qt_5 5.15.13
  _ZN9QtWayland9wl_output12handle_scaleEPvP9wl_outputi@Qt_5 5.10.1
  _ZN9QtWayland9wl_output12output_scaleEi@Qt_5 5.10.1
  _ZN9QtWayland9wl_output13init_listenerEv@Qt_5 5.10.1
  _ZN9QtWayland9wl_output15handle_geometryEPvP9wl_outputiiiiiPKcS5_i@Qt_5 5.10.1
  _ZN9QtWayland9wl_output15output_geometryEiiiiiRK7QStringS3_i@Qt_5 5.10.1
+ _ZN9QtWayland9wl_output18handle_descriptionEPvP9wl_outputPKc@Qt_5 5.15.13
+ _ZN9QtWayland9wl_output18output_descriptionERK7QString@Qt_5 5.15.13
  _ZN9QtWayland9wl_output20m_wl_output_listenerE@Qt_5 5.10.1
  _ZN9QtWayland9wl_output4initEP11wl_registryii@Qt_5 5.10.1
  _ZN9QtWayland9wl_output4initEP9wl_output@Qt_5 5.10.1
@@ -1647,7 +1661,6 @@ libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
  _ZNK15QtWaylandClient17QWaylandDataOffer16supportedActionsEv@Qt_5_PRIVATE_API 0 1
  _ZNK15QtWaylandClient17QWaylandShmWindow10windowTypeEv@Qt_5_PRIVATE_API 0 1
  _ZNK15QtWaylandClient18QWaylandDataSource10metaObjectEv@Qt_5_PRIVATE_API 0 1
- _ZNK15QtWaylandClient18QWaylandDataSource8mimeDataEv@Qt_5_PRIVATE_API 0 1
  _ZNK15QtWaylandClient19QWaylandInputDevice10dataDeviceEv@Qt_5_PRIVATE_API 0 1
  _ZNK15QtWaylandClient19QWaylandInputDevice10metaObjectEv@Qt_5_PRIVATE_API 0 1
  _ZNK15QtWaylandClient19QWaylandInputDevice10touchFocusEv@Qt_5_PRIVATE_API 0 1
@@ -1775,8 +1788,6 @@ libQt5WaylandClient.so.5 libqt5waylandclient5 #MINVER#
  _ZNK9QtWayland9wl_buffer13isInitializedEv@Qt_5 5.10.1
  _ZNK9QtWayland9wl_output13isInitializedEv@Qt_5 5.10.1
  _ZNK9QtWayland9wl_region13isInitializedEv@Qt_5 5.10.1
- _ZNSt10_HashtableI7QStringS0_NSt3pmr21polymorphic_allocatorIS0_EENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEED1Ev@Qt_5 5.15.1
- _ZNSt10_HashtableI7QStringS0_NSt3pmr21polymorphic_allocatorIS0_EENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev@Qt_5 5.15.1
  _ZNSt7__cxx114listIPN15QtWaylandClient17QWaylandShmBufferESaIS3_EE6removeERKS3_@Qt_5_PRIVATE_API 0 1
  _ZNSt8__detail16_Hashtable_allocINSt3pmr21polymorphic_allocatorINS_10_Hash_nodeI7QStringLb0EEEEEE19_M_allocate_bucketsEm@Qt_5 5.15.6
  _ZTI23QWaylandClientExtension@Qt_5 5.10.1
