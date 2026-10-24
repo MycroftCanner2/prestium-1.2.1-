@@ -1,0 +1,5 @@
+[console_scripts]
+gajim-remote = gajim.remote:run
+
+[gui_scripts]
+gajim = gajim.main:run
