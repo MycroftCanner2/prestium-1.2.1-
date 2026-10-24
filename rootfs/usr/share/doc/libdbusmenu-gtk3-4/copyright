@@ -8,32 +8,29 @@ Comment:
 
 Files: *
 Copyright:
-  2009-2010, Ted Gould <ted@canonical.com>, Canonical Ltd.
+  2009-2010 Canonical Ltd.
 License: GPL-3
 
 Files: libdbusmenu-glib/*
        libdbusmenu-gtk/*
 Copyright:
-  2009-2010, Ted Gould <ted@canonical.com>, Canonical Ltd.
+  2009-2010 Canonical Ltd.
 License: LGPL-2.1 or LGPL-3
 
 Files: libdbusmenu-glib/dbus-menu.xml
 Copyright:
-  2009-2010, Ted Gould <ted@canonical.com>, Canonical Ltd.
+  2009-2010 Canonical Ltd.
 License: LGPL-2.1 or LGPL-3
 
 Files: tools/dbusmenu-bench
        tools/testapp/main.c
 Copyright:
-  2009-2010, Aurélien Gâteau <aurelien.gateau@canonical.com>
+  2009-2010 Canonical Ltd.
 License: LGPL-2.1 or LGPL-3
 
 Files: debian/*
 Copyright:
-  2009-2010, Evgeni Golov <evgeni@debian.org>
-  2009-2010, Ted Gould <ted@canonical.com>, Canonical Ltd.
-  2009-2010, Sebastien Bacher <seb128@ubuntu.com>
-  2009-2010, Ken VanDine <ken.vandine@canonical.com>
+  2009-2010 Evgeni Golov <evgeni@debian.org>, Canonical Ltd.
   2017, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 License: GPL-3
 

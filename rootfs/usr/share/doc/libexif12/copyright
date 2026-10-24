@@ -1,375 +1,454 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libexif
-Upstream-Contact: Dan Fandrich <dan@coneharvesters.com>,
-                  Lutz Müller <urc8@rz.uni-karlsruhe.de>
+Upstream-Contact: Dan Fandrich
 Source: https://libexif.github.io/
 
 Files: *
-Copyright: 2001-2009 Lutz Müller <urc8@rz.uni-karlsruhe.de>
-           2004-2009 Jan Patera <patera@users.sourceforge.net>
-           2004      Joerg Hoh <joerg@devone.org>
-           2005-2006 Hubert Figuiere <hub@figuiere.net>
-           2002-2007 Hans Ulrich Niedermann <gp@n-dimensional.de>
-           2007-2021 Dan Fandrich <dan@coneharvesters.com>
-           2017-2021 Marcus Meissner <marcus@jet.franken.de>
-License: LGPL-2.1+
+Copyright: 2001-2009 Lutz Müller
+           2004-2009 Jan Patera
+           2004      Joerg Hoh
+           2005-2006 Hubert Figuiere
+           2002-2007 Hans Ulrich Niedermann
+           2007-2025 Dan Fandrich
+           2017-2025 Marcus Meissner
+License: LGPL-2.1-or-later
+
+Files: .appveyor.yml
+       .cirrus.yml
+       contrib/examples/photographer.c
+       contrib/examples/thumbnail.c
+       contrib/examples/write-exif.c
+Copyright: none
+License: CC0-1.0
+         "Placed into the public domain by Dan Fandrich"
+
+Files: .github/dependabot.yml
+Copyright: 2023 Google LLC
+License: MIT
+
+Files: .github/workflows/ci.yml
+Copyright: 2024 Dan Fandrich
+License: CC0-1.0
+
+Files: .github/workflows/cifuzz.yml
+Copyright: 2022 David Korczynski, et al.
+License: LGPL-2.1-or-later
+
+Files: .github/workflows/codeql.yml
+Copyright: 2020 GitHub
+License: MIT
+
+Files: .github/workflows/reuse.yml
+Copyright: 2022 Free Software Foundation Europe e.V.
+License: CC0-1.0
+
+Files: .gitignore
+       AUTHORS
+       ChangeLog
+       NEWS
+Copyright: 2000-2023 libexif Contributors
+License: LGPL-2.1-or-later
+
+Files: README-Win32.txt
+       binary-dist/Makefile.am
+       doc/README.apidocs
+       libexif-uninstalled.pc.in
+       libexif/exif.h
+       libexif/exif-system.h
+       m4m/gp-check-shell-environment.m4
+       m4m/gp-config-msg.m4
+       m4m/gp-documentation.m4
+       test/inc-comparetool.sh
+       test/test-integers.c
+       test/test-parse.c
+       test/test-parse-from-data.c
+       test/nls/Makefile.am
+       test/nls/check-codeset.in
+       test/nls/check-localedir.in
+       test/nls/check-nls.in
+       test/nls/print-localedir.c
+       test/nls/test-codeset.c
+Copyright: 2005-2021 Hans Ulrich Niedermann
+License: LGPL-2.1-or-later
+
+Files: SECURITY.md
+       TODO
+Copyright: 2020-2021 Marcus Meissner
+License: LGPL-2.1-or-later
 
 Files: libexif.spec.in
 Copyright: 2002 Mark Pulford
            2003 Peter Bieringer
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
-Files: contrib/aolserver/nsexif.c
+Files: contrib/Makefile.am
+       doc/footer.html
+       test/test-extract.c
+       test/test-null.c
+       test/test-sorted.c
+       test/test-tagtable.c
+Copyright: 2008-2022 Dan Fandrich
+License: LGPL-2.1-or-later
+
+Files: contrib/aolserver/*
 Copyright: 2000 Curtis Galloway
 License: MIT
 
 Files: contrib/c++/*
-Copyright: 2002-2003 Hans Meine <hans_meine@gmx.net>
-License: LGPL-2.1+
+Copyright: 2002-2003 Hans Meine
+License: LGPL-2.1-or-later
 
 Files: contrib/examples/cam_features.c
-Copyright: 2005 Naysawn Naderi <ndn@xiphos.ca>
-License: LGPL-2.1+
+Copyright: 2005 Naysawn Naderi
+License: BSD-3-Clause
 
-Files: contrib/examples/photographer.c
-       contrib/examples/thumbnail.c
-       contrib/examples/write-exif.c
-Copyright: None
-License: public-domain
-         "Placed into the public domain by Dan Fandrich"
+Files: contrib/watcom/*
+Copyright: 2004-2008 Angela Wrobel
+License: LicenseRef-Wrobel
 
-Files: contrib/watcom/Makefile
-Copyright: None
-License: public-domain
-         "no restrictions at all, but USE ON YOUR OWN RISK ONLY."
+Files: debian/*
+Copyright: 2002-2004 Christophe Barbe
+           2004-2007 Frederic Peters
+           2009-2014 Emmanuel Bouthenot
+                2023 Andreas Metzler
+           2017-2025 Hugh McMaster
+License: GPL-2.0
+Comment: GPL-2.0-or-later
 
-Files: libexif/*.h
-Copyright: 2001-2003 Lutz Müller <lutz@users.sourceforge.net>
-           2002 Marcus Meissner <marcus@jet.franken.de>
-License: LGPL-2.1+
+Files: doc/Doxyfile.in
+       doc/Doxyfile-internals.in
+Copyright: 1997-2015 Dimitri van Heesch
+License: GPL-2.0
+Comment: GPL-2.0-only
 
-Files: libexif/exif-content.h
+Files: doc/Makefile.am
+       libexif/libexif.sym
+       m4m/Makefile.am
+       test/nls/test-nls.c
+Copyright: 2005-2009 Hans Ulrich Niedermann, et al.
+License: LGPL-2.1-or-later
+
+Files: libexif/Makefile.am
+       libexif/canon/Makefile-files
+       libexif/fuji/Makefile-files
+       libexif/olympus/Makefile-files
+       libexif/olympus/mnote-olympus-entry.c
+       libexif/pentax/Makefile-files
+       po/POTFILES.in
+       test/Makefile.am
+Copyright: 2001-2021 Lutz Müller, et al.
+License: LGPL-2.1-or-later
+
+Files: libexif/exif-byte-order.c
+       libexif/exif-byte-order.h
+       libexif/exif-content.c
+       libexif/exif-content.h
+       libexif/exif-data.c
+       libexif/exif-data.h
+       libexif/exif-data-type.h
+       libexif/exif-entry.c
        libexif/exif-entry.h
-Copyright: 2001 Lutz Müller
-           2002 Marcus Meissner <marcus@jet.franken.de>
-           2002 Semyon Sosin <sem@best.com>
-License: LGPL-2.1+
-
-Files: libexif/exif-data.c
-Copyright: 2001 Lutz Müller <lutz@users.sourceforge.net>
-           2002 Fredrik <fredrik@krixor.xy.org>
-           2002 Javier Achirica <achirica@ttd.net>
-           2002 Semyon Sosin <sem@best.com>
-           2002 Guido Ostkamp <guido.ostkamp@t-online.de>
-           2002 Takuro Ashie <makeinu@users.sourceforge.net>
-           2002 Jason Sodergren <jason@taiga.com>
-           2002 Renchi Raju <renchi@pooh.tam.uiuc.edu>
-           2003 Torgeir Hansen <torgeir@trenger.ro>
-           2003 Roberto Costa <roberto.costa@ensta.org>
-           2004 Angela Wrobel
-License: LGPL-2.1+
-
-Files: libexif/exif-entry.c
-Copyright: 2001 Lutz Müller <lutz@users.sourceforge.net>
-           2002 Javier Achirica <achirica@ttd.net>
-           2002 Semyon Sosin <sem@best.com>
-           2002 Arnaud Rouanet <rouanet@labri.fr>
-           2002 Andres <aplaza@smalcamera.com>
-           2004 Antonio Scuri <scuri@tecgraf.puc-rio.br>
-           2004 Hubert Verstraete <hubs@users.sourceforge>
-           2004 Ralf Holzer <rholzer@cmu.edu>
-           2007 Jef Driesen <jefdriesen@hotmail.com>
-           2009 Vladimir Petrov <vppetrov@mm-sol.com>
-License: LGPL-2.1+
+       libexif/exif-format.c
+       libexif/exif-format.h
+       libexif/exif-ifd.c
+       libexif/exif-ifd.h
+       libexif/exif-loader.c
+       libexif/exif-loader.h
+       libexif/exif-log.c
+       libexif/exif-log.h
+       libexif/exif-mem.c
+       libexif/exif-mem.h
+       libexif/exif-mnote-data.c
+       libexif/exif-mnote-data.h
+       libexif/exif-mnote-data-priv.h
+       libexif/exif-tag.c
+       libexif/exif-tag.h
+       libexif/i18n.h
+       libexif/exif-utils.c
+       libexif/exif-utils.h
+       libexif/canon/exif-mnote-data-canon.h
+       libexif/canon/mnote-canon-entry.h
+       libexif/canon/mnote-canon-tag.c
+       libexif/canon/mnote-canon-tag.h
+       libexif/fuji/exif-mnote-data-fuji.c
+       libexif/fuji/exif-mnote-data-fuji.h
+       libexif/fuji/mnote-fuji-entry.c
+       libexif/fuji/mnote-fuji-entry.h
+       libexif/fuji/mnote-fuji-tag.c
+       libexif/fuji/mnote-fuji-tag.h
+       libexif/olympus/exif-mnote-data-olympus.c
+       libexif/olympus/exif-mnote-data-olympus.h
+       libexif/olympus/mnote-olympus-entry.h
+       libexif/olympus/mnote-olympus-tag.c
+       libexif/olympus/mnote-olympus-tag.h
+       libexif/pentax/exif-mnote-data-pentax.c
+       libexif/pentax/exif-mnote-data-pentax.h
+       libexif/pentax/mnote-pentax-entry.c
+       libexif/pentax/mnote-pentax-entry.h
+       libexif/pentax/mnote-pentax-tag.c
+       libexif/pentax/mnote-pentax-tag.h
+       test/test-mem.c
+       test/test-mnote.c
+       test/test-value.c
+Copyright: 2001-2005 Lutz Müller
+License: LGPL-2.1-or-later
 
 Files: libexif/exif-gps-ifd.c
        libexif/exif-gps-ifd.h
-Copyright: 2020 Heiko Lewin <hlewin@gmx.de>
-License: LGPL-2+
+       test/test-gps.c
+Copyright: 2020 Heiko Lewin
+License: LGPL-2.1-or-later
 
-Files: libexif/exif-loader.c
-Copyright: 2002 Lutz Müller <lutz@users.sourceforge.net>
-           2003 Jens Finke <jens@triq.net>
-           2007 Meder Kydyraliev
-           2008 Mika Raento <mikie@google.com>
-License: LGPL-2.1+
-
-Files: libexif/exif-loader.h
-Copyright: 2003 Lutz Müller <lutz@users.sourceforge.net>
-           2003 Jens Finke <jens@triq.net>
-License: LGPL-2.1+
-
-Files: libexif/exif-tag.c
-Copyright: 2001 Lutz Müller <lutz@users.sourceforge.net>
-           2002 Javier Achirica <achirica@ttd.net>
-           2003 Gernot Jander <gernot@bigpond.com>
-           2004 Antonio Scuri <scuri@tecgraf.puc-rio.br>
-License: LGPL-2.1+
-
-Files: libexif/exif-tag.h
-Copyright: 2001 Lutz Müller <lutz@users.sourceforge.net>
-           2002 Javier Achirica <achirica@ttd.net>
-           2002 Marcus Meissner <marcus@jet.franken.de>
-License: LGPL-2.1+
-
-Files: libexif/apple/*.c
-       libexif/apple/*.h
-Copyright: 2018 zhanwang-sky <zhanwang_sky@163.com>
-License: LGPL-2+
+Files: libexif/apple/*
+Copyright: 2018 zhanwang-sky
+License: LGPL-2.1-or-later
 
 Files: libexif/canon/exif-mnote-data-canon.c
        libexif/canon/mnote-canon-entry.c
 Copyright: 2002-2003 Lutz Müller
            2003 Matthieu Castet
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
+
+Files: m4m/failmalloc.m4
+       m4m/stdint.m4
+       test/check-failmalloc.sh
+       test/check-mnote.sh
+       test/extract-parse.sh
+       test/parse-regression.sh
+       test/swap-byte-order.sh
+Copyright: 2018-2024 Dan Fandrich, et al.
+License: LGPL-2.1-or-later
 
 Files: po/be.po
 Copyright: 2009 Rosetta Contributors
            2009 Canonical Ltd
-           2009-2010 Iryna Nikanchuk <defragbrain@gmail.com>
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/bs.po
 Copyright: 2010 Rosetta Contributors
            2010 Canonical Ltd
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/cs.po
 Copyright: 2007-2010 Jan Patera
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/da.po
 Copyright: 2009-2010, 2012, 2016 Joe Hansen
            2009 Lars Christian Jensen
            2010 Torben Grøn Helligsø
            2016 Lutz Müller
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/de.po
-Copyright: 2002 Free Software Foundation, Inc.
-           2002 Lutz Müller
-           2004-2008-2010 Marcus Meissner
+Copyright: 2002 Lutz Müller
+           2004-2010 Marcus Meissner
            2011 Mario Blättermann
-           2011-2012 Christian Kirbach
-License: LGPL-2.1+
+           2011-2012, 2021 Christian Kirbach
+License: LGPL-2.1-or-later
 
 Files: po/en_AU.po
 Copyright: 2010 Rosetta Contributors
            2010 Canonical Ltd
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/en_CA.po
 Copyright: 2007 Lutz Müller and others
            2007-2009 Dan Fandrich
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/en_GB.po
 Copyright: 2006 Rosetta Contributors
            2006 Canonical Ltd
-           2009 Bruce Cowan
-           2010 Robert Readman
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/es.po
-Copyright: 2002-2020 Free Software Foundation, Inc.
+Copyright: 2002-2021 Free Software Foundation, Inc.
            2002 Fabian Mandelbaum
-           2014-2015, 2020 Antonio Ceballos
-License: LGPL-2.1+
+           2014-2015, 2020-2021 Antonio Ceballos
+License: LGPL-2.1-or-later
 
 Files: po/fr.po
 Copyright: 2002 Arnaud Launay
            2016 Free Software Foundation, Inc.
            2016 Frédéric Marchal
            2020-2021 Stéphane Aulery
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/it.po
-Copyright: 2010 Sergio Zanchetta
-           2010 Lutz Müller and others
-License: LGPL-2.1+
+Copyright: 2010 Lutz Müller and others
+           2010 Sergio Zanchetta
+License: LGPL-2.1-or-later
 
 Files: po/ja.po
 Copyright: 2009 Lutz Müller and others
-           2009 Shushi Kurose
            2009-2010 Tadashi Jokagi
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
+
+Files: po/ka.po
+Copyright: 2023 Lutz Müller and others
+           2023 Temuri Doghonadze
+License: LGPL-2.1-or-later
 
 Files: po/ms.po
 Copyright: 2013 Rosetta Contributors
            2013 Canonical Ltd
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/nl.po
 Copyright: 2007-2008 Freek de Kruijf
            2008-2010 Erwin Poeze
            2009-2010 Lutz Müller and others
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/pl.po
-Copyight: 2006-2010 Free Software Foundation, Inc.
 Copyright: 2005-2021 Jakub Bogusz
-License: LGPL-2.1+
+           2006-2010 Free Software Foundation, Inc.
+License: LGPL-2.1-or-later
 
 Files: po/pt.po
 Copyright: 2007 Rosetta Contributors
            2007 Canonical Ltd
-           2009 nglnx
-           2010 Launchpad Translators
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/pt_BR.po
 Copyright: 2007 Lutz Müller and others
-           2009 André Gondi
-           2010 André Gondim <andregondim@ubuntu.com>
-License: BSD-2-Clause and LGPL-2.1+
+License: BSD-3-Clause
+
+Files: po/ro.po
+Copyright: 2023 Lutz Müller and others
+           2023 Remus-Gabriel Chelu
+License: LGPL-2.1-or-later
 
 Files: po/ru.po
-Copyright: 2006 Alexandre Prokoudine
-           2010 Alexey Ivanov
-License: LGPL-2.1+
+Copyright: 2006 Lutz Müller and others
+           2006 Alexandre Prokoudine
+License: LGPL-2.1-or-later
 
 Files: po/sk.po
 Copyright: 2007 Lutz Müller and others
            2007-2009, 2011-2012 Ivan Masár
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/sq.po
 Copyright: 2009 Rosetta Contributors
            2009 Canonical Ltd
-           2009-2010 Vilson Gjeci <vilsongjeci@gmail.com>
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/sr.po
-Copyright: 2007-2010 Marko Uskokovic
-           2020 Free Software Foundation, Inc.
+Copyright: 2020 Free Software Foundation, Inc.
            2020-2021 Мирослав Николић
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/sv.po
-Copyright: 2007, 2009, 2016 Free Software Foundation, Inc.
+Copyright: 2007, 2009, 2016, 2022 Free Software Foundation, Inc.
            2007, 2009 Daniel Nylander
-           2016 Sebastian Rasmussen
-License: LGPL-2.1+
+           2016, 2022 Sebastian Rasmussen
+           2022 Luna Jernberg
+License: LGPL-2.1-or-later
 
 Files: po/tr.po
 Copyright: 2009 Rosetta Contributors
            2009 Canonical Ltd
-           2010 Enes Ateş
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/uk.po
 Copyright: 2012 Lutz Müller and others
            2012-2013, 2016, 2018, 2020-2021 Yuri Chornoivan
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/vi.po
 Copyright: 2006-2010 Clytie Siddall
-           2012, 2015-2016, 2020 Trần Ngọc Quân
+           2012, 2015-2016, 2020, 2022-2023 Trần Ngọc Quân
            2016 Free Software Foundation, Inc.
-License: LGPL-2.1+
+License: LGPL-2.1-or-later
 
 Files: po/zh_CN.po
-Copyright: 2007 Rosetta Contributors
-           2007 Canonical Ltd
-           2009-2010 Tao Wei <weitao1979@gmail.com>
-License: LGPL-2.1+
+Copyright: 2021 Lutz Müller and others
+           2021 Boyuan YANG
+License: LGPL-2.1-or-later
 
-Files: test/test-fuzzer-persistent.c
+Files: test/test-fuzzer.c
+       test/test-fuzzer-persistent.c
 Copyright: 2002 Lutz Müller
            2007 Hans Ulrich Niedermann
-License: LGPL-2+
+License: LGPL-2.1-or-later
 
-Files: test/test-gps.c
-Copyright: 2020 Heiko Lewin <hlewin@gmx.de>
-License: LGPL-2+
+Files: test/testdata/*_makernote_variant_*.jpg*
+Copyright: 2018 Google, Inc.
+License: LGPL-2.1-or-later
 
-Files: test/test-parse-from-data.c
-Copyright: 2007 Hans Ulrich Niedermann
-License: LGPL-2+
-
-Files: debian/*
-Copyright: 2002-2004 Christophe Barbe <christophe@debian.org>
-           2004-2007 Frederic Peters <fpeters@debian.org>
-           2009-2014 Emmanuel Bouthenot <kolter@debian.org>
-           2017-2021 Hugh McMaster <hugh.mcmaster@outlook.com>
-License: GPL-2+
-
-License: BSD-2-Clause
+License: BSD-3-Clause
  Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions
- are met:
+ modification, are permitted provided that the following conditions are
+ met:
  .
- Redistributions of source code must retain the above copyright notice,
- this list of conditions and the following disclaimer.
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
  .
- Redistributions in binary form must reproduce the above copyright notice,
- this list of conditions and the following disclaimer in the documentation
- and/or other materials provided with the distribution.
+  * Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following
+    disclaimer in the documentation and/or other materials provided
+    with the distribution.
  .
- THIS SOFTWARE IS PROVIDED BY THE FREEBSD PROJECT ``AS IS'' AND ANY
- EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- ARE DISCLAIMED. IN NO EVENT SHALL THE FREEBSD PROJECT OR CONTRIBUTORS
- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
- OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
- OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
- BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * Neither the name of the <ORGANIZATION> nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-License: GPL-2+
- This program is free software; you can redistribute it and/or modify it under
- the terms of the GNU General Public License as published by the Free Software
- Foundation; either version 2 of the License, or (at your option) any later
- version.
+License: CC0-1.0
+ On Debian systems, the complete text of the CC0 Public Domain Dedication
+ can be found in "/usr/share/common-licenses/CC0-1.0".
+
+License: GPL-2.0
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
  .
- This program is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
  .
- You should have received a copy of the GNU General Public License along with
- this package; if not, write to the Free Software Foundation, Inc., 51 Franklin
- St, Fifth Floor, Boston, MA  02110-1301 USA
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  .
  On Debian systems, the full text of the GNU General Public License version 2
  can be found in the file `/usr/share/common-licenses/GPL-2'.
 
-License: LGPL-2+
- This library is free software; you can redistribute it and/or modify it under
- the terms of the GNU Library General Public License as published by the Free
- Software Foundation; either version 2 of the License, or (at your option) any
- later version.
+License: LGPL-2.1-or-later
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
  .
- This library is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for more
- details.
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
  .
- You should have received a copy of the GNU Library General Public License
- along with this library; if not, write to the Free Software Foundation, Inc.,
+ You should have received a copy of the GNU Lesser General Public License
+ along with this library; if not, write to the Free Software Foundation Inc.,
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- .
- On Debian systems, the full text of the GNU Library General Public License
- version 2 can be found in the file `/usr/share/common-licenses/LGPL-2'.
-
-License: LGPL-2.1+
- This library is free software; you can redistribute it and/or modify it under
- the terms of the GNU Lesser General Public License as published by the Free
- Software Foundation; either version 2.1 of the License, or (at your option) any
- later version.
- .
- This library is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
- details.
- .
- You should have received a copy of the GNU Lesser General Public License along
- with this library; if not, write to the Free Software Foundation, Inc., 51
- Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  .
  On Debian systems, the complete text of the GNU Lesser General Public License
  version 2.1 can be found in `/usr/share/common-licenses/LGPL-2.1`.
+
+License: LicenseRef-Wrobel
+ LICENSE: no restrictions at all, but USE ON YOUR OWN RISK ONLY.
 
 License: MIT
  Permission is hereby granted, free of charge, to any person obtaining

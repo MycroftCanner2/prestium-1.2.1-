@@ -7,7 +7,9 @@ Copyright: 2009-2020, Dave Gamble and cJSON contributors
 License: MIT
 
 Files: debian/*
-Copyright: 2018, Yanhao Mo <yanhaocs@gmail.com>
+Copyright:
+ 2018, Yanhao Mo <yanhaocs@gmail.com>
+ 2024, Maytham Alsudany <maytha8thedev@gmail.com>
 License: MIT
 
 Files: cJSON.h

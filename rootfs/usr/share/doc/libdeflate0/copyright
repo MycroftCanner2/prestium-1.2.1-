@@ -3,7 +3,7 @@ Upstream-Name: libdeflate
 Source: https://github.com/ebiggers/libdeflate
 
 Files: *
-Copyright: 2016, 2018, Eric Biggers
+Copyright: 2016, 2018, 2020, 2022, 2024 Eric Biggers
 License: Expat
 
 Files: lib/arm/crc32_impl.h
@@ -12,7 +12,10 @@ Copyright: 2018, Eric Biggers
 License: Expat
 
 Files: debian/*
-Copyright: © 2018 Michael R. Crusoe <michael.crusoe@gmail.com>
+Copyright: 2018-2021, 2023-2024 Michael R. Crusoe <crusoe@debian.org>
+           2023 Lance Lin <lq27267@gmail.com>
+           2024-2025 Nick Black <dankamongmen@gmail.com>
+           2024-2025 Andrea Pappacoda <tachi@debian.org>
 License: Expat
 
 License: Expat

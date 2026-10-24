@@ -11,7 +11,7 @@ Copyright: Copyright (C) John Ellson  <john.ellson@comcast.net>,
  Copyright (C) Stephen North <north@research.att.com>
 License: EPL-1.0
 
-Files: cmd/smyrna/arcball.[ch]
+Files: cmd/smyrna/arcball.c cmd/smyrna/arcball.h
 Copyright: Copyright (C) 1999-2009 Tatewake.com
 License: MIT
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,7 @@ License: MIT
  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  IN THE SOFTWARE.
 
-Files: cmd/smyrna/md5.[ch]
+Files: cmd/smyrna/md5.c cmd/smyrna/md5.h
 Copyright: Copyright (C) 1999-2002 Aladdin Enterprises
 License: zlib-style
  This software is provided 'as-is', without any express or implied
@@ -51,7 +51,7 @@ License: zlib-style
     misrepresented as being the original software.
  3. This notice may not be removed or altered from any source distribution.
 
-Files: cmd/smyrna/trackball.[ch]
+Files: cmd/smyrna/trackball.c cmd/smyrna/trackball.h
 Copyright: Copyright (C) 1993-1994 Silicon Graphics, Inc.
 License: X/MIT
  Permission to use, copy, modify, and distribute this software for

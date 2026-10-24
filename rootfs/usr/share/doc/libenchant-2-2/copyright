@@ -1,7 +1,8 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: enchant
 Upstream-Contact: Dom Lachowicz <domlachowicz@yahoo.com> et. al.
-Source: https://abiword.github.io/enchant/
+Source: https://rrthomas.github.io/enchant/
+Files-Excluded: doxygen
 
 Files: *
 Copyright: 2003-2004, Dom Lachowicz <domlachowicz@yahoo.com>

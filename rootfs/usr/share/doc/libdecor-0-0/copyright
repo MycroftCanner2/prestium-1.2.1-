@@ -7,16 +7,17 @@ Copyright: 2010 Intel Corporation
            2011 Benjamin Franzke
            2017-2018 Red Hat Inc.
            2018-2019 Jonas Ådahl
-           2019 Christian Rauch
+           2019-2021 Christian Rauch
 License:   Expat
 
-Files:     src/plugins/cairo/libdecor-cairo-blur.*
+Files:     src/plugins/common/libdecor-cairo-blur.*
 Copyright: 2008 Kristian Høgsberg
            2012 Intel Corporation
 License:   Expat
 
 Files:     debian/*
 Copyright: 2021 Christian Rauch
+           2021-2024 Collabora Ltd.
 License:   Expat
 
 Files:     debian/tests/run-with-display

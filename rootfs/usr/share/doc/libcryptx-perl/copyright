@@ -4,7 +4,7 @@ Upstream-Contact: Karel Miko
 Upstream-Name: CryptX
 
 Files: *
-Copyright: 2013-2022, DCIT, a.s. https://www.dcit.cz / Karel Miko
+Copyright: 2013-2025, DCIT, a.s. https://www.dcit.cz / Karel Miko
 License: Artistic or GPL-1+
 
 Files: ppport.h
