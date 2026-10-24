@@ -1,4 +1,5 @@
-e01b1baed5dfc8bbe8cdde3556dd389f  usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0
+fe9bb954601634a1c60b9ac1d22fde98  usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0
 2295a81abfbf493c2fefd51c81b8618e  usr/share/bug/libopengl0/control
-912ebb9f2a391d334a5c3eebc3b8393c  usr/share/doc/libopengl0/changelog.Debian.gz
-96aa9f3a44040e7d50de816f57487503  usr/share/doc/libopengl0/copyright
+76b9c4cefd4624ef0102d95f0de77e19  usr/share/doc/libopengl0/changelog.Debian.amd64.gz
+f952a9db21c98cfac64056b9fe98ad51  usr/share/doc/libopengl0/changelog.Debian.gz
+ba0c09cf9de1643aaab0fd695a6d7476  usr/share/doc/libopengl0/copyright

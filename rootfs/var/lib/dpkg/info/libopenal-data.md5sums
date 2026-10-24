@@ -1,5 +1,13 @@
-a6a28491582e62554e7cb78d9b927a1a  usr/share/doc/libopenal-data/changelog.Debian.gz
-44ab50ce4ba159484cec462d16ea3ad3  usr/share/doc/libopenal-data/changelog.gz
-9c9dab0848e59ce5cfd0a352c62a2b04  usr/share/doc/libopenal-data/copyright
-937fcf24903db80f09182ebdab5cad79  usr/share/openal/hrtf/default-44100.mhr
-b0b68ad80737a6974ba3a13f515f1927  usr/share/openal/hrtf/default-48000.mhr
+95196e507bfd253ff388ee94df6d8e4f  usr/share/doc/libopenal-data/changelog.Debian.gz
+d22ce8279378a98dfd4835c68ec2cfb8  usr/share/doc/libopenal-data/changelog.gz
+f88aeae47911b3ece941fb83350410b6  usr/share/doc/libopenal-data/copyright
+1aa44b799c8a38f1dcd66db2ff98a97c  usr/share/openal/alsoftrc.sample
+eac9bb280654187fae1d6db30a67ce17  usr/share/openal/hrtf/Default HRTF.mhr
+cb3a914515a61e13e7a138fba04f721c  usr/share/openal/presets/3D7.1.ambdec
+139a1aafb4010cdd2dd3e03cb34498d0  usr/share/openal/presets/hex-quad.ambdec
+26a8c1695fc68acea82ed85d9dfa066a  usr/share/openal/presets/hexagon.ambdec
+424a502b898bdea21662e4b9e52967a4  usr/share/openal/presets/itu5.1-nocenter.ambdec
+f2516a126fd96659eb69c1d9f93de840  usr/share/openal/presets/itu5.1.ambdec
+c45c4ccad9be019d802356c0420abe37  usr/share/openal/presets/presets.txt
+beef71e97de2a66bf5855a51ec377cd4  usr/share/openal/presets/rectangle.ambdec
+e35dbda0c7aa9ad354291d705e4b0210  usr/share/openal/presets/square.ambdec

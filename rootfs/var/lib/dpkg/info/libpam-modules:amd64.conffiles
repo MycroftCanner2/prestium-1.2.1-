@@ -5,5 +5,6 @@
 /etc/security/namespace.conf
 /etc/security/namespace.init
 /etc/security/pam_env.conf
+/etc/security/pwhistory.conf
 /etc/security/sepermit.conf
 /etc/security/time.conf

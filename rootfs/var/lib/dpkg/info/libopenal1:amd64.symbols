@@ -1,10 +1,16 @@
 libopenal.so.1 libopenal1 #MINVER#
+* Build-Depends-Package: libopenal-dev
+ alAuxiliaryEffectSlotPlaySOFT@Base 1:1.21
+ alAuxiliaryEffectSlotPlayvSOFT@Base 1:1.21
+ alAuxiliaryEffectSlotStopSOFT@Base 1:1.21
+ alAuxiliaryEffectSlotStopvSOFT@Base 1:1.21
  alAuxiliaryEffectSlotf@Base 1.14
  alAuxiliaryEffectSlotfv@Base 1.14
  alAuxiliaryEffectSloti@Base 1.14
  alAuxiliaryEffectSlotiv@Base 1.14
  alBuffer3f@Base 1.14
  alBuffer3i@Base 1.14
+ alBufferCallbackSOFT@Base 1:1.21
  alBufferData@Base 1.14
  alBufferSamplesSOFT@Base 1.14
  alBufferStorageSOFT@Base 1:1.19.0
@@ -47,8 +53,11 @@ libopenal.so.1 libopenal1 #MINVER#
  alGetAuxiliaryEffectSlotiv@Base 1.14
  alGetBoolean@Base 1.14
  alGetBooleanv@Base 1.14
+ alGetBuffer3PtrSOFT@Base 1:1.21
  alGetBuffer3f@Base 1.14
  alGetBuffer3i@Base 1.14
+ alGetBufferPtrSOFT@Base 1:1.21
+ alGetBufferPtrvSOFT@Base 1:1.21
  alGetBufferSamplesSOFT@Base 1.14
  alGetBufferf@Base 1.14
  alGetBufferfv@Base 1.14
@@ -119,7 +128,7 @@ libopenal.so.1 libopenal1 #MINVER#
  alSourcePausev@Base 1.14
  alSourcePlay@Base 1.14
  alSourcePlayv@Base 1.14
- alSourceQueueBufferLayersSOFT@Base 1:1.19.0
+ alSourceQueueBufferLayersSOFT@Base 1:1.23.1
  alSourceQueueBuffers@Base 1.14
  alSourceRewind@Base 1.14
  alSourceRewindv@Base 1.14

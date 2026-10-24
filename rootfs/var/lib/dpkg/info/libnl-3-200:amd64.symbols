@@ -1,4 +1,5 @@
 libnl-3.so.200 libnl-3-200 #MINVER#
+* Build-Depends-Packages: libnl3-dev
  __flags2str@Base 3.2.7
  __list_str2type@Base 3.2.7
  __list_type2str@Base 3.2.7

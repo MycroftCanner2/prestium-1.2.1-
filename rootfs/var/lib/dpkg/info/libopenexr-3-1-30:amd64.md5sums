@@ -1,8 +1,8 @@
-268a7838978c9a9a19ef4f92f40a97d0  usr/lib/x86_64-linux-gnu/libIex-3_1.so.30.5.1
-10c22fe7f4b1c39fa3b0e26a1aa5a2b7  usr/lib/x86_64-linux-gnu/libIlmThread-3_1.so.30.5.1
-a026ccafd40ce4ac03eb892bae64d86a  usr/lib/x86_64-linux-gnu/libOpenEXR-3_1.so.30.5.1
-ee32d15f4b6c337fcc181233ee26daad  usr/lib/x86_64-linux-gnu/libOpenEXRCore-3_1.so.30.5.1
-dffc62b14a394bc387540c8b32857203  usr/lib/x86_64-linux-gnu/libOpenEXRUtil-3_1.so.30.5.1
-bd334f5dcc4749f0daad1ed6f3bac6b7  usr/share/doc/libopenexr-3-1-30/changelog.Debian.gz
-431e1b44a441e511949c6e9f94915803  usr/share/doc/libopenexr-3-1-30/changelog.gz
-0eda79d07d343f9e54a5605d7b0a9fe4  usr/share/doc/libopenexr-3-1-30/copyright
+22b61b831e3b1b060e3fe33723a38607  usr/lib/x86_64-linux-gnu/libIex-3_1.so.30.13.1
+44b82882dd0594606d577848e21fd0a6  usr/lib/x86_64-linux-gnu/libIlmThread-3_1.so.30.13.1
+eb7d03f8b1e49844ed86dd9994049f7c  usr/lib/x86_64-linux-gnu/libOpenEXR-3_1.so.30.13.1
+7d055e27c963432df1e672cda23d805a  usr/lib/x86_64-linux-gnu/libOpenEXRCore-3_1.so.30.13.1
+c7d982fdd4b63b6d33998545be85ee59  usr/lib/x86_64-linux-gnu/libOpenEXRUtil-3_1.so.30.13.1
+95d48f9841eec78d2e7d157bad9a6fe2  usr/share/doc/libopenexr-3-1-30/changelog.Debian.gz
+1763b4c3f3b14b0e306dc0a8ef097b70  usr/share/doc/libopenexr-3-1-30/changelog.gz
+a63789d4687fc66f3ea5f1de7bceef52  usr/share/doc/libopenexr-3-1-30/copyright

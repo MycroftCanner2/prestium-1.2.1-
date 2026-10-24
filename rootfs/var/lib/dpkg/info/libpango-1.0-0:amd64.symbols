@@ -148,6 +148,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_font_description_free@Base 1.14.0
  pango_font_description_from_string@Base 1.14.0
  pango_font_description_get_family@Base 1.14.0
+ pango_font_description_get_features@Base 1.56.0
  pango_font_description_get_gravity@Base 1.18.0
  pango_font_description_get_set_fields@Base 1.14.0
  pango_font_description_get_size@Base 1.14.0
@@ -165,6 +166,8 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_font_description_set_absolute_size@Base 1.14.0
  pango_font_description_set_family@Base 1.14.0
  pango_font_description_set_family_static@Base 1.14.0
+ pango_font_description_set_features@Base 1.56.0
+ pango_font_description_set_features_static@Base 1.56.0
  pango_font_description_set_gravity@Base 1.18.0
  pango_font_description_set_size@Base 1.14.0
  pango_font_description_set_stretch@Base 1.14.0
@@ -201,6 +204,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_font_get_metrics@Base 1.14.0
  pango_font_get_type@Base 1.14.0
  pango_font_has_char@Base 1.44.3
+ pango_font_map_add_font_file@Base 1.55.0
  pango_font_map_changed@Base 1.36.0
  pango_font_map_create_context@Base 1.22.0
  pango_font_map_get_family@Base 1.45.5
@@ -210,6 +214,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_font_map_list_families@Base 1.14.0
  pango_font_map_load_font@Base 1.14.0
  pango_font_map_load_fontset@Base 1.14.0
+ pango_font_map_reload_font@Base 1.52.0
  pango_font_mask_get_type@Base 1.14.0
  pango_font_metrics_get_approximate_char_width@Base 1.14.0
  pango_font_metrics_get_approximate_digit_width@Base 1.14.0
@@ -274,6 +279,7 @@ libpango-1.0.so.0 libpango-1.0-0 #MINVER#
  pango_item_apply_attrs@Base 1.44.3
  pango_item_copy@Base 1.14.0
  pango_item_free@Base 1.14.0
+ pango_item_get_char_offset@Base 1.54.0
  pango_item_get_type@Base 1.14.0
  pango_item_new@Base 1.14.0
  pango_item_split@Base 1.14.0

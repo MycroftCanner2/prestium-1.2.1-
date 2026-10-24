@@ -8,8 +8,10 @@ libnuma.so.1 libnuma1 #MINVER#
  libnuma_1.2@libnuma_1.2 2.0.11
  libnuma_1.3@libnuma_1.3 2.0.11
  libnuma_1.4@libnuma_1.4 2.0.11
- libnuma_1.5@libnuma_1.5 2.0.15-1
- libnuma_1.6@libnuma_1.6 2.0.15-1
+ libnuma_1.5@libnuma_1.5 2.0.15
+ libnuma_1.6@libnuma_1.6 2.0.15
+ libnuma_1.7@libnuma_1.7 2.0.18
+ libnuma_2.1@libnuma_2.1 2.0.19
  mbind@libnuma_1.1 2.0.11
  migrate_pages@libnuma_1.2 2.0.11
  move_pages@libnuma_1.2 2.0.11
@@ -50,7 +52,8 @@ libnuma.so.1 libnuma1 #MINVER#
  numa_get_mems_allowed@libnuma_1.2 2.0.11
  numa_get_run_node_mask@libnuma_1.1 2.0.11
  numa_get_run_node_mask@libnuma_1.2 2.0.11
- numa_has_preferred_many@libnuma_1.6 2.0.15-1
+ numa_has_home_node@libnuma_1.7 2.0.18
+ numa_has_preferred_many@libnuma_1.6 2.0.15
  numa_interleave_memory@libnuma_1.1 2.0.11
  numa_interleave_memory@libnuma_1.2 2.0.11
  numa_max_node@libnuma_1.1 2.0.11
@@ -83,7 +86,7 @@ libnuma.so.1 libnuma1 #MINVER#
  numa_parse_nodestring_all@libnuma_1.3 2.0.11
  numa_police_memory@libnuma_1.1 2.0.11
  numa_preferred@libnuma_1.1 2.0.11
- numa_preferred_many@libnuma_1.6 2.0.15-1
+ numa_preferred_many@libnuma_1.6 2.0.15
  numa_realloc@libnuma_1.2 2.0.11
  numa_run_on_node@libnuma_1.1 2.0.11
  numa_run_on_node_mask@libnuma_1.1 2.0.11
@@ -99,10 +102,12 @@ libnuma.so.1 libnuma1 #MINVER#
  numa_set_localalloc@libnuma_1.1 2.0.11
  numa_set_membind@libnuma_1.1 2.0.11
  numa_set_membind@libnuma_1.2 2.0.11
- numa_set_membind_balancing@libnuma_1.5 2.0.15-1
+ numa_set_membind_balancing@libnuma_1.5 2.0.15
+ numa_set_mempolicy_home_node@libnuma_1.7 2.0.18
  numa_set_preferred@libnuma_1.1 2.0.11
- numa_set_preferred_many@libnuma_1.6 2.0.15-1
+ numa_set_preferred_many@libnuma_1.6 2.0.15
  numa_set_strict@libnuma_1.1 2.0.11
+ numa_set_weighted_interleave_mask@libnuma_2.1 2.0.19
  numa_setlocal_memory@libnuma_1.1 2.0.11
  numa_tonode_memory@libnuma_1.1 2.0.11
  numa_tonodemask_memory@libnuma_1.1 2.0.11

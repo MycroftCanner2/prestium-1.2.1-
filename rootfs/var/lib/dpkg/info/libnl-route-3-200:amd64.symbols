@@ -1,4 +1,5 @@
 libnl-route-3.so.200 libnl-route-3-200 #MINVER#
+* Build-Depends-Packages: libnl-route-3-dev, libnl3-dev
  _nltst_map_stat_id_from_IPSTATS_MIB_v2@Base 3.7.0
  ematch__create_buffer@Base 3.2.7
  ematch__delete_buffer@Base 3.2.7

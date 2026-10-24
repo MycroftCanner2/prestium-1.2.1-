@@ -1,5 +1,5 @@
-4008f3c84c605579f32481811fee29e2  usr/bin/notify-send
-3c96b44cf8f2c90e1526c6e3f660e7a4  usr/share/doc/libnotify-bin/changelog.Debian.gz
+0b781d3c73befa494231376f8e3b7605  usr/bin/notify-send
+3084a86e05764b19bb7a6913a83c3411  usr/share/doc/libnotify-bin/changelog.Debian.gz
 1844f36c3d677853b456a621602c828d  usr/share/doc/libnotify-bin/changelog.gz
 d0949e8313193b9238fc11ee0571ac9d  usr/share/doc/libnotify-bin/copyright
-5f336f553f7220fe216df8bfe5f655ef  usr/share/man/man1/notify-send.1.gz
+d032185bbc28f4ddebe0cbd13eaff47f  usr/share/man/man1/notify-send.1.gz

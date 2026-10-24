@@ -288,6 +288,7 @@ libnss3.so libnss3 #MINVER#
  HASH_GetHMACOidTagByHashOidTag@NSS_3.65 2:3.65
  HASH_GetHashObject@NSS_3.2 2:3.13.4-2~
  HASH_GetHashObjectByOidTag@NSS_3.8 2:3.13.4-2~
+ HASH_GetHashOidTagByHMACOidTag@NSS_3.101 2:3.101
  HASH_GetHashOidTagByHashType@NSS_3.43 2:3.44.0
  HASH_GetHashTypeByOidTag@NSS_3.8 2:3.13.4-2~
  HASH_GetType@NSS_3.12 2:3.13.4-2~
@@ -312,11 +313,14 @@ libnss3.so libnss3 #MINVER#
  NSSRWLock_UnlockRead@NSS_3.2 2:3.13.4-2~
  NSSRWLock_UnlockWrite@NSS_3.2 2:3.13.4-2~
  NSS_3.10.2@NSS_3.10.2 2:3.13.4-2~
+ NSS_3.101@NSS_3.101 2:3.101
+ NSS_3.107@NSS_3.107 2:3.108
  NSS_3.10@NSS_3.10 2:3.13.4-2~
  NSS_3.11.1@NSS_3.11.1 2:3.13.4-2~
  NSS_3.11.2@NSS_3.11.2 2:3.13.4-2~
  NSS_3.11.7@NSS_3.11.7 2:3.13.4-2~
  NSS_3.11.9@NSS_3.11.9 2:3.13.4-2~
+ NSS_3.110@NSS_3.110 2:3.110
  NSS_3.11@NSS_3.11 2:3.13.4-2~
  NSS_3.12.10@NSS_3.12.10 2:3.13.4-2~
  NSS_3.12.1@NSS_3.12.1 2:3.13.4-2~
@@ -440,6 +444,7 @@ libnss3.so libnss3 #MINVER#
  PK11_CheckUserPassword@NSS_3.2 2:3.13.4-2~
  PK11_CipherOp@NSS_3.2 2:3.13.4-2~
  PK11_CloneContext@NSS_3.2 2:3.13.4-2~
+ PK11_ConcatSymKeys@NSS_3.2 2:3.13.4-2~
  PK11_ConfigurePKCS11@NSS_3.2 2:3.13.4-2~
  PK11_ContextGetFIPSStatus@NSS_3.66 2:3.66
  PK11_ConvertSessionPrivKeyToTokenPrivKey@NSS_3.6 2:3.13.4-2~
@@ -457,6 +462,7 @@ libnss3.so libnss3 #MINVER#
  PK11_CreatePBEParams@NSS_3.3.1 2:3.13.4-2~
  PK11_CreatePBEV2AlgorithmID@NSS_3.12 2:3.13.4-2~
  PK11_DEREncodePublicKey@NSS_3.3 2:3.13.4-2~
+ PK11_Decapsulate@NSS_3.2 2:3.13.4-2~
  PK11_Decrypt@NSS_3.15 2:3.15
  PK11_DeleteTokenCertAndKey@NSS_3.3 2:3.13.4-2~
  PK11_DeleteTokenPrivateKey@NSS_3.4 2:3.13.4-2~
@@ -478,6 +484,7 @@ libnss3.so libnss3 #MINVER#
  PK11_DigestKey@NSS_3.2 2:3.13.4-2~
  PK11_DigestOp@NSS_3.2 2:3.13.4-2~
  PK11_DoesMechanism@NSS_3.2 2:3.13.4-2~
+ PK11_Encapsulate@NSS_3.2 2:3.13.4-2~
  PK11_Encrypt@NSS_3.15 2:3.15
  PK11_ExportDERPrivateKeyInfo@NSS_3.16.1 2:3.16.1
  PK11_ExportEncryptedPrivKeyInfo@NSS_3.9 2:3.13.4-2~
@@ -550,6 +557,7 @@ libnss3.so libnss3 #MINVER#
  PK11_GetKeyType@NSS_3.3 2:3.13.4-2~
  PK11_GetLowLevelKeyIDForCert@NSS_3.3 2:3.13.4-2~
  PK11_GetLowLevelKeyIDForPrivateKey@NSS_3.3 2:3.13.4-2~
+ PK11_GetMaxKeyLength@NSS_3.101 2:3.101
  PK11_GetMechanism@NSS_3.2 2:3.13.4-2~
  PK11_GetMinimumPwdLength@NSS_3.4 2:3.13.4-2~
  PK11_GetModInfo@NSS_3.6 2:3.13.4-2~
@@ -688,6 +696,7 @@ libnss3.so libnss3 #MINVER#
  PK11_PubWrapSymKeyWithMechanism@NSS_3.59 2:3.59
  PK11_RandomUpdate@NSS_3.2 2:3.13.4-2~
  PK11_RawPBEKeyGen@NSS_3.4 2:3.13.4-2~
+ PK11_ReadDistrustAfterAttribute@NSS_3.101 2:3.101
  PK11_ReadRawAttribute@NSS_3.9.2 2:3.13.4-2~
  PK11_ReadRawAttributes@NSS_3.52 2:3.52
  PK11_ReferenceSlot@NSS_3.3 2:3.13.4-2~
@@ -793,6 +802,7 @@ libnss3.so libnss3 #MINVER#
  SECKEY_ECParamsToKeySize@NSS_3.12 2:3.13.4-2~
  SECKEY_EncodeDERSubjectPublicKeyInfo@NSS_3.3 2:3.13.4-2~
  SECKEY_EncryptedPrivateKeyInfoTemplate@NSS_3.2 2:3.13.4-2~
+ SECKEY_EnforceKeySize@NSS_3.101 2:3.101
  SECKEY_ExtractPublicKey@NSS_3.3 2:3.13.4-2~
  SECKEY_GetPrivateKeyType@NSS_3.3 2:3.13.4-2~
  SECKEY_GetPublicKeyType@NSS_3.3 2:3.13.4-2~
@@ -802,6 +812,7 @@ libnss3.so libnss3 #MINVER#
  SECKEY_PointerToEncryptedPrivateKeyInfoTemplate@NSS_3.2 2:3.13.4-2~
  SECKEY_PointerToPrivateKeyInfoTemplate@NSS_3.2 2:3.13.4-2~
  SECKEY_PrivateKeyInfoTemplate@NSS_3.2 2:3.13.4-2~
+ SECKEY_PrivateKeyStrengthInBits@NSS_3.101 2:3.101
  SECKEY_PublicKeyStrength@NSS_3.2 2:3.13.4-2~
  SECKEY_PublicKeyStrengthInBits@NSS_3.8 2:3.13.4-2~
  SECKEY_RSAPSSParamsTemplate@NSS_3.13 2:3.13.4-2~
@@ -822,6 +833,7 @@ libnss3.so libnss3 #MINVER#
  SECMOD_DestroyModule@NSS_3.3 2:3.13.4-2~
  SECMOD_FindModule@NSS_3.4 2:3.13.4-2~
  SECMOD_FindSlot@NSS_3.4 2:3.13.4-2~
+ SECMOD_FlagsToPolicyString@NSS_3.110 2:3.110
  SECMOD_FreeModuleSpecList@NSS_3.4 2:3.13.4-2~
  SECMOD_GetDBModuleList@NSS_3.9 2:3.13.4-2~
  SECMOD_GetDeadModuleList@NSS_3.9 2:3.13.4-2~
@@ -839,10 +851,13 @@ libnss3.so libnss3 #MINVER#
  SECMOD_IsModulePresent@NSS_3.2 2:3.13.4-2~
  SECMOD_LoadModule@NSS_3.4 2:3.13.4-2~
  SECMOD_LoadUserModule@NSS_3.4 2:3.13.4-2~
+ SECMOD_LoadUserModuleWithFunction@NSS_3.107 2:3.108
  SECMOD_LockedModuleHasRemovableSlots@NSS_3.79 2:3.79
  SECMOD_LookupSlot@NSS_3.2 2:3.13.4-2~
  SECMOD_OpenNewSlot@NSS_3.12.4 2:3.13.4-2~
  SECMOD_OpenUserDB@NSS_3.11 2:3.13.4-2~
+ SECMOD_PolicyStringToOid@NSS_3.110 2:3.110
+ SECMOD_PolicyStringToOpt@NSS_3.110 2:3.110
  SECMOD_PubCipherFlagstoInternal@NSS_3.4 2:3.13.4-2~
  SECMOD_PubMechFlagstoInternal@NSS_3.4 2:3.13.4-2~
  SECMOD_ReferenceModule@NSS_3.3 2:3.13.4-2~
@@ -906,6 +921,7 @@ libnss3.so libnss3 #MINVER#
  SEC_FindCrlByName@NSS_3.2 2:3.13.4-2~
  SEC_GeneralizedTimeTemplate@NSS_3.2 2:3.13.4-2~
  SEC_GetCrlTimes@NSS_3.18 2:3.18
+ SEC_GetMgfTypeByOidTag@NSS_3.101 2:3.101
  SEC_GetRegisteredHttpClient@NSS_3.12 2:3.13.4-2~
  SEC_GetSignatureAlgorithmOidTag@NSS_3.10 2:3.13.4-2~
  SEC_IA5StringTemplate@NSS_3.2 2:3.13.4-2~
@@ -916,6 +932,9 @@ libnss3.so libnss3 #MINVER#
  SEC_ObjectIDTemplate@NSS_3.2 2:3.13.4-2~
  SEC_OctetStringTemplate@NSS_3.2 2:3.13.4-2~
  SEC_PKCS5GetCryptoAlgorithm@NSS_3.2 2:3.13.4-2~
+ SEC_PKCS5GetCryptoFromAlgTag@NSS_3.101 2:3.101
+ SEC_PKCS5GetHashAlgorithm@NSS_3.101 2:3.101
+ SEC_PKCS5GetHashFromAlgTag@NSS_3.101 2:3.101
  SEC_PKCS5GetIV@NSS_3.3 2:3.13.4-2~
  SEC_PKCS5GetKeyLength@NSS_3.2 2:3.13.4-2~
  SEC_PKCS5GetPBEAlgorithm@NSS_3.2 2:3.13.4-2~
@@ -1013,6 +1032,10 @@ libnssutil3.so libnss3 #MINVER#
  DER_UTCDayToAscii_Util@NSSUTIL_3.12 2:3.13.4-2~
  DER_UTCTimeToAscii_Util@NSSUTIL_3.12 2:3.13.4-2~
  DER_UTCTimeToTime_Util@NSSUTIL_3.12 2:3.13.4-2~
+ HASH_GetHMACOidTagByHashOidTag_Util@NSSUTIL_3.101 2:3.101
+ HASH_GetHashOidTagByHMACOidTag_Util@NSSUTIL_3.101 2:3.101
+ HASH_GetHashOidTagByHashType_Util@NSSUTIL_3.101 2:3.101
+ HASH_GetHashTypeByOidTag_Util@NSSUTIL_3.101 2:3.101
  NSSBase64Decoder_Create_Util@NSSUTIL_3.12 2:3.13.4-2~
  NSSBase64Decoder_Destroy_Util@NSSUTIL_3.12 2:3.13.4-2~
  NSSBase64Decoder_Update_Util@NSSUTIL_3.12 2:3.13.4-2~
@@ -1028,6 +1051,8 @@ libnssutil3.so libnss3 #MINVER#
  NSSRWLock_New_Util@NSSUTIL_3.12 2:3.13.4-2~
  NSSRWLock_UnlockRead_Util@NSSUTIL_3.12 2:3.13.4-2~
  NSSRWLock_UnlockWrite_Util@NSSUTIL_3.12 2:3.13.4-2~
+ NSSUTIL_3.101@NSSUTIL_3.101 2:3.101
+ NSSUTIL_3.108@NSSUTIL_3.108 2:3.108
  NSSUTIL_3.12.3@NSSUTIL_3.12.3 2:3.13.4-2~
  NSSUTIL_3.12.5@NSSUTIL_3.12.5 2:3.13.4-2~
  NSSUTIL_3.12.7@NSSUTIL_3.12.7 2:3.13.4-2~
@@ -1045,6 +1070,8 @@ libnssutil3.so libnss3 #MINVER#
  NSSUTIL_3.39@NSSUTIL_3.39 2:3.39
  NSSUTIL_3.59@NSSUTIL_3.59 2:3.59
  NSSUTIL_3.82@NSSUTIL_3.82 2:3.82
+ NSSUTIL_3.90@NSSUTIL_3.90 2:3.90
+ NSSUTIL_3.94@NSSUTIL_3.94 2:3.94
  NSSUTIL_AddNSSFlagToModuleSpec@NSSUTIL_3.39 2:3.39
  NSSUTIL_ArgDecodeNumber@NSSUTIL_3.14 2:3.14
  NSSUTIL_ArgFetchValue@NSSUTIL_3.14 2:3.14
@@ -1072,6 +1099,8 @@ libnssutil3.so libnss3 #MINVER#
  NSSUTIL_Quote@NSSUTIL_3.14 2:3.14
  NSSUTIL_QuoteSize@NSSUTIL_3.14 2:3.14
  NSS_GetAlgorithmPolicy@NSSUTIL_3.12.3 2:3.13.4-2~
+ NSS_GetAlgorithmPolicyAll@NSSUTIL_3.101 2:3.101
+ NSS_GetSystemFIPSEnabled@NSSUTIL_3.94 2:3.94
  NSS_Get_SECOID_AlgorithmIDTemplate_Util@NSSUTIL_3.12 2:3.13.4-2~
  NSS_Get_SEC_AnyTemplate_Util@NSSUTIL_3.12 2:3.13.4-2~
  NSS_Get_SEC_BMPStringTemplate_Util@NSSUTIL_3.12 2:3.13.4-2~
@@ -1103,7 +1132,9 @@ libnssutil3.so libnss3 #MINVER#
  NSS_PutEnv_Util@NSSUTIL_3.12 2:3.13.4-2~
  NSS_SecureMemcmp@NSSUTIL_3.12.5 2:3.13.4-2~
  NSS_SecureMemcmpZero@NSSUTIL_3.33 2:3.33
+ NSS_SecureSelect@NSSUTIL_3.90 2:3.90
  NSS_SetAlgorithmPolicy@NSSUTIL_3.12.3 2:3.13.4-2~
+ NSS_SetAlgorithmPolicyAll@NSSUTIL_3.101 2:3.101
  PK11URI_CreateURI@NSSUTIL_3.31 2:3.31
  PK11URI_DestroyURI@NSSUTIL_3.31 2:3.31
  PK11URI_FormatURI@NSSUTIL_3.31 2:3.31
@@ -1132,6 +1163,7 @@ libnssutil3.so libnss3 #MINVER#
  PORT_RegExpCaseSearch@NSSUTIL_3.12 2:3.13.4-2~
  PORT_RegExpSearch@NSSUTIL_3.12.7 2:3.13.4-2~
  PORT_RegExpValid@NSSUTIL_3.12 2:3.13.4-2~
+ PORT_SafeZero@NSSUTIL_3.108 2:3.108
  PORT_SetError_Util@NSSUTIL_3.12 2:3.13.4-2~
  PORT_SetUCS2_ASCIIConversionFunction_Util@NSSUTIL_3.12 2:3.13.4-2~
  PORT_SetUCS2_UTF8ConversionFunction_Util@NSSUTIL_3.12 2:3.13.4-2~
@@ -1172,6 +1204,7 @@ libnssutil3.so libnss3 #MINVER#
  SECOID_FindOIDTag_Util@NSSUTIL_3.12 2:3.13.4-2~
  SECOID_FindOID_Util@NSSUTIL_3.12 2:3.13.4-2~
  SECOID_GetAlgorithmTag_Util@NSSUTIL_3.12 2:3.13.4-2~
+ SECOID_GetTotalTags@NSSUTIL_3.101 2:3.101
  SECOID_Init@NSSUTIL_3.12 2:3.13.4-2~
  SECOID_KnownCertExtenOID@NSSUTIL_3.12 2:3.13.4-2~
  SECOID_SetAlgorithmID_Util@NSSUTIL_3.12 2:3.13.4-2~
@@ -1246,6 +1279,7 @@ libsmime3.so libnss3 #MINVER#
  NSSCMSGenericWrapperDataTemplate@NSS_3.12.10 2:3.13.4-2~
  NSSSMIME_GetVersion@NSS_3.13 2:3.13.4-2~
  NSSSMIME_VersionCheck@NSS_3.2.1 2:3.13.4-2~
+ NSS_3.101@NSS_3.101 2:3.101
  NSS_3.10@NSS_3.10 2:3.13.4-2~
  NSS_3.12.10@NSS_3.12.10 2:3.13.4-2~
  NSS_3.12.2@NSS_3.12.2 2:3.13.4-2~
@@ -1261,8 +1295,10 @@ libsmime3.so libnss3 #MINVER#
  NSS_3.6@NSS_3.6 2:3.13.4-2~
  NSS_3.7.2@NSS_3.7.2 2:3.13.4-2~
  NSS_3.7@NSS_3.7 2:3.13.4-2~
+ NSS_3.89@NSS_3.89 2:3.89
  NSS_3.8@NSS_3.8 2:3.13.4-2~
  NSS_3.9.3@NSS_3.9.3 2:3.13.4-2~
+ NSS_3.99@NSS_3.99 2:3.99
  NSS_3.9@NSS_3.9 2:3.13.4-2~
  NSS_CMSContentInfo_GetBulkKey@NSS_3.2 2:3.13.4-2~
  NSS_CMSContentInfo_GetBulkKeySize@NSS_3.2 2:3.13.4-2~
@@ -1323,6 +1359,7 @@ libsmime3.so libnss3 #MINVER#
  NSS_CMSRecipientInfo_GetCertAndKey@NSS_3.8 2:3.13.4-2~
  NSS_CMSRecipientInfo_UnwrapBulkKey@NSS_3.7.2 2:3.13.4-2~
  NSS_CMSRecipientInfo_WrapBulkKey@NSS_3.7.2 2:3.13.4-2~
+ NSS_CMSRecipient_IsSupported@NSS_3.99 2:3.99
  NSS_CMSSignedData_AddCertChain@NSS_3.2 2:3.13.4-2~
  NSS_CMSSignedData_AddCertList@NSS_3.2 2:3.13.4-2~
  NSS_CMSSignedData_AddCertificate@NSS_3.2 2:3.13.4-2~
@@ -1349,6 +1386,7 @@ libsmime3.so libnss3 #MINVER#
  NSS_CMSSignerInfo_CreateWithSubjKeyID@NSS_3.6 2:3.13.4-2~
  NSS_CMSSignerInfo_Destroy@NSS_3.2 2:3.13.4-2~
  NSS_CMSSignerInfo_GetCertList@NSS_3.2 2:3.13.4-2~
+ NSS_CMSSignerInfo_GetDigestAlgTag@NSS_3.89 2:3.89
  NSS_CMSSignerInfo_GetSignerCommonName@NSS_3.2 2:3.13.4-2~
  NSS_CMSSignerInfo_GetSignerEmailAddress@NSS_3.2 2:3.13.4-2~
  NSS_CMSSignerInfo_GetSigningCertificate@NSS_3.2 2:3.13.4-2~
@@ -1369,6 +1407,7 @@ libsmime3.so libnss3 #MINVER#
  SEC_PKCS12AddCertAndKey@NSS_3.2 2:3.13.4-2~
  SEC_PKCS12AddCertOrChainAndKey@NSS_3.12.2 2:3.13.4-2~
  SEC_PKCS12AddPasswordIntegrity@NSS_3.2 2:3.13.4-2~
+ SEC_PKCS12CipherAllowed@NSS_3.101 2:3.101
  SEC_PKCS12CreateExportContext@NSS_3.2 2:3.13.4-2~
  SEC_PKCS12CreatePasswordPrivSafe@NSS_3.2 2:3.13.4-2~
  SEC_PKCS12CreateUnencryptedSafe@NSS_3.2 2:3.13.4-2~
@@ -1387,6 +1426,7 @@ libsmime3.so libnss3 #MINVER#
  SEC_PKCS12DestroyExportContext@NSS_3.2 2:3.13.4-2~
  SEC_PKCS12EnableCipher@NSS_3.2 2:3.13.4-2~
  SEC_PKCS12Encode@NSS_3.2 2:3.13.4-2~
+ SEC_PKCS12IntegrityHashAllowed@NSS_3.101 2:3.101
  SEC_PKCS12IsEncryptionAllowed@NSS_3.2 2:3.13.4-2~
  SEC_PKCS12SetPreferredCipher@NSS_3.2 2:3.13.4-2~
  SEC_PKCS7AddCertificate@NSS_3.3 2:3.13.4-2~
@@ -1518,7 +1558,7 @@ libssl3.so libnss3 #MINVER#
  SSL_GetNegotiatedHostInfo@NSS_3.12.6 2:3.13.4-2~
  SSL_GetNextProto@NSS_3.13.2 2:3.13.4-2~
  SSL_GetNumImplementedCiphers@NSS_3.12.6 2:3.13.4-2~
- SSL_GetPreliminaryChannelInfo@NSS_3.21 2:3.44.0
+ SSL_GetPreliminaryChannelInfo@NSS_3.21 2:3.88.0
  SSL_GetSRTPCipher@NSS_3.14 2:3.14
  SSL_GetSessionID@NSS_3.2 2:3.13.4-2~
  SSL_GetStatistics@NSS_3.2 2:3.13.4-2~

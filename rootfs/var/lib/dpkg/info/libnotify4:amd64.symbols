@@ -1,6 +1,7 @@
 libnotify.so.4 libnotify4 #MINVER#
 * Build-Depends-Package: libnotify-dev
  notify_closed_reason_get_type@Base 0.8.0
+ notify_get_app_icon@Base 0.8.4
  notify_get_app_name@Base 0.7.0
  notify_get_server_caps@Base 0.7.0
  notify_get_server_info@Base 0.7.0
@@ -16,6 +17,7 @@ libnotify.so.4 libnotify4 #MINVER#
  notify_notification_get_closed_reason@Base 0.7.0
  notify_notification_get_type@Base 0.7.0
  notify_notification_new@Base 0.7.0
+ notify_notification_set_app_icon@Base 0.8.4
  notify_notification_set_app_name@Base 0.7.3
  notify_notification_set_category@Base 0.7.0
  notify_notification_set_hint@Base 0.7.0
@@ -31,6 +33,7 @@ libnotify.so.4 libnotify4 #MINVER#
  notify_notification_set_urgency@Base 0.7.0
  notify_notification_show@Base 0.7.0
  notify_notification_update@Base 0.7.0
+ notify_set_app_icon@Base 0.8.4
  notify_set_app_name@Base 0.7.2
  notify_uninit@Base 0.7.0
  notify_urgency_get_type@Base 0.7.0

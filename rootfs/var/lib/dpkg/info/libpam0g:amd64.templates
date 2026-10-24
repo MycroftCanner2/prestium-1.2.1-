@@ -25,6 +25,8 @@ Description-ru.UTF-8: Службы, которые будут перезапущ
  Чтобы задействовать новые версии модулей из libpam, нужно перезапустить большинство служб, использующих PAM. Внимательно просмотрите и при необходимости отредактируйте следующий список служб, которые будут перезапущены. Элементы списка разделяются пробелом.
 Description-sk.UTF-8: Pri aktualizácii knižnice PAM reštartovať nasledovné služby:
  Väčšinu služieb, ktoré používajú PAM, je nutné reštartovať, aby sa použili moduly vytvorené pre túto novú verziu libpamu.  Skontrolujte prosím nasledujúci zoznam služieb oddelených medzerou, ktoré sa teraz reštartujú. V prípade potreby ho opravte.
+Description-sv.UTF-8: Tjänster att starta om efter uppgradering av PAM-biblioteket:
+ De flesta tjänster som använder PAM behöver startas om för att använda moduler som byggts för denna nya libpam-version. Gå igenom följande lista av tjänster (separerade med mellanslag) som nu kommer att startas om och korrigera den om nödvändigt.
 Description-tr.UTF-8: PAM kitaplığının yükseltilmesi için yeniden başlatılacak hizmetler:
  PAM kullanan çoğu hizmet, libpam'ın bu yeni sürümü için derlenmiş modüllerden yararlanabilmek için yeniden başlatılmak zorundadır. Lütfen yeniden başlatılacak hizmetlere ilişkin init.d betiklerinin boşluklarla ayrılmış aşağıdaki listesini inceleyin ve gerekliyse düzeltin.
 Description-zh_CN.UTF-8: 因 PAM 库升级而需要重新启动的服务：

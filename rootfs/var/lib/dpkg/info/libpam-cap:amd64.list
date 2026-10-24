@@ -2,11 +2,11 @@
 /etc
 /etc/security
 /etc/security/capability.conf
-/lib
-/lib/x86_64-linux-gnu
-/lib/x86_64-linux-gnu/security
-/lib/x86_64-linux-gnu/security/pam_cap.so
 /usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/security
+/usr/lib/x86_64-linux-gnu/security/pam_cap.so
 /usr/share
 /usr/share/doc
 /usr/share/doc/libpam-cap

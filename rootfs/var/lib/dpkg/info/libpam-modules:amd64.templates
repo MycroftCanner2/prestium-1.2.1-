@@ -81,6 +81,8 @@ Description-ru.UTF-8: Профили PAM с устаревшими модуля�
  В вашей системе были включены профили PAM с модулями ${modules}. Эти модули были удалены из PAM. Если оставить данные профили включёнными, то пользователи не смогут получить доступ к системе. По этой причине данные профили были отключены.
 Description-sk.UTF-8: Profily PAM s vypnutými zastaranými modulmi
  Váš systém mal povolené PAM profily s modulmi ${modules}. Tieto moduly boli odstránené z PAM. Ponechanie týchto PAM profilov by zabránilo používateľom v prístupe k vášmu systému. V dôsledku toho boli tieto profily vypnuté.
+Description-sv.UTF-8: PAM-profiler med utfasade moduler har avaktiverats
+ Ditt system hade PAM-profiler med PAM-modulerna ${modules} aktiverade. Dessa moduler har tagits bort från PAM. Om PAM-profilerna fortsatt skulle vara aktiverade så hade det förhindrat användare för att komma åt systemet. I och med detta så har profilerna inaktiverats.
 Description-tr.UTF-8: Artık kullanılmayan modülleri içeren PAM profilleri etkisizleştirildi
  Sisteminizde ${modules} PAM modüllerinin etkinleştirildiği PAM profilleri bulunuyordu. Bu modüller şimdi kaldırıldığı için, o PAM profillerindeki ilgili içerikler de etkisizleştirildi. Öbür türlü kullanıcıların sisteminize erişiminde sorunlar yaşanacaktı.
 Description-zh_CN.UTF-8: 已禁用带有已弃用模块的 PAM 配置策略
@@ -136,6 +138,10 @@ Description-sk.UTF-8: používate pam_tally alebo pam_tally2 vo vašej konfigur�
  Moduly pam_tally a pam_tally2 boli z PAM odstránené. Používate jeden z týchto modulov v konfigurácii PAM v /etc/pam.d. Pred aktualizáciou PAM musíte odstrániť použitie týchto modulov. Zahrnutie týchto modulov do konfigurácie PAM by po aktualizácii znemožnilo používateľom prihlásiť sa do systému.
  .
  Zvážte pam_faillock modul ako náhradu za pam_tally.
+Description-sv.UTF-8: Du använder pam_tally eller pam_tally2 i dina inställningar
+ pam_tally och pam_tally2 har tagits bort från PAM. Du använder någon av dessa moduler i PAMs inställningar i /etc/pam.d. Du måste ta bort användandet av dessa moduler innan PAM kan uppgraderas. Att ha dessa moduler i dina inställningar efter uppgraderingen kommer hindra användare från att logga in i ditt system.
+ .
+ Överväg att använda modulen pam_faillock som ersättare för pam_tally.
 Description-tr.UTF-8: Yapılandırmanızda pam_tally ya da pam_tally2 modülünü kullanıyorsunuz
  pam_tally ve pam_tally2 modülleri PAM sisteminden kaldırıldı. /etc/pam.d dizinindeki yapılandırmalarınızda bu modüllerden birini kullanıyorsunuz. PAM yükseltmesi öncesinde bu kullanımları kaldırmanız gerekiyor. Bu modülleri kullanan PAM yapılandırmalarını öylece bırakırsanız, kullanıcılarınız yükseltmeden sonra sisteminize giriş yapamayacaklardır.
  .

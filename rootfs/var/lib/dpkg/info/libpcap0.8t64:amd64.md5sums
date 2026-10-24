@@ -1,0 +1,10 @@
+53f0057b701b8fb357cc9c1e76622b59  usr/lib/x86_64-linux-gnu/libpcap.so.1.10.5
+90060d6a6e80b9dd34bd0d7a2b8d28ed  usr/share/doc/libpcap0.8t64/CREDITS.gz
+fa0211217f9aceceefd225ce879c9504  usr/share/doc/libpcap0.8t64/README.Debian
+1d6a29308b91a99e11d06cad27b14206  usr/share/doc/libpcap0.8t64/README.md
+5e75522c33daa2fabf16faa40a27947a  usr/share/doc/libpcap0.8t64/changelog.Debian.gz
+f8dfd2d14475a0086ceb50b03d0f5239  usr/share/doc/libpcap0.8t64/changelog.gz
+1c138928e3c6bdcec9cb93a3252ffeff  usr/share/doc/libpcap0.8t64/copyright
+5ff95018b3bfbfd228115a781d860a49  usr/share/man/man5/pcap-savefile.5.gz
+c7f5618200ff69c47de82de7aa002f60  usr/share/man/man7/pcap-filter.7.gz
+c7b57d79bd775fc07758c44450ba81bf  usr/share/man/man7/pcap-tstamp.7.gz

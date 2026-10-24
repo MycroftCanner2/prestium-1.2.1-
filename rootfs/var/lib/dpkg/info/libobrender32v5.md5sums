@@ -1,7 +1,7 @@
-cf1dc9d085f995b8b35c5fd472035d4a  usr/lib/x86_64-linux-gnu/libobrender.so.32.0.0
+db67d8692adff57864f00a9ebb391ce0  usr/lib/x86_64-linux-gnu/libobrender.so.32.0.0
 2a51f0a0c191dedd645b4ad7be570493  usr/share/doc/libobrender32v5/AUTHORS
-380338162bc0597f33d20e84eb9f2802  usr/share/doc/libobrender32v5/NEWS.Debian.gz
 41cb60182ed8b0dc6da6aead792e3287  usr/share/doc/libobrender32v5/README
-37c7194d1cc7eef37dc7cfe1d0d60faf  usr/share/doc/libobrender32v5/changelog.Debian.gz
+8d0282c335a344e264c67732107deb07  usr/share/doc/libobrender32v5/changelog.Debian.amd64.gz
+2f283b36a664daee6c6dbf7254ee938e  usr/share/doc/libobrender32v5/changelog.Debian.gz
 1539fa00f1c4010d8dd6b1dfbbfa98fe  usr/share/doc/libobrender32v5/changelog.gz
-375a7d0a47612b2e75e5a2ed7b2c71f1  usr/share/doc/libobrender32v5/copyright
+10085b959e15c39f6da96af857a9ecb0  usr/share/doc/libobrender32v5/copyright

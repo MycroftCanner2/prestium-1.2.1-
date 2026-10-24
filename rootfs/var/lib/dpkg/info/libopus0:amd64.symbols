@@ -21,9 +21,21 @@ libopus.so.0 libopus0 #MINVER#
  opus_decoder_create@Base 1.1
  opus_decoder_ctl@Base 1.1
  opus_decoder_destroy@Base 1.1
+ opus_decoder_dred_decode@Base 1.5.1~
+ opus_decoder_dred_decode_float@Base 1.5.1~
  opus_decoder_get_nb_samples@Base 1.1
  opus_decoder_get_size@Base 1.1
  opus_decoder_init@Base 1.1
+ opus_dred_alloc@Base 1.5.1~
+ opus_dred_decoder_create@Base 1.5.1~
+ opus_dred_decoder_ctl@Base 1.5.1~
+ opus_dred_decoder_destroy@Base 1.5.1~
+ opus_dred_decoder_get_size@Base 1.5.1~
+ opus_dred_decoder_init@Base 1.5.1~
+ opus_dred_free@Base 1.5.1~
+ opus_dred_get_size@Base 1.5.1~
+ opus_dred_parse@Base 1.5.1~
+ opus_dred_process@Base 1.5.1~
  opus_encode@Base 1.1
  opus_encode_float@Base 1.1
  opus_encoder_create@Base 1.1
@@ -56,6 +68,7 @@ libopus.so.0 libopus0 #MINVER#
  opus_packet_get_nb_frames@Base 1.1
  opus_packet_get_nb_samples@Base 1.1
  opus_packet_get_samples_per_frame@Base 1.1
+ opus_packet_has_lbrr@Base 1.5.1~
  opus_packet_pad@Base 1.1
  opus_packet_parse@Base 1.1
  opus_packet_unpad@Base 1.1

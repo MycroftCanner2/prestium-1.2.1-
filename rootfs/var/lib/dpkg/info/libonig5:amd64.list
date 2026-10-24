@@ -2,10 +2,11 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libonig.so.5.3.0
+/usr/lib/x86_64-linux-gnu/libonig.so.5.4.0
 /usr/share
 /usr/share/doc
 /usr/share/doc/libonig5
+/usr/share/doc/libonig5/changelog.Debian.amd64.gz
 /usr/share/doc/libonig5/changelog.Debian.gz
 /usr/share/doc/libonig5/changelog.gz
 /usr/share/doc/libonig5/copyright

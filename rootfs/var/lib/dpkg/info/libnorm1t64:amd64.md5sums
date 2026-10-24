@@ -1,0 +1,5 @@
+4e568c986c05c2a378e8afd8afb64c10  usr/lib/x86_64-linux-gnu/libnorm.so.1
+cc090c1bd5900a719629c2c27d9fd640  usr/share/doc/libnorm1t64/changelog.Debian.amd64.gz
+a31358f8aa0dfef274d333cad12f449b  usr/share/doc/libnorm1t64/changelog.Debian.gz
+12ea452049c5c5bd0e7f8d6975127b71  usr/share/doc/libnorm1t64/copyright
+a20ac20694c8b797761389b78e56c07a  usr/share/lintian/overrides/libnorm1t64
