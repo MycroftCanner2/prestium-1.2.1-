@@ -1,4 +1,3 @@
-bd08a3aebfeecc66d92c4abfdc01f6e1  usr/lib/x86_64-linux-gnu/libharfbuzz-icu.so.0.60000.0
-03862680f56a686f69e8855e961e828f  usr/share/doc/libharfbuzz-icu0/changelog.Debian.gz
-03e5ba98406effc21f4e559c770a8a78  usr/share/doc/libharfbuzz-icu0/changelog.gz
-304dff5a8f5b6e8791ba00a3492401b6  usr/share/doc/libharfbuzz-icu0/copyright
+2577183b9732850b3aee67b7fffd6637  usr/lib/x86_64-linux-gnu/libharfbuzz-icu.so.0.61020.0
+4642138d8c629f9a99951f243149eec2  usr/share/doc/libharfbuzz-icu0/changelog.Debian.gz
+8d02480030f268e9874b9816935ba408  usr/share/doc/libharfbuzz-icu0/copyright

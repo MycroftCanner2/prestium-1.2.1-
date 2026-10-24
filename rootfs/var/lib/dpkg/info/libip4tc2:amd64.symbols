@@ -1,4 +1,5 @@
 libip4tc.so.2 libip4tc2 #MINVER#
+* Build-Depends-Package: libip4tc-dev
  dump_entries@Base 1.8.3
  iptc_append_entry@Base 1.8.3
  iptc_builtin@Base 1.8.3

@@ -1,4 +1,4 @@
-464602a2275282fb39130d4a242b212f  usr/lib/x86_64-linux-gnu/libip6tc.so.2.0.0
-374ebb5ef26d0e9a4c52cba108c42645  usr/share/doc/libip6tc2/NEWS.Debian.gz
-908ea862e5e7056d6cb06f6a04190511  usr/share/doc/libip6tc2/changelog.Debian.gz
-b4f9b68cfc5f8a5c3290db3fd0984df1  usr/share/doc/libip6tc2/copyright
+d7afe99010ffba85a1a55c6e685a9294  usr/lib/x86_64-linux-gnu/libip6tc.so.2.0.0
+e086358b8966ece2d05cda0da9ba818d  usr/share/doc/libip6tc2/NEWS.Debian.gz
+0bb18b64f8c13f020271f13fa66cefeb  usr/share/doc/libip6tc2/changelog.Debian.gz
+8f6dacd538d6ef70a8eaa96dbc8bdd60  usr/share/doc/libip6tc2/copyright

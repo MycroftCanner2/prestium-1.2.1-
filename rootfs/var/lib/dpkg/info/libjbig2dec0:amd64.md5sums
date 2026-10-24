@@ -1,6 +1,4 @@
-6085ffa691bf8ed1802917be297e0d76  usr/lib/x86_64-linux-gnu/libjbig2dec.so.0.0.0
-b4c0b3de537f6cecc01862d1fce465f9  usr/share/doc/libjbig2dec0/NEWS.Debian.gz
-9f0a2f4c5fd89e27573e7010f2c28a7e  usr/share/doc/libjbig2dec0/README
-3275d941414c3f5b032812956e795195  usr/share/doc/libjbig2dec0/changelog.Debian.gz
-b955f6f52b19eb2f009e389006382e26  usr/share/doc/libjbig2dec0/changelog.gz
-0ff00c3531ba4258306f1d607fc2d223  usr/share/doc/libjbig2dec0/copyright
+c5a6a947e15de556407709974cd99a04  usr/lib/x86_64-linux-gnu/libjbig2dec.so.0.0.0
+dd0b491657aa0cb12116ca37d4a91527  usr/share/doc/libjbig2dec0/changelog.Debian.gz
+f15cef56dc0aea022a06e68ca1e65e6e  usr/share/doc/libjbig2dec0/changelog.gz
+d74030c99e59202e2774ef1e998cff21  usr/share/doc/libjbig2dec0/copyright

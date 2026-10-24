@@ -1,3 +1,5 @@
-83bcb909a779c3b79d37c8b345794e3e  usr/lib/x86_64-linux-gnu/liblangtag.so.1.4.1
-f573a277c706c811123bfb76ee119a80  usr/share/doc/liblangtag1/changelog.Debian.gz
+539a075c16deb00c66ad0364724dca45  usr/lib/x86_64-linux-gnu/liblangtag.so.1.4.1
+ba9f5907f462a848f17ca200813472e4  usr/share/doc/liblangtag1/changelog.Debian.amd64.gz
+319bdf7435b4a2a5932c0fed7bb41282  usr/share/doc/liblangtag1/changelog.Debian.gz
 6859291b1cb59d42c8fa3eb43da340e3  usr/share/doc/liblangtag1/copyright
+f190f9f4532c457c14982eb9ffd4a36e  usr/share/lintian/overrides/liblangtag1

@@ -1,6 +1,8 @@
 libkmod.so.2 libkmod2 #MINVER#
 * Build-Depends-Package: libkmod-dev
  LIBKMOD_22@LIBKMOD_22 22~
+ LIBKMOD_30@LIBKMOD_30 33~
+ LIBKMOD_33@LIBKMOD_33 33~
  LIBKMOD_5@LIBKMOD_5 5~
  LIBKMOD_6@LIBKMOD_6 6~
  kmod_config_get_aliases@LIBKMOD_5 5~
@@ -9,6 +11,7 @@ libkmod.so.2 libkmod2 #MINVER#
  kmod_config_get_options@LIBKMOD_5 5~
  kmod_config_get_remove_commands@LIBKMOD_5 5~
  kmod_config_get_softdeps@LIBKMOD_5 5~
+ kmod_config_get_weakdeps@LIBKMOD_33 33~
  kmod_config_iter_free_iter@LIBKMOD_5 5~
  kmod_config_iter_get_key@LIBKMOD_5 5~
  kmod_config_iter_get_value@LIBKMOD_5 5~
@@ -44,6 +47,7 @@ libkmod.so.2 libkmod2 #MINVER#
  kmod_module_get_softdeps@LIBKMOD_5 5~
  kmod_module_get_symbols@LIBKMOD_5 5~
  kmod_module_get_versions@LIBKMOD_5 5~
+ kmod_module_get_weakdeps@LIBKMOD_33 33~
  kmod_module_info_free_list@LIBKMOD_5 5~
  kmod_module_info_get_key@LIBKMOD_5 5~
  kmod_module_info_get_value@LIBKMOD_5 5~
@@ -52,7 +56,7 @@ libkmod.so.2 libkmod2 #MINVER#
  kmod_module_new_from_loaded@LIBKMOD_5 5~
  kmod_module_new_from_lookup@LIBKMOD_5 5~
  kmod_module_new_from_name@LIBKMOD_5 5~
- kmod_module_new_from_name_lookup@LIBKMOD_5 30~
+ kmod_module_new_from_name_lookup@LIBKMOD_30 33~
  kmod_module_new_from_path@LIBKMOD_5 5~
  kmod_module_probe_insert_module@LIBKMOD_5 5~
  kmod_module_ref@LIBKMOD_5 5~

@@ -108,6 +108,8 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsCreateBCHSWabstractProfile@Base 2.2+git20110628
  cmsCreateBCHSWabstractProfileTHR@Base 2.2+git20110628
  cmsCreateContext@Base 2.6
+ cmsCreateDeviceLinkFromCubeFile@Base 2.16
+ cmsCreateDeviceLinkFromCubeFileTHR@Base 2.16
  cmsCreateExtendedTransform@Base 2.2+git20110628
  cmsCreateGrayProfile@Base 2.2+git20110628
  cmsCreateGrayProfileTHR@Base 2.2+git20110628
@@ -132,6 +134,7 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsCreateTransformTHR@Base 2.2+git20110628
  cmsCreateXYZProfile@Base 2.2+git20110628
  cmsCreateXYZProfileTHR@Base 2.2+git20110628
+ cmsCreate_OkLabProfile@Base 2.16
  cmsCreate_sRGBProfile@Base 2.2+git20110628
  cmsCreate_sRGBProfileTHR@Base 2.2+git20110628
  cmsD50_XYZ@Base 2.2+git20110628
@@ -199,6 +202,7 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsGetProfileIOhandler@Base 2.7
  cmsGetProfileInfo@Base 2.2+git20110628
  cmsGetProfileInfoASCII@Base 2.2+git20110628
+ cmsGetProfileInfoUTF8@Base 2.16
  cmsGetProfileVersion@Base 2.2+git20110628
  cmsGetStageContextID@Base 2.13
  cmsGetSupportedIntents@Base 2.2+git20110628
@@ -209,6 +213,7 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsGetToneCurveEstimatedTableEntries@Base 2.4
  cmsGetToneCurveParametricType@Base 2.2+git20110628
  cmsGetToneCurveParams@Base 2.12~rc1
+ cmsGetToneCurveSegment@Base 2.16
  cmsGetTransformContextID@Base 2.2+git20110628
  cmsGetTransformInputFormat@Base 2.2+git20110628
  cmsGetTransformOutputFormat@Base 2.2+git20110628
@@ -273,8 +278,10 @@ liblcms2.so.2 liblcms2-2 #MINVER#
  cmsMLUfree@Base 2.2+git20110628
  cmsMLUgetASCII@Base 2.2+git20110628
  cmsMLUgetTranslation@Base 2.2+git20110628
+ cmsMLUgetUTF8@Base 2.16
  cmsMLUgetWide@Base 2.2+git20110628
  cmsMLUsetASCII@Base 2.2+git20110628
+ cmsMLUsetUTF8@Base 2.16
  cmsMLUsetWide@Base 2.2+git20110628
  cmsMLUtranslationsCodes@Base 2.5
  cmsMLUtranslationsCount@Base 2.5

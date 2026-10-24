@@ -6,6 +6,9 @@
 /usr/share/doc/libjson-glib-1.0-common/changelog.Debian.gz
 /usr/share/doc/libjson-glib-1.0-common/copyright
 /usr/share/locale
+/usr/share/locale/ab
+/usr/share/locale/ab/LC_MESSAGES
+/usr/share/locale/ab/LC_MESSAGES/json-glib-1.0.mo
 /usr/share/locale/as
 /usr/share/locale/as/LC_MESSAGES
 /usr/share/locale/as/LC_MESSAGES/json-glib-1.0.mo
@@ -54,6 +57,9 @@
 /usr/share/locale/eu
 /usr/share/locale/eu/LC_MESSAGES
 /usr/share/locale/eu/LC_MESSAGES/json-glib-1.0.mo
+/usr/share/locale/fa
+/usr/share/locale/fa/LC_MESSAGES
+/usr/share/locale/fa/LC_MESSAGES/json-glib-1.0.mo
 /usr/share/locale/fr
 /usr/share/locale/fr/LC_MESSAGES
 /usr/share/locale/fr/LC_MESSAGES/json-glib-1.0.mo
@@ -84,6 +90,12 @@
 /usr/share/locale/ja
 /usr/share/locale/ja/LC_MESSAGES
 /usr/share/locale/ja/LC_MESSAGES/json-glib-1.0.mo
+/usr/share/locale/ka
+/usr/share/locale/ka/LC_MESSAGES
+/usr/share/locale/ka/LC_MESSAGES/json-glib-1.0.mo
+/usr/share/locale/kab
+/usr/share/locale/kab/LC_MESSAGES
+/usr/share/locale/kab/LC_MESSAGES/json-glib-1.0.mo
 /usr/share/locale/ko
 /usr/share/locale/ko/LC_MESSAGES
 /usr/share/locale/ko/LC_MESSAGES/json-glib-1.0.mo
@@ -156,6 +168,9 @@
 /usr/share/locale/tg
 /usr/share/locale/tg/LC_MESSAGES
 /usr/share/locale/tg/LC_MESSAGES/json-glib-1.0.mo
+/usr/share/locale/th
+/usr/share/locale/th/LC_MESSAGES
+/usr/share/locale/th/LC_MESSAGES/json-glib-1.0.mo
 /usr/share/locale/tr
 /usr/share/locale/tr/LC_MESSAGES
 /usr/share/locale/tr/LC_MESSAGES/json-glib-1.0.mo

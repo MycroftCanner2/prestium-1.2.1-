@@ -1,5 +1,6 @@
-c1df2674126f0c48650da71fffdd58c3  usr/lib/x86_64-linux-gnu/libimagequant.so.0
-ceb949c2b9b57791cfb994964efdc980  usr/share/doc/libimagequant0/changelog.Debian.gz
-91070567f113bfc58bc606aa6495a552  usr/share/doc/libimagequant0/changelog.gz
+22e9bed2e68047215b7bfc7b0f363eae  usr/lib/x86_64-linux-gnu/libimagequant.so.0
+29651d9def8da79c510dd2f820fb4106  usr/share/doc/libimagequant0/changelog.Debian.amd64.gz
+a1e50d58b1696862d80c123d5dbcebd6  usr/share/doc/libimagequant0/changelog.Debian.gz
+d8b098d2d705c0d61d70a331f5dbc1db  usr/share/doc/libimagequant0/changelog.gz
 b67640609874a7f06f1928fd4bca8ec5  usr/share/doc/libimagequant0/copyright
 7f4b7a5fbb7c366a2e31a78002a849e1  usr/share/doc/libimagequant0/examples/example.c

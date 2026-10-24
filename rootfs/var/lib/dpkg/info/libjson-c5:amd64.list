@@ -2,7 +2,7 @@
 /usr
 /usr/lib
 /usr/lib/x86_64-linux-gnu
-/usr/lib/x86_64-linux-gnu/libjson-c.so.5.2.0
+/usr/lib/x86_64-linux-gnu/libjson-c.so.5.4.0
 /usr/share
 /usr/share/doc
 /usr/share/doc/libjson-c5

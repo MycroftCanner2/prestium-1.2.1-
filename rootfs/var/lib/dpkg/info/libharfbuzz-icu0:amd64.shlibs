@@ -1,2 +1,2 @@
-libharfbuzz-icu 0 libharfbuzz-icu0 (>= 6.0.0+dfsg)
-udeb: libharfbuzz-icu 0 libharfbuzz0-udeb (>= 6.0.0+dfsg)
+libharfbuzz-icu 0 libharfbuzz-icu0 (>= 10.2.0)
+udeb: libharfbuzz-icu 0 libharfbuzz0-udeb (>= 10.2.0)

@@ -1,4 +1,4 @@
-f573a277c706c811123bfb76ee119a80  usr/share/doc/liblangtag-common/changelog.Debian.gz
+34d5d026538bf765d9ad0e521e5072df  usr/share/doc/liblangtag-common/changelog.Debian.gz
 6859291b1cb59d42c8fa3eb43da340e3  usr/share/doc/liblangtag-common/copyright
 84e202e4a994ca4e3f0d6b0844997942  usr/share/liblangtag/common/bcp47/calendar.xml
 cabae9e75bf27b4ba36da33fede4bbc8  usr/share/liblangtag/common/bcp47/collation.xml
@@ -14,4 +14,4 @@ cca5a6c4bcbd575a3fcf9d832c79fbee  usr/share/liblangtag/common/bcp47/variant.xml
 085bb4797cc2e35de684a0cac8c05926  usr/share/liblangtag/common/supplemental/likelySubtags.xml
 2bb33328ef6cfd5ed1d289452407ac88  usr/share/liblangtag/common/supplemental/supplementalData.xml
 4a6b0213e99b9b45048518ab05e789ca  usr/share/liblangtag/common/supplemental/supplementalMetadata.xml
-1b57ff9ecfcf0404202209866925a6ae  usr/share/liblangtag/language-subtag-registry.xml
+b7c25609795556e598da632b3e4ce213  usr/share/liblangtag/language-subtag-registry.xml

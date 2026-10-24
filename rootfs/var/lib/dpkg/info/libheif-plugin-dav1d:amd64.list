@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libheif
+/usr/lib/x86_64-linux-gnu/libheif/plugins
+/usr/lib/x86_64-linux-gnu/libheif/plugins/libheif-dav1d.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libheif-plugin-dav1d
+/usr/share/doc/libheif-plugin-dav1d/changelog.Debian.gz
+/usr/share/doc/libheif-plugin-dav1d/copyright

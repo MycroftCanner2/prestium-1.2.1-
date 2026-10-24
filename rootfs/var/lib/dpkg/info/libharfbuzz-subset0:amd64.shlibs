@@ -1,0 +1,2 @@
+libharfbuzz-subset 0 libharfbuzz-subset0 (>= 10.2.0)
+udeb: libharfbuzz-subset 0 libharfbuzz0-udeb (>= 10.2.0)

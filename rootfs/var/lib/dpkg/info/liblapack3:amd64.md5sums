@@ -1,4 +1,4 @@
-d717c124cbb1eddc5b37630aa090c085  usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
-36df36bafd1eb90390dfbbc0098ef47f  usr/share/doc/liblapack3/changelog.Debian.gz
-7f261ca47f2dabe7c7fca7c028e65138  usr/share/doc/liblapack3/copyright
+3e530c812f1085096e73e8534ef9b03a  usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.1
+20a4e3b323c4a2ef5be2ababbca1d49f  usr/share/doc/liblapack3/changelog.Debian.gz
+7f31c090e81ae4ce6fc9f298e24652e2  usr/share/doc/liblapack3/copyright
 fdf0f0418f059a7a6268705df5c65e21  usr/share/lintian/overrides/liblapack3

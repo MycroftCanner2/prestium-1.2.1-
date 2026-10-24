@@ -1,8 +1,9 @@
-53e976f59d6fb57d7831f0dcd7a89638  usr/lib/x86_64-linux-gnu/libhyphen.so.0.3.0
+c8ca33c5d84770d0d47486c824354a9f  usr/lib/x86_64-linux-gnu/libhyphen.so.0.3.0
 7b2901e86a51f797f8972bfc78b23746  usr/share/doc/libhyphen0/README
 1a148b3be2c88c2cf4836a3cce25d153  usr/share/doc/libhyphen0/README.hyphen.gz
 be626b53d1b81f56bc7e176d981be2a5  usr/share/doc/libhyphen0/README.nonstandard.gz
 e760da879063f50b3c0aa8fd121945bc  usr/share/doc/libhyphen0/TODO
-2af44c09aca5af33d09256054b3791ce  usr/share/doc/libhyphen0/changelog.Debian.gz
+e350d4cdf9c7c787d4d653a9fc009adb  usr/share/doc/libhyphen0/changelog.Debian.amd64.gz
+cb69cd15a46ff2c386b0b45bdbc63042  usr/share/doc/libhyphen0/changelog.Debian.gz
 f905888518a36252fd5af2d1c16f7318  usr/share/doc/libhyphen0/changelog.gz
 69f44bab28331eb8b0cbd4c8e87c3818  usr/share/doc/libhyphen0/copyright

@@ -1,5 +1,5 @@
-e9729b710c3e0d9e0d95957d0aa457ac  usr/share/doc/libhtml-tagset-perl/changelog.Debian.gz
-ed989c41c402eeab75d77ccef190a738  usr/share/doc/libhtml-tagset-perl/changelog.gz
-4cbf9d9771ae5bca1c9497e9c9515039  usr/share/doc/libhtml-tagset-perl/copyright
-5359080b046f7e9f24d8d2dece2aedd9  usr/share/man/man3/HTML::Tagset.3pm.gz
-8c67084eb84204894b2bf6dd507e2366  usr/share/perl5/HTML/Tagset.pm
+ed81ad9551a3d6224cfa53b85d77cf85  usr/share/doc/libhtml-tagset-perl/changelog.Debian.gz
+b3b2feb42ef4c1c6ccbf81ff70fca9b4  usr/share/doc/libhtml-tagset-perl/changelog.gz
+49ad30a0280df8a422aaff5c14161b3b  usr/share/doc/libhtml-tagset-perl/copyright
+6bc7ebe836ce814fc411fe5730e02b73  usr/share/man/man3/HTML::Tagset.3pm.gz
+bf89009c4e433d68c78d222420e473c1  usr/share/perl5/HTML/Tagset.pm

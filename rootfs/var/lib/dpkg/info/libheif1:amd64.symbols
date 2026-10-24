@@ -1,84 +1,125 @@
 libheif.so.1 libheif1 #MINVER#
 * Build-Depends-Package: libheif-dev
- _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_@Base 1.0.0
- _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_@Base 1.0.0
- _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_@Base 1.0.0
- _ZNSt6vectorIhSaIhEE12emplace_backIJhEEEvDpOT_@Base 1.0.0
- _ZNSt6vectorIhSaIhEE17_M_default_appendEm@Base 1.0.0
- _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_@Base 1.0.0
- _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_@Base 1.0.0
- _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_@Base 1.0.0
- _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE24_M_get_insert_unique_posERKj@Base 1.0.0
- _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIjERKj@Base 1.0.0
- _ZTINSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIN4heif5ErrorEEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJMNS3_11HeifContextEKFS4_jRKSt10shared_ptrINS3_14HeifPixelImageEEiiEPKSC_jSF_iiEEEES4_EE@Base 1.0.0
+ _ZNSt10_HashtableIjSt4pairIKjSt6vectorImSaImEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv@Base 1.0.0
+ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE16_M_insert_uniqueIjEESt4pairISt17_Rb_tree_iteratorIjEbEOT_@Base 1.0.0
+ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE16_M_insert_uniqueIRKmEESt4pairISt17_Rb_tree_iteratorImEbEOT_@Base 1.0.0
+ _ZTINSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultI5ErrorEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKFS3_jjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKSC_ISt6vectorIS3_SaIS3_EEE20DecodeTraversalStateEPKSB_jjjSt17reference_wrapperISE_ESG_SV_IiESN_SQ_EEEES3_EE@Base 1.0.0
  _ZTINSt13__future_base13_State_baseV2E@Base 1.0.0
- _ZTINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS4_5ErrorEjRKSt10shared_ptrINS4_14HeifPixelImageEEiiEPKS5_jS9_iiEEEES6_EE@Base 1.0.0
- _ZTINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS4_5ErrorEjRKSt10shared_ptrINS4_14HeifPixelImageEEiiEPKS5_jS9_iiEEEES6_EE@Base 1.0.0
+ _ZTINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS6_ISt6vectorIS5_SaIS5_EEE20DecodeTraversalStateEPKS4_jjjSt17reference_wrapperIS8_ESA_SP_IiESH_SK_EEEES5_EE@Base 1.0.0
+ _ZTINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS6_ISt6vectorIS5_SaIS5_EEE20DecodeTraversalStateEPKS4_jjjSt17reference_wrapperIS8_ESA_SP_IiESH_SK_EEEES5_EE@Base 1.0.0
  _ZTINSt13__future_base21_Async_state_commonV2E@Base 1.0.0
- _ZTINSt13__future_base7_ResultIN4heif5ErrorEEE@Base 1.0.0
- _ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EEFvvEPSJ_EEEEEE@Base 1.0.0
+ _ZTINSt13__future_base7_ResultI5ErrorEE@Base 1.0.0
+ _ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EEFvvEPSV_EEEEEE@Base 1.0.0
  _ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
  _ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
- _ZTISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
- _ZTISt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
- _ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIN4heif5ErrorEEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJMNS3_11HeifContextEKFS4_jRKSt10shared_ptrINS3_14HeifPixelImageEEiiEPKSC_jSF_iiEEEES4_EE@Base 1.0.0
+ _ZTISt18bad_variant_access@Base 1.0.0
+ _ZTISt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTISt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTISt23_Sp_counted_ptr_inplaceISt6atomicIjESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultI5ErrorEENS_12_Result_base8_DeleterEENSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKFS3_jjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKSC_ISt6vectorIS3_SaIS3_EEE20DecodeTraversalStateEPKSB_jjjSt17reference_wrapperISE_ESG_SV_IiESN_SQ_EEEES3_EE@Base 1.0.0
  _ZTSNSt13__future_base13_State_baseV2E@Base 1.0.0
- _ZTSNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS4_5ErrorEjRKSt10shared_ptrINS4_14HeifPixelImageEEiiEPKS5_jS9_iiEEEES6_EE@Base 1.0.0
- _ZTSNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS4_5ErrorEjRKSt10shared_ptrINS4_14HeifPixelImageEEiiEPKS5_jS9_iiEEEES6_EE@Base 1.0.0
+ _ZTSNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS6_ISt6vectorIS5_SaIS5_EEE20DecodeTraversalStateEPKS4_jjjSt17reference_wrapperIS8_ESA_SP_IiESH_SK_EEEES5_EE@Base 1.0.0
+ _ZTSNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS6_ISt6vectorIS5_SaIS5_EEE20DecodeTraversalStateEPKS4_jjjSt17reference_wrapperIS8_ESA_SP_IiESH_SK_EEEES5_EE@Base 1.0.0
  _ZTSNSt13__future_base21_Async_state_commonV2E@Base 1.0.0
- _ZTSNSt13__future_base7_ResultIN4heif5ErrorEEE@Base 1.0.0
- _ZTSNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EEFvvEPSJ_EEEEEE@Base 1.0.0
+ _ZTSNSt13__future_base7_ResultI5ErrorEE@Base 1.0.0
+ _ZTSNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EEFvvEPSV_EEEEEE@Base 1.0.0
  _ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
  _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTSSt18bad_variant_access@Base 1.0.0
  _ZTSSt19_Sp_make_shared_tag@Base 1.0.0
- _ZTSSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
- _ZTSSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTSSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTSSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTSSt23_Sp_counted_ptr_inplaceISt6atomicIjESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
  _ZTVNSt13__future_base13_State_baseV2E@Base 1.0.0
- _ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS4_5ErrorEjRKSt10shared_ptrINS4_14HeifPixelImageEEiiEPKS5_jS9_iiEEEES6_EE@Base 1.0.0
- _ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS4_5ErrorEjRKSt10shared_ptrINS4_14HeifPixelImageEEiiEPKS5_jS9_iiEEEES6_EE@Base 1.0.0
+ _ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS6_ISt6vectorIS5_SaIS5_EEE20DecodeTraversalStateEPKS4_jjjSt17reference_wrapperIS8_ESA_SP_IiESH_SK_EEEES5_EE@Base 1.0.0
+ _ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS6_ISt6vectorIS5_SaIS5_EEE20DecodeTraversalStateEPKS4_jjjSt17reference_wrapperIS8_ESA_SP_IiESH_SK_EEEES5_EE@Base 1.0.0
  _ZTVNSt13__future_base21_Async_state_commonV2E@Base 1.0.0
- _ZTVNSt13__future_base7_ResultIN4heif5ErrorEEE@Base 1.0.0
- _ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EEFvvEPSJ_EEEEEE@Base 1.0.0
- _ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
- _ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN4heif11HeifContextEKFNS5_5ErrorEjRKSt10shared_ptrINS5_14HeifPixelImageEEiiEPKS6_jSA_iiEEEES7_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTVNSt13__future_base7_ResultI5ErrorEE@Base 1.0.0
+ _ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EEFvvEPSV_EEEEEE@Base 1.0.0
+ _ZTVSt18bad_variant_access@Base 1.0.0
+ _ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJM14ImageItem_GridKF5ErrorjjjRSt10shared_ptrI14HeifPixelImageERK21heif_decoding_optionsRiRKS7_ISt6vectorIS6_SaIS6_EEE20DecodeTraversalStateEPKS5_jjjSt17reference_wrapperIS9_ESB_SQ_IiESI_SL_EEEES6_EESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
+ _ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIjESaIvELN9__gnu_cxx12_Lock_policyE2EE@Base 1.0.0
  _ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag@Base 1.0.0
  _ZZNSt9once_flag18_Prepare_executionC4IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_4_FUNEv@Base 1.0.0
  _ZZNSt9once_flag18_Prepare_executionC4IZSt9call_onceIMSt6threadFvvEJPS3_EEvRS_OT_DpOT0_EUlvE_EERS8_ENUlvE_4_FUNEv@Base 1.0.0
  heif_brand_to_fourcc@Base 1.11.0
+ heif_camera_extrinsic_matrix_get_rotation_matrix@Base 1.18.1
+ heif_camera_extrinsic_matrix_release@Base 1.18.1
  heif_check_filetype@Base 1.4.0
  heif_check_jpeg_filetype@Base 1.14.0
+ heif_color_conversion_options_ext_alloc@Base 1.20.0
+ heif_color_conversion_options_ext_copy@Base 1.20.0
+ heif_color_conversion_options_ext_free@Base 1.20.0
+ heif_color_conversion_options_set_defaults@Base 1.19.1
  heif_context_add_XMP_metadata2@Base 1.14.0
  heif_context_add_XMP_metadata@Base 1.3.2
+ heif_context_add_compatible_brand@Base 1.18.1
+ heif_context_add_empty_unci_image@Base 1.20.0
  heif_context_add_exif_metadata@Base 1.3.2
  heif_context_add_generic_metadata@Base 1.6.0
+ heif_context_add_generic_uri_metadata@Base 1.18.1
+ heif_context_add_grid_image@Base 1.19.1
+ heif_context_add_image_tile@Base 1.19.1
+ heif_context_add_item@Base 1.18.1
+ heif_context_add_item_reference@Base 1.18.1
+ heif_context_add_item_references@Base 1.18.1
+ heif_context_add_mime_item@Base 1.18.1
+ heif_context_add_overlay_image@Base 1.19.1
+ heif_context_add_precompressed_mime_item@Base 1.18.1
+ heif_context_add_uri_item@Base 1.18.1
+ heif_context_add_uri_metadata_sequence_track@Base 1.20.0
+ heif_context_add_visual_sequence_track@Base 1.20.0
  heif_context_alloc@Base 1.0.0
  heif_context_assign_thumbnail@Base 1.3.2
  heif_context_debug_dump_boxes_to_file@Base 1.0.0
+ heif_context_encode_grid@Base 1.18.1
  heif_context_encode_image@Base 1.1.0
  heif_context_encode_thumbnail@Base 1.3.2
  heif_context_free@Base 1.0.0
  heif_context_get_encoder@Base 1.1.0
  heif_context_get_encoder_descriptors@Base 1.1.0
  heif_context_get_encoder_for_format@Base 1.1.0
+ heif_context_get_entity_groups@Base 1.19.1
  heif_context_get_image_handle@Base 1.0.0
+ heif_context_get_item_references@Base 1.18.1
+ heif_context_get_list_of_item_IDs@Base 1.18.1
  heif_context_get_list_of_top_level_image_IDs@Base 1.0.0
+ heif_context_get_max_decoding_threads@Base 1.23.1
+ heif_context_get_number_of_items@Base 1.18.1
  heif_context_get_number_of_top_level_images@Base 1.0.0
  heif_context_get_primary_image_ID@Base 1.0.0
  heif_context_get_primary_image_handle@Base 1.0.0
+ heif_context_get_region_item@Base 1.16.2
+ heif_context_get_security_limits@Base 1.19.1
+ heif_context_get_sequence_duration@Base 1.20.0
+ heif_context_get_sequence_timescale@Base 1.20.0
+ heif_context_get_text_item@Base 1.21.2
+ heif_context_get_track@Base 1.20.0
+ heif_context_get_track_ids@Base 1.20.0
+ heif_context_has_sequence@Base 1.20.0
  heif_context_is_top_level_image_ID@Base 1.0.0
+ heif_context_number_of_sequence_tracks@Base 1.20.0
  heif_context_read_from_file@Base 1.0.0
  heif_context_read_from_memory@Base 1.0.0
  heif_context_read_from_memory_without_copy@Base 1.3.2
  heif_context_read_from_reader@Base 1.3.2
+ heif_context_set_major_brand@Base 1.20.0
  heif_context_set_max_decoding_threads@Base 1.13.0
  heif_context_set_maximum_image_size_limit@Base 1.6.0
+ heif_context_set_number_of_sequence_repetitions@Base 1.21.2
  heif_context_set_primary_image@Base 1.3.2
+ heif_context_set_security_limits@Base 1.19.1
+ heif_context_set_sequence_timescale@Base 1.20.0
+ heif_context_set_unif@Base 1.23.1
+ heif_context_set_write_mini_format@Base 1.23.1
  heif_context_write@Base 1.1.0
  heif_context_write_to_file@Base 1.1.0
  heif_decode_image@Base 1.0.0
  heif_decoder_descriptor_get_id_name@Base 1.15.1
  heif_decoder_descriptor_get_name@Base 1.15.1
  heif_decoding_options_alloc@Base 1.0.0
+ heif_decoding_options_copy@Base 1.20.0
  heif_decoding_options_free@Base 1.0.0
  heif_deinit@Base 1.13.0
  heif_depth_representation_info_free@Base 1.0.0
@@ -113,101 +154,358 @@ libheif.so.1 libheif1 #MINVER#
  heif_encoder_set_parameter_integer@Base 1.1.0
  heif_encoder_set_parameter_string@Base 1.1.0
  heif_encoding_options_alloc@Base 1.3.2
+ heif_encoding_options_copy@Base 1.20.0
  heif_encoding_options_free@Base 1.3.2
+ heif_entity_groups_release@Base 1.19.1
+ heif_error_success@Base 1.17.0
  heif_fourcc_to_brand@Base 1.11.0
  heif_free_list_of_compatible_brands@Base 1.11.0
+ heif_free_plugin_directories@Base 1.17.0
  heif_get_decoder_descriptors@Base 1.15.1
+ heif_get_disabled_security_limits@Base 1.19.1
  heif_get_encoder_descriptors@Base 1.15.1
  heif_get_file_mime_type@Base 1.5.0
+ heif_get_global_security_limits@Base 1.19.1
+ heif_get_plugin_directories@Base 1.17.0
  heif_get_version@Base 1.0.0
  heif_get_version_number@Base 1.0.0
  heif_get_version_number_maintenance@Base 1.0.0
  heif_get_version_number_major@Base 1.0.0
  heif_get_version_number_minor@Base 1.0.0
  heif_has_compatible_brand@Base 1.11.0
+ heif_has_compatible_filetype@Base 1.18.1
  heif_have_decoder_for_format@Base 1.3.2
  heif_have_encoder_for_format@Base 1.3.2
+ heif_image_add_bayer_component@Base 1.23.1
+ heif_image_add_component@Base 1.23.1
  heif_image_add_decoding_warning@Base 1.13.0
  heif_image_add_plane@Base 1.0.0
+ heif_image_add_plane_safe@Base 1.20.0
+ heif_image_add_polarization_pattern@Base 1.23.1
+ heif_image_add_sensor_bad_pixels_map@Base 1.23.1
+ heif_image_add_sensor_nuc@Base 1.23.1
  heif_image_create@Base 1.0.0
  heif_image_crop@Base 1.9.1
  heif_image_extend_padding_to_size@Base 1.15.1
+ heif_image_extend_to_size_fill_with_zero@Base 1.19.1
+ heif_image_extract_area@Base 1.20.0
+ heif_image_get_ambient_viewing_environment@Base 1.23.1
+ heif_image_get_bayer_pattern@Base 1.23.1
+ heif_image_get_bayer_pattern_size@Base 1.23.1
  heif_image_get_bits_per_pixel@Base 1.0.0
  heif_image_get_bits_per_pixel_range@Base 1.5.0
  heif_image_get_chroma_format@Base 1.0.0
+ heif_image_get_chroma_location@Base 1.23.1
  heif_image_get_color_profile_type@Base 1.5.0
  heif_image_get_colorspace@Base 1.0.0
+ heif_image_get_component@Base 1.23.1
+ heif_image_get_component_bits_per_pixel@Base 1.23.1
+ heif_image_get_component_channel@Base 1.23.1
+ heif_image_get_component_complex32@Base 1.23.1
+ heif_image_get_component_complex32_readonly@Base 1.23.1
+ heif_image_get_component_complex64@Base 1.23.1
+ heif_image_get_component_complex64_readonly@Base 1.23.1
+ heif_image_get_component_datatype@Base 1.23.1
+ heif_image_get_component_float32@Base 1.23.1
+ heif_image_get_component_float32_readonly@Base 1.23.1
+ heif_image_get_component_float64@Base 1.23.1
+ heif_image_get_component_float64_readonly@Base 1.23.1
+ heif_image_get_component_height@Base 1.23.1
+ heif_image_get_component_int16@Base 1.23.1
+ heif_image_get_component_int16_readonly@Base 1.23.1
+ heif_image_get_component_int32@Base 1.23.1
+ heif_image_get_component_int32_readonly@Base 1.23.1
+ heif_image_get_component_int64@Base 1.23.1
+ heif_image_get_component_int64_readonly@Base 1.23.1
+ heif_image_get_component_int8@Base 1.23.1
+ heif_image_get_component_int8_readonly@Base 1.23.1
+ heif_image_get_component_readonly@Base 1.23.1
+ heif_image_get_component_type@Base 1.23.1
+ heif_image_get_component_uint16@Base 1.23.1
+ heif_image_get_component_uint16_readonly@Base 1.23.1
+ heif_image_get_component_uint32@Base 1.23.1
+ heif_image_get_component_uint32_readonly@Base 1.23.1
+ heif_image_get_component_uint64@Base 1.23.1
+ heif_image_get_component_uint64_readonly@Base 1.23.1
+ heif_image_get_component_width@Base 1.23.1
  heif_image_get_content_light_level@Base 1.15.1
  heif_image_get_decoding_warnings@Base 1.13.0
+ heif_image_get_duration@Base 1.20.0
+ heif_image_get_gimi_sample_content_id@Base 1.20.0
  heif_image_get_height@Base 1.0.0
  heif_image_get_mastering_display_colour_volume@Base 1.15.1
  heif_image_get_nclx_color_profile@Base 1.5.0
+ heif_image_get_nominal_diffuse_white_luminance@Base 1.23.1
+ heif_image_get_number_of_polarization_patterns@Base 1.23.1
+ heif_image_get_number_of_sensor_bad_pixels_maps@Base 1.23.1
+ heif_image_get_number_of_sensor_nucs@Base 1.23.1
+ heif_image_get_number_of_used_components@Base 1.23.1
+ heif_image_get_omaf_image_projection@Base 1.23.1
  heif_image_get_pixel_aspect_ratio@Base 1.15.1
+ heif_image_get_plane2@Base 1.20.0
  heif_image_get_plane@Base 1.0.0
+ heif_image_get_plane_readonly2@Base 1.20.0
  heif_image_get_plane_readonly@Base 1.0.0
+ heif_image_get_polarization_pattern_data@Base 1.23.1
+ heif_image_get_polarization_pattern_index_for_component@Base 1.23.1
+ heif_image_get_polarization_pattern_info@Base 1.23.1
  heif_image_get_primary_height@Base 1.9.1
  heif_image_get_primary_width@Base 1.9.1
  heif_image_get_raw_color_profile@Base 1.5.0
  heif_image_get_raw_color_profile_size@Base 1.5.0
+ heif_image_get_sensor_bad_pixels_map_data@Base 1.23.1
+ heif_image_get_sensor_bad_pixels_map_info@Base 1.23.1
+ heif_image_get_sensor_nuc_data@Base 1.23.1
+ heif_image_get_sensor_nuc_info@Base 1.23.1
+ heif_image_get_tai_timestamp@Base 1.20.0
+ heif_image_get_used_component_ids@Base 1.23.1
  heif_image_get_width@Base 1.0.0
+ heif_image_handle_add_region_item@Base 1.16.2
+ heif_image_handle_add_text_item@Base 1.21.2
+ heif_image_handle_decode_image_tile@Base 1.19.1
  heif_image_handle_free_auxiliary_types@Base 1.11.0
+ heif_image_handle_get_ambient_viewing_environment@Base 1.23.1
  heif_image_handle_get_auxiliary_image_handle@Base 1.10.0
  heif_image_handle_get_auxiliary_type@Base 1.10.0
+ heif_image_handle_get_camera_extrinsic_matrix@Base 1.18.1
+ heif_image_handle_get_camera_intrinsic_matrix@Base 1.18.1
  heif_image_handle_get_chroma_bits_per_pixel@Base 1.4.0
+ heif_image_handle_get_cmpd_component_type@Base 1.23.1
+ heif_image_handle_get_cmpd_component_type_uri@Base 1.23.1
  heif_image_handle_get_color_profile_type@Base 1.4.0
+ heif_image_handle_get_component_bits_per_pixel@Base 1.23.1
+ heif_image_handle_get_component_datatype@Base 1.23.1
+ heif_image_handle_get_component_type@Base 1.23.1
+ heif_image_handle_get_content_light_level@Base 1.19.1
+ heif_image_handle_get_context@Base 1.17.0
  heif_image_handle_get_depth_image_handle@Base 1.0.0
  heif_image_handle_get_depth_image_representation_info@Base 1.0.0
+ heif_image_handle_get_gimi_component_content_id@Base 1.23.1
+ heif_image_handle_get_gimi_content_id@Base 1.21.2
+ heif_image_handle_get_grid_image_tile_id@Base 1.19.1
  heif_image_handle_get_height@Base 1.0.0
+ heif_image_handle_get_image_tiling@Base 1.19.1
  heif_image_handle_get_ispe_height@Base 1.4.0
  heif_image_handle_get_ispe_width@Base 1.4.0
+ heif_image_handle_get_item_id@Base 1.16.2
  heif_image_handle_get_list_of_auxiliary_image_IDs@Base 1.10.0
  heif_image_handle_get_list_of_depth_image_IDs@Base 1.0.0
  heif_image_handle_get_list_of_metadata_block_IDs@Base 1.0.0
+ heif_image_handle_get_list_of_region_item_ids@Base 1.16.2
+ heif_image_handle_get_list_of_text_item_ids@Base 1.21.2
  heif_image_handle_get_list_of_thumbnail_IDs@Base 1.0.0
  heif_image_handle_get_luma_bits_per_pixel@Base 1.4.0
+ heif_image_handle_get_mastering_display_colour_volume@Base 1.19.1
  heif_image_handle_get_metadata@Base 1.0.0
  heif_image_handle_get_metadata_content_type@Base 1.2.0
+ heif_image_handle_get_metadata_item_uri_type@Base 1.17.0
  heif_image_handle_get_metadata_size@Base 1.0.0
  heif_image_handle_get_metadata_type@Base 1.0.0
  heif_image_handle_get_nclx_color_profile@Base 1.4.0
+ heif_image_handle_get_nominal_diffuse_white_luminance@Base 1.23.1
  heif_image_handle_get_number_of_auxiliary_images@Base 1.10.0
+ heif_image_handle_get_number_of_cmpd_components@Base 1.23.1
+ heif_image_handle_get_number_of_components@Base 1.23.1
  heif_image_handle_get_number_of_depth_images@Base 1.0.0
  heif_image_handle_get_number_of_metadata_blocks@Base 1.0.0
+ heif_image_handle_get_number_of_region_items@Base 1.16.2
+ heif_image_handle_get_number_of_text_items@Base 1.21.2
  heif_image_handle_get_number_of_thumbnails@Base 1.0.0
+ heif_image_handle_get_omaf_image_projection@Base 1.23.1
+ heif_image_handle_get_pixel_aspect_ratio@Base 1.19.1
+ heif_image_handle_get_preferred_decoding_colorspace@Base 1.17.0
  heif_image_handle_get_raw_color_profile@Base 1.4.0
  heif_image_handle_get_raw_color_profile_size@Base 1.4.0
  heif_image_handle_get_thumbnail@Base 1.0.0
+ heif_image_handle_get_used_component_ids@Base 1.23.1
  heif_image_handle_get_width@Base 1.0.0
  heif_image_handle_has_alpha_channel@Base 1.0.0
+ heif_image_handle_has_ambient_viewing_environment@Base 1.23.1
+ heif_image_handle_has_camera_extrinsic_matrix@Base 1.18.1
+ heif_image_handle_has_camera_intrinsic_matrix@Base 1.18.1
+ heif_image_handle_has_content_light_level@Base 1.23.1
  heif_image_handle_has_depth_image@Base 1.0.0
+ heif_image_handle_has_gimi_component_content_ids@Base 1.23.1
+ heif_image_handle_has_mastering_display_colour_volume@Base 1.23.1
+ heif_image_handle_has_nominal_diffuse_white_luminance@Base 1.23.1
  heif_image_handle_is_premultiplied_alpha@Base 1.12.0
  heif_image_handle_is_primary_image@Base 1.0.0
  heif_image_handle_release@Base 1.0.0
+ heif_image_handle_release_auxiliary_type@Base 1.16.2
+ heif_image_handle_set_ambient_viewing_environment@Base 1.23.1
+ heif_image_handle_set_content_light_level@Base 1.21.2
+ heif_image_handle_set_gimi_component_content_id@Base 1.23.1
+ heif_image_handle_set_gimi_content_id@Base 1.23.1
+ heif_image_handle_set_mastering_display_colour_volume@Base 1.21.2
+ heif_image_handle_set_nominal_diffuse_white_luminance@Base 1.23.1
+ heif_image_handle_set_omaf_image_projection@Base 1.23.1
+ heif_image_handle_set_pixel_aspect_ratio@Base 1.21.2
+ heif_image_has_ambient_viewing_environment@Base 1.23.1
  heif_image_has_channel@Base 1.2.0
+ heif_image_has_chroma_location@Base 1.23.1
  heif_image_has_content_light_level@Base 1.15.1
  heif_image_has_mastering_display_colour_volume@Base 1.15.1
+ heif_image_has_nominal_diffuse_white_luminance@Base 1.23.1
  heif_image_is_premultiplied_alpha@Base 1.12.0
  heif_image_release@Base 1.0.0
  heif_image_scale_image@Base 1.0.0
+ heif_image_set_ambient_viewing_environment@Base 1.23.1
+ heif_image_set_bayer_pattern@Base 1.23.1
+ heif_image_set_chroma_location@Base 1.23.1
  heif_image_set_content_light_level@Base 1.15.1
+ heif_image_set_duration@Base 1.20.0
+ heif_image_set_gimi_component_content_id@Base 1.23.1
+ heif_image_set_gimi_sample_content_id@Base 1.20.0
  heif_image_set_mastering_display_colour_volume@Base 1.15.1
  heif_image_set_nclx_color_profile@Base 1.4.0
+ heif_image_set_nominal_diffuse_white_luminance@Base 1.23.1
+ heif_image_set_omaf_image_projection@Base 1.23.1
  heif_image_set_pixel_aspect_ratio@Base 1.15.1
  heif_image_set_premultiplied_alpha@Base 1.12.0
  heif_image_set_raw_color_profile@Base 1.4.0
+ heif_image_set_tai_timestamp@Base 1.20.0
  heif_init@Base 1.13.0
+ heif_item_add_property_user_description@Base 1.16.2
+ heif_item_add_raw_property@Base 1.18.1
+ heif_item_get_item_data@Base 1.19.1
+ heif_item_get_item_name@Base 1.19.1
+ heif_item_get_item_type@Base 1.19.1
+ heif_item_get_mime_item_content_encoding@Base 1.19.1
+ heif_item_get_mime_item_content_type@Base 1.19.1
+ heif_item_get_properties_of_type@Base 1.16.2
+ heif_item_get_property_extended_language@Base 1.21.2
+ heif_item_get_property_raw_data@Base 1.18.1
+ heif_item_get_property_raw_size@Base 1.18.1
+ heif_item_get_property_tai_clock_info@Base 1.20.0
+ heif_item_get_property_tai_timestamp@Base 1.20.0
+ heif_item_get_property_transform_crop_borders@Base 1.16.2
+ heif_item_get_property_transform_mirror@Base 1.16.2
+ heif_item_get_property_transform_rotation_ccw@Base 1.16.2
+ heif_item_get_property_type@Base 1.16.2
+ heif_item_get_property_user_description@Base 1.16.2
+ heif_item_get_property_uuid_type@Base 1.19.1
+ heif_item_get_transformation_properties@Base 1.16.2
+ heif_item_get_uri_item_uri_type@Base 1.19.1
+ heif_item_is_item_hidden@Base 1.19.1
+ heif_item_set_item_name@Base 1.19.1
+ heif_item_set_property_extended_language@Base 1.21.2
+ heif_item_set_property_tai_clock_info@Base 1.20.0
+ heif_item_set_property_tai_timestamp@Base 1.20.0
  heif_list_compatible_brands@Base 1.11.0
  heif_load_plugin@Base 1.14.0
  heif_load_plugins@Base 1.14.0
  heif_main_brand@Base 1.4.0
  heif_mastering_display_colour_volume_decode@Base 1.15.1
+ heif_metadata_compression_method_supported@Base 1.21.2
  heif_nclx_color_profile_alloc@Base 1.9.1
  heif_nclx_color_profile_free@Base 1.8.0
  heif_nclx_color_profile_set_color_primaries@Base 1.13.0
  heif_nclx_color_profile_set_matrix_coefficients@Base 1.13.0
  heif_nclx_color_profile_set_transfer_characteristics@Base 1.13.0
+ heif_orientation_concat@Base 1.23.1
+ heif_polarization_angle_is_no_filter@Base 1.23.1
+ heif_polarization_angle_no_filter@Base 1.23.1
+ heif_property_user_description_release@Base 1.16.2
+ heif_raw_sequence_sample_alloc@Base 1.20.0
+ heif_raw_sequence_sample_get_data@Base 1.20.0
+ heif_raw_sequence_sample_get_data_size@Base 1.20.0
+ heif_raw_sequence_sample_get_duration@Base 1.20.0
+ heif_raw_sequence_sample_get_gimi_sample_content_id@Base 1.20.0
+ heif_raw_sequence_sample_get_tai_timestamp@Base 1.20.0
+ heif_raw_sequence_sample_has_tai_timestamp@Base 1.20.0
+ heif_raw_sequence_sample_release@Base 1.20.0
+ heif_raw_sequence_sample_set_data@Base 1.20.0
+ heif_raw_sequence_sample_set_duration@Base 1.20.0
+ heif_raw_sequence_sample_set_gimi_sample_content_id@Base 1.20.0
+ heif_raw_sequence_sample_set_tai_timestamp@Base 1.20.0
  heif_read_main_brand@Base 1.11.0
+ heif_read_minor_version_brand@Base 1.19.1
+ heif_region_get_ellipse@Base 1.16.2
+ heif_region_get_ellipse_transformed@Base 1.16.2
+ heif_region_get_inline_mask_data@Base 1.17.0
+ heif_region_get_inline_mask_data_len@Base 1.17.0
+ heif_region_get_mask_image@Base 1.17.0
+ heif_region_get_point@Base 1.16.2
+ heif_region_get_point_transformed@Base 1.16.2
+ heif_region_get_polygon_num_points@Base 1.16.2
+ heif_region_get_polygon_points@Base 1.16.2
+ heif_region_get_polygon_points_transformed@Base 1.16.2
+ heif_region_get_polyline_num_points@Base 1.16.2
+ heif_region_get_polyline_points@Base 1.16.2
+ heif_region_get_polyline_points_transformed@Base 1.16.2
+ heif_region_get_rectangle@Base 1.16.2
+ heif_region_get_rectangle_transformed@Base 1.16.2
+ heif_region_get_referenced_mask_ID@Base 1.17.0
+ heif_region_get_type@Base 1.16.2
+ heif_region_item_add_region_ellipse@Base 1.16.2
+ heif_region_item_add_region_inline_mask@Base 1.17.0
+ heif_region_item_add_region_inline_mask_data@Base 1.17.0
+ heif_region_item_add_region_point@Base 1.16.2
+ heif_region_item_add_region_polygon@Base 1.16.2
+ heif_region_item_add_region_polyline@Base 1.16.2
+ heif_region_item_add_region_rectangle@Base 1.16.2
+ heif_region_item_add_region_referenced_mask@Base 1.17.0
+ heif_region_item_get_id@Base 1.16.2
+ heif_region_item_get_list_of_regions@Base 1.16.2
+ heif_region_item_get_number_of_regions@Base 1.16.2
+ heif_region_item_get_reference_size@Base 1.16.2
+ heif_region_item_release@Base 1.16.2
+ heif_region_release@Base 1.16.2
+ heif_region_release_many@Base 1.16.2
  heif_register_decoder@Base 1.0.0
  heif_register_decoder_plugin@Base 1.1.0
  heif_register_encoder_plugin@Base 1.1.0
+ heif_release_item_data@Base 1.18.1
+ heif_release_item_references@Base 1.18.1
+ heif_sequence_encoding_options_alloc@Base 1.20.0
+ heif_sequence_encoding_options_copy@Base 1.23.1
+ heif_sequence_encoding_options_release@Base 1.20.0
+ heif_string_release@Base 1.20.0
+ heif_tai_clock_info_alloc@Base 1.20.0
+ heif_tai_clock_info_copy@Base 1.20.0
+ heif_tai_clock_info_release@Base 1.20.0
+ heif_tai_timestamp_packet_alloc@Base 1.20.0
+ heif_tai_timestamp_packet_copy@Base 1.20.0
+ heif_tai_timestamp_packet_release@Base 1.20.0
+ heif_text_item_get_content@Base 1.21.2
+ heif_text_item_get_id@Base 1.21.2
+ heif_text_item_get_property_extended_language@Base 1.21.2
+ heif_text_item_release@Base 1.21.2
+ heif_text_item_set_extended_language@Base 1.21.2
+ heif_track_add_raw_sequence_sample@Base 1.20.0
+ heif_track_add_reference_to_track@Base 1.20.0
+ heif_track_decode_next_image@Base 1.20.0
+ heif_track_encode_end_of_sequence@Base 1.21.2
+ heif_track_encode_sequence_image@Base 1.20.0
+ heif_track_find_referring_tracks@Base 1.20.0
+ heif_track_get_auxiliary_info_type@Base 1.21.2
+ heif_track_get_auxiliary_info_type_urn@Base 1.21.2
+ heif_track_get_gimi_track_content_id@Base 1.20.0
+ heif_track_get_id@Base 1.20.0
+ heif_track_get_image_resolution@Base 1.20.0
+ heif_track_get_next_raw_sequence_sample@Base 1.20.0
+ heif_track_get_number_of_repetitions@Base 1.23.1
+ heif_track_get_number_of_sample_aux_infos@Base 1.20.0
+ heif_track_get_number_of_track_reference_of_type@Base 1.20.0
+ heif_track_get_number_of_track_reference_types@Base 1.20.0
+ heif_track_get_references_from_track@Base 1.20.0
+ heif_track_get_sample_aux_info_types@Base 1.20.0
+ heif_track_get_sample_entry_type_of_first_cluster@Base 1.20.0
+ heif_track_get_tai_clock_info_of_first_cluster@Base 1.20.0
+ heif_track_get_timescale@Base 1.20.0
+ heif_track_get_track_handler_type@Base 1.20.0
+ heif_track_get_track_reference_types@Base 1.20.0
+ heif_track_get_urim_sample_entry_uri_of_first_cluster@Base 1.20.0
+ heif_track_has_alpha_channel@Base 1.21.2
+ heif_track_options_alloc@Base 1.20.0
+ heif_track_options_enable_sample_gimi_content_ids@Base 1.20.0
+ heif_track_options_enable_sample_tai_timestamps@Base 1.20.0
+ heif_track_options_release@Base 1.20.0
+ heif_track_options_set_gimi_track_id@Base 1.20.0
+ heif_track_options_set_interleaved_sample_aux_infos@Base 1.20.0
+ heif_track_options_set_timescale@Base 1.20.0
+ heif_track_release@Base 1.20.0
+ heif_unci_image_parameters_alloc@Base 1.20.0
+ heif_unci_image_parameters_copy@Base 1.20.0
+ heif_unci_image_parameters_release@Base 1.20.0
  heif_unload_plugin@Base 1.14.0
