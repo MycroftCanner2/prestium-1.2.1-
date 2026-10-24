@@ -2,19 +2,19 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-class-file">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>Java byte code</comment>
-  <comment xml:lang="zh_TW">Java 位元組碼</comment>
-  <comment xml:lang="zh_CN">Java 字节码</comment>
+  <comment xml:lang="zh-Hant-TW">Java 位元組碼</comment>
+  <comment xml:lang="zh-Hans-CN">Java 字节码</comment>
   <comment xml:lang="vi">Mã byte Java</comment>
   <comment xml:lang="uk">Байт-код Java</comment>
   <comment xml:lang="tr">Java derlenmiş kodu</comment>
   <comment xml:lang="sv">Java-bytekod</comment>
-  <comment xml:lang="sr">бајтни ко̂д Јаве</comment>
-  <comment xml:lang="sq">Byte code Java</comment>
+  <comment xml:lang="sr-Cyrl">бајтни ко̂д Јаве</comment>
   <comment xml:lang="sl">Datoteka bitne kode Java</comment>
+  <comment xml:lang="si">ජාවා බයිට් කේතය</comment>
   <comment xml:lang="sk">Bajtový kód Java</comment>
   <comment xml:lang="ru">Байт-код Java</comment>
   <comment xml:lang="ro">Bytecode Java</comment>
-  <comment xml:lang="pt_BR">Código compilado Java</comment>
+  <comment xml:lang="pt-BR">Código compilado Java</comment>
   <comment xml:lang="pt">byte-code Java</comment>
   <comment xml:lang="pl">Kod bajtowy Java</comment>
   <comment xml:lang="oc">còde Java binari</comment>
@@ -25,9 +25,10 @@
   <comment xml:lang="lv">Java bitu kods</comment>
   <comment xml:lang="lt">Java baitinis kodas</comment>
   <comment xml:lang="ko">Java 바이트 코드</comment>
-  <comment xml:lang="kk">Java байт коды</comment>
+  <comment xml:lang="kk-Cyrl">Java байт коды</comment>
   <comment xml:lang="ja">Java バイトコード</comment>
   <comment xml:lang="it">Bytecode Java</comment>
+  <comment xml:lang="is">Java bætkóði</comment>
   <comment xml:lang="id">Kode bita Java</comment>
   <comment xml:lang="ia">Codice intermediari de Java</comment>
   <comment xml:lang="hu">Java-bájtkód</comment>
@@ -42,7 +43,7 @@
   <comment xml:lang="eu">Java byte-kodea</comment>
   <comment xml:lang="es">bytecode de Java</comment>
   <comment xml:lang="eo">Java-bajtkodo</comment>
-  <comment xml:lang="en_GB">Java byte code</comment>
+  <comment xml:lang="en-GB">Java byte code</comment>
   <comment xml:lang="el">Συμβολοκώδικας Java</comment>
   <comment xml:lang="de">Java-Bytecode</comment>
   <comment xml:lang="da">Java-bytekode</comment>
@@ -50,7 +51,8 @@
   <comment xml:lang="cs">bajtový kód Java</comment>
   <comment xml:lang="ca">bytecode de Java</comment>
   <comment xml:lang="bg">Байт код за Java</comment>
-  <comment xml:lang="be@latin">Bajtavy kod Java</comment>
+  <comment xml:lang="be-Latn">Bajtavy kod Java</comment>
+  <comment xml:lang="be-Cyrl">байт-код Java</comment>
   <comment xml:lang="az">Java bayt kodu</comment>
   <comment xml:lang="ar">رمز بايت Java</comment>
   <comment xml:lang="af">Java binêre kode</comment>

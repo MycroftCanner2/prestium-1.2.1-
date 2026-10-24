@@ -10,6 +10,7 @@
   <comment xml:lang="be">Дакумент Microsoft Word</comment>
   <comment xml:lang="bg">Microsoft Word – документ</comment>
   <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথি</comment>
+  <comment xml:lang="bn-IN">Microsoft Word ডকুমেন্ট</comment>
   <comment xml:lang="br">Teul mod Microsoft Word</comment>
   <comment xml:lang="bs">Microsoft Word dokument</comment>
   <comment xml:lang="ca">Document del Microsoft Word</comment>
@@ -38,16 +39,17 @@
   <comment xml:lang="hi">माइक्रोसॉफ़्ट वर्ड डॉक्यूमेंट</comment>
   <comment xml:lang="hr">Microsoft Word dokument</comment>
   <comment xml:lang="hu">Microsoft Word-dokumentum</comment>
+  <comment xml:lang="hy">Microsoft Word փաստաթուղթ</comment>
   <comment xml:lang="id">Dokumen Microsoft Word</comment>
   <comment xml:lang="is">Microsoft Word textaskjal</comment>
-  <comment xml:lang="it">Documento di Microsoft Word</comment>
+  <comment xml:lang="it">Documento Microsoft Word</comment>
   <comment xml:lang="ja">Microsoft Word ドキュメント</comment>
-  <comment xml:lang="ka">Microsoft Word ობიექტი</comment>
+  <comment xml:lang="ka">Microsoft Word-ის დოკუმენტი</comment>
   <comment xml:lang="kk">Microsoft Word құжаты</comment>
   <comment xml:lang="km">ឯកសារ Microsoft Word</comment>
   <comment xml:lang="kmr-Latn">Microsoft Word Belge</comment>
   <comment xml:lang="kn">ಮೈಕ್ರೋಸಾಫ್ಟ್ ವರ್ಡ್ ದಸ್ತಾವೇಜು</comment>
-  <comment xml:lang="ko">Microsoft Word 문서</comment>
+  <comment xml:lang="ko">마이크로소프트 워드 문서</comment>
   <comment xml:lang="lt">„Microsoft Word“ dokumentas</comment>
   <comment xml:lang="lv">Microsoft Word dokuments</comment>
   <comment xml:lang="mk">Microsoft Word-документ</comment>
@@ -83,6 +85,7 @@
   <comment xml:lang="te">మైక్రోసాఫ్టు వర్డు పత్రము</comment>
   <comment xml:lang="tg">Ҳуҷҷати Microsoft Word</comment>
   <comment xml:lang="th">เอกสารไมโครซอฟต์เวิร์ด</comment>
+  <comment xml:lang="tl">Dokumento ng Microsoft Word</comment>
   <comment xml:lang="tn">Microsoft Lefoko Setlankana</comment>
   <comment xml:lang="tr">Microsoft Word Belgesi</comment>
   <comment xml:lang="ts">Fayili ya Microsoft Word</comment>
@@ -90,7 +93,7 @@
   <comment xml:lang="uk">Документ Microsoft Word</comment>
   <comment xml:lang="uz">Microsoft Word hujjati</comment>
   <comment xml:lang="ve">Ḽiṅwalo ḽa Microsoft Word</comment>
-  <comment xml:lang="vi">Tài liệu MS Word</comment>
+  <comment xml:lang="vi">Tài liệu Microsoft Word</comment>
   <comment xml:lang="xh">Uxwebhu lwe-Microsoft Word</comment>
   <comment xml:lang="zh-CN">Microsoft Word 文档</comment>
   <comment xml:lang="zh-TW">Microsoft Word 文件</comment>

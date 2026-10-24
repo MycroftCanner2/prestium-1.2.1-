@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.calc">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice Calc 試算表</comment>
-  <comment xml:lang="zh_CN">OpenOffice Calc 电子表格</comment>
-  <comment xml:lang="sq">Fletë llogaritjesh OpenOffice Calc</comment>
-  <comment xml:lang="pt_BR">Planilha do OpenOffice Calc</comment>
-  <comment xml:lang="ia">Folio de calculo OpenOffice Calc</comment>
-  <comment xml:lang="fur">sfuei di calcul OpenOffice Calc</comment>
-  <comment xml:lang="fo">OpenOffice Calc rokniark</comment>
-  <comment xml:lang="en_GB">OpenOffice Calc spreadsheet</comment>
-  <comment xml:lang="be@latin">Raźlikovy arkuš OpenOffice Calc</comment>
+  <comment xml:lang="be-Cyrl">электронная табліца LibreOffice Calc</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-spreadsheet"/>
   <glob pattern="*.sxc"/>
@@ -22,6 +14,7 @@
   <comment xml:lang="be">Разліковы аркуш OpenOffice.org 1.0</comment>
   <comment xml:lang="bg">OpenOffice.org 1.0 – електронна таблица</comment>
   <comment xml:lang="bn">OpenOffice.org 1.0 Spreadsheet</comment>
+  <comment xml:lang="bn-IN">OpenOffice.org 1.0 স্প্রেডশীট</comment>
   <comment xml:lang="br">Renkell mod OpenOffice.org 1.0</comment>
   <comment xml:lang="bs">OpenOffice.org 1.0 tablični proračun</comment>
   <comment xml:lang="ca">Full de càlcul de l'OpenOffice.org 1.0</comment>
@@ -50,11 +43,12 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Spreadsheet</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 proračunska tablica</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 táblázat</comment>
+  <comment xml:lang="hy">OpenOffice.org 1.0 էլեկտրոնային աղյուսակ</comment>
   <comment xml:lang="id">Lembar Sebar OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 töflureikniskjal</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Foglio elettronico</comment>
   <comment xml:lang="ja">OpenOffice.org 1.0 表計算ドキュメント</comment>
-  <comment xml:lang="ka">OpenOffice.org 1.0 Spreadsheet</comment>
+  <comment xml:lang="ka">OpenOffice.org 1.0-ის ელცხრილი</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 электрондық кестесі</comment>
   <comment xml:lang="km">សៀវភៅ​បញ្ជី OpenOffice.org 1.0</comment>
   <comment xml:lang="kmr-Latn">OpenOffice.org 1.0 Spreadsheet</comment>
@@ -75,7 +69,7 @@
   <comment xml:lang="oc">Classador OpenOffice.org 1.0</comment>
   <comment xml:lang="om">OpenOffice.org 1.0 Spreadsheet</comment>
   <comment xml:lang="or">OpenOffice.org 1.0 ସ୍ପ୍ରେଡସିଟ</comment>
-  <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਸਪਰੈੱਡ ਸ਼ੀਟ</comment>
+  <comment xml:lang="pa-IN">OpenOffice.org 1.0 ਸਪਰੈਡ ਸ਼ੀਟ</comment>
   <comment xml:lang="pl">Arkusz kalkulacyjny OpenOffice.org 1.0</comment>
   <comment xml:lang="pt">Folha de cálculo do OpenOffice.org 1.0</comment>
   <comment xml:lang="pt-BR">Planilha do OpenOffice.org 1.0</comment>
@@ -95,6 +89,7 @@
   <comment xml:lang="te">OpenOffice.org 1.0 Spreadsheet</comment>
   <comment xml:lang="tg">OpenOffice.org 1.0 Spreadsheet</comment>
   <comment xml:lang="th">ตารางคำนวน OpenOffice.org 1.0</comment>
+  <comment xml:lang="tl">OpenOffice.org 1.0 Spreadsheet</comment>
   <comment xml:lang="tn">OpenOffice.org 1.0 Spreadsheet</comment>
   <comment xml:lang="tr">OpenOffice.org 1.0 Hesap Tablosu</comment>
   <comment xml:lang="ts">OpenOffice.org 1.0 Spreadsheet</comment>

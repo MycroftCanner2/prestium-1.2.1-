@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.formula">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">ODF 公式</comment>
-  <comment xml:lang="zh_CN">ODF 公式</comment>
-  <comment xml:lang="sq">Formulë ODF</comment>
-  <comment xml:lang="pt_BR">Fórmula ODF</comment>
+  <comment xml:lang="zh-Hant-TW">ODF 公式</comment>
+  <comment xml:lang="zh-Hans-CN">ODF 公式</comment>
+  <comment xml:lang="sr-Cyrl">ОДФ формула</comment>
+  <comment xml:lang="sq">formulë ODF</comment>
+  <comment xml:lang="kk-Cyrl">ODF формуласы</comment>
   <comment xml:lang="ia">Formula ODF</comment>
   <comment xml:lang="fur">formule ODF</comment>
   <comment xml:lang="fo">ODF frymil</comment>
-  <comment xml:lang="en_GB">ODF formula</comment>
-  <comment xml:lang="be@latin">Formuła ODF</comment>
+  <comment xml:lang="be-Latn">Formuła ODF</comment>
+  <comment xml:lang="be-Cyrl">формула ODF</comment>
   <acronym>ODF</acronym>
   <expanded-acronym>OpenDocument Formula</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -18,12 +19,13 @@
   <comment>OpenDocument Formula</comment>
   <comment xml:lang="af">OpenDocument-formule</comment>
   <comment xml:lang="am">OpenDocument መቀመሪያ</comment>
-  <comment xml:lang="ar">صيغة OpenDocument</comment>
+  <comment xml:lang="ar">معادلة OpenDocument</comment>
   <comment xml:lang="as">OpenDocument সূত্ৰ</comment>
   <comment xml:lang="ast">Fórmula OpenDocument</comment>
   <comment xml:lang="be">Формула OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – формула</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট সূত্র</comment>
+  <comment xml:lang="bn-IN">OpenDocument ফরমুলা</comment>
   <comment xml:lang="br">Reollun mod OpenDocument</comment>
   <comment xml:lang="bs">OpenDocument formula</comment>
   <comment xml:lang="ca">Fórmula OpenDocument</comment>
@@ -52,6 +54,7 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट सूत्र</comment>
   <comment xml:lang="hr">OpenDocument formula</comment>
   <comment xml:lang="hu">OpenDocument-képlet</comment>
+  <comment xml:lang="hy">OpenDocument բանաձև</comment>
   <comment xml:lang="id">Rumus OpenDocument</comment>
   <comment xml:lang="is">OpenDocument formúla</comment>
   <comment xml:lang="it">Formula OpenDocument</comment>
@@ -97,6 +100,7 @@
   <comment xml:lang="te">ఓపెన్ డాక్యుమెంట్ సూత్రం</comment>
   <comment xml:lang="tg">Формулаи OpenDocument</comment>
   <comment xml:lang="th">สูตรคณิตศาสตร์ OpenDocument</comment>
+  <comment xml:lang="tl">OpenDocument Formula</comment>
   <comment xml:lang="tn">OpenDocument Formula</comment>
   <comment xml:lang="tr">OpenDocument Formül</comment>
   <comment xml:lang="ts">OpenDocument ya Fomula</comment>

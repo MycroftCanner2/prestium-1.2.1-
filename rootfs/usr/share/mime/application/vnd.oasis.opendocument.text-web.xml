@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.text-web">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OTH 範本</comment>
-  <comment xml:lang="zh_CN">OTH 模板</comment>
-  <comment xml:lang="sq">Model OTH</comment>
-  <comment xml:lang="pt_BR">Modelo OTH</comment>
+  <comment xml:lang="zh-Hant-TW">OTH 範本</comment>
+  <comment xml:lang="zh-Hans-CN">OTH 模板</comment>
+  <comment xml:lang="sr-Cyrl">ОТХ шаблон</comment>
+  <comment xml:lang="sq">gjedhe OTH</comment>
+  <comment xml:lang="kk-Cyrl">OTH үлгісі</comment>
   <comment xml:lang="ia">Patrono OTH</comment>
   <comment xml:lang="fur">model OTH</comment>
   <comment xml:lang="fo">OTH formur</comment>
-  <comment xml:lang="en_GB">OTH template</comment>
-  <comment xml:lang="be@latin">Šablon OTH</comment>
+  <comment xml:lang="be-Latn">Šablon OTH</comment>
+  <comment xml:lang="be-Cyrl">шаблон OTH</comment>
   <acronym>OTH</acronym>
   <expanded-acronym>OpenDocument HTML</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -24,6 +25,7 @@
   <comment xml:lang="be">Шаблон дакументу HTML</comment>
   <comment xml:lang="bg">Шаблон за документ на HTML</comment>
   <comment xml:lang="bn">HTML নথি ফর্মা </comment>
+  <comment xml:lang="bn-IN">HTML নথি ফর্মা </comment>
   <comment xml:lang="br">Patrom teul mod HTML</comment>
   <comment xml:lang="bs">Šablon HTML dokumenta</comment>
   <comment xml:lang="ca">Plantilla de document HTML</comment>
@@ -52,11 +54,12 @@
   <comment xml:lang="hi">HTML दस्तावेज़ नमूना</comment>
   <comment xml:lang="hr">Predložak HTML dokumenta</comment>
   <comment xml:lang="hu">HTML-dokumentumsablon</comment>
+  <comment xml:lang="hy">HTML փաստաթղթի ձևանմուշ</comment>
   <comment xml:lang="id">Templat Dokumen HTML</comment>
   <comment xml:lang="is">HTML sniðmát fyrir vefsíðu</comment>
   <comment xml:lang="it">HTML - Modello di documento</comment>
   <comment xml:lang="ja">HTML ドキュメント テンプレート</comment>
-  <comment xml:lang="ka">HTML დოკუმენტის შაბლონი</comment>
+  <comment xml:lang="ka">HTML დოკუმენტის ნიმუში</comment>
   <comment xml:lang="kk">HTML құжатының үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​ឯកសារ​ HTML</comment>
   <comment xml:lang="kmr-Latn">Şablona Belgeya HTML</comment>
@@ -77,7 +80,7 @@
   <comment xml:lang="oc">Modèl de document HTML</comment>
   <comment xml:lang="om">Qajojii Galmee HTML</comment>
   <comment xml:lang="or">HTML ଦଲିଲ ନମୁନା</comment>
-  <comment xml:lang="pa-IN">HTML ਡੌਕੂਮੈਂਟ ਟੈਪਲੇਟ</comment>
+  <comment xml:lang="pa-IN">HTML ਡੌਕੂਮੈਂਟ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon dokumentu HTML</comment>
   <comment xml:lang="pt">Modelo de documento HTML</comment>
   <comment xml:lang="pt-BR">Modelo de documento HTML</comment>
@@ -97,6 +100,7 @@
   <comment xml:lang="te">HTML  పత్రము మూస</comment>
   <comment xml:lang="tg">Қолаби ҳуҷҷати HTML</comment>
   <comment xml:lang="th">แม่แบบเอกสาร HTML</comment>
+  <comment xml:lang="tl">Template ng Dokumento ng HTML</comment>
   <comment xml:lang="tn">HTML Document Template</comment>
   <comment xml:lang="tr">HTML Belgesi Şablonu</comment>
   <comment xml:lang="ts">Xikomba-ndlela xa Dokumente ya HTML</comment>

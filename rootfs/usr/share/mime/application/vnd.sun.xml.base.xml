@@ -10,6 +10,7 @@
   <comment xml:lang="be">База даных OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument - база от данни</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট ডাটাবেস</comment>
+  <comment xml:lang="bn-IN">OpenDocument ডাটাবেস</comment>
   <comment xml:lang="br">Stlennvon mod OpenDocument</comment>
   <comment xml:lang="bs">OpenDocument baza podataka</comment>
   <comment xml:lang="ca">Base de dades OpenDocument</comment>
@@ -38,11 +39,12 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट डेटाबेस</comment>
   <comment xml:lang="hr">OpenDocument baza podataka</comment>
   <comment xml:lang="hu">OpenDocument-adatbázis</comment>
+  <comment xml:lang="hy">OpenDocument շտեմարան</comment>
   <comment xml:lang="id">Basis Data OpenDocument</comment>
   <comment xml:lang="is">OpenDocument gagnagrunnur</comment>
   <comment xml:lang="it">Database OpenDocument</comment>
   <comment xml:lang="ja">OpenDocument データベース</comment>
-  <comment xml:lang="ka">OpenDocument  მონაცემთა ბაზა</comment>
+  <comment xml:lang="ka">მონაცემთა ბაზა OpenDocument</comment>
   <comment xml:lang="kk">OpenDocument дерекқоры</comment>
   <comment xml:lang="km">មូលដ្ឋាន​ទិន្នន័យ OpenDocument</comment>
   <comment xml:lang="kmr-Latn">OpenDocument Danegeh</comment>
@@ -83,6 +85,7 @@
   <comment xml:lang="te">ఓపెన్ డాక్యుమెంట్ డాటాబేస్</comment>
   <comment xml:lang="tg">Махзани далелҳои OpenDocument</comment>
   <comment xml:lang="th">ฐานข้อมูล OpenDocument</comment>
+  <comment xml:lang="tl">OpenDocument Database</comment>
   <comment xml:lang="tn">OpenDocument Database</comment>
   <comment xml:lang="tr">OpenDocument Veritabanı</comment>
   <comment xml:lang="ts">OpenDocument ya Xihlayisela-rungula</comment>

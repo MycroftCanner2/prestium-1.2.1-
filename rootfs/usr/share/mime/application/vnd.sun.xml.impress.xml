@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.impress">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice Impress 簡報</comment>
-  <comment xml:lang="zh_CN">OpenOffice Impress 演示文稿</comment>
-  <comment xml:lang="sq">Prezantim OpenOffice Impress</comment>
-  <comment xml:lang="pt_BR">Apresentação do OpenOffice Impress</comment>
-  <comment xml:lang="ia">Presentation OpenOffice Impress</comment>
-  <comment xml:lang="fur">presentazion OpenOffice Impress</comment>
-  <comment xml:lang="fo">OpenOffice Impress framløga</comment>
-  <comment xml:lang="en_GB">OpenOffice Impress presentation</comment>
-  <comment xml:lang="be@latin">Prezentacyja OpenOffice Impress</comment>
-  <comment xml:lang="az">OpenOffice Impress sənədi</comment>
+  <comment xml:lang="be-Cyrl">прэзентацыя LibreOffice Impress</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-presentation"/>
   <glob pattern="*.sxi"/>
@@ -23,6 +14,7 @@
   <comment xml:lang="be">Прэзентацыя OpenOffice.org 1.0</comment>
   <comment xml:lang="bg">OpenOffice.org 1.0 – презентация</comment>
   <comment xml:lang="bn">OpenOffice.org 1.0 Presentation</comment>
+  <comment xml:lang="bn-IN">OpenOffice.org 1.0 উপস্থাপনা</comment>
   <comment xml:lang="br">Kinnigadenn mod OpenOffice.org 1.0</comment>
   <comment xml:lang="bs">OpenOffice.org 1.0 prezentacija</comment>
   <comment xml:lang="ca">Presentació de l'OpenOffice.org 1.0</comment>
@@ -51,11 +43,12 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Presentation</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 prezentacija</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 bemutató</comment>
+  <comment xml:lang="hy">OpenOffice.org 1.0 շնորհանդես</comment>
   <comment xml:lang="id">Presentasi OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 glærukynning</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Presentazione</comment>
   <comment xml:lang="ja">OpenOffice.org 1.0 プレゼンテーション</comment>
-  <comment xml:lang="ka">OpenOffice.org 1.0 Presentation</comment>
+  <comment xml:lang="ka">OpenOffice.org 1.0-ის პრეზენტაცია</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 презентациясы</comment>
   <comment xml:lang="km">បទ​បង្ហាញ OpenOffice.org 1.0</comment>
   <comment xml:lang="kmr-Latn">OpenOffice.org 1.0 Presentation</comment>
@@ -96,6 +89,7 @@
   <comment xml:lang="te">OpenOffice.org 1.0 Presentation</comment>
   <comment xml:lang="tg">OpenOffice.org 1.0 Presentation</comment>
   <comment xml:lang="th">งานนำเสนอ OpenOffice.org 1.0</comment>
+  <comment xml:lang="tl">Pagtatanghal ng OpenOffice.org 1.0</comment>
   <comment xml:lang="tn">OpenOffice.org 1.0 Presentation</comment>
   <comment xml:lang="tr">OpenOffice.org 1.0 Sunum</comment>
   <comment xml:lang="ts">OpenOffice.org 1.0 Presentation</comment>

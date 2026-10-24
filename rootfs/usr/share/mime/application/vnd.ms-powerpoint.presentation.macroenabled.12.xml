@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.ms-powerpoint.presentation.macroEnabled.12">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">PowerPoint 簡報</comment>
-  <comment xml:lang="zh_CN">PowerPoint 演示文稿</comment>
-  <comment xml:lang="sq">Prezantim PowerPoint</comment>
-  <comment xml:lang="pt_BR">Apresentação do PowerPoint</comment>
+  <comment xml:lang="zh-Hant-TW">PowerPoint 簡報</comment>
+  <comment xml:lang="zh-Hans-CN">PowerPoint 演示文稿</comment>
+  <comment xml:lang="sr-Cyrl">Пауер поинт презентација</comment>
+  <comment xml:lang="sq">paraqitje PowerPoint</comment>
+  <comment xml:lang="kk-Cyrl">PowerPoint презентациясы</comment>
   <comment xml:lang="ia">Presentation PowerPoint</comment>
   <comment xml:lang="fur">presentazion PowerPoint</comment>
   <comment xml:lang="fo">PowerPoint framløga</comment>
-  <comment xml:lang="en_GB">PowerPoint presentation</comment>
-  <comment xml:lang="be@latin">Prezentacyja PowerPoint</comment>
+  <comment xml:lang="be-Latn">Prezentacyja PowerPoint</comment>
+  <comment xml:lang="be-Cyrl">прэзентацыя PowerPoint</comment>
   <generic-icon name="x-office-presentation"/>
   <glob pattern="*.pptm"/>
   <sub-class-of type="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
@@ -22,6 +23,7 @@
   <comment xml:lang="be">Прэзентацыя Microsoft PowerPoint</comment>
   <comment xml:lang="bg">Microsoft PowerPoint – презентация</comment>
   <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা</comment>
+  <comment xml:lang="bn-IN">Microsoft PowerPoint উপস্থাপনা</comment>
   <comment xml:lang="br">Kinnigadenn mod Microsoft PowerPoint</comment>
   <comment xml:lang="bs">Microsoft PowerPoint prezentacija</comment>
   <comment xml:lang="ca">Presentació del Microsoft PowerPoint</comment>
@@ -50,11 +52,12 @@
   <comment xml:lang="hi">माइक्रोसॉफ़्ट पावर प्वाइंट प्रस्तुति</comment>
   <comment xml:lang="hr">Prezentacija Microsoft PowerPointa</comment>
   <comment xml:lang="hu">Microsoft PowerPoint-bemutató</comment>
+  <comment xml:lang="hy">Microsoft PowerPoint ներկայացում</comment>
   <comment xml:lang="id">Presentasi Microsoft PowerPoint</comment>
   <comment xml:lang="is">Microsoft PowerPoint glærukynning</comment>
   <comment xml:lang="it">Presentazione di Microsoft PowerPoint</comment>
   <comment xml:lang="ja">Microsoft PowerPoint プレゼンテーション</comment>
-  <comment xml:lang="ka">Microsoft PowerPoint Presentation</comment>
+  <comment xml:lang="ka">Microsoft PowerPoint-ის პრეზენტაცია</comment>
   <comment xml:lang="kk">Microsoft PowerPoint презентациясы</comment>
   <comment xml:lang="km">ការ​បង្ហាញ Microsoft PowerPoint</comment>
   <comment xml:lang="kmr-Latn">Microsoft PowerPoint Pêşkêşî</comment>
@@ -95,6 +98,7 @@
   <comment xml:lang="te">మైక్రోసాఫ్ట్ పవర్ పాయింట్ ప్రజంటేషన్ </comment>
   <comment xml:lang="tg">Баёнияи Microsoft PowerPoint</comment>
   <comment xml:lang="th">งานนำเสนอไมโครซอฟท์เพาเวอร์พอยนต์</comment>
+  <comment xml:lang="tl">Microsoft PowerPoint Presentation</comment>
   <comment xml:lang="tn">Microsoft Powerpoint Tshupetso</comment>
   <comment xml:lang="tr">Microsoft PowerPoint Sunumu</comment>
   <comment xml:lang="ts">Nkombiso wa Microsoft PowerPoint</comment>
@@ -102,7 +106,7 @@
   <comment xml:lang="uk">Презентація Microsoft PowerPoint</comment>
   <comment xml:lang="uz">Microsoft PowerPoint namoyishi</comment>
   <comment xml:lang="ve">Mukumedzo wa Microsoft PowerPoint</comment>
-  <comment xml:lang="vi">Trình chiếu MS PowerPoint</comment>
+  <comment xml:lang="vi">Bản trình bày Microsoft PowerPoint</comment>
   <comment xml:lang="xh">Umboniso-nkcazelo we-Microsoft PowerPoint</comment>
   <comment xml:lang="zh-CN">Microsoft PowerPoint 演示文稿</comment>
   <comment xml:lang="zh-TW">Microsoft PowerPoint 簡報</comment>

@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.writer">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice Writer 文件</comment>
-  <comment xml:lang="zh_CN">OpenOffice Writer 文档</comment>
-  <comment xml:lang="sq">Dokument OpenOffice Writer</comment>
-  <comment xml:lang="pt_BR">Documento do OpenOffice Writer</comment>
-  <comment xml:lang="ia">Documento OpenOffice Writer</comment>
-  <comment xml:lang="fur">document OpenOffice Writer</comment>
-  <comment xml:lang="fo">OpenOffice Writer skjal</comment>
-  <comment xml:lang="en_GB">OpenOffice Writer document</comment>
-  <comment xml:lang="be@latin">Dakument OpenOffice Writer</comment>
-  <comment xml:lang="az">OpenOffice Writer sənədi</comment>
+  <comment xml:lang="be-Cyrl">дакумент LibreOffice Writer</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.sxw"/>
@@ -23,6 +14,7 @@
   <comment xml:lang="be">Тэкставы дакумент OpenOffice.org 1.0</comment>
   <comment xml:lang="bg">OpenOffice.org 1.0 - текстов документ</comment>
   <comment xml:lang="bn">OpenOffice.org 1.0 Text Document</comment>
+  <comment xml:lang="bn-IN">OpenOffice.org 1.0 টেক্সট ডকুমেন্ট</comment>
   <comment xml:lang="br">Teul testenn mod OpenOffice.org 1.0</comment>
   <comment xml:lang="bs">OpenOffice.org 1.0 Tekst Dokument</comment>
   <comment xml:lang="ca">Document de text de l'OpenOffice.org 1.0</comment>
@@ -44,18 +36,19 @@
   <comment xml:lang="fr">Document texte OpenOffice.org 1.0</comment>
   <comment xml:lang="ga">Cáipéis Téacs OpenOffice.org 1.0</comment>
   <comment xml:lang="gd">Sgrìobhainn teacsa OpenOffice.org 1.0</comment>
-  <comment xml:lang="gl">Documento de texto de OpenOffice.org 1.0</comment>
+  <comment xml:lang="gl">Documento de texto do OpenOffice.org 1.0</comment>
   <comment xml:lang="gu">OpenOffice.org 1.0 લખાણ દસ્તાવેજ</comment>
   <comment xml:lang="gug">Documento Moñe'ẽrã OpenOffice.org 1.0</comment>
   <comment xml:lang="he">מסמך טקסט של OpenOffice.org 1.0</comment>
   <comment xml:lang="hi">OpenOffice.org 1.0 Text Document</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 tekst dokument</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 szöveges dokumentum</comment>
+  <comment xml:lang="hy">OpenOffice.org 1.0 տեքստային փաստաթուղթ</comment>
   <comment xml:lang="id">Dokumen Teks OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 textaskjal</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Documento di testo</comment>
   <comment xml:lang="ja">OpenOffice.org 1.0 文書ドキュメント</comment>
-  <comment xml:lang="ka">OpenOffice.org 1.0 Text Document</comment>
+  <comment xml:lang="ka">OpenOffice.org 1.0-ის ტექსტური დოკუმენტი</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 мәтіндік құжаты</comment>
   <comment xml:lang="km">ឯកសារ​អត្ថបទ OpenOffice.org 1.0</comment>
   <comment xml:lang="kmr-Latn">OpenOffice.org 1.0 Text Document</comment>
@@ -96,6 +89,7 @@
   <comment xml:lang="te">OpenOffice.org 1.0 Text Document</comment>
   <comment xml:lang="tg">OpenOffice.org 1.0 Text Document</comment>
   <comment xml:lang="th">เอกสารข้อความ OpenOffice.org 1.0</comment>
+  <comment xml:lang="tl">OpenOffice.org 1.0 Text Document</comment>
   <comment xml:lang="tn">OpenOffice.org 1.0 Text Document</comment>
   <comment xml:lang="tr">OpenOffice.org 1.0 Metin Belgesi</comment>
   <comment xml:lang="ts">OpenOffice.org 1.0 Text Document</comment>

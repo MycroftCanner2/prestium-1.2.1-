@@ -5,11 +5,11 @@
   <launchable type="desktop-id">vlc.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <name>VLC</name>
-  <name xml:lang="zh_TW">VLC</name>
-  <name xml:lang="zh_CN">VLC</name>
+  <name xml:lang="zh-Hant-TW">VLC</name>
+  <name xml:lang="zh-Hans-CN">VLC</name>
   <name xml:lang="wa">VLC</name>
   <name xml:lang="vi">VLC</name>
-  <name xml:lang="uz">VLC</name>
+  <name xml:lang="uz-Latn">VLC</name>
   <name xml:lang="uk">VLC</name>
   <name xml:lang="ug">VLC</name>
   <name xml:lang="tt">VLC</name>
@@ -19,14 +19,14 @@
   <name xml:lang="ta">VLC</name>
   <name xml:lang="sw">VLC</name>
   <name xml:lang="sv">VLC</name>
-  <name xml:lang="sr">VLC</name>
+  <name xml:lang="sr-Cyrl">VLC</name>
   <name xml:lang="sl">VLC</name>
   <name xml:lang="sk">VLC</name>
   <name xml:lang="si">VLC</name>
   <name xml:lang="ru">VLC</name>
   <name xml:lang="ro">VLC</name>
-  <name xml:lang="pt_PT">VLC</name>
-  <name xml:lang="pt_BR">VLC</name>
+  <name xml:lang="pt-PT">VLC</name>
+  <name xml:lang="pt-BR">VLC</name>
   <name xml:lang="pl">VLC</name>
   <name xml:lang="pa">VLC</name>
   <name xml:lang="oc">VLC</name>
@@ -36,17 +36,17 @@
   <name xml:lang="nb">VLC</name>
   <name xml:lang="ms">VLC</name>
   <name xml:lang="mr">व्हीएलसी</name>
-  <name xml:lang="mn">VLC</name>
+  <name xml:lang="mn-Cyrl">VLC</name>
   <name xml:lang="ml">വിഎല്‍സി</name>
   <name xml:lang="mai">VLC</name>
   <name xml:lang="lv">VLC</name>
   <name xml:lang="lt">VLC</name>
   <name xml:lang="ky">VLC</name>
-  <name xml:lang="ks_IN">VLC</name>
+  <name xml:lang="ks-Arab-IN">VLC</name>
   <name xml:lang="ko">VLC</name>
   <name xml:lang="kn">VLC</name>
   <name xml:lang="km">VLC</name>
-  <name xml:lang="kk">VLC</name>
+  <name xml:lang="kk-Cyrl">VLC</name>
   <name xml:lang="kab">VLC</name>
   <name xml:lang="ja">VLC</name>
   <name xml:lang="it">VLC</name>
@@ -68,7 +68,7 @@
   <name xml:lang="fa">وی‌ال‌سی</name>
   <name xml:lang="eu">VLC</name>
   <name xml:lang="et">VLC</name>
-  <name xml:lang="es_MX">VLC</name>
+  <name xml:lang="es-MX">VLC</name>
   <name xml:lang="es">VLC</name>
   <name xml:lang="eo">VLC</name>
   <name xml:lang="el">VLC</name>
@@ -77,19 +77,19 @@
   <name xml:lang="cy">VLC</name>
   <name xml:lang="cs">VLC</name>
   <name xml:lang="co">VLC</name>
-  <name xml:lang="ca@valencia">VLC</name>
+  <name xml:lang="ca-valencia">VLC</name>
   <name xml:lang="ca">VLC</name>
-  <name xml:lang="bs">VLC</name>
+  <name xml:lang="bs-Latn">VLC</name>
   <name xml:lang="brx">VLC</name>
   <name xml:lang="br">VLC</name>
   <name xml:lang="bn">VLC</name>
-  <name xml:lang="bn_IN">VLC</name>
-  <name xml:lang="be">VLC</name>
+  <name xml:lang="bn-IN">VLC</name>
+  <name xml:lang="be-Cyrl">VLC</name>
   <name xml:lang="ast">VLC</name>
   <name xml:lang="as">VLC</name>
   <name xml:lang="ar">VLC</name>
   <name xml:lang="an">VLC</name>
-  <name xml:lang="am_ET">ቪኤልሲ</name>
+  <name xml:lang="am-ET">ቪኤልሲ</name>
   <name xml:lang="af">VLC</name>
   <summary>VLC media player, the open-source multimedia player</summary>
   <description>
@@ -103,7 +103,7 @@
   <url type="bugtracker">https://trac.videolan.org/vlc/</url>
   <url type="donation">https://www.videolan.org/contribute.html</url>
   <releases>
-    <release version="3.0.23"/>
+    <release version="3.0.24" date="2026-09-17"/>
   </releases>
   <provides>
     <library>libvlc.so.5</library>
@@ -114,13 +114,13 @@
   <update_contact>vlc-devel -- videolan.org</update_contact>
   <screenshots>
     <screenshot type="default">
-      <image>http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-poney.jpg</image>
+      <image>https://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-poney.jpg</image>
     </screenshot>
     <screenshot>
-      <image>http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-gnome3-open.jpg</image>
+      <image>https://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-gnome3-open.jpg</image>
     </screenshot>
     <screenshot>
-      <image>http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-gnome3-debian.jpg</image>
+      <image>https://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-gnome3-debian.jpg</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1"/>

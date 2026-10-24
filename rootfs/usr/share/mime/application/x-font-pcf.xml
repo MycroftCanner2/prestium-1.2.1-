@@ -2,19 +2,20 @@
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-font-pcf">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
   <comment>PCF font</comment>
-  <comment xml:lang="zh_TW">PCF 字型</comment>
-  <comment xml:lang="zh_CN">PCF 字体</comment>
+  <comment xml:lang="zh-Hant-TW">PCF 字型</comment>
+  <comment xml:lang="zh-Hans-CN">PCF 字体</comment>
   <comment xml:lang="vi">Phông chữ PCF</comment>
   <comment xml:lang="uk">шрифт PCF</comment>
   <comment xml:lang="tr">PCF yazı tipi</comment>
   <comment xml:lang="sv">PCF-typsnitt</comment>
-  <comment xml:lang="sr">ПЦФ слова</comment>
-  <comment xml:lang="sq">Gërma PCF</comment>
+  <comment xml:lang="sr-Cyrl">ПЦФ слова</comment>
+  <comment xml:lang="sq">shkronja PCF</comment>
   <comment xml:lang="sl">Datoteka pisave PCF</comment>
+  <comment xml:lang="si">PCF අකුරු</comment>
   <comment xml:lang="sk">Písmo PCF</comment>
   <comment xml:lang="ru">Шрифт PCF</comment>
   <comment xml:lang="ro">Font PCF</comment>
-  <comment xml:lang="pt_BR">Fonte PCF</comment>
+  <comment xml:lang="pt-BR">Fonte PCF</comment>
   <comment xml:lang="pt">letra PCF</comment>
   <comment xml:lang="pl">Czcionka PCF</comment>
   <comment xml:lang="oc">poliça PCF</comment>
@@ -25,9 +26,10 @@
   <comment xml:lang="lv">PCF fonts</comment>
   <comment xml:lang="lt">PCF šriftas</comment>
   <comment xml:lang="ko">PCF 글꼴</comment>
-  <comment xml:lang="kk">PCF қарібі</comment>
+  <comment xml:lang="kk-Cyrl">PCF қарібі</comment>
   <comment xml:lang="ja">PCF フォント</comment>
   <comment xml:lang="it">Carattere PCF</comment>
+  <comment xml:lang="is">PCF letur</comment>
   <comment xml:lang="id">Fonta PCF</comment>
   <comment xml:lang="ia">Typo de litteras PCF</comment>
   <comment xml:lang="hu">PCF-betűkészlet</comment>
@@ -42,7 +44,7 @@
   <comment xml:lang="eu">PCF letra-tipoa</comment>
   <comment xml:lang="es">tipo de letra PCF</comment>
   <comment xml:lang="eo">PCF-tiparo</comment>
-  <comment xml:lang="en_GB">PCF font</comment>
+  <comment xml:lang="en-GB">PCF font</comment>
   <comment xml:lang="el">Γραμματοσειρά PCF</comment>
   <comment xml:lang="de">PCF-Schrift</comment>
   <comment xml:lang="da">PCF-skrifttype</comment>
@@ -50,7 +52,8 @@
   <comment xml:lang="cs">font PCF</comment>
   <comment xml:lang="ca">lletra PCF</comment>
   <comment xml:lang="bg">Шрифт — PCF</comment>
-  <comment xml:lang="be@latin">Šryft PCF</comment>
+  <comment xml:lang="be-Latn">Šryft PCF</comment>
+  <comment xml:lang="be-Cyrl">шрыфт PCF</comment>
   <comment xml:lang="az">PCF yazı növü</comment>
   <comment xml:lang="ar">خط PCF</comment>
   <comment xml:lang="af">PCF-skriftipe</comment>

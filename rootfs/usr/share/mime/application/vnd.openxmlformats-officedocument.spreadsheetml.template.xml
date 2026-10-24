@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.openxmlformats-officedocument.spreadsheetml.template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">Excel 2007 試算表範本</comment>
-  <comment xml:lang="zh_CN">Excel 2007 电子表格模板</comment>
-  <comment xml:lang="pt_BR">Modelo de planilha do Excel 2007</comment>
+  <comment xml:lang="zh-Hant-TW">Excel 2007 試算表範本</comment>
+  <comment xml:lang="zh-Hans-CN">Excel 2007 电子表格模板</comment>
+  <comment xml:lang="sr-Cyrl">шаблон табеле Ексела 2007</comment>
+  <comment xml:lang="sq">gjedhe fletëllogaritjesh Excel 2007</comment>
+  <comment xml:lang="kk-Cyrl">Excel 2007 кесте шаблоны</comment>
   <comment xml:lang="ia">Patrono de folio de calculo Excel 2007</comment>
   <comment xml:lang="fur">model sfuei di calcul Excel 2007</comment>
-  <comment xml:lang="en_GB">Excel 2007 spreadsheet template</comment>
+  <comment xml:lang="be-Cyrl">шаблон электроннай табліцы Excel 2007</comment>
   <glob pattern="*.xltx"/>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-spreadsheet"/>
@@ -19,6 +21,7 @@
   <comment xml:lang="be">Шаблон разліковага аркуша Microsoft Excel</comment>
   <comment xml:lang="bg">Microsoft Excel – шаблон за лист</comment>
   <comment xml:lang="bn">মাইক্রোসফট এক্সেল ওয়ার্কশীট ফর্মা</comment>
+  <comment xml:lang="bn-IN">Microsoft Excel Worksheet টেমপ্লেট</comment>
   <comment xml:lang="br">Patrom loger mod Microsoft Excel</comment>
   <comment xml:lang="bs">Microsoft Excel šablon radne tabele</comment>
   <comment xml:lang="ca">Plantilla de full del Microsoft Excel</comment>
@@ -26,7 +29,7 @@
   <comment xml:lang="cs">Šablona pracovního sešitu Microsoft Excel</comment>
   <comment xml:lang="cy">Templed Dalen Waith Microsoft Excel</comment>
   <comment xml:lang="da">Microsoft Excel-regnearksskabelon</comment>
-  <comment xml:lang="de">Microsoft Excel Arbeitsblattvorlage</comment>
+  <comment xml:lang="de">Microsoft Excel Tabellendokumentvorlage</comment>
   <comment xml:lang="dz">Microsoft Excel Worksheet Template</comment>
   <comment xml:lang="el">Πρότυπο φύλλου εργασίας του Microsoft Excel</comment>
   <comment xml:lang="en-GB">Microsoft Excel Worksheet Template</comment>
@@ -47,11 +50,12 @@
   <comment xml:lang="hi">माइक्रोसॉफ़्ट एक्सेल वर्कशीट नमूना ख़ाका</comment>
   <comment xml:lang="hr">Predložak za Microsoft Excel radni list</comment>
   <comment xml:lang="hu">Microsoft Excel-munkafüzetsablon</comment>
+  <comment xml:lang="hy">Microsoft Excel աշխատանքային թերթի ձևանմուշ</comment>
   <comment xml:lang="id">Templat Lembar Kerja Microsoft Excel</comment>
   <comment xml:lang="is">Microsoft Excel sniðmát fyrir töflureikniskjal</comment>
   <comment xml:lang="it">Modello di foglio di calcolo Microsoft Excel</comment>
   <comment xml:lang="ja">Microsoft Excel ワークシート テンプレート</comment>
-  <comment xml:lang="ka">Microsoft Excel Worksheet Template</comment>
+  <comment xml:lang="ka">Microsoft Excel-ის სამუშაო ცხრილის ნიმუში</comment>
   <comment xml:lang="kk">Microsoft Excel электрондық кесте үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​សន្លឹក​ការងារ Microsoft Excel</comment>
   <comment xml:lang="kmr-Latn">Microsoft Excel Şablona Rûpelê Xebatê</comment>
@@ -72,7 +76,7 @@
   <comment xml:lang="oc">Modèl de fuèlh de calcul Microsoft Excel</comment>
   <comment xml:lang="om">Qajojii Wardii Microsoft Excel</comment>
   <comment xml:lang="or">Microsoft Excel Worksheet ଢ଼ାଞ୍ଚା</comment>
-  <comment xml:lang="pa-IN">ਮਾਈਕਰੋਸਾਫਟ ਐਕਸਲ ਵਰਕਸ਼ੀਟ ਟੈਪਲੇਟ</comment>
+  <comment xml:lang="pa-IN">ਮਾਈਕਰੋਸਾਫਟ ਐਕਸਲ ਵਰਕਸ਼ੀਟ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon arkusza Microsoft Excel</comment>
   <comment xml:lang="pt">Modelo de livro do Microsoft Excel</comment>
   <comment xml:lang="pt-BR">Modelo de planilha do Microsoft Excel</comment>
@@ -92,6 +96,7 @@
   <comment xml:lang="te">మైక్రోసాఫ్ట్ ఎక్సెల్  వర్కుషీటు మూస</comment>
   <comment xml:lang="tg">Microsoft Excel Worksheet Template</comment>
   <comment xml:lang="th">แม่แบบตารางทำการไมโครซอฟท์เอ็กเซล</comment>
+  <comment xml:lang="tl">Template ng Microsoft Excel Worksheet</comment>
   <comment xml:lang="tn">Microsoft Excel Worksheet Template</comment>
   <comment xml:lang="tr">Microsoft Excel Çalışma Sayfası Şablonu</comment>
   <comment xml:lang="ts">Microsoft Excel Worksheet Template</comment>
@@ -99,7 +104,7 @@
   <comment xml:lang="uk">Шаблон аркуша Microsoft Excel</comment>
   <comment xml:lang="uz">Microsoft Excel shabloni</comment>
   <comment xml:lang="ve">Microsoft Excel Worksheet Template</comment>
-  <comment xml:lang="vi">Mẫu bảng công tác MS Excel</comment>
+  <comment xml:lang="vi">Bản mẫu Sổ làm việc Microsoft Excel</comment>
   <comment xml:lang="xh">Microsoft Excel Worksheet Template</comment>
   <comment xml:lang="zh-CN">Microsoft Excel 工作表模板</comment>
   <comment xml:lang="zh-TW">Microsoft Excel 工作表範本</comment>

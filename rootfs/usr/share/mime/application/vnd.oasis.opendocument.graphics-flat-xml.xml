@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.graphics-flat-xml">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">ODG 繪圖 (Flat XML)</comment>
-  <comment xml:lang="zh_CN">ODG 绘图（Flat XML）</comment>
-  <comment xml:lang="pt_BR">Desenho ODG (Flat XML)</comment>
+  <comment xml:lang="zh-Hant-TW">ODG 繪圖 (Flat XML)</comment>
+  <comment xml:lang="zh-Hans-CN">ODG 绘图（Flat XML）</comment>
+  <comment xml:lang="sr-Cyrl">ОДГ цртеж (Обичан ИксМЛ)</comment>
+  <comment xml:lang="sq">vizatim ODF (Flat XML)</comment>
+  <comment xml:lang="kk-Cyrl">ODG сызбасы (Тек XML)</comment>
   <comment xml:lang="ia">Designo ODG (XML platte)</comment>
   <comment xml:lang="fur">dissen ODG (XML sempliç)</comment>
   <comment xml:lang="fo">ODG tekning (Flat XML)</comment>
-  <comment xml:lang="en_GB">ODG drawing (Flat XML)</comment>
+  <comment xml:lang="be-Cyrl">рысунак ODG (плоскі XML)</comment>
   <acronym>FODG</acronym>
   <expanded-acronym>OpenDocument Drawing (Flat XML)</expanded-acronym>
   <sub-class-of type="application/xml"/>
@@ -22,6 +24,7 @@
   <comment xml:lang="be">Рысунак OpenDocument (просты XML)</comment>
   <comment xml:lang="bg">OpenDocument – рисунка (плосък XML)</comment>
   <comment xml:lang="bn">OpenDocument Drawing (Flat XML)</comment>
+  <comment xml:lang="bn-IN">OpenDocument চিত্র (Flat XML)</comment>
   <comment xml:lang="br">Patrom kinnigadenn mod OpenDocument (XML plat)</comment>
   <comment xml:lang="bs">OtvoreniDokument Crtanje (Flat XML)</comment>
   <comment xml:lang="ca">Dibuix OpenDocument (XML pla)</comment>
@@ -29,7 +32,7 @@
   <comment xml:lang="cs">Kresba OpenDocument (Flat XML)</comment>
   <comment xml:lang="cy">Lluniadu OpenDocument (XML Gwastad)</comment>
   <comment xml:lang="da">OpenDocument tegning (Flad XML)</comment>
-  <comment xml:lang="de">OpenDocument-Zeichnung (Flat XML)</comment>
+  <comment xml:lang="de">OpenDocument Zeichnung (Flat XML)</comment>
   <comment xml:lang="dz">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="el">Σχέδιο OpenDocument (απλό XML)</comment>
   <comment xml:lang="en-GB">OpenDocument Drawing (Flat XML)</comment>
@@ -50,11 +53,12 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट प्रस्तुति रेखाचित्र (फ्लैट XML)</comment>
   <comment xml:lang="hr">OpenDocument crtež (običan XML)</comment>
   <comment xml:lang="hu">OpenDocument-rajz (FLAT XML)</comment>
+  <comment xml:lang="hy">OpenDocument գծանկար (հարթ XML)</comment>
   <comment xml:lang="id">Gambar OpenDocument (XML Flat)</comment>
   <comment xml:lang="is">OpenDocument teikning (flatt XML)</comment>
   <comment xml:lang="it">Disegno OpenDocument (XML semplice)</comment>
   <comment xml:lang="ja">OpenDocument 図形描画 (Flat XML)</comment>
-  <comment xml:lang="ka">OpenDocument პრეზენტაციის შაბლონი</comment>
+  <comment xml:lang="ka">OpenDocument ნახატი (ბრტყელი XML)</comment>
   <comment xml:lang="kk">OpenDocument суреті (жалпақ XML)</comment>
   <comment xml:lang="km">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="kmr-Latn">OpenDocument Drawing (Flat XML)</comment>
@@ -95,6 +99,7 @@
   <comment xml:lang="te">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="tg">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="th">งานวาดของ OpenDocument (Flat XML)</comment>
+  <comment xml:lang="tl">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="tn">OpenDocument Drawing (Flat XML)</comment>
   <comment xml:lang="tr">OpenDocument Çizimi (Düz XML)</comment>
   <comment xml:lang="ts">OpenDocument Drawing (Flat XML)</comment>

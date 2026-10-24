@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.draw.template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice Draw 範本</comment>
-  <comment xml:lang="zh_CN">OpenOffice Draw 模板</comment>
-  <comment xml:lang="sq">Model OpenOffice Draw</comment>
-  <comment xml:lang="pt_BR">Modelo do OpenOffice Draw</comment>
-  <comment xml:lang="ia">Patrono OpenOffice Draw</comment>
-  <comment xml:lang="fur">model OpenOffice Draw </comment>
-  <comment xml:lang="fo">OpenOffice Draw formur</comment>
-  <comment xml:lang="en_GB">OpenOffice Draw template</comment>
-  <comment xml:lang="be@latin">Šablon OpenOffice Draw</comment>
+  <comment xml:lang="be-Cyrl">шаблон LibreOffice Draw</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="image-x-generic"/>
   <glob pattern="*.std"/>
@@ -22,6 +14,7 @@
   <comment xml:lang="be">Шаблон рысунка OpenOffice.org 1.0</comment>
   <comment xml:lang="bg">OpenOffice.org 1.0 – шаблон за рисунка</comment>
   <comment xml:lang="bn">OpenOffice.org 1.0 Drawing Template</comment>
+  <comment xml:lang="bn-IN">OpenOffice.org 1.0 অঙ্কন টেমপ্লেট</comment>
   <comment xml:lang="br">Patrom tresadenn OpenOffice.org 1.0</comment>
   <comment xml:lang="bs">OpenOffice.org 1.0 šablon crteža</comment>
   <comment xml:lang="ca">Plantilla de dibuix de l'OpenOffice.org 1.0</comment>
@@ -50,11 +43,12 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Drawing Template</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 predložak crteža</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 rajzsablon</comment>
+  <comment xml:lang="hy">OpenOffice.org 1.0 գծապատկերի ձևանմուշ</comment>
   <comment xml:lang="id">Templat Gambar OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 sniðmát fyrir teikningu</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Modello di disegno</comment>
   <comment xml:lang="ja">OpenOffice.org 1.0 図形描画 テンプレート</comment>
-  <comment xml:lang="ka">OpenOffice.org 1.0 Drawing Template</comment>
+  <comment xml:lang="ka">OpenOffice.org 1.0-ის ნახაზის ნიმუში</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 сурет үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​គំនូរ OpenOffice.org 1.0</comment>
   <comment xml:lang="kmr-Latn">OpenOffice.org 1.0 Drawing Template</comment>
@@ -95,6 +89,7 @@
   <comment xml:lang="te">OpenOffice.org 1.0 Drawing Template</comment>
   <comment xml:lang="tg">OpenOffice.org 1.0 Drawing Template</comment>
   <comment xml:lang="th">แม่แบบภาพวาด OpenOffice.org 1.0</comment>
+  <comment xml:lang="tl">OpenOffice.org 1.0 Drawing Template</comment>
   <comment xml:lang="tn">OpenOffice.org 1.0 Drawing Template</comment>
   <comment xml:lang="tr">OpenOffice.org 1.0 Çizim Şablonu</comment>
   <comment xml:lang="ts">OpenOffice.org 1.0 Drawing Template</comment>

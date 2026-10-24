@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.text-master">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">ODM 文件</comment>
-  <comment xml:lang="zh_CN">ODM 文档</comment>
-  <comment xml:lang="sq">Dokument ODM</comment>
-  <comment xml:lang="pt_BR">Documento ODM</comment>
+  <comment xml:lang="zh-Hant-TW">ODM 文件</comment>
+  <comment xml:lang="zh-Hans-CN">ODM 文档</comment>
+  <comment xml:lang="sr-Cyrl">ОДМ документ</comment>
+  <comment xml:lang="sq">dokument ODM</comment>
+  <comment xml:lang="kk-Cyrl">ODM құжаты</comment>
   <comment xml:lang="ia">Documento ODM</comment>
   <comment xml:lang="fur">document ODM</comment>
   <comment xml:lang="fo">ODM skjal</comment>
-  <comment xml:lang="en_GB">ODM document</comment>
-  <comment xml:lang="be@latin">Dakument ODM</comment>
+  <comment xml:lang="be-Latn">Dakument ODM</comment>
+  <comment xml:lang="be-Cyrl">дакумент ODM</comment>
   <acronym>ODM</acronym>
   <expanded-acronym>OpenDocument Master</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -24,6 +25,7 @@
   <comment xml:lang="be">Майстар-дакумент OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – главен документ</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট মাস্টার নথি</comment>
+  <comment xml:lang="bn-IN">OpenDocument Master ডকুমেন্ট</comment>
   <comment xml:lang="br">Teul mestr mod OpenDocument</comment>
   <comment xml:lang="bs">OpenDocument master dokument</comment>
   <comment xml:lang="ca">Document mestre OpenDocument</comment>
@@ -37,7 +39,7 @@
   <comment xml:lang="en-GB">OpenDocument Master Document</comment>
   <comment xml:lang="en-ZA">OpenDocument Master Document</comment>
   <comment xml:lang="eo">Ĉefa dokumento de OpenDocument</comment>
-  <comment xml:lang="es">Patrón de documento OpenDocument</comment>
+  <comment xml:lang="es">Documento maestro OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-põhidokument</comment>
   <comment xml:lang="eu">OpenDocument dokumentu maisua</comment>
   <comment xml:lang="fa">نوشتار اصلی نوشتارباز</comment>
@@ -52,11 +54,12 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट मुख्य दस्तावेज़</comment>
   <comment xml:lang="hr">OpenDocument nadzorni dokument</comment>
   <comment xml:lang="hu">OpenDocument-fődokumentum</comment>
+  <comment xml:lang="hy">OpenDocument հիմնական փաստաթուղթ</comment>
   <comment xml:lang="id">Dokumen Induk OpenDocument</comment>
   <comment xml:lang="is">OpenDocument stýriskjal</comment>
   <comment xml:lang="it">Documento master OpenDocument</comment>
   <comment xml:lang="ja">OpenDocument マスタードキュメント</comment>
-  <comment xml:lang="ka">OpenDocument მთავარი დოკუმენტი</comment>
+  <comment xml:lang="ka">OpenDocument-ის მთავარი დოკუმენტი</comment>
   <comment xml:lang="kk">OpenDocument құрамдас құжаты</comment>
   <comment xml:lang="km">ឯកសារ​មេ OpenDocument</comment>
   <comment xml:lang="kmr-Latn">OpenDocument Makebelge</comment>
@@ -97,6 +100,7 @@
   <comment xml:lang="te">ఓపెన్ డాక్యుమెంట్ మాస్టర్ పత్రము</comment>
   <comment xml:lang="tg">Ҳуҷҷати асосии OpenDocument</comment>
   <comment xml:lang="th">เอกสารเค้าโครงหลัก OpenDocument</comment>
+  <comment xml:lang="tl">OpenDocument Master Document</comment>
   <comment xml:lang="tn">OpenDocument Master Document</comment>
   <comment xml:lang="tr">OpenDocument Ana Belge</comment>
   <comment xml:lang="ts">OpenDocument ya Dokumente-nkulu</comment>

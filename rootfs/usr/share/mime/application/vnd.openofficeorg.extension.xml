@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.openofficeorg.extension">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice.org 擴充套件</comment>
-  <comment xml:lang="zh_CN">OpenOffice.org 扩展</comment>
-  <comment xml:lang="sq">Shtojcë për OpenOffice.org</comment>
-  <comment xml:lang="pt_BR">Extensão do OpenOffice</comment>
+  <comment xml:lang="zh-Hant-TW">OpenOffice.org 擴充套件</comment>
+  <comment xml:lang="zh-Hans-CN">OpenOffice.org 扩展</comment>
+  <comment xml:lang="sr-Cyrl">проширење ОпенОфис.орг-а</comment>
+  <comment xml:lang="sq">zgjerim OpenOffice.org</comment>
+  <comment xml:lang="kk-Cyrl">OpenOffice.org кеңейтуі</comment>
   <comment xml:lang="ia">Extension OpenOffice.org</comment>
   <comment xml:lang="fur">estension OpenOffice.org</comment>
   <comment xml:lang="fo">OpenOffice.org víðkan</comment>
-  <comment xml:lang="en_GB">OpenOffice.org extension</comment>
-  <comment xml:lang="be@latin">Pašyreńnie OpenOffice.org</comment>
+  <comment xml:lang="be-Latn">Pašyreńnie OpenOffice.org</comment>
+  <comment xml:lang="be-Cyrl">пашырэнне OpenOffice.org</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.oxt"/>
@@ -22,6 +23,7 @@
   <comment xml:lang="be">Прыстаўка LibreOffice</comment>
   <comment xml:lang="bg">Разширение на LibreOffice</comment>
   <comment xml:lang="bn">LibreOffice বর্ধিতাংশ</comment>
+  <comment xml:lang="bn-IN">LibreOffice এক্সটেনশন</comment>
   <comment xml:lang="br">Askouezh LibreOffice</comment>
   <comment xml:lang="bs">Dodatak za LibreOffice</comment>
   <comment xml:lang="ca">Extensió del LibreOffice</comment>
@@ -50,11 +52,12 @@
   <comment xml:lang="hi">LibreOffice विस्तार</comment>
   <comment xml:lang="hr">Dodatak za LibreOffice</comment>
   <comment xml:lang="hu">LibreOffice-kiterjesztés</comment>
+  <comment xml:lang="hy">LibreOffice ընդլայնում</comment>
   <comment xml:lang="id">Ekstensi LibreOffice</comment>
   <comment xml:lang="is">LibreOffice viðbót</comment>
   <comment xml:lang="it">Estensione di LibreOffice</comment>
   <comment xml:lang="ja">LibreOffice 拡張機能</comment>
-  <comment xml:lang="ka">LibreOffice Extension</comment>
+  <comment xml:lang="ka">LibreOffice-ის გაფართოება</comment>
   <comment xml:lang="kk">LibreOffice кеңейтуі</comment>
   <comment xml:lang="km">ផ្នែក​បន្ថែម LibreOffice</comment>
   <comment xml:lang="kmr-Latn">LibreOffice Pêvek</comment>
@@ -75,7 +78,7 @@
   <comment xml:lang="oc">Extension LibreOffice</comment>
   <comment xml:lang="om">Dheertoo LibreOffice</comment>
   <comment xml:lang="or">LibreOffice ଅନୁଲଗ୍ନ</comment>
-  <comment xml:lang="pa-IN">LibreOffice ਐਕਸਟੇਸ਼ਨ</comment>
+  <comment xml:lang="pa-IN">LibreOffice ਇਕਸਟੈਨਸ਼ਨ</comment>
   <comment xml:lang="pl">Rozszerzenie programu LibreOffice</comment>
   <comment xml:lang="pt">Extensão do LibreOffice</comment>
   <comment xml:lang="pt-BR">Extensão do LibreOffice</comment>
@@ -95,6 +98,7 @@
   <comment xml:lang="te">LibreOffice పొడిగింపు</comment>
   <comment xml:lang="tg">Иловаи LibreOffice</comment>
   <comment xml:lang="th">ส่วนขยาย LibreOffice</comment>
+  <comment xml:lang="tl">LibreOffice Extension</comment>
   <comment xml:lang="tn">LibreOffice Extension</comment>
   <comment xml:lang="tr">LibreOffice Eklentisi</comment>
   <comment xml:lang="ts">LibreOffice Extension</comment>

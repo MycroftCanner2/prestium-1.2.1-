@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.graphics">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">ODG 繪圖</comment>
-  <comment xml:lang="zh_CN">ODG 绘图</comment>
-  <comment xml:lang="sq">Vizatim ODG</comment>
-  <comment xml:lang="pt_BR">Desenho ODG</comment>
+  <comment xml:lang="zh-Hant-TW">ODG 繪圖</comment>
+  <comment xml:lang="zh-Hans-CN">ODG 绘图</comment>
+  <comment xml:lang="sr-Cyrl">ОДГ цртеж</comment>
+  <comment xml:lang="sq">vizatim ODG</comment>
+  <comment xml:lang="kk-Cyrl">ODG суреті</comment>
   <comment xml:lang="ia">Designo ODG</comment>
   <comment xml:lang="fur">dissen ODG</comment>
   <comment xml:lang="fo">ODG tekning</comment>
-  <comment xml:lang="en_GB">ODG drawing</comment>
-  <comment xml:lang="be@latin">Rysunak ODG</comment>
+  <comment xml:lang="be-Latn">Rysunak ODG</comment>
+  <comment xml:lang="be-Cyrl">рысунак ODG</comment>
   <acronym>ODG</acronym>
   <expanded-acronym>OpenDocument Drawing</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -24,6 +25,7 @@
   <comment xml:lang="be">Рысунак OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – рисунка</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট অঙ্কন</comment>
+  <comment xml:lang="bn-IN">OpenDocument চিত্র</comment>
   <comment xml:lang="br">Tresadenn mod OpenDocument</comment>
   <comment xml:lang="bs">OpenDocument crtež</comment>
   <comment xml:lang="ca">Dibuix OpenDocument</comment>
@@ -52,11 +54,12 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट रेखाचित्र</comment>
   <comment xml:lang="hr">OpenDocument crtež</comment>
   <comment xml:lang="hu">OpenDocument-rajz</comment>
+  <comment xml:lang="hy">OpenDocument գծանկար</comment>
   <comment xml:lang="id">Gambar OpenDocument</comment>
   <comment xml:lang="is">OpenDocument teikning</comment>
   <comment xml:lang="it">Disegno OpenDocument</comment>
   <comment xml:lang="ja">OpenDocument 図形描画</comment>
-  <comment xml:lang="ka">OpenDocument ნახატი</comment>
+  <comment xml:lang="ka">OpenDocument ნახაზი</comment>
   <comment xml:lang="kk">OpenDocument суреті</comment>
   <comment xml:lang="km">គំនូរ OpenDocument</comment>
   <comment xml:lang="kmr-Latn">OpenDocument Xêzkirin</comment>
@@ -97,6 +100,7 @@
   <comment xml:lang="te">ఓపెన్ డాక్యుమెంట్ చిత్రలేఖనము</comment>
   <comment xml:lang="tg">Тасвири OpenDocument</comment>
   <comment xml:lang="th">การวาด OpenDocument</comment>
+  <comment xml:lang="tl">Pagguhit ng OpenDocument</comment>
   <comment xml:lang="tn">OpenDocument Drawing</comment>
   <comment xml:lang="tr">OpenDocument Çizim</comment>
   <comment xml:lang="ts">OpenDocument ya Vudirowi</comment>

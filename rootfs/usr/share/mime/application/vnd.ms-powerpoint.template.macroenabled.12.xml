@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.ms-powerpoint.template.macroEnabled.12">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">PowerPoint 簡報範本</comment>
-  <comment xml:lang="zh_CN">PowerPoint 演示文稿模板</comment>
-  <comment xml:lang="pt_BR">Modelo de apresentação do PowerPoint</comment>
+  <comment xml:lang="zh-Hant-TW">PowerPoint 簡報範本</comment>
+  <comment xml:lang="zh-Hans-CN">PowerPoint 演示文稿模板</comment>
+  <comment xml:lang="sr-Cyrl">Шаблон презентације Пауер поинта</comment>
+  <comment xml:lang="sq">gjedhe paraqitjeje PowerPoint</comment>
+  <comment xml:lang="kk-Cyrl">PowerPoint презентация үлгісі</comment>
   <comment xml:lang="ia">Patrono de presentation PowerPoint</comment>
   <comment xml:lang="fur">model di presentazion PowerPoint</comment>
-  <comment xml:lang="en_GB">PowerPoint presentation template</comment>
+  <comment xml:lang="be-Cyrl">шаблон прэзентацыі PowerPoint</comment>
   <generic-icon name="x-office-presentation"/>
   <glob pattern="*.potm"/>
   <sub-class-of type="application/vnd.openxmlformats-officedocument.presentationml.template"/>
@@ -19,6 +21,7 @@
   <comment xml:lang="be">Шаблон прэзентацыі Microsoft PowerPoint</comment>
   <comment xml:lang="bg">Microsoft PowerPoint – шаблон за презентация</comment>
   <comment xml:lang="bn">মাইক্রোসফট পাওয়ার-পয়েন্ট উপস্থাপনা ফর্মা</comment>
+  <comment xml:lang="bn-IN">Microsoft PowerPoint Presentation টেমপ্লেট</comment>
   <comment xml:lang="br">Patrom kinnigadenn mod Microsoft PowerPoint</comment>
   <comment xml:lang="bs">Microsoft PowerPoint šablon za prezentaciju</comment>
   <comment xml:lang="ca">Plantilla de presentació del Microsoft PowerPoint</comment>
@@ -47,11 +50,12 @@
   <comment xml:lang="hi">माइक्रोसॉफ़्ट पावर प्वाइंट प्रस्तुति नमूना ख़ाका</comment>
   <comment xml:lang="hr">Predložak prezentacije Microsoft PowerPointa</comment>
   <comment xml:lang="hu">Microsoft PowerPoint-bemutatósablon</comment>
+  <comment xml:lang="hy">Microsoft PowerPoint ներկայացման ձևանմուշ</comment>
   <comment xml:lang="id">Templat Presentasi Microsoft PowerPoint</comment>
   <comment xml:lang="is">Microsoft PowerPoint sniðmát fyrir glærukynningu</comment>
   <comment xml:lang="it">Modello di presentazione di Microsoft PowerPoint</comment>
   <comment xml:lang="ja">Microsoft PowerPoint プレゼンテーション テンプレート</comment>
-  <comment xml:lang="ka">Microsoft PowerPoint Presentation Template</comment>
+  <comment xml:lang="ka">Microsoft PowerPoint-ის პრეზენტაციის ნიმუში</comment>
   <comment xml:lang="kk">Microsoft PowerPoint презентация үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​ការ​បង្ហាញ Microsoft PowerPoint</comment>
   <comment xml:lang="kmr-Latn">Microsoft PowerPoint Şablona Pêşkêşiyê</comment>
@@ -72,7 +76,7 @@
   <comment xml:lang="oc">Modèl de presentacion Microsoft PowerPoint</comment>
   <comment xml:lang="om">Qajojii Dhiheessa Microsoft PowerPoint</comment>
   <comment xml:lang="or">Microsoft PowerPoint ଉପସ୍ଥାପନ ଢ଼ାଞ୍ଚା</comment>
-  <comment xml:lang="pa-IN">ਮਾਈਕਰੋਸਾਫਟ ਪਾਵਰ-ਪੁਆਇੰਟ ਪਰਿਜੈਂਟੇਸ਼ਨ ਟੈਪਲੇਟ</comment>
+  <comment xml:lang="pa-IN">ਮਾਈਕਰੋਸਾਫਟ ਪਾਵਰ-ਪੁਆਇੰਟ ਪਰਿਜੈਂਟੇਸ਼ਨ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon prezentacji Microsoft PowerPoint</comment>
   <comment xml:lang="pt">Modelo de apresentação do Microsoft PowerPoint</comment>
   <comment xml:lang="pt-BR">Modelo de apresentação do Microsoft PowerPoint</comment>
@@ -92,6 +96,7 @@
   <comment xml:lang="te">మైక్రోసాఫ్ట్ పవర్ పాయింట్ ప్రజంటేషన్  మూస</comment>
   <comment xml:lang="tg">Microsoft PowerPoint Presentation Template</comment>
   <comment xml:lang="th">แม่แบบงานนำเสนอไมโครซอฟท์เพาเวอร์พอยนต์</comment>
+  <comment xml:lang="tl">Template ng Presentasyon ng Microsoft PowerPoint</comment>
   <comment xml:lang="tn">Microsoft PowerPoint Presentation Template</comment>
   <comment xml:lang="tr">Microsoft PowerPoint Sunum Şablonu</comment>
   <comment xml:lang="ts">Microsoft PowerPoint Presentation Template</comment>
@@ -99,7 +104,7 @@
   <comment xml:lang="uk">Шаблон презентації Microsoft PowerPoint</comment>
   <comment xml:lang="uz">Microsoft PowerPoint namoyishi shabloni</comment>
   <comment xml:lang="ve">Microsoft PowerPoint Presentation Template</comment>
-  <comment xml:lang="vi">Mẫu trình chiếu MS PowerPoint</comment>
+  <comment xml:lang="vi">Bản mẫu Bản trình bày Microsoft PowerPoint</comment>
   <comment xml:lang="xh">Microsoft PowerPoint Presentation Template</comment>
   <comment xml:lang="zh-CN">Microsoft PowerPoint 演示文稿模板</comment>
   <comment xml:lang="zh-TW">Microsoft PowerPoint 簡報範本</comment>

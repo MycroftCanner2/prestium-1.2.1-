@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.spreadsheet-template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">ODS 範本</comment>
-  <comment xml:lang="zh_CN">ODS 模板</comment>
-  <comment xml:lang="sq">Model ODS</comment>
-  <comment xml:lang="pt_BR">Modelo ODS</comment>
+  <comment xml:lang="zh-Hant-TW">ODS 範本</comment>
+  <comment xml:lang="zh-Hans-CN">ODS 模板</comment>
+  <comment xml:lang="sr-Cyrl">ОДС шаблон</comment>
+  <comment xml:lang="sq">gjedhe ODS</comment>
+  <comment xml:lang="kk-Cyrl">ODS үлгісі</comment>
   <comment xml:lang="ia">Patrono ODS</comment>
   <comment xml:lang="fur">model ODS</comment>
   <comment xml:lang="fo">ODS formur</comment>
-  <comment xml:lang="en_GB">ODS template</comment>
-  <comment xml:lang="be@latin">Šablon ODS</comment>
+  <comment xml:lang="be-Latn">Šablon ODS</comment>
+  <comment xml:lang="be-Cyrl">шаблон ODS</comment>
   <acronym>ODS</acronym>
   <expanded-acronym>OpenDocument Spreadsheet</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -24,6 +25,7 @@
   <comment xml:lang="be">Шаблон разліковага аркушу OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – шаблон за електронна таблица</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট স্প্রেডশীট ফর্মা</comment>
+  <comment xml:lang="bn-IN">OpenDocument স্প্রেড-শিট টেমপ্লেট</comment>
   <comment xml:lang="br">Patrom renkell mod OpenDocument</comment>
   <comment xml:lang="bs">OpenDocument šablon tabličnog proračuna</comment>
   <comment xml:lang="ca">Plantilla de full de càlcul OpenDocument</comment>
@@ -52,11 +54,12 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट स्प्रेडशीट नमूना</comment>
   <comment xml:lang="hr">OpenDocument predložak proračunske tablice</comment>
   <comment xml:lang="hu">OpenDocument-munkafüzetsablon</comment>
+  <comment xml:lang="hy">OpenDocument էլեկտրոնային աղյուսակի ձևանմուշ</comment>
   <comment xml:lang="id">Templat Lembar Sebar OpenDocument</comment>
   <comment xml:lang="is">OpenDocument sniðmát fyrir töflureikniskjal</comment>
   <comment xml:lang="it">Modello di foglio elettronico OpenDocument</comment>
   <comment xml:lang="ja">OpenDocument 表計算 テンプレート</comment>
-  <comment xml:lang="ka">OpenDocument ცხრილის შაბლონი</comment>
+  <comment xml:lang="ka">OpenDocument ელცხრილის ნიმუში</comment>
   <comment xml:lang="kk">OpenDocument электрондық кесте үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​សៀវភៅ​បញ្ជី OpenDocument</comment>
   <comment xml:lang="kmr-Latn">OpenDocument Şablona Taboya Hesêb</comment>
@@ -77,7 +80,7 @@
   <comment xml:lang="oc">Modèl de classador OpenDocument</comment>
   <comment xml:lang="om">Qajojii Wardii OpenDocument</comment>
   <comment xml:lang="or">ଖୋଲାଦଲିଲ ସ୍ପ୍ରେଡ୍ସିଟ୍ ନମୁନା </comment>
-  <comment xml:lang="pa-IN">ਓਪਨ-ਡੌਕੂਮੈਂਟ ਸਪਰੈੱਡਸ਼ੀਟ ਟੈਪਲੇਟ</comment>
+  <comment xml:lang="pa-IN">ਓਪਨ-ਡੌਕੂਮੈਂਟ ਸਪਰੈਡਸ਼ੀਟ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon arkusza kalkulacyjnego OpenDocument</comment>
   <comment xml:lang="pt">Modelo de folha de cálculo OpenDocument</comment>
   <comment xml:lang="pt-BR">Modelo de planilha OpenDocument</comment>
@@ -97,6 +100,7 @@
   <comment xml:lang="te">ఓపెన్ డాక్యుమెంట్ స్ర్పెడ్ షీట్ మూస</comment>
   <comment xml:lang="tg">Қолаби ҷадвали электронии OpenDocument</comment>
   <comment xml:lang="th">แม่แบบตารางคำนวณของ OpenDocument</comment>
+  <comment xml:lang="tl">Template ng OpenDocument Spreadsheet</comment>
   <comment xml:lang="tn">OpenDocument Spreadsheet Template</comment>
   <comment xml:lang="tr">OpenDocument Hesap Tablosu Şablonu</comment>
   <comment xml:lang="ts">OpenDocument ya Xikomba-ndlela xa Xipredxiti</comment>

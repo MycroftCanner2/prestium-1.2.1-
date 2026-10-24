@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.draw">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice Draw 繪圖</comment>
-  <comment xml:lang="zh_CN">OpenOffice Draw 绘图</comment>
-  <comment xml:lang="sq">Vizatim OpenOffice Draw</comment>
-  <comment xml:lang="pt_BR">Desenho do OpenOffice Draw</comment>
-  <comment xml:lang="ia">Designo OpenOffice Draw</comment>
-  <comment xml:lang="fur">dissen OpenOffice Draw</comment>
-  <comment xml:lang="fo">OpenOffice Draw tekning</comment>
-  <comment xml:lang="en_GB">OpenOffice Draw drawing</comment>
-  <comment xml:lang="be@latin">Rysunak OpenOffice Draw</comment>
+  <comment xml:lang="be-Cyrl">рысунак LibreOffice Draw</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="image-x-generic"/>
   <glob pattern="*.sxd"/>
@@ -22,6 +14,7 @@
   <comment xml:lang="be">Рысунак OpenOffice.org 1.0</comment>
   <comment xml:lang="bg">OpenOffice.org 1.0 – рисунка</comment>
   <comment xml:lang="bn">OpenOffice.org 1.0 Drawing</comment>
+  <comment xml:lang="bn-IN">OpenOffice.org 1.0 অঙ্কন</comment>
   <comment xml:lang="br">Tresadenn mod OpenOffice.org 1.0</comment>
   <comment xml:lang="bs">OpenOffice.org 1.0 crtež</comment>
   <comment xml:lang="ca">Dibuix de l'OpenOffice.org 1.0</comment>
@@ -50,11 +43,12 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 crtež</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 rajz</comment>
+  <comment xml:lang="hy">OpenOffice.org 1.0 գծապատկեր</comment>
   <comment xml:lang="id">Gambar OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 teikning</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Disegno</comment>
   <comment xml:lang="ja">OpenOffice.org 1.0 図形描画</comment>
-  <comment xml:lang="ka">OpenOffice.org 1.0 Drawing</comment>
+  <comment xml:lang="ka">OpenOffice.org 1.0-ის ნახაზი</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 суреті</comment>
   <comment xml:lang="km">គំនូរ OpenOffice.org 1.0</comment>
   <comment xml:lang="kmr-Latn">OpenOffice.org 1.0 Drawing</comment>
@@ -95,6 +89,7 @@
   <comment xml:lang="te">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="tg">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="th">ภาพวาด OpenOffice.org 1.0</comment>
+  <comment xml:lang="tl">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="tn">OpenOffice.org 1.0 Drawing</comment>
   <comment xml:lang="tr">OpenOffice.org 1.0 Çizim</comment>
   <comment xml:lang="ts">OpenOffice.org 1.0 Drawing</comment>

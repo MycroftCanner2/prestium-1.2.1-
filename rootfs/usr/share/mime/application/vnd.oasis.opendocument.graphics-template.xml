@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.graphics-template">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">ODG 範本</comment>
-  <comment xml:lang="zh_CN">ODG 模板</comment>
-  <comment xml:lang="sq">Model ODG</comment>
-  <comment xml:lang="pt_BR">Modelo ODG</comment>
+  <comment xml:lang="zh-Hant-TW">ODG 範本</comment>
+  <comment xml:lang="zh-Hans-CN">ODG 模板</comment>
+  <comment xml:lang="sr-Cyrl">ОДГ шаблон</comment>
+  <comment xml:lang="sq">gjedhe ODG</comment>
+  <comment xml:lang="kk-Cyrl">ODG үлгісі</comment>
   <comment xml:lang="ia">Patrono ODG</comment>
   <comment xml:lang="fur">model ODG</comment>
   <comment xml:lang="fo">ODG formur</comment>
-  <comment xml:lang="en_GB">ODG template</comment>
-  <comment xml:lang="be@latin">Šablon ODG</comment>
+  <comment xml:lang="be-Latn">Šablon ODG</comment>
+  <comment xml:lang="be-Cyrl">шаблон ODG</comment>
   <acronym>ODG</acronym>
   <expanded-acronym>OpenDocument Drawing</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -24,6 +25,7 @@
   <comment xml:lang="be">Шаблон рысунка OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – шаблон за рисунка</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট অঙ্কন ফর্মা</comment>
+  <comment xml:lang="bn-IN">OpenDocument চিত্রের টপমপ্লেট</comment>
   <comment xml:lang="br">Patrom tresadenn mod OpenDocument</comment>
   <comment xml:lang="bs">OpenDocument šablon crteža</comment>
   <comment xml:lang="ca">Plantilla de dibuix OpenDocument</comment>
@@ -52,11 +54,12 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट रेखाचित्र नमूना</comment>
   <comment xml:lang="hr">OpenDocument predložak crteža</comment>
   <comment xml:lang="hu">OpenDocument-rajzsablon</comment>
+  <comment xml:lang="hy">OpenDocument գծանկարի ձևանմուշ</comment>
   <comment xml:lang="id">Templat Gambar OpenDocument</comment>
   <comment xml:lang="is">OpenDocument sniðmát fyrir teikningu</comment>
   <comment xml:lang="it">Modello di disegno OpenDocument</comment>
   <comment xml:lang="ja">OpenDocument 図形描画 テンプレート</comment>
-  <comment xml:lang="ka">OpenDocument  ნახატის შაბლონი</comment>
+  <comment xml:lang="ka">OpenDocument ნახატის ნიმუში</comment>
   <comment xml:lang="kk">OpenDocument суреттің үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​គំនូរ OpenDocument</comment>
   <comment xml:lang="kmr-Latn">OpenDocument Şablona Xêzkirinê</comment>
@@ -77,7 +80,7 @@
   <comment xml:lang="oc">Modèl de dessenh OpenDocument</comment>
   <comment xml:lang="om">Qajojii Fakkasa OpenDocument</comment>
   <comment xml:lang="or">ଖୋଲାଦଲିଲ ଚିତ୍ରାଙ୍କନ ନମୁନା </comment>
-  <comment xml:lang="pa-IN">ਓਪਨ-ਡੌਕੂਮੈਂਟ ਡਰਾਇੰਗ ਟੈਪਲੇਟ</comment>
+  <comment xml:lang="pa-IN">ਓਪਨ-ਡੌਕੂਮੈਂਟ ਡਰਾਇੰਗ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon rysunku OpenDocument</comment>
   <comment xml:lang="pt">Modelo de desenho OpenDocument</comment>
   <comment xml:lang="pt-BR">Modelo de desenho OpenDocument</comment>
@@ -97,6 +100,7 @@
   <comment xml:lang="te">ఓపెన్ డాక్యుమెంట్ చిత్రలేఖనము మూస</comment>
   <comment xml:lang="tg">Қолаби тасвирии OpenDocument</comment>
   <comment xml:lang="th">แม่แบบงานวาดของ OpenDocument</comment>
+  <comment xml:lang="tl">OpenDocument Drawing Template</comment>
   <comment xml:lang="tn">OpenDocument Drawing Template</comment>
   <comment xml:lang="tr">OpenDocument Çizim Şablonu</comment>
   <comment xml:lang="ts">OpenDocument ya Xikomba-ndlela xa Vudirowi</comment>

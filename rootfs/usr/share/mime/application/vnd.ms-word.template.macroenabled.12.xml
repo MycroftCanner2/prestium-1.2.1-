@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.ms-word.template.macroEnabled.12">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">Word 文件範本</comment>
-  <comment xml:lang="zh_CN">Word 文档模板</comment>
-  <comment xml:lang="pt_BR">Modelo de documento do Word</comment>
+  <comment xml:lang="zh-Hant-TW">Word 文件範本</comment>
+  <comment xml:lang="zh-Hans-CN">Word 文档模板</comment>
+  <comment xml:lang="sr-Cyrl">Шаблон Ворд документа</comment>
+  <comment xml:lang="sq">gjedhe dokumenti Word</comment>
+  <comment xml:lang="kk-Cyrl">Word құжатының үлгісі</comment>
   <comment xml:lang="ia">Patrono de documento Word</comment>
   <comment xml:lang="fur">model di document Word</comment>
-  <comment xml:lang="en_GB">Word document template</comment>
+  <comment xml:lang="be-Cyrl">шаблон дакумента Word</comment>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.dotm"/>
   <sub-class-of type="application/vnd.openxmlformats-officedocument.wordprocessingml.template"/>
@@ -19,6 +21,7 @@
   <comment xml:lang="be">Шаблон дакумента Microsoft Word</comment>
   <comment xml:lang="bg">Microsoft Word – шаблон за документ</comment>
   <comment xml:lang="bn">মাইক্রোসফট ওয়ার্ড নথির ফর্মা</comment>
+  <comment xml:lang="bn-IN">Microsoft Word ডকুমেন্ট টেমপ্লেট</comment>
   <comment xml:lang="br">Patrom teul mod Microsoft Word</comment>
   <comment xml:lang="bs">Microsoft Word šablon za dokumente</comment>
   <comment xml:lang="ca">Plantilla de document del Microsoft Word</comment>
@@ -47,11 +50,12 @@
   <comment xml:lang="hi">माइक्रोसॉफ़्ट वर्ड डॉक्यूमेंट नमूना ख़ाका</comment>
   <comment xml:lang="hr">Predložak Microsoft Word dokumenta</comment>
   <comment xml:lang="hu">Microsoft Word-dokumentumsablon</comment>
+  <comment xml:lang="hy">Microsoft Word փաստաթղթի ձևանմուշ</comment>
   <comment xml:lang="id">Templat Dokumen Microsoft Word</comment>
   <comment xml:lang="is">Microsoft Word sniðmát fyrir textaskjal</comment>
   <comment xml:lang="it">Modello di documento di Microsoft Word</comment>
   <comment xml:lang="ja">Microsoft Word ドキュメント テンプレート</comment>
-  <comment xml:lang="ka">Microsoft Word 95 შაბლონი</comment>
+  <comment xml:lang="ka">Microsoft Word-ის დოკუმენტის ნიმუში</comment>
   <comment xml:lang="kk">Microsoft Word құжат үлгісі</comment>
   <comment xml:lang="km">ពុម្ព​ឯកសារ Microsoft Word</comment>
   <comment xml:lang="kmr-Latn">Microsoft Word Şablona Belgeyê</comment>
@@ -72,7 +76,7 @@
   <comment xml:lang="oc">Modèl de document Microsoft Word</comment>
   <comment xml:lang="om">Qajojii Galmee Microsoft Word</comment>
   <comment xml:lang="or">Microsoft Word ଦଲିଲ ଢ଼ାଞ୍ଚା</comment>
-  <comment xml:lang="pa-IN">ਮਾਈਕਰੋਸਾਫਟ ਵਰਡ ਡੌਕੂਮੈਂਟ ਟੈਪਲੇਟ</comment>
+  <comment xml:lang="pa-IN">ਮਾਈਕਰੋਸਾਫਟ ਵਰਡ ਡੌਕੂਮੈਂਟ ਟੈਂਪਲੇਟ</comment>
   <comment xml:lang="pl">Szablon dokumentu Microsoft Word</comment>
   <comment xml:lang="pt">Modelo de documento do Microsoft Word</comment>
   <comment xml:lang="pt-BR">Modelo de documento do Microsoft Word</comment>
@@ -92,6 +96,7 @@
   <comment xml:lang="te">మైక్రోసాఫ్టు వర్డుపత్రము మూస</comment>
   <comment xml:lang="tg">Microsoft Word Document Template</comment>
   <comment xml:lang="th">แม่แบบเอกสารไมโครซอฟต์เวิร์ด</comment>
+  <comment xml:lang="tl">Template ng Dokumento ng Microsoft Word</comment>
   <comment xml:lang="tn">Microsoft Word Document Template</comment>
   <comment xml:lang="tr">Microsoft Word Belgesi Şablonu</comment>
   <comment xml:lang="ts">Microsoft Word Document Template</comment>
@@ -99,7 +104,7 @@
   <comment xml:lang="uk">Шаблон документа Microsoft Word</comment>
   <comment xml:lang="uz">Microsoft Word hujjati shabloni</comment>
   <comment xml:lang="ve">Microsoft Word Document Template</comment>
-  <comment xml:lang="vi">Mẫu tài liệu MS Word</comment>
+  <comment xml:lang="vi">Bản mẫu Tài liệu Microsoft Word</comment>
   <comment xml:lang="xh">Microsoft Word Document Template</comment>
   <comment xml:lang="zh-CN">Microsoft Word 文档模板</comment>
   <comment xml:lang="zh-TW">Microsoft Word 文件範本</comment>

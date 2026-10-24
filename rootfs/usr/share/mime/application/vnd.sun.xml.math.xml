@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.math">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice Math 公式</comment>
-  <comment xml:lang="zh_CN">OpenOffice Math 公式</comment>
-  <comment xml:lang="sq">Formulë OpenOffice Math</comment>
-  <comment xml:lang="pt_BR">Fórmula do OpenOffice Math</comment>
-  <comment xml:lang="ia">Formula OpenOffice Math</comment>
-  <comment xml:lang="fur">formule OpenOffice Math</comment>
-  <comment xml:lang="fo">OpenOffice Math frymil</comment>
-  <comment xml:lang="en_GB">OpenOffice Math formula</comment>
-  <comment xml:lang="be@latin">Formuła OpenOffice Math</comment>
+  <comment xml:lang="be-Cyrl">формула LibreOffice Math</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.sxm"/>
   <comment>OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="af">OpenOffice.org 1.0-formule</comment>
   <comment xml:lang="am">OpenOffice.org 1.0 መቀመሪያ</comment>
-  <comment xml:lang="ar">صيغة أوبن‌أُفِس.أورغ 1.0</comment>
+  <comment xml:lang="ar">معادلة أوبن‌أُفِس.أورغ 1.0</comment>
   <comment xml:lang="as">OpenOffice.org 1.0 সূত্ৰ</comment>
   <comment xml:lang="ast">Fórmula d'OpenOffice.org 1.0</comment>
   <comment xml:lang="be">Формула OpenOffice.org 1.0</comment>
   <comment xml:lang="bg">OpenOffice.org 1.0 – формула</comment>
   <comment xml:lang="bn">OpenOffice.org 1.0 Formula</comment>
+  <comment xml:lang="bn-IN">OpenOffice.org 1.0 ফর্মুলা</comment>
   <comment xml:lang="br">Reollun mod OpenOffice.org 1.0</comment>
   <comment xml:lang="bs">OpenOffice.org 1.0 formula</comment>
   <comment xml:lang="ca">Fórmula de l'OpenOffice.org 1.0</comment>
@@ -50,11 +43,12 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 formula</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 képlet</comment>
+  <comment xml:lang="hy">OpenOffice.org 1.0 բանաձև</comment>
   <comment xml:lang="id">Rumus OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 formúla</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Formula</comment>
   <comment xml:lang="ja">OpenOffice.org 1.0 数式</comment>
-  <comment xml:lang="ka">OpenOffice.org 1.0 Formula</comment>
+  <comment xml:lang="ka">OpenOffice.org 1.0-ის ფორმულა</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 формуласы</comment>
   <comment xml:lang="km">រូបមន្ត OpenOffice.org 1.0</comment>
   <comment xml:lang="kmr-Latn">OpenOffice.org 1.0 Formula</comment>
@@ -95,6 +89,7 @@
   <comment xml:lang="te">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="tg">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="th">สูตร OpenOffice.org 1.0</comment>
+  <comment xml:lang="tl">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="tn">OpenOffice.org 1.0 Formula</comment>
   <comment xml:lang="tr">OpenOffice.org 1.0 Formül</comment>
   <comment xml:lang="ts">OpenOffice.org 1.0 Formula</comment>

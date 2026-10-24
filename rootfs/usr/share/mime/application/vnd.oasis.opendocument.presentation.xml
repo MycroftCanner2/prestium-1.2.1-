@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.oasis.opendocument.presentation">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">ODP 簡報</comment>
-  <comment xml:lang="zh_CN">ODP 演示文稿</comment>
-  <comment xml:lang="sq">Prezantim ODP</comment>
-  <comment xml:lang="pt_BR">Apresentação ODP</comment>
+  <comment xml:lang="zh-Hant-TW">ODP 簡報</comment>
+  <comment xml:lang="zh-Hans-CN">ODP 演示文稿</comment>
+  <comment xml:lang="sr-Cyrl">ОДП презентација</comment>
+  <comment xml:lang="sq">paraqitje ODP</comment>
+  <comment xml:lang="kk-Cyrl">ODP презентациясы</comment>
   <comment xml:lang="ia">Presentation ODP</comment>
   <comment xml:lang="fur">presentazion ODP</comment>
   <comment xml:lang="fo">ODP framløga</comment>
-  <comment xml:lang="en_GB">ODP presentation</comment>
-  <comment xml:lang="be@latin">Prezentacyja ODP</comment>
+  <comment xml:lang="be-Latn">Prezentacyja ODP</comment>
+  <comment xml:lang="be-Cyrl">прэзентацыя ODP</comment>
   <acronym>ODP</acronym>
   <expanded-acronym>OpenDocument Presentation</expanded-acronym>
   <sub-class-of type="application/zip"/>
@@ -24,6 +25,7 @@
   <comment xml:lang="be">Прэзентацыя OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – презентация</comment>
   <comment xml:lang="bn">ওপেন-ডকুমেন্ট উপস্থাপনা</comment>
+  <comment xml:lang="bn-IN">OpenDocument উপস্থাপনা</comment>
   <comment xml:lang="br">Kinnigadenn mod OpenDocument</comment>
   <comment xml:lang="bs">OpenDocument prezentacija</comment>
   <comment xml:lang="ca">Presentació OpenDocument</comment>
@@ -52,6 +54,7 @@
   <comment xml:lang="hi">ओपनडॉक्यूमेंट प्रस्तुति</comment>
   <comment xml:lang="hr">OpenDocument prezentacija</comment>
   <comment xml:lang="hu">OpenDocument-bemutató</comment>
+  <comment xml:lang="hy">OpenDocument ներկայացում</comment>
   <comment xml:lang="id">Presentasi OpenDocument</comment>
   <comment xml:lang="is">OpenDocument glærukynning</comment>
   <comment xml:lang="it">Presentazione OpenDocument</comment>
@@ -97,6 +100,7 @@
   <comment xml:lang="te">ఓపెన్ డాక్యుమెంట్ ప్రజంటేషన్ </comment>
   <comment xml:lang="tg">Баёнияи OpenDocument</comment>
   <comment xml:lang="th">งานนำเสนอ OpenDocument</comment>
+  <comment xml:lang="tl">OpenDocument Presentation</comment>
   <comment xml:lang="tn">OpenDocument Presentation</comment>
   <comment xml:lang="tr">OpenDocument Sunum</comment>
   <comment xml:lang="ts">OpenDocument ya Nkombiso</comment>

@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.sun.xml.writer.global">
   <!--Created automatically by update-mime-database. DO NOT EDIT!-->
-  <comment xml:lang="zh_TW">OpenOffice Writer 主控文件</comment>
-  <comment xml:lang="zh_CN">OpenOffice Writer 全局文档</comment>
-  <comment xml:lang="sq">Dokument i përgjithshëm OpenOffice Writer</comment>
-  <comment xml:lang="pt_BR">Documento global do OpenOffice Writer</comment>
-  <comment xml:lang="ia">Documento global OpenOffice Writer</comment>
-  <comment xml:lang="fur">document globâl OpenOffice Writer</comment>
-  <comment xml:lang="fo">OpenOffice Writer heiltøkt skjal</comment>
-  <comment xml:lang="en_GB">OpenOffice Writer global document</comment>
-  <comment xml:lang="be@latin">Hlabalny dakument OpenOffice Writer</comment>
-  <comment xml:lang="az">OpenOffice Writer qlobal sənədi</comment>
+  <comment xml:lang="be-Cyrl">глабальны дакумент LibreOffice Writer</comment>
   <sub-class-of type="application/zip"/>
   <generic-icon name="x-office-document"/>
   <glob pattern="*.sxg"/>
@@ -23,6 +14,7 @@
   <comment xml:lang="be">Майстар-дакумент OpenOffice.org 1.0</comment>
   <comment xml:lang="bg">OpenOffice.org 1.0 – главен документ</comment>
   <comment xml:lang="bn">OpenOffice.org 1.0 Master Document</comment>
+  <comment xml:lang="bn-IN">OpenOffice.org 1.0 মাস্টার ডকুমেন্ট</comment>
   <comment xml:lang="br">Teul mestr mod OpenOffice.org 1.0</comment>
   <comment xml:lang="bs">OpenOffice.org 1.0 master dokument</comment>
   <comment xml:lang="ca">Document mestre de l'OpenOffice.org 1.0</comment>
@@ -36,7 +28,7 @@
   <comment xml:lang="en-GB">OpenOffice.org 1.0 Master Document</comment>
   <comment xml:lang="en-ZA">OpenOffice.org 1.0 Master Document</comment>
   <comment xml:lang="eo">ĉefa dokumento de OpenOffice.org 1.0</comment>
-  <comment xml:lang="es">Patrón de documento de OpenOffice.org 1.0</comment>
+  <comment xml:lang="es">Documento maestro de OpenOffice.org 1.0</comment>
   <comment xml:lang="et">OpenOffice.org 1.0 põhidokument</comment>
   <comment xml:lang="eu">OpenOffice.org 1.0 dokumentu maisua</comment>
   <comment xml:lang="fa">سند اصلی اپن‌آفیس.ارگ 1.0</comment>
@@ -51,11 +43,12 @@
   <comment xml:lang="hi">OpenOffice.org 1.0 Master Document</comment>
   <comment xml:lang="hr">OpenOffice.org 1.0 nadzorni dokument</comment>
   <comment xml:lang="hu">OpenOffice.org 1.0 fődokumentum</comment>
+  <comment xml:lang="hy">OpenOffice.org 1.0 հիմնական փաստաթուղթ</comment>
   <comment xml:lang="id">Dokumen Induk OpenOffice.org 1.0</comment>
   <comment xml:lang="is">OpenOffice.org 1.0 stýriskjal</comment>
   <comment xml:lang="it">OpenOffice.org 1.0 - Documento master</comment>
   <comment xml:lang="ja">OpenOffice.org 1.0 マスタードキュメント</comment>
-  <comment xml:lang="ka">OpenOffice.org 1.0 Master Document</comment>
+  <comment xml:lang="ka">OpenOffice.org 1.0-ის ძირითადი დოკუმენტი</comment>
   <comment xml:lang="kk">OpenOffice.org 1.0 құрамдас құжаты</comment>
   <comment xml:lang="km">ឯកសារ​មេ OpenOffice.org 1.0</comment>
   <comment xml:lang="kmr-Latn">OpenOffice.org 1.0 Master Document</comment>
@@ -96,6 +89,7 @@
   <comment xml:lang="te">OpenOffice.org 1.0 Master Document</comment>
   <comment xml:lang="tg">OpenOffice.org 1.0 Master Document</comment>
   <comment xml:lang="th">เอกสารหลัก OpenOffice.org 1.0</comment>
+  <comment xml:lang="tl">OpenOffice.org 1.0 Master Document</comment>
   <comment xml:lang="tn">OpenOffice.org 1.0 Master Document</comment>
   <comment xml:lang="tr">OpenOffice.org 1.0 Ana Belgesi</comment>
   <comment xml:lang="ts">OpenOffice.org 1.0 Master Document</comment>

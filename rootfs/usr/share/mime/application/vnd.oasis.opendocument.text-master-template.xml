@@ -10,6 +10,7 @@
   <comment xml:lang="be">Шаблон майстар-дакумента OpenDocument</comment>
   <comment xml:lang="bg">OpenDocument – шаблон за главен документ</comment>
   <comment xml:lang="bn">OpenDocument Master Document Template</comment>
+  <comment xml:lang="bn-IN">OpenDocument মাস্টার ডকুমেন্ট টেম্পলেট</comment>
   <comment xml:lang="br">Patrom un teul mestr mod OpenDocument</comment>
   <comment xml:lang="bs">OtvoriDokument Glavni dokument šablon</comment>
   <comment xml:lang="ca">Plantilla de document mestre OpenDocument</comment>
@@ -23,7 +24,7 @@
   <comment xml:lang="en-GB">OpenDocument Master Document Template</comment>
   <comment xml:lang="en-ZA">OpenDocument Master Document Template</comment>
   <comment xml:lang="eo">Ĉefa dokumento de OpenDocument</comment>
-  <comment xml:lang="es">Plantilla de patrón de documento OpenDocument</comment>
+  <comment xml:lang="es">Plantilla de documento maestro OpenDocument</comment>
   <comment xml:lang="et">OpenDocument-põhidokumendi mall</comment>
   <comment xml:lang="eu">OpenDocument dokumentu maisuaren txantiloia</comment>
   <comment xml:lang="fa">الگوی نوشتار اصلی نوشتارباز</comment>
@@ -38,11 +39,12 @@
   <comment xml:lang="hi">OpenDocument Master Document Template</comment>
   <comment xml:lang="hr">OpenDocument predložak nadzornoga dokumenta</comment>
   <comment xml:lang="hu">OpenDocument-fődokumentumsablon</comment>
+  <comment xml:lang="hy">OpenDocument հիմնական փաստաթղթի ձևանմուշ</comment>
   <comment xml:lang="id">Templat Dokumen Induk OpenDocument</comment>
   <comment xml:lang="is">OpenDocument sniðmát fyrir stýriskjal</comment>
   <comment xml:lang="it">Modello di documento master OpenDocument</comment>
   <comment xml:lang="ja">OpenDocument マスタードキュメント テンプレート</comment>
-  <comment xml:lang="ka">OpenDocument Master Document Template</comment>
+  <comment xml:lang="ka">OpenDocument-ის ძირითადი დოკუმენტის ნიმუში</comment>
   <comment xml:lang="kk">OpenDocument құрамдас құжат үлгісі</comment>
   <comment xml:lang="km">OpenDocument Master Document Template</comment>
   <comment xml:lang="kmr-Latn">OpenDocument Master Document Template</comment>
@@ -83,6 +85,7 @@
   <comment xml:lang="te">OpenDocument Master Document Template</comment>
   <comment xml:lang="tg">OpenDocument Master Document Template</comment>
   <comment xml:lang="th">OpenDocument Master Document Template</comment>
+  <comment xml:lang="tl">OpenDocument Master Document Template</comment>
   <comment xml:lang="tn">OpenDocument Master Document Template</comment>
   <comment xml:lang="tr">OpenDocument Ana Belge Şablonu</comment>
   <comment xml:lang="ts">OpenDocument Master Document Template</comment>
