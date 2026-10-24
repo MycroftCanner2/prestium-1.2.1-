@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: YAJL (Yet Another JSON Library)
 Upstream-Contact: Lloyd Hilaiel <me@lloyd.io>
-Source: http://lloyd.github.com/yajl/
+Source: https://github.com/lloyd/yajl
 
 Files: *
 Copyright: 2007-2014 Lloyd Hilaiel <me@lloyd.io>

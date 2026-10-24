@@ -24,16 +24,18 @@ Yasuaki Taniguchi <yasuakit@gmail.com>			man/ja, ja.po
 Seong-ho Cho <darkcircle.0426@gmail.com>		man/ko, ko.po
 Erwin Poeze <erwin.poeze@gmail.com>			man/nl, nl.po
 Robert Luberda <robert@debian.org>			man/pl, pl.po
-Pedro Albuquerque <palbuquerque73@gmail.com>		man/pt, pt.po
+Pedro Albuquerque <pmra@protonmail.com>			man/pt, pt.po
 Rafael Fontenelle <rafaelff@gnome.org>			man/pt_BR, pt_BR.po
 Florentina Mușat <florentina.musat.28@gmail.com>	man/ro, ro.po
 Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>	man/ro, ro.po
-Yuri Kozlov <kozlov.y@gmail.com>			man/ru, ru.po
+Yuri Kozlov <yuray@komyakino.ru>			man/ru, ru.po
 Мирослав Николић <miroslavnikolic@rocketmail.com>	man/sr, sr.po
 Sebastian Rasmussen <sebras@gmail.com>			man/sv, sv.po
 Volkan Gezer <volkangezer@gmail.com>			man/tr, tr.po
 Mesutcan Kurt <mesutcank@gmail.com>			man/tr
 Emir SARI <emir_sari@icloud.com>			man/tr, tr.po
+Volodymyr Lisivka <vlisivka@gmail.com>			man/uk, uk.po
+Yuri Chornoivan <yurchor@ukr.net>			man/uk, uk.po
 Wylmer Wang <wantinghard@gmail.com>			man/zh_CN
 Tianze Wang <zwpwjwtz@126.com>				man/zh_CN
 Boyuan Yang <073plan@gmail.com>				man/zh_CN, zh_CN.po
@@ -51,12 +53,14 @@ Kai Wasserbäch <debian@carbon-project.org>		de.po
 Arun Persaud <arun@nubati.net>				de.po
 Felipe Castro <fefcas@gmail.com>			eo.po
 David Martínez <ender@debian.org>			es.po
+Cristian Othón Martínez Vera <cfuga@cfuga.mx>		es.po
 Lauri Nurmi <lanurmi@iki.fi>				fi.po
 Laurent Pelecq <laurent.pelecq@soleil.org>		fr.po
 Nicolas Velin <nsv@fr.st>				fr.po
 Andika Triwidada <andika@gmail.com>			id.po
 UCHIDA Norihiro <KY4N-UCD@asahi-net.or.jp>		ja.po
 Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>		ja.po
+Temuri Doghonadze <temuri.doghonadze@gmail.com>		ka.po
 Benno Schulenberg <benno@vertaalt.nl>			nl.po
 Alexandre Folle de Menezes <afmenez@terra.com.br>	pt_BR.po
 Eugen Hoanca <eugenh@urban-grafx.ro>			ro.po

@@ -11,15 +11,15 @@ Comment:
  
 Files: *
 Copyright: © 1999-2011, 2013-2016 Free Software Foundation, Inc.
-           © 2014-2023 The contributors to GNU nano
+           © 2014-2024 The contributors to GNU nano
 License: GPL-3+
 
 Files: doc/*.1 doc/*.5 doc/*.texi
-Copyright: © 1999-2011, 2013-2023 Free Software Foundation, Inc.
+Copyright: © 1999-2011, 2013-2024 Free Software Foundation, Inc.
 License: GFDL-NIV+ or GPL-3+
 
 Files: debian/*
-Copyright: © 1999-2023 Jordi Mallach <jordi@debian.org>
+Copyright: © 1999-2024 Jordi Mallach <jordi@debian.org>
 License: GPL-3+
 
 License: GPL-3+

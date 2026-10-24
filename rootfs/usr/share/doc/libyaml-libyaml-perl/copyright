@@ -16,7 +16,7 @@ Files-Excluded:
  LibYAML/yaml_private.h
 
 Files: *
-Copyright: 2007-2023, Ingy döt Net <ingy@cpan.org>
+Copyright: 2007-2025, Ingy döt Net <ingy@cpan.org>
 License: Artistic or GPL-1+
 
 Files: inc/Spiffy.pm
@@ -38,7 +38,7 @@ Files: debian/*
 Copyright: 2009, Ryan Niebur <ryan@debian.org>
  2010, Jonathan Yu <jawnsy@cpan.org>
  2010, Krzysztof Krzyżaniak (eloy) <eloy@debian.org>
- 2011-2023, gregor herrmann <gregoa@debian.org>
+ 2011-2025, gregor herrmann <gregoa@debian.org>
  2012, Julián Moreno Patiño <darkjunix@gmail.com>
 License: Artistic or GPL-1+
 

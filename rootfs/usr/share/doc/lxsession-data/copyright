@@ -1,12 +1,13 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: LXSession
 Upstream-Contact: lxde-list@lists.sourceforge.net
-Source: https://sourceforge.net/projects/lxde/files/
+Source: https://github.com/lxde/lxsession
 
 Files: *
 Copyright: 1994-1998 The Open Group
            2008-2011 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
            2012-2014 Julien Lavergne <gilir@ubuntu.com>
+           2020-2025 Ingo Brückl <ib@oddnet.de>
 License: GPL-2+
 
 Files: lxclipboard/clipboard.*
@@ -32,7 +33,9 @@ Copyright: 2001 Owen Taylor
 License: MIT
 
 Files: debian/*
-Copyright: 2010-2012 Andrew Lee (李健秋) <ajqlee@debian.org>
+Copyright: 2010-2025 Andrew Lee (李健秋) <ajqlee@debian.org>
+           2023      ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+           2024      Ingo Brückl <ib@oddnet.de>
 License: GPL-2+
 
 License: GPL-2+
@@ -47,8 +50,7 @@ License: GPL-2+
  GNU General Public License for more details.
  .
  You should have received a copy of the GNU General Public License
- along with this program; if not, write to the Free Software
- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ along with this program; if not, see https://www.gnu.org/licenses/.
  .
  The complete text of the GNU General Public License
  can be found in /usr/share/common-licenses/GPL-2 file.

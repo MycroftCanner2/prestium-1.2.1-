@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: LXMenu-data
 Upstream-Contact: lxde-list@lists.sourceforge.net
-Source: http://sourceforge.net/projects/lxde/files/
+Source: https://github.com/lxde/lxmenu-data
 
 Files: *
 Copyright: 2004-2005 Mark McLoughlin <mark@skynet.ie>
@@ -10,7 +10,7 @@ Copyright: 2004-2005 Mark McLoughlin <mark@skynet.ie>
 License: GPL-2+
 
 Files: debian/*
-Copyright: 2009-2011 Andrew Lee (李健秋) <ajqlee@debian.org>
+Copyright: 2009-2025 Andrew Lee (李健秋) <ajqlee@debian.org>
 License: GPL-3+
 
 License: GPL-2+

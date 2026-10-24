@@ -1,6 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: lightdm
-Upstream-Source: https://launchpad.net/lightdm-gtk-greeter
+Upstream-Name: lightdm-gtk-greeter
+Upstream-Contact: Sean Davis
+Source: https://github.com/Xubuntu/lightdm-gtk-greeter/releases
 
 Files: *
 Copyright: Sean Davis
