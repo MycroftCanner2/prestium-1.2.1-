@@ -1,0 +1,10 @@
+38f8f4649555f8c5a1036e24d9402447  usr/libexec/glycin-loaders/1+/glycin-heif
+40fb53e46e274b07a6ed79059be660c9  usr/libexec/glycin-loaders/1+/glycin-image-rs
+68dd164116064f5b1ae0bb3833d15d0c  usr/libexec/glycin-loaders/1+/glycin-jxl
+afcfd4e732c9c6b054f8131e1710adaa  usr/libexec/glycin-loaders/1+/glycin-svg
+a0216a7de416f5d4a11d8890f68f93ff  usr/share/doc/glycin-loaders/changelog.Debian.gz
+075f276b5a258f0eea4c71eaa31c93ce  usr/share/doc/glycin-loaders/copyright
+890c4bfea264a024f37da557212bf9bb  usr/share/glycin-loaders/1+/conf.d/glycin-heif.conf
+b3d50b32a48bb21eb7a6c52a4a9e7b7c  usr/share/glycin-loaders/1+/conf.d/glycin-image-rs.conf
+2d00f51545f8184eed2d95a70342d079  usr/share/glycin-loaders/1+/conf.d/glycin-jxl.conf
+351dcdf4646e65dbaab1850a7307083f  usr/share/glycin-loaders/1+/conf.d/glycin-svg.conf

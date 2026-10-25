@@ -1,0 +1,16 @@
+/.
+/etc
+/etc/pam.d
+/etc/pam.d/i3lock
+/usr
+/usr/bin
+/usr/bin/i3lock
+/usr/share
+/usr/share/doc
+/usr/share/doc/i3lock
+/usr/share/doc/i3lock/changelog.Debian.gz
+/usr/share/doc/i3lock/changelog.gz
+/usr/share/doc/i3lock/copyright
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/i3lock.1.gz

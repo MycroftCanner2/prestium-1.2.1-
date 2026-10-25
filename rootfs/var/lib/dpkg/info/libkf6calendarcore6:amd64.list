@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libKF6CalendarCore.so.6.13.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libkf6calendarcore6
+/usr/share/doc/libkf6calendarcore6/changelog.Debian.gz
+/usr/share/doc/libkf6calendarcore6/copyright
+/usr/share/qlogging-categories6
+/usr/share/qlogging-categories6/kcalendarcore.categories
+/usr/share/qlogging-categories6/kcalendarcore.renamecategories
+/usr/lib/x86_64-linux-gnu/libKF6CalendarCore.so.6

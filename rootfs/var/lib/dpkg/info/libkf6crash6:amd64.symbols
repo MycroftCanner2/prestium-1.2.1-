@@ -1,0 +1,15 @@
+libKF6Crash.so.6 libkf6crash6 #MINVER#
+* Build-Depends-Package: libkf6crash-dev
+ _ZN6KCrash10initializeEv@Base 6.0.0
+ _ZN6KCrash10setGPUDataERK5QHashI7QString8QVariantE@Base 6.11.0
+ _ZN6KCrash12crashHandlerEv@Base 6.0.0
+ _ZN6KCrash12setErrorTagsERK5QHashI7QStringS1_E@Base 6.11.0
+ _ZN6KCrash15setCrashHandlerEPFviE@Base 6.0.0
+ _ZN6KCrash15setErrorMessageERK7QString@Base 6.0.0
+ _ZN6KCrash16isDrKonqiEnabledEv@Base 6.0.0
+ _ZN6KCrash17setDrKonqiEnabledEb@Base 6.0.0
+ _ZN6KCrash17setErrorExtraDataERK5QHashI7QStringS1_E@Base 6.11.0
+ _ZN6KCrash19defaultCrashHandlerEi@Base 6.0.0
+ _ZN6KCrash21emergencySaveFunctionEv@Base 6.0.0
+ _ZN6KCrash24setEmergencySaveFunctionEPFviE@Base 6.0.0
+ _ZN6KCrash8setFlagsE6QFlagsINS_9CrashFlagEE@Base 6.0.0

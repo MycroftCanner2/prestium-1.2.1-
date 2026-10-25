@@ -1,0 +1,3 @@
+libKF6BreezeIcons.so.6 libkf6breezeicons6 #MINVER#
+* Build-Depends-Package: libkf6breezeicons-dev
+ _ZN11BreezeIcons9initIconsEv@Base 6.0.0

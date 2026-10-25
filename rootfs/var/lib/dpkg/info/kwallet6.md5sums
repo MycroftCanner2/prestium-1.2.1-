@@ -1,0 +1,11 @@
+01fbb874218ab296c8f635de508704ca  usr/bin/kwallet-query
+59e9e8cf4b027cc111c4d9823861560b  usr/bin/kwalletd6
+cc8fc7bbc59e93748a6912f329c7d225  usr/share/applications/org.kde.kwalletd6.desktop
+2a70fbdae3b81a886bd6b16679b34a5f  usr/share/dbus-1/services/org.kde.kwalletd5.service
+f810be3bd889b9c290fea01259d979b4  usr/share/dbus-1/services/org.kde.kwalletd6.service
+6eb5b2c931cd9a03623a1b0b95257dbf  usr/share/doc/kwallet6/changelog.Debian.gz
+0c2b4da283c9e4a09efbde40af70708c  usr/share/doc/kwallet6/copyright
+659d0046bf3922fbb30fd4bbef5dbb87  usr/share/knotifications6/kwalletd6.notifyrc
+15e90f7283566ae8e8c2fb8eb356e92a  usr/share/lintian/overrides/kwallet6
+9a98c01f86765633c07507a83e516fff  usr/share/man/man1/kwallet-query.1.gz
+15ce9e19d1e6a5956db95498bddd1ac5  usr/share/xdg-desktop-portal/portals/kwallet.portal

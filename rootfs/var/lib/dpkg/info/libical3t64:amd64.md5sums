@@ -1,0 +1,10 @@
+bba4b82ed6b59da21aa4bb3dabf317e0  usr/lib/x86_64-linux-gnu/libical-glib.so.3.0.20
+e2b7d20fdabff7a4ab7e60b272df62dc  usr/lib/x86_64-linux-gnu/libical.so.3.0.20
+ccdaf7e3b56977bc9d6811265899c7a0  usr/lib/x86_64-linux-gnu/libical_cxx.so.3.0.20
+23f422d1dcdd896dc18c21277e3ab7b0  usr/lib/x86_64-linux-gnu/libicalss.so.3.0.20
+97975b528d5190976a73c08230e59f85  usr/lib/x86_64-linux-gnu/libicalss_cxx.so.3.0.20
+337f4eb6fb4e467bde6c8115e4bda63a  usr/lib/x86_64-linux-gnu/libicalvcal.so.3.0.20
+e9e376351d21a291fbd81f38464e3c19  usr/share/doc/libical3t64/changelog.Debian.amd64.gz
+fd905e1d57e5b6c4da703ee51236db42  usr/share/doc/libical3t64/changelog.Debian.gz
+fe58d09720280f38c2e940ca6cc0783d  usr/share/doc/libical3t64/copyright
+6f05251a786ae29da788586d52436c61  usr/share/lintian/overrides/libical3t64

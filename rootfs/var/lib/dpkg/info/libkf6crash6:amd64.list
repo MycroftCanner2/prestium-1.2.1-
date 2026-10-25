@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libKF6Crash.so.6.13.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libkf6crash6
+/usr/share/doc/libkf6crash6/changelog.Debian.gz
+/usr/share/doc/libkf6crash6/copyright
+/usr/share/qlogging-categories6
+/usr/share/qlogging-categories6/kcrash.categories
+/usr/share/qlogging-categories6/kcrash.renamecategories
+/usr/lib/x86_64-linux-gnu/libKF6Crash.so.6

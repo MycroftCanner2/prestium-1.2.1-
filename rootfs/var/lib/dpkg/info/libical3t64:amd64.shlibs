@@ -1,0 +1,6 @@
+libical-glib 3 libical3t64 (>= 3.0.20)
+libical 3 libical3t64 (>= 3.0.20)
+libical_cxx 3 libical3t64 (>= 3.0.20)
+libicalss 3 libical3t64 (>= 3.0.20)
+libicalss_cxx 3 libical3t64 (>= 3.0.20)
+libicalvcal 3 libical3t64 (>= 3.0.20)

@@ -3446,3 +3446,463 @@ Package: libcanberra-gtk3-0
 Architecture: amd64
 Auto-Installed: 1
 
+Package: geocode-glib-common
+Architecture: amd64
+Auto-Installed: 1
+
+Package: gir1.2-adw-1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libgweather-4-common
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libgeocode-glib-2-0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: glycin-loaders
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libgweather-4-0t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6wallet-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6authcore6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6widgetsaddons6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6mimetreeparserwidgets6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6coreaddons6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6solid-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6service6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6itemviews6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6identitymanagementcore6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6mimetreeparsercore6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6dbusaddons6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6wallet6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6mbox6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: keepassxc-full
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6i18n-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6kiogui6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libetpan20t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libtspi1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6configwidgets-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6windowsystem-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6configwidgets6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6doctools6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6auth-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: kwallet6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6colorscheme6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6codecs-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6guiaddons-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libsuil-0-0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: kio6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libopusfile0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6coreaddons-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libvamp-hostsdk3t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6colorscheme-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6statusnotifieritem-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6windowsystem6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libportmidi0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libminizip1t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: liblockfile-bin
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6completion-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6i18n6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6codecs6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libflac++11
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6calendarcore6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: paperkey
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6solid6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6akonadiprivate6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6mime6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6globalaccel6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6akonadicore6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6libkleo6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6iconwidgets6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6notifications6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libportaudio2
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6itemmodels6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6service-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6notifications-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libmimetreeparser-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6configcore6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqt6xml6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: kded6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6xmlgui-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6breezeicons6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkleo-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqt5concurrent5t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6akonadimime6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6service-bin
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libwxbase3.2-1t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libxcb-res0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6mailtransport6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqt6sql6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6iconthemes-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6xmlgui6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqt6core5compat6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6kiocore6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6guiaddons6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6dbusaddons-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6config-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6walletbackend6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: audacity-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqt6waylandclient6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkmime-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6archive-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6crash6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libxcb-screensaver0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkpim6akonadiwidgets6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libsbsms10
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libical3t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libbotan-2-19
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6globalaccel-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libsoundtouch1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libxcb-xrm0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libwxgtk3.2-1t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libpcre2-32-0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkmailtransport-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6widgetsaddons-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6iconthemes6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6archive6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6statusnotifieritem6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libpolkit-qt6-1-1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: liblockfile1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqca-qt6-2
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqgpgmeqt6-15
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6completion6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6configgui6
+Architecture: amd64
+Auto-Installed: 1
+
+Package: akonadi-mime-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libqt6keychain1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libakonadi-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libkf6itemviews-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libportsmf0t64
+Architecture: amd64
+Auto-Installed: 1
+

@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/claws-mail
+/usr/lib/x86_64-linux-gnu/claws-mail/plugins
+/usr/lib/x86_64-linux-gnu/claws-mail/plugins/pgpinline.deps
+/usr/lib/x86_64-linux-gnu/claws-mail/plugins/pgpinline.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/claws-mail-pgpinline
+/usr/share/doc/claws-mail-pgpinline/changelog.Debian.gz
+/usr/share/doc/claws-mail-pgpinline/changelog.gz
+/usr/share/doc/claws-mail-pgpinline/copyright
+/usr/share/man
+/usr/share/man/man7
+/usr/share/man/man7/claws-mail-pgpinline.7.gz
