@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="eu">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadatuak eta pribatutasuna</title>
+		<p>Metadatuak datuak ezaugarritzen dituen informazioa dira. Metadatuak datu-produktuak dokumentatzeko erabiltzen dira. Funtsean, metadatuek dokumentatzen diren datuen alderdi bakoitzari erantzuten diote: nor, zer, noiz, non, zergatik eta nola.</p>
+		<p>Fitxategi bateko metadatuek asko esan dezakete pertsona bati buruz. Kamerek argazki bat noiz eta non atera zen eta zein kamera erabili zen adierazten dute. Aplikazio ofimatikoek egileari eta enpresari buruzko informazioa gehitzen diete automatikoki dokumentuei eta kalkulu-orriei. Informazio delikatua da, eta baliteke jakinarazi nahi ez izatea.</p>
+		<figure>
+			<title>Irudi-fitxategi bateko metadatuen adibidea</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Artxiboak hardwareari, doikuntzei, datari eta hartze-tokiari buruzko informazioa ematen du. Guztira 79 metadatu ditu.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Garbiketa-prozesua</title>
+		<p><app>Metadatuen garbitzailea</app> metadatuak erakusteko ahal duen guztia egiten badu ere, ez du esan nahi fitxategi bat metadaturik gabe dagoenik, bat bera ere erakusten ez badu. Ez dago fitxategi formatu konplexuetarako metadatu posible guztiak detektatzeko modu fidagarririk. Horregatik, ez da fidatu behar metadatuak egongo direnik artxiboa garbitu behar den ala ez erabakitzeko.</p>
+		<p><app>Metadatuen garbitzailea</app> fitxategiaren edukia hartzen du eta metadaturik gabeko berri batean jartzen du, antzeman gabeko metadatuak desegiten direla ziurtatuz.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Mugak</title>
+		<p>Metadata ez da fitxategia markatzeko modu bakarra. Edukiak berak informazio pertsonala zabaltzen badu edo urpean geratu bada, tradizionalki edo via esteganografia, <app>Metadatuen garbitzailea</app> ez zaitu babestuko.</p>
+	</section>
+</page>

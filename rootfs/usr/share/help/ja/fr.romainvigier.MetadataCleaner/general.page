@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="ja">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>メタデータとプライバシー</title>
+		<p>メタデータとは、データを特徴づける情報のことです。メタデータは、そのファイルの詳細を説明するために使用されます。メタデータは、そのファイルのあらゆる側面について、誰が、何を、いつ、どこで、なぜ、どのようにしたのかを記録したものです。</p>
+		<p>ファイル内のメタデータは、あなたのことをよく表しています。カメラは、いつ、どこで、どの機種で撮影したかを画像ファイルに記録します。オフィスアプリケーションは、作成者や会社の情報を文書ファイルや表計算ファイルに自動的に追加します。これらの情報は機密情報であり、公開したくない場合もあります。</p>
+		<figure>
+			<title>画像ファイルに含まれるメタデータの例</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>このファイルの場合、ハードウェア、設定、日時、撮影場所など合計 79 件のメタデータが含まれていました。</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>除去プロセス</title>
+		<p><app>メタデータクリーナー</app>は細心の注意を払ってメタデータを表示していますが、何も表示されないからといってそのファイルにメタデータがないとは限りません。様々なファイル形式が存在するため、ありとあらゆるメタデータを検出する確実な方法はありません。そのため、メタデータが表示されていないからと言って、そのファイルのメタデータ除去は必要ないと判断するべきではありません。</p>
+		<p><app>メタデータクリーナー</app>は、メタデータを含まないファイルのコンテンツ部分を新しいファイルに出力するため、未検出のメタデータが確実に取り除かれます。</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>限界</title>
+		<p>ファイルにマーキングする方法はメタデータ以外にも存在します。コンテンツ自体に個人情報が含まれる場合や、伝統的なまたはステガノグラフィによる電子透かしが施されている場合、<app>メタデータクリーナー</app>はあなたを保護しません。</p>
+	</section>
+</page>

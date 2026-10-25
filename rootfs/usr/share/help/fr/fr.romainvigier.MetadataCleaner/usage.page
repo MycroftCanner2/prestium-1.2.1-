@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="fr">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Ajouter des fichiers</title>
+		<p>Pour ajouter des fichiers, pressez le bouton <gui style="button">Ajouter des fichiers</gui>. Un sélecteur de fichier apparaîtra, choisissez les fichiers que vous désirez nettoyer.</p>
+		<figure>
+			<title>Bouton <gui style="button">Ajouter des fichiers</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Pour ajouter des dossiers entiers, pressez le bouton <gui style="button">Ajouter des dossiers</gui>. Un sélecteur apparaîtra, sélectionnez les fichiers que vous désirez ajouter. Vous pouvez facultativement choisir d’ajouter également tous les fichiers de tous les sous-dossiers en cochant la case <gui style="checkbox">Ajouter les fichiers des sous-dossiers</gui>.</p>
+		<figure>
+			<title>Bouton <gui style="button">Ajouter des dossiers</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Afficher des métadonnées</title>
+		<p>Cliquez sur un fichier de la liste pour ouvrir la vue détaillées. S’il a des métadonnées, elles seront présentées ici.</p>
+		<figure>
+			<title>Vue détaillée des métadonnées</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Nettoyer des fichiers</title>
+		<p>Pour nettoyer tous les fichiers de la fenêtre, pressez le bouton <gui style="button">Nettoyer</gui>. Le processus de nettoyage peut prendre un certain temps avant de se terminer.</p>
+		<figure>
+			<title>Bouton <gui style="button">Nettoyer</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Nettoyage léger</title>
+		<p>Par défaut, le processus de nettoyage peut légèrement altérer les données de vos fichiers, afin de supprimer le plus de métadonnées possible. Par exemple, le texte dans les PDF peut ne plus être sélectionnable, les images compressées peuvent l’être à nouveau…</p>
+		<p>Le mode léger, bien que moins exhaustif, ne fera aucune modification destructive à vos fichiers.</p>
+	</section>
+</page>

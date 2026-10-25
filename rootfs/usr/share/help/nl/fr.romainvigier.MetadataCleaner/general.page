@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="nl">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metagegevens en privacy</title>
+		<p>Metagegevens bevatten informatie met mogelijk herleidbare gegevens. Deze worden gebruikt om productdocumentatie samen te stellen en te bepalen wie, wat, wanneer, waar, waarom en hoe elk facet wordt gedocumenteerd.</p>
+		<p>Metagegevens in een bestand kunnen herleidbaar zijn tot jou. Zo slaan camera's informatie op over waar en wanneer een foto is genomen, welke camera je hebt gebruikt, enz. En kantoorpakketten (zoals tekstverwerkers) voegen automatisch auteurs- en bedrijfsinformatie toe. Misschien wil je dat soort gevoelige informatie niet prijgeven.</p>
+		<figure>
+			<title>Voorbeeld van metagegevens in een afbeeldingsbestand</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Dit bestand bevat informatie over de gebruikte camera, instellingen, datum en fotolocatie. In totaal staan er 79 gegevens.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Opschoonproces</title>
+		<p>Hoewel <app>Metagegevensopruiming</app> probeert de metagegevens zo goed als mogelijk te tonen, maar biedt geen garantie dat alle gegevens nadien zijn verwijderd. Er is geen betrouwbare manier om élk gegeven uit te lezen, zeker bij complexere bestandsformaten. Om deze reden moet je je niet blind staren op de aanwezigheid van metagegevens als je besluit om een bestand op te schonen.</p>
+		<p><app>Metagegevensopruiming</app> scant de bestandsinhoud en verwijdert alle metagegevens zodat je er bijna zeker van kunt zijn dat ze helemaal verwijderd zijn.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Beperkingen</title>
+		<p>Let op: metagegevens zijn niet de enige manier om een bestand op te maken. Als de inhoud persoonlijke informatie bevat of gewatermerkt is, dan biedt <app>Metagegevensopruiming</app> geen bescherming.</p>
+	</section>
+</page>

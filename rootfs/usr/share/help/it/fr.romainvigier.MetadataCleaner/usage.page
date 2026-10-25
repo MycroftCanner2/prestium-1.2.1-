@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="it">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Aggiungere file</title>
+		<p>Per aggiungere file, premere il pulsante <gui style="button">Aggiungi file</gui> . Si aprirà un selettore di file, seleziona i file che vuoi pulire.</p>
+		<figure>
+			<title><gui style="button">pulsante</gui> aggiungi file</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Per aggiungere intere cartelle in una volta, premi il pulsante <gui style="button">Aggiungi cartelle</gui>. Si aprirà un selettore di file, selezionare le cartelle che si desidera aggiungere. Puoi facoltativamente scegliere di aggiungere anche tutti i file da tutte le sottocartelle selezionando la casella <gui style="checkbox">Aggiungi file dalle sottocartelle</gui>.</p>
+		<figure>
+			<title>Pulsante <gui style="button">Aggiungi cartelle</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Visualizzazione dei metadati</title>
+		<p>Fare clic su un file nell'elenco per aprire la visualizzazione dettagliata. Se ha metadati, verrà mostrato lì.</p>
+		<figure>
+			<title>Visualizzazione dettagliata dei metadati</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Pulizia dei file</title>
+		<p>Per pulire tutti i file nella finestra, premere il <gui style="button">Pulsante</gui> pulisci. Il completamento del processo di pulizia potrebbe richiedere del tempo.</p>
+		<figure>
+			<title><gui style="button">Pulsante</gui> pulisci</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Modalità leggera</title>
+		<p>Per impostazione predefinita, il processo di rimozione potrebbe alterare leggermente i dati dei tuoi file, al fine di rimuovere quanti più metadati possibile. Ad esempio, i testi in PDF potrebbero non essere più selezionabili, le immagini compresse potrebbero essere compresse di nuovo…</p>
+		<p>La modalità leggera, sebbene non così completa, non apporterà modifiche distruttive ai tuoi file.</p>
+	</section>
+</page>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="index" xml:lang="ko">
+	<title its:locNote="The application name. It can be translated.">메타데이터 클리너</title>
+
+	<media type="image" src="figures/icon.svg" width="64" height="64" its:translate="no"/>
+
+	<p><app>메타데이터 클리너</app>는 파일의 메타데이터를 보고 가능한 한 없앨 수 있게 해줍니다.</p>
+
+	<section id="general">
+		<title>일반 정보</title>
+	</section>
+
+	<section id="usage">
+		<title><app>메타데이터 클리너</app> 활용</title>
+	</section>
+</page>

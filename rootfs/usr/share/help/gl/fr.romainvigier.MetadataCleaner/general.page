@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="gl">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadatos e privacidade</title>
+		<p>Os metadatos consisten en información que caracteriza os datos. Os metadatos úsanse para documentar os produtos de datos. En esencia, os metadatos responden a quen, que, cando, onde, por que e como sobre cada faceta dos datos que se documentan.</p>
+		<p>Os metadatos dun ficheiro poden decirme moito sobre unha persona. As cámaras rexistran datos sobre cando e onde se tomou unha foto e qué cámara se usou. As aplicacións ofimáticas engaden automaticamente información sobre o autor e a empresa aos documentos e follas de cálculo. Trátase de información delicada e é posíbel que non queira revelala.</p>
+		<figure>
+			<title>Exemplo de metadatos dun ficheiro de imaxe</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>O ficheiro revela información sobre o hardware, os axustes, a data e o lugar da toma. Contén un total de 79 metadatos.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Proceso de limpeza</title>
+		<p>Aínda que o <app>Metadata Cleaner</app> fai todo o posible para mostralos metadatos, iso non significa que un ficheiro estea limpo dos metadatos se non mostra ningún. Non atopouse un xeito fiable de detectar todolos metadatos posibles para formatos de ficheiro complexos. É por iso que non debes confiar na presenza dos metadatos para decidir se o teu ficheiro debe ser limpo ou non.</p>
+		<p>O <app>Metadata Cleaner</app> toma o contido do ficheiro e colócao nun novo sen metadatos, o que garante que se eliminen os metadatos non detectados.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Limitacións</title>
+		<p>Teña en conta que os metadatos non son a única forma de marcar un ficheiro. Se o propio contido revela información persoal ou foi marcado con unha marca de auga, tradicionalmente ou mediante esteganografía <app>Limpador de metadatos</app> non lle protexerá.</p>
+	</section>
+</page>

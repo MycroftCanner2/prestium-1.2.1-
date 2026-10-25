@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="it">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadati e privacy</title>
+		<p>I metadati sono informazioni che caratterizzano i dati. I metadati vengono utilizzati per fornire documentazione per i prodotti di dati. In sostanza, i metadati rispondono a chi, cosa, quando, dove, perché e come su ogni aspetto dei dati che vengono documentati.</p>
+		<p>I metadati all'interno di un file possono dire molto su di te. Le fotocamere registrano dati su quando e dove è stata scattata una foto e quale fotocamera è stata utilizzata. Le applicazioni di Office aggiungono automaticamente informazioni sull'autore e sull'azienda a documenti e fogli di calcolo. Si tratta di informazioni sensibili che non vorresti divulgare.</p>
+		<figure>
+			<title>Esempio di metadati in un file immagine</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Il file fornisce informazioni sull'hardware, le impostazioni, la data, il luogo delle riprese. Contiene un totale di 79 metadati.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Processo di pulizia</title>
+		<p>Sebbene <app>Metadata Cleaner</app> sta facendo del suo meglio per visualizzare i metadati, ciò non significa che un file sia pulito dai metadati se non ne mostra alcuno. Non esiste un modo affidabile per rilevare ogni singolo metadato possibile per formati di file complessi. Questo è il motivo per cui non dovresti fare affidamento sulla presenza dei metadati per decidere se il tuo file deve essere pulito o meno.</p>
+		<p><app>Metadata Cleaner</app> prende il contenuto del file e lo inserisce in uno nuovo senza metadati, assicurando che tutti i metadati non rilevati vengano rimossi.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Limitazioni</title>
+		<p>Tieni presente che i metadati non sono l'unico modo per contrassegnare un file. Se il contenuto stesso rivela informazioni personali o è stato filigranato, tradizionalmente o tramite steganografia,<app>Metadata Cleaner</app> non ti proteggerà.</p>
+	</section>
+</page>

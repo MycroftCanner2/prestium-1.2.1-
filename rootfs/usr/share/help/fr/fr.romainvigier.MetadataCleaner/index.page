@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="index" xml:lang="fr">
+	<title its:locNote="The application name. It can be translated.">Nettoyeur de métadonnées</title>
+
+	<media type="image" src="figures/icon.svg" width="64" height="64" its:translate="no"/>
+
+	<p><app>Nettoyeur de métadonnées</app> vous permet d’afficher les métadonnées dans vos fichiers et de vous en débarrasser, dans la mesure du possible.</p>
+
+	<section id="general">
+		<title>Informations générales</title>
+	</section>
+
+	<section id="usage">
+		<title>Utiliser <app>Nettoyeur de métadonnées</app></title>
+	</section>
+</page>

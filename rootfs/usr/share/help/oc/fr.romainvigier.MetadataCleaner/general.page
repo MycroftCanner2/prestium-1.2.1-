@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="oc">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadonadas e confidencialitat</title>
+		<p>Las metadonadas son compausadas d'informacions caracterizadas. Las metadonadas son utilizadas per provesir de la documentacion pels produches de donadas. Grosso modo, las metadonadas respondon a las questions qual, qué, quora, ont, perqué e cossí a prepaus de totas las caras d'una donadas en cors de documentacion.</p>
+		<p>Las metadonadas dins un fichièr pòdon en dire fòrça a vòstre subjècte. Los aparelhs fòto enregistran quand e ont una fotografia foguèt presa e qual aparelh foguèt utilizat. Las aplicacions de burèu ajustan automaticament d'informacions sus l'autor e l'entrepresa als documents e als tablèus. Son d’informacions sensiblas e volètz benlèu pas las desvelar.</p>
+		<figure>
+			<title>Exemple de metadonadas dins un fichièr imatge</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Lo fichièr divulga d'informacions sul material, los reglatges, las data e l'emplaçament de la presa de vista. Conten un total de 79 metadonadas.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Processús de netejatge</title>
+		<p>Malgrat que <app>Metadata Cleaner</app> faga çò que pòt per mostrar las metadonadas, significa pas qu’un fichièr siá net de tota metadonada se n’aficha pas cap. I a pas cap de metòde fisable per detectar cada metadonada possibla pels formats de fichièrs complexes. Es per aquò que devètz pas comptar sus la preséncia de metadonada per decidir se un fichièr es netejat o pas.</p>
+		<p><app>Netejador de metadonadas</app> pren lo contengut d'un fichièr e lo bota dins un nòu sens cap de metadonada, per s'assegurar que cap de metadonadas pas detectada siá levada.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Limitacions</title>
+		<p>Ajatz a l’esperit que las metadonadas son pas l’unic biais de marcar un fichièr. Se lo quite contengut del fichièr divulga d’informacions personalas o foguèt fichat numericament, de manièra tradicionala o per estenografia <app>Netejador de metadonadas</app> vos protegirà pas.</p>
+	</section>
+</page>

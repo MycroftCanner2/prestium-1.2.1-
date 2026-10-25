@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="gl">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Engadir ficheiros</title>
+		<p>Para engadir ficheiros, prema o botón <gui style="button">Engadir ficheiros</gui>. Abrirase un selector de ficheiros, selecciona os ficheiros que queres limpar.</p>
+		<figure>
+			<title>Botón de <gui style="button">Engadir ficheiros</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>To add whole folders at once, press the <gui style="button">Add Folders</gui> button. A file chooser will open, select the folders you want to add. You can optionally choose to also add all files from all subfolders by checking the <gui style="checkbox">Add files from subfolders</gui> checkbox.</p>
+		<figure>
+			<title><gui style="button">Add Folders</gui> button</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Visualización dos metadatos</title>
+		<p>Fai clic nun ficheiro da lista para abrila vista detallada. Se ten metadatos, mostraranse alí.</p>
+		<figure>
+			<title>Vista detallada dos metadatos</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Limpeza de ficheiros</title>
+		<p>Para limpar todolos ficheiros da xanela, prema o botón <gui style="button">Limpar</gui>. O proceso de limpeza pode tardar algún tempo en completarse.</p>
+		<figure>
+			<title>Botón de <gui style="button">Limpar</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Limpeza lixeira</title>
+		<p>De xeito predeterminado, o proceso de eliminación pode alterar un pouco os datos dos teus ficheiros para eliminala maior cantidade de metadatos posible. Por exemplo, é posible que os textos en PDF xa non se poidan seleccionar, as imaxes comprimidas poden volver a comprimirse…</p>
+		<p>O modo lixeiro, aínda que non é tan exhaustivo, non fará cambios destrutivos nos seus ficheiros.</p>
+	</section>
+</page>

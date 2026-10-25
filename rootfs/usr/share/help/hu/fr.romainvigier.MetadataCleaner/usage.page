@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="hu">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Fájlok hozzáadása</title>
+		<p>Fájlok hozzáadásához nyomja meg a <gui style="button">Fájlok hozzáadása</gui> gombot. Egy fájlválasztó fog megnyílni, ahol kiválaszthatja a megtisztítani kívánt fájlokat.</p>
+		<figure>
+			<title><gui style="button">Fájlok hozzáadása</gui> gomb</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Teljes mappák egyszerre történő hozzáadásához nyomja meg a <gui style="button">Mappák hozzáadása</gui> gombot. Egy fájlválasztó fog megnyílni, válassza ki a hozzáadni kívánt mappákat. A <gui style="checkbox">Fájlok hozzáadása az almappákból</gui> jelölőnégyzet bejelölésével lehetősége van arra, hogy az összes almappából is hozzáadja az összes fájlt.</p>
+		<figure>
+			<title><gui style="button">Mappák hozzáadása</gui> gomb</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Metaadatok megtekintése</title>
+		<p>Kattintson egy fájlra a listában a részletes nézet megnyitásához. Ha a fájl rendelkezik metaadatokkal, akkor azok itt lesznek megjelenítve.</p>
+		<figure>
+			<title>A metaadatok részletes nézete</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Fájlok tisztítása</title>
+		<p>Az ablakban lévő összes fájl megtisztításához nyomja meg a <gui style="button">Tisztítás</gui> gombot. A tisztítási folyamat eltarthat egy ideig, mire befejeződik.</p>
+		<figure>
+			<title><gui style="button">Tisztítás</gui> gomb</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Egyszerűsített tisztítás</title>
+		<p>Alapértelmezés szerint az eltávolítási folyamat egy kicsit módosíthatja a fájlok adatait, hogy a lehető legtöbb metaadatot eltávolítsa. Például a PDF-ben lévő szövegek nem lesznek többé kijelölhetők, a tömörített képek újra tömörítve lesznek…</p>
+		<p>Az egyszerűsített mód – bár nem olyan alapos – nem végez romboló változtatásokat a fájlokon.</p>
+	</section>
+</page>

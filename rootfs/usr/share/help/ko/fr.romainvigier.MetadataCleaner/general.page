@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="ko">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>메타데이터 및 개인 정보</title>
+		<p>메타데이터는 특징을 지닌 데이터 정보로 이루어져있습니다. 메타데이터는 데이터 제품의 문서를 제공할 때 활용하기도 합니다. 요는, 메타데이터에서 누가, 무엇을, 언제, 어디서, 왜, 어떻게 문서에 데이터를 넣을지 모든 질문에 답해줍니다.</p>
+		<p>파일의 메타데이터는 사용자의 여러 정보가 담겨있습니다. 카메라는 어디서 사진을 찍었고 어떤 카메라를 사용했는지 데이터를 기록합니다. 오피스 프로그램은 작성자와 회사 정보를 문서와 스프레드 시트에 추가합니다. 이는 파일에 넣고 싶지 않은 민감한 정보입니다.</p>
+		<figure>
+			<title>그림 파일 메타데이터 예시</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>파일에는 하드웨어, 설정, 날짜, 촬영 위치 정보가 들어있습니다. 지금 보시는 내용에는 메타데이터가 전부 79개 있습니다.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>정리 절차</title>
+		<p><app>메타데이터 클리너</app>가 표시할 메타데이터를 최대한 보여주는 반면에, 어떤 정보 조차도 보여주지 않는다고 하여 파일의 메타데이터를 지웠음을 의미하는건 아닙니다. 복잡한 파일 형식에 단일 존재로 가능한 메타데이터를 찾아내는데 믿을만한 방법은 없습니다. 이게 바로 파일을 지워야 할 지 말아야 할 지를 셜정하는데 어떤 메타데이터가 보이느냐에 집착하지 않는 이유입니다.</p>
+		<p><app>메타데이터 클리너</app>는 메타데이터가 빠진 파일의 내용을 새로 취하여, 발견하지 못한 메타데이터를 제거해냅니다.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>제한</title>
+		<p>메타데이터가 파일의 내용을 표시하는 유일한 수단이 아님을 알아두십시오. 자체 내용에 개인정보가 들어갔거나, 워터마크로 처리를 했을 때, 기존의 방식대로든 암호문 방식대로든, <app>메타데이터 클리너</app>로는 개인의 신상을 보호해주지 않습니다.</p>
+	</section>
+</page>

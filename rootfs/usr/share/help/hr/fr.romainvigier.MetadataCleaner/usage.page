@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="hr">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Dodavanje datoteka</title>
+		<p>Za dodavanje datoteka pritisni gumb <gui style="button">Dodaj datoteke</gui>. U sljedećem prozoru odaberi datoteke koje želiš očistiti.</p>
+		<figure>
+			<title>Gumb <gui style="button">Dodaj datoteke</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Za dodavanje cijelih mapa odjednom, pritisni gumb <gui style="button">Dodaj mape</gui>. Otvorit će se birač. Odaberi mape koje želiš dodati. Ako želiš, možeš odabrati i dodati sve datoteke iz svih podmapa potvrđivanjem okvira <gui style="checkbox">Dodaj datoteke iz podmapa</gui>.</p>
+		<figure>
+			<title>Gumb <gui style="button">Dodaj mape</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Prikaz metapodataka</title>
+		<p>Za otvaranje detaljnog prikaza pritisni željenu datoteku u popisu. Ako sadrži metapodatke, tamo će se prikazati.</p>
+		<figure>
+			<title>Detaljan prikaz metapodataka</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Čišćenje datoteka</title>
+		<p>Za čišćenje svih datoteka u prozoru pritisni gumb <gui style="button">Očisti</gui>. Postpak čišćenja može potrajati.</p>
+		<figure>
+			<title>Gumb <gui style="button">Očisti</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Jednostavno čišćenje</title>
+		<p>Postupak čišćenja može promijeniti podatke datoteka kako bi se uklonilo što više metapodataka. Na primjer, u PDF datotekama se tekstovi možda više neće moći odabrati, komprimirane slike će se možda ponovo komprimirati …</p>
+		<p>Jednostavno čišćenje mijenja datoteke na nedestruktivan način, ali možda ne briše sve metapodatke.</p>
+	</section>
+</page>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="ko">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>파일 추가</title>
+		<p>파일을 추가하려면 <gui style="button">파일 추가</gui> 단추를 누르십시오. 파일 선택 대화상자가 열립니다. 메타데이터를 지우려는 파일을 선택하십시오.</p>
+		<figure>
+			<title><gui style="button">파일 추가</gui> 단추</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>To add whole folders at once, press the <gui style="button">Add Folders</gui> button. A file chooser will open, select the folders you want to add. You can optionally choose to also add all files from all subfolders by checking the <gui style="checkbox">Add files from subfolders</gui> checkbox.</p>
+		<figure>
+			<title><gui style="button">Add Folders</gui> button</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>메타데이터 보기</title>
+		<p>자세히 열어보려는 목록의 파일을 누르십시오. 메타데이터가 있다면, 해당 위치에 나타납니다.</p>
+		<figure>
+			<title>메타데이터 자세히 보기</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>파일 지우기</title>
+		<p>창에 있는 모든 파일을 정리하려면, <gui style="button">지우기</gui>단추를 누르십시오. 정리 과정이 끝나기에는 시간이 좀 걸립니다.</p>
+		<figure>
+			<title><gui style="button">지우기</gui> 단추</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>간편 정리</title>
+		<p>기본적으로 제거 과정에서는 가능한 최대한의 메타데이터를 제거하려고 파일의 데이터 일부를 바꾸기도 합니다. 예를 들면 PDF의 텍스트는 더이상 선택할 수 없으며, 압축 이미지는 다시 압축할 수도 있습니다…</p>
+		<p>간편 동작 모드에서는, 이렇게 동작하지 않기에, 파일에 현상을 바꾸는 변화를 주지는 않습니다.</p>
+	</section>
+</page>

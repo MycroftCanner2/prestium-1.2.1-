@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="ja">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>ファイルの追加</title>
+		<p>ファイルを追加するには<gui style="button">ファイル追加</gui>ボタンを押します。ファイル選択画面が開くので、メタデータを除去したいファイルを選択してください。</p>
+		<figure>
+			<title><gui style="button">ファイル追加</gui>ボタン</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>フォルダ全体を追加するには、<gui style="button">フォルダ追加</gui>ボタンを押してください。ファイル選択画面が表示されるので、追加したいフォルダを選択してください。<gui style="checkbox">サブフォルダ内のファイルを追加</gui>のチェックボックスにチェックを入れると、全サブフォルダ内の全ファイルを追加することもできます。</p>
+		<figure>
+			<title><gui style="button">フォルダ追加</gui>ボタン</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>メタデータの確認</title>
+		<p>一覧でファイルをクリックすると、詳細画面が表示されます。メタデータがある場合はそれも表示されます。</p>
+		<figure>
+			<title>メタデータの詳細表示</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>ファイルからメタデータを除去</title>
+		<p>ウィンドウ内の全ファイルからメタデータを除去するには、<gui style="button">除去</gui>ボタンを押します。除去の完了には時間がかかる場合があります。</p>
+		<figure>
+			<title><gui style="button">除去</gui>ボタン</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>簡易除去</title>
+		<p>デフォルトでは、可能な限り多くのメタデータを除去するために、除去プロセス中にファイルのデータを少し変更することがあります。例えば、PDF 内のテキストが選択できなくなったり、圧縮された画像が再圧縮される場合があります。</p>
+		<p>簡易除去モードでは、徹底的な除去は行われませんが、ファイルに壊滅的な変更を加えません。</p>
+	</section>
+</page>

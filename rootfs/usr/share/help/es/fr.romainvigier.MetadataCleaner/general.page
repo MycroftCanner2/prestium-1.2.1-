@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="es">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadatos y privacidad</title>
+		<p>Los metadatos consisten en información que caracteriza los datos. Los metadatos se usan para documentar los productos de datos. En esencia, los metadatos responden a quién, qué, cuándo, dónde, por qué y cómo sobre cada faceta de los datos que se documentan.</p>
+		<p>Los metadatos de un archivo pueden decir mucho sobre una persona. Las cámaras registran datos sobre cuándo y dónde se tomó una foto y qué cámara se usó. Las aplicaciones ofimáticas añaden automáticamente información sobre el autor y la empresa a los documentos y hojas de cálculo. Se trata de información delicada y es posible que no quiera revelarla.</p>
+		<figure>
+			<title>Ejemplo de metadatos en un archivo de imagen</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>El archivo revela información sobre el hardware, los ajustes, la fecha y el lugar de la toma. Contiene un total de 79 metadatos.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Proceso de limpieza</title>
+		<p>Aunque <app>Limpiador de metadatos</app> hace todo lo posible para mostrar los metadatos, no significa que un archivo esté limpio de metadatos si no muestra ninguno. No hay una forma fiable de detectar todos los metadatos posibles para formatos de archivo complejos. Por ello, no debe confiar en la presencia de metadatos para decidir si su archivo debe ser limpiado o no.</p>
+		<p><app>Limpiador de metadatos</app> toma el contenido del archivo y lo pone en uno nuevo sin metadatos, asegurando que cualquier metadato no detectado sea eliminado.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Limitaciones</title>
+		<p>Tenga en cuenta que los metadatos no son la única forma de marcar un archivo. Si el propio contenido revela información personal o ha sido marcado con una marca de agua, tradicionalmente o mediante esteganografía <app>Limpiador de metadatos</app> no le protegerá.</p>
+	</section>
+</page>

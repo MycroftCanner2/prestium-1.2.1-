@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="id">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadata dan privasi</title>
+		<p>Metadata terdiri dari informasi yang mencirikan data. Metadata digunakan untuk menyediakan dokumentasi untuk produk data. Intinya, metadata menjawab siapa, apa, kapan, di mana, mengapa, dan bagaimana setiap aspek data yang didokumentasikan.</p>
+		<p>Metadata dari sebuah file berisi informasi penting tentang Anda. Misalnya kamera dapat merekam data mengenai kapan dan di mana gambar diambil serta jenis kamera apa yang sedang digunakan. Atau aplikasi Office yang secara otomatis menambahkan informasi penulis dan perusahaan ke suatu dokumen dan spreadsheet. Informasi-informasi ini bersifat sensitif dan Anda mungkin tidak ingin menyebarkannya.</p>
+		<figure>
+			<title>Contoh metadata dari berkas gambar</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>File tersebut mengungkapkan informasi tentang perangkat keras, pengaturan, tanggal, lokasi pemotretan. File tersebut berisi total 79 metadata.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Proses pembersihan</title>
+		<p>Meskipun <app>Metadata Cleaner</app> melakukan yang terbaik untuk menampilkan metadata, itu tidak berarti bahwa sebuah file bersih dari metadata jika tidak ditampilkan. Tidak ada cara yang dapat diandalkan untuk mendeteksi setiap kemungkinan metadata untuk format file yang kompleks. Inilah sebabnya mengapa Anda tidak boleh bergantung pada keberadaan metadata untuk memutuskan apakah file Anda harus dibersihkan atau tidak.</p>
+		<p><app>Metadata Cleaner</app> mengambil konten dari file dan memasukkannya ke file baru tanpa metadata, memastikan metadata yang tidak terdeteksi dihapus.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Batasan</title>
+		<p>Ketahuilah bahwa metadata bukan satu-satunya cara menandai file. Jika konten itu sendiri mengungkapkan informasi pribadi atau telah diberi watermark, secara tradisional atau melalui steganografi, <app>Metadata Cleaner</app> tidak dapat melindungi Anda.</p>
+	</section>
+</page>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="hr">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metapodaci i privatnost</title>
+		<p>Metapodaci se sastoje od informacija koje karakteriziraju podatke. Metapodaci se koriste za pružanje dokumentacije za podatkovne proizvode. U osnovi, metapodaci odgovaraju na pitanja tko, što, kada, gdje, zašto i kako za sve aspekte podataka koji se dokumentiraju.</p>
+		<p>Metapodaci u datoteci mogu otkriti razne informacije o tebi. Kamere bilježe podatke o tome kada i gdje je slika snimljena te koja je kamera korištena. Uredski programi automatski dodaju podatke o autoru i tvrtki u dokumente i proračunske tablice. Možda ne želiš da te informacije budu dostupne drugima.</p>
+		<figure>
+			<title>Primjer metapodataka u slikovnoj datoteci</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Datoteka otkriva informacije o hardveru, postavkama, datumu, mjestu snimanja itd. Ukupno sadrži 79 metapodataka.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Postupak čišćenja</title>
+		<p>Mada se <app>Brisač metapodataka</app> trudi prikazati metapodatke, to ne znači da datoteka ne sadrži metapodatke ako ih ne prikazuje. Ne postoji pouzdan način za otkrivanje svih mogućih metapodataka za složene datotečne formate. Stoga, odluku o čišćenju nemoj donositi samo na osnovi (ne)prisutnosti metapodataka.</p>
+		<p><app>Brisač metapodataka</app> uzima sadržaj datoteke i stavlja ga u novi bez metapodataka, osiguravajući uklanjanje svih neotkrivenih metapodataka.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Ograničenja</title>
+		<p>Imaj na umu da metapodaci nisu jedini način označavanja datoteka. Ako sadržaj sadrži osobne podatke ili je označen vodenim žigom, tradicionalno ili putem steganografije, <app>Brisač metapodataka</app> te neće zaštititi.</p>
+	</section>
+</page>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="lt">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metaduomenys ir privatumas</title>
+		<p>Metaduomenis sudaro duomenys apibūdinanti informacija. Metaduomenys naudojami duomenų produktų dokumentacijai pateikti. Iš esmės metaduomenys atsako, kas, kada, kur, kodėl ir kaip apie kiekvieną dokumentuojamų duomenų aspektą.</p>
+		<p>Failo metaduomenys gali daug ką pasakyti apie jus. Kameros įrašo duomenis apie tai, kada ir kur buvo padaryta nuotrauka ir kokia kamera buvo naudojama. „Office“ programos automatiškai prideda autoriaus ir įmonės informaciją prie dokumentų ir skaičiuoklių. Tai neskelbtina informacija ir galbūt nenorėsite jos atskleisti.</p>
+		<figure>
+			<title>Metaduomenų paveikslėlio faile pavyzdys</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Faile atskleidžiama informacija apie aparatūrą, nustatymus, datą, fotografavimo vietą. Jame iš viso yra 79 metaduomenys.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Valymo procesas</title>
+		<p>Nors <app>Metaduomenų valytojas</app> daro viską, kad rodytų metaduomenis, tai nereiškia, kad faile nėra metaduomenų, jei jie nerodomi. Nėra patikimo būdo aptikti visus įmanomus sudėtingų formatų failų metaduomenis. Todėl neturėtumėte pasikliauti metaduomenų buvimu, kad nuspręstumėte, ar jūsų failas turi būti valomas, ar ne.</p>
+		<p><app>Metaduomenų valytojas</app> paima failo turinį ir perkelia jį į naują failą be metaduomenų, užtikrindamas, kad visi neaptikti metaduomenys būtų pašalinti.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Apribojimai</title>
+		<p>Atminkite, kad metaduomenys nėra vienintelis failų žymėjimo būdas. Jei turinys pats atskleidžia asmeninę informaciją arba yra pažymėtas tradiciniais vandens ženklais ar stenografijos metodu, <app>Metaduomenų valytojas</app> jūsų neapsaugos.</p>
+	</section>
+</page>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="hu">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metaadatok és adatvédelem</title>
+		<p>A metaadatok az adatokat jellemző információkból állnak. A metaadatokat az adattermékek dokumentálására használják. A metaadatok lényegében a dokumentált adatok minden aspektusával kapcsolatban választ adnak arra, hogy ki, mit, mikor, hol, miért és hogyan csinált.</p>
+		<p>Egy fájlon belüli metaadatok sokat elárulhatnak Önről. A fényképezőgépek adatokat rögzítenek arról, hogy mikor és hol készült a fénykép, illetve milyen fényképezőgépet használtak. Az irodai alkalmazások automatikusan hozzáadják a dokumentumokhoz és táblázatokhoz a szerző és a vállalat adatait. Ezek érzékeny információk és nem biztos, hogy szeretné nyilvánosságra hozni azokat.</p>
+		<figure>
+			<title>Példa a metaadatokra egy képfájlban</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>A fájl információkat közöl a hardverről, a beállításokról, a felvétel dátumáról és helyéről. Összesen 79 metaadatot tartalmaz.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Tisztítási folyamat</title>
+		<p>Bár a <app>Metaadattörlő</app> mindent megtesz a metaadatok megjelenítéséért, az nem jelenti azt, hogy egy fájl metaadatoktól mentes, ha nem jelenik meg egy sem. Az összetett fájlformátumok esetében nincs megbízható módszer minden lehetséges metaadat felismerésére. Ezért nem szabad a metaadatok jelenlétére hagyatkozni annak eldöntésében, hogy a fájlt meg kell-e tisztítani vagy sem.</p>
+		<p>A <app>Metaadattörlő</app> átveszi a fájl tartalmát és egy új, metaadatok nélküli fájlba helyezi, biztosítva, hogy a fel nem fedezett metaadatok eltávolításra kerüljenek.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Korlátozások</title>
+		<p>Ne feledje, hogy a metaadat nem az egyetlen módja a fájlok megjelölésének. Ha maga a tartalom személyes adatokat hoz nyilvánosságra, illetve hagyományos módon vagy szteganográfiával vízjelezett, akkor a <app>Metaadattörlő</app> nem fogja megvédeni Önt.</p>
+	</section>
+</page>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="index" xml:lang="it">
+	<title its:locNote="The application name. It can be translated.">Pulitore di Metadati</title>
+
+	<media type="image" src="figures/icon.svg" width="64" height="64" its:translate="no"/>
+
+	<p><app>Metadata Cleaner</app> ti consente di visualizzare i metadati nei tuoi file e di sbarazzartene, per quanto possibile.</p>
+
+	<section id="general">
+		<title>Informazioni generali</title>
+	</section>
+
+	<section id="usage">
+		<title>Usa <app>Metadata Cleaner</app></title>
+	</section>
+</page>

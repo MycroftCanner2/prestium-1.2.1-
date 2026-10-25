@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="es">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Añadir archivos</title>
+		<p>Para añadir archivos, pulse el botón <gui style="button">Añadir archivos</gui>. Se abrirá un selector de archivos, seleccione los archivos que desee limpiar.</p>
+		<figure>
+			<title>Botón de <gui style="button">Añadir archivos</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Para añadir carpetas enteras de una vez, pulsa el botón <gui style="button">Añadir carpetas</gui>. Se abrirá un selector de archivos, selecciona las carpetas que quieras añadir. Opcionalmente puedes elegir añadir también todos los archivos de todas las subcarpetas marcando la casilla <gui style="checkbox">Añadir archivos desde las subcarpetas</gui>.</p>
+		<figure>
+			<title>Botón <gui style="button">Añadir carpetas</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Visualización de los metadatos</title>
+		<p>Haga clic en un archivo de la lista para abrir la vista detallada. Si tiene metadatos, se mostrarán allí.</p>
+		<figure>
+			<title>Vista detallada de los metadatos</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Limpieza de archivos</title>
+		<p>Para limpiar todos los archivos de la ventana, pulse el botón <gui style="button">Limpiar</gui>. El proceso de limpieza puede tardar algún tiempo en completarse.</p>
+		<figure>
+			<title>Botón de <gui style="button">Limpiar</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Limpieza ligera</title>
+		<p>Por defecto, el proceso de eliminación puede alterar un poco los datos de sus archivos, con el fin de eliminar la mayor cantidad de metadatos posible. Por ejemplo, es posible que los textos del PDF ya no se puedan seleccionar, que las imágenes comprimidas se vuelvan a comprimir…</p>
+		<p>El modo ligero, aunque no es tan exhaustivo, no hará cambios destructivos en sus archivos.</p>
+	</section>
+</page>

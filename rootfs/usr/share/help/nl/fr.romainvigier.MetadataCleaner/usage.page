@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="nl">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Bestanden toevoegen</title>
+		<p>Voeg bestanden toe door op de knop <gui style="button">Bestanden toevoegen</gui> te klikken. In de bestandskiezer kun je aangeven welke bestanden je wilt opschonen.</p>
+		<figure>
+			<title><gui style="button">Bestanden toevoegen</gui>-knop</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Druk op <gui style="button">Mappen toevoegen</gui> om mappen toe te voegen. Kies in de bestandskiezer de toe te voegen mappen. Ook kunt u bestanden uit onderliggende mappen toevoegen door <gui style="checkbox">Bestanden uit onderliggende mappen toevoegen</gui> aan te kruisen.</p>
+		<figure>
+			<title><gui style="button">Mappen toevoegen</gui>-knop</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Metagegevens bekijken</title>
+		<p>Klik op een bestand op de lijst om de details te tonen. Als er metagegevens zijn, dan worden ze daar getoond.</p>
+		<figure>
+			<title>Metagegevensdetails</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Bestanden opschonen</title>
+		<p>Schoon bestanden op door op de knop <gui style="button">Opschonen</gui> te klikken. Het opschoonproces kan even duren.</p>
+		<figure>
+			<title><gui style="button">Opschonen</gui>-knop</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Lichte schoonmaak</title>
+		<p>Standaard tast het verwijderproces je bestanden een beetje aan om zoveel mogelijk metagegevens te verwijderen. Voorbeelden: tekst in pdf-bestanden is mogelijk niet meer selecteerbaar, gecomprimeerde afbeeldingen worden opnieuw gecomprimeerd…</p>
+		<p>De eenvoudige modus is minder grondig en daarom minder gevaarlijk.</p>
+	</section>
+</page>

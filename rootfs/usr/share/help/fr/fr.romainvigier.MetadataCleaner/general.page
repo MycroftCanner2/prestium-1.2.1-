@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="fr">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Métadonnées et confidentialité</title>
+		<p>Les métadonnées sont des informations qui caractérisent une donnée. Elles sont utilisées pour donner des renseignements aux consommateurs de données. Par essence, les métadonnées répondent aux questions qui, quoi, quand, où, pourquoi et comment à propos de chaque aspect de la donnée qu’elles caractérisent.</p>
+		<p>Les métadonnées dans un fichier peuvent en dire beaucoup à votre sujet. Les appareils photo enregistrent quand et où une photographie a été prise et quel appareil a été utilisé. Les applications bureautiques ajoutent automatiquement des informations sur l’auteur et l’entreprise aux documents et aux tableaux. Ce sont des informations sensibles et vous ne voulez peut-être pas les dévoiler.</p>
+		<figure>
+			<title>Exemple de métadonnées dans un fichier image</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Le fichier divulgue des informations sur le matériel, les réglages, la date et l’emplacement de la prise de vue. Il contient un total de 79 métadonnées.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Processus de nettoyage</title>
+		<p>Bien que <app>Nettoyeur de métadonnées</app> fasse de son mieux pour afficher les métadonnées, cela ne signifie pas qu’un fichier n’en contient pas s’il n’en affiche aucune. Il n’y a pas de méthode fiable pour détecter chaque métadonnée possible pour des formats de fichier complexes. C’est pourquoi vous ne devriez pas vous fier à la présence de métadonnées pour décider si votre fichier doit être nettoyé ou non.</p>
+		<p><app>Nettoyeur de métadonnées</app> prend le contenu du fichier et le place dans un nouveau sans métadonnées, garantissant que toutes les métadonnées non-détectées sont retirées.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Limites</title>
+		<p>Ayez conscience que les métadonnées ne sont pas le seul moyen pour tracer un fichier. Si le contenu lui-même divulgue des informations personnelles ou a été tatoué numériquement, de manière traditionnelle ou par de la stéganographie, <app>Nettoyeur de métadonnées</app> ne vous protégera pas.</p>
+	</section>
+</page>

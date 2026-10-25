@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="oc">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Apondre de fichièrs</title>
+		<p>Per apondre de fichièrs, quichat lo boton <gui style="button">Ajustar de fichièrs</gui>. Lo selector de fichièr se dobrirà per causir los fichièrs que volètz netejar.</p>
+		<figure>
+			<title>Boton <gui style="button">Apondre de fichièrs</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Per apondre de dossièrs entièrs, e quichatz lo boton <gui style="button">Ajustar de dossièrs</gui>. Un selector apareissarà, seleccionatz los fichièrs que volètz apondre. D’un biais opcional podètz causir d’apondre totes los fichièrs de totes los jos-dossièrs en marcant la cassa <gui style="checkbox">Ajustar los fichièrs dels jos-dossièrs</gui>.</p>
+		<figure>
+			<title>Boton <gui style="button">Apondre de dossièrs</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Visualizar las metadonadas</title>
+		<p>Clicatz un fichièr de la lista per dobrir la vista detalhada. Se possedís de metadonadas, serà presentadas aicí.</p>
+		<figure>
+			<title>Vista detalhada de las metadonadas</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Netejar los fichièrs</title>
+		<p>Per netejar totes los fichièrs de la fenèstra, quichatz lo boton <gui style="button">Netejar</gui>. Lo processús de netejatge pòt trigar abans de se terminar.</p>
+		<figure>
+			<title>Boton <gui style="button">Netejar</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Netejatge leugièr</title>
+		<p>Per defaut, lo processús de netejatge pòt leugièrament alterar los fichièrs, per dire de suprimir tan de donadas que possible. Per exemple, lo tèxte dels PDF pòt èsser pas pus seleccionable, los imatges compressats pòdon èsser compressats de nòu…</p>
+		<p>Lo mòde leugièr, encara que mens exaustiu, farà pas cap de modificacion destructiva a vòstres fichièrs.</p>
+	</section>
+</page>
