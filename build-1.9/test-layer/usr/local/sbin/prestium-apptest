@@ -22,17 +22,18 @@ launch vlc "VLC" vlc
 launch feather "Feather" feather
 launch keepassxc "KeePassXC" keepassxc
 launch speedcrunch "SpeedCrunch" speedcrunch
-launch sylpheed "Sylpheed|Setup" sylpheed
+launch claws-mail "Claws Mail|Wizard|Configuration" claws-mail
 launch gajim "Gajim|Welcome" gajim
 launch qtqr "QtQR" qtqr
 launch featherpad "FeatherPad|Untitled" featherpad
 launch xterm "xterm|user@" x-terminal-emulator
-launch nyx "Nyx" xterm -T Nyx -e nyx
-launch gpgfrontend "GpgFrontend" gpgfrontend
+launch nyx "Nyx" xterm -T Nyx -e nyx -s /run/onion-grater/control
+launch kleopatra "Kleopatra" kleopatra
 launch audacity "Audacity" audacity
 launch librewolf "LibreWolf|Mozilla" librewolf-i2p
 launch onionshare "OnionShare" onionshare
 echo "volumeicon running: $(pgrep -c -u user volumeicon)"; timeout 15 volumeicon > /tmp/volumeicon.log 2>&1; echo "volumeicon rc=$? out: $(head -c 400 /tmp/volumeicon.log)"
+echo "diodon dconf: keep=$(gsettings get net.launchpad.Diodon.clipboard keep-clipboard-content) size=$(gsettings get net.launchpad.Diodon.clipboard recent-items-size) writable=$(gsettings writable net.launchpad.Diodon.clipboard keep-clipboard-content) zeitgeist=$(pgrep -c zeitgeist)"
 echo "diodon running: $(pgrep -c -u user diodon)  clipit dialog: $(xdotool search --name ClipIt 2>/dev/null | wc -l)"
 echo "tray/session procs: $(ps -u user -o comm= | sort -u | tr '\n' ' ')"
 echo APPTEST-DONE; touch /tmp/app-done

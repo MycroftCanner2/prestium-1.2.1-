@@ -1,0 +1,22 @@
+# Prestium 1.9.1 Tor configuration (on top of /usr/share/tor/tor-service-defaults-torrc)
+#
+# A SocksPort line here replaces every SocksPort of the defaults file, so the
+# world-writable unix socket /run/tor/socks (which the per-uid firewall can't
+# filter) is gone. Streams to different destination hosts/ports use separate
+# circuits; Tor Browser isolates further by SOCKS username (first-party domain).
+SocksPort 127.0.0.1:9050 IsolateDestAddr IsolateDestPort
+# no DNSPort/TransPort: nothing on Prestium resolves names outside Tor/I2P
+AvoidDiskWrites 1
+# Sandbox 1 removed in 1.9.1: Tor refuses managed proxies (ClientTransportPlugin: obfs4/snowflake/webtunnel) in Sandbox mode, so tor@default failed. Tails does not use Sandbox either.
+# IPv6 is disabled on Prestium
+ClientUseIPv6 0
+ClientPreferIPv6ORPort 0
+
+# Pluggable transports (only used when you add Bridge lines and UseBridges 1).
+# obfs4 bridges work as is. Snowflake and WebTunnel bridges need a DNS resolver
+# (their broker/front/bridge lines use host names) and Snowflake needs UDP;
+# Prestium has neither by design (no clearnet DNS), so they are installed for
+# completeness but won't connect unless you add a resolver yourself.
+ClientTransportPlugin meek_lite,obfs2,obfs3,obfs4,scramblesuit exec /usr/bin/lyrebird
+ClientTransportPlugin snowflake exec /usr/bin/snowflake-client
+ClientTransportPlugin webtunnel exec /usr/bin/webtunnel-client

@@ -1,0 +1,5 @@
+# Prestium 1.9.1 (Tails): spoof the MAC address of every physical network
+# device as soon as it appears, before NetworkManager sees it. macchanger -e
+# keeps the vendor part (looks like an ordinary card) and randomises the rest.
+# If spoofing fails the device is disabled. Boot option "nomacspoof" turns it off.
+ACTION=="add", SUBSYSTEM=="net", KERNEL!="lo", DEVPATH!="/devices/virtual/*", IMPORT{cmdline}="nomacspoof", ENV{nomacspoof}!="?*", RUN+="/usr/local/lib/prestium-spoof-mac %k"

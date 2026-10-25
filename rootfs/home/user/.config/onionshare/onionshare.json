@@ -1,6 +1,6 @@
 {
   "connection_type": "socket_file",
-  "socket_file_path": "/run/tor/control",
+  "socket_file_path": "/run/onion-grater/control",
   "auth_type": "no_auth",
   "auto_connect": true,
   "use_autoupdate": false

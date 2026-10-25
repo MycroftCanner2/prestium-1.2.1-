@@ -6,7 +6,7 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
-  <item label="Web Browser (I2P)">
+  <item label="Web Browser (I2P; clearnet via I2P outproxy)">
     <action name="Execute"><execute>librewolf-i2p</execute></action>
   </item>
   <item label="Tor Browser">
@@ -65,7 +65,10 @@
       <action name="Execute"><execute>file-roller</execute></action>
     </item>
     <item label="Image Viewer">
-      <action name="Execute"><execute>ristretto</execute></action>
+      <action name="Execute"><execute>loupe</execute></action>
+    </item>
+    <item label="Metadata Cleaner">
+      <action name="Execute"><execute>metadata-cleaner</execute></action>
     </item>
     <item label="KeePassXC">
       <action name="Execute"><execute>keepassxc</execute></action>
@@ -73,8 +76,8 @@
     <item label="Unlock VeraCrypt Volume">
       <action name="Execute"><execute>/usr/local/bin/prestium-unlock-veracrypt</execute></action>
     </item>
-    <item label="GPG Frontend">
-      <action name="Execute"><execute>gpgfrontend</execute></action>
+    <item label="Kleopatra (GnuPG)">
+      <action name="Execute"><execute>kleopatra</execute></action>
     </item>
     <item label="QR Generator">
       <action name="Execute"><execute>qtqr</execute></action>
@@ -93,8 +96,8 @@
     <item label="OnionShare">
       <action name="Execute"><execute>onionshare</execute></action>
     </item>
-    <item label="Sylpheed E-mail">
-      <action name="Execute"><execute>sylpheed</execute></action>
+    <item label="Mail (I2P)">
+      <action name="Execute"><execute>claws-mail</execute></action>
     </item>
   </menu>
   <separator />
@@ -126,13 +129,16 @@
       <action name="Execute"><execute>sh -c "systemctl restart i2pd || sudo -n systemctl restart i2pd"</execute></action>
     </item>
     <item label="Tor Monitor (Nyx)">
-      <action name="Execute"><execute>x-terminal-emulator -e nyx</execute></action>
+      <action name="Execute"><execute>x-terminal-emulator -e nyx -s /run/onion-grater/control</execute></action>
     </item>
   </menu>
   <separator />
   <menu id="/System" label="System">
     <item label="Terminal">
       <action name="Execute"><execute>x-terminal-emulator</execute></action>
+    </item>
+    <item label="Lock Screen">
+      <action name="Execute"><execute>/usr/local/bin/prestium-lock-screen</execute></action>
     </item>
     <item label="Display Resolution">
       <action name="Execute"><execute>arandr</execute></action>

@@ -1,0 +1,59 @@
+# Prestium 1.9.1: LibreWolf ("Web Browser (I2P)").
+# COMPLAIN mode: denials are only logged, nothing is blocked. LibreWolf's
+# multi-process sandbox, GPU, media and extension paths vary between upstream
+# releases, and an enforced profile that misses one breaks the browser; the
+# logged denials from complain mode are what an enforced profile will be built
+# from. Network access is still limited by the firewall (uid user -> I2P/Tor
+# proxies on 127.0.0.1 only).
+abi <abi/4.0>,
+include <tunables/global>
+
+@{librewolf_dir}=/usr/share/librewolf
+
+profile librewolf @{librewolf_dir}/librewolf flags=(complain) {
+  include <abstractions/base>
+  include <abstractions/audio>
+  include <abstractions/dri-enumerate>
+  include <abstractions/gnome>
+  include <abstractions/ibus>
+  include <abstractions/mesa>
+  include if exists <abstractions/dbus-session-strict>
+
+  userns,
+  network inet stream,
+  network unix,
+  network netlink raw,
+  deny capability sys_ptrace,
+  capability sys_admin,
+  capability sys_chroot,
+
+  @{librewolf_dir}/ r,
+  @{librewolf_dir}/** r,
+  @{librewolf_dir}/*.so mr,
+  @{librewolf_dir}/librewolf mrix,
+  @{librewolf_dir}/{glxtest,vaapitest,pingsender} ix,
+  /etc/librewolf/** r,
+  /usr/lib/librewolf/** r,
+
+  owner @{HOME}/.librewolf/ rw,
+  owner @{HOME}/.librewolf/** rwk,
+  owner @{HOME}/.config/librewolf/ rw,
+  owner @{HOME}/.config/librewolf/** rwk,
+  owner @{HOME}/.cache/librewolf/** rwk,
+  owner @{HOME}/Downloads/ rw,
+  owner @{HOME}/Downloads/** rwk,
+  owner /tmp/** rwk,
+  owner /{dev,run}/shm/** rw,
+
+  owner @{PROC}/@{pid}/** r,
+  owner @{PROC}/@{pid}/{gid,uid}_map w,
+  owner @{PROC}/@{pid}/setgroups w,
+  owner @{PROC}/@{pid}/oom_score_adj rw,
+  @{sys}/devices/** r,
+  /dev/ r,
+
+  deny /run/tor/** rw,
+  deny /run/onion-grater/** rw,
+
+  include if exists <local/usr.share.librewolf.librewolf>
+}

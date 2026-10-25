@@ -1,0 +1,77 @@
+#! /usr/bin/python3
+
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+"""Entry script for Metadata Cleaner."""
+
+import gettext
+import gi
+import locale
+import logging
+import mimetypes
+import os
+import signal
+import sys
+
+gi.require_version("Gdk", "4.0")
+gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
+
+
+APP_ID = "fr.romainvigier.MetadataCleaner"
+DEVEL = "False" == "True"
+VERSION = "2.5.2"
+LOCALE_DIR = "/usr/share/locale"
+PKGDATA_DIR = "/usr/share/metadata-cleaner/data"
+PKGSRC_DIR = "/usr/share/metadata-cleaner/src"
+
+sys.path.insert(1, PKGSRC_DIR)
+
+
+def setup_i18n() -> None:
+    """Set the text domain for translations."""
+    try:
+        locale.bindtextdomain(APP_ID, LOCALE_DIR)  # type: ignore
+        locale.textdomain(APP_ID)  # type: ignore
+    except AttributeError as e:
+        logging.warning(
+            f"Unable to set the gettext translation domain.\nError:\n{e}")
+    gettext.bindtextdomain(APP_ID, LOCALE_DIR)
+    gettext.textdomain(APP_ID)
+
+
+def setup_resources() -> None:
+    """Load the application resources."""
+    from gi.repository import Gio
+    resource = Gio.Resource.load(
+        os.path.join(PKGDATA_DIR, f"{APP_ID}.gresource"))
+    Gio.Resource._register(resource)
+
+
+def setup_mimetypes() -> None:
+    """Add a mime.types file for the Flatpak runtime."""
+    if os.path.exists("/.flatpak-info"):
+        mimetypes.init(files=mimetypes.knownfiles + ["/app/share/mime.types"])
+
+
+def run_app() -> int:
+    """Run the application.
+
+    Returns:
+        int: Exit status
+    """
+    from metadatacleaner.app import MetadataCleaner
+    app = MetadataCleaner(application_id=APP_ID, devel=DEVEL, version=VERSION)
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+    exit_status = app.run(sys.argv)
+    return exit_status
+
+
+if __name__ == "__main__":
+    setup_i18n()
+    setup_resources()
+    setup_mimetypes()
+
+    exit_status = run_app()
+    sys.exit(exit_status)

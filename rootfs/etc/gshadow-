@@ -54,7 +54,8 @@ netdev:!::
 lightdm:!::
 polkitd:!*::
 autologin:!::user
-i2ptorrents:!::user
+i2ptorrents:!::user,i2pd
 prestium-localweb:!::user
 prestium-htp:!::
 thelounge:!::
+onion-grater:!::

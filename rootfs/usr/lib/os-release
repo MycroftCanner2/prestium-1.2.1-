@@ -1,7 +1,7 @@
 PRETTY_NAME="Prestium"
 NAME="Prestium"
-VERSION_ID="1.9"
-VERSION="1.9 (trixie)"
+VERSION_ID="1.9.1"
+VERSION="1.9.1 (trixie)"
 ID=prestium
 ID_LIKE=debian
 VERSION_CODENAME=trixie

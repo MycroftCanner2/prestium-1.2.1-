@@ -18,6 +18,8 @@ echo "--- timesync"; journalctl -b -u prestium-timesync --no-pager -o cat | tail
 echo "--- sysctl"; sysctl kernel.yama.ptrace_scope kernel.unprivileged_bpf_disabled kernel.sysrq net.ipv4.conf.all.accept_redirects
 echo "--- leak tests (user)"
 runuser -u user -- curl -s -m 8 -o /dev/null -w "clearnet direct: %{http_code}\n" http://1.1.1.1/ || echo "clearnet direct: blocked"
+echo "tor unit: $(systemctl is-active tor@default)"; for i in $(seq 1 24); do journalctl -u tor@default --no-pager 2>/dev/null | grep -q "Bootstrapped 100" && break; sleep 5; done
+journalctl -u tor@default --no-pager 2>/dev/null | grep -E "Bootstrapped|\[warn\]|\[err\]" | tail -4
 runuser -u user -- curl -s -m 60 -o /dev/null -w "tor socks: %{http_code}\n" --proxy socks5h://127.0.0.1:9050 https://check.torproject.org/ || echo "tor socks: failed"
 runuser -u user -- sudo -n /usr/bin/mount -t tmpfs x /mnt 2>&1 | head -1; runuser -u user -- sudo -n /usr/bin/veracrypt --version 2>&1 | head -1
 runuser -u prestium-htp -- curl -s -m 8 -o /dev/null -w "htp clearnet: %{http_code}\n" http://1.1.1.1/ || echo "htp clearnet: blocked"
@@ -51,7 +53,9 @@ runuser -u user -- sh -c 'cd /tmp && /usr/local/bin/tor-browser --headless --ver
 sleep 75
 echo "tb processes: $(pgrep -u user -c -f firefox.real)"; echo "bundled tor running: $(pgrep -c -f 'TorBrowser/Tor/tor' || true)"
 echo "tb->9050 conns: $(ss -tnp | grep '127.0.0.1:9050' | grep -c firefox)"; ss -tnp | grep '127.0.0.1:9050' | grep firefox | head -2
-echo "tor control sockets (listener+clients): $(ss -xp | grep -c /run/tor/control)"
+echo "tor control sockets (listener+clients): $(ss -xp | grep -c /run/tor/control) onion-grater: $(ss -xp | grep -c /run/onion-grater/control)"
+journalctl -b -u prestium-onion-grater --no-pager -o cat | tail -6
+ls -la /home/user/.tor-browser/profile.default 2>&1 | head -4; ls -ld "/home/user/Tor Browser"; aa-status 2>/dev/null | grep -A3 -i "processes are in enforce" | head -4; ps -eo label,comm | grep -E "firefox|tor" | head -4
 tail -n 8 /tmp/tb.log
 for f in /opt/tor-browser/Browser/TorBrowser/Data/Browser/profile.default/places.sqlite; do ls -l $f 2>/dev/null; done
 pkill -u user -f firefox.real; sleep 3
@@ -166,6 +170,41 @@ for i in $(seq 1 360); do [ -e /tmp/app-done ] && break; sleep 3; done
 cat /tmp/apptest.log
 echo "--- apparmor after tests"; aa-status 2>&1 | head -8; journalctl -b -k --no-pager -o cat | grep 'apparmor="DENIED"' | sed -E 's/.*operation="([^"]*)".*profile="([^"]*)".*name="([^"]*)".*/\1 \2 \3/' | sort | uniq -c | head -20
 /usr/local/sbin/prestium-prioritytest
+echo "--- 1.9.1 checks"
+for u in prestium-onion-grater prestium-firewall-early prestium-initramfs-shutdown prestium-wipe-session tor@default i2pd ferm NetworkManager; do echo "unit $u: $(systemctl is-active $u)"; done
+cat /proc/cmdline
+id user; getent group debian-tor
+sysctl net.ipv6.conf.all.disable_ipv6 net.ipv6.conf.default.disable_ipv6 dev.tty.legacy_tiocsti
+echo "ipv6 addrs: $(ip -6 addr | grep -c inet6)"
+ls -la /run/initramfs/shutdown; du -sh /run/initramfs 2>/dev/null; journalctl -b -u prestium-initramfs-shutdown --no-pager -o cat | tail -2
+echo "unix socks: $(ls /run/tor/socks 2>&1)"; ss -ltnx | grep -E '9050|tor' | head -4
+runuser -u user -- python3 -c "import socket;s=socket.socket(socket.AF_UNIX);s.connect('/run/tor/control');print('REAL CONTROL OPEN (BAD)')" 2>&1 | tail -1
+runuser -u user -- python3 -c "
+import socket;s=socket.socket(socket.AF_UNIX);s.connect('/run/onion-grater/control');s.sendall(b'GETINFO version\r\n');print('filter, unknown client:',s.recv(200))" 2>&1 | tail -1
+runuser -u user -- curl -s -m 6 -o /dev/null -w "user->7070: %{http_code}\n" http://127.0.0.1:7070/ || echo "user->7070: blocked"
+runuser -u user -- curl -s -m 6 -o /dev/null -w "user->7656 SAM: %{http_code}\n" http://127.0.0.1:7656/ || echo "user->7656: blocked/closed"
+runuser -u user -- curl -s -m 30 -o /dev/null -w "user->4444 proxy: %{http_code}\n" --proxy http://127.0.0.1:4444 http://stats.i2p/ || echo "user->4444: failed"
+runuser -u user -- curl -6 -s -m 6 -o /dev/null -w "user ipv6 ::1: %{http_code}\n" http://[::1]:9050/ || echo "user ipv6 ::1: blocked"
+iptables-legacy -S OUTPUT | grep -E "INVALID|1000|debian|tcp" | head -8; ip6tables-legacy -S OUTPUT | head -6
+grep -E "^(ipv6|bandwidth|share)|^enabled" /var/lib/i2pd/i2pd.conf | head -8; ss -ltn | grep -c "127.0.0.1:7656 "
+grep -v "^#" /etc/tor/torrc | grep . ; journalctl -b -u tor@default --no-pager -o cat | grep -iE "sandbox|warn|err" | head -5
+journalctl -b -t prestium-spoof-mac --no-pager -o cat | head -3; nmcli -t -f GENERAL.HWADDR dev show 2>/dev/null | head -2
+aa-status 2>/dev/null | grep -E "torbrowser|librewolf|system_tor|i2pd"
+echo "emSign in system bundle: $(grep -c emSign /etc/ssl/certs/ca-certificates.crt) ckbi: $(readlink /usr/lib/x86_64-linux-gnu/nss/libnssckbi.so)"
+stat -c '%a %n' /usr/bin/ntfs-3g /usr/bin/chfn /usr/bin/chsh /usr/bin/newgrp /usr/lib/openssh/ssh-keysign /usr/sbin/pppd
+dpkg-query -W keepassxc kleopatra audacity claws-mail claws-mail-pgpmime claws-mail-pgpinline xss-lock i3lock snowflake-client webtunnel lyrebird diodon 2>&1 | tr '\n' ' '; echo; dpkg -l sylpheed 2>&1 | tail -1
+echo "appimages: $(ls /usr/local/bin | grep -ci appimage)"; ls /usr/share/gvfs/mounts | tr '\n' ' '; echo
+pgrep -a xss-lock | head -2; echo "session password: $(sudo -n -u user sudo -n /usr/local/sbin/prestium-session-password status 2>&1)"
+grep no_proxy /etc/environment; ls -la /home/user/.claws-mail /etc/skel/.claws-mail 2>&1 | head -6
+journalctl -b -k --no-pager -o cat | grep -c 'Dropped' ; journalctl -b -k --no-pager -o cat | grep 'Dropped' | grep -oE 'UID=[0-9]+ ' | sort | uniq -c
 echo "--- absent"; command -v hexchat qbittorrent veracrypt || echo "hexchat/qbittorrent/veracrypt: absent"; ls /opt
+echo "--- A2 wipe pattern"
+A=PRESTIUM-WIPE-; B=7f3c9a1e5d2b
+python3 -c "
+import sys;p=(sys.argv[1]+sys.argv[2]+'\n').encode()
+for f in ['/home/user/wipetest.bin','/tmp/wipetest.bin','/dev/shm/wipetest.bin']:
+  open(f,'wb').write(p*(16*1024*1024//len(p)))
+" "$A" "$B"; chown user:user /home/user/wipetest.bin; sync; ls -la /home/user/wipetest.bin /tmp/wipetest.bin /dev/shm/wipetest.bin
+echo "WIPETEST-READY"
 echo "=== SELFTEST5 END ==="
 } > /dev/ttyS0 2>&1

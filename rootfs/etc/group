@@ -48,7 +48,7 @@ kvm:x:993:
 render:x:992:
 memlockd:x:101:
 Debian-exim:x:102:
-debian-tor:x:103:user
+debian-tor:x:103:
 _ssh:x:104:
 netdev:x:105:
 lightdm:x:106:
@@ -58,3 +58,4 @@ i2ptorrents:x:989:user,i2pd
 prestium-localweb:x:988:user
 prestium-htp:x:987:
 thelounge:x:986:
+onion-grater:x:985:
