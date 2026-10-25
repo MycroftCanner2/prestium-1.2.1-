@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="sv">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadata och integritet</title>
+		<p>Metadata består av information som kännetecknar data. Metadata används för att tillhandahålla dokumentation för dataprodukter. Metadata svarar i huvudsak på vem, vad, när, var, varför och hur om varje aspekt av de data som dokumenteras.</p>
+		<p>Metadata i en fil kan berätta mycket om dig. Kameror registrerar data om var och när en bild togs och vilken kamera som användes. Kontorsprogramvara lägger automatiskt till information om författare och företag i dokument och kalkylblad. Detta är känslig information som du kanske inte vill avslöja.</p>
+		<figure>
+			<title>Exempel på metadata i en bildfil</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Filen tillkännager info om maskinvaran, inställningar, datum och plats för bilden. Den innehåller totalt 79 metadata.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Rensningsprocess</title>
+		<p>Även om <app>Metadata Cleaner</app> gör sitt bästa for att visa metadata, betyder det inte att en fil är ren från metadata om inget visas. Det finns inget pålitligt sätt att upptäcka all möjlig metadata för komplexa filformat, därför bör du inte lita på metadatas närvaro för att avgöra om filen måste rensas eller inte.</p>
+		<p><app>Metadata Cleaner</app> tar innehållet i filen och placerar det i en ny, utan metadata, vilket säkerställer att all oupptäckt metadata tas bort.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Begränsningar</title>
+		<p>Kom ihåg att metadata inte är den enda sättet att märka en fil. Om innehållet tillkännager personuppgifter eller har blivit vattenstämplat, traditionellt eller via steganografi, kommer inte <app>Metadata Cleaner</app> att skydda dig.</p>
+	</section>
+</page>

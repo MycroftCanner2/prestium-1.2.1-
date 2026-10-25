@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="tr">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Dosya ekleme</title>
+		<p>Dosya eklemek için <gui style="button">Dosya Ekle</gui> düğmesine basın. Bir dosya seçici açılacaktır, temizlemek istediğiniz dosyaları seçin.</p>
+		<figure>
+			<title><gui style="button">Dosya Ekle</gui> düğmesi</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Tüm klasörleri bir kerede eklemek için <gui style="button">Klasör Ekle</gui> düğmesine basın. Bir dosya seçici açılacaktır, eklemek istediğiniz klasörleri seçin. İsteğe bağlı olarak <gui style="checkbox">Alt klasörlerdeki dosyaları ekle</gui> onay kutusunu işaretleyerek tüm alt klasörlerdeki tüm dosyaları da eklemeyi seçebilirsiniz.</p>
+		<figure>
+			<title><gui style="button"> Klasör Ekle</gui> düğmesi</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Üst verileri görüntüleme</title>
+		<p>Ayrıntılı görünümü açmak için listedeki bir dosyaya tıklayın. Üst verileri varsa, orada gösterilecektir.</p>
+		<figure>
+			<title>Üst verilerin ayrıntılı görünümü</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Dosyaları temizleme</title>
+		<p>Penceredeki tüm dosyaları temizlemek için <gui style="button">Temizle</gui> düğmesine basın. Temizleme işleminin tamamlanması biraz zaman alabilir.</p>
+		<figure>
+			<title><gui style="button">Temizle</gui> düğmesi</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Hafif temizleme</title>
+		<p>Öntanımlı olarak, mümkün olduğunca fazla üst veriyi kaldırmak için kaldırma işlemi dosyalarınızın verilerini biraz değiştirebilir. Örneğin, PDF dosyalarındaki metinler artık seçilemeyebilir, sıkıştırılmış resimler tekrar sıkıştırılabilir…</p>
+		<p>Hafif mod, o kadar kapsamlı olmasa da dosyalarınızda yıkıcı değişiklikler yapmayacaktır.</p>
+	</section>
+</page>

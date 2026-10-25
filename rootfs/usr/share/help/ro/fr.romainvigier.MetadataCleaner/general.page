@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="ro">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadate și privacy</title>
+		<p>Metadatele constau în informații care caracterizează datele. Metadatele sunt utilizate pentru a furniza documentația pentru produsele de date. În esență, metadatele răspund la cine, ce, când, unde, de ce și cum despre fiecare fațetă a datelor care sunt documentate.</p>
+		<p>Metadatele dintr-un fișier pot spune multe despre tine. Aparatele foto înregistrează date despre momentul și locul în care a fost făcută o fotografie și despre aparatul foto utilizat. Aplicațiile Office adaugă automat informații despre autor și companie în documente și foi de calcul. Acestea sunt informații sensibile și este posibil să nu dorești să le dezvălui.</p>
+		<figure>
+			<title>Exemplu de metadate într-un fișier imagine</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Fișierul dezvăluie informații despre hardware, setări, data și locul unde a avut loc filmarea. Acesta conține un total de 79 de metadate.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Procesul de curățare</title>
+		<p>În timp ce <app>Curățător de Metadate</app> face tot posibilul să afișeze metadatele, nu înseamnă că un fișier este curat de metadate dacă nu afișează niciuna. Nu există nicio modalitate fiabilă de a detecta toate metadatele posibile pentru formate de fișiere complexe. De aceea, nu ar trebui să vă bazați pe prezența metadatelor pentru a decide dacă fișierul tău trebuie curățat sau nu.</p>
+		<p><app>Curățător de Metadate</app> preia conținutul fișierului și îl introduce într-unul nou, fără metadate, asigurându-se că orice metadate nedetectate sunt eliminate.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Limitări</title>
+		<p>Reține că metadatele nu reprezintă singura modalitate de marcare a unui fișier. În cazul în care conținutul în sine dezvăluie informații personale sau a fost filigranat, în mod tradițional sau prin steganografie, <app>Curățător de Metadate</app> nu vă va proteja.</p>
+	</section>
+</page>

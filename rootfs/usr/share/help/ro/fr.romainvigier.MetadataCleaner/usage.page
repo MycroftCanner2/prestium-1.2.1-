@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="ro">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Adăugare de fișiere</title>
+		<p>Pentru a adăuga fișiere, apăsați butonul <gui style="button">Adaugă fișiere</gui>. Se va deschide un selector de fișiere, selectați fișierele pe care doriți să le curățați.</p>
+		<figure>
+			<title>Butonul <gui style="button">Adaugă fișiere</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>To add whole folders at once, press the <gui style="button">Add Folders</gui> button. A file chooser will open, select the folders you want to add. You can optionally choose to also add all files from all subfolders by checking the <gui style="checkbox">Add files from subfolders</gui> checkbox.</p>
+		<figure>
+			<title><gui style="button">Add Folders</gui> button</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Vizualizarea metadatelor</title>
+		<p>Apasă pe un fișier din listă pentru a deschide vizualizarea detaliată. Dacă acesta are metadate, acestea vor fi afișate acolo.</p>
+		<figure>
+			<title>Vizualizare detaliată a metadatelor</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Curățarea fișierelor</title>
+		<p>Pentru a curăța toate fișierele din fereastră, apasă butonul <gui style="button">Curăță</gui>. Este posibil ca procesul de curățare să dureze ceva timp pentru a se finaliza.</p>
+		<figure>
+			<title>Butonul <gui style="button">Curăță</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Curățare ușoară</title>
+		<p>În mod implicit, procesul de eliminare ar putea modifica puțin datele fișierelor tău, pentru a elimina cât mai multe metadate posibil. De exemplu, este posibil ca textele din PDF să nu mai poată fi selectate, iar imaginile comprimate să fie din nou comprimate…</p>
+		<p>Modul ușor, deși nu este la fel de riguros, nu va efectua modificări distructive ale fișierelor tău.</p>
+	</section>
+</page>

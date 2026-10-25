@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="tr">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Üst veriler ve gizlilik</title>
+		<p>Üst veriler, verilerin kendisi hakkında ayırt edici bilgilerden oluşur. Üst veriler, veri ürünleri için belgelendirme sağlamak için kullanılır. Özünde, üst veriler belgelendirilen verilerin kim, ne, ne zaman, nerede, neden ve nasıl gibi her yönü hakkındaki sorulara yanıt verir.</p>
+		<p>Bir dosyadaki üst veriler sizin hakkınızda çok şey söyleyebilir. Kameralar, bir resmin ne zaman ve nerede çekildiği ve hangi kameranın kullanıldığı ile ilgili verileri kaydeder. Ofis uygulamaları, belgelere ve elektronik tablolara otomatik olarak yazar ve şirket bilgilerini ekler. Bunlar hassas bilgilerdir ve açıklamak istemeyebilirsiniz.</p>
+		<figure>
+			<title>Bir resim dosyasındaki üst veri örneği</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Dosyada yapılan çekimin donanımı, ayarları, tarihi, yeri ile ilgili bilgiler açığa vuruluyor. Toplam 79 üst veri içeriyor.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Temizleme işlemi</title>
+		<p><app>Üst Veri Temizleyici</app>, üst verileri görüntülemek için elinden gelenin en iyisini yapıyor olsa da, herhangi bir üst veri göstermiyorsa bu, bir dosyanın üst verilerden tamamen temiz olduğu anlamına gelmez. Karmaşık dosya biçimleri için olası her üst veriyi algılamanın güvenilir bir yolu yoktur. Bu nedenle, dosyanızın temizlenmesi gerekip gerekmediğine karar vermek için üst verilerin varlığına güvenmemelisiniz.</p>
+		<p><app>Üst Veri Temizleyici</app>, dosyanın içeriğini alır ve üst veri içermeyen yeni bir dosyaya yerleştirir ve algılanmayan üst verilerin kaldırıldığından emin olunmasını sağlar.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Sınırlamalar</title>
+		<p>Bir dosyayı işaretlemenin tek yolunun üst veriler olmadığını unutmayın. İçeriğin kendisi kişisel bilgileri ortaya döküyorsa veya geleneksel olarak ya da steganografi yoluyla filigran eklenmişse, <app>Üst Veri Temizleyici</app> sizi korumayacaktır.</p>
+	</section>
+</page>

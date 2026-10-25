@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="uk">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Додавання файлів</title>
+		<p>Щоб додати файли, натисніть кнопку <gui style="button">Додати файли</gui>. Відкриється вікно вибору файлів, виберіть у ньому файли, які потрібно очистити.</p>
+		<figure>
+			<title>Кнопка <gui style="button">Додати файли</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Щоб додати цілу теку відразу, натисніть кнопку <gui style="button">Додати теки</gui>. Відкриється програма вибору файлів, виберіть теки, які потрібно додати. За бажанням можна також додати всі файли з усіх підтек, поставивши прапорець <gui style="checkbox">Додати файли з вкладених тек</gui>.</p>
+		<figure>
+			<title>Кнопка <gui style="button">Додати теки</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Перегляд метаданих</title>
+		<p>Клацніть файл у списку, щоб відкрити подробиці. Якщо він має метадані, вони будуть показані там.</p>
+		<figure>
+			<title>Докладний перегляд метаданих</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Очищення файлів</title>
+		<p>Щоб очистити всі файли у вікні, натисніть кнопку <gui style="button">Очистити</gui>. Процес очищення може тривати деякий час.</p>
+		<figure>
+			<title>Кнопка <gui style="button">Очистити</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Легке очищення</title>
+		<p>Усталено процес очищення може трохи змінити дані ваших файлів, щоб видалити якомога більше метаданих. Наприклад, тексти в PDF-файлі більше не можна вибрати, стислі зображення можуть повторно стиснутися…</p>
+		<p>Легкий режим, хоч і не такий ретельний, не внесе руйнівних змін у ваші файли.</p>
+	</section>
+</page>

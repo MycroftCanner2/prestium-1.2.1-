@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="sv">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Lägg till filer</title>
+		<p>Tryck på knappen <gui style="button">Lägg till filer</gui> för att lägga till filer. En filväljare öppnas där du kan välja de filer du vill rensa.</p>
+		<figure>
+			<title><gui style="button">Lägg till filer</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>För att lägga till hela mappar på en gång, och tryck på knappen <gui style="button">Lägg till mappar</gui>. En filväljare öppnas, välj de mappar du vill lägga till. Du kan valfritt välja att också lägga till alla filer från alla undermappar genom att markera kryssrutan <gui style="checkbox">Lägg till filer från undermappar</gui>.</p>
+		<figure>
+			<title><gui style="button">Lägg till mappar</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Visning av metadata</title>
+		<p>Klicka på en fil i listan for att öppna den detaljerade visningen. Om den har metadata kommer det att visas här.</p>
+		<figure>
+			<title>Detaljerad visning av metadata</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Rensning av filer</title>
+		<p>Tryck på knappen <gui style="button">Rensa</gui> för att rensa alla filer i fönstret. Rensningsprocessen kan ta en stund att slutföra.</p>
+		<figure>
+			<title><gui style="button">Rensa</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Lätt rensning</title>
+		<p>Som standard händer det att processen ändrar lite data i dina filer, för att rensa bort så mycket metadata som möjligt. Som exempel kan text i PDF-filer kanske inte markeras längre eller komprimerade bilder kanske inte kan komprimeras mer…</p>
+		<p>Lättviktsläget är visserligen inte lika grundligt, men det gör inga destruktiva ändringar i dina filer.</p>
+	</section>
+</page>

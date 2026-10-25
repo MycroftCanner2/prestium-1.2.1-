@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="index" xml:lang="pt_BR">
+	<title its:locNote="The application name. It can be translated.">Limpador de metadados</title>
+
+	<media type="image" src="figures/icon.svg" width="64" height="64" its:translate="no"/>
+
+	<p>O <app>Limpador de metadados</app> permite que você visualize metadados em seus arquivos e se livre deles, tanto quanto possível.</p>
+
+	<section id="general">
+		<title>Informações gerais</title>
+	</section>
+
+	<section id="usage">
+		<title>Usando o <app>Limpador de metadados</app></title>
+	</section>
+</page>

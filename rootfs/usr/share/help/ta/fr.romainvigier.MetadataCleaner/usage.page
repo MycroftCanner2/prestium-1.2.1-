@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="ta">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>கோப்புகளைச் சேர்த்தல்</title>
+		<p>கோப்புகளைச் சேர்க்க, <gui style="button">கோப்புகளைச் சேர்</gui> பொத்தானை அழுத்தவும். ஒரு கோப்புத் தேர்வி திறக்கும், நீங்கள் சுத்தம் செய்ய விரும்பும் கோப்புகளைத் தேர்ந்தெடுக்கவும்.</p>
+		<figure>
+			<title><gui style="button">கோப்புகளைச் சேர்</gui> பொத்தான்</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>ஒரே நேரத்தில் முழு கோப்புறைகளையும் சேர்க்க, <gui style="button">கோப்புறைகளைச் சேர்</gui> பொத்தானை அழுத்தவும். ஒரு கோப்புத் தேர்வு செய்யும் கருவி திறக்கும், நீங்கள் சேர்க்க விரும்பும் கோப்புறைகளைத் தேர்ந்தெடுக்கவும். <gui style="checkbox">துணைக் கோப்புறைகளிலிருந்து கோப்புகளைச் சேர்</gui> தேர்வுப்பெட்டியைச் சரிபார்ப்பதன் மூலம், அனைத்து துணைக் கோப்புறைகளிலிருந்தும் எல்லா கோப்புகளையும் சேர்க்க விருப்பமாகத் தேர்வுசெய்யலாம்.</p>
+		<figure>
+			<title><gui style="button">கோப்புறைகளைச் சேர்</gui> பொத்தான்</title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>மெட்டாடேட்டாவைப் பார்க்கிறது</title>
+		<p>விரிவான காட்சியைத் திறக்க பட்டியலில் உள்ள கோப்பில் கிளிக் செய்யவும். மெட்டாடேட்டா இருந்தால், அது அங்கு காண்பிக்கப்படும்.</p>
+		<figure>
+			<title>மெட்டாடேட்டாவின் விரிவான பார்வை</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>கோப்புகளை சுத்தப்படுத்துதல்</title>
+		<p>சாளரத்தில் உள்ள அனைத்து கோப்புகளையும் சுத்தம் செய்ய, <gui style="button">சுத்தம்</gui> பொத்தானை அழுத்தவும். துப்புரவு செயல்முறை முடிவதற்கு சிறிது நேரம் ஆகலாம்.</p>
+		<figure>
+			<title><gui style="button">சுத்தம்</gui> பொத்தான்</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>இலகுரக சுத்தப்படுத்துதல்</title>
+		<p>இயல்பாக, முடிந்தவரை மெட்டாடேட்டாவை அகற்ற, அகற்றும் செயல்முறை உங்கள் கோப்புகளின் தரவை சிறிது மாற்றியமைக்கலாம். எடுத்துக்காட்டாக, PDF இல் உள்ள உரைகள் இனி தேர்ந்தெடுக்கப்படாமல் இருக்கலாம், சுருக்கப்பட்ட படங்கள் மீண்டும் சுருக்கப்படலாம்…</p>
+		<p>இலகுரக பயன்முறை, முழுமையானதாக இல்லாவிட்டாலும், உங்கள் கோப்புகளில் அழிவுகரமான மாற்றங்களைச் செய்யாது.</p>
+	</section>
+</page>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="ru">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Добавление файлов</title>
+		<p>Чтобы добавить файл, нажмите кнопку <gui style="button">Добавить файлы</gui>. Выберите файлы для очистки.</p>
+		<figure>
+			<title>Кнопка <gui style="button">Добавить файлы</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Чтобы добавить папки, нажмите <gui style="button">Добавить папки</gui>. Выберите папки, которые хотите добавить. Вы можете добавить файлы из подпапок, отметив галочку <gui style="checkbox">Добавить файлы из подпапок</gui>.</p>
+		<figure>
+			<title>Кнопка <gui style="button">Добавить Папки</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Просмотр метаданных</title>
+		<p>Щёлкните на файл в списке чтобы увидеть подробности. Если в нём есть метаданные, они будут показаны здесь.</p>
+		<figure>
+			<title>Подробности о метаданных</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Очистка файлов</title>
+		<p>Чтобы очистить все файлы в списке, нажмите кнопку <gui style="button">Очистить</gui>. Процесс очистки может занять некоторое время.</p>
+		<figure>
+			<title>кнопка <gui style="button">Очистить</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Лёгкая очистка</title>
+		<p>По умолчанию, процесс очистки может немного изменять данные файлов для того, чтобы очистить как можно больше метаданных. Например, текст в PDF документах больше нельзя будет выделять, а сжатые изображения ещё раз будут пережаты…</p>
+		<p>Лёгкий режим не будет портить файлы.</p>
+	</section>
+</page>

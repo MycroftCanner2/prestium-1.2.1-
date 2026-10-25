@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="index" xml:lang="sv">
+	<title its:locNote="The application name. It can be translated.">Metadata Cleaner</title>
+
+	<media type="image" src="figures/icon.svg" width="64" height="64" its:translate="no"/>
+
+	<p>Med <app>Metadata Cleaner</app> kan du visa metadata i dina filer och ta bort den, så långt det är möjligt.</p>
+
+	<section id="general">
+		<title>Allmän information</title>
+	</section>
+
+	<section id="usage">
+		<title>Användning av <app>Metadata Cleaner</app></title>
+	</section>
+</page>
