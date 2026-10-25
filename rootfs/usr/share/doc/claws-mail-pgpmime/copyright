@@ -1,0 +1,324 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Claws Mail
+Upstream-Contact: https://www.claws-mail.org
+Source: https://www.claws-mail.org/releases.php
+
+Files: *
+Copyright:
+ 1999-2023 by Hiroyuki Yamamoto
+ 1999-2023 the Claws Mail team (see AUTHORS file for details)
+License: GPL-3+
+
+Files: src/common/md5.?
+Copyright: 1995, 1996, 1998, 1999 Free Software Foundation, Inc.
+License: GPL-3+
+Comment:
+ Written by Ulrich Drepper <drepper@gnu.ai.mit.edu>, 1995.
+ heavily modified for GnuPG by <werner.koch@guug.de>
+ modified again for Sylpheed by <wk@gnupg.org> 2001-02-11
+
+Files: src/common/string_match.?
+Copyright: 2001 Thomas Link, Hiroyuki Yamamoto
+License: GPL-3+
+
+Files: src/common/template.? src/prefs_template.?
+Copyright:
+ 2001 Alexander Barinov
+ 2001-2012 Hiroyuki Yamamoto and the Claws Mail team
+License: GPL-3+
+
+Files: src/gtk/gtkcmclist.?
+Copyright:
+ 1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+ 1997-1998 Jay Painter <jpaint@serv.net><jpaint@gimp.org>
+License: GPL-2+
+
+Files: src/gtk/gtkcmctree.?
+Copyright:
+ 1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+ 1997-1998 Jay Painter <jpaint@serv.net><jpaint@gimp.org>
+ 1998 Lars Hamann and Stefan Jeske
+License: GPL-2+
+
+Files: src/gtk/gtksctree.c
+Copyright:
+ 1999-2012 Hiroyuki Yamamoto and the Claws Mail team
+ 1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+ 1997-1998 Jay Painter <jpaint@serv.net><jpaint@gimp.org>
+ 1999 The Free Software Foundation
+License: GPL-3+
+
+Files: src/gtk/gtkvscrollbutton.c
+Copyright: 1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+License: GPL-3+
+
+Files: src/gtk/gtkshruler.?
+Copyright: 1995-1997 Peter Mattis and Spencer Kimball
+License: GPL-3+
+
+Files: src/gtk/gtkunit.?
+Copyright:
+ 1995-1997 Peter Mattis and Spencer Kimball
+ 2003 Michael Natterer <mitch@gimp.org>
+License: GPL-3+
+
+Files: src/gtk/spell_entry.?
+Copyright:
+ 2004-2006 Christian Hammond
+ 2002 Evan Martin.
+ 2009-2012 Pawel Pekala and the Claws Mail team
+License: GPL-3+
+
+Files: src/gtk/gtkaspell.c
+Copyright:
+ 2000 Evan Martin (original code for ispell).
+ 2002 Melvin Hadasht.
+ 2001-2013 the Claws Mail Team
+ 2000,2001 Grigroy Bakunov, Sergey Pinaev
+ 2001-2002 by Hiroyuki Yamamoto & The Claws Mail Team
+License: GPL-3+
+
+Files: src/imap.c
+Copyright:
+  1999-2014 Hiroyuki Yamamoto and the Claws Mail team
+  Portions from libimap library (C) 2003-2004 Pawel Salek.
+License: GPL-3+
+
+Files: src/jpilot.?
+Copyright:
+ 2001-2015 Match Grun and the Claws Mail team
+ JPilot is Copyright(c) by Judd Montgomery.
+License: GPL-3+
+Comment: Visit http://www.jpilot.org for more details.
+
+Files: src/plugins/acpi_notifier/* src/plugins/att_remover/*
+Copyright:
+ 2005 Colin Leroy <colin@colino.net>
+ 1999-2005 Hiroyuki Yamamoto and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/address_keeper/*
+Copyright:
+ 2009-2015 Ricardo Mones and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/archive/*
+Copyright: 1999-2008 Michael Rasmussen and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/attachwarner/*
+Copyright:
+ 2006-2015 Ricardo Mones and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/bogofilter/*
+Copyright: 1999-2012 Colin Leroy <colin@colino.net> and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/bsfilter/*
+Copyright: 1999-2009 Colin Leroy <colin@colino.net> and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/clamd/*
+Copyright: 2003-2010 Michael Rasmussen and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/demo/* src/plugins/pgpmime/*
+Copyright: 1999-2012 the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/fancy/*
+Copyright:
+ 2009-2013 Salvatore De Paolis <iwkse@claws-mail.org> and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/fetchinfo/*
+Copyright: 1999-2015 Hiroyuki Yamamoto and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/libravatar/*
+Copyright:
+ 2014-2015 Ricardo Mones and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/mailmbox/*
+Copyright: 2001, 2002 - DINH Viet Hoa
+License: BSD-3-clause-EP
+
+Files: src/plugins/mailmbox/carray.? src/plugins/mailmbox/chash.?
+ src/plugins/mailmbox/clist.?
+Copyright:
+ 1999-2000, Gaël Roualland <gael.roualland@iname.com>
+ interface changes - 2002 - DINH Viet Hoa
+License: BSD-3-clause-EP
+
+Files: src/plugins/managesieve/*
+Copyright:
+ 1999-2015 the Claws Mail Team
+ 2014-2015 Charles Lehner
+License: GPL-3+
+
+Files: src/plugins/newmail/*
+Copyright: 2005-2005 H.Merijn Brand and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/notification/*
+Copyright: 2005-2008 Holger Berndt
+License: GPL-3+
+
+Files: src/plugins/pdf_viewer/*
+Copyright:
+ 1999-2007 the Claws Mail Team
+ 2007 Salvatore De Paolis <iwkse@claws-mail.org>
+License: GPL-3+
+
+Files: src/plugins/perl/*
+Copyright:
+ 2004-2007 Holger Berndt
+ 1999-2007 Hiroyuki Yamamoto and the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/pgpcore/* src/plugins/smime/*
+Copyright: 1999-2013 Colin Leroy <colin@colino.net> and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/pgpcore/autocompletion.c
+Copyright: 2014 Christian Hesse <mail@eworm.de> and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/pgpcore/passphrase.?
+ src/plugins/pgpcore/select-keys.?
+Copyright: 2001-2013 Werner Koch (dd9jn) and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/pgpcore/plugin.c
+Copyright: 1999-2012 the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/pgpcore/prefs_gpg.?
+Copyright: 2004-2015 the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/pgpinline/*
+Copyright: 1999-2015 Colin Leroy and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/python/*
+Copyright: 2013 Holger Berndt <hb@claws-mail.org>
+License: GPL-3+
+
+Files: src/plugins/rssyl/*
+Copyright:
+ 1999-2004 Hiroyuki Yamamoto
+ 2005-2008 Andrej Kacian <andrej@kacian.sk> and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/spamassassin/*
+Copyright: 1999-2012 the Claws Mail Team
+License: GPL-3+
+
+Files: src/plugins/spamassassin/libspamc.?
+ src/plugins/spamassassin/utils.?
+Copyright: 2004 Apache Software Foundation
+License: Apache
+
+Files: src/plugins/spam_report/* src/plugins/tnef_parse/*
+Copyright: 1999-2007 Colin Leroy <colin@colino.net> and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/tnef_parse/tnef_dump.c
+Copyright:
+ 2002-2007 Randall Hand <yerase@yerot.com>
+ Thanks to him for allowing redistribution of this code as GPLv3.
+License: GPL-3+
+
+Files: src/plugins/vcalendar/*
+Copyright: 1999-2013 Colin Leroy <colin@colino.net> and the Claws Mail team
+License: GPL-3+
+
+Files: src/plugins/vcalendar/common-views.?
+ src/plugins/vcalendar/day-view.? src/plugins/vcalendar/month-view.?
+Copyright:
+ 2007-2008 Juha Kautto (juha at xfce.org)
+ 2008 Colin Leroy (colin@colino.net)
+License: GPL-3+
+
+Files: debian/*
+Copyright: 2004-2023 by Ricardo Mones <mones@debian.org>
+License: GPL-3+
+
+License: GPL-3+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+Comment:
+ On Debian systems, the complete text of the GNU General Public
+ License should be found in the '/usr/share/common-licenses/GPL-3' file.
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+Comment:
+ On Debian systems, the complete text of the GNU General Public
+ License should be found in the '/usr/share/common-licenses/GPL-2' file.
+
+License: Apache
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ .
+     http://www.apache.org/licenses/LICENSE-2.0
+ .
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+Comment:
+ On Debian systems, the complete text of the Apache License should
+ be found in the '/usr/share/common-licenses/Apache-2.0' file.
+
+License: BSD-3-clause-EP
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. Neither the name of the libEtPan! project nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.

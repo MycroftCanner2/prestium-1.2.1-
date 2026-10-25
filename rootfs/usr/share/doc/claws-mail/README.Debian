@@ -1,0 +1,49 @@
+Claws Mail for Debian
+---------------------
+
+*** x-www-browser usage
+
+Default now is to use xdg-open, which uses your Desktop preferences and 
+can be configured to fall back to x-www-browser directly or already does 
+it through sensible-browser.
+
+Old users must activate the checkbox "Use system defaults when possible"
+to get this configured via Desktop preferences or keep the existing 
+x-www-browser entry if you don't care.
+
+*** Build notes
+
+Compiled with IPv6, OpenSSL, GNU/Aspell, libGNOMEPrint, libEtPan, 
+GPGME, OpenLDAP, JPilot and libSM support.
+
+Includes following patches:
+
+- Marking unread/new messages as read when sent to Trash.
+
+The Autofaces feature provices now the ability to set the X-Face from
+a file under config dir. See Autofaces manual section for details.
+
+*** PGP/core plugin
+
+The PGP/core plugin is provided by the pgpmime package. This plugin 
+provides core functions to both PGP/MIME and PGP/inline privacy plugins.
+Has not been created a new package for it because there is little chance 
+an user wants only inline and not MIME support, and even in that case 
+he/she doesn't need to load the PGP/MIME plugin, just leave it resting on 
+disk. On the other hand, creating a new package will affect all users.
+
+Because some other plugins may require the core functionality, it's now
+a virtual package claws-mail-pgpcore provided which others can rely on.
+
+*** Changes from older versions
+
+Environment in external commands: If you want to use environment variables
+(like $HOME or ~) in external commands you must call the shell with the
+external command. For example: 'bash -c "cat ~/.signature"' instead of
+'cat ~/.signature' (without the single quotes).
+
+Actions modifiying text in message view: previously modified text was 
+passed to the compose window on forwarding/replying to the message. 
+Now the original mail text is used despite the visualized modifications.
+
+ -- Ricardo Mones <mones@debian.org>, Sat, 18 Dec 2007 18:57:15 +0200
