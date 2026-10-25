@@ -1,0 +1,4 @@
+b93e5211da5a4abb3d96c38fa44c7adf  usr/bin/webtunnel-client
+e80e56280986878e815bd6e317f690dd  usr/bin/webtunnel-server
+2ba88e44629d8f309ca9a589c9234847  usr/share/man/man1/webtunnel-client.1
+41f7927027b6e565d466fbc0eeff2221  usr/share/man/man1/webtunnel-server.1

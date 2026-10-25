@@ -24,6 +24,11 @@ module.exports = {
 	fileUpload: {enable: false, maxFileSize: 10240, baseUrl: null},
 	transports: ["websocket", "polling"],
 	leaveMessage: "",
+	// "defaults" is the form behind "Connect to a network" (The Lounge 4.5 allows only one).
+	// The user "prestium" already has one network per i2pd IRC client tunnel, host and
+	// port filled in: IRC2P 6668 (postman), IRC2P (echelon) 6665, IRC2P (dg) 6666,
+	// Ilita 6669, Ilita (r4sas) 6670, Ilita (acetone) 6671, Ilita (rusirc) 6672
+	// (see /usr/local/share/prestium-thelounge/prestium.json).
 	defaults: {
 		name: "IRC2P",
 		host: "127.0.0.1",

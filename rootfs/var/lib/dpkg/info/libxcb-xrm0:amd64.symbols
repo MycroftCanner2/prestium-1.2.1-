@@ -1,0 +1,15 @@
+libxcb-xrm.so.0 libxcb-xrm0 #MINVER#
+ xcb_xrm_database_combine@Base 0.0.0
+ xcb_xrm_database_free@Base 0.0.0
+ xcb_xrm_database_from_default@Base 0.0.0
+ xcb_xrm_database_from_file@Base 0.0.0
+ xcb_xrm_database_from_resource_manager@Base 0.0.0
+ xcb_xrm_database_from_string@Base 0.0.0
+ xcb_xrm_database_put_resource@Base 0.0.0
+ xcb_xrm_database_put_resource_line@Base 0.0.0
+ xcb_xrm_database_to_string@Base 0.0.0
+ xcb_xrm_entry_free@Base 0.0.0
+ xcb_xrm_entry_parse@Base 0.0.0
+ xcb_xrm_resource_get_bool@Base 0.0.0
+ xcb_xrm_resource_get_long@Base 0.0.0
+ xcb_xrm_resource_get_string@Base 0.0.0

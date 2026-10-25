@@ -1,0 +1,14 @@
+1603dd16f93fd82d880b6526d2fbd17d  usr/bin/xss-lock
+edf05d5a2e202f4a413c8fead0a45fc7  usr/share/bash-completion/completions/xss-lock
+6c3ffb04789c302f1da8f5bde875a6f0  usr/share/doc/xss-lock/NEWS.gz
+9491a0757a0968a48c79dce78fbd295c  usr/share/doc/xss-lock/changelog.Debian.amd64.gz
+21d84311af65f43d733549870b07dc2e  usr/share/doc/xss-lock/changelog.Debian.gz
+03be657e7abbaba5a5534123c6817aab  usr/share/doc/xss-lock/copyright
+5acd5911ead5563b2ffd85945359d967  usr/share/doc/xss-lock/dim-screen.sh
+d36c0a489aa7dc90efd188412284a3eb  usr/share/doc/xss-lock/dim-screen2.sh
+863b9347b93688d75976ada5ba1d224b  usr/share/doc/xss-lock/transfer-sleep-lock-generic-delay.sh
+03d44be64d7ef0bd32bccc6a550fa09d  usr/share/doc/xss-lock/transfer-sleep-lock-i3lock.sh
+256bf68cbcfb8a6cfc676573987ed46b  usr/share/doc/xss-lock/xdg-screensaver.patch
+c1c3c890b6e20755db0552d4faf73b2a  usr/share/doc/xss-lock/xss-lock.service
+c2b51bfd7b864dd40bfb06771c280776  usr/share/man/man1/xss-lock.1.gz
+47fc12195b514454f528646c5b0c7e27  usr/share/zsh/vendor-completions/_xss-lock
