@@ -1,0 +1,2 @@
+# False positive
+library-not-linked-against-libc [usr/lib/x86_64-linux-gnu/suil-0/libsuil_x11.so]
