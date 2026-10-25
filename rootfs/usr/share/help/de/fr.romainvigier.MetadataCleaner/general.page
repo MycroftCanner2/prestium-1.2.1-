@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="de">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadaten und Privatsphäre</title>
+		<p>Metadaten sind Informationen, die Daten charakterisieren. Metadaten werden verwendet, um Dokumentation zu Daten bereitzustellen. Im Grunde genommen geben Metadaten Antworten auf die Fragen Wer, Was, Wann, Wo, Warum und Wie zu all den Einzelheiten der Daten, die sie beschreiben.</p>
+		<p>Metadaten, die in einer Datei enthalten sind, können viel über Sie preisgeben. Kameras speichern Informationen darüber, wann und wo ein Foto aufgenommen worden ist und welche Kamera dabei benutzt wurde. Office-Anwendungen fügen Dokumenten und Tabellen automatisch Informationen über Autor und Unternehmen hinzu. Das sind alles sensible Daten, die Sie eventuell nicht freigeben wollen.</p>
+		<figure>
+			<title>Beispiel von Metadaten in einer Bilddatei</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Die Datei gibt Informationen über das Gerät, die Einstellungen, das Datum und den Ort des Fotos preis. Insgesamt enthält sie 79 Metadaten.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Bereinigungsprozess</title>
+		<p>Obwohl <app>Metadaten-Reiniger</app> sich bemüht, alle Metadaten zu erfassen und anzuzeigen, ist eine Datei nicht notwendigerweise vollständig frei von Metadaten, wenn keine angezeigt werden. Es gibt keine zuverlässige Methode, jede einzige Möglichkeit in komplizierten Dateiformaten abzudecken. Deshalb darf die Entscheidung, ob eine Datei bereinigt werden sollte, nicht von der Anzeige von Metadaten abhängig gemacht werden.</p>
+		<p><app>Metadaten-Reiniger</app> speichert den Inhalt einer Datei in eine neue, die keine Metadaten enthält. Dadurch wird sichergestellt, dass nicht einmal unerkannte Metadaten ausgelassen werden.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Einschränkungen</title>
+		<p>Es darf nicht vergessen werden, dass Metadaten nicht die einzige Möglichkeit zur Kennzeichnung von Dateien sind. Wenn der Inhalt selbst persönliche Informationen enthält oder mit Wassermarken gekennzeichnet wurde, sowohl traditionell oder auch durch Stenografie, wird <app>Metadaten-Reiniger</app> Sie nicht beschützen können.</p>
+	</section>
+</page>

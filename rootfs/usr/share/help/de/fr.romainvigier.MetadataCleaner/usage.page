@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="de">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Hinzufügen von Dateien</title>
+		<p>Um Dateien hinzuzufügen klickt man auf <gui style="button">Dateien hinzufügen</gui>. Ein Fenster zum Auswählen der Dateien wird sich öffnen, in dem man die auswählen kann, die bereinigt werden sollen.</p>
+		<figure>
+			<title><gui style="button">Dateien hinzufügen</gui> Knopf</title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>Um ganze Ordner hinzuzufügen, klicken Sie auf <gui style="button">Ordner hinzufügen</gui>. Eine Dateiauswahl wird sich öffnen, in der man die gewünschten Ordner auswählen kann. Man kann optional auch alle Dateien aus Unterordner automatisch hinzufügen lassen, indem man einen Haken bei <gui style="checkbox">Dateien aus Unterordnern hinzufügen</gui> setzt.</p>
+		<figure>
+			<title>Schaltfläche <gui style="button">Ordner hinzufügen</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Metadaten ansehen</title>
+		<p>Klicken Sie auf eine Datei in der Liste, um die Detailansicht zu öffnen. Wenn Sie Metadaten enthält, werden sie dort auftauchen.</p>
+		<figure>
+			<title>Detailansicht der Metadaten</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Bereinigung von Dateien</title>
+		<p>Um alle Dateien in der Liste zu bereinigen, klicken Sie auf <gui style="button">Reinigen</gui>. Der Reinigungsprozess kann einige Zeit in Anspruch nehmen.</p>
+		<figure>
+			<title><gui style="button">Reinigen</gui> Knopf</title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>Oberflächliche Reinigung</title>
+		<p>Standardmäßig kann beim Reinigungsprozess der Inhalt der Dateien verändert werden, um so viele Metadaten wie möglich zu entfernen. Beispielsweise könnten Texte in PDF-Dateien nicht mehr auswählbar sein, bereits komprimierte Bilder könnten erneut komprimierten werden…</p>
+		<p>Der oberflächliche Modus wird keine destruktiven Änderungen an Ihren Dateien vornehmen, auch wenn er dadurch nicht so gründlich ist.</p>
+	</section>
+</page>

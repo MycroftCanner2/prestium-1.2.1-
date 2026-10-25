@@ -1,0 +1,60 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libsbsms
+Upstream-Contact: Clayton Otey <clayton.otey@gmail.com>
+Source: https://github.com/claytonotey/libsbsms
+
+Files: *
+Copyright: 2003-2012, Clayton Otey <otey@users.sourceforge.net>
+License: GPL-2
+
+Files: src/real.h
+Copyright: 2001-2003, Erik de Castro Lopo <erikd@mega-nerd.com>
+License: GPL-2+
+
+Files: m4/ac_c99_func_*.m4
+Copyright: Erik de Castro Lopo <erikd AT mega-nerd DOT com>
+License: other
+ Permission to use, copy, modify, distribute, and sell this file for any
+ purpose is hereby granted without fee, provided that the above copyright
+ and this permission notice appear in all copies.  No representations are
+ made about the suitability of this software for any purpose.  It is
+ provided "as is" without express or implied warranty.
+
+Files: debian/*
+Copyright: 2011-2012, Benjamin Drung <bdrung@debian.org>
+License: GPL-2+
+
+License: GPL-2
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 2.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this package; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems the full text of the GNU General Public License
+ can be found in the `/usr/share/common-licenses/GPL-2' file.
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this package; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems the full text of the GNU General Public License
+ can be found in the `/usr/share/common-licenses/GPL-2' file.

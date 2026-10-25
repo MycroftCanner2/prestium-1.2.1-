@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="usage" xml:lang="ar">
+	<section id="adding-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>إضافة الملفات</title>
+		<p>لإضافة الملفات، اضغط على زر <gui style="button">أضف ملفات</gui>. ستظهر نافذة اختيار الملفات، عندها اختر الملفات التي تريد تنظيفها.</p>
+		<figure>
+			<title>زر <gui style="button">أضف ملفات</gui></title>
+			<media type="image" src="figures/add-files-button.png" its:translate="no"/>
+		</figure>
+		<p>لإضافة مجلدات بأكملها، اضغط على زر <gui style="button">أضف مجلدات</gui>. ستظهر نافذة اختيار الملفات، اختر المجلدات التي تريد إضافتها. تستطيع أيضا أن تضيف كل الملفات الموجود في المجلدات الفرعية عن طريق تعليم صندوق <gui style="checkbox">أضف الملفات من المجلدات الفرعية</gui>.</p>
+		<figure>
+			<title>زر <gui style="button">أضف مجلَّدات</gui></title>
+			<media type="image" src="figures/add-folders-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="viewing-metadata">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>عرض البيانات الوصفية</title>
+		<p>اضغط على ملف من القائمة لعرض البيانات التفصيلية. ستظهر البيانات الوصفية للملف هنا إذا كانت موجودة.</p>
+		<figure>
+			<title>عرض مفصل للبيانات الوصفية</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="cleaning-files">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>تنظيف الملفات</title>
+		<p>لتنظيف كافة الملفات الموجودة في النافذة، اضغط على الزر <gui style="button">نظف</gui>. قد تستغرق عملية التنظيف بعض الوقت.</p>
+		<figure>
+			<title>زر <gui style="button">نظف</gui></title>
+			<media type="image" src="figures/clean-button.png" its:translate="no"/>
+		</figure>
+	</section>
+	<section id="lightweight-cleaning">
+		<info>
+			<link type="guide" xref="index#usage"/>
+		</info>
+		<title>الإزالة الخفيفة</title>
+		<p>بشكل افتراضي، قد تؤدي عملية الإزالة إلى تغيير بعض بيانات ملفاتك لأجل إزالة أكبر قدر ممكن من البيانات الوصفية. على سبيل المثال، قد لا تكون النصوص في تنسيق PDF قابلة للتحديد بعد الآن، وقد يتم ضغط الصور المضغوطة مرة أخرى…</p>
+		<p>لن يقوم وضع التنظيف الخفيف بإحداث تغييرات مدمرة لملفاتك، ولكنه ليس شاملاً.</p>
+	</section>
+</page>

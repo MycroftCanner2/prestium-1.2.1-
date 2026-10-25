@@ -1,0 +1,612 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: metadata-cleaner
+Upstream-Contact: Romain Vigier <contact@romainvigier.fr>
+Source: https://gitlab.com/rmnvgr/metadata-cleaner
+Files-Excluded: website/*
+Comment: No need to package the project website alongside its numerous fonts
+
+Files:     *
+Copyright: Metadata Cleaner contributors
+License:   GPL-3+
+
+Files:     *.md
+           *.doap
+           */*.png
+           */*.pot
+           */*.svg
+Copyright: Metadata Cleaner contributors
+License:   CC-BY-SA-4.0
+
+Files:     application/data/icons/add-file-symbolic.svg
+           application/data/icons/add-folder-symbolic.svg
+           application/data/icons/credits-symbolic.svg
+           application/data/icons/go-previous-symbolic.svg
+           application/data/icons/help-symbolic.svg
+           application/data/icons/settings-symbolic.svg
+Copyright: Metadata Cleaner contributors
+License:   CC0-1.0
+
+Files:     application/po/az.po
+Copyright: 2022 Ümid Quliyev <lucifer25x@protonmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ar.po
+Copyright: 2022-2023 Ali Aljishi <ahj696@hotmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/bn.po
+Copyright: 2022 Bingo <eulises.leyendecker@easyonlinemail.net>
+           2022 hELLOwORLD <helloworld@allfreemail.net>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ca.po
+Copyright: 2022 Ícar N. S. <icar.nin@pm.me>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/cs.po
+Copyright: 2021 pavelzahradnik <pavel.zahradnik@centrum.cz>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/da.po
+Copyright: 2021 Allan Nordhøy <epost@anotheragency.no>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/de.po
+Copyright: 2020 lux <lux@systemli.org>
+           2021, 2023 Romain Vigier <contact@romainvigier.fr>
+           2021-2022 Milo Ivir <mail@milotype.de>
+           2021 eladyn <f+weblate@piored.de>
+           2022 Cgrieger <translate@cgrieger.org>
+           2022-2023 Ettore Atalan <atalanttore@googlemail.com>
+           2023 eladyn <eladyn@protonmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/el.po
+Copyright: 2022 Athanasios Nektarios Karachalios Stagkas <nasos.karachalios.stagas@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/es.po
+Copyright: 2021-2022 Óscar Fernández Díaz <oscfdezdz@tuta.io>
+           2021 Sergio Varela <sergitroll9@gmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2023 gallegonovato <fran-carro@hotmail.es>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/eu.po
+Copyright: 2021-2022 Sergio Varela <sergitroll9@gmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/fi.po
+Copyright: 2021-2023 Jiri Grönroos <jiri.gronroos@iki.fi>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2021 Janne <mutikaane@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/fr.po
+Copyright: 2020-2022 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/fy.po
+Copyright: 2022 Vancha March <tjipkevdh@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/gl.po
+Copyright: 2022 Fran Diéguez <fran.dieguez@mabishu.com>
+           2022 Romain Vigier <romain@romainvigier.fr>
+           2022 gallegonovato <fran-carro@hotmail.es>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/hr.po
+Copyright: 2021-2022 Milo Ivir <mail@milotype.de>
+           2021 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/hu.po
+Copyright: 2021 Balázs Úr <balazs@urbalazs.hu>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2022 Szia Tomi <sziatomi01@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/id.po
+Copyright: 2021-2022 liimee <alt3753.7@gmail.com>
+           2021 Reza Almanda <rezaalmanda27@gmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2021 neko <smurfkandy@tutanota.com>
+           2022 Ibnul Mutaki <ibnuul@gmail.com>
+           2023 Ciki Momogi <github.devility@aleeas.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/it.po
+Copyright: 2021-2022 albanobattistella <albano_battistella@hotmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ja.po
+Copyright: 2021-2023 Kaede <contact@kaede.ch>
+           Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ko.po
+Copyright: 2021 minn _ <xxxzm8818@gmail.com>
+           2022 <daemul72@gmail.com>
+           2023 Seong-ho Cho <darkcircle.0426@gmail.com>
+           2023 honnip <tmddn741741@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/lt.po
+Copyright: 2021 GM <muziejusinfo@gmail.com>
+           2022 Gediminas Murauskas <muziejusinfo@gmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/nb_NO.po
+Copyright: 2021-2022 Allan Nordhøy <epost@anotheragency.no>
+           2021 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/nl.po
+Copyright: 2021-2023 Heimen Stoffels <vistausss@fastmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2023 Philip Goto <philip.goto@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/nn.po
+Copyright: 2021 Allan Nordhøy <epost@anotheragency.no>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/oc.po
+Copyright: 2021-2023 Quentin PAGÈS <quentinantonin@free.fr>
+           2021 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/pl.po
+Copyright: 2022 Zszywek <zszywek+weblate@gmail.com>
+           2022 Anon Ymous <mivon27841@shackvine.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/pt.po
+Copyright: 2022 Juliano de Souza Camargo <julianosc@protonmail.com>
+           2023 ssantos <ssantos@web.de>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/pt_BR.po
+Copyright: 2021 Gustavo Costa <xfgusta@gmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2021 Rafael Fontenelle <rafaelff@gnome.org>
+           2021 Davi Patricio <davipatricio@pm.me>
+           2021 Gabriel Gian <gabrielgian@live.com>
+           2023 Daniel Abrante <danielabrante@protonmail.com>
+           2023 Felipe Kinoshita <kinofhek@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ro.po
+Copyright: 2021 Victor Mihalache <vmhl.ph@gmail.com>
+           2023 Matt C <matei.gurzu@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ru.po
+Copyright: 2021 BigmenPixel <bigmen.pixel@tuta.io>
+           2022 Sasha <maxminer88@gmail.com>
+           2022-2023 Войнов Артем Романович <voynovar@gmail.com>
+           2023 Ash Ed <craysy@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/si.po
+Copyright: 2021 HelaBasa <R45XvezA@protonmail.ch>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/sr.po
+Copyright: 2022 Andrija Djakovic <bozika331@yahoo.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/sv.po
+Copyright: 2021-2023 Åke Engelbrektson <eson@svenskasprakfiler.se>
+           2021 Allan Nordhøy <epost@anotheragency.no>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2023 Luna Jernberg <droidbittin@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ta.po
+Copyright: 2022-2023 K.B.Dharun Krishna <kbdharunkrishna@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/tr.po
+Copyright: 2022-2023 Oğuz Ersen <oguzersen@protonmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2022 Oğuz Ersen <oguz@ersen.moe>
+           2022-2023 Sabri Ünal <libreajans@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/uk.po
+Copyright: 2022-2023 Ihor Hordiichuk <igor_ck@outlook.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/ur.po
+Copyright: 2023 duckienome <xvchattw@duck.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/zh_CN.po
+Copyright: 2022 poi <erbaotao@outlook.com>
+           2022 Eric <alchemillatruth@purelymail.com>
+           2022 Ujhhgtg <feyxiexzf@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     application/po/zh_TW.po
+Copyright: 2021 yenyu chen <swallow499@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/az/az.po
+Copyright: 2022 Ümid Quliyev <lucifer25x@protonmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/ar/ar.po
+Copyright: 2022-2023 Ali Aljishi <ahj696@hotmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/bn/bn.po
+Copyright: 2022 Bingo <eulises.leyendecker@easyonlinemail.net>
+           2022 hELLOwORLD <helloworld@allfreemail.net>
+License:   CC-BY-SA-4.0
+
+Files:     help/cs/cs.po
+Copyright: 2021 pavelzahradnik <pavel.zahradnik@centrum.cz>
+License:   CC-BY-SA-4.0
+
+Files:     help/da/da.po
+Copyright: 2021 Allan Nordhøy <epost@anotheragency.no>
+License:   CC-BY-SA-4.0
+
+Files:     help/de/de.po
+Copyright: 2021 eladyn <f+weblate@piored.de>
+           2023 eladyn <eladyn@protonmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/el/el.po
+Copyright: 2022 Athanasios Nektarios Karachalios Stagkas <nasos.karachalios.stagas@gmail.com>
+           2023 Athanasios <nikolaoutns@protonmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/es/es.po
+Copyright: 2021 Óscar Fernández Díaz <oscfdezdz@tuta.io>
+           2023 gallegonovato <fran-carro@hotmail.es>
+License:   CC-BY-SA-4.0
+
+Files:     help/eu/eu.po
+Copyright: 2021-2022 Sergio Varela <sergitroll9@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/fi/fi.po
+Copyright: 2022 Jiri Grönroos <jiri.gronroos@iki.fi>
+License:   CC-BY-SA-4.0
+
+Files:     help/fr/fr.po
+Copyright: 2020-2023 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     help/fy/fy.po
+Copyright: 2022 Vancha March <tjipkevdh@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/gl/gl.po
+Copyright: 2022 Fran Diéguez <fran.dieguez@mabishu.com>
+           2022 gallegonovato <fran-carro@hotmail.es>
+License:   CC-BY-SA-4.0
+
+Files:     help/hr/hr.po
+Copyright: 2021-2022 Milo Ivir <mail@milotype.de>
+License:   CC-BY-SA-4.0
+
+Files:     help/hu/hu.po
+Copyright: 2021 Balázs Úr <balazs@urbalazs.hu>
+           2022-2023 Szia Tomi <sziatomi01@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/id/id.po
+Copyright: 2021-2022 liimee <alt3753.7@gmail.com>
+           2021 Reza Almanda <rezaalmanda27@gmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2021 neko <smurfkandy@tutanota.com>
+           2022 Ibnul Mutaki <ibnuul@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/it/it.po
+Copyright: 2021-2022 albanobattistella <albano_battistella@hotmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2021 Victor Mihalache <vmhl.ph@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/ja/ja.po
+Copyright: 2021-2023 Kaede <contact@kaede.ch>
+           Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     help/ko/ko.po
+Copyright: 2022 <daemul72@gmail.com>
+           2023 Seong-ho Cho <darkcircle.0426@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/lt/lt.po
+Copyright: 2022 Gediminas Murauskas <muziejusinfo@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/nb_NO/nb_NO.po
+Copyright: 2021-2022 Allan Nordhøy <epost@anotheragency.no>
+License:   CC-BY-SA-4.0
+
+Files:     help/nl/nl.po
+Copyright: 2021-2023 Heimen Stoffels <vistausss@fastmail.com>
+           2023 Philip Goto <philip.goto@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/nn/nn.po
+Copyright: 2021 Allan Nordhøy <epost@anotheragency.no>
+License:   CC-BY-SA-4.0
+
+Files:     help/oc/oc.po
+Copyright: 2021-2023 Quentin PAGÈS <quentinantonin@free.fr>
+           2021 Romain Vigier <romain@romainvigier.fr>
+License:   CC-BY-SA-4.0
+
+Files:     help/pl/pl.po
+Copyright: 2022 Zszywek <zszywek+weblate@gmail.com>
+           2022 Anon Ymous <mivon27841@shackvine.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/pt/pt.po
+Copyright: 2022 Juliano de Souza Camargo <julianosc@protonmail.com>
+           2023 ssantos <ssantos@web.de>
+License:   CC-BY-SA-4.0
+
+Files:     help/pt_BR/pt_BR.po
+Copyright: 2021 Gustavo Costa <xfgusta@gmail.com>
+           2021 Romain Vigier <romain@romainvigier.fr>
+           2021 Davi Patricio <davipatricio@pm.me>
+           2021 Gabriel Gian <gabrielgian@live.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/ro/ro.po
+Copyright: 2021 Victor Mihalache <vmhl.ph@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/ru/ru.po
+Copyright: 2021 BigmenPixel <bigmen.pixel@tuta.io>
+           2022 Sasha <maxminer88@gmail.com>
+           2022-2023 Войнов Артем Романович <voynovar@gmail.com>
+           2023 Ash Ed <craysy@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/sr/sr.po
+Copyright: 2022 Andrija Djakovic <bozika331@yahoo.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/sv/sv.po
+Copyright: 2021-2023 Åke Engelbrektson <eson@svenskasprakfiler.se>
+           2021 Allan Nordhøy <epost@anotheragency.no>
+           2023 Luna Jernberg <droidbittin@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/ta/ta.po
+Copyright: 2022-2023 K.B.Dharun Krishna <kbdharunkrishna@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/tr/tr.po
+Copyright: 2021 Oğuz Ersen <oguzersen@protonmail.com>
+           2023 Sabri Ünal <libreajans@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/uk/uk.po
+Copyright: 2022-2023 Ihor Hordiichuk <igor_ck@outlook.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/ur/ur.po
+Copyright: 2023 duckienome <xvchattw@duck.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/zh_CN/zh_CN.po
+Copyright: 2022 poi <erbaotao@outlook.com>
+License:   CC-BY-SA-4.0
+
+Files:     help/zh_TW/zh_TW.po
+Copyright: 2021 yenyu chen <swallow499@gmail.com>
+License:   CC-BY-SA-4.0
+
+Files:     debian/*
+Copyright: 2020-2023 Peymaneh <peymaneh@posteo.net>
+License:   GPL-3+
+
+License: CC-BY-SA-4.0
+ Creative Commons Attribution-ShareAlike 4.0 International
+ .
+ Creative Commons Corporation ("Creative Commons") is not a law firm and does
+ not provide legal services or legal advice. Distribution of Creative Commons
+ public licenses does not create a lawyer-client or other relationship. Creative
+ Commons makes its licenses and related information available on an “as-is”
+ basis. Creative Commons gives no warranties regarding its licenses, any material
+ licensed under their terms and conditions, or any related information. Creative
+ Commons disclaims all liability for damages resulting from their use to the
+ fullest extent possible.
+ .
+ Using Creative Commons Public Licenses
+ .
+ Creative Commons public licenses provide a standard set of terms and conditions
+ that creators and other rights holders may use to share original works of
+ authorship and other material subject to copyright and certain other rights
+ specified in the public license below. The following considerations are for
+ informational purposes only, are not exhaustive, and do not form part of our
+ licenses.
+ .
+ Considerations for licensors: Our public licenses are intended for use by
+ those authorized to give the public permission to use material in ways otherwise
+ restricted by copyright and certain other rights. Our licenses are irrevocable.
+ Licensors should read and understand the terms and conditions of the license
+ they choose before applying it. Licensors should also secure all rights necessary
+ before applying our licenses so that the public can reuse the material as
+ expected. Licensors should clearly mark any material not subject to the license.
+ This includes other CC-licensed material, or material used under an exception
+ or limitation to copyright. More considerations for licensors.
+ .
+ Considerations for the public: By using one of our public licenses, a licensor
+ grants the public permission to use the licensed material under specified
+ terms and conditions. If the licensor’s permission is not necessary for any
+ reason–for example, because of any applicable exception or limitation to copyright–then
+ that use is not regulated by the license. Our licenses grant only permissions
+ under copyright and certain other rights that a licensor has authority to
+ grant. Use of the licensed material may still be restricted for other reasons,
+ including because others have copyright or other rights in the material. A
+ licensor may make special requests, such as asking that all changes be marked
+ or described.
+ .
+ Although not required by our licenses, you are encouraged to respect those
+ requests where reasonable. More considerations for the public.
+ .
+ Creative Commons Attribution-ShareAlike 4.0 International Public License
+ .
+ By exercising the Licensed Rights (defined below), You accept and agree to
+ be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike
+ 4.0 International Public License ("Public License"). To the extent this Public
+ License may be interpreted as a contract, You are granted the Licensed Rights
+ in consideration of Your acceptance of these terms and conditions, and the
+ Licensor grants You such rights in consideration of benefits the Licensor
+ receives from making the Licensed Material available under these terms and
+ conditions.
+
+License: CC0-1.0
+ Creative Commons Legal Code
+ .
+ CC0 1.0 Universal
+ .
+    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+    INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+    HEREUNDER.
+ .
+ Statement of Purpose
+ .
+ The laws of most jurisdictions throughout the world automatically confer
+ exclusive Copyright and Related Rights (defined below) upon the creator
+ and subsequent owner(s) (each and all, an "owner") of an original work of
+ authorship and/or a database (each, a "Work").
+ .
+ Certain owners wish to permanently relinquish those rights to a Work for
+ the purpose of contributing to a commons of creative, cultural and
+ scientific works ("Commons") that the public can reliably and without fear
+ of later claims of infringement build upon, modify, incorporate in other
+ works, reuse and redistribute as freely as possible in any form whatsoever
+ and for any purposes, including without limitation commercial purposes.
+ These owners may contribute to the Commons to promote the ideal of a free
+ culture and the further production of creative, cultural and scientific
+ works, or to gain reputation or greater distribution for their Work in
+ part through the use and efforts of others.
+ .
+ For these and/or other purposes and motivations, and without any
+ expectation of additional consideration or compensation, the person
+ associating CC0 with a Work (the "Affirmer"), to the extent that he or she
+ is an owner of Copyright and Related Rights in the Work, voluntarily
+ elects to apply CC0 to the Work and publicly distribute the Work under its
+ terms, with knowledge of his or her Copyright and Related Rights in the
+ Work and the meaning and intended legal effect of CC0 on those rights.
+ .
+ 1. Copyright and Related Rights. A Work made available under CC0 may be
+ protected by copyright and related or neighboring rights ("Copyright and
+ Related Rights"). Copyright and Related Rights include, but are not
+ limited to, the following:
+ .
+   i. the right to reproduce, adapt, distribute, perform, display,
+      communicate, and translate a Work;
+  ii. moral rights retained by the original author(s) and/or performer(s);
+ iii. publicity and privacy rights pertaining to a person's image or
+      likeness depicted in a Work;
+  iv. rights protecting against unfair competition in regards to a Work,
+      subject to the limitations in paragraph 4(a), below;
+   v. rights protecting the extraction, dissemination, use and reuse of data
+      in a Work;
+  vi. database rights (such as those arising under Directive 96/9/EC of the
+      European Parliament and of the Council of 11 March 1996 on the legal
+      protection of databases, and under any national implementation
+      thereof, including any amended or successor version of such
+      directive); and
+ vii. other similar, equivalent or corresponding rights throughout the
+      world based on applicable law or treaty, and any national
+      implementations thereof.
+ .
+ 2. Waiver. To the greatest extent permitted by, but not in contravention
+ of, applicable law, Affirmer hereby overtly, fully, permanently,
+ irrevocably and unconditionally waives, abandons, and surrenders all of
+ Affirmer's Copyright and Related Rights and associated claims and causes
+ of action, whether now known or unknown (including existing as well as
+ future claims and causes of action), in the Work (i) in all territories
+ worldwide, (ii) for the maximum duration provided by applicable law or
+ treaty (including future time extensions), (iii) in any current or future
+ medium and for any number of copies, and (iv) for any purpose whatsoever,
+ including without limitation commercial, advertising or promotional
+ purposes (the "Waiver"). Affirmer makes the Waiver for the benefit of each
+ member of the public at large and to the detriment of Affirmer's heirs and
+ successors, fully intending that such Waiver shall not be subject to
+ revocation, rescission, cancellation, termination, or any other legal or
+ equitable action to disrupt the quiet enjoyment of the Work by the public
+ as contemplated by Affirmer's express Statement of Purpose.
+ .
+ 3. Public License Fallback. Should any part of the Waiver for any reason
+ be judged legally invalid or ineffective under applicable law, then the
+ Waiver shall be preserved to the maximum extent permitted taking into
+ account Affirmer's express Statement of Purpose. In addition, to the
+ extent the Waiver is so judged Affirmer hereby grants to each affected
+ person a royalty-free, non transferable, non sublicensable, non exclusive,
+ irrevocable and unconditional license to exercise Affirmer's Copyright and
+ Related Rights in the Work (i) in all territories worldwide, (ii) for the
+ maximum duration provided by applicable law or treaty (including future
+ time extensions), (iii) in any current or future medium and for any number
+ of copies, and (iv) for any purpose whatsoever, including without
+ limitation commercial, advertising or promotional purposes (the
+ "License"). The License shall be deemed effective as of the date CC0 was
+ applied by Affirmer to the Work. Should any part of the License for any
+ reason be judged legally invalid or ineffective under applicable law, such
+ partial invalidity or ineffectiveness shall not invalidate the remainder
+ of the License, and in such case Affirmer hereby affirms that he or she
+ will not (i) exercise any of his or her remaining Copyright and Related
+ Rights in the Work or (ii) assert any associated claims and causes of
+ action with respect to the Work, in either case contrary to Affirmer's
+ express Statement of Purpose.
+ .
+ 4. Limitations and Disclaimers.
+ .
+ a. No trademark or patent rights held by Affirmer are waived, abandoned,
+    surrendered, licensed or otherwise affected by this document.
+ b. Affirmer offers the Work as-is and makes no representations or
+    warranties of any kind concerning the Work, express, implied,
+    statutory or otherwise, including without limitation warranties of
+    title, merchantability, fitness for a particular purpose, non
+    infringement, or the absence of latent or other defects, accuracy, or
+    the present or absence of errors, whether or not discoverable, all to
+    the greatest extent permissible under applicable law.
+ c. Affirmer disclaims responsibility for clearing rights of other persons
+    that may apply to the Work or any use thereof, including without
+    limitation any person's Copyright and Related Rights in the Work.
+    Further, Affirmer disclaims responsibility for obtaining any necessary
+    consents, permissions or other rights required for any use of the
+    Work.
+ d. Affirmer understands and acknowledges that Creative Commons is not a
+    party to this document and has no duty or obligation with respect to
+    this CC0 or use of the Work.
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this package; if not, see http://www.gnu.org/licenses/.
+ .
+ On Debian systems, the complete text of the GNU Lesser General Public
+ License v3 can be found in '/usr/share/common-licenses/LGPL-3'.

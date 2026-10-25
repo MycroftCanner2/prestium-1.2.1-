@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="az">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadata və gizlilik</title>
+		<p>Metadata, datanın özü haqqında ayırd edici bilgilərdən ibarətdir. Metadata, data məhsulları üçün sertifikatlaşdırmanı təmin etmək üçün istifadə olunur. Əslində, metadata kim, nə, nə vaxt, harada, niyə və necə kimi sənədləşdirilmiş məlumatların hər tərəfi ilə bağlı suallara cavab verir.</p>
+		<p>Bir fayldakı metadata sizin haqqınızda bir çox şey söyləyə bilər. Kameralar bir şəkilin nə zaman və harada çəkildiyi və hansı kameranın istifadə olunduğu ilə bağlı məlumatları qeyd edir. Ofis proqramları avtomatik olaraq fayllara və onlayn cədvəllərə yazıçı və şirkət haqqında bilgilərini əlavə edir. Bunlar həssas bilgilərdir və açıqlamaq istəməyə bilərsiniz.</p>
+		<figure>
+			<title>Bir şəkil faylının metadata örnəyi</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Faylda avadanlıq, parametrlər, çəkilişin tarixi və yeri haqqında məlumat verilir. Cəmi 79 metadata'dan ibarətdir.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Təmizləmə prosesi</title>
+		<p><app>Metadata Təmizləyici</app>, metadata'nı görüntüləmək üçün əlindən gələnin ən yaxşısını etsə də, hər hansı metadata'nı göstərmirsə bu, bir faylın metadata'dan tamamilə təmiz olduğu mənasına gəlmir. Qarmaşıq faylı tipləri üçün mümkün hər metadata'nl ayırd etmənin güvənilən bir yolu yoxdur. Bu səbəbdən, faylınızın təmizlənməsinin lazım olub-olmadığına qərar vermək üçün metadata'nın varlığına güvənməməlisiniz.</p>
+		<p><app>Metadata Təmizləyicisi</app>, faylının tərkibini alır və metadata olmayan yeni bir fayla yerləşdirir və aşkarlanmamış metadata'nın qaldırıldığından əmin olunmasını təmin edir.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Limitlər</title>
+		<p>Bir faylı işarətləmənin tək yolunun metadatalar olmadığını unutmayın. Tərkibin özü özəl bilgiləri aşkar edirsə və ya ənənəvi olaraq ya da steganografiya yoluyla filigran əlavə edilibsə, <app>Metadata Təmizləyicisi</app> sizi qorumayacaqdır.</p>
+	</section>
+</page>

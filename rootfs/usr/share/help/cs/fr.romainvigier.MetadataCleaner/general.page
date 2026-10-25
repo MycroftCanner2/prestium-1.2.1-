@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="cs">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Metadata a soukromí</title>
+		<p>Metadata se skládají z informací, které popisují data. Metadata se používají k dokumentaci datových produktů. Metadata v podstatě odpovídají na to, kdo, co, kdy, kde, proč a jak, o každém aspektu dat, která jsou takto dokumentována.</p>
+		<p>Metadata v souboru o vás mohou hodně prozradit. Kamery zaznamenávají data o tom, kdy a kde byl snímek pořízen a jaký fotoaparát byl použit. Kancelářské aplikace automaticky přidávají do dokumentů a tabulek informace o autorovi a společnosti. Jedná se o citlivé informace a možná je nebudete chtít prozradit.</p>
+		<figure>
+			<title>Příklad metadat v souboru s obrázkem</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>Soubor prozrazuje informace o hardwaru, nastaveních, datu, místě natáčení. Obsahuje celkem 79 metadat.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Proces čištění</title>
+		<p>Přestože <app>Čistič metadat</app> dělá maximum pro zobrazení metadat, neznamená to, že soubor neobsahuje metadata, pokud se žádná nezobrazují. Neexistuje žádný spolehlivý způsob, jak detekovat všechna možná metadata pro složité formáty souborů. To je důvod, proč byste se neměli spoléhat na přítomnost metadat při rozhodování, zda musí být váš soubor vyčištěn nebo ne.</p>
+		<p><app>Čistič metadat</app> převezme obsah souboru a vloží jej do nového souboru bez metadat, čímž zajistí, že všechna nezjištěná metadata budou odstraněna.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>Omezení</title>
+		<p>Uvědomte si, že metadata nejsou jediným způsobem, jak označit soubor. Pokud samotný obsah odhaluje osobní údaje nebo byl opatřen vodoznakem, tradičně nebo prostřednictvím steganografie, tak vás <app>Čistič metadat</app> neochrání.</p>
+	</section>
+</page>

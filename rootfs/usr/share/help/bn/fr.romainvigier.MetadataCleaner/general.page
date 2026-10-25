@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" id="general" xml:lang="bn">
+	<section id="metadata">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>মেটাডেটা এবং গোপনীয়তা</title>
+		<p>মেটাডেটা হচ্ছে যা তথ্যের বৈশিষ্ট্য দান করে. কোনো তথ্যের সম্পর্কে বিস্তারিত তথ্য জানতে মেটাডেটা ব্যবহৃত হয়. সারমর্মে, মেটাডেটা একটি তথ্য কি, কে, কখন, কোথায়, কেন এবং কিভাবে তৈরি করেছে তা বলে দিতে পারে. মেটাডেটার কাজ হচ্ছে এই খুঁটিনাটি বিষয়গুলোকে নথিভুক্ত করা.</p>
+		<p>ফাইলের মধ্যে মেটাডেটা আপনার সম্পর্কে অনেক কিছু বলে দিতে পারে. ক্যামেরার রেকর্ড তথ্য অর্থাৎ কখন এবং কোথায় ছবিটি তোলা হয়েছে এবং কোন ক্যামেরা ব্যবহৃত হয়েছিল. অফিস আ্যপলিকেশনগুলো স্বয়ংক্রিয়ভাবে লেখক এবং কোম্পানির তথ্য ডকুমেন্ট ও স্প্রেডশিটে যুক্ত করে দেয়. এগুলো খুবই সূক্ষ্ম এবং গুরুত্বপূর্ণ তথ্য এবং আপনি হয়তো এগুলো প্রকাশ করতে চান না.</p>
+		<figure>
+			<title>একটি ছবির ফাইলের মধ্যে মেটাডেটার নমুনা</title>
+			<media type="image" src="figures/metadata-example.png" its:translate="no"/>
+			<desc>ছবির ফাইলটি হার্ডওয়ার, সেটিংস, তারিখ, কোথায় ছবিটি তোলা ইত্যাদি সম্পর্কে তথ্য প্রকাশ করে দিচ্ছে. এটিতে সর্বমোট ৭৯টি মেটাডেটা রয়েছে.</desc>
+		</figure>
+	</section>
+	<section id="cleaning-process">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>অপসারণের প্রক্রিয়া</title>
+		<p>যেহেতু <app>মেটাডেটা ক্লিনার</app> মেটাডেটা দেখাতে তার সর্বোচ্চ চেষ্টা করে, তার মানে এই নয় যে ফাইলটি মেটাডেটা থেকে মুক্ত যদি এটি কোনো মেটাডেটা না দেখায়. জটিল ফাইল ফরম্যাটের জন্য প্রতিটি সম্ভাব্য মেটাডেটা শনাক্ত করার নির্ভরযোগ্য কোনো উপায় নেই. তাই আপনার ফাইলের মেটাডেটাগুলো অপসারণ হয়েছে কিনা তা মেটাডেটার উপস্থিতির উপর নির্ধারণ করা উচিৎ নয়.</p>
+		<p><app>মেটাডেটা ক্লিনার</app> ফাইলের কন্টেন্ট নেয় এবং তা মেটাডেটা ছাড়া নতুন একটি ফাইলে রেখে দেয়, যা ধরা পড়েনা এমন মেটাডেটা যেন কন্টেন্টের সাথে চলে না যায় তা নিশ্চিত করে.</p>
+	</section>
+	<section id="limitations">
+		<info>
+			<link type="guide" xref="index#general"/>
+		</info>
+		<title>সীমাবদ্ধতা</title>
+		<p>Be aware that metadata is not the only way of marking a file. If the content itself discloses personal information or has been watermarked, traditionally or via steganography, <app>Metadata Cleaner</app> will not protect you.</p>
+	</section>
+</page>
