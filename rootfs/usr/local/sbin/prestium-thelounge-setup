@@ -3,7 +3,10 @@
 // Prestium: prepare The Lounge's single user "prestium" (run as root by thelounge.service
 // ExecStartPre=+ on every start).
 // - first start of a boot: user file from /usr/local/share/prestium-thelounge/prestium.json
-//   (IRC2P via 127.0.0.1:6668, Ilita via 127.0.0.1:6669) with a random nick
+//   with one preset per i2pd IRC client tunnel (IRC2P 6668, echelon 6665, dg 6666;
+//   Ilita 6669, r4sas 6670, acetone 6671, rusirc 6672). IRC2P and Ilita connect at start,
+//   the alternate servers are listed disconnected (select them and use "Connect").
+//   Each preset gets its own random nick.
 // - a random password (bcrypt-hashed in the user file; plain copy in
 //   /run/prestium-thelounge/password, readable by "user" only, needed only after "Sign out")
 // - a new random login token on every start; only its SHA-512 is stored in the user file,
@@ -58,8 +61,13 @@ try {
 } catch (e) {}
 if (!user || !Array.isArray(user.networks)) {
 	user = JSON.parse(fs.readFileSync(TEMPLATE, "utf8"));
-	const nick = "anon" + crypto.randomInt(1000, 10000);
+	// 1.9.1: every network preset gets its own random nick, so the IRC2P and Ilita
+	// presets (and the alternate servers) don't share one nick that would link them
+	const used = new Set();
 	for (const n of user.networks) {
+		let nick;
+		do nick = "anon" + crypto.randomInt(1000, 10000); while (used.has(nick));
+		used.add(nick);
 		n.uuid = crypto.randomUUID();
 		n.nick = nick;
 	}

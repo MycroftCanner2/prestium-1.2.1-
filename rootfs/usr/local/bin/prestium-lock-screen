@@ -1,0 +1,24 @@
+#!/bin/sh
+# Prestium 1.9.1: lock the screen (i3lock). Started by xss-lock (screensaver
+# timeout, logind lock request, before suspend), the "Lock Screen" menu item
+# and Super+L. The live user has no password at boot (autologin), so the first
+# time we ask for one, as Tails does; without a password the screen isn't
+# locked (an empty password would unlock it).
+st=$(sudo -n /usr/local/sbin/prestium-session-password status 2>/dev/null)
+if [ "$st" != set ]; then
+  out=$(zenity --forms --title "Lock Screen" \
+        --text "Set a password to lock the screen.\nYou'll need it to unlock the screen and for administration prompts.\nIt lasts until you shut down." \
+        --add-password "Password" --add-password "Confirm password" --separator '
+' 2>/dev/null) || exit 0
+  p1=$(printf '%s\n' "$out" | sed -n 1p); p2=$(printf '%s\n' "$out" | sed -n 2p)
+  if [ -z "$p1" ] || [ "$p1" != "$p2" ]; then
+    zenity --error --title "Lock Screen" --text "The passwords are empty or don't match. The screen was not locked." 2>/dev/null
+    exit 0
+  fi
+  if ! printf '%s\n' "$p1" | sudo -n /usr/local/sbin/prestium-session-password set >/dev/null 2>&1; then
+    zenity --error --title "Lock Screen" --text "Could not set the password. The screen was not locked." 2>/dev/null
+    exit 0
+  fi
+  unset p1 p2 out
+fi
+exec i3lock -n -c 101010

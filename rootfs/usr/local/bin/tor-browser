@@ -1,19 +1,40 @@
 #!/bin/sh
 # Prestium: official Tor Browser (/opt/tor-browser), using the system Tor
-# (tor@default, SOCKS 127.0.0.1:9050, control socket /run/tor/control) instead
-# of its own tor, so the ferm rule "only debian-tor and i2pd reach the network"
-# still holds and Nyx shows the browser's circuits.
+# (tor@default, SOCKS 127.0.0.1:9050) instead of its own tor, so the ferm rule
+# "only debian-tor and i2pd reach the network" still holds.
+# 1.9.1 (Tails-style):
+#  - /opt/tor-browser is root-owned and read-only ("is-packaged-app" mode); the
+#    profile lives in ~/.tor-browser/profile.default and the browser runs under
+#    the enforced AppArmor profile "torbrowser_firefox".
+#  - Downloads/uploads: ~/Tor Browser (the only place in your home the browser
+#    may read or write).
+#  - The control port is reached through the onion-grater filter
+#    (/run/onion-grater/control: NEWNYM, circuit display, onion auth only).
 TB=/opt/tor-browser
 if [ "$(id -u)" -eq 0 ]; then echo "Tor Browser must not run as root." >&2; exit 1; fi
-if [ ! -w "$TB/Browser" ]; then
-  echo "$TB is not writable by $(id -un)." >&2; exit 1
+P="$HOME/.tor-browser/profile.default"
+D="$HOME/Tor Browser"
+umask 077
+mkdir -p "$P/extensions" "$D" || exit 1
+chmod 700 "$HOME/.tor-browser" "$P"
+# bundled extensions (NoScript) from the read-only install
+for x in "$TB"/Browser/TorBrowser/Data/Browser/profile.default/extensions/*.xpi; do
+  [ -e "$x" ] && cp -f "$x" "$P/extensions/"
+done
+# 1.9.1: distrust the eMudhra (emSign) roots that are built into Tor Browser
+if [ ! -e "$P/cert9.db" ]; then
+  cp /usr/local/share/prestium-nssdb/cert9.db /usr/local/share/prestium-nssdb/key4.db "$P/"
 fi
+# Prestium prefs (download folder etc.), rewritten at every start
+sed "s#@DOWNLOADS@#$D#g" /usr/local/share/prestium-tor-browser/user.js > "$P/user.js"
 TOR_SKIP_LAUNCH=1
 TOR_SOCKS_HOST=127.0.0.1
 TOR_SOCKS_PORT=9050
-TOR_CONTROL_IPC_PATH=/run/tor/control
-TOR_CONTROL_COOKIE_AUTH_FILE=/run/tor/control.authcookie
+TOR_CONTROL_IPC_PATH=/run/onion-grater/control
+# onion-grater accepts any password (access is decided by process identity)
+TOR_CONTROL_PASSWD='"prestium"'
 TOR_HIDE_UPDATE_CHECK_UI=1
-export TOR_SKIP_LAUNCH TOR_SOCKS_HOST TOR_SOCKS_PORT TOR_CONTROL_IPC_PATH TOR_CONTROL_COOKIE_AUTH_FILE TOR_HIDE_UPDATE_CHECK_UI
+export TOR_SKIP_LAUNCH TOR_SOCKS_HOST TOR_SOCKS_PORT TOR_CONTROL_IPC_PATH TOR_CONTROL_PASSWD TOR_HIDE_UPDATE_CHECK_UI
+unset TOR_CONTROL_COOKIE_AUTH_FILE TOR_CONTROL_PORT TOR_CONTROL_HOST
 cd "$TB/Browser" || exit 1
-exec ./start-tor-browser "$@"
+exec ./start-tor-browser "$@" -profile "$P"

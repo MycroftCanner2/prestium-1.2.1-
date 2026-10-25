@@ -1,3 +1,13 @@
 #!/bin/sh
-# Prestium: "Web Browser (I2P)" - default LibreWolf profile, I2P HTTP proxy 127.0.0.1:4444
-exec /usr/bin/librewolf "$@"
+# Prestium: "Web Browser (I2P; clearnet via I2P outproxy)" - LibreWolf through the
+# I2P HTTP proxy 127.0.0.1:4444. .i2p sites go through I2P; other (clearnet)
+# sites go through ONE I2P outproxy (exit.stormycloud.i2p), which sees every
+# clearnet site you visit. HTTPS-Only mode is off on purpose (I2P sites are http).
+# 1.9.1: fixed profile ~/.librewolf/prestium, seeded with an NSS database that
+# distrusts the eMudhra (emSign) roots.
+P="$HOME/.librewolf/prestium"
+umask 077
+if [ ! -e "$P/cert9.db" ]; then
+  mkdir -p "$P" && cp /usr/local/share/prestium-nssdb/cert9.db /usr/local/share/prestium-nssdb/key4.db "$P/"
+fi
+exec /usr/bin/librewolf --profile "$P" "$@"
