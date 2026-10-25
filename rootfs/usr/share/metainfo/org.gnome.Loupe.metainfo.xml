@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.gnome.Loupe</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Image Viewer</name>
+  <name xml:lang="zh-Hant-TW">影像檢視器</name>
+  <name xml:lang="zh-Hans-CN">图像查看器</name>
+  <name xml:lang="vi">Bộ xem ảnh</name>
+  <name xml:lang="uk">Перегляд зображень</name>
+  <name xml:lang="tr">Resim Görüntüleyici</name>
+  <name xml:lang="th">โปรแกรมดูภาพ</name>
+  <name xml:lang="sv">Bildvisare</name>
+  <name xml:lang="sr-Cyrl">Прегледач слика</name>
+  <name xml:lang="sl">Pregledovalnik slik</name>
+  <name xml:lang="sk">Prehliadač obrázkov</name>
+  <name xml:lang="rw">Amashusho</name>
+  <name xml:lang="ru">Просмотрщик изображений</name>
+  <name xml:lang="ro">Vizualizator imagini</name>
+  <name xml:lang="pt-BR">Visualizador de imagens</name>
+  <name xml:lang="pt">Visualizador de imagens</name>
+  <name xml:lang="pl">Przeglądarka obrazów</name>
+  <name xml:lang="pa">ਚਿੱਤਰ ਦਰਸ਼ਕ</name>
+  <name xml:lang="oc">Visionador d'imatges</name>
+  <name xml:lang="nl">Afbeeldingsweergave</name>
+  <name xml:lang="ne">छवि प्रदर्शक</name>
+  <name xml:lang="nb">Bildevisning</name>
+  <name xml:lang="lv">Attēla skatītājs</name>
+  <name xml:lang="lt">Paveikslėlių žiūryklė</name>
+  <name xml:lang="ko">그림 보기</name>
+  <name xml:lang="kk-Cyrl">Суреттер көрсетушісі</name>
+  <name xml:lang="kab">Ameẓray n tugniwin</name>
+  <name xml:lang="ka">სურათების გალერეა</name>
+  <name xml:lang="it">Visualizzatore immagini</name>
+  <name xml:lang="ie">Visor de images</name>
+  <name xml:lang="id">Penampil Gambar</name>
+  <name xml:lang="hu">Képmegjelenítő</name>
+  <name xml:lang="hi">Image Viewer</name>
+  <name xml:lang="he">מציג תמונות</name>
+  <name xml:lang="gl">Visor de imaxes</name>
+  <name xml:lang="fur">Visualizadôr imagjins</name>
+  <name xml:lang="fr">Visionneur d’images</name>
+  <name xml:lang="fil">Pantingin ng Larawan</name>
+  <name xml:lang="fi">Kuvakatselin</name>
+  <name xml:lang="fa">نمایشگر تصویر</name>
+  <name xml:lang="eu">Irudi-ikustailea</name>
+  <name xml:lang="es">Visor de imágenes</name>
+  <name xml:lang="eo">Bildo-Vidilo</name>
+  <name xml:lang="en-GB">Image Viewer</name>
+  <name xml:lang="el">Πρόγραμμα προβολής εικόνων</name>
+  <name xml:lang="de">Bildbetrachter</name>
+  <name xml:lang="da">Billedfremviser</name>
+  <name xml:lang="cs">Prohlížeč obrázků</name>
+  <name xml:lang="ca">Visualitzador d'imatges</name>
+  <name xml:lang="bg">Преглед на изображения</name>
+  <name xml:lang="be-Cyrl">Праглядальнік выяў</name>
+  <name xml:lang="ar">عارض الصور</name>
+  <!-- developer_name tag deprecated with Appstream 1.0 -->
+  <developer_name>The GNOME Project</developer_name>
+  <developer_name xml:lang="zh-Hant-TW">GNOME 專案</developer_name>
+  <developer_name xml:lang="zh-Hans-CN">GNOME 项目</developer_name>
+  <developer_name xml:lang="vi">Dự án GNOME</developer_name>
+  <developer_name xml:lang="uk">Проєкт GNOME</developer_name>
+  <developer_name xml:lang="tr">GNOME Projesi</developer_name>
+  <developer_name xml:lang="th">โครงการ GNOME</developer_name>
+  <developer_name xml:lang="sv">GNOME-projektet</developer_name>
+  <developer_name xml:lang="sr-Cyrl">Пројекат Гном</developer_name>
+  <developer_name xml:lang="sl">Projekt GNOME</developer_name>
+  <developer_name xml:lang="sk">Projekt GNOME</developer_name>
+  <developer_name xml:lang="ru">Проект GNOME</developer_name>
+  <developer_name xml:lang="ro">Proiectul GNOME</developer_name>
+  <developer_name xml:lang="pt-BR">O Projeto GNOME</developer_name>
+  <developer_name xml:lang="pt">O Projeto GNOME</developer_name>
+  <developer_name xml:lang="pl">Projekt GNOME</developer_name>
+  <developer_name xml:lang="oc">Lo projècte GNOME</developer_name>
+  <developer_name xml:lang="nl">Het GNOME-project</developer_name>
+  <developer_name xml:lang="ne">जिनोम परियोजना</developer_name>
+  <developer_name xml:lang="nb">GNOME</developer_name>
+  <developer_name xml:lang="lv">GNOME projekts</developer_name>
+  <developer_name xml:lang="lt">GNOME projektas</developer_name>
+  <developer_name xml:lang="ko">그놈 프로젝트</developer_name>
+  <developer_name xml:lang="kk-Cyrl">GNOME жобасы</developer_name>
+  <developer_name xml:lang="kab">Asenfar n GNOME</developer_name>
+  <developer_name xml:lang="ka">პროექტი "GNOME"</developer_name>
+  <developer_name xml:lang="it">Il progetto GNOME</developer_name>
+  <developer_name xml:lang="id">Proyek GNOME</developer_name>
+  <developer_name xml:lang="hu">A GNOME projekt</developer_name>
+  <developer_name xml:lang="hi">गनोम परियोजना</developer_name>
+  <developer_name xml:lang="he">מיזם GNOME</developer_name>
+  <developer_name xml:lang="gl">O Proxecto GNOME</developer_name>
+  <developer_name xml:lang="fur">Il Progjet GNOME</developer_name>
+  <developer_name xml:lang="fr">Le projet GNOME</developer_name>
+  <developer_name xml:lang="fil">Proyekto GNOME</developer_name>
+  <developer_name xml:lang="fi">Gnome-projekti</developer_name>
+  <developer_name xml:lang="fa">پروژهٔ گنوم</developer_name>
+  <developer_name xml:lang="eu">GNOME proiektua</developer_name>
+  <developer_name xml:lang="es">El Proyecto GNOME</developer_name>
+  <developer_name xml:lang="en-GB">The GNOME Project</developer_name>
+  <developer_name xml:lang="el">Το έργο GNOME</developer_name>
+  <developer_name xml:lang="de">Das GNOME-Projekt</developer_name>
+  <developer_name xml:lang="da">GNOME-projektet</developer_name>
+  <developer_name xml:lang="cs">Projekt GNOME</developer_name>
+  <developer_name xml:lang="ca">El projecte GNOME</developer_name>
+  <developer_name xml:lang="bg">Проектът GNOME</developer_name>
+  <developer_name xml:lang="be-Cyrl">Праект GNOME</developer_name>
+  <developer_name xml:lang="ar">مشروع جنوم (GNOME)</developer_name>
+  <developer id="org.gnome">
+    <name>The GNOME Project</name>
+  </developer>
+  <project_group>GNOME</project_group>
+  <summary>View images</summary>
+  <summary xml:lang="zh-Hant-TW">檢視各種影像檔案</summary>
+  <summary xml:lang="zh-Hans-CN">查看图像</summary>
+  <summary xml:lang="vi">Xem ảnh</summary>
+  <summary xml:lang="uk">Перегляд зображень</summary>
+  <summary xml:lang="tr">Resimleri göster</summary>
+  <summary xml:lang="th">ดูภาพต่างๆ</summary>
+  <summary xml:lang="sv">Visa bilder</summary>
+  <summary xml:lang="sr-Cyrl">Прегледај слике</summary>
+  <summary xml:lang="sl">Pregledovalnik slik</summary>
+  <summary xml:lang="sk">Zobraziť obrázky</summary>
+  <summary xml:lang="rw">Reba amafoto</summary>
+  <summary xml:lang="ru">Просмотр изображений</summary>
+  <summary xml:lang="ro">Vizualizează imaginile</summary>
+  <summary xml:lang="pt-BR">Ver imagens</summary>
+  <summary xml:lang="pt">Ver imagens</summary>
+  <summary xml:lang="pl">Przeglądanie obrazów</summary>
+  <summary xml:lang="pa">ਚਿੱਤਰ ਵੇਖੋ</summary>
+  <summary xml:lang="oc">Afichar los imatges</summary>
+  <summary xml:lang="nl">Bekijk afbeeldingen</summary>
+  <summary xml:lang="ne">छवि हेर्नुहोस्</summary>
+  <summary xml:lang="nb">Se på bilder</summary>
+  <summary xml:lang="lv">Skatīt attēlus</summary>
+  <summary xml:lang="lt">Žiūrėti paveikslėlius</summary>
+  <summary xml:lang="ko">그림을 봅니다</summary>
+  <summary xml:lang="kk-Cyrl">Суреттерді қарау</summary>
+  <summary xml:lang="kab">Sken tugniwin</summary>
+  <summary xml:lang="ka">სურათების დათვალიერება</summary>
+  <summary xml:lang="it">Visualizza immagini</summary>
+  <summary xml:lang="ie">Vider images</summary>
+  <summary xml:lang="id">Lihat gambar</summary>
+  <summary xml:lang="hu">Képek megtekintése</summary>
+  <summary xml:lang="hi">छवियां देखें</summary>
+  <summary xml:lang="he">מציג תמונות</summary>
+  <summary xml:lang="gl">Ver imaxes</summary>
+  <summary xml:lang="fur">Visualize imagjins</summary>
+  <summary xml:lang="fr">Visionner des images</summary>
+  <summary xml:lang="fil">Tingnan ang mga larawan</summary>
+  <summary xml:lang="fi">Katsele kuvia</summary>
+  <summary xml:lang="fa">دیدن تصویرها</summary>
+  <summary xml:lang="eu">Ikusi irudiak</summary>
+  <summary xml:lang="es">Ver imágenes</summary>
+  <summary xml:lang="eo">Vidi bildojn</summary>
+  <summary xml:lang="en-GB">View images</summary>
+  <summary xml:lang="el">Προβολή εικόνων</summary>
+  <summary xml:lang="de">Bilder betrachten</summary>
+  <summary xml:lang="da">Få vist billeder</summary>
+  <summary xml:lang="cs">Prohlížejte si obrázky</summary>
+  <summary xml:lang="ca">Visualitza les imatges</summary>
+  <summary xml:lang="bg">Преглед на изображения</summary>
+  <summary xml:lang="be-Cyrl">Прагляд выяў</summary>
+  <summary xml:lang="ar">طالع الصور</summary>
+  <description>
+    <p>Browse through your images and inspect their metadata with:</p>
+    <p xml:lang="zh-Hant-TW">《影像檢視器》是用於瀏覽影像及查看其中介資料的應用程式；本程式具備下述特點：</p>
+    <p xml:lang="zh-Hans-CN">浏览您的图像并检查其元数据：</p>
+    <p xml:lang="vi">Duyệt xem ảnh của bạn và xem siêu dữ liệu của chúng với:</p>
+    <p xml:lang="uk">Здійснюйте навігацію вашими зображеннями і переглядайте їхні метадані за допомогою:</p>
+    <p xml:lang="tr">Resimlerinize göz atın ve üst verilerini şunlarla inceleyin:</p>
+    <p xml:lang="sv">Bläddra genom dina bilder och inspektera deras metadata med:</p>
+    <p xml:lang="sr-Cyrl">Прегледајте ваше слике и погледајте метаподатке са:</p>
+    <p xml:lang="sl">Brskanje med slikami in preverjanje metapodatkov z:</p>
+    <p xml:lang="sk">Prechádzajte svoje obrázky a kontrolujte ich metadáta pomocou:</p>
+    <p xml:lang="rw">Zenguruka mu mashusho yawe maze urebe amakuru ayerekeye na:</p>
+    <p xml:lang="ru">Просматривайте свои изображения и проверяйте их метаданные с помощью:</p>
+    <p xml:lang="ro">Navigați prin imagini și inspectați datele meta cu:</p>
+    <p xml:lang="pt-BR">Navegue por suas imagens e inspecione seus metadados com:</p>
+    <p xml:lang="pt">Navegue pelas suas imagens e inspecione os seus metadados com:</p>
+    <p xml:lang="pl">Przeglądanie obrazów i ich metadanych z:</p>
+    <p xml:lang="pa">ਆਪਣੇ ਚਿੱਤਰਾਂ ਦੀ ਝਲਕ ਵੇਖੋ ਅਤੇ ਉਹਨਾਂ ਦੇ ਮੇਟਾਡਾਟੇ ਦੀ ਜਾਂਚ ਇਸ ਨਾਲ ਕਰੋ:</p>
+    <p xml:lang="oc">Navegatz demest vòstres imatges e d’examinatz lors metadonadas :</p>
+    <p xml:lang="nl">Blader door uw afbeeldingen en bekijk hun metagegevens met:</p>
+    <p xml:lang="ne">तपाईंको छविहरू मार्फत ब्राउज गर्नुहोस् र उनीहरूको मेटाडाटानिरीक्षण गर्नुहोस्:</p>
+    <p xml:lang="nb">Bla gjennom bildene dine og se informasjon om dem med:</p>
+    <p xml:lang="lv">Pārlūkojiet savus attēlus un apskatiet to metadatus ar:</p>
+    <p xml:lang="lt">Naršykite savo paveikslėlius ir peržiūrėkite jų metaduomenis su:</p>
+    <p xml:lang="ko">그림을 탐색하고 메타데이터를 살펴봅니다:</p>
+    <p xml:lang="kk-Cyrl">Суреттеріңізді қарап шығу және олардың метадеректерін келесімен тексеру:</p>
+    <p xml:lang="kab">Inig deg tugniwin-ik, tsewḍeḍ aɣefisefka-nsent:</p>
+    <p xml:lang="ka">დაათვალიერეთ თქვენი სურათები და მათი მეტამონაცემები:</p>
+    <p xml:lang="it">Sfogliare le proprie immagini e ispezionare i loro metadati con:</p>
+    <p xml:lang="ie">Navigar vor images e inspecter lor metadata con:</p>
+    <p xml:lang="id">Jelajahi gambar Anda dan periksa metadata gambar tersebut:</p>
+    <p xml:lang="hu">Böngésszen a képek között, és vizsgálja meg a metaadataikat a következőkkel:</p>
+    <p xml:lang="hi">अपनी छवियों को ब्राउज़ करें और उनके मेटाडेटा का निरीक्षण करें:</p>
+    <p xml:lang="he">דפדוף בתמונות ובנתוני התמונות שלך עם:</p>
+    <p xml:lang="gl">Explore as súas imaxes e inspeccione os seus metadatos con:</p>
+    <p xml:lang="fur">Sgarfe tra lis tôs imagjins e ispezione i lôr metadâts cun:</p>
+    <p xml:lang="fr">Parcourir des images et inspecter leurs métadonnées avec :</p>
+    <p xml:lang="fil">Mag-browse ng mga larawan mo at silipin ang metadata nila gamit ang:</p>
+    <p xml:lang="fi">Selaa kuvia ja tutki niiden metatietoja:</p>
+    <p xml:lang="fa">مرور تصویرها و بازرسی فراداده‌هایشان با:</p>
+    <p xml:lang="eu">Arakatu irudiak eta begiratu beren metadatuak honekin:</p>
+    <p xml:lang="es">Explorar sus imágenes e inspeccionar sus metadatos con:</p>
+    <p xml:lang="eo">Foliumi viajn bildojn kaj inspekti iliajn metadatumojn per:</p>
+    <p xml:lang="en-GB">Browse through your images and inspect their metadata with:</p>
+    <p xml:lang="el">Περιηγηθείτε στις εικόνες σας και επιθεωρήστε τα μεταδεδομένα τους με:</p>
+    <p xml:lang="de">Durchstöbern Sie Ihre Bilder und sehen Sie deren Metadaten ein mit:</p>
+    <p xml:lang="da">Gennemse dine billeder og inspicér deres metadata med:</p>
+    <p xml:lang="cs">Procházejte své obrázky a kontrolujte jejich metadata s pomocí:</p>
+    <p xml:lang="ca">Navegueu a través de les vostres imatges i inspeccioneu les seves metadades amb:</p>
+    <p xml:lang="bg">Прегледайте вашите изображения и проверете техните метаданни с:</p>
+    <p xml:lang="be-Cyrl">Прагляд выяў і іх метаданых з наступнымі магчымасцямі:</p>
+    <p xml:lang="ar">تصفح صورك وتفقد البيانات الوصفية مع:</p>
+    <ul>
+      <li>Fast GPU accelerated image rendering</li>
+      <li xml:lang="zh-Hant-TW">使用「GPU 加速」技術縮短影像算繪時間</li>
+      <li xml:lang="zh-Hans-CN">快速的 GPU 加速图像渲染</li>
+      <li xml:lang="vi">Dùng GPU để tăng tốc vẽ ảnh</li>
+      <li xml:lang="uk">Швидкої обробка зображення за допомогою графічного процесора</li>
+      <li xml:lang="tr">Hızlı, GPU hızlandırmalı resim sahneleme</li>
+      <li xml:lang="sv">Snabb GPU-accelererad bildrendering</li>
+      <li xml:lang="sr-Cyrl">Брзо исцртавање слика преко графичке</li>
+      <li xml:lang="sl">Hitro, z GPE pohitreno izrisovanje slik</li>
+      <li xml:lang="sk">Rýchle vykresľovanie obrazu pomocou GPU</li>
+      <li xml:lang="rw">Kwerekana amafoto vubavuba hakoreshejwe GPU</li>
+      <li xml:lang="ru">Быстрого рендеринга изображений с GPU-ускорением</li>
+      <li xml:lang="ro">Randare rapidă a imaginii GPU accelerată</li>
+      <li xml:lang="pt-BR">Renderização rápida de imagem acelerada por GPU</li>
+      <li xml:lang="pt">Renderização rápida de imagens acelerada por GPU</li>
+      <li xml:lang="pl">Szybkim wyświetlaniem obrazów przyspieszonym za pomocą karty graficznej,</li>
+      <li xml:lang="pa">ਤੇਜ਼ GPU ਚਿੱਤਰ ਪੇਸ਼ਕਾਰੀ</li>
+      <li xml:lang="oc">Rendut d’imatge accelerat GPU rapid</li>
+      <li xml:lang="nl">Snelle GPU-versnelde afbeeldingsrendering</li>
+      <li xml:lang="ne">छिटो जीपीयू द्रुत छवि रेन्डरिङ</li>
+      <li xml:lang="nb">Rask og maskinvareakselerert visning</li>
+      <li xml:lang="lv">Ātru GPU paātrinātu attēlu renderēšanu</li>
+      <li xml:lang="lt">Greitas GPU spartintas paveikslėlio piešimas</li>
+      <li xml:lang="ko">고속 GPU 가속 이미지 렌더링</li>
+      <li xml:lang="kk-Cyrl">GPU арқылы үдетілген суреттерді жылдам қарау</li>
+      <li xml:lang="kab">Tiririt n tugna tettuckeḍ s GPU uzrib</li>
+      <li xml:lang="ka">GPU-ით აჩქარებული გამოსახულების რენდერი</li>
+      <li xml:lang="it">Un rendering delle immagini veloce, accelerato tramite GPU</li>
+      <li xml:lang="ie">Rapid, accelerat med GPU production de image</li>
+      <li xml:lang="id">Rendering gambar dengan akselerasi GPU yang cepat</li>
+      <li xml:lang="hu">Gyors GPU-gyorsított képmegjelenítés</li>
+      <li xml:lang="hi">तेज GPU त्वरित छवि प्रतिपादन</li>
+      <li xml:lang="he">עיבוד תמונה בהאצת מעבד גרפי מהיר</li>
+      <li xml:lang="gl">Renderizado rápido de imaxes acelerado por GPU</li>
+      <li xml:lang="fur">Rapresentazion svelte de imagjin acelerade vie GPU</li>
+      <li xml:lang="fr">Rendu d’image accéléré par le GPU</li>
+      <li xml:lang="fil">Mabilis, GPU accelerated na pag-render ng larawan</li>
+      <li xml:lang="fi">Nopea näytönohjaimella kiihdytetty kuvien piirto</li>
+      <li xml:lang="fa">پرداخت تصویر شتاب‌داده با GPU</li>
+      <li xml:lang="eu">PUG bidez azeleratutako irudi-errendatze azkarra</li>
+      <li xml:lang="es">Renderizado de imágenes acelerado por GPU rápida</li>
+      <li xml:lang="eo">Rapida GPU-akcelita bildprezento</li>
+      <li xml:lang="en-GB">Fast GPU accelerated image rendering</li>
+      <li xml:lang="el">Γρήγορη απόδοση εικόνας με επιτάχυνση GPU</li>
+      <li xml:lang="de">Schnelle GPU-beschleunigte Bildsynthese</li>
+      <li xml:lang="da">Hurtig GPU-accelereret billedgengivelse</li>
+      <li xml:lang="cs">Rychlého vykreslování obrazu s akcelerací GPU</li>
+      <li xml:lang="ca">Renderització ràpida d'imatges accelerades de la GPU</li>
+      <li xml:lang="bg">Бърза обработка с помощта на GPU ускоряване</li>
+      <li xml:lang="be-Cyrl">Хуткая апрацоўка выяў з GPU-паскарэннем</li>
+      <li xml:lang="ar">تصيير صور سريع بمعالج الرسوميات</li>
+      <li>Tiled rendering for vector graphics</li>
+      <li xml:lang="zh-Hant-TW">以高效率「圖塊架構」算繪向量圖形</li>
+      <li xml:lang="zh-Hans-CN">分块渲染矢量图形</li>
+      <li xml:lang="vi">Vẽ dạng lát gạch cho đồ họa véc-tơ</li>
+      <li xml:lang="uk">Плиткової обробки для векторної графіки</li>
+      <li xml:lang="tr">Vektör grafikler için bölünmüş sahneleme</li>
+      <li xml:lang="sv">Rendering uppdelad i rutor för vektorgrafik</li>
+      <li xml:lang="sr-Cyrl">Уплочано исцртавање за векторске графике</li>
+      <li xml:lang="sl">Tlakovano izrisovanje vektorske grafike</li>
+      <li xml:lang="sk">Dlaždicové vykresľovanie vektorovej grafiky</li>
+      <li xml:lang="rw">Kwerekana ibishushanyo mu dukaro</li>
+      <li xml:lang="ru">Плиточного рендеринга для векторной графики</li>
+      <li xml:lang="ro">Randare cu tile pentru grafică vectorială</li>
+      <li xml:lang="pt-BR">Renderização lado a lado para gráficos vetoriais</li>
+      <li xml:lang="pt">Renderização em mosaico para gráficos vetoriais</li>
+      <li xml:lang="pl">Wyświetlaniem kafelkowym w przypadku grafik wektorowych,</li>
+      <li xml:lang="pa">ਵੈਕਟਰ ਗਰਾਫ਼ਿਕਸ ਲਈ ਟਾਈਲ ਦੇ ਰੂਪ ਵਿੱਚ ਪੇਸ਼ਕਾਰੀ</li>
+      <li xml:lang="oc">Rendut en mosaïc dels grafics vectorials</li>
+      <li xml:lang="nl">Tiled-rendering voor vectorafbeeldingen</li>
+      <li xml:lang="ne">भेक्टर ग्राफिक्सका लागि टाइल गरिएको रेन्डरिङ</li>
+      <li xml:lang="nb">Effektiv gjengivelse av vektorgrafikk</li>
+      <li xml:lang="lv">Mozaīkas renderēšanu vektoru grafikai</li>
+      <li xml:lang="lt">Plytelinis piešimas vektorinei grafikai</li>
+      <li xml:lang="ko">벡터 그래픽 타일 렌더링</li>
+      <li xml:lang="kk-Cyrl">Векторлық графика үшін плиткалы рендеринг</li>
+      <li xml:lang="kab">Tiririt d tabursa i wudlif amaway</li>
+      <li xml:lang="ka">ნაწილ-ნაწილ რენდერი ვექტორული გრაფიკისთვის</li>
+      <li xml:lang="it">Un rendering a tasselli per le grafiche vettoriali</li>
+      <li xml:lang="id">Rendering ubin untuk grafik vektor</li>
+      <li xml:lang="hu">Csempés megjelenítés vektorgrafikákhoz</li>
+      <li xml:lang="hi">वेक्टर चित्रोपमा के लिए टाइलयुक्त प्रतिपादन</li>
+      <li xml:lang="he">עיבוד באריחים של גרפיקה וקטורית</li>
+      <li xml:lang="gl">Renderizado por teselas para gráficos vectoriais</li>
+      <li xml:lang="fur">Rapresentazion a tassêi pe grafiche vetoriâl</li>
+      <li xml:lang="fr">Rendu à base de tuiles pour les graphiques vectoriels</li>
+      <li xml:lang="fil">Tiled na pag-render para sa vector graphics</li>
+      <li xml:lang="fi">Vektorigrafiikan laatoitettu piirto</li>
+      <li xml:lang="fa">پرداخت کاشی‌گون برای نگاشتارهای برداری</li>
+      <li xml:lang="eu">Lauzen bidezko errendatzea grafiko bektorialetarako</li>
+      <li xml:lang="es">Renderizado en mosaico para gráficos vectoriales</li>
+      <li xml:lang="eo">Kahela bildigo por vektora grafiko</li>
+      <li xml:lang="en-GB">Tiled rendering for vector graphics</li>
+      <li xml:lang="el">Απόδοση με πλακάκια για διανυσματικά γραφικά</li>
+      <li xml:lang="de">Gekachelte Bildsynthese für Vektorgrafiken</li>
+      <li xml:lang="da">Flisegengivelse til vektorgrafik</li>
+      <li xml:lang="cs">Dlaždicového vykreslování pro vektorovou grafiku</li>
+      <li xml:lang="ca">Renderització en mosaic per a gràfics vectorials</li>
+      <li xml:lang="bg">Обработка по плочки за векторни графики</li>
+      <li xml:lang="be-Cyrl">Мазаікавая апрацоўка для вектарнай графікі</li>
+      <li xml:lang="ar">تصيير مُرصَّف للرسوميات المتجهية</li>
+      <li>Extendable and sandboxed image decoding</li>
+      <li xml:lang="zh-Hant-TW">採用具「可擴展性」與「沙盒機制」的影像解碼器</li>
+      <li xml:lang="zh-Hans-CN">可扩展和沙盒化的图像解码</li>
+      <li xml:lang="vi">Giải mã hình ảnh mở rộng được và chạy trong hộp cát được</li>
+      <li xml:lang="uk">Придатного до розширення та ізольоване декодування зображень</li>
+      <li xml:lang="tr">Genişletilebilir ve yalıtılmış resim çözme</li>
+      <li xml:lang="sv">Utökningsbar bildavkodning i sandlåda</li>
+      <li xml:lang="sr-Cyrl">Проширљиво и безбедно декодирање слика „у песку“</li>
+      <li xml:lang="sl">Razširljivo in pred sesutjem varno dekodiranje slik</li>
+      <li xml:lang="sk">Rozšíriteľné a sandboxované dekódovanie obrázkov</li>
+      <li xml:lang="rw">Gutarura amashusho mu buryo bwakwaguka kandi bwiherereye</li>
+      <li xml:lang="ru">Расширяемого и изолированного декодирования изображений</li>
+      <li xml:lang="ro">Decodare extensibilă și sandbox a imaginilor</li>
+      <li xml:lang="pt-BR">Decodificação de imagem extensível e em isolamento</li>
+      <li xml:lang="pt">Descodificação de imagens extensível e em ambiente restrito</li>
+      <li xml:lang="pl">Rozszerzalnym i zabezpieczonym dekodowaniem obrazów,</li>
+      <li xml:lang="pa">ਫ਼ੈਲਣਯੋਗ ਅਤੇ ਸੈਂਡਬਾਕਸ ਚਿੱਤਰ ਡੀਕੋਡਿੰਗ</li>
+      <li xml:lang="oc">Descodatge d’imatge extensible e isolat</li>
+      <li xml:lang="nl">Uitbreidbare decodering van afbeeldingen in een zandbak</li>
+      <li xml:lang="ne">विस्तार गर्न सकिने र स्यान्डबक्स गरिएको छवि डिकोडिंग</li>
+      <li xml:lang="nb">Utvidbar og innhegnet dekoding</li>
+      <li xml:lang="lv">Paplašināmu un norobežotu attēlu atkodēšanu</li>
+      <li xml:lang="lt">Plečiamas ir apribotas paveikslėlio iškodavimas</li>
+      <li xml:lang="ko">확장 가능, 샌드박싱 그림 디코딩</li>
+      <li xml:lang="kk-Cyrl">Кеңейтілетін және суретті құмсалғышта декодтау</li>
+      <li xml:lang="kab">Asettengel n tugniwin yettuseɣzafen d tigin n ummesten</li>
+      <li xml:lang="ka">გაფართოებადი და სენდბოქსში ჩაკეტილი გამოსახულების დეკოდერი</li>
+      <li xml:lang="it">Una decodifica delle immagini estendibile e in una sandbox</li>
+      <li xml:lang="id">Penguraian gambar yang dapat diperluas dan di-sandbox</li>
+      <li xml:lang="hu">Kiterjeszthető és biztonságos környezetbe zárt képdekódolás</li>
+      <li xml:lang="hi">विस्तार योग्य और सैंडबॉक्स वाली छवि डिकोडिंग</li>
+      <li xml:lang="he">פענוח תמונות בסביבה מבודדת שאפשר להרחיב</li>
+      <li xml:lang="gl">Descodificación de imaxes extensíbel e illada</li>
+      <li xml:lang="fur">Decodifiche de imagjin isolade e slungjabile</li>
+      <li xml:lang="fr">Décodage d’image extensible dans un bac à sable</li>
+      <li xml:lang="fil">Extendable at naka-sandbox na pag-decode ng larawan</li>
+      <li xml:lang="fi">Laajennettavaa ja eristettyä kuvien käsittelyä</li>
+      <li xml:lang="fa">کدگشایی تصویر قرنطینه شده و گسترش‌پذیر</li>
+      <li xml:lang="eu">Irudien deskodetze hedagarri eta isolatua</li>
+      <li xml:lang="es">Decodificación de imágenes ampliable y aislada</li>
+      <li xml:lang="en-GB">Extendable and sandboxed image decoding</li>
+      <li xml:lang="el">Επεκτάσιμη και sandboxed αποκωδικοποίηση εικόνας</li>
+      <li xml:lang="de">Erweiterbare Bilddecodierung mit Sandboxing</li>
+      <li xml:lang="da">Billedafkodning i sandkassetilstand som kan udvides</li>
+      <li xml:lang="cs">Rozšiřitelné a izolované dekódování obrázků</li>
+      <li xml:lang="ca">Descodificació d'imatges extensible i en un entorn aïllat</li>
+      <li xml:lang="bg">Разширяемо и изолирано декодиране на изображенията</li>
+      <li xml:lang="be-Cyrl">Пашыранае і ізаляванае дэкадаванне выяў</li>
+      <li xml:lang="ar">فك ترميز صور معزول وقابل للتمديد</li>
+      <li>Accessible presentation of the most important metadata.</li>
+      <li xml:lang="zh-Hant-TW">便用於呈現數種重要影像中介資料。</li>
+      <li xml:lang="zh-Hans-CN">对最重要元数据的可访问呈现。</li>
+      <li xml:lang="vi">Tiếp cận được phần trình chiếu của siêu dữ liệu quan trọng nhất.</li>
+      <li xml:lang="uk">Доступного представлення найважливіших метаданих</li>
+      <li xml:lang="tr">Çoğu önemli üst verinin erişilebilir gösterimi.</li>
+      <li xml:lang="sv">Åtkomlig presentation av viktigaste metadata.</li>
+      <li xml:lang="sr-Cyrl">Приступљив приказ најважнијих метаподатака.</li>
+      <li xml:lang="sl">Dostopna predstavitev najpomembnejših metapodatkov.</li>
+      <li xml:lang="sk">Prístupná prezentácia najdôležitejších metadát.</li>
+      <li xml:lang="rw">Kwerekana amakuru yerekeye amashusho y'igenzi.</li>
+      <li xml:lang="ru">Доступного представления наиболее важных метаданных.</li>
+      <li xml:lang="ro">Prezentare accesibilă a celor mai importante date meta.</li>
+      <li xml:lang="pt-BR">Apresentação acessível dos metadados mais importantes.</li>
+      <li xml:lang="pt">Apresentação acessível dos metadados mais importantes.</li>
+      <li xml:lang="pl">Przedstawieniem najważniejszych metadanych z ułatwionym dostępem.</li>
+      <li xml:lang="pa">ਸਭ ਤੋਂ ਜ਼ਰੂਰੀ ਮੇਟਾਡਾਟੇ ਲਈ ਸੁਲੱਭਤਾ ਪੇਸ਼ਕਾਰੀ।</li>
+      <li xml:lang="oc">Presentacion accessibla de la màger part de las metadonadas.</li>
+      <li xml:lang="nl">Toegankelijke weergave van de belangrijkste metadata.</li>
+      <li xml:lang="ne">सबैभन्दा महत्त्वपूर्ण मेटाडाटाको पहुँचयोग्य प्रस्तुति.</li>
+      <li xml:lang="nb">Lett tilgjengelig fremstilling av nyttig informasjon.</li>
+      <li xml:lang="lv">Piekļūstama prezentācija vissvarīgākajiem metadatiem.</li>
+      <li xml:lang="lt">Prieinama pateiktis daugumai svarbių meta duomenų.</li>
+      <li xml:lang="ko">가장 중요한 메타데이터 프리젠테이션에 접근할 수 있습니다.</li>
+      <li xml:lang="kk-Cyrl">Ең маңызды метадеректердің қолжетімді көрсетілімі.</li>
+      <li xml:lang="kab">Timsikent i unekcum ɣer waɣefisefka yesεan azal.</li>
+      <li xml:lang="ka">მნიშვნელოვანი მეტამონაცემების წვდომადი პრეზენტაცია.</li>
+      <li xml:lang="it">Una presentazione comprensibile dei metadati più importanti.</li>
+      <li xml:lang="ie">Accessibil presentation del max important metadata.</li>
+      <li xml:lang="id">Presentasi yang dapat diakses dari metadata yang paling penting.</li>
+      <li xml:lang="hu">A legfontosabb metaadatok akadálymentes megjelenítése.</li>
+      <li xml:lang="hi">सबसे महत्वपूर्ण मेटाडेटा की सुलभ प्रस्तुति।</li>
+      <li xml:lang="he">ייצוג נגיש של נתוני העל החשובים ביותר.</li>
+      <li xml:lang="gl">Presentación accesíbel da maioría dos metadatos máis importantes.</li>
+      <li xml:lang="fur">Presentazion acessibile dai metadâts plui impuartants.</li>
+      <li xml:lang="fr">Présentation accessible des métadonnées les plus importantes.</li>
+      <li xml:lang="fil">Accessible na presentasyon ng pinakaimportanteng metadata.</li>
+      <li xml:lang="fi">Tärkeimpien metatietojen saavutettava esitystapa.</li>
+      <li xml:lang="fa">ارائه دسترسی‌پذیر بیش‌تر فراداده‌های مهم.</li>
+      <li xml:lang="eu">Metadatu garrantzitsuenen aurkezpen irisgarria.</li>
+      <li xml:lang="es">Presentación accesible de los metadatos más importantes.</li>
+      <li xml:lang="eo">Alirebla prezento de la plej gravaj metadatumoj.</li>
+      <li xml:lang="en-GB">Accessible presentation of the most important metadata.</li>
+      <li xml:lang="el">Προσβάσιμη παρουσίαση των πιο σημαντικών μεταδεδομένων.</li>
+      <li xml:lang="de">Zugängliche Darstellung der wichtigsten Metadaten.</li>
+      <li xml:lang="da">Tilgængelig præsentation af de vigtigste metadata.</li>
+      <li xml:lang="cs">Přístupné prezentace těch nejdůležitějších metadat.</li>
+      <li xml:lang="ca">Presentació accessible de les metadades més importants.</li>
+      <li xml:lang="bg">Достъпно представяне на най-важните метаданни.</li>
+      <li xml:lang="be-Cyrl">Даступнае прадстаўленне найбольш важных метаданых.</li>
+      <li xml:lang="ar">عرض واضح لأهم البيانات الوصفية.</li>
+    </ul>
+  </description>
+  <url type="homepage">https://apps.gnome.org/Loupe/</url>
+  <url type="bugtracker">https://gitlab.gnome.org/GNOME/loupe/issues</url>
+  <url type="translate">https://l10n.gnome.org/module/loupe/</url>
+  <url type="donation">https://www.gnome.org/donate/</url>
+  <url type="vcs-browser">https://gitlab.gnome.org/GNOME/loupe</url>
+  <url type="contribute">https://welcome.gnome.org/app/Loupe/</url>
+  <url type="contact">https://discourse.gnome.org/tag/loupe</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://static.gnome.org/appdata/gnome-48/loupe/loupe-main.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://static.gnome.org/appdata/gnome-48/loupe/loupe-crop.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://static.gnome.org/appdata/gnome-48/loupe/loupe-properties.png</image>
+    </screenshot>
+  </screenshots>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <launchable type="desktop-id">org.gnome.Loupe.desktop</launchable>
+  <provides>
+    <binary>loupe</binary>
+  </provides>
+  <translation type="gettext">loupe</translation>
+  <content_rating type="oars-1.1"/>
+  <branding>
+    <color type="primary" scheme_preference="light">#eb77bc</color>
+    <color type="primary" scheme_preference="dark">#944a76</color>
+  </branding>
+  <custom>
+    <value key="GnomeSoftware::key-colors">[(208, 105, 167)]</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
+  <categories>
+    <category>Graphics</category>
+    <category>Viewer</category>
+    <category>GTK</category>
+    <category>GNOME</category>
+  </categories>
+  <releases>
+    <release version="48.1" date="2025-04-11">
+      <description>
+        <p>This release fixes issues with editing images that are already rotated via metadata, printing sometimes resulting in empty pages or garbled output, and rare crashes when closing a window.</p>
+      </description>
+    </release>
+    <release version="48.0" date="2025-03-14">
+      <description>
+        <p>This release adds image editing support for PNGs and JPEGs. Images can be cropped, rotated, and flipped. New zoom controls allow setting a specific zoom level and features a more compact style. Support for additional metadata formats like XMP and new image information fields have been added as well.</p>
+      </description>
+    </release>
+    <release version="47.1" date="2024-10-16">
+      <description>
+        <p>This release fixes issues with loading .svgz (compressed SVG) files.</p>
+      </description>
+    </release>
+    <release version="47.0" date="2024-09-13">
+      <description>
+        <p>Rotating an image will now write the new orientation to the image files. For now, this feature is only supported for JPEG files. Aditionally, several user interface elements have been updated to more recent design patterns.</p>
+      </description>
+    </release>
+    <release version="46.2" date="2024-04-09">
+      <description>
+        <p>This releases fixed problems with fractional scaling and the output of long exposure times in the image properties. It also makes the page orientation selection in the print preview dialog functional. It also adresses issues with loading some SVGs containing text when using Loupe outside of Flatpak.</p>
+      </description>
+    </release>
+    <release version="46.1" date="2024-04-03">
+      <description>
+        <p>This releases fixed three bugs. When using the "Fill Space" option in the print preview, the print size will now be updated to fill the page again after choosing a different page orientation. PNGs can now be reliably browsed on SMB shares. Switching between images using the mouse's forward/back buttons will no longer use animations to be consitent with the arrow buttons on the keyboard.</p>
+      </description>
+    </release>
+    <release version="46.0" date="2024-03-14">
+      <description>
+        <p>This release polishes various features of the previous release. Changing images via keyboard shortcuts now happens without animation. The Ctrl+C shortcut can now not only copy the viewed image but can also be used to copy selected metadata. Zoom now tries to zoom into the mouse cursor position in more situations. Double tapping on touchscreens now zooms into the tapped position instead of the center. Zoom on touchpad is now also possible by using the Ctrl button and scrolling, supplementing the existing pinch gesture. The new version also brings support for more formats as well as improved sandboxing and memory limitation for image loaders.</p>
+      </description>
+    </release>
+    <release version="45.3" date="2023-12-12">
+      <description>
+        <ul>
+          <li>Zooming into wide images can no longer cause the horizontal scrollbar to suddenly jump into the center position.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="45.2" date="2023-11-28">
+      <description>
+        <ul>
+          <li>Images are now kept in the same order after deleting an image.</li>
+          <li>Changed images are now reloaded more reliably.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="45.1" date="2023-11-15">
+      <description>
+        <ul>
+          <li>Sandboxed image interpretation is now enabled by default.</li>
+          <li>Printing now prints on the selected printer.</li>
+          <li>Image formats like GIFs with different frame lengs are now animated correctly.</li>
+          <li>Images of the formats HEIC and AVIF are now rotated correctly.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="45.0" date="2023-09-16">
+      <description>
+        <p>This is the first release as the new default image viewer for GNOME. Besides many other
+          changes, this version brings:</p>
+        <ul>
+          <li>A newly designed print dialog,</li>
+          <li>support for the JpegXL image format by default,</li>
+          <li>more secure and stable isolated image loading,</li>
+          <li>more correct updates when images change, get deleted, or are renamed, and</li>
+          <li>fixes for swipe and zoom not working reliably on touchscreens.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="45~beta1" type="development" date="2023-08-11">
+      <description>
+        <ul>
+          <li>Reload images when the file is replaced by moving another file at it's place</li>
+          <li>Newly designed print dialog</li>
+          <li>Added sandboxing for SVG rendering by using glycin</li>
+          <li>Use RaisedBorder for HeaderBar to avoid shadow over images</li>
+          <li>Fix browsing images on SMB shares not working</li>
+          <li>Fix touchscreen gestures not working when zoomed in</li>
+          <li>Fix touchscreen swipe only working on second attempt</li>
+          <li>Added JpegXL support via new glycin version</li>
+          <li>Added overshoot for swipe gesture</li>
+          <li>New custom style for drop targets</li>
+          <li>Changed name to Image Viewer</li>
+          <li>Add help</li>
+          <li>Disable trashing for non-native files</li>
+          <li>Give toast for latest deleted file priority over the others</li>
+          <li>Only list supported image formats in file chooser</li>
+          <li>Do not guess a potentially different background color for opaque images</li>
+          <li>Fix incorrect updates when deleting or changing images</li>
+          <li>Fix SVG zooming with high-res scroll-wheels</li>
+          <li>Use glycin for sandboxed extendable image loading expect for SVG</li>
+          <li>Remove backspace as a trash shortcut</li>
+          <li>Change command line to open all given images in one window</li>
+          <li>Do not show “Set as Background” if operation was aborted</li>
+          <li>Let the user select multiple files to open in file chooser</li>
+          <li>Support forward and back mouse buttons</li>
+          <li>Correctly align right-click menu</li>
+        </ul>
+      </description>
+    </release>
+    <release version="44.3" date="2023-05-12">
+      <description>
+        <p>This release brings many small tweaks and a hand full of bug fixes. The more prominent changes are:</p>
+        <ul>
+          <li>Hide headerbar and cursor on idle in fullscreen.</li>
+          <li>Skip unsupported image formats when going through images.</li>
+          <li>Show image properties below image for small windows.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="44.2" date="2023-04-21">
+      <description>
+        <p>This release brings many small tweaks and a hand full of bug fixes. The larger changes are:</p>
+        <ul>
+          <li>New image printing feature.</li>
+          <li>Support ICC color profiles for JPEG, HEIC, and AVIF.</li>
+          <li>Hide overlay buttons after inactivity.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="44.1" date="2023-04-06">
+      <description>
+        <ul>
+          <li>Fix issues with loading WebP and HEIC images.</li>
+          <li>Fix performance issues with image rendering.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="44.0" date="2023-04-04">
+      <description>
+        <p>Initial release.</p>
+      </description>
+    </release>
+  </releases>
+</component>

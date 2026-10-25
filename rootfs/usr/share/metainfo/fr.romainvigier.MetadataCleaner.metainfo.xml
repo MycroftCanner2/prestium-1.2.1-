@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<component xmlns:its="http://www.w3.org/2005/11/its" type="desktop-application">
+  <id>fr.romainvigier.MetadataCleaner</id>
+  <name>Metadata Cleaner</name>
+  <name xml:lang="ur">میٹاڈیٹا کلینر</name>
+  <name xml:lang="ar">منظف البيانات الوصفية</name>
+  <name xml:lang="sr">Чистач Метаподатака</name>
+  <name xml:lang="ta">மெட்டாடேட்டா கிளீனர்</name>
+  <name xml:lang="fy">Metadata Opskjinner</name>
+  <name xml:lang="az">Metadata Təmizləyicisi</name>
+  <name xml:lang="uk">Очищувач метаданих</name>
+  <name xml:lang="bn">মেটাডেটা ক্লিনার</name>
+  <name xml:lang="pt">Limpador de metadados</name>
+  <name xml:lang="pl">Czyściciel Metadanych</name>
+  <name xml:lang="gl">Limpador de metadatos</name>
+  <name xml:lang="cs">Čistič metadat</name>
+  <name xml:lang="ro">Curățător de Metadate</name>
+  <name xml:lang="zh_CN">属性信息删除器</name>
+  <name xml:lang="eu">Metadatuen garbitzailea</name>
+  <name xml:lang="ko">메타데이터 클리너</name>
+  <name xml:lang="ja">メタデータクリーナー</name>
+  <name xml:lang="hu">Metaadattisztító</name>
+  <name xml:lang="ru">Metadata Cleaner</name>
+  <name xml:lang="oc">Netejador de metadonadas</name>
+  <name xml:lang="nn">Metadatareingjøraren</name>
+  <name xml:lang="nl">Metadata Cleaner</name>
+  <name xml:lang="it">Pulitore di Metadati</name>
+  <name xml:lang="lt">Metaduomenų valytojas</name>
+  <name xml:lang="id">Pembersih Metadata</name>
+  <name xml:lang="fi">Metatietojen puhdistus</name>
+  <name xml:lang="nb_NO">Metadatarenser</name>
+  <name xml:lang="pt_BR">Limpador de metadados</name>
+  <name xml:lang="hr">Brisač metapodataka</name>
+  <name xml:lang="tr">Üst Veri Temizleyici</name>
+  <name xml:lang="sv">Metadata Cleaner</name>
+  <name xml:lang="es">Limpiador de metadatos</name>
+  <name xml:lang="de">Metadaten-Reiniger</name>
+  <name xml:lang="fr">Nettoyeur de métadonnées</name>
+  <summary>View and clean metadata in files</summary>
+  <summary xml:lang="ur">فائلوں کا میٹا ڈیٹا دیکھتا اور صاف کرتاہے</summary>
+  <summary xml:lang="ar">استعرض ونظف البيانات الوصفية من الملفات</summary>
+  <summary xml:lang="sr">Види и очисти метаподатке фајлова</summary>
+  <summary xml:lang="ta">கோப்புகளில் உள்ள மெட்டாடேட்டாவைப் பார்த்து சுத்தம் செய்யவும்</summary>
+  <summary xml:lang="fy">Metadata yn triemen besjen en opskjinje</summary>
+  <summary xml:lang="az">Fayllardakı metadata'nı görüntülə və təmizlə</summary>
+  <summary xml:lang="el">Δες και καθάρισε μεταδεδόμενα αρχείων</summary>
+  <summary xml:lang="uk">Переглянути й очистити метадані у файлах</summary>
+  <summary xml:lang="bn">ফাইলের মেটাডেটা দেখুন এবং সরিয়ে ফেলুন</summary>
+  <summary xml:lang="pt">Ver e limpar os metadados dos ficheiros</summary>
+  <summary xml:lang="pl">Wyświetl i wyczyść metadane w plikach</summary>
+  <summary xml:lang="gl">Ver e limpar os metadatos dos ficheiro</summary>
+  <summary xml:lang="cs">Zobrazit a vyčistit metadata v souborech</summary>
+  <summary xml:lang="ro">Vizualizează și curăță metadatele din fișiere</summary>
+  <summary xml:lang="zh_CN">查看、删除文件里的元数据</summary>
+  <summary xml:lang="eu">Metadatuak artxiboetan ikusi eta garbitu</summary>
+  <summary xml:lang="ko">파일에서 메타데이터 보기 및 정리하기</summary>
+  <summary xml:lang="ja">ファイルに含まれるメタデータの確認と除去が行えます</summary>
+  <summary xml:lang="hu">Metaadatok megtekintése és tisztítása a fájlokból</summary>
+  <summary xml:lang="ru">Показать и очистить метаданные в файлах</summary>
+  <summary xml:lang="oc">Visualizar e netejar las metadonadas dels fichièrs</summary>
+  <summary xml:lang="nn">Vis og reingjør metadata i filar</summary>
+  <summary xml:lang="da">Vis og rens metadata i filer</summary>
+  <summary xml:lang="nl">Bekijk metagegevens in bestanden en verwijder ze</summary>
+  <summary xml:lang="it">Visualizza e pulisci i metadati nei file</summary>
+  <summary xml:lang="lt">Peržiūrėti ir išvalyti failų metaduomenis</summary>
+  <summary xml:lang="id">Lihat dan bersihkan berkas dari metadata</summary>
+  <summary xml:lang="fi">Näe ja siivoa metatiedot tiedostoistasi</summary>
+  <summary xml:lang="nb_NO">Vis og rens metadata i filer</summary>
+  <summary xml:lang="pt_BR">Veja e limpe os metadados em arquivos</summary>
+  <summary xml:lang="hr">Prikaži i izbriši metapodatke u datotekama</summary>
+  <summary xml:lang="tr">Dosyalardaki üst verileri görüntüle ve temizle</summary>
+  <summary xml:lang="sv">Visa och rensa bort metadata i filer</summary>
+  <summary xml:lang="es">Ver y limpiar los metadatos en los archivos</summary>
+  <summary xml:lang="de">Metadaten in Dateien anzeigen und bereinigen</summary>
+  <summary xml:lang="fr">Affiche et nettoie les métadonnées des fichiers</summary>
+  <categories>
+    <category>Utility</category>
+  </categories>
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer_name its:translate="no">Romain Vigier</developer_name>
+  <url type="homepage">https://metadatacleaner.romainvigier.fr</url>
+  <url type="bugtracker">https://gitlab.com/rmnvgr/metadata-cleaner/-/issues</url>
+  <url type="contact">https://matrix.to/#/#metadata-cleaner:gnome.org</url>
+  <url type="translate">https://hosted.weblate.org/engage/metadata-cleaner/</url>
+  <description>
+    <p>Metadata within a file can tell a lot about you. Cameras record data about when and where a picture was taken and which camera was used. Office applications automatically add author and company information to documents and spreadsheets. This is sensitive information and you may not want to disclose it.</p>
+    <p xml:lang="ur">فائل کے اندر موجود میٹا ڈیٹا آپ کے بارے میں بہت کچھ بتا سکتا ہے۔ کیمرے اس بارے میں ڈیٹا ریکارڈ کرتے ہیں کہ تصویر کب اور کہاں لی گئی تھی اور کون سا کیمرہ استعمال کیا گیا تھا۔ آفس ایپلیکیشنز خود بخود مصنف اور کمپنی کی معلومات کو دستاویزات اور اسپریڈ شیٹس میں شامل کر دیتی ہیں۔ یہ حساس معلومات ہے اور ہو سکتا ہے آپ اسے ظاہر نہ کرنا چاہیں۔</p>
+    <p xml:lang="ar">يمكن للبيانات الوصفية داخل الملف أن تبدي معلومات كثيرة عنك، فترى الكاميرات تحفظ معلومات عن أين ومتى صُوِّرت الصورة وأي كاميرا اُستخدمت، وترى تطبيقات الحزم المكتبية تضيف معلومات المؤلف والشركة إلى المستندات وجداول البيانات. هذه بيانات حساسة وقد لا تريد مشاركتها.</p>
+    <p xml:lang="sr">Метаподаци унутар фајла могу открити доста о теби. Камере чувају податке "где" и "када" је слика усликана и која камера је коришћена. Офис апликације аутоматски додају документима и табелама информације о аутору и фирми. Ово су осетљиве информације и можда не би желео да их откријеш.</p>
+    <p xml:lang="ta">ஒரு கோப்பில் உள்ள மெட்டாடேட்டா உங்களைப் பற்றி நிறைய சொல்ல முடியும். ஒரு படம் எப்போது, எங்கு எடுக்கப்பட்டது, எந்த கேமரா பயன்படுத்தப்பட்டது என்பது பற்றிய தரவை கேமராக்கள் பதிவு செய்கின்றன. அலுவலக பயன்பாடுகள் தானாக ஆசிரியர் மற்றும் நிறுவனத்தின் தகவல்களை ஆவணங்கள் மற்றும் விரிதாள்களில் சேர்க்கும். இது முக்கியமான தகவல் மற்றும் நீங்கள் அதை வெளியிட விரும்பாமல் இருக்கலாம்.</p>
+    <p xml:lang="fy">Metadata yn in triem kin in protte oer jo sizze. Kamera's bewarje gegevens oer de tiid en it plak wannear as in foto fan jo naam waard en hokker kamera dêr foar brûkt waard. Kantoar applikaasje foegje automatysk auteur-en-bedriuwsgegevens ta oan dokuminten en wurkblêden. Dit is gefoelige ynformaasje dy jo miskien net diele wolle.</p>
+    <p xml:lang="az">Bir fayldakı metadata sizin haqqınızda bir çox şey söyləyə bilər. Kameralar bir şəkilin nə zaman və harada çəkildiyi və hansı kameranın istifadə olunduğu ilə bağlı məlumatları qeyd edir. Ofis proqramları avtomatik olaraq fayllara və onlayn cədvəllərə yazıçı və şirkət haqqında bilgilərini əlavə edir. Bunlar həssas bilgilərdir və açıqlamaq istəməyə bilərsiniz.</p>
+    <p xml:lang="el">Τα μεταδεδομένα μέσα σε ένα αρχείο μπορούν να πουν πολλά για εσάς. Οι φωτογραφικές μηχανές καταγράφουν δεδομένα σχετικά με το πότε και πού τραβήχτηκε μια φωτογραφία και ποια κάμερα χρησιμοποιήθηκε. Οι εφαρμογές γραφείου προσθέτουν αυτόματα πληροφορίες για τον συγγραφέα και την εταιρεία σε έγγραφα και λογιστικά φύλλα. Πρόκειται για ευαίσθητες πληροφορίες και ίσως δεν θέλετε να τις αποκαλύψετε.</p>
+    <p xml:lang="uk">Метадані у файлі можуть багато розповісти про вас. Камери записують дані про те, коли та де було зроблено знімок і яка камера була використана. Застосунки Office автоматично додають дані про автора та компанію в документи та електронні таблиці. Це конфіденційна інформація, і ви, можливо, не захочете її розголошувати.</p>
+    <p xml:lang="bn">ফাইলের মধ্যে মেটাডেটা আপনার সম্পর্কে অনেক কিছু বলে দিতে পারে. ক্যামেরার রেকর্ড তথ্য অর্থাৎ কখন এবং কোথায় ছবিটি তোলা হয়েছে এবং কোন ক্যামেরা ব্যবহৃত হয়েছিল. অফিস আ্যপলিকেশনগুলো স্বয়ংক্রিয়ভাবে লেখক এবং কোম্পানির তথ্য ডকুমেন্ট ও স্প্রেডশিটে যুক্ত করে দেয়. এগুলো খুবই সূক্ষ্ম এবং গুরুত্বপূর্ণ তথ্য এবং আপনি হয়তো এগুলো প্রকাশ করতে চান না.</p>
+    <p xml:lang="pt">Os metadados dum ficheiro podem dizer muito sobre alguém. As câmaras registam dados sobre quando e onde se tomou uma foto e que câmara se usou. As aplicações de escritório registam automaticamente informação acerca do autor e da empresa nos documentos e folhas de cálculo. Trata-se de informação delicada e é possível que não a queira revelar.</p>
+    <p xml:lang="gl">Os metadatos dun ficheiro poden decirme moito sobre unha persona. As cámaras rexistran datos sobre cando e onde se tomou unha foto e qué cámara se usou. As aplicacións ofimáticas engaden automaticamente información sobre o autor e a empresa aos documentos e follas de cálculo. Trátase de información delicada e é posíbel que non queira revelala.</p>
+    <p xml:lang="cs">Metadata v souboru o vás mohou hodně prozradit. Kamery zaznamenávají data o tom, kdy a kde byl snímek pořízen a jaký fotoaparát byl použit. Kancelářské aplikace automaticky přidávají do dokumentů a tabulek informace o autorovi a společnosti. Jedná se o citlivé informace a možná je nebudete chtít prozradit.</p>
+    <p xml:lang="ro">Metadatele dintr-un fișier pot spune multe despre tine. Aparatele foto înregistrează date despre momentul și locul în care a fost făcută o fotografie și despre aparatul foto utilizat. Aplicațiile Office adaugă automat informații despre autor și companie în documente și foi de calcul. Acestea sunt informații sensibile și este posibil să nu dorești să le dezvălui.</p>
+    <p xml:lang="zh_CN">文件的元数据暗藏着许多重要的隐私信息。照相机会在元数据中记录拍照的时间地点，还会记录照片是由哪台照相机拍的；办公软件会自动把文档作者和公司信息添加到文档和电子表格文件中。这些信息可能很敏感，人们可能不想披露这些信息。</p>
+    <p xml:lang="eu">Fitxategi bateko metadatuek asko esan dezakete pertsona bati buruz. Kamerek argazki bat noiz eta non atera zen eta zein kamera erabili zen adierazten dute. Aplikazio ofimatikoek egileari eta enpresari buruzko informazioa gehitzen diete automatikoki dokumentuei eta kalkulu-orriei. Informazio delikatua da, eta baliteke jakinarazi nahi ez izatea.</p>
+    <p xml:lang="ko">파일의 메타데이터는 사용자의 여러 정보가 담겨있습니다. 카메라는 어디서 사진을 찍었고 어떤 카메라를 사용했는지 데이터를 기록합니다. 오피스 프로그램은 작성자와 회사 정보를 문서와 스프레드 시트에 추가합니다. 이는 파일에 넣고 싶지 않은 민감한 정보입니다.</p>
+    <p xml:lang="ja">ファイル内のメタデータは、あなたのことをよく表しています。カメラは、いつ、どこで、どの機種で撮影したかを画像ファイルに記録します。オフィスアプリケーションは、作成者や会社の情報を文書ファイルや表計算ファイルに自動的に追加します。これらの情報は機密情報であり、公開したくない場合もあります。</p>
+    <p xml:lang="hu">Egy fájlon belüli metaadatok sokat elárulhatnak Önről. A fényképezőgépek adatokat rögzítenek arról, hogy mikor és hol készült a fénykép, illetve milyen fényképezőgépet használtak. Az irodai alkalmazások automatikusan hozzáadják a dokumentumokhoz és táblázatokhoz a szerző és a vállalat adatait. Ezek érzékeny információk és nem biztos, hogy szeretné nyilvánosságra hozni azokat.</p>
+    <p xml:lang="ru">Метаданные файла могут раскрыть много данных о Вас. Камеры записывают данные о том когда, где и чем была снята фотография. Офисные пакеты автоматически пишут автора и компанию в документы и презентации. Это - личная информация и вы можете не желать её разглашения.</p>
+    <p xml:lang="oc">Las metadonadas dins un fichièr pòdon en dire fòrça a vòstre subjècte. Los aparelhs fòto enregistran quand e ont una fotografia foguèt presa e qual aparelh foguèt utilizat. Las aplicacions de burèu ajustan automaticament d'informacions sus l'autor e l'entrepresa als documents e als tablèus. Son d’informacions sensiblas e volètz benlèu pas las desvelar.</p>
+    <p xml:lang="nl">Metagegevens in een bestand kunnen herleidbaar zijn tot jou. Zo slaan camera's informatie op over waar en wanneer een foto is genomen, welke camera je hebt gebruikt, enz. En kantoorpakketten (zoals tekstverwerkers) voegen automatisch auteurs- en bedrijfsinformatie toe. Misschien wil je dat soort gevoelige informatie niet prijgeven.</p>
+    <p xml:lang="it">I metadati all'interno di un file possono dire molto su di te. Le fotocamere registrano dati su quando e dove è stata scattata una foto e quale fotocamera è stata utilizzata. Le applicazioni di Office aggiungono automaticamente informazioni sull'autore e sull'azienda a documenti e fogli di calcolo. Si tratta di informazioni sensibili che non vorresti divulgare.</p>
+    <p xml:lang="lt">Failo metaduomenys gali daug ką pasakyti apie jus. Kameros įrašo duomenis apie tai, kada ir kur buvo padaryta nuotrauka ir kokia kamera buvo naudojama. „Office“ programos automatiškai prideda autoriaus ir įmonės informaciją prie dokumentų ir skaičiuoklių. Tai neskelbtina informacija ir galbūt nenorėsite jos atskleisti.</p>
+    <p xml:lang="id">Metadata dari sebuah file berisi informasi penting tentang Anda. Misalnya kamera dapat merekam data mengenai kapan dan di mana gambar diambil serta jenis kamera apa yang sedang digunakan. Atau aplikasi Office yang secara otomatis menambahkan informasi penulis dan perusahaan ke suatu dokumen dan spreadsheet. Informasi-informasi ini bersifat sensitif dan Anda mungkin tidak ingin menyebarkannya.</p>
+    <p xml:lang="fi">Tiedoston metatiedot voivat kertoa paljon sinusta. Kamerat tallentavat tietoa, esimerkiksi milloin ja missä kuva otettiin ja minkälaista kameraa kuvan ottamiseen käytettiin. Tuottavuusohjelmistot lisäävät automaattisesti tekijän ja organisaation tiedot tekstiasiakirjoihin ja taulukkoihin. Saatat haluta rajoittaa tai estää näiden tietojen päätymisen muille.</p>
+    <p xml:lang="pt_BR">Os metadados em um arquivo podem dizer muito sobre você. As câmeras registram dados sobre quando e onde uma foto foi tirada e qual câmera foi usada. Os aplicativos de escritório adicionam automaticamente informações do autor e da empresa a documentos e planilhas. Estas são informações confidenciais e você pode não querer divulgá-las.</p>
+    <p xml:lang="hr">Metapodaci u datoteci mogu otkriti razne informacije o tebi. Kamere bilježe podatke o tome kada i gdje je slika snimljena te koja je kamera korištena. Uredski programi automatski dodaju podatke o autoru i tvrtki u dokumente i proračunske tablice. Možda ne želiš da te informacije budu dostupne drugima.</p>
+    <p xml:lang="tr">Bir dosyadaki üst veriler sizin hakkınızda çok şey söyleyebilir. Kameralar, bir resmin ne zaman ve nerede çekildiği ve hangi kameranın kullanıldığı ile ilgili verileri kaydeder. Ofis uygulamaları, belgelere ve elektronik tablolara otomatik olarak yazar ve şirket bilgilerini ekler. Bunlar hassas bilgilerdir ve açıklamak istemeyebilirsiniz.</p>
+    <p xml:lang="sv">Metadata i en fil kan berätta mycket om dig. Kameror registrerar data om var och när en bild togs och vilken kamera som användes. Kontorsprogramvara lägger automatiskt till information om författare och företag i dokument och kalkylblad. Detta är känslig information som du kanske inte vill avslöja.</p>
+    <p xml:lang="es">Los metadatos de un archivo pueden decir mucho sobre una persona. Las cámaras registran datos sobre cuándo y dónde se tomó una foto y qué cámara se usó. Las aplicaciones ofimáticas añaden automáticamente información sobre el autor y la empresa a los documentos y hojas de cálculo. Se trata de información delicada y es posible que no quiera revelarla.</p>
+    <p xml:lang="de">Metadaten, die in einer Datei enthalten sind, können viel über Sie preisgeben. Kameras speichern Informationen darüber, wann und wo ein Foto aufgenommen worden ist und welche Kamera dabei benutzt wurde. Office-Anwendungen fügen Dokumenten und Tabellen automatisch Informationen über Autor und Unternehmen hinzu. Das sind alles sensible Daten, die Sie eventuell nicht freigeben wollen.</p>
+    <p xml:lang="fr">Les métadonnées dans un fichier peuvent en dire beaucoup à votre sujet. Les appareils photo enregistrent quand et où une photographie a été prise et quel appareil a été utilisé. Les applications bureautiques ajoutent automatiquement des informations sur l’auteur et l’entreprise aux documents et aux tableaux. Ce sont des informations sensibles et vous ne voulez peut-être pas les dévoiler.</p>
+    <p>This tool allows you to view metadata in your files and to get rid of it, as much as possible.</p>
+    <p xml:lang="ur">یہ آیپ آپ کو اپنی فائلوں میں میٹا ڈیٹا دیکھنے اور جتنا ممکن ہو اس سے چھٹکارا حاصل کرنے میں مدد کرتا ہے۔</p>
+    <p xml:lang="ar">تتيح لك هذه الأداة أن تستعرض بيانات التعريف المسجلة في ملفاتك والتخلص منها قدر الإمكان.</p>
+    <p xml:lang="sr">Ова алатка ти дозвољава да видиш метаподатке твојих фајлова и отарасиш их се, колико год то било могуће.</p>
+    <p xml:lang="ta">இந்தக் கருவி உங்கள் கோப்புகளில் உள்ள மெட்டாடேட்டாவைப் பார்க்கவும்,முடிந்தவரை அதிலிருந்து விடுபடவும் உங்களை அனுமதிக்கிறது.</p>
+    <p xml:lang="fy">Dizze applikaasje lit jo de metadata fan jo triemen ynsjen en fuorthelje, foar sa fier as dat mooglik is.</p>
+    <p xml:lang="az">Bu alət fayllarınızdakı metadata'nı görüntüləməyinizi və mümkün olduqca onlardan qurtulmağınızı təmin edir.</p>
+    <p xml:lang="el">Αυτό το εργαλείο σάς επιτρέπει να βλέπετε τα μεταδεδομένα στα αρχεία σας και να τα ξεφορτώνεστε, όσο το δυνατόν περισσότερο.</p>
+    <p xml:lang="uk">Цей засіб дає змогу переглядати метадані у ваших файлах і максимально позбутися від них.</p>
+    <p xml:lang="bn">এই টুলটি যথাসম্ভব আপনাকে আপনার ফাইলের মেটাডেটা দেখতে এবং অপসারণ করতে সাহায্য করবে.</p>
+    <p xml:lang="pt">Esta ferramenta permite-lhe ver os metadados nos seus ficheiros e desfazer-se deles na medida do possível.</p>
+    <p xml:lang="pl">To narzędzie umożliwia przeglądanie metadanych w plikach i pozbycie się ich w jak największym stopniu.</p>
+    <p xml:lang="gl">Esta ferramenta permítelle ver os metadatos nos seus ficheiros e desfacerse deles na medida do posíbel.</p>
+    <p xml:lang="cs">Tento nástroj vám umožňuje prohlížet metadata ve vašich souborech a v maximální možné míře se jich zbavit.</p>
+    <p xml:lang="ro">Acest instrument îți permite să vizualizați metadatele din fișierele tale și să scapi de ele, pe cât posibil.</p>
+    <p xml:lang="zh_CN">此工具可以用来尽可能地查看或删除文件里的元数据。</p>
+    <p xml:lang="eu">Tresna honi esker, metadatuak artxiboetan ikus ditzakezu, eta ahal den neurrian kendu.</p>
+    <p xml:lang="ko">이 도구를 사용하면 파일의 메타데이터를 보고 최대한 제거할 수 있습니다.</p>
+    <p xml:lang="ja">このツールではファイル内のメタデータを確認し、可能な範囲で除去できます。</p>
+    <p xml:lang="hu">Ez az eszköz lehetővé teszi, hogy megtekinthesse a fájlokban lévő metaadatokat és a lehető legnagyobb mértékben megszabaduljon tőlük.</p>
+    <p xml:lang="ru">Эта утилита позволяет просматривать метаданные и избавляться от них там, где это возможно.</p>
+    <p xml:lang="oc">Aquesta aisina vos permet d’afichar las metadonadas dins vòstres fichièrs e vos’n desfar, tan que possible.</p>
+    <p xml:lang="nl">Met deze app kunt u metagegevens van uw bestanden bekijken en ze zo goed mogelijk verwijderen.</p>
+    <p xml:lang="it">Questo strumento ti consente di visualizzare i metadati nei tuoi file e di liberartene, per quanto possibile.</p>
+    <p xml:lang="lt">Šis įrankis leidžia peržiūrėti failų metaduomenis ir jų kiek įmanoma atsikratyti.</p>
+    <p xml:lang="id">Alat ini dapat digunakan untuk melihat dan menghapus metadata semaksimal mungkin di sebuah berkas.</p>
+    <p xml:lang="fi">Tämä työkalu mahdollistaa tiedostojen metatietojen katselun. Lisäksi voit yrittää siivota metatiedot mahdollisimman kattavasti.</p>
+    <p xml:lang="pt_BR">Esta ferramenta permite que você visualize metadados em seus arquivos e se livre deles, o tanto quanto possível.</p>
+    <p xml:lang="hr">Ovaj program omogućuje prikaz i brisanje (po mogućnosti svih) metapodataka u datotekama.</p>
+    <p xml:lang="tr">Bu araç, dosyalarınızdaki üst verileri görüntülemenizi ve mümkün olduğunca onlardan kurtulmanızı sağlar.</p>
+    <p xml:lang="sv">Med det här verktyget kan du visa metadata i dina filer och bli av med så mycket som möjligt.</p>
+    <p xml:lang="es">Esta herramienta le permite ver los metadatos en sus archivos y deshacerse de ellos en la medida de lo posible.</p>
+    <p xml:lang="de">Diese Anwendung erlaubt die Metadaten in deinen Dateien anzuzeigen und so weit wie möglich zu entfernen.</p>
+    <p xml:lang="fr">Cet outil vous permet d’afficher les métadonnées dans vos fichiers et de vous en débarrasser, dans la mesure du possible.</p>
+  </description>
+  <launchable type="desktop-id">fr.romainvigier.MetadataCleaner.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://metadatacleaner.romainvigier.fr/screenshots/1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://metadatacleaner.romainvigier.fr/screenshots/2.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://metadatacleaner.romainvigier.fr/screenshots/3.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://metadatacleaner.romainvigier.fr/screenshots/4.png</image>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>metadata-cleaner</binary>
+  </provides>
+  <translation type="gettext">fr.romainvigier.MetadataCleaner</translation>
+  <content_rating type="oars-1.1"/>
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </recommends>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <releases its:locNote="Release notes">
+    <release version="2.5.2" date="2023-05-08">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.5.2</url>
+    </release>
+    <release version="2.5.1" date="2023-03-27">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.5.1</url>
+    </release>
+    <release version="2.5.0" date="2023-02-19">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.5.0</url>
+    </release>
+    <release version="2.4.0" date="2023-01-23">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.4.0</url>
+    </release>
+    <release version="2.3.1" date="2023-01-09">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.3.1</url>
+    </release>
+    <release version="2.3.0" date="2023-01-07">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.3.0</url>
+    </release>
+    <release version="2.2.8" date="2022-12-07">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.8</url>
+    </release>
+    <release version="2.2.7" date="2022-11-17">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.7</url>
+    </release>
+    <release version="2.2.6" date="2022-11-17">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.6</url>
+    </release>
+    <release version="2.2.5" date="2022-10-06">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.5</url>
+    </release>
+    <release version="2.2.4" date="2022-09-24">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.4</url>
+    </release>
+    <release version="2.2.3" date="2022-06-02">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.3</url>
+    </release>
+    <release version="2.2.2" date="2022-04-20">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.2</url>
+    </release>
+    <release version="2.2.1" date="2022-03-28">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.1</url>
+    </release>
+    <release version="2.2.0" date="2022-03-23">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.2.0</url>
+    </release>
+    <release version="2.1.5" date="2022-02-15">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.1.5</url>
+    </release>
+    <release version="2.1.4" date="2022-01-07">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.1.4</url>
+    </release>
+    <release version="2.1.3" date="2021-12-03">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.1.3</url>
+    </release>
+    <release version="2.1.2" date="2021-11-16">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.1.2</url>
+    </release>
+    <release version="2.1.1" date="2021-11-11">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.1.1</url>
+    </release>
+    <release version="2.1.0" date="2021-11-04">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.1.0</url>
+    </release>
+    <release version="2.0.1" date="2021-09-28">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.0.1</url>
+    </release>
+    <release version="2.0.0" date="2021-09-22">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v2.0.0</url>
+    </release>
+    <release version="1.0.8" date="2021-08-10">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.8</url>
+    </release>
+    <release version="1.0.7" date="2021-07-01">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.7</url>
+    </release>
+    <release version="1.0.6" date="2021-04-27">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.6</url>
+    </release>
+    <release version="1.0.5" date="2021-04-13">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.5</url>
+    </release>
+    <release version="1.0.4" date="2021-04-02">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.4</url>
+    </release>
+    <release version="1.0.3" date="2021-02-17">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.3</url>
+    </release>
+    <release version="1.0.2" date="2021-01-14">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.2</url>
+    </release>
+    <release version="1.0.1" date="2020-12-24">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.1</url>
+    </release>
+    <release version="1.0.0" date="2020-12-10">
+      <url>https://gitlab.com/rmnvgr/metadata-cleaner/-/releases/v1.0.0</url>
+    </release>
+    <release version="0.9.9" type="development" date="2020-12-06"/>
+    <release version="0.9.0" type="development" date="2020-12-03"/>
+  </releases>
+</component>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.kde.kleopatra.pkcs7-encrypted-tar">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Encrypted tar archive</comment>
+  <comment xml:lang="bg">Шифрован tar архив</comment>
+  <comment xml:lang="ca">Arxiu Tar encriptat</comment>
+  <comment xml:lang="ca@valencia">Arxiu Tar encriptat</comment>
+  <comment xml:lang="cs">Zašifrovaný archiv tar</comment>
+  <comment xml:lang="de">Verschlüsseltes Tar-Archiv</comment>
+  <comment xml:lang="en_GB">Encrypted tar archive</comment>
+  <comment xml:lang="eo">Ĉifrita tar-arkivo</comment>
+  <comment xml:lang="es">Archivo TAR cifrado</comment>
+  <comment xml:lang="eu">Zifratutako tar artxiboa</comment>
+  <comment xml:lang="fi">Salattu tar-arkisto</comment>
+  <comment xml:lang="fr">Archive chiffré</comment>
+  <comment xml:lang="gl">Arquivo TAR cifrado</comment>
+  <comment xml:lang="he">ארכיון tar מוצפן</comment>
+  <comment xml:lang="hu">Titkosított TAR-archívum</comment>
+  <comment xml:lang="ia">Archivo tar cryptate</comment>
+  <comment xml:lang="it">Archivio tar cifrato</comment>
+  <comment xml:lang="ka">დაშიფრული tar არქივი</comment>
+  <comment xml:lang="ko">암호화된 TAR 보관 파일</comment>
+  <comment xml:lang="nl">Versleuteld tar-archief</comment>
+  <comment xml:lang="pl">Zaszyfrowane archiwum tar</comment>
+  <comment xml:lang="pt">Pacote TAR encriptado</comment>
+  <comment xml:lang="ru">Зашифрованный архив tar</comment>
+  <comment xml:lang="sk">Šifrovaný tar archív</comment>
+  <comment xml:lang="sl">Šifriran arhiv tar</comment>
+  <comment xml:lang="sv">Krypterat tar-arkiv</comment>
+  <comment xml:lang="tr">Şifrelenmiş tar arşivi</comment>
+  <comment xml:lang="uk">Зашифрований архів tar</comment>
+  <comment xml:lang="zh_CN">已加密的 tar 存档</comment>
+  <comment xml:lang="zh_TW">已加密的 tar 封存檔</comment>
+  <sub-class-of type="application/pkcs7-mime"/>
+  <glob pattern="*.tar.p7m"/>
+</mime-type>

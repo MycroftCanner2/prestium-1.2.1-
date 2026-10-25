@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop-application">
+  <id>org.kde.kleopatra.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
+  <launchable type="desktop-id">org.kde.kleopatra.desktop</launchable>
+  <name>Kleopatra</name>
+  <name xml:lang="ar">كليوبترا</name>
+  <name xml:lang="ast">Kleopatra</name>
+  <name xml:lang="bg">Kleopatra</name>
+  <name xml:lang="bs">Kleopatra</name>
+  <name xml:lang="ca">Kleopatra</name>
+  <name xml:lang="ca-valencia">Kleopatra</name>
+  <name xml:lang="cs">Kleopatra</name>
+  <name xml:lang="da">Kleopatra</name>
+  <name xml:lang="de">Kleopatra</name>
+  <name xml:lang="el">Kleopatra</name>
+  <name xml:lang="en-GB">Kleopatra</name>
+  <name xml:lang="eo">Kleopatra</name>
+  <name xml:lang="es">Kleopatra</name>
+  <name xml:lang="et">Kleopatra</name>
+  <name xml:lang="eu">Kleopatra</name>
+  <name xml:lang="fi">Kleopatra</name>
+  <name xml:lang="fr">Kleopatra</name>
+  <name xml:lang="gl">Kleopatra</name>
+  <name xml:lang="he">Kleopatra</name>
+  <name xml:lang="hu">Kleopatra</name>
+  <name xml:lang="ia">Kleopatra</name>
+  <name xml:lang="id">Kleopatra</name>
+  <name xml:lang="it">Kleopatra</name>
+  <name xml:lang="ka">Kleopatra</name>
+  <name xml:lang="ko">Kleopatra</name>
+  <name xml:lang="lt">Kleopatra</name>
+  <name xml:lang="nb">Kleopatra</name>
+  <name xml:lang="nds">Kleopatra</name>
+  <name xml:lang="nl">Kleopatra</name>
+  <name xml:lang="pl">Kleopatra</name>
+  <name xml:lang="pt">Kleopatra</name>
+  <name xml:lang="pt-BR">Kleopatra</name>
+  <name xml:lang="ro">Kleopatra</name>
+  <name xml:lang="ru">Kleopatra</name>
+  <name xml:lang="sk">Kleopatra</name>
+  <name xml:lang="sl">Kleopatra</name>
+  <name xml:lang="sv">Kleopatra</name>
+  <name xml:lang="tr">Kleopatra</name>
+  <name xml:lang="uk">Kleopatra</name>
+  <name xml:lang="x-test">xxKleopatraxx</name>
+  <name xml:lang="zh-CN">Kleopatra</name>
+  <name xml:lang="zh-TW">Kleopatra</name>
+  <summary>Certificate manager and cryptography app</summary>
+  <summary xml:lang="bg">Мениджър на сертификати и приложение за криптография</summary>
+  <summary xml:lang="ca">Aplicació de gestió de certificats i criptografia</summary>
+  <summary xml:lang="ca-valencia">Aplicació de gestió de certificats i criptografia</summary>
+  <summary xml:lang="de">Zertifikatsverwaltung und Kryptografie-App</summary>
+  <summary xml:lang="en-GB">Certificate manager and cryptography app</summary>
+  <summary xml:lang="eo">Atestil-administrilo kaj kriptografia apo</summary>
+  <summary xml:lang="es">Gestor de certificados y aplicación de criptografía</summary>
+  <summary xml:lang="eu">Ziurtagiri-kudeatzailea eta kriptografia aplikazioa</summary>
+  <summary xml:lang="fi">Varmenteenhallinta- ja salaussovellus</summary>
+  <summary xml:lang="fr">Gestionnaire de certificats et application pour le chiffrement</summary>
+  <summary xml:lang="gl">Xestor de certificados e aplicación de criptografía</summary>
+  <summary xml:lang="he">יישום ניהול אישורים וקריפטוגרפיה</summary>
+  <summary xml:lang="ia">Gerente de certificato e app de cryptographia</summary>
+  <summary xml:lang="it">Gestore di certificati e applicazione di crittografia</summary>
+  <summary xml:lang="ka">სერტიფიკატების მმართველი და კრიპტოგრაფიის აპი</summary>
+  <summary xml:lang="ko">인증서 관리자와 암호화 앱</summary>
+  <summary xml:lang="nl">Certificaatbeheerer en toepassing voor cryptografie</summary>
+  <summary xml:lang="pl">Aplikacja do certyfikatów i kryptografii</summary>
+  <summary xml:lang="ru">Управление сертификатами и приложение для шифрования</summary>
+  <summary xml:lang="sl">Upravljalnik potrdil in aplikacija kriptografije</summary>
+  <summary xml:lang="sv">Certifikathanterare och kryptografiprogram</summary>
+  <summary xml:lang="tr">Sertifika Yöneticisi ve Şifreleme Uygulaması</summary>
+  <summary xml:lang="uk">Засіб для керування сертифікатами і криптографії</summary>
+  <summary xml:lang="x-test">xxCertificate manager and cryptography appxx</summary>
+  <summary xml:lang="zh-CN">证书管理器和加密应用程序</summary>
+  <summary xml:lang="zh-TW">憑證管理與加密應用程式</summary>
+  <description>
+    <p>
+      Kleopatra is a certificate manager and a universal crypto GUI.
+      It supports managing OpenPGP and S/MIME certificates and encrypts files and text.
+    </p>
+    <p xml:lang="bg">Kleopatra е мениджър на сертификати и универсален графичен потребителски интерфейс за криптография. Той поддържа управление на  S/MIME и OpenPGP сертификати и може да криптира файлове и текст.</p>
+    <p xml:lang="ca">El Kleopatra és un gestor de certificats i interfície gràfica d'usuari de criptografia universal. Permet la gestió dels certificats OpenPGP i S/MIME i encripta fitxers i text.</p>
+    <p xml:lang="ca-valencia">Kleopatra és un gestor de certificats i interfície gràfica d'usuari de criptografia universal. Permet la gestió dels certificats OpenPGP i S/MIME i encripta fitxers i text.</p>
+    <p xml:lang="de">Kleopatra ist eine Zertifikatsverwaltung und universelle Krypto-App. Sie unterstützt die Verwaltung von OpenPGP- und S/MIME Zertifikaten und verschlüsselt/prüft sowohl Dateien oder Ordner als auch Text.</p>
+    <p xml:lang="en-GB">Kleopatra is a certificate manager and a universal crypto GUI. It supports managing OpenPGP and S/MIME certificates and encrypts files and text.</p>
+    <p xml:lang="es">Kleopatra es un gestor de certificados e interfaz gráfica universal de cifrado. Reconoce certificados OpenPGP y S/MIME, y permite cifrar archivos y texto.</p>
+    <p xml:lang="eu">Kleopatra ziurtagiri kudeatzaile bat eta zifratzeko GUI bateratu bat da. OpenPGP eta S/MIME ziurtagiriak kudeatzeko euskarria du eta fitxategiak eta testuak zifratzen ditu.</p>
+    <p xml:lang="fi">Kleopatra on yhdistetty varmenteiden hallinnan ja salauksen käyttöliittymä. Se tukee OpenPGP- ja S/MIME-varmenteita ja tiedostojen ja tekstin salaamista.</p>
+    <p xml:lang="fr">Kleopatra est un gestionnaire de certificats et une interface graphique universelle. Il prend en charge la gestion des certificats « OpenPGP » et « S / MIME » et permet le chiffrement de fichiers et de texte.</p>
+    <p xml:lang="gl">Kleopatra é un xestor de certificados e unha interface gráfica universal de criptografía. Permite xestionar certificados OpenPGP e S/MIME e cifra ficheiros e texto.</p>
+    <p xml:lang="he">Kleopatra הוא מנהל אישורים וממשק משתמש אוניברסלי לקריפטוגרפיה. הוא תומך בניהול אישורי OpenPGP ו־S/MIME ומצפין קבצים וטקסט.</p>
+    <p xml:lang="ia">Kleopatra es un gerente de certificato e un GUI universal de cryptar. Illo supporta  gestion de certificato S/MIME e OpenPGP e crypta files e texto.</p>
+    <p xml:lang="it">Kleopatra è un gestore di certificati ed un'interfaccia grafica universale per la cifratura. Supporta la gestione di certificati OpenPGP ed S/MIME e cifra file e testo.</p>
+    <p xml:lang="ka">Kleopatra სერტიფიკატების მმართველი და კრიპტოგრაფიის უნივერსალური ინტერფეისია. მას OpenPGP და S/MIME სერტიფიკატების მართვისა და ფაილებისა და ტექსტის დაშიფვრის მხარდაჭერა აქვს.</p>
+    <p xml:lang="ko">Kleopatra는 인증서 관리자와 범용 암호화 GUI입니다. OpenPGP 및 S/MIME 인증서를 관리하고, 파일과 텍스트를 암호화할 수 있습니다.</p>
+    <p xml:lang="nl">Kleopatra is een certificaatbeheerder en een universele crypto GUI. Deze ondersteunt het beheer van OpenPGP en S/MIME certificaten versleutelt bestanden en tekst.</p>
+    <p xml:lang="pl">Kleopatra jest programem do zarządzania certyfikatami i graficznej obsługi kryptografii. Może zarządzać certyfikatami OpenPGP oraz S/MIME, a także szyfrować pliki i tekst.</p>
+    <p xml:lang="ru">Kleopatra — диспетчер сертификатов и универсальный графический интерфейс к криптографическим алгоритмам. Программа позволяет управлять сертификатами OpenPGP и S/MIME и шифровать файлы и текст.</p>
+    <p xml:lang="sl">Kleopatra je upravljalnik potrdil in enoten šifrirni vmesnik. Podpira rokovanje s potrdili OpenPGP in S/MIME in šifrira datoteke in besedila.</p>
+    <p xml:lang="sv">Kleopatra är en certifikathanterare och ett universellt grafiskt användargränssnitt för krypto. Den stöder hantering av OpenPGP- och S/MIME-certifikat och krypterar filer och text.</p>
+    <p xml:lang="tr">Kleopatra bir sertifika yöneticisi ve birleşik şifreleme arayüzüdür. OpenPGP ve S/MIME sertifikalarını yönetmeyi destekler ve dosyaları ve metinleri şifreler.</p>
+    <p xml:lang="uk">Kleopatra — графічний інтерфейс засобів керування сертифікатами та шифрування. У програмі передбачено можливості з керування сертифікатами OpenPGP та S/MIME і з шифрування файлів та тексту.</p>
+    <p xml:lang="x-test">xxKleopatra is a certificate manager and a universal crypto GUI. It supports managing OpenPGP and S/MIME certificates and encrypts files and text.xx</p>
+    <p xml:lang="zh-CN">Kleopatra 是一款证书管理器和通用加密 GUI。它支持管理 OpenPGP 和 S/MIME 证书，并加密文件和文本。</p>
+  </description>
+  <content_rating type="oars-1.1"/>
+  <url type="homepage">https://apps.kde.org/kleopatra/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kleopatra</url>
+  <url type="help">https://docs.kde.org/?application=kleopatra</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kleopatra&amp;source=appdata</url>
+  <url type="vcs-browser">https://invent.kde.org/pim/kleopatra</url>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Certificate overview in Kleopatra</caption>
+      <caption xml:lang="bg">Преглед на сертификатите в Kleopatra</caption>
+      <caption xml:lang="ca">Resum del certificat al Kleopatra</caption>
+      <caption xml:lang="ca-valencia">Resum del certificat en Kleopatra</caption>
+      <caption xml:lang="cs">Přehled certifikátů v aplikaci Kleopatra</caption>
+      <caption xml:lang="de">Zertifikats-Übersicht in Kleopatra</caption>
+      <caption xml:lang="el">Επισκόπηση πιστοποιητικών στην Kleopatra</caption>
+      <caption xml:lang="en-GB">Certificate overview in Kleopatra</caption>
+      <caption xml:lang="eo">Atestila superrigardo en Kleopatra</caption>
+      <caption xml:lang="es">Vista general de certificados en Kleopatra</caption>
+      <caption xml:lang="et">Sertifikaadi ülevaade Kleopatras</caption>
+      <caption xml:lang="eu">Ziurtagirien ikuspegi orokorra «Kleopatra»n</caption>
+      <caption xml:lang="fi">Varmenteen yleiskuva Kleopatrassa</caption>
+      <caption xml:lang="fr">Aperçu de certificat dans Kleopatra</caption>
+      <caption xml:lang="gl">Resumo de certificado en Kleopatra.</caption>
+      <caption xml:lang="he">סקירת אישורים ב־Kleopatra</caption>
+      <caption xml:lang="hu">Tanúsítvány áttekintése a Kleopatraban</caption>
+      <caption xml:lang="ia">Vista general de certificato in Kleopatra</caption>
+      <caption xml:lang="id">Ikhtisar sertifikat di Kleopatra</caption>
+      <caption xml:lang="it">Panoramica dei certificati in Kleopatra</caption>
+      <caption xml:lang="ka">სერტიფიკატების მიმოხილვა Kleopatra-ში</caption>
+      <caption xml:lang="ko">Kleopatra로 인증서 관리</caption>
+      <caption xml:lang="lt">Liudijimo apžvalga programoje Kleopatra</caption>
+      <caption xml:lang="nl">Overzicht van certificaten in Kleopatra</caption>
+      <caption xml:lang="pl">Przegląd certyfikatów w Kleopatrze</caption>
+      <caption xml:lang="pt">Visão geral dos certificados no Kleopatra</caption>
+      <caption xml:lang="pt-BR">Visualização de certificado no Kleopatra</caption>
+      <caption xml:lang="ru">Просмотр сертификата в программе Kleopatra</caption>
+      <caption xml:lang="sk">Prehľad certifikátov v Kleopatra</caption>
+      <caption xml:lang="sl">Pregled potrdil v programu Kleopatra</caption>
+      <caption xml:lang="sv">Certifikatöversikt i Kleopatra</caption>
+      <caption xml:lang="tr">Kleopatra’da sertifika genel görünümü</caption>
+      <caption xml:lang="uk">Огляд сертифіката у Kleopatra</caption>
+      <caption xml:lang="x-test">xxCertificate overview in Kleopatraxx</caption>
+      <caption xml:lang="zh-CN">在 Kleopatra 中进行证书概览</caption>
+      <caption xml:lang="zh-TW">Kleopatra 中的憑證概覽</caption>
+      <image>https://cdn.kde.org/screenshots/kleopatra/kleopatra.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Encrypted email viewer in Kleopatra</caption>
+      <caption xml:lang="bg">Преглед на криптирани имейли в Kleopatra</caption>
+      <caption xml:lang="ca">Visualitzador de correus encriptats en el Kleopatra</caption>
+      <caption xml:lang="ca-valencia">Visor de correus encriptats en Kleopatra</caption>
+      <caption xml:lang="cs">Prohlížeč šifrovaných e-mailů v aplikaci Kleopatra</caption>
+      <caption xml:lang="de">Anzeige für verschlüsselte E-Mails in Kleopatra</caption>
+      <caption xml:lang="en-GB">Encrypted email viewer in Kleopatra</caption>
+      <caption xml:lang="eo">Ĉifrita retpoŝt-vidilo en Kleopatra</caption>
+      <caption xml:lang="es">Visor de mensajes cifrados en Kleopatra</caption>
+      <caption xml:lang="eu">Zifratutako e-posta ikustailea «Kleopatra»n</caption>
+      <caption xml:lang="fi">Salatun sähköpostin katselin Kleopatrassa</caption>
+      <caption xml:lang="fr">Afficheur de courriel chiffré dans Kleopatra</caption>
+      <caption xml:lang="gl">Visor de mensaxes de correo electrónico cifradas en Kleopatra.</caption>
+      <caption xml:lang="he">מציג דוא״ל מוצפן ב־Kleopatra</caption>
+      <caption xml:lang="hu">Titkosított e-mail megjelenítése a Kleopatrában</caption>
+      <caption xml:lang="ia">Visor de epoista cryptate in Kleopatra</caption>
+      <caption xml:lang="id">Penampil email yang dienkripsi di Kleopatra</caption>
+      <caption xml:lang="it">Visualizzatore di messaggi posta elettronica cifrati in Kleopatra</caption>
+      <caption xml:lang="ka">დაშიფრული ელფოსტის დათვალიერება Kleopatra-ში</caption>
+      <caption xml:lang="ko">Kleopatra의 암호화된 이메일 뷰어</caption>
+      <caption xml:lang="nl">Viewer van versleutelde e-mail in Kleopatra</caption>
+      <caption xml:lang="pl">Przeglądarka zaszyfrowanej poczty w Kleopatrze</caption>
+      <caption xml:lang="ru">Просмотр зашифрованного письма в программе Kleopatra</caption>
+      <caption xml:lang="sl">Pregledovalnik šifrirane e-pošte v Kleopatri</caption>
+      <caption xml:lang="sv">Krypterad brevvisning i Kleopatra</caption>
+      <caption xml:lang="tr">Kleopatra’daki şifreli e-posta görüntüleyicisi</caption>
+      <caption xml:lang="uk">Переглядач зашифрованих повідомлень у Kleopatra</caption>
+      <caption xml:lang="x-test">xxEncrypted email viewer in Kleopatraxx</caption>
+      <caption xml:lang="zh-CN">Kleopatra 中的加密电子邮件查看器</caption>
+      <caption xml:lang="zh-TW">Kleopatra 中的加密信件檢視器</caption>
+      <image>https://cdn.kde.org/screenshots/kleopatra/kleopatra-mail.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>kleopatra</binary>
+  </provides>
+  <releases>
+    <release version="4.0.0.241203" date="2025-03-06"/>
+    <release version="4.0.0.241202" date="2025-02-06"/>
+    <release version="4.0.0.241201" date="2025-01-09"/>
+    <release version="4.0.0.241200" date="2024-12-12"/>
+    <release version="3.2.0.240803" date="2024-11-07"/>
+    <release version="3.2.0.240802" date="2024-10-10"/>
+    <release version="3.2.0.240801" date="2024-09-12"/>
+    <release version="3.2.0.240800" date="2024-08-22"/>
+    <release version="3.2.0.240502" date="2024-07-04"/>
+    <release version="3.2.0.240501" date="2024-06-13"/>
+    <release version="3.2.0.240500" date="2024-05-23"/>
+    <release version="3.1.28.240202" date="2024-04-11"/>
+    <release version="3.1.28.240201" date="2024-03-21"/>
+    <release version="3.1.28.240200" date="2024-02-28"/>
+    <release version="3.1.28.230805" date="2024-02-15"/>
+  </releases>
+</component>
