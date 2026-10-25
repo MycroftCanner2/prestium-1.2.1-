@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6.13.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libkf6kiocore6
+/usr/share/doc/libkf6kiocore6/changelog.Debian.gz
+/usr/share/doc/libkf6kiocore6/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libkf6kiocore6
+/usr/share/qlogging-categories6
+/usr/share/qlogging-categories6/kio.categories
+/usr/share/qlogging-categories6/kio.renamecategories
+/usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6

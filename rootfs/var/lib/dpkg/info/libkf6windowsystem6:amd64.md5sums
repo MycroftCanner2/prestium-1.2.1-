@@ -1,0 +1,5 @@
+d8cf886d17d1f6c1bdaa311df251d176  usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6.13.0
+950a90e9fa5220a07a2454ed07757f31  usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemKWaylandPlugin.so
+b18835ae3ec70af00e5b4b688006268e  usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so
+41e27ae89a845a9a28751410e8f0e1dd  usr/share/doc/libkf6windowsystem6/changelog.Debian.gz
+78f4c293b5394e8e48f154b6f5e95dbe  usr/share/doc/libkf6windowsystem6/copyright

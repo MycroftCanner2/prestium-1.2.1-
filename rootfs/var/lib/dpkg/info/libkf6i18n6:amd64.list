@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libKF6I18n.so.6.13.0
+/usr/lib/x86_64-linux-gnu/qt6
+/usr/lib/x86_64-linux-gnu/qt6/plugins
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/ktranscript.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libkf6i18n6
+/usr/share/doc/libkf6i18n6/changelog.Debian.gz
+/usr/share/doc/libkf6i18n6/copyright
+/usr/lib/x86_64-linux-gnu/libKF6I18n.so.6

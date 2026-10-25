@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libKPim6AkonadiMime.so.6.3.3
+/usr/lib/x86_64-linux-gnu/qt6
+/usr/lib/x86_64-linux-gnu/qt6/plugins
+/usr/lib/x86_64-linux-gnu/qt6/plugins/akonadi_serializer_mail.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libkpim6akonadimime6
+/usr/share/doc/libkpim6akonadimime6/changelog.Debian.gz
+/usr/share/doc/libkpim6akonadimime6/copyright
+/usr/lib/x86_64-linux-gnu/libKPim6AkonadiMime.so.6

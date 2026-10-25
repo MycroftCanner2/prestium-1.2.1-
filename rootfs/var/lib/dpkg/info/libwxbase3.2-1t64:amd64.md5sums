@@ -1,0 +1,8 @@
+5a5ae1018076ad7b8d444e4edcd3cea4  usr/lib/x86_64-linux-gnu/libwx_baseu-3.2.so.0.4.1
+4f80f1da95f829516216ae7a090cdec5  usr/lib/x86_64-linux-gnu/libwx_baseu_net-3.2.so.0.4.1
+c2bfd311ce9f36e0a9adb7839d038d3a  usr/lib/x86_64-linux-gnu/libwx_baseu_xml-3.2.so.0.4.1
+a5a0280dc11fa5778be5113966a5fa50  usr/share/doc/libwxbase3.2-1t64/README.Debian
+c37155a66527cebd3ca7e486939f28ff  usr/share/doc/libwxbase3.2-1t64/changelog.Debian.gz
+a2eeab8cc5350376ca4be3cffec4aaa2  usr/share/doc/libwxbase3.2-1t64/changelog.gz
+f49ef5a96494fa94b5b6dfce8ad12870  usr/share/doc/libwxbase3.2-1t64/copyright
+9a3ad2f2bf076712191d65fbeb097f00  usr/share/lintian/overrides/libwxbase3.2-1t64

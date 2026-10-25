@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6.13.0
+/usr/lib/x86_64-linux-gnu/qt6
+/usr/lib/x86_64-linux-gnu/qt6/plugins
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemKWaylandPlugin.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libkf6windowsystem6
+/usr/share/doc/libkf6windowsystem6/changelog.Debian.gz
+/usr/share/doc/libkf6windowsystem6/copyright
+/usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6

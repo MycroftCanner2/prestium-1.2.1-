@@ -1,0 +1,6 @@
+0d627e651df6fdaad98ad7111ec50189  usr/lib/x86_64-linux-gnu/libportSMF.so.0.0.0
+022bcf7288943c948d7a6813e8ce6bb8  usr/share/doc/libportsmf0t64/changelog.Debian.amd64.gz
+50874f8430c4eebe6e630daa1560c390  usr/share/doc/libportsmf0t64/changelog.Debian.gz
+65d2030f0e107b25d61ff16194702856  usr/share/doc/libportsmf0t64/changelog.gz
+fbae803b99ae5f4eb2257e006bedc4f7  usr/share/doc/libportsmf0t64/copyright
+09b5be482208f5742330cd954ca2bb71  usr/share/lintian/overrides/libportsmf0t64

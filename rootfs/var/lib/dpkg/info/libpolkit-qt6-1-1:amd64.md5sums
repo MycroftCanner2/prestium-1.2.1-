@@ -1,0 +1,7 @@
+0a3b8ef52a5a8bd532e1913e1ae77a00  usr/lib/x86_64-linux-gnu/libpolkit-qt6-agent-1.so.1.200.0
+3200f888b22f51584571ddb1f16805c9  usr/lib/x86_64-linux-gnu/libpolkit-qt6-core-1.so.1.200.0
+bdc34baab1366413c6108a4f448558e9  usr/lib/x86_64-linux-gnu/libpolkit-qt6-gui-1.so.1.200.0
+a213dbc508be79b9e1e80b243b340d24  usr/share/doc/libpolkit-qt6-1-1/changelog.Debian.amd64.gz
+1c1e6c6c0c498ab2b51c56dfac371103  usr/share/doc/libpolkit-qt6-1-1/changelog.Debian.gz
+a3486e5ae51452243dfcc47104ade263  usr/share/doc/libpolkit-qt6-1-1/copyright
+6afafda23b56b072a2ea01848b1da61c  usr/share/lintian/overrides/libpolkit-qt6-1-1

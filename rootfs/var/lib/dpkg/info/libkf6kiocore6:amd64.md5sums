@@ -1,0 +1,6 @@
+f9f98ce8ca4d20560e2a8879acea7661  usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6.13.0
+ac3eb90f67afe69f062c4b4927e8eb61  usr/share/doc/libkf6kiocore6/changelog.Debian.gz
+e79b5dc81ee43724a8b0623ff6aee75b  usr/share/doc/libkf6kiocore6/copyright
+81932b5cb801099f2103016825bd2e63  usr/share/lintian/overrides/libkf6kiocore6
+79b9b0003b37e174ec3f01843566cf94  usr/share/qlogging-categories6/kio.categories
+a535b891691bf775e619df28b0c53ebd  usr/share/qlogging-categories6/kio.renamecategories

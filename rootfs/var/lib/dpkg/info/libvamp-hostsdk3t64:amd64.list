@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libvamp-hostsdk.so.3.10.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libvamp-hostsdk3t64
+/usr/share/doc/libvamp-hostsdk3t64/changelog.Debian.gz
+/usr/share/doc/libvamp-hostsdk3t64/changelog.gz
+/usr/share/doc/libvamp-hostsdk3t64/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libvamp-hostsdk3t64
+/usr/lib/x86_64-linux-gnu/libvamp-hostsdk.so.3
