@@ -1,0 +1,10 @@
+# libxmpp.so uses the internal library libjabber.so.
+libpurple0t64: custom-library-search-path RUNPATH /usr/lib/*/purple-2 [usr/lib/*/purple-2/libxmpp.so]
+
+# This is verbatim license text from gettext-make.
+libpurple0t64: spelling-error-in-copyright "GNU Public License" "GNU General Public License"
+
+libpurple0t64: package-name-doesnt-match-sonames libpurple-client0 libpurple0
+
+# This is an additional upstream API changelog file, not the Debian changelog.
+libpurple0t64: wrong-name-for-upstream-changelog [usr/share/doc/libpurple0t64/ChangeLog.API.gz]

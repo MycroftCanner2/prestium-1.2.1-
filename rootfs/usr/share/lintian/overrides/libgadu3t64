@@ -1,0 +1,3 @@
+# Apparent false-positive due to "strings" mangling the string.
+I spelling-error-in-binary usr/lib/*/libgadu.so.* nam name
+libgadu3t64: package-name-doesnt-match-sonames libgadu3
