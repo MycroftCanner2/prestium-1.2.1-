@@ -1,0 +1,35 @@
+libgadu Debian package
+======================
+
+Configuration options
+---------------------
+
+  libgadu is built with GnuTLS rather than OpenSSL, as this makes linking other
+  pure-GPL programs against libgadu feasible
+  
+  Here are the library build configuration options for your convenience (in
+  addition to the ones passed by dh_auto_configure):
+
+	./configure \
+		--disable-silent-rules \
+		--with-c99-vsnprintf \
+		--with-pthread \
+		--without-bind \
+		--without-openssl \
+		--with-gnutls
+
+  c99-vsnprintf is enabled explicitly in order to make cross-compilation
+  possible (Bug#839541).
+
+
+Changelog
+---------
+
+  API changes are listed in the html documentation provided in the libgadu-doc
+  package (api/index.html contains a link).
+  Release notes are on the http://libgadu.net/ homepage, and all other changes
+  can be found in the Git history:
+  https://github.com/wojtekka/libgadu/commits/master
+
+ -- Marcin Owsiany <porridge@debian.org>,  Wed, 05 Oct 2016 22:10:36 +0200
+

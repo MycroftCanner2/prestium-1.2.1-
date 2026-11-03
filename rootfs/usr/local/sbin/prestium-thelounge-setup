@@ -3,8 +3,8 @@
 // Prestium: prepare The Lounge's single user "prestium" (run as root by thelounge.service
 // ExecStartPre=+ on every start).
 // - first start of a boot: user file from /usr/local/share/prestium-thelounge/prestium.json
-//   with one preset per i2pd IRC client tunnel (IRC2P 6668, echelon 6665, dg 6666;
-//   Ilita 6669, r4sas 6670, acetone 6671, rusirc 6672). IRC2P and Ilita connect at start,
+//   with one preset per i2pd IRC client tunnel (IRC2P 6668, echelon 6665;
+//   Ilita 6669, r4sas 6670, acetone 6671). IRC2P and Ilita connect at start,
 //   the alternate servers are listed disconnected (select them and use "Connect").
 //   Each preset gets its own random nick.
 // - a random password (bcrypt-hashed in the user file; plain copy in

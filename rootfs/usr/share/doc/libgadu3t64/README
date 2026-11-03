@@ -1,0 +1,73 @@
+libgadu 1.12.2
+(C) Copyright 2001-2014 Autorzy (pełna lista w pliku AUTHORS)
+
+libgadu jest biblioteką przeznaczoną do obsługi protokołu komunikatora
+Gadu-Gadu. Przez dłuższy czas była integralną częścią Eksperymentalnego
+Klienta Gadu-Gadu, lecz ze względu na problemy z dystrybucją pakietów
+i wykorzystaniem w innych projektach, została wydzielona. Własnościowy
+protokół został rozszyfrowany metodą inżynierii wstecznej (ang. "reverse
+engineering"), przez co libgadu może nie być w 100% zgodna
+z pierwowzorem.
+
+Biblioteka jest udostępniana na zasadach licencji LGPL w wersji 2.1,
+której treść znajduje się w pliku COPYING. Biblioteka została napisana
+w języku C i jest niezależna od systemu operacyjnego czy środowiska.
+Pracuje pod systemami operacyjnymi zgodnymi z POSIX, również BeOS
+i Win32. Używana jest w aplikacjach konsolowych, jak i graficznych GTK+ i Qt.
+
+Strona projektu znajduje się pod adresem http://libgadu.net/.
+Osoby zainteresowane biblioteką mogą zapisać się na listę dyskusyjną
+libgadu-devel poświęconą rozwojowi biblioteki, programowaniu przy jej
+użyciu oraz protokołowi Gadu-Gadu. Istnieje również lista
+libgadu-commit, na którą są wysyłane informacje o zmianach w kodzie
+źródłowym. Informacje o listach dyskusyjnych można uzyskać na stronach:
+
+ - http://lists.ziew.org/mailman/listinfo/libgadu-devel
+
+ - http://lists.ziew.org/mailman/listinfo/libgadu-commit
+
+Ostrzeżenie: Należy pamiętać, że używanie alternatywnych klientów jest
+niezgodne z regulaminem korzystania z serwisu Gadu-Gadu.
+
+Wymagania
+---------
+
+Do połączeń szyfrowanych biblioteka wykorzystuje bibliotekę GnuTLS lub
+OpenSSL. Domyślnie OpenSSL nie jest wykorzystywany, nawet jeżeli jest
+zainstalowany w systemie - oprogramowanie zlinkowane z tą biblioteką nie jest
+kompatybilne z GPL, co powoduje problemy z łączeniem z programami na tej
+licencji. Aby mimo wszystko skompilować libgadu z obsługą OpenSSL, należy
+użyć przełącznika --with-openssl. Tak skompilowana wersja będzie tylko
+częściowo binarnie kompatybilna z wersją standardową: brakuje w niej symbolu
+gg_is_gpl_compliant, którego mogą używać aplikacje wymagające takiej
+licencji. Minimalna wymagana wersja biblioteki OpenSSL to 0.9.7, a biblioteki
+GnuTLS 2.10.0. Przy użyciu OpenSSL lub GnuTLS w wersji niższej niż 3.0 nie
+jest sprawdzana lista unieważnionych certyfikatów.
+
+Do przechowywania listy kontaktów na serwerze niezbędna jest biblioteka
+zlib.
+
+Do wygenerowania dokumentacji używany jest Doxygen. Jeśli nie jest 
+dostępny, dokumentacja nie jest generowana.
+
+Do niektórych testów automatycznych wymagane są glibc, GnuTLS, libxml2
+i Perl. Jeśli nie są dostępne, niektóre testy nie będą uruchamiane.
+Ponadto jeden z programów do ręcznego testowania biblioteki wymaga
+bibliotek CURL, Expat i OpenSSL.
+
+Kompilator musi obsługiwać 64-bitowe zmienne typu long long.
+
+Podczas kompilacji wykrywana jest wersja biblioteki standardowej,
+ponieważ zachowanie używanych funkcji rodziny printf() zostało
+zmienione w ISO C99. Podczas kompilacji skrośnej nie jest możliwe
+automatyczne określenie wersji biblioteki na systemie docelowym, więc
+niezbędne jest użycie parametru --with- lub --without-c99-vsnprintf.
+Większość współczesnych systemów operacyjnych zawiera bibliotekę
+standardową zgodną ze standardem C99, więc w przypadku wątpliwości
+można użyć --with-c99-vsnprintf.
+
+Do asynchronicznego rozwiązywania nazw biblioteka używa procesów
+lub wątków pthread. Jeśli system udostępnia funkcję gethostbyname_r()
+działającą poprawnie w aplikacjach wielowątkowych (Linux z glibc,
+SunOS), zostanie ona użyta.
+

@@ -1,0 +1,57 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://otr.cypherpunks.ca/
+
+Files: *
+Copyright:
+    Copyright (C) 2004-2016  Ian Goldberg, David Goulet, Rob Smits,
+                             Chris Alexander, Willy Lew, Lisa Du,
+			     Nikita Borisov
+			     <otr@cypherpunks.ca>
+License: LGPL-2.1+
+
+Files: debian/*
+Copyright:
+  © 2005-2012 Thibaut VARENE <varenet@debian.org>
+  © 2013 Micah Anderson <micah@debian.org>
+  © 2014 Debian OTR Team <pkg-otr-team@lists.alioth.debian.org>
+  © 2016-2025 Debian Privacy Tools Maintainers <pkg-privacy-maintainers@lists.alioth.debian.org>
+License: LGPL-2.1+
+
+Files: tests/*
+Copyright:
+    Copyright (C) 2014   Julien Voisin <julien.voisin@dustri.org>,
+                         David Goulet <dgoulet@ev0ke.net>
+License: GPL-2
+
+Files: toolkit/*
+Copyright:
+    Copyright (C) 2004-2014  Ian Goldberg, David Goulet, Rob Smits,
+                             Chris Alexander, Nikita Borisov
+		             <otr@cypherpunks.ca>
+License: GPL-2+
+
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License, version 2 only,
+ as published by the Free Software Foundation.
+ .
+ On Debian systems, the complete text of version 2 of the GNU General
+ Public License can be found in '/usr/share/common-licenses/GPL-2'.
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 2 dated June, 1991, or (at
+ your option) any later version.
+ .
+ On Debian systems, the complete text of version 2 of the GNU General
+ Public License can be found in '/usr/share/common-licenses/GPL-2'.
+
+License: LGPL-2.1+
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License as published by the
+ Free Software Foundation; version 2.1 of the License, or (at
+ your option) any later version.
+ .
+ On Debian systems, the complete text of version 2.1 of the GNU Lesser
+ General Public License can be found in `/usr/share/common-licenses/LGPL-2.1'.

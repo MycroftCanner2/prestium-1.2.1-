@@ -87,11 +87,6 @@ if [ "`id -u`" -eq 0 ]; then
   exit 1
 fi
 
-if test -r /proc/cpuinfo && ! grep -q '^flags\s*:.* sse2' /proc/cpuinfo; then
-  complain "Tor Browser requires a CPU with SSE2 support.  Exiting."
-  exit 1
-fi
-
 print_usage () {
   printf "\nTor Browser Script Options\n"
   printf "  --verbose         Display Tor and the browser output in the terminal\n"

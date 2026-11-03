@@ -7,7 +7,7 @@
 # group open TCP connections only to 127.0.0.1 ports 7070, 7685 and 9000: no Internet,
 # no Tor or I2P proxies, no IPv6. Prefs/policies (/opt/firefox/distribution/policies.json)
 # add a second layer (no proxy, website filter, no updates/telemetry).
-# For browsing use "Web Browser (I2P)" (LibreWolf) or "Tor Browser".
+# For browsing use "I2P Browser" (LibreWolf) or "Tor Browser".
 URL="${1:-http://127.0.0.1:7070/}"
 case "$URL" in
   http://127.0.0.1:7070/*|http://127.0.0.1:7685/*|http://127.0.0.1:9000/*) ;;

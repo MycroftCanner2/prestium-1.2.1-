@@ -19,8 +19,8 @@
 #                DEL_ONION, HS_DESC events, read-only status.
 #   nyx          python3 /usr/bin/nyx: read-only GETINFO/GETCONF (no address*),
 #                events, SIGNAL NEWNYM/CLEARDNSCACHE.
-# Anything else, and any process with group prestium-localweb (local-only
-# Firefox) or a uid other than "user"/root, is refused.
+# Anything else, and any process whose primary group is prestium-localweb
+# (local-only Firefox) or with a uid other than "user"/root, is refused.
 import asyncio, binascii, grp, os, pwd, re, socket, struct, sys, syslog
 
 LISTEN = "/run/onion-grater/control"
@@ -48,7 +48,7 @@ GETINFO_TB = [r"version", r"status/bootstrap-phase", r"status/circuit-establishe
               r"circuit-status", r"net/listeners/socks", r"ns/id/" + FP,
               r"ip-to-country/" + IP, r"ip-to-country/ipv4-available",
               r"ip-to-country/ipv6-available", r"onions/current",
-              r"status/version/current"]
+              r"status/version/current", r"ns/purpose/bridge"]
 GETINFO_OS = [r"version", r"status/bootstrap-phase", r"status/circuit-established",
               r"net/listeners/socks", r"onions/current", r"onions/detached",
               r"status/version/current", r"config/names", r"features/names",
@@ -92,17 +92,19 @@ def identify(conn):
     if uid not in (0, USER_UID):
         return None, "uid %d" % uid, pid
     if LOCALWEB_GID is not None:
-        groups = {gid}
+        # 1.9.1.1: only the primary group counts (real/effective/saved/fs gid,
+        # as the firewall's gid-owner match). "user" is a supplementary member
+        # of prestium-localweb (needed by sg), so checking "Groups:" refused
+        # every app of "user", Tor Browser included.
+        gids = {gid}
         try:
             with open("/proc/%d/status" % pid) as f:
                 for line in f:
-                    if line.startswith("Groups:"):
-                        groups |= {int(x) for x in line.split()[1:]}
                     if line.startswith("Gid:"):
-                        groups |= {int(x) for x in line.split()[1:]}
+                        gids |= {int(x) for x in line.split()[1:]}
         except OSError:
             return None, "no /proc entry", pid
-        if LOCALWEB_GID in groups:
+        if LOCALWEB_GID in gids:
             return None, "local-only Firefox group", pid
     try:
         exe = os.readlink("/proc/%d/exe" % pid)
