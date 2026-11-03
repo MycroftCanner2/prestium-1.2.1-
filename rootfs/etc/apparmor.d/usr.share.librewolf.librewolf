@@ -1,4 +1,4 @@
-# Prestium 1.9.1: LibreWolf ("Web Browser (I2P)").
+# Prestium 1.9.1: LibreWolf ("I2P Browser").
 # COMPLAIN mode: denials are only logged, nothing is blocked. LibreWolf's
 # multi-process sandbox, GPU, media and extension paths vary between upstream
 # releases, and an enforced profile that misses one breaks the browser; the

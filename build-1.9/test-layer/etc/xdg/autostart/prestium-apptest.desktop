@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=apptest
-Exec=/usr/local/sbin/prestium-apptest

@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=vctest
-Exec=/usr/local/sbin/prestium-vctest

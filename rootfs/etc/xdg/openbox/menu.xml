@@ -6,7 +6,7 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
-  <item label="Web Browser (I2P; clearnet via I2P outproxy)">
+  <item label="I2P Browser">
     <action name="Execute"><execute>librewolf-i2p</execute></action>
   </item>
   <item label="Tor Browser">
@@ -76,6 +76,9 @@
     <item label="Unlock VeraCrypt Volume">
       <action name="Execute"><execute>/usr/local/bin/prestium-unlock-veracrypt</execute></action>
     </item>
+    <item label="Unlock Volume">
+      <action name="Execute"><execute>/usr/local/bin/prestium-unlock-volume</execute></action>
+    </item>
     <item label="Kleopatra (GnuPG)">
       <action name="Execute"><execute>kleopatra</execute></action>
     </item>
@@ -92,6 +95,9 @@
     </item>
     <item label="IRC (The Lounge)">
       <action name="Execute"><execute>/usr/local/bin/prestium-irc</execute></action>
+    </item>
+    <item label="Pidgin">
+      <action name="Execute"><execute>/usr/local/bin/pidgin-tor</execute></action>
     </item>
     <item label="OnionShare">
       <action name="Execute"><execute>onionshare</execute></action>

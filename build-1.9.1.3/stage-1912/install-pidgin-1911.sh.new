@@ -1,0 +1,67 @@
+#!/bin/bash
+# Prestium 1.9.1.1: Pidgin over Tor + OTR. Run from v20/ as root-capable user (sudo). Idempotent.
+# 1.9.1.2: prefs also go to the live user's home template rootfs/home/user (the live home is
+# copied from there, not from /etc/skel); Openbox menu item "Pidgin (Tor + OTR)";
+# backups are taken only once (never overwritten by a rerun).
+set -e
+cd /workspace/work/prestium/v20; R=rootfs; B=${PIDGIN_BK:-bh/backup-1911}; S=stage-1911/pidgin
+OTRSO=$(sudo chroot $R dpkg -L pidgin-otr | grep -m1 'pidgin-otr\.so$')
+[ -n "$OTRSO" ] || { echo "pidgin-otr.so not found"; exit 1; }
+echo "OTRSO=$OTRSO"
+sed "s#@OTRSO@#$OTRSO#" $S/prefs.xml > /tmp/pidgin-prefs.xml
+bk(){ for F in "$@"; do if sudo test -e "$F" && ! sudo test -e "$B/$F"; then sudo cp -a --parents "$F" $B/; fi; done; }
+# /etc/skel (+ any other home template found), owned by root
+for T in $R/etc/skel $(sudo find $R/usr/local/share $R/etc -maxdepth 3 -type d -name 'home-template*' 2>/dev/null); do
+  bk $T/.purple/prefs.xml
+  sudo install -d -m700 $T/.purple
+  sudo install -m600 /tmp/pidgin-prefs.xml $T/.purple/prefs.xml
+  echo "prefs -> $T/.purple"
+done
+# the live user's home template (uid 1000)
+bk $R/home/user/.purple/prefs.xml
+sudo install -d -m700 -o 1000 -g 1000 $R/home/user/.purple
+sudo install -m600 -o 1000 -g 1000 /tmp/pidgin-prefs.xml $R/home/user/.purple/prefs.xml
+echo "prefs -> $R/home/user/.purple"
+# back up anything we are about to overwrite
+bk $R/usr/local/bin/pidgin-tor $R/usr/local/share/applications/pidgin.desktop $R/etc/apparmor.d/usr.bin.pidgin
+# AppArmor profile, complain mode (abi 3.0 line dropped if rootfs parser lacks it)
+[ -e $R/etc/apparmor.d/abi/3.0 ] || sed -i '/^abi /d' $S/usr.bin.pidgin
+sudo install -m644 $S/usr.bin.pidgin $R/etc/apparmor.d/usr.bin.pidgin
+if sudo chroot $R apparmor_parser -Q /etc/apparmor.d/usr.bin.pidgin; then echo "apparmor pidgin profile parses OK"; else echo "WARN: pidgin profile parse failed"; fi
+# wrapper: refuse to start without Tor SOCKS, force no system proxy env leaking
+sudo tee $R/usr/local/bin/pidgin-tor >/dev/null <<'EOF'
+#!/bin/sh
+# Prestium: start Pidgin only when Tor SOCKS is up; global proxy is SOCKS5 127.0.0.1:9050 (prefs.xml)
+if ! systemctl is-active -q tor@default 2>/dev/null && ! systemctl is-active -q tor 2>/dev/null; then
+  notify-send "Pidgin" "Tor is not running - Pidgin not started." 2>/dev/null; exit 1
+fi
+unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy NO_PROXY
+exec /usr/bin/pidgin "$@"
+EOF
+sudo chmod 755 $R/usr/local/bin/pidgin-tor
+sudo install -d $R/usr/local/share/applications
+sudo sed -e 's#^Exec=pidgin#Exec=/usr/local/bin/pidgin-tor#' -e 's#^Name=Pidgin.*#Name=Pidgin (Tor + OTR)#' \
+  $R/usr/share/applications/pidgin.desktop | sudo tee $R/usr/local/share/applications/pidgin.desktop >/dev/null
+sudo grep -n '^Exec\|^Name=' $R/usr/local/share/applications/pidgin.desktop
+# Openbox menu is static: add "Pidgin (Tor + OTR)" to Communication (after "IRC (The Lounge)"),
+# in the system menu and in any per-user copy
+for M in $R/etc/xdg/openbox/menu.xml $R/home/user/.config/openbox/menu.xml $R/etc/skel/.config/openbox/menu.xml; do
+  sudo test -e $M || continue
+  sudo grep -q 'pidgin-tor' $M && { echo "menu already has Pidgin: $M"; continue; }
+  bk $M
+  sudo python3 - $M <<'PY'
+import sys
+p=sys.argv[1]; s=open(p).read()
+a='''    <item label="IRC (The Lounge)">
+      <action name="Execute"><execute>/usr/local/bin/prestium-irc</execute></action>
+    </item>
+'''
+assert a in s, 'anchor missing in '+p
+s=s.replace(a, a+'''    <item label="Pidgin (Tor + OTR)">
+      <action name="Execute"><execute>/usr/local/bin/pidgin-tor</execute></action>
+    </item>
+''')
+open(p,'w').write(s); print('menu: Pidgin (Tor + OTR) ->', p)
+PY
+done
+echo PIDGIN-INSTALL-OK

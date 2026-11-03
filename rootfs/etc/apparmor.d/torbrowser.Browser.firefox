@@ -75,12 +75,20 @@ profile torbrowser_firefox @{torbrowser_firefox_executable} {
   @{torbrowser_home_dir}/firefox rix,
   @{torbrowser_home_dir}/glxtest ix,
   @{torbrowser_home_dir}/vaapitest ix,
+  @{torbrowser_home_dir}/vulkantest ix,
   /{usr/,}bin/{sh,dash,bash,dirname,expr,getconf,file,mkdir,ln,cp,sed,rm,realpath,readlink,id,pwd,env} rix,
 
   # browser HOME (start-tor-browser sets HOME=~/.tor-browser) + profile
   owner @{torbrowser_user_dir}/ rw,
   owner @{torbrowser_user_dir}/** rwk,
   deny @{torbrowser_user_dir}/**.so m,
+  # 1.9.1.1: fontconfig cache locks (hard links) in the browser HOME; no chmod of the system cache
+  owner @{torbrowser_user_dir}/.cache/fontconfig/** rwkl,
+  deny /var/cache/fontconfig/ w,
+  # 1.9.1.1: TB 16 probes these; keep them denied, just silence the log
+  deny @{PROC}/[0-9]*/cmdline r,
+  deny @{PROC}/pressure/memory r,
+  deny /dev/udmabuf rw,
 
   # Tails: the only user folder the browser can read or write
   owner "@{HOME}/Tor Browser/" rw,
