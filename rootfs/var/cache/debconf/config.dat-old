@@ -393,11 +393,11 @@ Owners: libpam-runtime
 
 Name: libpam-runtime/profiles
 Template: libpam-runtime/profiles
-Value: unix, systemd, gnome-keyring
+Value: unix, systemd, gnome-keyring, capability
 Owners: libpam-runtime
 Variables:
- profile_names = unix, systemd, mkhomedir, gnome-keyring
- profiles = Unix authentication, Register user sessions in the systemd control group hierarchy, Create home directory on login, GNOME Keyring Daemon - Login keyring management
+ profile_names = unix, systemd, mkhomedir, gnome-keyring, capability
+ profiles = Unix authentication, Register user sessions in the systemd control group hierarchy, Create home directory on login, GNOME Keyring Daemon - Login keyring management, Inheritable Capabilities Management
 
 Name: libpam-runtime/title
 Template: libpam-runtime/title

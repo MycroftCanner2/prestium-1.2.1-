@@ -3906,3 +3906,51 @@ Package: libportsmf0t64
 Architecture: amd64
 Auto-Installed: 1
 
+Package: libgadu3t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libgupnp-1.6-0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libpurple0t64
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libgupnp-igd-1.6-0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libzephyr4
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libprotobuf-c1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libfarstream-0.2-5
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libgssdp-1.6-0
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libmeanwhile1
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libnice10
+Architecture: amd64
+Auto-Installed: 1
+
+Package: pidgin-data
+Architecture: amd64
+Auto-Installed: 1
+
+Package: libotr5t64
+Architecture: amd64
+Auto-Installed: 1
+
