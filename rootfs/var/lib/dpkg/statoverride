@@ -1,4 +1,3 @@
-root root 755 /usr/bin/newgrp
 root dip 755 /usr/sbin/pppd
 root root 755 /usr/lib/openssh/ssh-keysign
 root root 755 /usr/bin/ntfs-3g

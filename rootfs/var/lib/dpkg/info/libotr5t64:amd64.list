@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libotr.so.5.1.1
+/usr/share
+/usr/share/doc
+/usr/share/doc/libotr5t64
+/usr/share/doc/libotr5t64/Protocol-v3.html
+/usr/share/doc/libotr5t64/README.gz
+/usr/share/doc/libotr5t64/UPGRADING.gz
+/usr/share/doc/libotr5t64/changelog.Debian.gz
+/usr/share/doc/libotr5t64/changelog.gz
+/usr/share/doc/libotr5t64/copyright
+/usr/share/doc-base
+/usr/share/doc-base/libotr5t64.otr-v3
+/usr/lib/x86_64-linux-gnu/libotr.so.5

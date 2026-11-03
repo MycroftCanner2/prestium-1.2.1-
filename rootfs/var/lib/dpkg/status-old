@@ -6558,12 +6558,12 @@ Package: libbrotli1
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 870
+Installed-Size: 865
 Maintainer: Tomasz Buchert <tomasz@debian.org>
 Architecture: amd64
 Multi-Arch: same
-Source: brotli (1.1.0-2)
-Version: 1.1.0-2+b7
+Source: brotli
+Version: 1.1.0-2+deb13u1
 Depends: libc6 (>= 2.29)
 Description: library implementing brotli encoder and decoder (shared libraries)
  Brotli is a generic-purpose lossless compression algorithm
@@ -8962,6 +8962,29 @@ Description: freeware Advanced Audio Decoder - runtime files
  library with support for Digital Radio Mondiale (DRM).
 Homepage: https://github.com/knik0/faad2
 
+Package: libfarstream-0.2-5
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 849
+Maintainer: Debian Telepathy maintainers <pkg-telepathy-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: farstream-0.2 (0.2.9-2)
+Version: 0.2.9-2+b3
+Depends: libc6 (>= 2.33), libglib2.0-0t64 (>= 2.40), libgstreamer-plugins-base1.0-0 (>= 1.4), libgstreamer1.0-0 (>= 1.8.0), libgupnp-igd-1.6-0 (>= 0.2.1), libnice10 (>= 0.1.8)
+Recommends: gstreamer1.0-nice, gstreamer1.0-plugins-bad, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good
+Conflicts: libfarstream-0.2-0, libfarstream-0.2-2
+Description: Audio/Video communications framework: core library
+ The Farstream project is an effort to create a framework to deal with all
+ known audio/video conferencing protocols. On one side it offers a generic
+ API that makes it possible to write plugins for different streaming
+ protocols, on the other side it offers an API for clients to use those
+ plugins.
+ .
+ This package provides the core Farstream library.
+Homepage: https://www.freedesktop.org/wiki/Software/Farstream/
+
 Package: libfdisk1
 Status: install ok installed
 Priority: optional
@@ -9471,6 +9494,28 @@ Description: Filesystem in Userspace (library) (3.x version)
  .
  This package contains the shared library.
 Homepage: https://github.com/libfuse/libfuse/wiki
+
+Package: libgadu3t64
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 270
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libgadu (1:1.12.2-6.1)
+Version: 1:1.12.2-6.1+b2
+Replaces: libgadu3
+Provides: libgadu3 (= 1:1.12.2-6.1+b2)
+Depends: libc6 (>= 2.34), libgnutls30t64 (>= 3.8.6), libprotobuf-c1 (>= 1.0.1), zlib1g (>= 1:1.2.0)
+Breaks: libgadu3 (<< 1:1.12.2-6.1)
+Description: Gadu-Gadu protocol library - runtime files
+ Gadu-Gadu is an instant messaging program, very popular in
+ Poland. libgadu is a Gadu-Gadu protocol implementation
+ library.
+ .
+ This package contains the shared library.
+Homepage: http://toxygen.net/libgadu/
 
 Package: libgav1-1
 Status: install ok installed
@@ -10725,6 +10770,22 @@ Description: MIT Kerberos runtime libraries - krb5 GSS-API Mechanism
  implementation of GSS-API used by applications and Kerberos clients.
 Homepage: https://web.mit.edu/kerberos/
 
+Package: libgssdp-1.6-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 113
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: gssdp
+Version: 1.6.4-1~deb13u1
+Depends: libc6 (>= 2.14), libglib2.0-0t64 (>= 2.80.0), libsoup-3.0-0 (>= 3.0.3)
+Description: GObject-based library for SSDP
+ A GObject-based API for doing SSDP (Simple Service Discovery Protocol)
+ transparently.
+Homepage: https://wiki.gnome.org/Projects/GUPnP
+
 Package: libgstreamer-gl1.0-0
 Status: install ok installed
 Priority: optional
@@ -11106,6 +11167,37 @@ Description: GObject-based wrapper library for libudev
  support.
 Homepage: https://wiki.gnome.org/Projects/libgudev
 
+Package: libgupnp-1.6-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 279
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: gupnp
+Version: 1.6.8-2
+Depends: shared-mime-info, libc6 (>= 2.33), libglib2.0-0t64 (>= 2.80.0), libgssdp-1.6-0 (>= 1.6.2), libsoup-3.0-0 (>= 3.1.3), libxml2 (>= 2.7.4)
+Description: GObject-based library for UPnP
+ A GObject-based API for doing UPnP transparently.
+Homepage: https://gnome.pages.gitlab.gnome.org/gupnp/docs/
+
+Package: libgupnp-igd-1.6-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 57
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: gupnp-igd (1.6.0-4)
+Version: 1.6.0-4+b1
+Depends: libc6 (>= 2.4), libglib2.0-0t64 (>= 2.70), libgssdp-1.6-0 (>= 1.6), libgupnp-1.6-0 (>= 1.6.0)
+Description: library to handle UPnP IGD port mapping
+ A GObject-based API for controlling UPnP Internet Gateway Devices
+ port mapping.
+Homepage: https://wiki.gnome.org/Projects/GUPnP
+
 Package: libgvc6
 Status: install ok installed
 Priority: optional
@@ -11263,13 +11355,13 @@ Package: libheif-plugin-dav1d
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 70
+Installed-Size: 71
 Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 Architecture: amd64
 Multi-Arch: same
 Source: libheif
-Version: 1.23.4-1~deb13u1
-Depends: libheif1 (= 1.23.4-1~deb13u1), libc6 (>= 2.14), libdav1d7 (>= 0.1.0), libgcc-s1 (>= 3.0), libstdc++6 (>= 13)
+Version: 1.23.6-2~deb13u1
+Depends: libheif1 (= 1.23.6-2~deb13u1), libc6 (>= 2.14), libdav1d7 (>= 0.1.0), libgcc-s1 (>= 3.0), libstdc++6 (>= 13)
 Description: HEIF and AVIF file format decoder and encoder - dav1d plugin
  libheif is an ISO/IEC 23008-12:2017 HEIF and AVIF (AV1 Image File Format) file
  format decoder and encoder. There is partial support for ISO/IEC 23008-12:2022
@@ -11290,13 +11382,13 @@ Package: libheif-plugin-libde265
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 62
+Installed-Size: 63
 Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 Architecture: amd64
 Multi-Arch: same
 Source: libheif
-Version: 1.23.4-1~deb13u1
-Depends: libheif1 (= 1.23.4-1~deb13u1), libc6 (>= 2.14), libde265-0 (>= 1.0.7), libgcc-s1 (>= 3.0), libstdc++6 (>= 13)
+Version: 1.23.6-2~deb13u1
+Depends: libheif1 (= 1.23.6-2~deb13u1), libc6 (>= 2.14), libde265-0 (>= 1.0.7), libgcc-s1 (>= 3.0), libstdc++6 (>= 13)
 Description: HEIF and AVIF file format decoder and encoder - libde265 plugin
  libheif is an ISO/IEC 23008-12:2017 HEIF and AVIF (AV1 Image File Format) file
  format decoder and encoder. There is partial support for ISO/IEC 23008-12:2022
@@ -11318,15 +11410,15 @@ Package: libheif1
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 2681
+Installed-Size: 2714
 Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 Architecture: amd64
 Multi-Arch: same
 Source: libheif
-Version: 1.23.4-1~deb13u1
-Depends: libbrotli1 (>= 0.6.0), libc6 (>= 2.38), libgcc-s1 (>= 3.0), libsharpyuv0 (>= 1.5.0), libstdc++6 (>= 13.1), zlib1g (>= 1:1.1.4), libheif-plugin-libde265 (= 1.23.4-1~deb13u1), libheif-plugin-dav1d (= 1.23.4-1~deb13u1) | libheif-plugin-aomdec (= 1.23.4-1~deb13u1)
-Recommends: libheif-plugin-x265 (= 1.23.4-1~deb13u1), libheif-plugin-aomenc (= 1.23.4-1~deb13u1)
-Suggests: libheif-plugin-ffmpegdec (= 1.23.4-1~deb13u1), libheif-plugin-jpegdec (= 1.23.4-1~deb13u1), libheif-plugin-jpegenc (= 1.23.4-1~deb13u1), libheif-plugin-j2kdec (= 1.23.4-1~deb13u1), libheif-plugin-j2kenc (= 1.23.4-1~deb13u1), libheif-plugin-kvazaar (= 1.23.4-1~deb13u1), libheif-plugin-rav1e (= 1.23.4-1~deb13u1), libheif-plugin-svtenc (= 1.23.4-1~deb13u1)
+Version: 1.23.6-2~deb13u1
+Depends: libbrotli1 (>= 0.6.0), libc6 (>= 2.38), libgcc-s1 (>= 3.0), libsharpyuv0 (>= 1.5.0), libstdc++6 (>= 13.1), zlib1g (>= 1:1.1.4), libheif-plugin-libde265 (= 1.23.6-2~deb13u1), libheif-plugin-dav1d (= 1.23.6-2~deb13u1) | libheif-plugin-aomdec (= 1.23.6-2~deb13u1)
+Recommends: libheif-plugin-x265 (= 1.23.6-2~deb13u1), libheif-plugin-aomenc (= 1.23.6-2~deb13u1)
+Suggests: libheif-plugin-ffmpegdec (= 1.23.6-2~deb13u1), libheif-plugin-jpegdec (= 1.23.6-2~deb13u1), libheif-plugin-jpegenc (= 1.23.6-2~deb13u1), libheif-plugin-j2kdec (= 1.23.6-2~deb13u1), libheif-plugin-j2kenc (= 1.23.6-2~deb13u1), libheif-plugin-kvazaar (= 1.23.6-2~deb13u1), libheif-plugin-rav1e (= 1.23.6-2~deb13u1), libheif-plugin-svtenc (= 1.23.6-2~deb13u1)
 Description: HEIF and AVIF file format decoder and encoder - shared library
  libheif is an ISO/IEC 23008-12:2017 HEIF and AVIF (AV1 Image File Format) file
  format decoder and encoder. There is partial support for ISO/IEC 23008-12:2022
@@ -14578,6 +14670,23 @@ Description: Markdown for C
  Permissive license: MD4C is available under the MIT license.
 Homepage: https://github.com/mity/md4c
 
+Package: libmeanwhile1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 277
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: meanwhile (1.1.1-2)
+Version: 1.1.1-2+b3
+Depends: libc6 (>= 2.29), libglib2.0-0t64 (>= 2.76.0)
+Description: open implementation of the Lotus Sametime Community Client protocol
+ This library provides the basic Lotus Sametime Community Client session
+ functionality along with the core services; Presence, Messaging, and
+ Conferencing.
+Homepage: https://github.com/obriencj/meanwhile
+
 Package: libmenu-cache-bin
 Status: install ok installed
 Priority: optional
@@ -15016,6 +15125,44 @@ Description: import library for some old Mac text documents
  (MacWrite, ClarisWorks, ... ) based on top of libwpd.
 Homepage: http://sourceforge.net/projects/libmwaw
 
+Package: libmxml1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 82
+Maintainer: Alastair McKinstry <mckinstry@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: mxml
+Version: 3.3.1-1+deb13u1
+Depends: libc6 (>= 2.38)
+Recommends: libmxml-bin
+Description: small XML parsing library (runtime)
+ Mini-XML is a small XML parsing library that you can use to read XML and
+ XML-like data files in your application without requiring large non-standard
+ libraries.
+ .
+ Mini-XML provides the following functionality:
+  * Reading of UTF-8 and UTF-16 and writing of UTF-8 encoded XML files and
+    strings.
+  * Data is stored in a linked-list tree structure, preserving the XML data
+    hierarchy.
+  * Supports arbitrary element names, attributes, and attribute values with
+    no preset limits, just available memory.
+  * Supports integer, real, opaque ("cdata"), and text data types in "leaf"
+    nodes.
+  * Functions for creating, indexing, and managing trees of data.
+  * "Find" and "walk" functions for easily locating and navigating trees of
+    data.
+ .
+ Mini-XML doesn't do validation or other types of processing on the data based
+ upon schema files or other sources of definition information, nor does it
+ support character entities other than those required by the XML specification.
+ .
+ This package contains the files necessary for running applications that
+ use the Mini-XML library.
+Homepage: https://www.msweet.org/mxml/
+
 Package: libmypaint-1.5-1
 Status: install ok installed
 Priority: optional
@@ -15447,6 +15594,31 @@ Description: implementation of QUIC protocol (library)
  This package contains the shared library.
 Homepage: https://github.com/ngtcp2/ngtcp2
 
+Package: libnice10
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 407
+Maintainer: Debian Telepathy maintainers <pkg-telepathy-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libnice
+Version: 0.1.22-1
+Depends: libc6 (>= 2.28), libglib2.0-0t64 (>= 2.54.0), libgnutls30t64 (>= 3.7.0), libgupnp-igd-1.6-0 (>= 0.2.4)
+Description: ICE library (shared library)
+ Nice is an implementation of the IETF's draft Interactive Connectivity
+ Establishment standard (ICE).  ICE is useful for applications that want to
+ establish peer-to-peer UDP data streams. It automates the process of
+ traversing NATs and provides security against some attacks.
+ .
+ Existing standards that use ICE include the Session Initiation Protocol (SIP)
+ and the Jingle XMPP extension for audio/video calls.
+ .
+ Nice includes integration with GStreamer.
+ .
+ This package provides the nice library.
+Homepage: https://libnice.freedesktop.org/
+
 Package: libnl-3-200
 Status: install ok installed
 Priority: optional
@@ -15689,12 +15861,12 @@ Package: libnss3
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 4488
+Installed-Size: 4479
 Maintainer: Maintainers of Mozilla-related packages <team+pkg-mozilla@tracker.debian.org>
 Architecture: amd64
 Multi-Arch: same
 Source: nss
-Version: 2:3.110-1+deb13u4
+Version: 2:3.110-1+deb13u5
 Depends: libc6 (>= 2.34), libnspr4 (>= 2:4.34), libsqlite3-0 (>= 3.5.9)
 Description: Network Security Service libraries
  This is a set of libraries designed to support cross-platform development
@@ -16275,6 +16447,40 @@ Description: library for processing spreadsheet documents - parser library
  .
  This package contains the parser library.
 Homepage: https://gitlab.com/orcus/orcus
+
+Package: libotr5t64
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 221
+Maintainer: Debian Privacy Tools Maintainers <pkg-privacy-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: libotr
+Version: 4.1.1-6
+Replaces: libotr5
+Provides: libotr5 (= 4.1.1-6)
+Depends: libc6 (>= 2.33), libgcrypt20 (>= 1.11.0)
+Suggests: libotr5-bin (>= 4.1.1-6)
+Breaks: libotr5 (<< 4.1.1-6)
+Description: Off-the-Record Messaging library
+ OTR allows you to have private conversations over IM by providing:
+  - Encryption
+    - No one else can read your instant messages.
+  - Authentication
+    - You are assured the correspondent is who you think it is.
+  - Deniability
+    - The messages you send do not have digital signatures that are
+      checkable by a third party.  Anyone can forge messages after a
+      conversation to make them look like they came from you.  However,
+      during a conversation, your correspondent is assured the messages
+      they see are authentic and unmodified.
+  - Perfect forward secrecy
+    - If you lose control of your private keys, no previous conversation
+      is compromised.
+ .
+ This package provides the OTR library.
+Homepage: https://otr.cypherpunks.ca/
 
 Package: libp11-kit0
 Status: install ok installed
@@ -17279,6 +17485,31 @@ Description: library for accessing process information from /proc
  compiled with libproc2.
 Homepage: https://gitlab.com/procps-ng/procps
 
+Package: libprotobuf-c1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 62
+Maintainer: Robert Edmonds <edmonds@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: protobuf-c
+Version: 1.5.1-1
+Depends: libc6 (>= 2.14)
+Description: Protocol Buffers C shared library (protobuf-c)
+ Protocol Buffers are a flexible, efficient, automated mechanism for
+ serializing structured data - similar to XML, but smaller, faster, and
+ simpler. You define how you want your data to be structured once, then you can
+ use special generated source code to easily write and read your structured
+ data to and from a variety of data streams and using a variety of languages.
+ You can even update your data structure without breaking deployed programs
+ that are compiled against the "old" format.
+ .
+ This is the "protobuf-c" implementation of Protocol Buffers in C.
+ .
+ This package contains the shared library.
+Homepage: https://github.com/protobuf-c/protobuf-c
+
 Package: libprotobuf-lite32t64
 Status: install ok installed
 Priority: optional
@@ -17428,6 +17659,34 @@ Description: PulseAudio client libraries
  Client libraries used by applications that access a PulseAudio sound server
  via PulseAudio's native interface.
 Homepage: http://pulseaudio.org
+
+Package: libpurple0t64
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 3792
+Maintainer: Richard Laager <rlaager@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: pidgin
+Version: 2.14.14-1
+Replaces: libpurple0
+Provides: libpurple0 (= 2.14.14-1)
+Depends: libsasl2-modules, pidgin-data (<< 2.14.14-z), pidgin-data (>= 2.14.14), perl-base (>= 5.40.0-8), perlapi-5.40.0, libavahi-client3 (>= 0.6.16), libavahi-common3 (>= 0.6.16), libavahi-glib1 (>= 0.6.16), libc6 (>= 2.34), libdbus-1-3 (>= 1.10), libdbus-glib-1-2 (>= 0.78), libfarstream-0.2-5 (>= 0.2.7), libgadu3t64 (>= 1:1.12.0~rc2), libglib2.0-0t64 (>= 2.80.0), libgstreamer-plugins-base1.0-0 (>= 1.0.0), libgstreamer1.0-0 (>= 1.6.0), libidn12 (>= 1.13), libmeanwhile1 (>= 1.1.1), libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.66), libperl5.40 (>= 5.40.0), libsasl2-2 (>= 2.1.28+dfsg1), libxml2 (>= 2.7.4), libzephyr4
+Recommends: ca-certificates, libpurple-bin
+Suggests: libtcl8.6 (>= 8.6.0), libtk8.6 (>= 8.6.0)
+Breaks: libpurple0 (<< 2.14.14-1)
+Description: multi-protocol instant messaging library
+ libpurple is a library intended to be used by programmers seeking
+ to write an IM client that connects to many IM networks.
+ Currently supported out of the box are:
+ Jabber/XMPP, Bonjour, Gadu-Gadu, IRC, Novell GroupWise Messenger, Lotus
+ Sametime, SIMPLE, and Zephyr. It can support many more with plugins.
+ .
+ Some extra packages are suggested to use increased functionality:
+  * libtcl8.6, libtk8.6:
+    - Support for writing plugins with Tcl/Tk
+Homepage: https://www.pidgin.im
 
 Package: libpyside6-py3-6.8
 Status: install ok installed
@@ -19109,10 +19368,10 @@ Package: librewolf
 Status: install ok installed
 Priority: optional
 Section: web
-Installed-Size: 473545
-Maintainer: <@ac2abaa84862>
+Installed-Size: 474474
+Maintainer: <@cf3f913d7ce2>
 Architecture: amd64
-Version: 158.0.1-2
+Version: 159.0-1
 Provides: www-browser, gnome-www-browser
 Depends: libasound2 (>= 1.0.16), libatk1.0-0 (>= 1.12.4), libc6 (>= 2.28), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.9.14), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.6), libgcc1 (>= 1:4.5), libgdk-pixbuf-2.0-0 (>= 2.22.0) | libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.37.3), libgtk-3-0 (>= 3.13.7), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 5), libx11-6, libx11-xcb1, libxcb-shm0, libxcb1, libxcomposite1 (>= 1:0.3-1), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxi6, libxrandr2 (>= 2:1.4.0), libxrender1
 Conffiles:
@@ -21211,7 +21470,7 @@ Maintainer: unbound packagers <unbound@packages.debian.org>
 Architecture: amd64
 Multi-Arch: same
 Source: unbound
-Version: 1.26.1-0+deb13u1
+Version: 1.26.2-0+deb13u1
 Depends: libc6 (>= 2.38), libevent-2.1-7t64 (>= 2.1.8-stable), libssl3t64 (>= 3.4.0)
 Description: library implementing DNS resolution and validation
  libunbound performs and validates DNS lookups; it can be used to convert
@@ -24392,6 +24651,26 @@ Description: library to access Zeitgeist - shared library
  to be used by applications.
 Homepage: https://zeitgeist.freedesktop.org/
 
+Package: libzephyr4
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 82
+Maintainer: Karl Ramm <kcr@debian.org>
+Architecture: amd64
+Multi-Arch: same
+Source: zephyr (3.1.2-1.1)
+Version: 3.1.2-1.1+b2
+Depends: libc6 (>= 2.14), libcom-err2 (>= 1.43.9)
+Conflicts: libzephyr4-krb, libzephyr4-krb45, libzephyr4-krb5
+Description: Project Athena's notification service - non-Kerberos libraries
+ Zephyr is derived from the original Project Athena 'Instant Message' system
+ and allows users to send messages to other users or to groups of users.
+ Users can view incoming Zephyr messages as windowgrams (transient X
+ windows) or as text on a terminal.
+ .
+ This package provides the libraries without Kerberos support.
+
 Package: libzimg2
 Status: install ok installed
 Priority: optional
@@ -26396,6 +26675,77 @@ Description: version compatibility baseline for Perl OpenSSL packages
  Tools are also provided for generating this dependency with minimum
  hassle. See the instructions in README.Debian.
 
+Package: pidgin
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 1845
+Maintainer: Richard Laager <rlaager@debian.org>
+Architecture: amd64
+Version: 2.14.14-1
+Depends: pidgin-data (<< 2.14.14-z), pidgin-data (>= 2.14.14), perl-base (>= 5.40.0-8), perlapi-5.40.0, libatk1.0-0t64 (>= 1.12.4), libc6 (>= 2.34), libcairo2 (>= 1.2.4), libdbus-1-3 (>= 1.10), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.76.0), libgstreamer-plugins-base1.0-0 (>= 1.0.0), libgstreamer1.0-0 (>= 1.0.0), libgtk2.0-0t64 (>= 2.24.0), libgtkspell0 (>= 2.0.10), libice6 (>= 1:1.0.0), libpango-1.0-0 (>= 1.18.0), libpurple0t64 (>= 2.14.0), libsm6, libx11-6, libxss1
+Recommends: gstreamer1.0-alsa | gstreamer1.0-pulseaudio, gstreamer1.0-libav, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good, sensible-utils
+Suggests: libsqlite3-0 (>= 3.5.9)
+Description: graphical multi-protocol instant messaging client
+ Pidgin is a graphical, modular instant messaging client capable of using
+ multiple networks at once.  Currently supported out of the box are:
+ Jabber/XMPP, Bonjour, Gadu-Gadu, IRC, Novell GroupWise Messenger, Lotus
+ Sametime, SIMPLE, and Zephyr. It can support many more with plugins.
+ .
+ Some extra packages are suggested to use increased functionality:
+  * libsqlite3-0:
+    - To use Contact Availability Prediction plugin
+Homepage: https://www.pidgin.im
+
+Package: pidgin-data
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 22955
+Maintainer: Richard Laager <rlaager@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: pidgin
+Version: 2.14.14-1
+Replaces: pidgin-facebookchat (<< 1.69-2)
+Breaks: pidgin-facebookchat (<< 1.69-2)
+Enhances: finch, libpurple0t64, pidgin
+Conffiles:
+ /etc/purple/prefs.xml 00b1849ec06427196f2df11c3b5a1e5b
+Description: multi-protocol instant messaging client - data files
+ This package contains architecture-independent supporting data files
+ required for use with pidgin, such as documentation, icons, translations,
+ and sounds.
+Homepage: https://www.pidgin.im
+
+Package: pidgin-otr
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 580
+Maintainer: Debian Privacy Tools Maintainers <pkg-privacy-maintainers@lists.alioth.debian.org>
+Architecture: amd64
+Version: 4.0.2-6
+Depends: libc6 (>= 2.4), libgcrypt20 (>= 1.11.0), libotr5t64 (>= 4.0.0)
+Description: Off-the-Record Messaging plugin for Pidgin
+ OTR allows you to have private conversations over IM by providing:
+  - Encryption
+    - No one else can read your instant messages.
+  - Authentication
+    - You are assured the correspondent is who you think it is.
+  - Deniability
+    - The messages you send do _not_ have digital signatures that are
+      checkable by a third party.  Anyone can forge messages after a
+      conversation to make them look like they came from you.  However,
+      _during_ a conversation, your correspondent is assured the messages
+      they see are authentic and unmodified.
+  - Perfect forward secrecy
+    - If you lose control of your private keys, no previous conversation
+      is compromised.
+ .
+ This is a Pidgin plugin which implements Off-the-Record (OTR) Messaging.
+Homepage: https://otr.cypherpunks.ca/
+
 Package: pinentry-curses
 Status: install ok installed
 Priority: optional
@@ -26768,6 +27118,21 @@ Description: accurate, machine-readable list of domain name suffixes
  the list useful for grouping cookies, deciding same-origin policies,
  collating spam, and other activities.
 Homepage: https://publicsuffix.org
+
+Package: purple-xmpp-carbons
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 32
+Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
+Architecture: amd64
+Version: 0.2.3-1.1
+Depends: libc6 (>= 2.2.5), libglib2.0-0t64 (>= 2.16.0), libpurple0t64
+Description: XMPP XEP-0280: Message Carbons plugin for libpurple
+ Carbons is a plugin for libpurple that implements message carbons as
+ documented in XEP-0280. This allows one to have consistent history across
+ multiple devices.
+Homepage: https://github.com/gkdr/carbons/
 
 Package: python3
 Status: install ok installed
@@ -29271,10 +29636,10 @@ Package: tor
 Status: install ok installed
 Priority: optional
 Section: net
-Installed-Size: 5906
+Installed-Size: 5919
 Maintainer: Peter Palfrader <weasel@debian.org>
 Architecture: amd64
-Version: 0.4.9.14-1~d13.trixie+1
+Version: 0.4.9.15-1~d13.trixie+1
 Depends: libc6 (>= 2.38), libcap2 (>= 1:2.10), libevent-2.1-7t64 (>= 2.1.8-stable), liblzma5 (>= 5.1.1alpha+20120614), libseccomp2 (>= 0.0.0~20120605), libssl3t64 (>= 3.0.0), libsystemd0, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4), adduser, runit-helper (>= 2.14.0~), lsb-base
 Recommends: logrotate, tor-geoipdb, torsocks
 Suggests: mixmaster, torbrowser-launcher, socat, apparmor-utils, nyx, obfs4proxy
@@ -29327,13 +29692,13 @@ Package: tor-geoipdb
 Status: install ok installed
 Priority: optional
 Section: net
-Installed-Size: 26321
+Installed-Size: 25889
 Maintainer: Peter Palfrader <weasel@debian.org>
 Architecture: all
 Source: tor
-Version: 0.4.9.14-1~d13.trixie+1
+Version: 0.4.9.15-1~d13.trixie+1
 Replaces: tor (<< 0.2.4.8)
-Depends: tor (>= 0.4.9.14-1~d13.trixie+1)
+Depends: tor (>= 0.4.9.15-1~d13.trixie+1)
 Breaks: tor (<< 0.2.4.8)
 Description: GeoIP database for Tor
  This package provides a GeoIP database for Tor, i.e. it maps IPv4 addresses
@@ -29353,11 +29718,11 @@ Package: tzdata
 Status: install ok installed
 Priority: required
 Section: localization
-Installed-Size: 1359
+Installed-Size: 1360
 Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
 Architecture: all
 Multi-Arch: foreign
-Version: 2026e-0+deb13u1
+Version: 2026f-0+deb13u1
 Replaces: tzdata-legacy (= 2023c-8), tzdata-legacy (= 2023c-9)
 Provides: tzdata-trixie
 Depends: debconf (>= 0.5) | debconf-2.0

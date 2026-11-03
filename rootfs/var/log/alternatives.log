@@ -88,3 +88,21 @@ update-alternatives 2026-10-23 02:52:41: run with --set ip6tables /usr/sbin/ip6t
 update-alternatives 2026-10-23 02:52:41: status of link group /usr/sbin/ip6tables set to manual
 update-alternatives 2026-10-23 02:52:41: run with --set lightdm-greeter /usr/share/xgreeters/lightdm-gtk-greeter.desktop
 update-alternatives 2026-10-23 02:52:41: status of link group /usr/share/xgreeters/lightdm-greeter.desktop set to manual
+update-alternatives 2026-11-01 06:26:30: run with --install /usr/bin/x-www-browser x-www-browser /usr/bin/librewolf 70
+update-alternatives 2026-11-01 06:26:30: run with --install /usr/bin/gnome-www-browser gnome-www-browser /usr/bin/librewolf 70
+update-alternatives 2026-11-02 18:23:28: run with --quiet --install /usr/bin/cc cc /usr/bin/gcc 20
+update-alternatives 2026-11-02 18:23:28: link group cc updated to point to /usr/bin/gcc
+update-alternatives 2026-11-02 18:23:28: run with --quiet --install /usr/bin/c89 c89 /usr/bin/c89-gcc 20 --slave /usr/share/man/man1/c89.1.gz c89.1.gz /usr/share/man/man1/c89-gcc.1.gz
+update-alternatives 2026-11-02 18:23:28: link group c89 updated to point to /usr/bin/c89-gcc
+update-alternatives 2026-11-02 18:23:28: run with --quiet --install /usr/bin/c99 c99 /usr/bin/c99-gcc 20 --slave /usr/share/man/man1/c99.1.gz c99.1.gz /usr/share/man/man1/c99-gcc.1.gz
+update-alternatives 2026-11-02 18:23:28: link group c99 updated to point to /usr/bin/c99-gcc
+update-alternatives 2026-11-02 18:32:05: run with --install /usr/bin/c++ c++ /usr/bin/g++ 20
+update-alternatives 2026-11-02 18:32:05: link group c++ updated to point to /usr/bin/g++
+update-alternatives 2026-11-02 18:37:01: run with --remove c++ /usr/bin/g++
+update-alternatives 2026-11-02 18:37:01: link group c++ fully removed
+update-alternatives 2026-11-02 18:37:02: run with --quiet --remove cc /usr/bin/gcc
+update-alternatives 2026-11-02 18:37:02: link group cc fully removed
+update-alternatives 2026-11-02 18:37:02: run with --quiet --remove c89 /usr/bin/c89-gcc
+update-alternatives 2026-11-02 18:37:02: link group c89 fully removed
+update-alternatives 2026-11-02 18:37:02: run with --quiet --remove c99 /usr/bin/c99-gcc
+update-alternatives 2026-11-02 18:37:02: link group c99 fully removed

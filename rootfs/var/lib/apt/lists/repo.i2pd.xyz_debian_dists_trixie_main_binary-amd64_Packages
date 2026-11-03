@@ -1,0 +1,179 @@
+Package: i2p
+Priority: optional
+Section: net
+Installed-Size: 431
+Maintainer: zzz <zzz@i2pmail.org>
+Architecture: all
+Version: 2.13.1-1~ubuntu4
+Depends: debconf (>= 0.5) | debconf-2.0, i2p-router (= 2.13.1-1~ubuntu4), adduser, apparmor, debconf, libjbigi-jni, lsb-base, service-wrapper, ucf (>= 0.28)
+Filename: pool/main/i/i2p/i2p_2.13.1-1~ubuntu4_all.deb
+Size: 80446
+MD5sum: c4f0a51e99d3472de3f3e3399e211cb4
+SHA1: ae283df0f2772ece337d10abce96aa012f8a879d
+SHA256: c43816af7c28b99c0c62a35463fcfabb7662048bedf23b39f2472de97f234905
+SHA512: 9db33c60e66ca451777b78c2726e24fba6c1c25fffafeeeed49a99cd0e1ec3f0814daafa014f1cf5ae744e691f9b3a12a0217b2967228e3f0751e2dc57083afb
+Description: Invisible Internet Project (I2P) - anonymous network
+Bugs: mailto:zzz@i2pmail.org
+Description-Md5: af30cb5729ed02b68be39b03bbe331bf
+
+Package: i2p-doc
+Priority: optional
+Section: doc
+Installed-Size: 83189
+Maintainer: zzz <zzz@i2pmail.org>
+Architecture: all
+Source: i2p
+Version: 2.13.1-1~ubuntu4
+Suggests: i2p, default-jdk-doc
+Filename: pool/main/i/i2p/i2p-doc_2.13.1-1~ubuntu4_all.deb
+Size: 3252182
+MD5sum: 2c07d4b9ca8b22fd67f3abea653d92e7
+SHA1: e6362e0ebf26c24f22c674128ff0ec8062ee8dec
+SHA256: e73c2d14b751475576154647c06b4840e80f58718e887a759e42c88fe86d3a64
+SHA512: d13232225687987438db6fc8f9766aaa373e61ac45cb3ec0bffb0924b7b19828dd3158b8b47b41c33ce24be12ff2f8834943b657c4879ea588051e5eaf82a759
+Description: Invisible Internet Project (I2P) - developer documentation
+Bugs: mailto:zzz@i2pmail.org
+Description-Md5: a38a3343330ab23e4039d143d8b57c15
+
+Package: i2p-keyring
+Priority: extra
+Section: misc
+Installed-Size: 29
+Maintainer: zzz on i2p <zzz@i2pmail.org>
+Architecture: all
+Version: 2025.07.25
+Depends: gnupg, coreutils (>= 7.4)
+Filename: pool/main/i/i2p-keyring/i2p-keyring_2025.07.25_all.deb
+Size: 15244
+MD5sum: d2ee4c988867aff708c9eea8a7fba342
+SHA1: eab851d2ca64fdf59f34299565727458b66011ff
+SHA256: 7882565bb34f8db23c9366605902102efef53e3db8096f4202b7c796800bcf30
+SHA512: 7db70e9adabff49a3a9d02f309dc12175d90c2f0a8df5dd8c92105268caddfedfcaf2b51f87dcde7e35ee4dc2d65d452c906db3525e1e11267f896f93713b730
+Description: GnuPG keys of the I2P package repository
+ This package provides digital keys used for signing I2P's repositories.
+ Upon installation of this package, your APT trusted keyring will updated with
+ these keys. Upon removal of this package, the keys provided by this package
+ will be removed from the APT trusted keyring.
+
+Package: i2p-router
+Priority: optional
+Section: net
+Installed-Size: 18377
+Maintainer: zzz <zzz@i2pmail.org>
+Architecture: all
+Source: i2p
+Version: 2.13.1-1~ubuntu4
+Replaces: i2p (<< 0.8.6-5)
+Depends: openjdk-25-jre-headless | openjdk-21-jre-headless | openjdk-17-jre-headless, geoip-database, gettext-base, libgetopt-java, libjson-simple-java (>= 2), libjson-simple-java (<< 3), libjsp-api-java, libservlet-api-java, libtaglibs-standard-jstlel-java, libtomcat9-java, famfamfam-flag-png, sensible-utils
+Recommends: libjbigi-jni
+Suggests: apparmor, privoxy, syndie
+Breaks: i2p (<< 0.8.6-5)
+Filename: pool/main/i/i2p/i2p-router_2.13.1-1~ubuntu4_all.deb
+Size: 15937292
+MD5sum: 67771001c31fd0b494aad79ec28a8fcb
+SHA1: 784b7501b16cba57a007f378c4075e1ac0e1454e
+SHA256: 7962e7766d1a5195b355187840c6cf63d9cb3bfeb2eddf5bd02e517b4c71fdaf
+SHA512: 64724dd25781453e73e4917d8b8b46787a9dcf8874cf1e9100ca3eb635ce3c8e9d15e0da7ac9a54edca0d9b218c11afc6d250519ef28c92a081a8f2e5b007450
+Description: Invisible Internet Project (I2P) - Router
+Bugs: mailto:zzz@i2pmail.org
+Description-Md5: b09b6523ae336da4c30a1d1deee14532
+
+Package: i2pd
+Priority: optional
+Section: net
+Installed-Size: 7061
+Maintainer: r4sas <r4sas@i2pmail.org>
+Architecture: amd64
+Version: 3.0.0-1trixie1
+Depends: libboost-json1.83.0 (>= 1.83.0), libboost-program-options1.83.0 (>= 1.83.0), libboost-url1.83.0 (>= 1.83.0), libc6 (>= 2.38), libgcc-s1 (>= 3.4), libminiupnpc18 (>= 2.2.8), libssl3t64 (>= 3.0.0), libstdc++6 (>= 14), zlib1g (>= 1:1.1.4)
+Pre-Depends: init-system-helpers (>= 1.54~), adduser
+Filename: pool/main/i/i2pd/i2pd_3.0.0-1trixie1_amd64.deb
+Size: 1957004
+MD5sum: 61da4fba36a6f98944866cc189f6f407
+SHA1: 8a70b08d1c73b1d8ae0b79f4d4ad6cb5bffacdcb
+SHA256: c48c9e2e44fb67e9c650b01225ccf816d8b2cecf3246a5112ccdcf5a6e4fbe70
+SHA512: c93745ac631b794fa78d127370317ee0a921fedeb48ab76fe544df26fec1c41371008945d76d5caa503609e051d62c1c774e408f1a61d2c2b9f81076b18a8239
+Description: Full-featured C++ implementation of I2P client.
+ I2P (Invisible Internet Protocol) is a universal anonymous network layer. All
+ communications over I2P are anonymous and end-to-end encrypted, participants
+ don't reveal their real IP addresses.
+Homepage: http://i2pd.website/
+
+Package: i2pd
+Priority: optional
+Section: net
+Installed-Size: 5538
+Maintainer: r4sas <r4sas@i2pmail.org>
+Architecture: amd64
+Version: 2.61.0-1trixie1
+Depends: libboost-program-options1.83.0 (>= 1.83.0), libc6 (>= 2.38), libgcc-s1 (>= 3.0), libminiupnpc18 (>= 2.2.8), libssl3t64 (>= 3.0.0), libstdc++6 (>= 14), zlib1g (>= 1:1.1.4)
+Pre-Depends: init-system-helpers (>= 1.54~), adduser
+Filename: pool/main/i/i2pd/i2pd_2.61.0-1trixie1_amd64.deb
+Size: 1574600
+MD5sum: 307dc0d239028bbfb33a06dfe65203e3
+SHA1: c640c316bde848f2c9f20256f91047076957f378
+SHA256: 07ba6bab3ac4925f97ddb4b2d012ff878bec06b75506dbeace5f8fb63f286805
+SHA512: dcced29f574aad1bad69c9279fc4086bfd4bc64abca4bd456153f966962cea7629288e4dd44a47724536db03cf0be752193bc5827f21bf53ae36737654201136
+Description: Full-featured C++ implementation of I2P client.
+ I2P (Invisible Internet Protocol) is a universal anonymous network layer. All
+ communications over I2P are anonymous and end-to-end encrypted, participants
+ don't reveal their real IP addresses.
+Homepage: http://i2pd.website/
+
+Package: i2pd-dbgsym
+Priority: optional
+Section: debug
+Installed-Size: 59537
+Maintainer: r4sas <r4sas@i2pmail.org>
+Architecture: amd64
+Source: i2pd
+Version: 3.0.0-1trixie1
+Depends: i2pd (= 3.0.0-1trixie1)
+Filename: pool/main/i/i2pd/i2pd-dbgsym_3.0.0-1trixie1_amd64.deb
+Size: 56906500
+MD5sum: c6751b715b0848213e63ff1332689571
+SHA1: 05f85df353a3ed86b941c619e3b654357c3bfcdf
+SHA256: 4db8669bbcfacc1d56df74ac16ad8256e3187c5be3436e959ae8eda2b2847007
+SHA512: d0b313f070f997269d104cb6759ec9c10540cf2635f133a59f896cb28608a7d929bfbf7c207cc668f0f30f989504dcbcf2f74a83950a24cc4f96e820dba7cce2
+Description: debug symbols for i2pd
+Auto-Built-Package: debug-symbols
+Build-Ids: 15f9f747340bcfc520483b8887e934f954ad09ed
+
+Package: i2pd-dbgsym
+Priority: optional
+Section: debug
+Installed-Size: 47071
+Maintainer: r4sas <r4sas@i2pmail.org>
+Architecture: amd64
+Source: i2pd
+Version: 2.61.0-1trixie1
+Depends: i2pd (= 2.61.0-1trixie1)
+Filename: pool/main/i/i2pd/i2pd-dbgsym_2.61.0-1trixie1_amd64.deb
+Size: 45406240
+MD5sum: 28e3e120225ff0bf844def78bb708dff
+SHA1: 0bc9033ebdbfd98789d58d9c147b3fd991545990
+SHA256: 9d8cc00d6802e2b32271fcc1ed5d4e015fe6c74454184051b98eb1325275969f
+SHA512: 3c9ce9f314a3a217481a42df599704d673234bf2ba8fc8894234bb9c0e58de326154e19953e0fc5aff4e2f2204cb21053da6357339a6babcf21983d412fc7b02
+Description: debug symbols for i2pd
+Auto-Built-Package: debug-symbols
+Build-Ids: 14b8ff74bd34c3631b59d96ee747b8fbf9ef434c
+
+Package: libjbigi-jni
+Priority: optional
+Section: java
+Installed-Size: 326
+Maintainer: zzz <zzz@i2pmail.org>
+Architecture: amd64
+Source: i2p
+Version: 2.13.1-1~ubuntu4
+Depends: libc6 (>= 2.4), libgmp10 (>= 2:6.2.1+dfsg), i2p-router
+Filename: pool/main/i/i2p/libjbigi-jni_2.13.1-1~ubuntu4_amd64.deb
+Size: 290542
+MD5sum: eabb75a43eeeac06134845c5da527c80
+SHA1: 0367f653834ebbd32af53bea22b2084099d6235c
+SHA256: b64c65c2fa23f186701cd2c885394c19b1448e4c74228fa878c3380eeb1ae598
+SHA512: 8f5fb24e2753ad9d61584533aadda3b3f6eae45fe7d59759b2ccbb54f60388aa59dc1480fa48ee8a2eb58f7f0503bdd68b9a50f6b9a5bbdcd58aa10136d103a7
+Description: Invisible Internet Project (I2P) - libjbigi library
+Bugs: mailto:zzz@i2pmail.org
+Description-Md5: 9abc006aa799702ff868098881332bad
+

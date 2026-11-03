@@ -26,8 +26,9 @@ module.exports = {
 	leaveMessage: "",
 	// "defaults" is the form behind "Connect to a network" (The Lounge 4.5 allows only one).
 	// The user "prestium" already has one network per i2pd IRC client tunnel, host and
-	// port filled in: IRC2P 6668 (postman), IRC2P (echelon) 6665, IRC2P (dg) 6666,
-	// Ilita 6669, Ilita (r4sas) 6670, Ilita (acetone) 6671, Ilita (rusirc) 6672
+	// port filled in: IRC2P 6668 (postman), IRC2P (echelon) 6665,
+	// Ilita 6669, Ilita (r4sas) 6670, Ilita (acetone) 6671 (1.9.1.2: dg and rusirc removed;
+	// no default channels, users join their own)
 	// (see /usr/local/share/prestium-thelounge/prestium.json).
 	defaults: {
 		name: "IRC2P",
@@ -39,7 +40,7 @@ module.exports = {
 		nick: "anon%%%%",
 		username: "user",
 		realname: "anon",
-		join: "#i2p,#i2p-chat,#i2p-dev",
+		join: "",
 		leaveMessage: "",
 	},
 	lockNetwork: false,
