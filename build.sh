@@ -32,6 +32,8 @@ install -D -m 644 /etc/resolv.conf config/includes.chroot/usr/share/prestium/bui
 lb config >/dev/null
 if [ "$MODE" = --resume ]; then
 	rm -f .lock
+	# an interrupted bootstrap stage cannot be continued: start the chroot again (debs are cached)
+	if [ ! -e .build/bootstrap ] && [ -d chroot ]; then rm -rf chroot; fi
 	# mounts do not survive a reboot: let live-build mount them again
 	for s in chroot_devpts chroot_proc chroot_selinuxfs chroot_sysfs chroot_tmpfs; do rm -f ".build/$s"; done
 	if [ -d chroot/var/lib/dpkg ] && [ -n "$(ls -A chroot/var/lib/dpkg/updates 2>/dev/null)" ]; then
