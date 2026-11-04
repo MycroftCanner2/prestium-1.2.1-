@@ -32,6 +32,17 @@ install -D -m 644 /etc/resolv.conf config/includes.chroot/usr/share/prestium/bui
 lb config >/dev/null
 if [ "$MODE" = --resume ]; then
 	rm -f .lock
+	# The installer and binary stages swap the real chroot into chroot/chroot (outer = bootstrap copy,
+	# marked chroot_for_installer.cache or chroot.cache). live-build re-runs installer_chroot on every
+	# "lb build" (it removes that stage file itself), and on a swapped tree that deletes the real chroot.
+	# So undo an interrupted swap first and let binary_chroot redo it.
+	if [ -d chroot/chroot ] && { [ -e chroot/chroot_for_installer.cache ] || [ -e chroot/chroot.cache ]; }; then
+		for m in chroot/chroot/dev/pts chroot/chroot/proc chroot/chroot/sys chroot/dev/pts chroot/proc chroot/sys; do
+			mountpoint -q "$m" && umount -l "$m" || true
+		done
+		mv chroot/chroot chroot.real && rm -rf chroot && mv chroot.real chroot
+		rm -f .build/installer_chroot .build/binary_chroot .build/binary_rootfs
+	fi
 	# an interrupted bootstrap stage cannot be continued: start the chroot again (debs are cached)
 	if [ ! -e .build/bootstrap ] && [ -d chroot ]; then rm -rf chroot; fi
 	# live-build appends the package lists to chroot/root/packages.chroot: rebuild it from the
