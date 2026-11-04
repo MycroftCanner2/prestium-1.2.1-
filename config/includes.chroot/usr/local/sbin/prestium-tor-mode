@@ -1,0 +1,209 @@
+#!/usr/bin/python3
+# Prestium 2.0: root helper of the Tor Connection Assistant (run through sudo by "user" only).
+#   prestium-tor-mode apply      read a JSON request on stdin, write Tor's drop-in, reload Tor
+#   prestium-tor-mode reconnect  restart Tor (new guard/bridge connections)
+#   prestium-tor-mode status     print the current mode as JSON
+#   prestium-tor-mode features   print what the installed transports support (JSON)
+# Request: {"mode": "direct|snowflake|webtunnel|obfs4|meek", "bridges": "<lines>" (optional),
+#           "builtin": true|false, "snowflake_i2p_rendezvous": true|false}
+# Everything from the request is validated against strict patterns; nothing is passed to a shell.
+# Hostnames needed by Snowflake/meek/WebTunnel are resolved by DNS-over-HTTPS through the I2P
+# outproxy (see /usr/local/lib/prestium/ptdns-resolve) and pinned in /etc/hosts for the transports.
+import json, os, re, subprocess, sys, tempfile
+
+DROPIN = "/etc/tor/torrc.d/50-prestium-assistant.conf"
+FERM_INC = "/etc/ferm/prestium-tor-pt.conf"
+STATE = "/run/prestium/tor-mode.json"
+BUILTIN = "/usr/share/prestium/tor-bridges-builtin.json"
+HOSTS = "/etc/hosts"
+BEGIN, END = "# BEGIN prestium-ptdns (Tor Connection Assistant)", "# END prestium-ptdns"
+MODES = ("direct", "snowflake", "webtunnel", "obfs4", "meek")
+
+FP = r"[0-9A-F]{40}"
+ADDR = r"(?:\d{1,3}(?:\.\d{1,3}){3}|\[[0-9a-fA-F:]+\]):\d{1,5}"
+KV = r"(?:[A-Za-z0-9_-]{1,32}=[A-Za-z0-9+/=:.,_~%@\[\]-]{0,2000})"
+PATTERNS = {
+    "obfs4": re.compile(r"^obfs4 %s %s(?: %s)+$" % (ADDR, FP, KV)),
+    "webtunnel": re.compile(r"^webtunnel %s %s(?: %s)+$" % (ADDR, FP, KV)),
+    "snowflake": re.compile(r"^snowflake %s %s(?: %s)+$" % (ADDR, FP, KV)),
+    "meek": re.compile(r"^meek_lite %s(?: %s)?(?: %s)+$" % (ADDR, FP, KV)),
+}
+HOST_RE = re.compile(r"^(?=.{1,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$", re.I)
+
+def die(msg, code=1):
+    print(json.dumps({"ok": False, "error": msg})); sys.exit(code)
+
+def atomic_write(path, text, mode=0o644):
+    d = os.path.dirname(path); os.makedirs(d, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=d, prefix=".prestium-")
+    with os.fdopen(fd, "w") as f:
+        f.write(text)
+    os.chmod(tmp, mode); os.replace(tmp, path)
+
+def snowflake_supports_proxy():
+    try:
+        r = subprocess.run(["/usr/bin/snowflake-client", "-h"], capture_output=True, text=True, timeout=10)
+        return "-proxy" in (r.stdout + r.stderr)
+    except Exception:
+        return False
+
+def kv(line, key):
+    m = re.search(r"(?:^| )%s=([^ ]+)" % re.escape(key), line)
+    return m.group(1) if m else None
+
+def hosts_for(mode, lines):
+    """Hostnames the transport itself has to look up."""
+    hs = set()
+    for l in lines:
+        if mode == "snowflake":
+            for f in (kv(l, "fronts") or kv(l, "front") or "").split(","):
+                if f: hs.add(f)
+            for s in (kv(l, "ice") or "").split(","):
+                m = re.match(r"^stuns?:([^:]+)(?::\d+)?$", s)
+                if m: hs.add(m.group(1))
+            u = kv(l, "ampcache")
+            if u: hs.add(re.sub(r"^https?://([^/:]+).*$", r"\1", u))
+        elif mode == "meek":
+            f = kv(l, "front")
+            if f: hs.add(f)
+        elif mode == "webtunnel":
+            u = kv(l, "url")
+            if u:
+                h = re.sub(r"^https?://([^/:]+).*$", r"\1", u)
+                hs.add(h)
+            s = kv(l, "servername")
+            if s: hs.add(s)
+    return sorted(h.lower() for h in hs if HOST_RE.match(h) and not re.match(r"^\d+\.\d+\.\d+\.\d+$", h))
+
+def resolve(hosts):
+    if not hosts:
+        return {}, {}
+    try:
+        r = subprocess.run(["/usr/sbin/runuser", "-u", "prestium-ptdns", "--",
+                            "/usr/bin/python3", "/usr/local/lib/prestium/ptdns-resolve"] + hosts,
+                           capture_output=True, text=True, timeout=600)
+        data = json.loads(r.stdout or "{}")
+    except Exception as e:
+        return {}, {"*": str(e)}
+    res = {}
+    for h, ips in (data.get("resolved") or {}).items():
+        if HOST_RE.match(h):
+            ok = [i for i in ips if re.match(r"^\d{1,3}(\.\d{1,3}){3}$", i)]
+            if ok: res[h.lower()] = ok
+    return res, data.get("errors") or {}
+
+def write_hosts(pins):
+    try:
+        cur = open(HOSTS).read()
+    except FileNotFoundError:
+        cur = "127.0.0.1\tlocalhost prestium\n"
+    cur = re.sub(r"\n?%s.*?%s\n?" % (re.escape(BEGIN), re.escape(END)), "\n", cur, flags=re.S).rstrip("\n") + "\n"
+    if pins:
+        block = [BEGIN, "# DoH answers fetched through the I2P outproxy; used by Tor's pluggable transports."]
+        for h in sorted(pins):
+            for ip in pins[h]:
+                block.append("%s\t%s" % (ip, h))
+        block.append(END)
+        cur += "\n".join(block) + "\n"
+    atomic_write(HOSTS, cur)
+
+def write_ferm(mode, i2p_rdv):
+    rules = ["# Prestium 2.0: written by prestium-tor-mode (Tor Connection Assistant); included by ferm.conf",
+             "# inside chain OUTPUT. Default: nothing extra (Tor may use TCP only)."]
+    if mode == "snowflake":
+        rules.append("# Snowflake: WebRTC/STUN need UDP; only Tor's uid (its PT child) and never to loopback")
+        rules.append("outerface ! lo mod owner uid-owner $tor_uid proto udp ACCEPT;")
+    atomic_write(FERM_INC, "\n".join(rules) + "\n")
+    subprocess.run(["/usr/bin/systemctl", "reload-or-restart", "ferm.service"], timeout=60)
+
+PT_LINES = ["ClientTransportPlugin meek_lite,obfs2,obfs3,obfs4,scramblesuit exec /usr/bin/lyrebird",
+            "ClientTransportPlugin webtunnel exec /usr/bin/webtunnel-client"]
+
+def write_torrc(mode, lines, i2p_rdv):
+    t = ["# Prestium 2.0: written by the Tor Connection Assistant (prestium-tor-mode). Mode: %s" % mode]
+    t += PT_LINES
+    if mode == "snowflake" and i2p_rdv:
+        # experimental: Snowflake's rendezvous through i2pd's SOCKS proxy (I2P outproxy)
+        t.append("ClientTransportPlugin snowflake exec /usr/bin/snowflake-client -proxy socks5://127.0.0.1:4447")
+    else:
+        t.append("ClientTransportPlugin snowflake exec /usr/bin/snowflake-client")
+    if mode == "direct":
+        t.append("UseBridges 0")
+    else:
+        t.append("UseBridges 1")
+        for l in lines:
+            t.append("Bridge " + l)
+    atomic_write(DROPIN, "\n".join(t) + "\n")
+
+def tor_reload(restart=False):
+    act = "restart" if restart else "reload"
+    r = subprocess.run(["/usr/bin/systemctl", act, "tor@default.service"], capture_output=True, text=True, timeout=120)
+    return r.returncode == 0, (r.stderr or "").strip()[-400:]
+
+def cmd_apply():
+    try:
+        req = json.loads(sys.stdin.read(200000))
+    except Exception:
+        die("bad request")
+    mode = req.get("mode")
+    if mode not in MODES:
+        die("unknown mode")
+    builtin = bool(req.get("builtin", True))
+    i2p_rdv = bool(req.get("snowflake_i2p_rendezvous", False)) and mode == "snowflake"
+    if i2p_rdv and not snowflake_supports_proxy():
+        die("snowflake-client has no -proxy option")
+    lines = []
+    if mode != "direct":
+        user = [l.strip() for l in str(req.get("bridges", "")).splitlines() if l.strip() and not l.strip().startswith("#")]
+        user = [re.sub(r"^Bridge\s+", "", l) for l in user]
+        if len(user) > 64:
+            die("too many bridge lines")
+        pat = PATTERNS[mode]
+        for l in user:
+            if not pat.match(l):
+                die("invalid %s bridge line: %s" % (mode, l[:80]))
+        lines = user
+        if (builtin or not lines) and mode in ("obfs4", "snowflake", "meek"):
+            b = json.load(open(BUILTIN))
+            lines = lines + [l for l in b.get(mode, []) if pat.match(l)]
+        if not lines:
+            die("%s needs at least one bridge line" % mode)
+    pins, errs = resolve(hosts_for(mode, lines))
+    write_hosts(pins)
+    write_ferm(mode, i2p_rdv)
+    write_torrc(mode, lines, i2p_rdv)
+    ok, err = tor_reload(restart=True)
+    state = {"mode": mode, "builtin": builtin, "bridges": len(lines), "pinned": pins,
+             "dns_errors": errs, "snowflake_i2p_rendezvous": i2p_rdv}
+    atomic_write(STATE, json.dumps(state), 0o644)
+    print(json.dumps(dict(state, ok=ok, error=err)))
+    return 0 if ok else 1
+
+def cmd_status():
+    try:
+        print(open(STATE).read())
+    except FileNotFoundError:
+        print(json.dumps({"mode": "direct", "builtin": True, "bridges": 0, "pinned": {}}))
+    return 0
+
+def main():
+    if os.geteuid() != 0:
+        die("must run as root (sudo)")
+    a = sys.argv[1] if len(sys.argv) > 1 else ""
+    if a == "apply":
+        return cmd_apply()
+    if a == "reconnect":
+        ok, err = tor_reload(restart=True)
+        print(json.dumps({"ok": ok, "error": err})); return 0 if ok else 1
+    if a == "status":
+        return cmd_status()
+    if a == "features":
+        print(json.dumps({"snowflake_proxy": snowflake_supports_proxy(),
+                          "webtunnel": os.path.exists("/usr/bin/webtunnel-client"),
+                          "snowflake": os.path.exists("/usr/bin/snowflake-client"),
+                          "obfs4": os.path.exists("/usr/bin/lyrebird")}))
+        return 0
+    die("usage: prestium-tor-mode apply|reconnect|status|features", 2)
+
+if __name__ == "__main__":
+    sys.exit(main())

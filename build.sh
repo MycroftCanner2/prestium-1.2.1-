@@ -1,0 +1,51 @@
+#!/bin/bash
+# Prestium 2.0: build Prestium-2.0-amd64.iso with live-build.
+#   sudo ./build.sh            fetch+verify third-party software, lb config, lb build, checksum
+#   sudo ./build.sh --resume   continue an interrupted build (keeps chroot and stage files)
+#   sudo ./build.sh --clean    lb clean --purge first
+# Host: Debian 13 (trixie) with live-build, debootstrap, squashfs-tools, xorriso, curl, gpg, gpgv,
+# git, unzip, npm. On a non-amd64 host also qemu-user-static with a binfmt_misc entry for x86-64
+# (flag F), so the amd64 chroot runs emulated. Output: ./Prestium-2.0-amd64.iso and .sha256.
+set -euo pipefail
+cd "$(dirname "$0")"
+TOP=$(pwd)
+OUT=Prestium-2.0-amd64.iso
+LOG=${PRESTIUM_BUILD_LOG:-$TOP/build.log}
+[ "$(id -u)" = 0 ] || { echo "run as root (sudo)"; exit 1; }
+MODE=${1:-}
+
+if [ "$(dpkg --print-architecture)" != amd64 ]; then
+	[ -e /proc/sys/fs/binfmt_misc/qemu-x86_64 ] || { echo "non-amd64 host: register qemu-x86_64 in binfmt_misc (qemu-user-static)"; exit 1; }
+fi
+
+if [ "$MODE" = --clean ]; then lb clean --purge; fi
+
+# 1. third-party software (signature + pinned SHA-256), staged for the chroot hooks
+CACHE=${PRESTIUM_CACHE:-$TOP/cache/thirdparty}
+PRESTIUM_CACHE=$CACHE scripts/fetch-thirdparty.sh
+
+# 2. the hooks need a resolver while the chroot is built; Prestium's own resolv.conf
+#    (nameserver 127.0.0.1) is put back by live-build at the end of the chroot stage
+install -D -m 644 /etc/resolv.conf config/includes.chroot/usr/share/prestium/build/host-resolv.conf
+
+# 3. configure + build
+lb config >/dev/null
+if [ "$MODE" = --resume ]; then
+	rm -f .lock
+	# mounts do not survive a reboot: let live-build mount them again
+	for s in chroot_devpts chroot_proc chroot_selinuxfs chroot_sysfs chroot_tmpfs; do rm -f ".build/$s"; done
+	if [ -d chroot/var/lib/dpkg ] && [ -n "$(ls -A chroot/var/lib/dpkg/updates 2>/dev/null)" ]; then
+		mount -t proc proc chroot/proc; mount --bind /dev chroot/dev; mount -t sysfs sysfs chroot/sys
+		chroot chroot dpkg --configure -a || true
+		umount chroot/sys chroot/dev chroot/proc
+	fi
+fi
+lb build 2>&1 | tee -a "$LOG"
+[ "${PIPESTATUS[0]}" = 0 ] || { echo "lb build failed, see $LOG"; exit 1; }
+
+# 4. name + checksum
+ISO=$(ls -t Prestium-2.0-amd64.hybrid.iso live-image-amd64.hybrid.iso Prestium-2.0*.iso 2>/dev/null | head -1)
+[ -n "$ISO" ] || { echo "no ISO produced"; exit 1; }
+[ "$ISO" = "$OUT" ] || mv -f "$ISO" "$OUT"
+sha256sum "$OUT" > "$OUT.sha256"
+cat "$OUT.sha256"

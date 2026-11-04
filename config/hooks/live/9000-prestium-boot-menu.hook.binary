@@ -1,0 +1,8 @@
+#!/bin/sh
+# Prestium 2.0: boot menu labels ("Prestium 2.0" instead of live-build's "Live system (amd64)")
+for f in boot/grub/*.cfg isolinux/*.cfg; do
+	[ -f "$f" ] || continue
+	sed -i -e 's/Live system (amd64 fail-safe mode)/Prestium 2.0 (nomodeset)/g' \
+	       -e 's/Live system (amd64)/Prestium 2.0/g' -e 's/Live system (autodetect)/Prestium 2.0/g' "$f"
+done
+exit 0

@@ -1,0 +1,94 @@
+#!/bin/sh
+# Prestium 2.0: system setup carried over from 1.9.1.3 (services, masks, diversions, alternatives,
+# CA list, dconf, plymouth, locale, version strings) plus the 2.0 audio stack.
+set -e
+B=/usr/share/prestium/build
+VERSION=2.0
+
+## services: exactly the units 1.9.1.3 enabled (+ PipeWire for 2.0); everything else package
+## postinsts enabled is disabled again
+keep=$(cut -d' ' -f1 "$B/systemd-wants.txt")
+for l in $(find /etc/systemd/system /etc/systemd/user -path '*.wants/*' 2>/dev/null); do
+	echo "$keep" | grep -qxF "$l" || { rm -f "$l"; echo "P: disabled $l"; }
+done
+while read -r link target; do
+	[ -n "$link" ] || continue
+	mkdir -p "$(dirname "$link")"; ln -sfn "$target" "$link"
+done < "$B/systemd-wants.txt"
+find /etc/systemd/system /etc/systemd/user -type d -name '*.wants' -empty -delete 2>/dev/null || true
+ln -sfn /usr/lib/systemd/system/lightdm.service /etc/systemd/system/display-manager.service
+ln -sfn /usr/lib/systemd/system/wpa_supplicant.service /etc/systemd/system/dbus-fi.w1.wpa_supplicant1.service
+ln -sfn /usr/lib/systemd/system/ModemManager.service /etc/systemd/system/dbus-org.freedesktop.ModemManager1.service
+ln -sfn /usr/lib/systemd/system/NetworkManager-dispatcher.service /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
+systemctl set-default graphical.target
+# masks (1.9.1.3): no wait-online at boot, no zeitgeist activity log
+ln -sfn /dev/null /etc/systemd/system/NetworkManager-wait-online.service
+ln -sfn /dev/null /etc/systemd/user/zeitgeist.service
+ln -sfn /dev/null /etc/systemd/user/zeitgeist-fts.service
+# init.d i2pd script removed in 1.9 (systemd unit only)
+rm -f /etc/init.d/i2pd
+update-rc.d -f i2pd remove >/dev/null 2>&1 || true
+
+## gvfs network backends disabled (diverted, as in 1.9.1.3)
+for m in afp-browse afp dav+sd dav dns-sd ftp ftpis ftps google http network nfs onedrive sftp smb-browse smb wsdd; do
+	f=/usr/share/gvfs/mounts/$m.mount
+	dpkg-divert --local --rename --divert "$f.prestium-disabled" --add "$f" >/dev/null
+done
+
+## LibreWolf: the package's own profile (unconfined, userns only) is replaced by Prestium's enforced
+## /etc/apparmor.d/usr.share.librewolf.librewolf
+rm -f /etc/apparmor.d/librewolf
+
+## alternatives (1.9.1.3 values)
+update-alternatives --set x-www-browser /usr/bin/librewolf >/dev/null 2>&1 || true
+update-alternatives --set gnome-www-browser /usr/bin/librewolf >/dev/null 2>&1 || true
+update-alternatives --set x-session-manager /usr/bin/openbox-session >/dev/null
+update-alternatives --set x-window-manager /usr/bin/openbox >/dev/null
+update-alternatives --set x-terminal-emulator /usr/bin/lxterm >/dev/null 2>&1 || true
+update-alternatives --set lightdm-greeter /usr/share/xgreeters/lightdm-gtk-greeter.desktop >/dev/null 2>&1 || true
+update-alternatives --set editor /bin/nano >/dev/null 2>&1 || true
+update-alternatives --set pinentry /usr/bin/pinentry-gnome3 >/dev/null 2>&1 || true
+update-alternatives --set pinentry-x11 /usr/bin/pinentry-gnome3 >/dev/null 2>&1 || true
+
+## CA certificates: eMudhra/emSign roots distrusted (as Tails 7.15.1), /etc/ca-certificates.conf
+update-ca-certificates --fresh >/dev/null 2>&1 || update-ca-certificates >/dev/null
+
+## dconf system db (Diodon settings + locks), plymouth theme, locale
+dconf update 2>/dev/null || true
+plymouth-set-default-theme connect 2>/dev/null || true
+grep -q '^en_US.UTF-8 UTF-8' /etc/locale.gen 2>/dev/null || echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
+locale-gen >/dev/null 2>&1 || true
+echo 'LANG=en_US.UTF-8' > /etc/default/locale
+echo 'Etc/UTC' > /etc/timezone; ln -sfn /usr/share/zoneinfo/Etc/UTC /etc/localtime
+
+echo prestium > /etc/hostname
+
+## Tor: torrc drop-in directory for the Tor Connection Assistant
+install -d -m 755 /etc/tor/torrc.d
+install -d -m 755 /run/prestium 2>/dev/null || true
+printf 'd /run/prestium 0755 root root -\n' > /usr/lib/tmpfiles.d/prestium.conf
+
+## 2.0 audio: PipeWire for every user session (systemd --user), PulseAudio clients via pipewire-pulse
+systemctl --global enable pipewire.socket pipewire-pulse.socket wireplumber.service >/dev/null 2>&1 || true
+# volumeicon (1.9.1.3's ALSA-only tray icon) is replaced by pasystray (started from openbox autostart)
+rm -f /etc/xdg/autostart/volumeicon.desktop
+if [ -e /etc/xdg/autostart/pasystray.desktop ]; then
+	# started once, from openbox's autostart (with Prestium's options), not twice
+	echo 'Hidden=true' >> /etc/xdg/autostart/pasystray.desktop
+fi
+
+## version strings
+cat > /usr/lib/os-release <<EOF
+PRETTY_NAME="Prestium"
+NAME="Prestium"
+VERSION_ID="$VERSION"
+VERSION="$VERSION (trixie)"
+ID=prestium
+ID_LIKE=debian
+VERSION_CODENAME=trixie
+HOME_URL="https://prestium.org/"
+EOF
+rm -f /etc/os-release; cp /usr/lib/os-release /etc/os-release
+printf 'Prestium %s \\n \\l\n\n' "$VERSION" > /etc/issue
+printf 'Prestium %s\n' "$VERSION" > /etc/issue.net
+echo "P: system setup done (Prestium $VERSION)"

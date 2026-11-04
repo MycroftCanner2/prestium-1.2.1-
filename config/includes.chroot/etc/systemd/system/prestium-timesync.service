@@ -1,0 +1,13 @@
+# Prestium 1.8: clock sync over Tor (Tails-style htpdate), no clearnet NTP.
+[Unit]
+Description=Prestium time sync over Tor
+After=tor.service network-online.target
+Wants=tor.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/prestium-timesync
+TimeoutStartSec=20min
+
+[Install]
+WantedBy=multi-user.target

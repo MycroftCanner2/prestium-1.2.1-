@@ -1,0 +1,16 @@
+// Prestium: let the desktop user shut down, reboot and manage networking/i2pd without a password
+polkit.addRule(function(action, subject) {
+    if (subject.user == "user" &&
+        (action.id.indexOf("org.freedesktop.login1.power-off") == 0 ||
+         action.id.indexOf("org.freedesktop.login1.reboot") == 0 ||
+         action.id.indexOf("org.freedesktop.login1.suspend") == 0 ||
+         action.id.indexOf("org.freedesktop.login1.hibernate") == 0 ||
+         action.id.indexOf("org.freedesktop.login1.halt") == 0 ||
+         action.id.indexOf("org.freedesktop.NetworkManager.") == 0)) {
+        return polkit.Result.YES;
+    }
+    if (subject.user == "user" && action.id == "org.freedesktop.systemd1.manage-units" &&
+        action.lookup("unit") == "i2pd.service") {
+        return polkit.Result.YES;
+    }
+});

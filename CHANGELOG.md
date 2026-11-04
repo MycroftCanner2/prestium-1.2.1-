@@ -1,3 +1,67 @@
+# Prestium 2.0 (draft, work in progress): changes since 1.9.1.3
+
+Prestium 2.0 is rebuilt from scratch with Debian's live-build (see BUILDING.md); the desktop looks
+and works the same. Not released yet: the download, size and SHA-256 will be added here when the
+ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
+since 1.8) follow below.
+
+## Build system
+- **Built with live-build** from a configuration in git (package lists, Prestium's files, hooks)
+  instead of upgrading and patching an unpacked root filesystem. Anyone can rebuild the ISO with
+  `sudo ./build.sh`.
+- Every third-party download (Tor Browser, Firefox, Node.js, The Lounge, Feather, lurch) is checked
+  against its publisher's OpenPGP signature and a SHA-256 pinned in the repository; LibreWolf, i2pd
+  and Tor come from their signed apt repositories.
+- Fixed: 1.9.1.3 shipped the build machine's `/etc/resolv.conf` (a private nameserver address).
+  2.0 ships Prestium's own (`nameserver 127.0.0.1`, no system DNS). The firewall blocked DNS anyway.
+
+## Hardware and packages
+- Everything current at build time: Debian 13 trixie with updates and security fixes, kernel from
+  the trixie 6.12 line (Tails' line), firmware from trixie-backports (`firmware-linux` 20260916 or
+  newer, the Tails 7.15 set) plus extra firmware for network cards, TV tuners, Qualcomm and Samsung
+  devices where Debian has it.
+- Tor Browser 16.0, Firefox 159.0.1 (local pages only), Node.js 24.22.2, The Lounge 4.5.2,
+  Feather 2.9.1 (was 2.8.1), LibreWolf, i2pd and Tor at the newest versions of their repositories.
+- Secure Boot (shim + GRUB), BIOS boot and the hybrid ISO are kept.
+
+## Audio
+- **PipeWire** with **WirePlumber**, **pipewire-pulse** and **pipewire-alsa** replaces plain ALSA,
+  so sound works on more hardware (USB, HDMI/DisplayPort, Bluetooth-free laptops with SOF DSPs,
+  Surface devices), with current ALSA UCM profiles and SOF firmware. Started for the user session by
+  systemd. The camera-and-microphone-off boot option still blocks capture devices.
+- The panel's volume icon is now **pasystray** (works with PipeWire); "Volume Control" (pavucontrol)
+  is unchanged in the menu. volumeicon (ALSA only) is gone.
+
+## Security
+- **LibreWolf (I2P Browser) runs under an enforced AppArmor profile** (complain mode in 1.9.1.3).
+  It can write only its own profile/cache/config, `~/Downloads` and temporary files, cannot read
+  other apps' data (Pidgin, Claws Mail, Feather, keyrings, GnuPG, Tor Browser) and cannot reach Tor's
+  control port. Opening a download in another app from inside the browser is not allowed; use the
+  file manager.
+- The firewall stays default-deny. New: the Tor Connection Assistant's DNS-over-HTTPS user may only
+  reach i2pd's HTTP proxy, and Tor's uid gets UDP only while Snowflake mode is on.
+
+## Feather
+- **Feather is back on I2P**, as in 1.7 and 1.8: its I2P proxy mode through i2pd's SOCKS proxy
+  (127.0.0.1:4447). 1.9.x had switched it to Tor (9050) with onion nodes only.
+
+## Tor Connection Assistant (new)
+- New menu entry **Network → Tor Connection Assistant**. Tor still connects directly at boot.
+- Shows Tor's bootstrap progress (through the control-port filter, read-only), a **Reconnect**
+  button, and modes **Direct**, **Snowflake**, **WebTunnel** and **obfs4** (Tor Browser's built-in
+  bridges and/or your own bridge lines).
+- **Snowflake and WebTunnel now work without system DNS:** only the host names they need (Snowflake
+  front domains and STUN servers, the WebTunnel bridge host) are resolved with DNS-over-HTTPS
+  **through the I2P outproxy** and pinned for Tor's transports. Tor's own traffic never goes through
+  I2P. Networks that block or poison DNS for Tor infrastructure can't stop these look-ups.
+- Optional, experimental: Snowflake's rendezvous through the I2P outproxy (if snowflake-client
+  supports `-proxy`).
+
+## Known limitations (2.0 draft)
+- See the test notes on the branch for what has and has not been verified in a VM yet.
+
+---
+
 # Prestium 1.9.1.3: changes since 1.8
 
 Prestium 1.9.1.3 is a major update over 1.8. It rebases on Debian 13, adds Secure Boot and broader hardware support, adds Tails-style hardening throughout, and brings new apps and updates to existing ones. The desktop looks and works the same as 1.8.

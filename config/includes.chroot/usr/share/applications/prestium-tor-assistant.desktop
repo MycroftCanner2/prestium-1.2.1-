@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Tor Connection Assistant
+Comment=Show Tor's connection status and choose Direct, Snowflake, WebTunnel or obfs4 bridges
+Exec=/usr/local/bin/prestium-tor-assistant
+Icon=network-wired
+Terminal=false
+Categories=Network;

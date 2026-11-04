@@ -1,0 +1,13 @@
+#!/bin/sh
+# Prestium: open The Lounge (IRC web client on 127.0.0.1:9000) in the local-only Firefox,
+# signed in automatically. The per-boot login token is readable by "user" only; it is
+# passed in the URL fragment (never sent to the server or written to The Lounge's logs)
+# to a small page on The Lounge's own origin that stores it where The Lounge looks for it.
+T=$(cat /run/prestium-thelounge/token 2>/dev/null)
+case "$T" in
+  *[!0-9a-f]*|"")
+    zenity --title "IRC (The Lounge)" --warning --no-wrap \
+      --text "The Lounge isn't running yet. Wait a moment and try again." 2>/dev/null
+    exit 1 ;;
+esac
+exec /usr/local/bin/prestium-localfox "http://127.0.0.1:9000/packages/thelounge-prestium-autologin/autologin.html#$T"

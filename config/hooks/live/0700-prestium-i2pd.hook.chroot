@@ -1,0 +1,14 @@
+#!/bin/sh
+# Prestium 2.0: i2pd keeps its real config in /var/lib/i2pd (the package ships symlinks to
+# /etc/i2pd; Prestium's files from config/includes.chroot replace them), owned by i2pd (2000).
+set -e
+for f in i2pd.conf tunnels.conf; do
+	[ -L /var/lib/i2pd/$f ] && { echo "E: /var/lib/i2pd/$f is still the package symlink"; exit 1; }
+	grep -q '^\[' /var/lib/i2pd/$f
+done
+ln -sfn /usr/share/i2pd/certificates /var/lib/i2pd/certificates
+ln -sfn /usr/share/i2pd/torrents /var/lib/i2pd/torrents
+install -d -o 2000 -g 2000 -m 774 /var/lib/i2pd/tunnels.d
+chown -h 2000:2000 /var/lib/i2pd /var/lib/i2pd/* ; chmod 700 /var/lib/i2pd
+grep -q 'proxy4uwdijqxac2bvdx4fuhem6njmiwukuk2gelejv2nzxka2xq.b32.i2p' /var/lib/i2pd/i2pd.conf
+echo "P: i2pd config in place ($(dpkg-query -W -f='${Version}' i2pd))"

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Screen locker (xss-lock)
+Comment=Prestium: lock the screen when the screensaver starts and before suspend
+Exec=xss-lock --transfer-sleep-lock -- /usr/local/bin/prestium-lock-screen
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
