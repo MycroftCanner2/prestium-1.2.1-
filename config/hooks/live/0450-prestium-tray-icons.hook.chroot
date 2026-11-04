@@ -1,0 +1,20 @@
+#!/bin/sh
+# Prestium 2.0: trixie's Adwaita (48) ships the audio-volume-* / audio-card icons only as
+# dark "-symbolic" SVGs, so pasystray's tray icon was drawn dark grey on tint2's black panel
+# (invisible). Copy GNOME's full-colour versions into hicolor, which GTK finds before it falls
+# back to the symbolic variant. The GTK icon theme itself (Adwaita) is left unchanged.
+set -e
+G=/usr/share/icons/gnome; H=/usr/share/icons/hicolor
+n=0
+for d in "$G"/*x*/status "$G"/*x*/devices; do
+	[ -d "$d" ] || continue
+	ctx=${d##*/}; size=${d%/*}; size=${size##*/}
+	for f in "$d"/audio-volume-high.png "$d"/audio-volume-medium.png "$d"/audio-volume-low.png \
+	         "$d"/audio-volume-muted.png "$d"/audio-card.png "$d"/audio-input-microphone.png; do
+		[ -f "$f" ] || continue
+		install -D -m 644 "$f" "$H/$size/$ctx/${f##*/}"; n=$((n+1))
+	done
+done
+[ "$n" -gt 0 ] || { echo "E: no GNOME audio icons found (gnome-icon-theme missing?)"; exit 1; }
+gtk-update-icon-cache -f -q "$H"
+echo "P: $n full-colour audio tray icons copied into hicolor"
