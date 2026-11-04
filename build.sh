@@ -34,6 +34,11 @@ if [ "$MODE" = --resume ]; then
 	rm -f .lock
 	# an interrupted bootstrap stage cannot be continued: start the chroot again (debs are cached)
 	if [ ! -e .build/bootstrap ] && [ -d chroot ]; then rm -rf chroot; fi
+	# live-build appends the package lists to chroot/root/packages.chroot: rebuild it from the
+	# current lists when the install pass has not finished (a changed list would otherwise keep old names)
+	if [ ! -e .build/chroot_install-packages.install ]; then
+		rm -f .build/chroot_package-lists.install chroot/root/packages.chroot
+	fi
 	# mounts do not survive a reboot: let live-build mount them again
 	for s in chroot_devpts chroot_proc chroot_selinuxfs chroot_sysfs chroot_tmpfs; do rm -f ".build/$s"; done
 	if [ -d chroot/var/lib/dpkg ] && [ -n "$(ls -A chroot/var/lib/dpkg/updates 2>/dev/null)" ]; then

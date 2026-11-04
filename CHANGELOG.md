@@ -23,6 +23,10 @@ since 1.8) follow below.
 - Tor Browser 16.0, Firefox 159.0.1 (local pages only), Node.js 24.22.2, The Lounge 4.5.2,
   Feather 2.9.1 (was 2.8.1), LibreWolf, i2pd and Tor at the newest versions of their repositories.
 - Secure Boot (shim + GRUB), BIOS boot and the hybrid ISO are kept.
+- SpeedCrunch is no longer in Debian 13 (1.9.x carried the Debian 12 package); the menu's
+  Calculator is now Galculator.
+- LibreWolf extensions updated to uBlock Origin 1.75.4 and NoScript 13.6.37 (AMO-signed); Tor
+  Browser's added uBlock Origin also 1.75.4.
 
 ## Audio
 - **PipeWire** with **WirePlumber**, **pipewire-pulse** and **pipewire-alsa** replaces plain ALSA,

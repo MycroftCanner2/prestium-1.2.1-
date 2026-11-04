@@ -58,8 +58,8 @@
     <item label="Feather Wallet (Monero)">
       <action name="Execute"><execute>feather</execute></action>
     </item>
-    <item label="SpeedCrunch Calculator">
-      <action name="Execute"><execute>speedcrunch</execute></action>
+    <item label="Calculator">
+      <action name="Execute"><execute>galculator</execute></action>
     </item>
     <item label="Archive Manager">
       <action name="Execute"><execute>file-roller</execute></action>
