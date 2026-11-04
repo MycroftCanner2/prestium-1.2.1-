@@ -42,6 +42,8 @@ if [ "$MODE" = --resume ]; then
 		done
 		mv chroot/chroot chroot.real && rm -rf chroot && mv chroot.real chroot
 		rm -f .build/installer_chroot .build/binary_chroot .build/binary_rootfs
+		# the configuration stage files then describe the discarded outer chroot, not the real one
+		for s in apt archives debianchroot dpkg hostname hosts resolv sysv-rc tmpfs; do rm -f ".build/chroot_$s"; done
 	fi
 	# an interrupted bootstrap stage cannot be continued: start the chroot again (debs are cached)
 	if [ ! -e .build/bootstrap ] && [ -d chroot ]; then rm -rf chroot; fi
@@ -62,7 +64,7 @@ lb build 2>&1 | tee -a "$LOG"
 [ "${PIPESTATUS[0]}" = 0 ] || { echo "lb build failed, see $LOG"; exit 1; }
 
 # 4. name + checksum
-ISO=$(ls -t Prestium-2.0-amd64.hybrid.iso live-image-amd64.hybrid.iso Prestium-2.0*.iso 2>/dev/null | head -1)
+ISO=$(ls -t Prestium-2.0-amd64.hybrid.iso live-image-amd64.hybrid.iso Prestium-2.0*.iso 2>/dev/null | head -1 || true)
 [ -n "$ISO" ] || { echo "no ISO produced"; exit 1; }
 [ "$ISO" = "$OUT" ] || mv -f "$ISO" "$OUT"
 sha256sum "$OUT" > "$OUT.sha256"
