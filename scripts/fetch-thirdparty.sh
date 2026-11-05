@@ -5,7 +5,9 @@
 #   scripts/fetch-thirdparty.sh --repin    verify signature only, print the SHA-256 values to pin
 #   It also downloads a fresh I2P reseed file (StormyCloud su3, signature-checked) into config/includes.chroot/var/lib/i2pd/.
 # Needs: curl gpg gpgv git sha256sum unzip npm python3 openssl (the host's npm only runs "npm ci --ignore-scripts": pure JS,
-# architecture-independent; every package tarball is checked against the lockfile's sha512 integrity).
+# architecture-independent). Every registry tarball is checked against the lockfile's sha512 integrity; the one git
+# dependency (irc-framework, pinned to a commit, no integrity in the lockfile) is checked against a SHA-256 of its
+# installed file tree pinned in thirdparty/versions.sh (IRC_FRAMEWORK_TREE_SHA256).
 set -euo pipefail
 TOP=$(cd "$(dirname "$0")/.." && pwd)
 . "$TOP/thirdparty/versions.sh"
@@ -17,7 +19,9 @@ gpg -q --import "$TOP"/thirdparty/keys/*.asc 2>/dev/null
 get(){ [ -s "$C/$2" ] || { curl -sfL --proto =https --proto-redir =https --retry 3 -m 1800 -o "$C/$2.part" "$1" && mv "$C/$2.part" "$C/$2"; }; }
 sha(){ sha256sum "$1" | cut -c1-64; }
 pin(){ # name file expected
-  local got; got=$(sha "$2")
+  pinhash "$1" "$(sha "$2")" "$3"; }
+pinhash(){ # name sha256 expected
+  local got=$2
   if [ "$REPIN" = 1 ]; then echo "PIN $1 $got"; return 0; fi
   [ -n "$3" ] || { echo "ERROR: no SHA-256 pinned for $1 (run --repin)"; exit 1; }
   [ "$got" = "$3" ] || { echo "ERROR: $1 SHA-256 $got != pinned $3"; exit 1; }
@@ -55,16 +59,22 @@ get https://featherwallet.org/files/releases/linux/$FEF $FEF
 get https://featherwallet.org/files/releases/linux/$FEF.asc $FEF.asc
 sigok "$C/$FEF.asc" "$C/$FEF" "$FEATHER_KEY"; pin FEATHER "$C/$FEF" "$FEATHER_SHA256"
 
-# The Lounge: npm ci from the committed lockfile (every tarball checked against its sha512 integrity)
+# The Lounge: npm ci from the committed lockfile (registry tarballs checked against their sha512 integrity;
+# .npmrc: ignore-scripts, save-exact, min-release-age=7 for lockfile regeneration, see BUILDING.md)
 L=$C/thelounge-$THELOUNGE_VERSION
 if [ ! -e "$L/.done" ]; then
   rm -rf "$L"; mkdir -p "$L"
-  cp "$TOP/thirdparty/thelounge/package.json" "$TOP/thirdparty/thelounge/package-lock.json" "$L/"
+  cp "$TOP/thirdparty/thelounge/package.json" "$TOP/thirdparty/thelounge/package-lock.json" "$TOP/thirdparty/thelounge/.npmrc" "$L/"
   ( cd "$L" && npm ci --omit=dev --omit=optional --ignore-scripts --no-audit --no-fund >/dev/null )
   grep -q "\"version\": \"$THELOUNGE_VERSION\"" "$L/node_modules/thelounge/package.json" || { echo "ERROR: thelounge version"; exit 1; }
   touch "$L/.done"
 fi
-echo "OK THELOUNGE $THELOUNGE_VERSION (npm ci, lockfile integrity)"
+# irc-framework comes from git (commit-pinned, no lockfile integrity): check its installed tree on every build,
+# cached or fresh. Tree hash = sha256 of "sha256sum" over every file, paths relative, sorted bytewise.
+IRCF=$L/node_modules/irc-framework
+[ -d "$IRCF" ] && [ -z "$(find "$IRCF" ! -type f ! -type d | head -1)" ] || { echo "ERROR: irc-framework tree missing or has non-regular files"; exit 1; }
+pinhash IRC_FRAMEWORK_TREE "$( (cd "$IRCF" && find . -type f -print0 | LC_ALL=C sort -z | xargs -0 sha256sum) | sha256sum | cut -c1-64)" "$IRC_FRAMEWORK_TREE_SHA256"
+echo "OK THELOUNGE $THELOUNGE_VERSION (npm ci, lockfile integrity + irc-framework tree pin)"
 
 # lurch source at pinned commits (submodules checked too)
 LS=$C/lurch-src

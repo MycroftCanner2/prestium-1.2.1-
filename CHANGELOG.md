@@ -19,6 +19,14 @@ since 1.8) follow below.
 - Removed the legacy 1.9.1.3 trees (`rootfs/`, `iso/`, `build-1.9.1.3/`) and `LARGE_FILES.md` from
   this branch; 2.0 is built only from the live-build config. They remain in the
   `prestium-1.6-update` branch and in git history.
+- Supply chain (audit): the build-time apt sources for i2pd, LibreWolf and Tor are each `signed-by`
+  their own key, and apt pins (`Pin: origin`) let each repository supply only its own packages
+  (i2pd; LibreWolf; tor, tor-geoipdb, the keyring, lyrebird, snowflake-client, webtunnel). The
+  same pins ship in the image (`/etc/apt/preferences.d/prestium-thirdparty`).
+- The Lounge is pinned exactly (`thelounge` 4.5.2, not `^4.5.2`) and its npm settings
+  (`thirdparty/thelounge/.npmrc`: `ignore-scripts`, `save-exact`, `min-release-age=7`) are used by the
+  build. Its one git dependency, `irc-framework` (commit-pinned, no integrity hash in the lockfile),
+  is now checked against a pinned SHA-256 of its installed files on every build.
 
 ## Hardware and packages
 - Everything current at build time: Debian 13 trixie with updates and security fixes, kernel from

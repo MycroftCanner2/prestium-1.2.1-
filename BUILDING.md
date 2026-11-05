@@ -58,7 +58,7 @@ starts over (`lb clean --purge`). Expect 1-2 hours on a normal amd64 machine (mu
 | `config/package-lists/prestium-firmware.list.chroot` | firmware and CPU microcode (Tails parity) |
 | `config/package-lists/prestium-2.0.list.chroot` | 2.0 additions: PipeWire/WirePlumber audio, pasystray, the assistant's GTK bindings |
 | `config/package-lists/live.list.chroot` | live-boot (no live-config: Prestium sets up its user itself) |
-| `config/archives/` | build-time apt sources and keys: Tor Project, PurpleI2P (i2pd), LibreWolf; firmware pin to backports |
+| `config/archives/` | build-time apt sources and keys: Tor Project, PurpleI2P (i2pd), LibreWolf, each `signed-by` its own key (live-build installs `<name>.key.chroot` as `/etc/apt/trusted.gpg.d/<name>.key.chroot.gpg`); origin pins limiting each repo to its own packages; firmware pin to backports |
 | `config/preseed/` | non-interactive answers (firmware licences, locale, keyboard, ferm) |
 | `config/includes.chroot/` | Prestium's own files and the package files it changes, copied from the 1.9.1.3 root filesystem as a diff against the packaged files (see below), plus the 2.0 changes |
 | `config/includes.chroot/usr/share/prestium/build/` | build-only data used by the hooks (owners/modes manifest, enabled units, optional packages, final apt sources); deleted from the image |
@@ -99,7 +99,11 @@ third-party trees in `/opt` are not copied: they are downloaded and verified at 
 Edit the version in `thirdparty/versions.sh`, set its `*_SHA256` to `""`, run
 `scripts/fetch-thirdparty.sh --repin` (it checks the signature and prints the new SHA-256), paste
 the value in, rebuild. The Lounge is updated by regenerating `thirdparty/thelounge/package-lock.json`
-(`npm install thelounge@<version> --package-lock-only`). LibreWolf, i2pd and Tor come from their
+(`npm install thelounge@<version> --package-lock-only` in `thirdparty/thelounge/`, with npm
+11.10 or newer so `.npmrc`'s `min-release-age=7` is enforced: older npm ignores it and may pick a
+release published minutes ago; review the lockfile diff), then refresh `IRC_FRAMEWORK_TREE_SHA256`
+in `versions.sh` with `scripts/fetch-thirdparty.sh --repin` if irc-framework changed. The build
+itself only runs `npm ci --ignore-scripts`, which installs exactly the lockfile with any npm. LibreWolf, i2pd and Tor come from their
 signed apt repositories and are always the newest at build time.
 
 ## Tor Connection Assistant and DNS
