@@ -4,7 +4,7 @@
 #
 # Prestium 2.0: display scale (HiDPI). Detects the screen density (or uses the choice saved by
 # "Display Scale" in ~/.config/prestium/scale), sets Xft.dpi/Xcursor.size, the XSETTINGS DPI,
-# a scaled tint2 panel, and exports GDK_SCALE/GDK_DPI_SCALE/QT_SCALE_FACTOR/XCURSOR_SIZE for
+# a scaled tint2 panel (sizes and fonts), and exports GDK_SCALE/QT_SCALE_FACTOR/XCURSOR_SIZE for
 # every program of this session.
 if [ -x /usr/local/bin/prestium-scale ] && [ -n "$DISPLAY" ]; then
 	eval "$(/usr/local/bin/prestium-scale --login 2>/dev/null)"

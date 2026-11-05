@@ -1,0 +1,58 @@
+/* Prestium 2.0 r4: dark theme for i2pd's built-in torrent web UI ("I2P Torrents", 127.0.0.1:7685).
+   Same palette as Prestium's i2pd webconsole theme (/var/lib/i2pd/webconsole/style.css).
+   Inlined at build time into /usr/share/i2pd/torrents/web/index.html by hook 0700 (the page is
+   served by i2pd itself, so no extra file has to be reachable). !important is used only where
+   main.js sets inline colours meant for a white page. */
+:root {
+  --bg:#121417; --panel:#1b1e23; --panel2:#22262c; --line:#2c3038; --fg:#d7dae0; --muted:#8a919c;
+  --accent:#8fb3ff; --ok:#7fd18b; --warn:#f0b35a; --bad:#ef6b6b;
+  color-scheme: dark;
+}
+html, body { background:var(--bg); color:var(--fg); }
+body { font:14px/1.45 "DejaVu Sans", sans-serif; margin:0; padding:16px 20px; }
+body::before {
+  content:"I2P Torrents"; display:block; font-size:22px; font-weight:bold; color:var(--accent);
+  margin:0 0 12px 2px; letter-spacing:.02em;
+}
+a, href { color:var(--accent) !important; }
+a:hover, href:hover { color:#fff !important; }
+fieldset {
+  background:var(--panel); border:1px solid var(--line); border-radius:6px;
+  margin:0 0 12px 0; padding:8px 12px 10px;
+}
+.container { gap:12px; }
+.container > fieldset { margin-bottom:12px; }
+legend { color:var(--accent); font-weight:bold; padding:0 6px; }
+ul { margin:4px 0; padding-left:20px; } li { margin:2px 0; word-break:break-all; }
+#fs-error fieldset { background:#2a1719; border-color:#5a2a2e; }
+#fs-error h2 { color:var(--bad) !important; font-size:16px; margin:8px 10px; }
+#fs-error h3 { color:var(--fg); font-size:13px; font-weight:normal; margin:4px 10px 8px; }
+#fs-error h2:empty, #fs-error h3:empty { display:none; }
+button, input, select, textarea {
+  background:var(--panel2); color:var(--fg); border:1px solid var(--line); border-radius:4px;
+  font:inherit;
+}
+button { cursor:pointer; padding:3px 6px; min-height:26px; }
+button:hover, .button-row button:hover { background-color:#2a3550 !important; border-color:var(--accent); }
+button:active { background-color:#1f2940 !important; }
+.fs-buttons { max-width:110px; }
+.button-column button { font-size:18px; }
+.compact-table { border-collapse:collapse; width:100%; background:var(--panel); }
+.compact-table th {
+  background:var(--panel2); color:var(--muted); font-weight:bold; text-align:left;
+  border:1px solid var(--line) !important;
+}
+.compact-table td {
+  border:1px solid var(--line) !important; color:var(--fg);
+  height:22px; padding:1px 6px;
+}
+.compact-table tr:nth-child(even) td { background:#181b20; }
+.compact-table tr:hover td { background:#20252d; }
+.progress-cell { min-width:120px; }
+.progress-bar { background:#2a2f37 !important; border-radius:3px; overflow:hidden; }
+.progress-text { color:#fff !important; text-shadow:0 0 3px #000, 0 0 2px #000; font-weight:bold; }
+.buttons-cell .button-row button { border:0; border-left:1px solid var(--line); border-radius:0; background:transparent; }
+.buttons-cell .button-row button:first-child { border-left:0; }
+#session-stats-list, #dht-stats-list { color:var(--fg); }
+#details fieldset { border-color:#3a4252; }
+::selection { background:#2a3550; color:#fff; }

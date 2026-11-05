@@ -41,7 +41,9 @@ esac
 exec 9>/run/prestium-i2p-reseed.lock
 flock -n 9 || die 1 "another reseed is already running"
 
-DEST=$(sed -n 's/^[[:space:]]*file[[:space:]]*=[[:space:]]*\(\/var\/lib\/i2pd\/[A-Za-z0-9._-]*\.su3\)[[:space:]]*$/\1/p' "$CONF" | head -n1)
+# 2.0 r4: i2pd.conf (i2pd's file) is read only if it is a regular file, never through a symlink
+CONFTXT=$(/usr/local/lib/prestium/safefile read /var/lib/i2pd i2pd.conf) || die 1 "$CONF is not a regular file"
+DEST=$(printf '%s\n' "$CONFTXT" | sed -n 's/^[[:space:]]*file[[:space:]]*=[[:space:]]*\(\/var\/lib\/i2pd\/[A-Za-z0-9._-]*\.su3\)[[:space:]]*$/\1/p' | head -n1)
 [ -n "$DEST" ] || die 1 "no [reseed] file = /var/lib/i2pd/....su3 in $CONF"
 T=$(mktemp -d /run/prestium-i2p-reseed.XXXXXX) || die 1 "cannot create a temporary directory"
 trap 'rm -rf "$T"' EXIT
@@ -116,7 +118,7 @@ install -o 2000 -g 2000 -m 0644 "$NEW" "$TMP" && sync -f "$TMP" && mv -f "$TMP" 
 step "Restarting I2P (i2pd) so it reseeds"
 systemctl stop i2pd
 # an empty netDb makes i2pd reseed from the file at start
-if [ -d "$NETDB" ]; then find "$NETDB" -mindepth 1 -delete; fi
+if [ -d "$NETDB" ] && [ ! -L "$NETDB" ]; then find "$NETDB" -mindepth 1 -delete; fi
 systemctl start i2pd || die 1 "the reseed file was installed, but i2pd did not start again (Network > Restart I2P)"
 echo "DONE: installed $DEST from $FROM; netDb cleared, i2pd restarted"
 exit 0

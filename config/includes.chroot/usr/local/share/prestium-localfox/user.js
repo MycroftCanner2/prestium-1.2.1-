@@ -22,3 +22,17 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("toolkit.telemetry.enabled", false);
 user_pref("signon.rememberSignons", false);
+// 2.0 r4: no first-run screens. The profile lives in the live session, so every boot was a "first
+// run": Terms of Use / privacy notice (also the SkipTermsOfUse policy), data-reporting notice,
+// welcome (trailhead) pages, What's New.
+user_pref("termsofuse.bypassNotification", true);
+user_pref("termsofuse.acceptedVersion", 999);
+user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true);
+user_pref("datareporting.policy.firstRunURL", "");
+user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
+user_pref("browser.startup.firstrunSkipsHomepage", false);
+user_pref("browser.uitour.enabled", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "{\"id\":\"onboarding\",\"type\":\"local\",\"localProvider\":\"OnboardingMessageProvider\",\"enabled\":false,\"exclude\":[]}");
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false);

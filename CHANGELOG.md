@@ -44,6 +44,23 @@ since 1.8) follow below.
   file manager.
 - The firewall stays default-deny. New: the Tor Connection Assistant's DNS-over-HTTPS user may only
   reach i2pd's HTTP proxy, and Tor's uid gets UDP only while Snowflake mode is on.
+- **Security audit fixes (2.0 audit, all confirmed findings):**
+  - **Fixed a local root escalation** (high): the root helper that prepares I2P Torrents before every
+    i2pd start created and re-owned `~/Downloads` and `~/Downloads/Torrents` as root, following a
+    symlink the desktop user could put there, so any program running as the user could take over a
+    system directory with `sudo systemctl restart i2pd`. The folders are now created as the user,
+    and a symlink or non-directory is refused (I2P Torrents is then skipped; i2pd still starts).
+  - Root helpers no longer write through files the i2pd account owns (medium): changing tunnel hops,
+    the per-boot i2pd port and the torrent setup read and replace `/var/lib/i2pd/i2pd.conf`,
+    `tunnels.conf` and `tunnels.conf.d/` only through a new symlink-safe helper (refuses symlinks
+    and special files, writes a new file and renames it into place). `tunnels.conf.d` is now
+    `root:i2pd 0750`, so i2pd can read but not change it.
+  - The Lounge's setup (root, before every start) refuses symlinked directories and reads and writes
+    the user file as the `thelounge` account, exclusively, then renames it (low).
+- Hardening from the audit: OnionShare's onion services may only point at OnionShare's own local
+  ports 127.0.0.1:17600-17650 (as in Tails); `sudo prestium-tunnel-hops` accepts only 1-7; the Tor
+  assistant's bridge checks accept ASCII digits only; the reseed helper refuses a symlinked
+  `i2pd.conf` or netDb.
 
 ## Feather
 - **Feather is back on I2P**, as in 1.7 and 1.8: its I2P proxy mode through i2pd's SOCKS proxy
@@ -82,7 +99,12 @@ since 1.8) follow below.
 - **Display Settings** (xfce4-display-settings, replaces arandr): resolution, arrangement and
   mirroring, with automatic handling of monitors plugged in or out.
 - **HiDPI:** **Display Scale** (Auto from the screen's physical size, or 100-200 %), applied at
-  every login to GTK/Qt apps, the panel (tint2) and Openbox.
+  every login to GTK/Qt apps, the panel (tint2) and Openbox. At 175/200 % GTK now gets the window
+  scale together with the matching DPI, so GTK 4 dialogs and the Firefox-based browsers are no
+  longer drawn too big, and the taskbar's text scales with its height (tint2 ignores the DPI, so
+  its fonts are written out scaled).
+- The I2P reseed windows (**Refresh I2P reseed**, **Manual reseed file**) are normal windows with a
+  title bar and open centred; other zenity dialogs open centred too.
 - **Laptop keys:** volume, mute, mic mute and brightness keys work, with an on-screen notification;
   **Brightness** slider in the menu (brightnessctl; the live user is in group `video`, and a udev
   rule makes the backlight writable for it).
@@ -90,6 +112,15 @@ since 1.8) follow below.
   settings in the menu (saved and re-applied at login).
 - **Accessibility:** **Onboard** on-screen keyboard, in the menu. (The Orca screen reader was
   tried and removed: it did not work.)
+
+## Apps
+- **IRC (The Lounge)** no longer connects to IRC by itself. At boot the I2P tunnels are not up yet,
+  so the automatic connection only produced an error (EPIPE) in the page. All networks are listed
+  disconnected; right-click a network and choose **Connect** (or type `/connect`) when I2P is ready.
+- **I2P Torrents** (i2pd's built-in torrent client) has a Prestium dark theme by default.
+- The local-only Firefox no longer shows the Terms of Use / privacy notice / welcome pages at every
+  boot (policy `SkipTermsOfUse` plus the matching first-run preferences). LibreWolf and Tor Browser
+  never showed them.
 
 ## Known limitations (2.0 draft)
 - See the test notes on the branch for what has and has not been verified in a VM yet.

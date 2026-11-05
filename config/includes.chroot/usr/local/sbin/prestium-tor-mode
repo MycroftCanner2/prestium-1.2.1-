@@ -34,7 +34,8 @@ BEGIN, END = "# BEGIN prestium-ptdns (Tor Connection Assistant)", "# END prestiu
 MODES = ("direct", "snowflake", "webtunnel", "obfs4", "meek")
 
 FP = r"[0-9A-Fa-f]{40}"
-ADDR = r"(?:\d{1,3}(?:\.\d{1,3}){3}|\[[0-9a-fA-F:]+\]):\d{1,5}"
+# 2.0 r4 (audit hardening): [0-9], not \d (which also matches non-ASCII digits)
+ADDR = r"(?:[0-9]{1,3}(?:\.[0-9]{1,3}){3}|\[[0-9a-fA-F:]+\]):[0-9]{1,5}"
 KV = r"(?:[A-Za-z0-9_-]{1,32}=[A-Za-z0-9+/=:.,_~%@\[\]-]{0,2000})"
 PATTERNS = {
     "obfs4": re.compile(r"^obfs4 %s %s(?: %s)+$" % (ADDR, FP, KV)),
@@ -43,7 +44,7 @@ PATTERNS = {
     "meek": re.compile(r"^meek_lite %s(?: %s)?(?: %s)+$" % (ADDR, FP, KV)),
 }
 HOST_RE = re.compile(r"^(?=.{1,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$", re.I)
-IP4_RE = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
+IP4_RE = re.compile(r"^[0-9]{1,3}(\.[0-9]{1,3}){3}$")
 
 # Pluggable transports: Debian packages from deb.torproject.org, in /usr/bin (allowed by Debian's
 # system_tor AppArmor abstraction + Prestium's local include). See tor-bridges-builtin.json.
@@ -88,7 +89,7 @@ def hosts_for(mode, lines):
             for f in (kv(l, "fronts") or kv(l, "front") or "").split(","):
                 if f: need.add(f.lower())
             for s in (kv(l, "ice") or "").split(","):
-                m = re.match(r"^stuns?:([^:]+)(?::\d+)?$", s)
+                m = re.match(r"^stuns?:([^:]+)(?::[0-9]+)?$", s)
                 if m: opt.add(m.group(1).lower())
             if not (kv(l, "fronts") or kv(l, "front")):
                 h = url_host(kv(l, "url"))      # no front: the url host is contacted directly

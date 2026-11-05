@@ -775,6 +775,17 @@
 
   # end of the example
 -->
+  <!-- Prestium 2.0 r4: zenity 4 (GTK 4/libadwaita) draws its own title-less dialogs and asks for
+       no window-manager decorations; give its windows (reseed, tunnel hops, notices) Openbox's
+       border and title bar like every other window, and open them centred on the screen. -->
+  <application class="zenity" type="normal">
+    <decor>yes</decor>
+    <position force="yes"><x>center</x><y>center</y><monitor>primary</monitor></position>
+  </application>
+  <application class="zenity" type="dialog">
+    <decor>yes</decor>
+    <position force="yes"><x>center</x><y>center</y><monitor>primary</monitor></position>
+  </application>
 </applications>
 
 </openbox_config>

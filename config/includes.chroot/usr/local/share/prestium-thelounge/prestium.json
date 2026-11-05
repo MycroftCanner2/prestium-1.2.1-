@@ -30,7 +30,7 @@
       "proxyPort": 1080,
       "proxyUsername": "",
       "proxyPassword": "",
-      "userDisconnected": false,
+      "userDisconnected": true,
       "channels": []
     },
     {
@@ -78,7 +78,7 @@
       "proxyPort": 1080,
       "proxyUsername": "",
       "proxyPassword": "",
-      "userDisconnected": false,
+      "userDisconnected": true,
       "channels": []
     },
     {

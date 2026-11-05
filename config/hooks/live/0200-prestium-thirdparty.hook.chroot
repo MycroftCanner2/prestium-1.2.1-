@@ -41,10 +41,20 @@ install -m 644 "$T/node/LICENSE" /opt/nodejs/LICENSE
 rm -rf /opt/thelounge; install -d -m 755 /opt/thelounge
 tar -xf "$S/thelounge.tar" -C /opt/thelounge
 P=/opt/thelounge/node_modules/thelounge/dist/server/plugins
-python3 - "$P/changelog.js" "$P/packages/index.js" <<'PY'
+python3 - "$P/changelog.js" "$P/packages/index.js" "$P/../client.js" <<'PY'
 # The Lounge must never contact the Internet itself (its blocked GitHub request crashed it)
 import sys
-c, p = sys.argv[1], sys.argv[2]
+c, p, cl = sys.argv[1], sys.argv[2], sys.argv[3]
+# 2.0 r4: networks never connect by themselves (prestium-thelounge-setup marks them disconnected),
+# so the lobby text for a disconnected network says how to connect instead of blaming the user
+s = open(cl).read()
+if 'Prestium' not in s:
+    a = 'You have manually disconnected from this network before, use the /connect command to connect again.'
+    assert s.count(a) == 1
+    s = s.replace(a, 'Not connected (Prestium never connects automatically). When I2P is ready, '
+                     'right-click this network in the list and choose Connect, or type /connect here.')
+    s = s.replace('const msg_1 = ', '// Prestium: lobby text for disconnected networks changed\nconst msg_1 = ', 1)
+    open(cl, 'w').write(s)
 s = open(c).read()
 if 'Prestium' not in s:
     a = 'async function fetch() {\n'; assert s.count(a) == 1

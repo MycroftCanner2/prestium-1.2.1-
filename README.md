@@ -35,6 +35,11 @@ No 2.0 ISO has been published.
    instead of arandr, HiDPI Display Scale (Auto or 100-200 %), working volume/brightness keys and a
    Brightness slider, touchpad settings (tap to click, natural scrolling) and the Onboard on-screen
    keyboard.
+7. **Security audit fixes** (2.0 audit): a local root escalation through the I2P Torrents helper
+   is fixed, root helpers no longer follow symlinks in i2pd's or The Lounge's directories, and
+   OnionShare's onion services are limited to its own ports. See CHANGELOG.md.
+8. **Fixes**: The Lounge waits for you to click Connect, I2P Torrents has a dark theme, the local
+   Firefox shows no first-run screens, and the reseed windows and taskbar scale properly at 200 %.
 
 ### Tor Connection Assistant
 
