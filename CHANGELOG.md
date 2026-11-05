@@ -14,6 +14,11 @@ since 1.8) follow below.
   and Tor come from their signed apt repositories.
 - Fixed: 1.9.1.3 shipped the build machine's `/etc/resolv.conf` (a private nameserver address).
   2.0 ships Prestium's own (`nameserver 127.0.0.1`, no system DNS). The firewall blocked DNS anyway.
+- Build downloads are HTTPS-only, redirects included (`curl --proto =https --proto-redir =https`),
+  and the Debian mirrors (bootstrap, chroot, security, and the shipped sources) use `https://`.
+- Removed the legacy 1.9.1.3 trees (`rootfs/`, `iso/`, `build-1.9.1.3/`) and `LARGE_FILES.md` from
+  this branch; 2.0 is built only from the live-build config. They remain in the
+  `prestium-1.6-update` branch and in git history.
 
 ## Hardware and packages
 - Everything current at build time: Debian 13 trixie with updates and security fixes, kernel from
@@ -37,6 +42,12 @@ since 1.8) follow below.
   is unchanged in the menu. volumeicon (ALSA only) is gone.
 
 ## Security
+- Fixed (audit): the two helpers the desktop user may run through sudo (`prestium-tunnel-hops`,
+  `prestium-i2p-reseed`) ran Python as root in the caller's working directory, so a planted module
+  (e.g. `re.py`) ran as root. Both now `cd /` and run Python isolated (`python3 -I`).
+- "Refresh I2P reseed" / "Manual reseed file" install the new file through the same symlink-safe
+  helper (`safefile`) as the other i2pd helpers, so an entry planted in i2pd's directory cannot
+  redirect or swallow the install.
 - **LibreWolf (I2P Browser) runs under an enforced AppArmor profile** (complain mode in 1.9.1.3).
   It can write only its own profile/cache/config, `~/Downloads` and temporary files, cannot read
   other apps' data (Pidgin, Claws Mail, Feather, keyrings, GnuPG, Tor Browser) and cannot reach Tor's

@@ -1,2 +1,0 @@
-# False positive: SUBSYSTEM is tested at the beginning of the rules file.
-libmtp-common: udev-rule-missing-subsystem *

@@ -89,10 +89,6 @@ front, the WebTunnel bridge's host). In 2.0:
 
 - `auto/`, `config/`, `build.sh`, `scripts/`, `thirdparty/`: the live-build configuration
   (see [BUILDING.md](BUILDING.md)).
-- `rootfs/`, `iso/`, `build-1.9.1.3/`: the 1.9.1.3 root filesystem, ISO tree and build scripts, kept
-  as the reference the live-build config was derived from until 2.0 is built and tested. They will
-  be removed from this branch once the live-build image fully replaces them.
-- `LARGE_FILES.md`: files over GitHub's 100 MB limit left out of `rootfs/` (1.9.1.3).
 - The `Prestium-1.7`, `1.8` and `1.9.1.3` torrents, unchanged.
 
 The `main` branch holds the original Prestium 1.2.1; `prestium-1.6-update` holds the 1.6-1.9.1.3 releases.

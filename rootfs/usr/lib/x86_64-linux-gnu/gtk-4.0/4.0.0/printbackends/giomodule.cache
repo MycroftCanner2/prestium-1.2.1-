@@ -1,2 +1,0 @@
-libprintbackend-cups.so: gtk-print-backend
-libprintbackend-file.so: gtk-print-backend

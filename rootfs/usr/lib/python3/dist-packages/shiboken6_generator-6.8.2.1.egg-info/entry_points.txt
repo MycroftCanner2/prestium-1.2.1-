@@ -1,3 +1,0 @@
-[console_scripts]
-shiboken6 = shiboken6_generator.scripts.shiboken_tool:main
-shiboken6-genpyi = shiboken6_generator.scripts.shiboken_tool:genpyi

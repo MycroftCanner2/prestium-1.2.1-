@@ -18,6 +18,7 @@ CERTS=/usr/share/i2pd/certificates/reseed
 VERIFY=/usr/local/lib/prestium/verify-su3
 NETDB=/var/lib/i2pd/netDb
 MAXSIZE=10485760
+SAFE=/usr/local/lib/prestium/safefile
 # url  allowed signers (the certificate for each is in $CERTS)
 SOURCES=(
   "https://reseed.stormycloud.org/i2pseeds.su3 admin@stormycloud.org,idk@stormycloud.org"
@@ -31,6 +32,8 @@ step(){ echo "STEP: $*"; }
 die(){ echo "ERROR: $2"; exit "$1"; }
 
 if [ "$(id -u)" -ne 0 ]; then exec sudo -n /usr/local/sbin/prestium-i2p-reseed "$@"; fi
+# sudo keeps the caller's working directory: never run (Python) code from it as root
+cd / || exit 1
 MODE=download
 case "$#:${1:-}" in
   0:) ;;
@@ -50,7 +53,7 @@ trap 'rm -rf "$T"' EXIT
 NEW=$T/new.su3
 
 tor_ready(){ # Tor bootstrapped 100 % (control socket, cookie auth; root may read both)
-  python3 - <<'PY'
+  python3 -I - <<'PY'
 import socket, sys
 try:
     cookie = open("/run/tor/control.authcookie", "rb").read().hex()
@@ -88,7 +91,7 @@ if [ "$MODE" = download ]; then
       echo "WARN: download from $host failed"; continue
     fi
     step "Checking the signature of the file from $host"
-    if out=$(python3 "$VERIFY" --max-age 14 --signers "$signers" "$NEW" "$CERTS"); then
+    if out=$(python3 -I "$VERIFY" --max-age 14 --signers "$signers" "$NEW" "$CERTS"); then
       echo "$out"; ok=1; FROM=$host; break
     fi
     echo "$out"; echo "WARN: the file from $host was rejected"
@@ -106,15 +109,16 @@ else
   runuser -u "$RU" -- head -c $((MAXSIZE + 1)) -- "$SRC" > "$NEW" || die 1 "cannot read $SRC"
   [ "$(stat -c %s "$NEW")" -le $MAXSIZE ] || die 1 "the file is larger than 10 MB, so it is not a reseed file"
   step "Checking the signature"
-  out=$(python3 "$VERIFY" --max-age 14 --warn-only-age --signers any "$NEW" "$CERTS") \
+  out=$(python3 -I "$VERIFY" --max-age 14 --warn-only-age --signers any "$NEW" "$CERTS") \
     || die 1 "$(echo "$out" | sed -n 's/^ERROR: //p' | head -n1) - the file was not installed"
   echo "$out"; FROM="file $(basename -- "$SRC")"
 fi
 
 step "Installing the reseed file"
-TMP=$(dirname "$DEST")/.reseed-new.su3
-install -o 2000 -g 2000 -m 0644 "$NEW" "$TMP" && sync -f "$TMP" && mv -f "$TMP" "$DEST" \
-  || { rm -f "$TMP"; die 1 "cannot install $DEST"; }
+# /var/lib/i2pd is owned by i2pd: never install by path. safefile refuses a symlink, directory or
+# special file at DEST and writes through an O_EXCL temp file + fchown/fchmod + renameat.
+"$SAFE" write "$(dirname "$DEST")" "$(basename "$DEST")" 2000 2000 0644 < "$NEW" \
+  || die 1 "cannot install $DEST (the existing entry is not a regular file?)"
 step "Restarting I2P (i2pd) so it reseeds"
 systemctl stop i2pd
 # an empty netDb makes i2pd reseed from the file at start

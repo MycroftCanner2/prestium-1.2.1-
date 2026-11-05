@@ -1,7 +1,0 @@
-02822444319e9d5a6a293db6c31acd4f  usr/share/doc/x11-common/changelog.Debian.old.gz
-f91d0f351b8739fbe9986acffec3abf3  usr/share/doc/x11-common/changelog.gz
-d61715a706a95b7c222b5caebd8ce7f8  usr/share/doc/x11-common/copyright
-f7c620c53bf64c46fdcc3b0f80b33e2b  usr/share/lintian/overrides/x11-common
-41aded319dc499d58ab94e19c845d617  usr/share/man/man5/Xsession.5.gz
-9b50d275faa3f2a34d90508b453b0ac5  usr/share/man/man5/Xsession.options.5.gz
-9b50d275faa3f2a34d90508b453b0ac5  usr/share/man/man5/Xsession.options.d.5.gz

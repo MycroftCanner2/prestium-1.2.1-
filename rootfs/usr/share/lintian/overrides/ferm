@@ -1,1 +1,0 @@
-ferm: init.d-script-possible-missing-stop /etc/init.d/ferm 1

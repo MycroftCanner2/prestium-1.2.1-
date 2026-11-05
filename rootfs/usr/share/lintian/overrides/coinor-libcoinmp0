@@ -1,2 +1,0 @@
-# We won't issue a symbols file for this C++ library, using shlibs instead.
-coinor-libcoinmp0: no-symbols-control-file usr/lib/*/libCoinMP.so.*

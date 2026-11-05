@@ -1,7 +1,0 @@
-a72a4591c2983312f06ff788bea80d82  usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0
-0acd31c3dd08ab00f79b65ced6f11737  usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0
-d692d1ac9850e26927d110800b83986a  usr/lib/x86_64-linux-gnu/libbrotlienc.so.1.1.0
-dec3ccc972257dc2f63dfaa76acce134  usr/share/doc/libbrotli1/changelog.Debian.gz
-a4ea9696130af5191858011e064568d8  usr/share/doc/libbrotli1/changelog.gz
-88a64abee92ba0e2810574d815fa4900  usr/share/doc/libbrotli1/copyright
-45a863a88b8a62194767671f7d666eab  usr/share/lintian/overrides/libbrotli1

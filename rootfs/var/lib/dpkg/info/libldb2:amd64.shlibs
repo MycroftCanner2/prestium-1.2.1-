@@ -1,5 +1,0 @@
-libldb 2 libldb2 (>> 2:2.11.0+samba4.22.11+dfsg-0+deb13u1~)
-libldb-key-value-private-samba 0 libldb2 (= 2:2.11.0+samba4.22.11+dfsg-0+deb13u1)
-libldb-mdb-int-private-samba 0 libldb2 (= 2:2.11.0+samba4.22.11+dfsg-0+deb13u1)
-libldb-tdb-err-map-private-samba 0 libldb2 (= 2:2.11.0+samba4.22.11+dfsg-0+deb13u1)
-libldb-tdb-int-private-samba 0 libldb2 (= 2:2.11.0+samba4.22.11+dfsg-0+deb13u1)

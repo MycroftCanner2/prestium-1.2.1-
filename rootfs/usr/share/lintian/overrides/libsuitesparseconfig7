@@ -1,2 +1,0 @@
-# False positive
-libsuitesparseconfig7: hardening-no-fortify-functions [usr/lib/*/libsuitesparseconfig.so.7.*]

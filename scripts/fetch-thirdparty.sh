@@ -14,7 +14,7 @@ C=${PRESTIUM_CACHE:-$TOP/cache/thirdparty}; mkdir -p "$C"
 S=$TOP/config/includes.chroot/usr/src/prestium-thirdparty
 export GNUPGHOME=$(mktemp -d); trap 'rm -rf "$GNUPGHOME"' EXIT
 gpg -q --import "$TOP"/thirdparty/keys/*.asc 2>/dev/null
-get(){ [ -s "$C/$2" ] || { curl -sfL --retry 3 -m 1800 -o "$C/$2.part" "$1" && mv "$C/$2.part" "$C/$2"; }; }
+get(){ [ -s "$C/$2" ] || { curl -sfL --proto =https --proto-redir =https --retry 3 -m 1800 -o "$C/$2.part" "$1" && mv "$C/$2.part" "$C/$2"; }; }
 sha(){ sha256sum "$1" | cut -c1-64; }
 pin(){ # name file expected
   local got; got=$(sha "$2")
@@ -88,7 +88,7 @@ SU3URL=https://reseed.stormycloud.org/i2pseeds.su3
 rm -f "$SU3" "$SU3.part"
 # reseed servers only answer I2P's reseed user agent
 # (the server rate-limits per IP with HTTP 429 + Retry-After; curl waits as told, up to 25 min in all)
-curl -sfL --retry 8 --retry-all-errors --retry-max-time 1500 -m 300 -A "Wget/1.11.4" \
+curl -sfL --proto =https --proto-redir =https --retry 8 --retry-all-errors --retry-max-time 1500 -m 300 -A "Wget/1.11.4" \
   -o "$SU3.part" "$SU3URL" \
   || { rm -f "$SU3.part"; echo "ERROR: cannot download the I2P reseed file $SU3URL"; exit 1; }
 python3 "$TOP/config/includes.chroot/usr/local/lib/prestium/verify-su3" "$SU3.part" \

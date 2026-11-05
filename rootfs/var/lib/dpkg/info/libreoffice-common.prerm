@@ -1,5 +1,0 @@
-#!/bin/sh
-set -e
-# Automatically added by dh_installdeb/13.24.2
-dpkg-maintscript-helper symlink_to_dir /usr/lib/libreoffice/share/registry /etc/libreoffice/registry 4:25.2.1\~rc1-3\~ libreoffice-common -- "$@"
-# End automatically added section

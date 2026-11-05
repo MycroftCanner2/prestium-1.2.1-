@@ -1,3 +1,0 @@
-# the dependency to kwallet6 is added intentionally
-libkf6wallet6: symbols-declares-dependency-on-other-package kwallet6 (libKF6Wallet.so.6) [symbols]
-

@@ -1,3 +1,0 @@
-[console_scripts]
-onionshare-cli=onionshare_cli:main
-

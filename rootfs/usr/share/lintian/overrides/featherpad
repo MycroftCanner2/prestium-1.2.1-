@@ -1,3 +1,0 @@
-# We will provide a man page if upstream does
-featherpad: no-manual-page [usr/bin/featherpad]
-featherpad: no-manual-page [usr/bin/fpad]

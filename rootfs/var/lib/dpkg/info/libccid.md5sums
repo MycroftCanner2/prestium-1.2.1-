@@ -1,7 +1,0 @@
-c658a24f9b7fb3bb8c7e1c7613335d15  usr/lib/pcsc/drivers/ifd-ccid.bundle/Contents/Linux/libccid.so
-56aaa7a74a59b501825a03d1377d6d5a  usr/lib/pcsc/drivers/serial/libccidtwin.so
-def9e2ec7328094cad63f7fe66021468  usr/lib/udev/rules.d/92-libccid.rules
-63b8812b0c05722a9d6c51cbd2bfb54b  usr/share/doc/libccid/README
-05bbea6409cfe17beb3bbefbee5d0c37  usr/share/doc/libccid/README.Debian
-0e87ac371f9a8b88ff844c6f3b1aed06  usr/share/doc/libccid/changelog.Debian.gz
-3a897e89fa6bc20d4474304f9e7650fb  usr/share/doc/libccid/copyright

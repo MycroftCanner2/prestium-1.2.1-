@@ -1,6 +1,0 @@
-sdkdir=/usr/include/xorg
-
-Name: xorg-wacom
-Description: X.Org Wacom Tablet driver.
-Version: 1.2.3
-Cflags: -I${sdkdir}

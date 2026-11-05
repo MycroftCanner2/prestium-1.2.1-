@@ -1,5 +1,0 @@
-[Mount]
-Type=nfs
-Exec=/usr/libexec/gvfsd-nfs
-AutoMount=false
-Scheme=nfs

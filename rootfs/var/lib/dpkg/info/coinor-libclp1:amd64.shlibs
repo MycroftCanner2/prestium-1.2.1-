@@ -1,3 +1,0 @@
-libClp 1 coinor-libclp1 (>= 1.17.10+ds)
-libClpSolver 1 coinor-libclp1 (>= 1.17.10+ds)
-libOsiClp 1 coinor-libclp1 (>= 1.17.10+ds)

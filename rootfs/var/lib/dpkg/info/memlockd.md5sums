@@ -1,5 +1,0 @@
-2f63c7656201fbb2b3a7b1b3fd43f0c4  usr/lib/systemd/system/memlockd.service
-3dc3d246b7ae2b08cb03458e281ed36a  usr/sbin/memlockd
-3895952e3449aff359039ba963684b59  usr/share/doc/memlockd/changelog.Debian.gz
-5ef264527ceae54b5cdb992105c23a96  usr/share/doc/memlockd/copyright
-248292f13dba0bc750fb52b7624b9d95  usr/share/man/man8/memlockd.8.gz

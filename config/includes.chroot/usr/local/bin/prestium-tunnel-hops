@@ -26,6 +26,8 @@ if [ -z "$N" ]; then
 fi
 [[ "$N" =~ ^[1-7]$ ]] || { echo "Hops must be 1-7" >&2; exit 1; }
 [ "$(id -u)" -eq 0 ] || exec sudo -n /usr/local/bin/prestium-tunnel-hops "$N"
+# sudo keeps the caller's working directory: never run (Python) code from it as root
+cd / || exit 1
 
 say() {
   echo "$2"
@@ -41,7 +43,7 @@ $SAFE read $D i2pd.conf > "$T/i2pd.conf.bak" || { say critical "$MAIN is not a r
 cp "$T/tunnels.conf.bak" "$T/tunnels.conf.new"; cp "$T/i2pd.conf.bak" "$T/i2pd.conf.new"
 put() { $SAFE write $D "$1" 2000 2000 0644 < "$2"; }
 
-python3 - "$T/tunnels.conf.new" "$T/i2pd.conf.new" "$N" <<'PY'
+python3 -I - "$T/tunnels.conf.new" "$T/i2pd.conf.new" "$N" <<'PY'
 import re, sys
 tun, main, n = sys.argv[1], sys.argv[2], sys.argv[3]
 SEC = re.compile(r"^\s*\[([^\]]+)\]\s*$")

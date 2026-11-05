@@ -1,7 +1,0 @@
-3bb43c3413c543f46278d383a6d4a317  usr/share/doc/gajim-lengthnotifier/changelog.Debian.gz
-47158efc6c71f0c8ac6454c26f81d433  usr/share/doc/gajim-lengthnotifier/copyright
-9f94f08430db4b664d3973fb85fe1295  usr/share/gajim/plugins/length_notifier/__init__.py
-31fb3319a5c91244bc807e60064770cf  usr/share/gajim/plugins/length_notifier/config_dialog.py
-6f6d8f60a2a5ca05fc6c88c28eb68d50  usr/share/gajim/plugins/length_notifier/length_notifier.png
-41dda3f0d4ce065c900808879e99301d  usr/share/gajim/plugins/length_notifier/length_notifier.py
-6f9ca26e259b356bb873b3efbd7e3a03  usr/share/gajim/plugins/length_notifier/plugin-manifest.json

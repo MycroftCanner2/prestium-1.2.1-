@@ -1,3 +1,0 @@
-# busybox implements dpkg applet so it really accesses dpkg db
-busybox: uses-dpkg-database-directly
-busybox: spelling-error-in-binary iif if [usr/bin/busybox]

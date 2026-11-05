@@ -1,6 +1,0 @@
-5a22fad55d87c1c32d3d039f025e2e83  usr/lib/xorg/modules/drivers/amdgpu_drv.so
-705f14613ebf4371b1ca70136081dc23  usr/share/X11/xorg.conf.d/10-amdgpu.conf
-0a5700bdca1870dc8f5fc413abe0b963  usr/share/doc/xserver-xorg-video-amdgpu/changelog.Debian.gz
-14af02c9aecc7eaec6ef753f433e4a3c  usr/share/doc/xserver-xorg-video-amdgpu/changelog.gz
-6b4860b4ab5bafc092444dc84ad70cd6  usr/share/doc/xserver-xorg-video-amdgpu/copyright
-c7bab473188aa8cea17b046a94fa5100  usr/share/man/man4/amdgpu.4.gz

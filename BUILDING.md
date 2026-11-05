@@ -3,7 +3,7 @@
 Prestium 2.0 is built from scratch with Debian's **live-build**, the same tool Debian's own live
 images use. Everything that makes it Prestium is in this repository: the package lists, the
 customised files, the setup hooks and the pinned third-party downloads. 1.9.x was built by
-upgrading and patching an unpacked root filesystem (`rootfs/`, `build-1.9.1.3/`).
+upgrading and patching an unpacked root filesystem (kept in the `prestium-1.6-update` branch).
 
 - Base: Debian 13 "trixie", amd64. Archive areas `main contrib non-free-firmware`, plus
   `trixie-updates`, `trixie-security` and `trixie-backports`.

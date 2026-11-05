@@ -1,2 +1,0 @@
-?package(obsession):needs="X11" section="Applications/System/Administration"\
-  title="Logout (obsession)" command="/usr/bin/obsession-logout"

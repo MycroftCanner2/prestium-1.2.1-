@@ -1,2 +1,0 @@
-/etc/systemd/user/sockets.target.wants/gcr-ssh-agent.socket
-/etc/systemd/user/graphical-session-pre.target.wants/gcr-ssh-agent.service

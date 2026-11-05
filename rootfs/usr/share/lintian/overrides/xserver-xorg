@@ -1,3 +1,0 @@
-# the X manpage is in xorg-docs
-xserver-xorg: no-manual-page usr/bin/X
-xserver-xorg: elevated-privileges usr/bin/X 6755 root/root

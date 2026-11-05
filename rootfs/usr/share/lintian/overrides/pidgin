@@ -1,5 +1,0 @@
-# This plugin does not use any symbols from libc.
-pidgin: library-not-linked-against-libc [usr/lib/*/pidgin/iconaway.so]
-
-# This is verbatim license text from gettext-make.
-pidgin: spelling-error-in-copyright "GNU Public License" "GNU General Public License"
