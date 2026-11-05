@@ -121,6 +121,7 @@
 0755 root root /usr/local/sbin/prestium-clockfix
 0755 root root /usr/local/sbin/prestium-firewall-early
 0755 root root /usr/local/sbin/prestium-i2pd-port
+0755 root root /usr/local/lib/prestium/i2pd-port-get
 0755 root root /usr/local/sbin/prestium-i2pd-torrents
 0755 root root /usr/local/sbin/prestium-initramfs-unpack
 0755 root root /usr/local/sbin/prestium-onion-grater
