@@ -55,6 +55,7 @@ since 1.8) follow below.
   and the netDb no longer lists this machine's IP as a reachable router. Outbound connections, all
   client tunnels and I2P Torrents work as before; joining the network can take a little longer.
 - i2pd UPnP is explicitly off (`[upnp] enabled = false`) instead of relying on the Linux default.
+- i2pd sets `floodfill = false` and `notransit = false` explicitly (never a floodfill, still relays transit tunnels).
 - polkit: the desktop user gets an allow-list of NetworkManager actions (connect, disconnect,
   Wi-Fi on/off and scan, save connections) instead of every NetworkManager action. Hotspot sharing,
   hostname and global DNS changes and the other admin actions now need authentication. The i2pd
