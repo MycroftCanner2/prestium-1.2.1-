@@ -26,10 +26,5 @@ unzip
 xfce4-settings
 brightnessctl
 xinput
-# accessibility: Orca screen reader (speech-dispatcher + eSpeak NG), Onboard on-screen keyboard
-orca
-speech-dispatcher
-speech-dispatcher-espeak-ng
-espeak-ng
-python3-speechd
+# accessibility: Onboard on-screen keyboard (Orca was removed: it did not work)
 onboard

@@ -134,6 +134,12 @@
     <item label="Restart I2P (i2pd)">
       <action name="Execute"><execute>sh -c "systemctl restart i2pd || sudo -n systemctl restart i2pd"</execute></action>
     </item>
+    <item label="Refresh I2P reseed (via Tor)">
+      <action name="Execute"><execute>/usr/local/bin/prestium-i2p-reseed-gui</execute></action>
+    </item>
+    <item label="Manual reseed file">
+      <action name="Execute"><execute>/usr/local/bin/prestium-i2p-reseed-gui --manual</execute></action>
+    </item>
     <item label="Tor Connection Assistant">
       <action name="Execute"><execute>/usr/local/bin/prestium-tor-assistant</execute></action>
     </item>
@@ -162,12 +168,6 @@
       <action name="Execute"><execute>/usr/local/bin/prestium-touchpad</execute></action>
     </item>
     <menu id="/System/Accessibility" label="Accessibility">
-      <item label="Screen Reader (Orca)">
-        <action name="Execute"><execute>orca --replace</execute></action>
-      </item>
-      <item label="Stop Screen Reader">
-        <action name="Execute"><execute>pkill -f /usr/bin/orca</execute></action>
-      </item>
       <item label="Screen Keyboard (Onboard)">
         <action name="Execute"><execute>onboard</execute></action>
       </item>

@@ -1,0 +1,49 @@
+#!/bin/bash
+# prestium-i2p-reseed-gui: menu front end for /usr/local/sbin/prestium-i2p-reseed (run through sudo).
+#   prestium-i2p-reseed-gui           Network > Refresh I2P reseed (via Tor)
+#   prestium-i2p-reseed-gui --manual  Network > Manual reseed file (pick a .su3 you downloaded)
+# Shows the helper's progress, then a success or failure dialog.
+HELPER=/usr/local/sbin/prestium-i2p-reseed
+MANUAL_URL=https://reseed2.i2p.net/
+TITLE="I2P reseed"
+[ "$(id -u)" -eq 0 ] && { echo "run this as the desktop user, not root" >&2; exit 1; }
+
+ARGS=()
+if [ "${1:-}" = --manual ]; then
+  TITLE="Manual reseed file"
+  TBD="$HOME/Tor Browser"; DL="$HOME/Downloads"
+  # start where the newest .su3 is (Tor Browser saves to ~/Tor Browser), else in Tor Browser's folder
+  START=$(ls -t "$TBD"/*.su3 "$DL"/*.su3 2>/dev/null | head -n1)
+  if [ -n "$START" ]; then START=$(dirname -- "$START")/
+  elif [ -d "$TBD" ]; then START="$TBD/"
+  elif [ -d "$DL" ]; then START="$DL/"
+  else START="$HOME/"; fi
+  F=$(zenity --file-selection --title="Choose an I2P reseed file (.su3)" --filename="$START" \
+        --file-filter="I2P reseed files (*.su3) | *.su3" --file-filter="All files | *") || exit 0
+  ARGS=(--file "$F")
+fi
+
+OUT=$(mktemp /tmp/prestium-i2p-reseed.XXXXXX) || exit 1
+trap 'rm -f "$OUT" "$OUT.rc"' EXIT
+(
+  sudo -n "$HELPER" "${ARGS[@]}" 2>&1 | tee "$OUT" | sed -u -n 's/^STEP: \(.*\)/# \1/p'
+  echo "${PIPESTATUS[0]}" > "$OUT.rc"
+) | zenity --progress --pulsate --auto-close --no-cancel --title="$TITLE" \
+      --text="Starting..." --width=420 2>/dev/null
+RC=$(cat "$OUT.rc" 2>/dev/null); RC=${RC:-1}
+MSG=$(sed -n 's/^\(ERROR\|WARN\|DONE\|OK\): //p' "$OUT" | tail -n 6)
+
+if [ "$RC" = 0 ]; then
+  W=$(sed -n 's/^WARN: su3: //p' "$OUT" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+  zenity --info --title="$TITLE" --width=440 \
+    --text="The reseed file was checked and installed. I2P (i2pd) was restarted and is now reseeding from it; it can take a few minutes to build tunnels.${W:+\n\nNote: $W}" 2>/dev/null
+elif [ "$RC" = 2 ]; then
+  if zenity --question --title="$TITLE" --width=460 --ok-label="Open in Tor Browser" --cancel-label="Close" \
+      --text="The automatic download failed (StormyCloud and reseed.onion.im, both over Tor). Your current reseed file is kept and I2P was not restarted.\n\nDownload a reseed file by hand from:\n\n    $MANUAL_URL\n\nthen choose it with the menu entry Network &gt; Manual reseed file." 2>/dev/null; then
+    setsid tor-browser "$MANUAL_URL" >/dev/null 2>&1 < /dev/null &
+  fi
+else
+  zenity --error --title="$TITLE" --width=460 \
+    --text="The reseed file was not changed.\n\n$(printf '%s' "${MSG:-the helper failed (exit $RC)}" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')" 2>/dev/null
+fi
+exit "$RC"

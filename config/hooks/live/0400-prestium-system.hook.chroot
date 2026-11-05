@@ -79,6 +79,10 @@ if [ -e /etc/xdg/autostart/pasystray.desktop ]; then
 fi
 # 2.0: arandr is replaced by xfce4-display-settings (hotplug, HiDPI scale)
 apt-get purge -y arandr || true
+# 2.0: the Orca screen reader did not work and is removed with its speech stack (nothing else
+# depends on it; Onboard stays). Purged here too because a resumed build keeps the installed chroot.
+apt-get purge -y orca speech-dispatcher speech-dispatcher-espeak-ng espeak-ng python3-speechd || true
+apt-get autoremove --purge -y || true
 
 ## version strings
 cat > /usr/lib/os-release <<EOF

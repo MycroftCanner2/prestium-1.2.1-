@@ -41,7 +41,7 @@ which works but is several times slower.
    (`thirdparty/keys/`) **and** the SHA-256 pinned in `thirdparty/versions.sh`, and stages them in
    `config/includes.chroot/usr/src/prestium-thirdparty/` (not committed; removed from the image by
    the last hook); it also downloads a fresh StormyCloud I2P reseed file, checks it with
-   `scripts/verify-su3.py` (SU3 format, RSA-4096/SHA-512 signature against `thirdparty/keys/reseed/`,
+   `config/includes.chroot/usr/local/lib/prestium/verify-su3` (SU3 format, RSA-4096/SHA-512 signature against `thirdparty/keys/reseed/`,
    at most 14 days old) and puts it at `config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3`;
 2. runs `lb config` (options in `auto/config`);
 3. runs `lb build` and writes `Prestium-2.0-amd64.iso` and `Prestium-2.0-amd64.iso.sha256`.

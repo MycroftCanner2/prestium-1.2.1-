@@ -51,6 +51,7 @@ since 1.8) follow below.
 
 ## Tor Connection Assistant (new)
 - New menu entry **Network → Tor Connection Assistant**. Tor still connects directly at boot.
+- Error messages appear in a fixed-height, scrollable area (long details go to **Details**), so a failed connection never makes the window bigger; the window always fits above the taskbar (1024x768 and up), and long bridge lines wrap.
 - Shows Tor's bootstrap progress (through the control-port filter, read-only), a **Reconnect**
   button, and modes **Direct**, **Snowflake**, **WebTunnel** and **obfs4** (Tor Browser's built-in
   bridges and/or your own bridge lines).
@@ -87,8 +88,8 @@ since 1.8) follow below.
   rule makes the backlight writable for it).
 - **Touchpad:** tap to click, natural scrolling and disable-while-typing by default; **Touchpad**
   settings in the menu (saved and re-applied at login).
-- **Accessibility:** **Orca** screen reader (speech-dispatcher + eSpeak NG) and **Onboard**
-  on-screen keyboard, in the menu.
+- **Accessibility:** **Onboard** on-screen keyboard, in the menu. (The Orca screen reader was
+  tried and removed: it did not work.)
 
 ## Known limitations (2.0 draft)
 - See the test notes on the branch for what has and has not been verified in a VM yet.
@@ -164,6 +165,7 @@ Prestium 1.9.1.3 is a major update over 1.8. It rebases on Debian 13, adds Secur
 - **Mail over I2P:** the mail.i2p (postman) SMTP and POP3 tunnels are set up.
 - Bandwidth is set to L with 30% sharing.
 - The StormyCloud reseed file is downloaded fresh on every build and checked before it goes in (signature against i2pd's StormyCloud certificate, at most 14 days old); the build stops if either fails.
+- **Refresh I2P reseed (via Tor)** (menu: Network): downloads a fresh reseed file over Tor (StormyCloud, then reseed.onion.im), checks its signature against i2pd's reseed certificates, installs it, clears the netDb and restarts i2pd. If both fail, nothing changes and it points you to https://reseed2.i2p.net/ and **Manual reseed file** (pick a downloaded .su3; it is checked the same way).
 
 ## Communication
 - **Pidgin** is new. It runs over Tor and comes with:

@@ -27,10 +27,14 @@ No 2.0 ISO has been published.
    The Lounge, Feather, LibreWolf, i2pd and Tor, each checked against its publisher's signature and a
    pinned SHA-256.
 5. **Tor Connection Assistant** (menu: Network → Tor Connection Assistant), described below.
+   Its errors now stay in a fixed-size area, and the window always fits the screen above the taskbar.
+   **Refresh I2P reseed (via Tor)** and **Manual reseed file** (menu: Network) replace the reseed
+   file with a fresh, signature-checked one (downloaded over Tor, or a .su3 you downloaded from
+   https://reseed2.i2p.net/), then clear the netDb and restart i2pd.
 6. **Display, laptops, accessibility**: Display Settings (xfce4-display-settings, monitor hotplug)
    instead of arandr, HiDPI Display Scale (Auto or 100-200 %), working volume/brightness keys and a
-   Brightness slider, touchpad settings (tap to click, natural scrolling), Orca screen reader and
-   Onboard on-screen keyboard.
+   Brightness slider, touchpad settings (tap to click, natural scrolling) and the Onboard on-screen
+   keyboard.
 
 ### Tor Connection Assistant
 

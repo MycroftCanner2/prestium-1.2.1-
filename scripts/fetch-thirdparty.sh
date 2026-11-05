@@ -87,9 +87,12 @@ SU3=$TOP/config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3
 SU3URL=https://reseed.stormycloud.org/i2pseeds.su3
 rm -f "$SU3" "$SU3.part"
 # reseed servers only answer I2P's reseed user agent
-curl -sfL --retry 5 --retry-delay 10 --retry-all-errors -m 300 -A "Wget/1.11.4" -o "$SU3.part" "$SU3URL" \
+# (the server rate-limits per IP with HTTP 429 + Retry-After; curl waits as told, up to 25 min in all)
+curl -sfL --retry 8 --retry-all-errors --retry-max-time 1500 -m 300 -A "Wget/1.11.4" \
+  -o "$SU3.part" "$SU3URL" \
   || { rm -f "$SU3.part"; echo "ERROR: cannot download the I2P reseed file $SU3URL"; exit 1; }
-python3 "$TOP/scripts/verify-su3.py" "$SU3.part" "$TOP/thirdparty/keys/reseed" 14 \
+python3 "$TOP/config/includes.chroot/usr/local/lib/prestium/verify-su3" "$SU3.part" \
+  --max-age 14 --signers admin@stormycloud.org,idk@stormycloud.org "$TOP/thirdparty/keys/reseed" \
   || { rm -f "$SU3.part"; echo "ERROR: I2P reseed file $SU3URL failed verification"; exit 1; }
 chmod 644 "$SU3.part"; mv -f "$SU3.part" "$SU3"
 
