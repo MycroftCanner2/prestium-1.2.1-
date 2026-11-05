@@ -31,6 +31,16 @@ fi
 
 test -z $BG || $BG -solid "#303030"
 
+# Prestium 2.0: xfsettingsd (from xfce4-settings) for xfce4-display-settings: applies the display
+# configuration and handles monitor hotplug (quick setup dialog / saved profiles), and publishes
+# XSETTINGS (Prestium's GTK look; DPI from prestium-scale, see /etc/xdg/openbox/environment).
+# Its keyboard shortcuts are disabled (/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/).
+xfsettingsd &
+
+# Prestium 2.0: touchpad choices saved by Menu > System > Touchpad (defaults: xorg.conf.d)
+/usr/local/bin/prestium-touchpad --apply &
+
+# the panel; ~/.config/tint2/tint2rc is generated at login by prestium-scale (scaled for HiDPI)
 tint2 &
 
 # Prestium 2.0: audio is PipeWire (+ WirePlumber, pipewire-pulse), started per user by systemd --user.

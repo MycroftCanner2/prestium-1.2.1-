@@ -74,8 +74,11 @@ systemctl --global enable pipewire.socket pipewire-pulse.socket wireplumber.serv
 rm -f /etc/xdg/autostart/volumeicon.desktop
 if [ -e /etc/xdg/autostart/pasystray.desktop ]; then
 	# started once, from openbox's autostart (with Prestium's options), not twice
-	echo 'Hidden=true' >> /etc/xdg/autostart/pasystray.desktop
+	grep -q '^Hidden=true' /etc/xdg/autostart/pasystray.desktop || \
+		echo 'Hidden=true' >> /etc/xdg/autostart/pasystray.desktop
 fi
+# 2.0: arandr is replaced by xfce4-display-settings (hotplug, HiDPI scale)
+apt-get purge -y arandr || true
 
 ## version strings
 cat > /usr/lib/os-release <<EOF

@@ -60,6 +60,35 @@ since 1.8) follow below.
   I2P. Networks that block or poison DNS for Tor infrastructure can't stop these look-ups.
 - Optional, experimental: Snowflake's rendezvous through the I2P outproxy (if snowflake-client
   supports `-proxy`).
+- **Reworked in 2.0:** modes **Direct, Snowflake, WebTunnel, obfs4 and meek**. Opening the
+  assistant never touches Tor; **Apply and connect** stops Tor first, resolves, writes the new
+  configuration and starts Tor again, so progress runs from 0 %. **Cancel** works at any point (the
+  previous configuration is put back and Tor stays stopped; **Retry** / **Revert to previous**
+  offered). Choices are saved in `~/.config/prestium/tor-assistant.json`; the mode shown on start is
+  the one Tor is actually using.
+- **Parallel DNS-over-HTTPS through the I2P outproxy:** every needed name is asked of several DoH
+  providers at once (Cloudflare, Google, Quad9, AdGuard, Mullvad; port 443 only, keep-alive
+  connections through i2pd's HTTP proxy), first valid public IPv4 answer wins, results are cached.
+  Fixes 2.0's first version, whose Quad9 JSON endpoint (port 5053) the outproxy always refused.
+- **Snowflake fix:** Debian's `system_tor` AppArmor profile did not let the transports read the
+  system CA bundle, so TLS to the Snowflake broker (and WebTunnel/meek) failed inside the
+  confinement. `/etc/apparmor.d/local/system_tor` now includes `abstractions/ssl_certs` and the
+  network-interface reads Snowflake's WebRTC stack needs.
+- **Built-in bridges** are Tor Browser 16.0's own (`pt_config.json`, copied verbatim). Transports
+  from deb.torproject.org: **snowflake-client 2.15.1+tpo**, **lyrebird 0.9.0**, **webtunnel 0.0.7**.
+
+## Display, laptops and accessibility
+- **Display Settings** (xfce4-display-settings, replaces arandr): resolution, arrangement and
+  mirroring, with automatic handling of monitors plugged in or out.
+- **HiDPI:** **Display Scale** (Auto from the screen's physical size, or 100-200 %), applied at
+  every login to GTK/Qt apps, the panel (tint2) and Openbox.
+- **Laptop keys:** volume, mute, mic mute and brightness keys work, with an on-screen notification;
+  **Brightness** slider in the menu (brightnessctl; the live user is in group `video`, and a udev
+  rule makes the backlight writable for it).
+- **Touchpad:** tap to click, natural scrolling and disable-while-typing by default; **Touchpad**
+  settings in the menu (saved and re-applied at login).
+- **Accessibility:** **Orca** screen reader (speech-dispatcher + eSpeak NG) and **Onboard**
+  on-screen keyboard, in the menu.
 
 ## Known limitations (2.0 draft)
 - See the test notes on the branch for what has and has not been verified in a VM yet.

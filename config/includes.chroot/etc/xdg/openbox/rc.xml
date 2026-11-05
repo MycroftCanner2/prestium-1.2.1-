@@ -321,6 +321,28 @@
   <keybind key="Print">
     <action name="Execute"><command>scrot</command></action>
   </keybind>
+  <!-- Prestium 2.0: laptop/multimedia keys (PipeWire volume, backlight) with an on-screen notification -->
+  <keybind key="XF86AudioRaiseVolume">
+    <action name="Execute"><execute>/usr/local/bin/prestium-media-key volume-up</execute></action>
+  </keybind>
+  <keybind key="XF86AudioLowerVolume">
+    <action name="Execute"><execute>/usr/local/bin/prestium-media-key volume-down</execute></action>
+  </keybind>
+  <keybind key="XF86AudioMute">
+    <action name="Execute"><execute>/usr/local/bin/prestium-media-key mute</execute></action>
+  </keybind>
+  <keybind key="XF86AudioMicMute">
+    <action name="Execute"><execute>/usr/local/bin/prestium-media-key mic-mute</execute></action>
+  </keybind>
+  <keybind key="XF86MonBrightnessUp">
+    <action name="Execute"><execute>/usr/local/bin/prestium-media-key brightness-up</execute></action>
+  </keybind>
+  <keybind key="XF86MonBrightnessDown">
+    <action name="Execute"><execute>/usr/local/bin/prestium-media-key brightness-down</execute></action>
+  </keybind>
+  <keybind key="XF86Display">
+    <action name="Execute"><execute>xfce4-display-settings --minimal</execute></action>
+  </keybind>
 </keyboard>
 
 <mouse>

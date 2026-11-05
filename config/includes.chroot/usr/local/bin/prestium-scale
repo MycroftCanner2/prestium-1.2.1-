@@ -1,0 +1,153 @@
+#!/usr/bin/python3
+# Prestium 2.0: display scale (HiDPI) for the Openbox/tint2 desktop.
+#   prestium-scale --login     at login (sourced from /etc/xdg/openbox/environment, before Openbox
+#                              starts): apply the X settings and print the shell "export" lines
+#   prestium-scale --apply     apply now (Display Scale dialog): X resources, XSETTINGS (xfsettingsd),
+#                              tint2, Openbox; environment variables only reach apps started later
+#                              in a new session, so some apps need a re-login
+#   prestium-scale --detect    print the automatic scale (100/125/150/175/200)
+#   prestium-scale --effective print the scale in use (setting, or the automatic one)
+# Setting: ~/.config/prestium/scale contains "auto" (default) or a percentage.
+# Automatic: DPI of the primary (else first connected) output from xrandr's physical size (EDID):
+# dpi = pixels / millimetres * 25.4, then the largest step <= dpi/96. Bogus sizes (VMs, projectors)
+# give 100 %.
+import os, re, shutil, subprocess, sys
+
+HOME = os.path.expanduser("~")
+CONF_DIR = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.join(HOME, ".config"), "prestium")
+SETTING = os.path.join(CONF_DIR, "scale")
+TINT2_BASE = "/usr/share/prestium/tint2/tint2rc"
+TINT2_USER = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.join(HOME, ".config"), "tint2", "tint2rc")
+STEPS = (100, 125, 150, 175, 200)
+
+def run(cmd, **kw):
+    try:
+        return subprocess.run(cmd, capture_output=True, text=True, timeout=10, **kw)
+    except Exception:
+        return None
+
+def detect():
+    r = run(["xrandr", "--query"])
+    if not r or r.returncode != 0:
+        return 100, "xrandr unavailable"
+    outs = []
+    for l in r.stdout.splitlines():
+        m = re.match(r"^(\S+) connected( primary)? (\d+)x(\d+)\+\d+\+\d+ .*?(\d+)mm x (\d+)mm", l)
+        if m:
+            outs.append((bool(m.group(2)), m.group(1), int(m.group(3)), int(m.group(4)), int(m.group(5)), int(m.group(6))))
+    if not outs:
+        return 100, "no active output"
+    outs.sort(key=lambda o: (not o[0], not o[1].startswith(("eDP", "LVDS", "DSI"))))
+    _p, name, pw, ph, mw, mh = outs[0]
+    if (pw > ph) != (mw > mh):       # rotated: xrandr reports the unrotated physical size
+        mw, mh = mh, mw
+    if mw < 100 or mh < 60 or mw > 1000:
+        return 100, "%s: physical size %dx%d mm not plausible" % (name, mw, mh)
+    dpi = pw / mw * 25.4
+    if abs(dpi - ph / mh * 25.4) > dpi * 0.2:
+        return 100, "%s: inconsistent physical size" % name
+    ratio = dpi / 96.0
+    s = max([x for x in STEPS if x / 100.0 <= ratio + 0.001] or [100])
+    return s, "%s: %dx%d px, %dx%d mm, %.0f dpi" % (name, pw, ph, mw, mh, dpi)
+
+def setting():
+    try:
+        v = open(SETTING).read().strip().lower()
+    except OSError:
+        return "auto"
+    if v in ("auto", ""):
+        return "auto"
+    try:
+        n = int(v.rstrip("%"))
+        return n if n in STEPS else "auto"
+    except ValueError:
+        return "auto"
+
+def effective():
+    s = setting()
+    return detect()[0] if s == "auto" else s
+
+def values(s):
+    g = 2 if s >= 175 else 1
+    dpi = int(round(96 * s / 100.0))
+    return {
+        "dpi": dpi, "gdk_scale": g, "gdk_dpi_scale": (1.0 / g),
+        "cursor": int(round(24 * s / 100.0)), "qt": s / 100.0,
+    }
+
+def env_lines(s):
+    v = values(s)
+    ex = {"PRESTIUM_SCALE": str(s), "XCURSOR_SIZE": str(v["cursor"])}
+    if s != 100:
+        ex.update({"GDK_SCALE": str(v["gdk_scale"]), "QT_AUTO_SCREEN_SCALE_FACTOR": "0",
+                   "QT_SCALE_FACTOR": ("%g" % v["qt"]), "QT_FONT_DPI": "96"})
+        if v["gdk_scale"] > 1:
+            ex["GDK_DPI_SCALE"] = "%g" % v["gdk_dpi_scale"]
+    unset = [k for k in ("GDK_SCALE", "GDK_DPI_SCALE", "QT_AUTO_SCREEN_SCALE_FACTOR", "QT_SCALE_FACTOR", "QT_FONT_DPI")
+             if k not in ex]
+    lines = ["export %s=%s" % (k, v_) for k, v_ in ex.items()]
+    lines += ["unset %s" % k for k in unset]
+    # D-Bus/systemd-activated programs get the same environment
+    lines.append("dbus-update-activation-environment --systemd %s >/dev/null 2>&1 || true" % " ".join(ex))
+    return lines
+
+def apply_x(s):
+    v = values(s)
+    res = "Xft.dpi: %d\nXcursor.size: %d\n" % (v["dpi"], v["cursor"])
+    run(["xrdb", "-merge", "-nocpp"], input=res)
+    # XSETTINGS (published by xfsettingsd for GTK): the effective DPI; window scaling stays 1 because
+    # GDK_SCALE/GDK_DPI_SCALE come from the environment
+    if shutil.which("xfconf-query"):
+        for prop, typ, val in (("/Xft/DPI", "int", str(v["dpi"])), ("/Gdk/WindowScalingFactor", "int", "1"),
+                               ("/Gtk/CursorThemeSize", "int", str(v["cursor"]))):
+            run(["xfconf-query", "-c", "xsettings", "-p", prop, "-n", "-t", typ, "-s", val])
+
+def scale_tint2(s):
+    """~/.config/tint2/tint2rc = Prestium's panel scaled (sizes and paddings, not colours)."""
+    try:
+        base = open(TINT2_BASE).read()
+    except OSError:
+        return
+    f = s / 100.0
+    def sc(n):
+        return str(int(round(int(n) * f)))
+    out = []
+    for l in base.splitlines():
+        m = re.match(r"^(\s*)(panel_size|task_maximum_size|systray_icon_size|launcher_icon_size|"
+                     r"task_thumbnail_size|panel_padding|taskbar_padding|task_padding|systray_padding|"
+                     r"launcher_padding|clock_padding|battery_padding|tooltip_padding|taskbar_name_padding)"
+                     r"(\s*=\s*)(.*)$", l)
+        if m and s != 100:
+            vals = m.group(4).split()
+            vals = [v if v.endswith("%") or not v.isdigit() else sc(v) for v in vals]
+            l = m.group(1) + m.group(2) + m.group(3) + " ".join(vals)
+        out.append(l)
+    os.makedirs(os.path.dirname(TINT2_USER), exist_ok=True)
+    tmp = TINT2_USER + ".tmp"
+    with open(tmp, "w") as fh:
+        fh.write("# generated by prestium-scale (%d %%) from %s\n" % (s, TINT2_BASE) + "\n".join(out) + "\n")
+    os.replace(tmp, TINT2_USER)
+
+def main(a):
+    if a == "--detect":
+        s, why = detect(); print("%d\t%s" % (s, why)); return 0
+    if a == "--effective":
+        print(effective()); return 0
+    if a == "--login":
+        s = effective()
+        apply_x(s)
+        scale_tint2(s)
+        print("\n".join(env_lines(s)))
+        return 0
+    if a == "--apply":
+        s = effective()
+        apply_x(s)
+        scale_tint2(s)
+        run(["pkill", "-USR1", "-x", "tint2"])          # tint2 reloads its config on SIGUSR1
+        run(["openbox", "--reconfigure"])
+        print(s); return 0
+    print("usage: prestium-scale --login|--apply|--detect|--effective", file=sys.stderr)
+    return 2
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else ""))

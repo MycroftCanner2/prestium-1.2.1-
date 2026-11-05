@@ -1,5 +1,6 @@
 {
- "source": "Tor Browser 16.0 pt_config.json (omni.ja chrome/toolkit/content/global/pt_config.json)",
+ "source": "Tor Browser 16.0 (linux-x86_64, signed tarball, SHA-256 de3370b6...1a24): Browser/omni.ja chrome/toolkit/content/global/pt_config.json, the same built-in bridge lines Tor Browser 16 uses (from tor-browser-build projects/tor-expert-bundle/pt_config.json). Copied verbatim 2026-11-04.",
+ "transports": "Debian packages from deb.torproject.org (trixie): snowflake-client 2.15.1+tpo-1 (newer than the Snowflake 2.14.1 built into Tor Browser 16's lyrebird), lyrebird 0.9.0+tpo-1 (same version as Tor Browser 16's), webtunnel 0.0.7+tpo-1 (same as the WebTunnel client built into Tor Browser 16's lyrebird). Installed in /usr/bin, which Debian's system_tor AppArmor abstraction allows (Pix).",
  "obfs4": [
   "obfs4 37.218.245.14:38224 D9A82D2F9C2F65A18407B1D2B764F130847F8B5D cert=bjRaMrr1BRiAW8IE9U5z27fQaYgOhX1UCmOpg2pFpoMvo6ZgQMzLsaTzzQNTlm7hNcb+Sg iat-mode=0",
   "obfs4 209.148.46.65:443 74FAD13168806246602538555B5521A0383A1875 cert=ssH+9rP8dG2NLDN2XuFw63hIO/9MNNinLmxQDpVa+7kTOa9/m+tGWT1SmSYpQ9uTBGa6Hw iat-mode=0",

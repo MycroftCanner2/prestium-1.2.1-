@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Prestium 2.0: XSETTINGS published by xfsettingsd (started from Openbox's autostart for
+     xfce4-display-settings' monitor handling). Mirrors Prestium's existing GTK look (Adwaita,
+     Prestium icon theme, default fonts); /Xft/DPI and /Gtk/CursorThemeSize are set at login by
+     prestium-scale. -->
+<channel name="xsettings" version="1.0">
+  <property name="Net" type="empty">
+    <property name="ThemeName" type="string" value="Adwaita"/>
+    <property name="IconThemeName" type="string" value="Prestium"/>
+    <property name="EnableEventSounds" type="bool" value="false"/>
+    <property name="EnableInputFeedbackSounds" type="bool" value="false"/>
+  </property>
+  <property name="Xft" type="empty">
+    <property name="DPI" type="int" value="96"/>
+    <property name="Antialias" type="int" value="1"/>
+    <property name="Hinting" type="int" value="1"/>
+    <property name="HintStyle" type="string" value="hintslight"/>
+    <property name="RGBA" type="string" value="none"/>
+  </property>
+  <property name="Gtk" type="empty">
+    <property name="FontName" type="string" value="Sans 10"/>
+    <property name="MonospaceFontName" type="string" value="Monospace 10"/>
+    <property name="CursorThemeName" type="string" value=""/>
+    <property name="CursorThemeSize" type="int" value="24"/>
+    <property name="DecorationLayout" type="string" value="menu:minimize,maximize,close"/>
+  </property>
+  <property name="Gdk" type="empty">
+    <property name="WindowScalingFactor" type="int" value="1"/>
+  </property>
+</channel>

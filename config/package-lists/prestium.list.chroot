@@ -10,7 +10,6 @@ apparmor-profiles-extra
 apparmor-utils
 apt
 apt-utils
-arandr
 at-spi2-common
 at-spi2-core
 audacity

@@ -40,6 +40,7 @@ if ! getent passwd user >/dev/null; then
 fi
 passwd -d user >/dev/null          # empty until the user sets a session password
 usermod -aG i2pd,autologin,i2ptorrents,prestium-localweb user
+usermod -aG video user              # 2.0: backlight (brightnessctl, 90-prestium-backlight.rules)
 usermod -aG i2pd,i2ptorrents i2pd 2>/dev/null || true
 gpasswd -a i2pd i2ptorrents >/dev/null
 # home: files from config/includes.chroot plus anything else from /etc/skel

@@ -81,6 +81,11 @@ echo "OK LURCH $LURCH_COMMIT"
 rm -rf "$S"; mkdir -p "$S"
 cp "$C/$TBF" "$S/tor-browser.tar.xz"; cp "$C/$FFF" "$S/firefox.tar.xz"; cp "$C/$NF" "$S/node.tar.xz"
 cp "$C/$FEF" "$S/feather.zip"; echo "$FEATHER_VERSION" > "$S/feather.version"
-tar -C "$L" -cf "$S/thelounge.tar" package.json package-lock.json node_modules
+# tar once per The Lounge version (node_modules has thousands of small files; slow on network filesystems)
+LT="$C/thelounge-$THELOUNGE_VERSION.tar"
+if [ ! -s "$LT" ] || [ "$L/.done" -nt "$LT" ]; then
+  tar -C "$L" -cf "$LT.tmp" package.json package-lock.json node_modules && mv -f "$LT.tmp" "$LT"
+fi
+cp "$LT" "$S/thelounge.tar"
 tar -C "$LS" --exclude=.git -cf "$S/lurch-src.tar" .
 echo "STAGED $S"; ls -la "$S"

@@ -22,3 +22,14 @@ gir1.2-gtk-3.0
 ca-certificates
 xz-utils
 unzip
+# display settings (hotplug, HiDPI scale), laptop brightness keys/slider, touchpad
+xfce4-settings
+brightnessctl
+xinput
+# accessibility: Orca screen reader (speech-dispatcher + eSpeak NG), Onboard on-screen keyboard
+orca
+speech-dispatcher
+speech-dispatcher-espeak-ng
+espeak-ng
+python3-speechd
+onboard

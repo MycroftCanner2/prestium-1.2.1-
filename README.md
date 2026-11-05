@@ -27,6 +27,10 @@ No 2.0 ISO has been published.
    The Lounge, Feather, LibreWolf, i2pd and Tor, each checked against its publisher's signature and a
    pinned SHA-256.
 5. **Tor Connection Assistant** (menu: Network → Tor Connection Assistant), described below.
+6. **Display, laptops, accessibility**: Display Settings (xfce4-display-settings, monitor hotplug)
+   instead of arandr, HiDPI Display Scale (Auto or 100-200 %), working volume/brightness keys and a
+   Brightness slider, touchpad settings (tap to click, natural scrolling), Orca screen reader and
+   Onboard on-screen keyboard.
 
 ### Tor Connection Assistant
 
@@ -35,8 +39,13 @@ Tor still connects directly at boot, as before. The assistant is a small GTK win
 - shows Tor's bootstrap progress, read through Prestium's control-port filter (onion-grater) with a
   new read-only "tor-assistant" profile (no SETCONF, no signals);
 - has a **Reconnect** button (restarts Tor);
-- switches between **Direct**, **Snowflake**, **WebTunnel** and **obfs4** (built-in bridges from
-  Tor Browser 16.0 and/or pasted bridge lines).
+- switches between **Direct**, **Snowflake**, **WebTunnel**, **obfs4** and **meek** (built-in
+  bridges are Tor Browser 16.0's `pt_config.json`, verbatim, and/or pasted bridge lines; transports
+  snowflake-client 2.15.1+tpo, lyrebird 0.9.0 and webtunnel 0.0.7 from deb.torproject.org);
+- never touches Tor when opened. **Apply and connect** stops Tor, resolves, writes the configuration
+  and starts Tor again (progress from 0 %); **Cancel** works at any point and leaves the previous
+  configuration in place with Tor stopped (**Retry** / **Revert to previous**). Choices are saved in
+  `~/.config/prestium/tor-assistant.json`.
 
 Applying a mode runs a small root helper (`/usr/local/sbin/prestium-tor-mode`, allowed through sudo
 for `user` only, input validated against strict patterns) that writes Tor's drop-in
@@ -47,11 +56,11 @@ work in 1.9.x: they need to look up host names (Snowflake's front domains and ST
 front, the WebTunnel bridge's host). In 2.0:
 
 - **Tor traffic is not routed through I2P.** Tor and its pluggable transports connect directly.
-- Only those **host-name look-ups** go through I2P: the helper asks two DNS-over-HTTPS providers
-  (Cloudflare, Quad9, Google as fallback) over HTTPS through i2pd's HTTP proxy (127.0.0.1:4444),
-  which forwards them to the I2P outproxy
-  (`proxy4uwdijqxac2bvdx4fuhem6njmiwukuk2gelejv2nzxka2xq.b32.i2p`). Only public IPv4 answers are
-  used; when both providers answer, the common addresses are preferred.
+- Only those **host-name look-ups** go through I2P: the helper asks several DNS-over-HTTPS providers
+  **in parallel** (Cloudflare, Google, Quad9, AdGuard, Mullvad; port 443 only, keep-alive HTTPS
+  connections) through i2pd's HTTP proxy (127.0.0.1:4444), which forwards them to the I2P outproxy
+  (`proxy4uwdijqxac2bvdx4fuhem6njmiwukuk2gelejv2nzxka2xq.b32.i2p`). The first valid answer (public
+  IPv4 only) wins, failing providers are dropped, and answers are cached.
 - The answers are pinned in a marked block of `/etc/hosts`, which the transports (run by Tor as
   `debian-tor`) read; nothing else on the system resolves names. So a network that blocks or
   poisons DNS for Tor infrastructure cannot stop Snowflake or WebTunnel from finding their servers.
@@ -60,6 +69,9 @@ front, the WebTunnel bridge's host). In 2.0:
 - **Firewall stays strict**: Tor's uid may use TCP as before; **UDP is allowed for Tor's uid only
   while Snowflake mode is on** (WebRTC/STUN), never to loopback, via `/etc/ferm/prestium-tor-pt.conf`
   which the helper rewrites and ferm includes.
+- **Snowflake under AppArmor:** Debian's `system_tor` profile blocked the transports from reading the
+  system CA bundle, so Snowflake's TLS to its broker failed; `/etc/apparmor.d/local/system_tor`
+  adds `abstractions/ssl_certs` and the network reads Snowflake's WebRTC stack needs.
 - Optional, experimental: **"Snowflake rendezvous via the I2P outproxy"** (shown only if the
   installed `snowflake-client` has `-proxy`): Snowflake's broker request goes through i2pd's SOCKS
   proxy (4447) and the I2P outproxy; the WebRTC data still goes directly to the Snowflake proxy.

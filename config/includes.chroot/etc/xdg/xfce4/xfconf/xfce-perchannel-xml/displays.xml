@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Prestium 2.0: when a monitor is connected, xfsettingsd shows the quick setup (mirror/extend/
+     only one screen) and applies a saved profile automatically when one matches. -->
+<channel name="displays" version="1.0">
+  <property name="Notify" type="int" value="1"/>
+  <property name="AutoEnableProfiles" type="bool" value="true"/>
+</channel>
