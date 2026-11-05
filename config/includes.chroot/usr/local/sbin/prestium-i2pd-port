@@ -1,9 +1,9 @@
 #!/bin/sh
-# Prestium: give i2pd a fresh random port each boot and open only that port
-# inbound, so the router is reachable (not "firewalled") and builds tunnels faster.
-# 1.9: ferm loads its ruleset with the *legacy* xtables backend (it prefers
-# iptables-legacy when present), so the ACCEPT rules must go into the legacy
-# tables too. 1.8 used `iptables` (= nft backend), so the port stayed closed.
+# Prestium: give i2pd a fresh random port each boot (so the port is no stable fingerprint).
+# 2.0 r5 (audit): the port is NOT opened inbound any more. 1.8-2.0 r4 added iptables ACCEPT rules
+# for it on every interface (IPv4 and IPv6) so the router was "reachable"; that exposed i2pd to the
+# local network and published this machine's IP as a reachable router in the I2P netDb. i2pd now
+# runs firewalled (SSU2 introducers); outbound NTCP2/SSU2 and every client tunnel work as before.
 # 2.0 r4 (security audit): /var/lib/i2pd belongs to i2pd, so i2pd.conf is read and replaced only
 # through /usr/local/lib/prestium/safefile (refuses a symlink or special file; new file created by
 # root in the same directory, then renamed over the name), never written through by path.
@@ -20,13 +20,4 @@ awk -v p="$PORT" '
   !done && /^port[ \t]*=/ { next }
   { print }
 ' "$TMP" | $SAFE write /var/lib/i2pd i2pd.conf 2000 2000 0644
-set +e
-for ipt in iptables-legacy ip6tables-legacy; do
-  command -v $ipt >/dev/null 2>&1 || continue
-  $ipt -w -N PRESTIUM_I2PD 2>/dev/null || $ipt -w -F PRESTIUM_I2PD
-  $ipt -w -C INPUT -j PRESTIUM_I2PD 2>/dev/null || $ipt -w -I INPUT 1 -j PRESTIUM_I2PD
-  # only i2pd's per-boot port, only new inbound connections/datagrams to it
-  $ipt -w -A PRESTIUM_I2PD -p tcp --dport "$PORT" -m conntrack --ctstate NEW -j ACCEPT
-  $ipt -w -A PRESTIUM_I2PD -p udp --dport "$PORT" -j ACCEPT
-done
 exit 0

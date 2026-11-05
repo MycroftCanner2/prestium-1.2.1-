@@ -50,6 +50,15 @@ since 1.8) follow below.
   is unchanged in the menu. volumeicon (ALSA only) is gone.
 
 ## Security
+- i2pd's per-boot random port is no longer opened inbound (1.8 to 2.0 drafts accepted it on every
+  interface, IPv4 and IPv6). i2pd now runs firewalled: nothing on the local network can reach it,
+  and the netDb no longer lists this machine's IP as a reachable router. Outbound connections, all
+  client tunnels and I2P Torrents work as before; joining the network can take a little longer.
+- i2pd UPnP is explicitly off (`[upnp] enabled = false`) instead of relying on the Linux default.
+- polkit: the desktop user gets an allow-list of NetworkManager actions (connect, disconnect,
+  Wi-Fi on/off and scan, save connections) instead of every NetworkManager action. Hotspot sharing,
+  hostname and global DNS changes and the other admin actions now need authentication. The i2pd
+  rule only allows start, stop and restart, and every rule needs the active local session.
 - Fixed (audit): the two helpers the desktop user may run through sudo (`prestium-tunnel-hops`,
   `prestium-i2p-reseed`) ran Python as root in the caller's working directory, so a planted module
   (e.g. `re.py`) ran as root. Both now `cd /` and run Python isolated (`python3 -I`).
