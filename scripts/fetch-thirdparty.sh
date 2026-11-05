@@ -3,7 +3,8 @@
 # for the chroot hooks in config/includes.chroot/usr/src/prestium-thirdparty/ (not committed).
 #   scripts/fetch-thirdparty.sh            verify signature + pinned SHA-256 (fails on any mismatch)
 #   scripts/fetch-thirdparty.sh --repin    verify signature only, print the SHA-256 values to pin
-# Needs: curl gpg gpgv git sha256sum unzip npm (the host's npm only runs "npm ci --ignore-scripts": pure JS,
+#   It also downloads a fresh I2P reseed file (StormyCloud su3, signature-checked) into config/includes.chroot/var/lib/i2pd/.
+# Needs: curl gpg gpgv git sha256sum unzip npm python3 openssl (the host's npm only runs "npm ci --ignore-scripts": pure JS,
 # architecture-independent; every package tarball is checked against the lockfile's sha512 integrity).
 set -euo pipefail
 TOP=$(cd "$(dirname "$0")/.." && pwd)
@@ -77,6 +78,21 @@ fi
 echo "OK LURCH $LURCH_COMMIT"
 
 [ "$REPIN" = 1 ] && exit 0
+
+# I2P reseed file: fetched fresh on every build (never cached), then checked: SU3 format, StormyCloud
+# signer, RSA-4096/SHA-512 signature against i2pd's reseed certificate (thirdparty/keys/reseed/), at
+# most 14 days old, routerInfo entries in the zip. Any failure stops the build (no stale fallback).
+# i2pd.conf [reseed] file= points at it; owner i2pd (2000) comes from perms.txt.
+SU3=$TOP/config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3
+SU3URL=https://reseed.stormycloud.org/i2pseeds.su3
+rm -f "$SU3" "$SU3.part"
+# reseed servers only answer I2P's reseed user agent
+curl -sfL --retry 5 --retry-delay 10 --retry-all-errors -m 300 -A "Wget/1.11.4" -o "$SU3.part" "$SU3URL" \
+  || { rm -f "$SU3.part"; echo "ERROR: cannot download the I2P reseed file $SU3URL"; exit 1; }
+python3 "$TOP/scripts/verify-su3.py" "$SU3.part" "$TOP/thirdparty/keys/reseed" 14 \
+  || { rm -f "$SU3.part"; echo "ERROR: I2P reseed file $SU3URL failed verification"; exit 1; }
+chmod 644 "$SU3.part"; mv -f "$SU3.part" "$SU3"
+
 # stage for the hooks
 rm -rf "$S"; mkdir -p "$S"
 cp "$C/$TBF" "$S/tor-browser.tar.xz"; cp "$C/$FFF" "$S/firefox.tar.xz"; cp "$C/$NF" "$S/node.tar.xz"

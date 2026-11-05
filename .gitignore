@@ -21,3 +21,4 @@ rootfs/usr/share/librewolf/libxul.so
 /config/includes.chroot/usr/src/prestium-thirdparty/
 /config/includes.chroot/usr/share/prestium/build/host-resolv.conf
 /config/hooks/normal/
+/config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3

@@ -162,7 +162,8 @@ Prestium 1.9.1.3 is a major update over 1.8. It rebases on Debian 13, adds Secur
 ## I2P
 - The I2P **SOCKS proxy (4447)** now reaches the clearnet through the acetone outproxy, over new outproxy tunnels.
 - **Mail over I2P:** the mail.i2p (postman) SMTP and POP3 tunnels are set up.
-- Bandwidth is set to L with 30% sharing, and the reseed file is refreshed and signature-checked.
+- Bandwidth is set to L with 30% sharing.
+- The StormyCloud reseed file is downloaded fresh on every build and checked before it goes in (signature against i2pd's StormyCloud certificate, at most 14 days old); the build stops if either fails.
 
 ## Communication
 - **Pidgin** is new. It runs over Tor and comes with:

@@ -22,7 +22,7 @@ upgrading and patching an unpacked root filesystem (`rootfs/`, `build-1.9.1.3/`)
 A Debian 13 host (a VM is fine) with about 25 GB free and root access:
 
     sudo apt install live-build debootstrap squashfs-tools xorriso mtools dosfstools \
-        curl gnupg gpgv git unzip npm
+        curl gnupg gpgv git unzip npm python3 openssl
 
 On a host that is not amd64 (e.g. arm64), also install `qemu-user-static` and make sure
 `/proc/sys/fs/binfmt_misc/qemu-x86_64` exists with flag `F`. The amd64 chroot then runs emulated,
@@ -40,7 +40,9 @@ which works but is several times slower.
    (npm) and the lurch source, checks each one against its publisher's OpenPGP signature
    (`thirdparty/keys/`) **and** the SHA-256 pinned in `thirdparty/versions.sh`, and stages them in
    `config/includes.chroot/usr/src/prestium-thirdparty/` (not committed; removed from the image by
-   the last hook);
+   the last hook); it also downloads a fresh StormyCloud I2P reseed file, checks it with
+   `scripts/verify-su3.py` (SU3 format, RSA-4096/SHA-512 signature against `thirdparty/keys/reseed/`,
+   at most 14 days old) and puts it at `config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3`;
 2. runs `lb config` (options in `auto/config`);
 3. runs `lb build` and writes `Prestium-2.0-amd64.iso` and `Prestium-2.0-amd64.iso.sha256`.
 
