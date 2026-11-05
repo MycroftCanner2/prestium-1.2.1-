@@ -89,6 +89,7 @@ front, the WebTunnel bridge's host). In 2.0:
 
 - `auto/`, `config/`, `build.sh`, `scripts/`, `thirdparty/`: the live-build configuration
   (see [BUILDING.md](BUILDING.md)).
-- The `Prestium-1.7`, `1.8` and `1.9.1.3` torrents, unchanged.
+- No release torrents: the `Prestium-1.7`, `1.8` and `1.9.1.3` `.torrent` files were removed from
+  this branch (they remain in git history).
 
 The `main` branch holds the original Prestium 1.2.1; `prestium-1.6-update` holds the 1.6-1.9.1.3 releases.
