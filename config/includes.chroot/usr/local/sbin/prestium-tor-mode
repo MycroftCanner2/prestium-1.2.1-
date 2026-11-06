@@ -14,7 +14,7 @@
 #           "builtin": true|false}
 # Everything from the request is validated against strict patterns; nothing is passed to a shell.
 # Opening the assistant never stops or restarts Tor: only apply/cancel/revert/reconnect do.
-import fcntl, json, os, re, shutil, signal, subprocess, sys, tempfile, time
+import fcntl, json, os, re, shutil, signal, socket, subprocess, sys, tempfile, time
 
 DROPIN = "/etc/tor/torrc.d/50-prestium-assistant.conf"
 FERM_INC = "/etc/ferm/prestium-tor-pt.conf"
@@ -206,7 +206,8 @@ def torrc_text(mode, lines):
     return "\n".join(t) + "\n"
 
 def backup():
-    """Remember the configuration that was active before this apply."""
+    """Snapshot the live config into PREV at apply start (one step back for revert/cancel-during-apply).
+    Not refreshed after success; cancel-after-success no longer restores PREV (see cmd_cancel)."""
     os.makedirs(PREV, exist_ok=True)
     for src, name in ((DROPIN, "dropin"), (FERM_INC, "ferm"), (HOSTS, "hosts"), (STATE, "state")):
         dst = os.path.join(PREV, name)
@@ -365,29 +366,92 @@ def running_apply():
         pass
     return None
 
-def cmd_cancel():
+
+def tor_bootstrap():
+    """Return (progress:int|None, circuit:bool). None progress => control port unavailable."""
+    try:
+        cookie = open("/run/tor/control.authcookie", "rb").read().hex()
+        s = socket.socket(socket.AF_UNIX)
+        s.settimeout(3)
+        s.connect("/run/tor/control")
+        s.sendall(("AUTHENTICATE %s\r\nGETINFO status/bootstrap-phase status/circuit-established\r\nQUIT\r\n" % cookie).encode())
+        r = b""
+        while True:
+            b = s.recv(4096)
+            if not b:
+                break
+            r += b
+        text = r.decode(errors="replace")
+        pct = None
+        m = re.search(r"status/bootstrap-phase=.*?PROGRESS=(\d+)", text)
+        if m:
+            pct = int(m.group(1))
+        circ = "status/circuit-established=1" in text
+        return pct, circ
+    except Exception:
+        return None, False
+
+def apply_holds_lock():
+    try:
+        lk = open(LOCK, "a+")
+        try:
+            fcntl.flock(lk, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            fcntl.flock(lk, fcntl.LOCK_UN)
+            return False
+        except OSError:
+            return True
+        finally:
+            lk.close()
+    except Exception:
+        return False
+
+def wait_running_apply(timeout=2.0):
+    """PID file can lag the lock by a moment; wait briefly if the lock is held."""
     pid = running_apply()
+    if pid:
+        return pid
+    if not apply_holds_lock():
+        return None
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        pid = running_apply()
+        if pid:
+            return pid
+        time.sleep(0.1)
+    return running_apply()
+
+def cmd_cancel():
+    # 2.0 r6: never restore a successful apply when Tor is already connected.
+    # cancel during apply: signal the apply (it restores PREV and leaves Tor stopped).
+    # cancel while connecting (no apply): stop Tor, keep the new config (reconnect/revert).
+    # cancel when connected: refuse — use revert to undo configuration.
+    pid = wait_running_apply()
     if pid:
         os.kill(pid, signal.SIGTERM)
         for _ in range(100):
             if not os.path.exists("/proc/%d" % pid):
                 break
             time.sleep(0.1)
-        out({"ok": True, "tor": "stopped", "message": "cancelled while applying"})
+        out({"ok": True, "tor": "stopped", "message": "cancelled while applying", "restored": True})
         return 0
-    # the change was applied and Tor is still connecting: stop it, previous configuration back
+    pct, circ = tor_bootstrap()
+    if (pct is not None and pct >= 100) or circ:
+        out({"ok": False, "error": "Tor is already connected; cancel does nothing. Use revert to undo the configuration.",
+             "bootstrap": pct, "circuit": circ})
+        return 1
     tor("stop")
-    restored = restore()
     st = {}
     try: st = json.load(open(STATE))
     except Exception: pass
     st.update({"cancelled": True, "tor_stopped": True})
+    # Keep current drop-in/ferm/hosts (successful apply). PREV stays for explicit revert.
     write_state(st)
-    out({"ok": True, "tor": "stopped", "restored": restored})
+    out({"ok": True, "tor": "stopped", "restored": False,
+         "message": "Tor stopped; current configuration kept. Use reconnect or revert."})
     return 0
 
 def cmd_revert():
-    if running_apply():
+    if wait_running_apply():
         die("a change is still being applied; cancel it first")
     restored = restore()
     try:
@@ -417,7 +481,7 @@ def main():
     if a == "revert":
         return cmd_revert()
     if a == "reconnect":
-        if running_apply():
+        if wait_running_apply():
             die("a change is still being applied")
         ok, err = tor("restart")
         out({"ok": ok, "error": err}); return 0 if ok else 1

@@ -8,28 +8,87 @@
 # 2.0 r4 (security audit): /var/lib/i2pd belongs to i2pd, so i2pd.conf is read and replaced only
 # through /usr/local/lib/prestium/safefile (refuses a symlink or special file; new file created by
 # root in the same directory, then renamed over the name), never written through by path.
+# 2.0 r6: if ferm reload fails after the conf/port file are written, restore the previous conf,
+# remove the run file (fail closed: no inbound rule) and exit non-zero so i2pd does not start
+# listening on a firewalled port. Also set a per-boot web-console password (auth=true).
 set -e
 SAFE=/usr/local/lib/prestium/safefile
 PORT=$(shuf -i 10000-30000 -n 1)
+# console password: URL-safe, no ':' (basic-auth URL embedding)
+CPASS=$(head -c 18 /dev/urandom | base64 | tr -d '+/=' | tr -d '\n' | head -c 24)
+[ -n "$CPASS" ] || { echo "prestium-i2pd-port: cannot generate console password" >&2; exit 1; }
 TMP=$(mktemp)
-trap 'rm -f "$TMP"' EXIT
+BAK=$(mktemp)
+trap 'rm -f "$TMP" "$BAK"' EXIT
 $SAFE read /var/lib/i2pd i2pd.conf > "$TMP"
+cp -f "$TMP" "$BAK"
 grep -q '^\[' "$TMP" || { echo "prestium-i2pd-port: i2pd.conf has no sections, not touched" >&2; exit 1; }
-# Only the global "port" (before the first [section]) is touched.
-awk -v p="$PORT" '
-  !done && /^\[/ { print "port = " p; print ""; done=1 }
-  !done && /^port[ \t]*=/ { next }
+# Global port (before first [section]); [http] auth/user/pass rewritten in-section.
+awk -v p="$PORT" -v pass="$CPASS" '
+  BEGIN { inhttp=0; done_port=0; saw_auth=0; saw_user=0; saw_pass=0 }
+  !done_port && /^\[/ {
+    print "port = " p; print ""; done_port=1
+  }
+  !done_port && /^port[ \t]*=/ { next }
+  /^\[http\]/ { inhttp=1; print; next }
+  /^\[/ {
+    if (inhttp) {
+      if (!saw_auth) print "auth = true"
+      if (!saw_user) print "user = i2pd"
+      if (!saw_pass) print "pass = " pass
+      inhttp=0
+    }
+    print; next
+  }
+  inhttp && /^auth[ \t]*=/ { print "auth = true"; saw_auth=1; next }
+  inhttp && /^user[ \t]*=/ { print "user = i2pd"; saw_user=1; next }
+  inhttp && /^pass[ \t]*=/ { print "pass = " pass; saw_pass=1; next }
+  inhttp && /^#[[:space:]]*auth([ \t]*=|$)/ { next }
+  inhttp && /^#[[:space:]]*user([ \t]*=|$)/ { next }
+  inhttp && /^#[[:space:]]*pass([ \t]*=|$)/ { next }
   { print }
+  END {
+    if (inhttp) {
+      if (!saw_auth) print "auth = true"
+      if (!saw_user) print "user = i2pd"
+      if (!saw_pass) print "pass = " pass
+    }
+  }
 ' "$TMP" | $SAFE write /var/lib/i2pd i2pd.conf 2000 2000 0644
-# /run/prestium is root's (0755); write the port atomically, then let ferm pick it up.
+
 install -d -o root -g root -m 0755 /run/prestium
 PF=$(mktemp /run/prestium/.i2pd.port.XXXXXX)
 echo "$PORT" > "$PF"
 chmod 0644 "$PF"
 mv -f "$PF" /run/prestium/i2pd.port
+CF=$(mktemp /run/prestium/.i2pd-console.pass.XXXXXX)
+printf '%s\n' "$CPASS" > "$CF"
+# readable by live user (localfox launcher) and root; not world
+chown root:user "$CF" 2>/dev/null || chown root:root "$CF"
+chmod 0640 "$CF"
+mv -f "$CF" /run/prestium/i2pd-console.pass
+
+# Blocking ferm reload so the rule is in place before i2pd starts. Safe inside i2pd's start
+# job: i2pd is ordered After=ferm, never the reverse. On failure: restore conf, drop run files.
 set +e
-# Blocking, so the rule is in place before i2pd starts. Safe inside i2pd's start job: i2pd is
-# ordered After=ferm, never the reverse, so ferm's reload never waits on i2pd. ferm reloads
-# atomically (iptables-restore). The timeout only guards against a hung reload.
 timeout 60 /usr/bin/systemctl reload-or-restart ferm.service
+rc=$?
+set -e
+if [ "$rc" -ne 0 ]; then
+  echo "prestium-i2pd-port: ferm reload failed (rc=$rc); restoring previous i2pd.conf and removing port file (fail closed)" >&2
+  $SAFE write /var/lib/i2pd i2pd.conf 2000 2000 0644 < "$BAK" || true
+  rm -f /run/prestium/i2pd.port /run/prestium/i2pd-console.pass
+  exit 1
+fi
+# Confirm the getter still sees a valid port (invalid/missing => ferm would open nothing).
+GOT=$(/usr/local/lib/prestium/i2pd-port-get)
+case "$GOT" in
+  "$PORT") ;;
+  *)
+    echo "prestium-i2pd-port: i2pd-port-get returned '$GOT', expected $PORT; fail closed" >&2
+    $SAFE write /var/lib/i2pd i2pd.conf 2000 2000 0644 < "$BAK" || true
+    rm -f /run/prestium/i2pd.port /run/prestium/i2pd-console.pass
+    exit 1
+    ;;
+esac
 exit 0

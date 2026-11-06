@@ -294,7 +294,10 @@ async def main():
     try: os.unlink(LISTEN)
     except FileNotFoundError: pass
     server = await asyncio.start_unix_server(handle, path=LISTEN)
-    os.chmod(LISTEN, 0o666)   # access is decided per client with SO_PEERCRED
+    # 2.0 r6: 0660 root:user — PEERCRED still decides the profile; world no longer connects.
+    if USER_UID is not None:
+        os.chown(LISTEN, 0, USER_UID)
+    os.chmod(LISTEN, 0o660)
     log("listening on %s" % LISTEN)
     async with server:
         await server.serve_forever()

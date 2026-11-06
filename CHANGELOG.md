@@ -5,6 +5,20 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r6 (security / state-machine)
+
+- **Tor mode cancel:** cancel with no apply no longer restores PREV and stops a connected Tor; connected → refuse (use revert); connecting → stop Tor, keep config; apply-in-progress → signal apply (restore PREV). Lock/PID race: cancel waits briefly if the apply lock is held.
+- **Tor Connection Assistant:** cancel UI matches the new semantics; poller no longer drives phase during applying/cancelling; external Tor stop while connecting returns to idle.
+- **i2pd port:** blocking ferm reload; on reload failure restore previous `i2pd.conf`, remove `/run/prestium/i2pd.port`, exit non-zero (fail closed). Per-boot console `auth`/`pass`; password in `/run/prestium/i2pd-console.pass` for localfox.
+- **I2P Torrents:** bind-mount Torrents onto itself after create (blocks post-start symlink swap); `/run/prestium-torrents/status` distinguishes `ready` vs `disabled:<reason>`.
+- **i2pd systemd:** `10-hardening.conf` with `ProtectHome=read-only` (not tmpfs) so Torrents stays visible via `ReadWritePaths`.
+- **onion-grater:** control socket `0660` root:user (PEERCRED unchanged).
+- **tunnel-hops:** flock; success text states `:4444` is limited readiness, not tunnels built.
+- **reseed:** keep previous `.su3`, one retry on start failure, restore previous file if start still fails.
+- **clockfix:** only verified consensus files (`cached-*-consensus`), never `unverified-*`. `prestium-timesync` ordered `After=prestium-clockfix`.
+- **The Lounge launcher:** require active unit + 128-hex token; clearer recovery text.
+- **Rejected / already fixed earlier:** sudoers `--file /*` is valid (`*` matches `/` in command arguments); UDP NEW + share template + blocking ferm reload landed in 515d178; lurch commit pins are content-addressed integrity (documented), not weaker than an unsigned tar SHA.
+
 ## Build system
 - **Built with live-build** from a configuration in git (package lists, Prestium's files, hooks)
   instead of upgrading and patching an unpacked root filesystem. Anyone can rebuild the ISO with

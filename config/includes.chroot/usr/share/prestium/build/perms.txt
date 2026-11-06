@@ -61,6 +61,7 @@
 0644 root root /etc/systemd/system/NetworkManager.service.d/prestium-ferm.conf
 0644 root root /etc/systemd/system/apparmor.service.d/prestium-live.conf
 0644 root root /etc/systemd/system/i2pd.service.d/prestium.conf
+0644 root root /etc/systemd/system/i2pd.service.d/10-hardening.conf
 0644 root root /etc/systemd/system/i2pd.service.d/zz-torrents.conf
 0644 root root /etc/systemd/system/prestium-clockfix.service
 0644 root root /etc/systemd/system/prestium-firewall-early.service

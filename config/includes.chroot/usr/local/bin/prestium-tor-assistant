@@ -456,8 +456,18 @@ class Assistant(Gtk.ApplicationWindow):
         return False
 
     def show_status(self, pct, text, circ):
+        # Poller is independent of apply/cancel; never drive phase while applying/cancelling.
+        if self.phase in ("applying", "cancelling"):
+            if pct is not None:
+                self.progress.set_fraction(pct / 100.0)
+                self.progress.set_text("%d %%" % pct)
+            return False
         if pct is None:
             self.progress.set_fraction(0); self.progress.set_text("0 % - " + ("Stopped" if "stopped" in text else "not connected"))
+            # External stop while we thought we were connecting: return to idle so the user can act.
+            if self.phase == "connecting" and "stopped" in (text or "").lower():
+                self.set_phase("idle")
+                self.log("Tor stopped outside the assistant")
         else:
             self.progress.set_fraction(pct / 100.0)
             self.progress.set_text("%d %%%s" % (pct, " - connected" if pct >= 100 and circ else ""))
@@ -562,12 +572,22 @@ class Assistant(Gtk.ApplicationWindow):
         mode, lines = read_dropin()
         self.describe(dict(read_json(STATE, {}), mode=mode, bridges=len(lines)))
         if res.get("ok"):
-            self.status.set_text("Cancelled. Tor is stopped.")
-            self.log("cancelled; previous settings (%s) restored, Tor stopped" % TITLES.get(mode, mode))
-            self.show_info("Cancelled. The previous settings (%s) are back and Tor is stopped. "
-                           "Retry the change, or revert to start Tor with the previous settings." % TITLES.get(mode, mode))
+            if res.get("restored"):
+                self.status.set_text("Cancelled. Tor is stopped.")
+                self.log("cancelled while applying; previous settings restored, Tor stopped")
+                self.show_info("Cancelled while applying. The previous settings (%s) are back and Tor is stopped. "
+                               "Retry the change, or revert/reconnect as needed." % TITLES.get(mode, mode))
+            else:
+                self.status.set_text("Cancelled. Tor is stopped; configuration kept.")
+                self.log("cancelled while connecting; configuration kept, Tor stopped")
+                self.show_info("Tor was stopped; the new configuration was kept. "
+                               "Use Reconnect to start Tor again, Retry to re-apply, or Revert for the previous settings.",
+                               retry=True, revert=True)
         else:
-            self.show_info("Cancelling failed: %s" % res.get("error"), Gtk.MessageType.ERROR)
+            # Connected: cancel is a no-op by design
+            err = res.get("error") or "unknown error"
+            self.log("cancel: " + err)
+            self.show_info(err, Gtk.MessageType.INFO, retry=False, revert=True)
         return False
 
     def run_simple(self, cmd, label):

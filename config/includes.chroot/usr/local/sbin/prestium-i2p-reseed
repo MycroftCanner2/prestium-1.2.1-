@@ -115,6 +115,13 @@ else
 fi
 
 step "Installing the reseed file"
+# Keep the previous su3 for rollback if i2pd fails to start with the new one.
+OLD=$T/old.su3
+if "$SAFE" read "$(dirname "$DEST")" "$(basename "$DEST")" > "$OLD" 2>/dev/null; then
+  HAVE_OLD=1
+else
+  HAVE_OLD=0
+fi
 # /var/lib/i2pd is owned by i2pd: never install by path. safefile refuses a symlink, directory or
 # special file at DEST and writes through an O_EXCL temp file + fchown/fchmod + renameat.
 "$SAFE" write "$(dirname "$DEST")" "$(basename "$DEST")" 2000 2000 0644 < "$NEW" \
@@ -123,6 +130,20 @@ step "Restarting I2P (i2pd) so it reseeds"
 systemctl stop i2pd
 # an empty netDb makes i2pd reseed from the file at start
 if [ -d "$NETDB" ] && [ ! -L "$NETDB" ]; then find "$NETDB" -mindepth 1 -delete; fi
-systemctl start i2pd || die 1 "the reseed file was installed, but i2pd did not start again (Network > Restart I2P)"
+if ! systemctl start i2pd; then
+  echo "WARN: i2pd did not start with the new reseed file; trying once more" >&2
+  sleep 2
+  if systemctl start i2pd; then
+    echo "DONE: installed $DEST from $FROM; netDb cleared, i2pd restarted (second attempt)"
+    exit 0
+  fi
+  if [ "$HAVE_OLD" = 1 ]; then
+    step "Restoring the previous reseed file after failed start"
+    "$SAFE" write "$(dirname "$DEST")" "$(basename "$DEST")" 2000 2000 0644 < "$OLD" || true
+    systemctl start i2pd || die 1 "the new reseed file was installed, start failed twice, and restoring the previous file also left i2pd stopped (Network > Restart I2P)"
+    die 1 "i2pd would not start with the new reseed file; the previous file was restored and i2pd was started again"
+  fi
+  die 1 "the reseed file was installed, but i2pd did not start again (Network > Restart I2P)"
+fi
 echo "DONE: installed $DEST from $FROM; netDb cleared, i2pd restarted"
 exit 0

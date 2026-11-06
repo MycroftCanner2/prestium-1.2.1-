@@ -28,6 +28,8 @@ fi
 [ "$(id -u)" -eq 0 ] || exec sudo -n /usr/local/bin/prestium-tunnel-hops "$N"
 # sudo keeps the caller's working directory: never run (Python) code from it as root
 cd / || exit 1
+exec 9>/run/prestium-hops.lock
+flock -n 9 || { echo "another tunnel-hops change is already running" >&2; exit 1; }
 
 say() {
   echo "$2"
@@ -99,10 +101,11 @@ PY
 
 put tunnels.conf "$T/tunnels.conf.new"; put i2pd.conf "$T/i2pd.conf.new"
 
+# :4444 listening = proxy up (limited readiness), not that exploratory/client tunnels exist yet.
 up() { for i in $(seq 1 45); do ss -ltn 2>/dev/null | grep -q '127.0.0.1:4444 ' && return 0; sleep 1; done; return 1; }
 systemctl restart i2pd
 if up; then
-  say "" "Tunnels now use $N hops; i2pd restarted. New tunnels take a minute or two to build."
+  say "" "Hop count set to $N; i2pd restarted and the HTTP proxy (:4444) is listening. That is not proof tunnels are built yet — wait a minute or two before browsing."
 else
   put tunnels.conf "$T/tunnels.conf.bak"; put i2pd.conf "$T/i2pd.conf.bak"
   systemctl restart i2pd
