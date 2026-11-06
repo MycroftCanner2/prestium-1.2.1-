@@ -16,3 +16,6 @@ network netlink raw,
 # Go runtime of the transports
 @{PROC}/sys/kernel/osrelease r,
 /sys/kernel/mm/transparent_hugepage/hpage_pmd_size r,
+# 2.0 r9: SOCKS Unix socket for the Tor Browser sandbox
+/run/prestium-tbb/ r,
+/run/prestium-tbb/socks rw,

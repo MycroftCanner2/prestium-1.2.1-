@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+# 2.0 r9: an app is starting, so the window for setting the administration password ends now
+sudo -n /usr/local/sbin/prestium-admin-password close >/dev/null 2>&1 || true
 # Prestium: official Tor Browser (/opt/tor-browser), using the system Tor
 # (tor@default, SOCKS 127.0.0.1:9050) instead of its own tor, so the ferm rule
 # "only debian-tor and i2pd reach the network" still holds.
@@ -27,14 +29,50 @@ if [ ! -e "$P/cert9.db" ]; then
 fi
 # Prestium prefs (download folder etc.), rewritten at every start
 sed "s#@DOWNLOADS@#$D#g" /usr/local/share/prestium-tor-browser/user.js > "$P/user.js"
-TOR_SKIP_LAUNCH=1
-TOR_SOCKS_HOST=127.0.0.1
-TOR_SOCKS_PORT=9050
-TOR_CONTROL_IPC_PATH=/run/onion-grater/control
-# onion-grater accepts any password (access is decided by process identity)
-TOR_CONTROL_PASSWD='"prestium"'
-TOR_HIDE_UPDATE_CHECK_UI=1
-export TOR_SKIP_LAUNCH TOR_SOCKS_HOST TOR_SOCKS_PORT TOR_CONTROL_IPC_PATH TOR_CONTROL_PASSWD TOR_HIDE_UPDATE_CHECK_UI
-unset TOR_CONTROL_COOKIE_AUTH_FILE TOR_CONTROL_PORT TOR_CONTROL_HOST
-cd "$TB/Browser" || exit 1
-exec ./start-tor-browser "$@" -profile "$P"
+# 2.0 r9: Tor Browser runs in a bubblewrap sandbox (Tails runs it in its own network namespace and
+# a Flatpak sandbox; this does both with one tool):
+#  - its own, empty network namespace: no interfaces but loopback, so no TCP/UDP/DNS/ICMP to
+#    anywhere, not even 127.0.0.1:9050. Its only ways out are two Unix sockets bound in: Tor's
+#    SOCKS socket /run/prestium-tbb/socks and the onion-grater control filter.
+#  - its own mount namespace: a read-only /usr, /etc and /opt/tor-browser, a private /tmp, and of
+#    $HOME only ~/.tor-browser and ~/Tor Browser. No session or system D-Bus.
+#  - own PID, IPC, UTS (hostname "localhost") and cgroup namespaces; no_new_privs, so sudo and any
+#    other setuid program can't raise privileges.
+#  - inside, the AppArmor profile torbrowser_firefox still applies (same paths).
+# X11 is shared with the desktop (Prestium has no Wayland yet): an exploited browser could still
+# read or inject X11 input. That is a known limit, as in every X11 sandbox.
+SOCKS=/run/prestium-tbb/socks
+CTL=/run/onion-grater/control
+if [ ! -S "$SOCKS" ]; then
+  notify-send -u critical "Tor Browser" "Tor is not running (no SOCKS socket). Tor Browser was not started." 2>/dev/null
+  exit 1
+fi
+command -v bwrap >/dev/null || { notify-send -u critical "Tor Browser" "The browser sandbox (bubblewrap) is missing. Tor Browser was not started." 2>/dev/null; exit 1; }
+U=$(id -u)
+X=${DISPLAY#*:}; X=${X%%.*}
+case "$X" in ''|*[!0-9]*) echo "Tor Browser: unsupported DISPLAY '$DISPLAY'" >&2; exit 1 ;; esac
+XA=${XAUTHORITY:-$HOME/.Xauthority}
+B=(--unshare-all --new-session --hostname localhost
+   --ro-bind /usr /usr --ro-bind /etc /etc --ro-bind "$TB" "$TB")
+for d in bin lib lib64 sbin; do
+  [ -L "/$d" ] && B+=(--symlink "$(readlink "/$d")" "/$d")
+done
+B+=(--proc /proc --dev /dev --tmpfs /dev/shm --dev-bind-try /dev/dri /dev/dri --ro-bind /sys /sys
+   --tmpfs /tmp --dir /var/tmp --tmpfs /run --dir /run/user --dir "/run/user/$U"
+   --ro-bind-try "/tmp/.X11-unix/X$X" "/tmp/.X11-unix/X$X"
+   --bind-try "/run/user/$U/pulse" "/run/user/$U/pulse"
+   --bind-try "/run/user/$U/pipewire-0" "/run/user/$U/pipewire-0"
+   --dir /run/prestium-tbb --bind "$SOCKS" "$SOCKS"
+   --dir /run/onion-grater --bind-try "$CTL" "$CTL"
+   --dir "$HOME" --bind "$HOME/.tor-browser" "$HOME/.tor-browser" --bind "$D" "$D"
+   --ro-bind-try "$XA" "$XA" --ro-bind-try "$HOME/.config/gtk-3.0" "$HOME/.config/gtk-3.0"
+   --clearenv --setenv HOME "$HOME" --setenv USER "$(id -un)" --setenv LOGNAME "$(id -un)"
+   --setenv PATH /usr/bin:/bin --setenv DISPLAY "$DISPLAY" --setenv XAUTHORITY "$XA"
+   --setenv LANG "${LANG:-C.UTF-8}" --setenv XDG_RUNTIME_DIR "/run/user/$U"
+   --setenv TOR_SKIP_LAUNCH 1 --setenv TOR_SOCKS_IPC_PATH "$SOCKS" --setenv TOR_CONTROL_IPC_PATH "$CTL"
+   --setenv TOR_CONTROL_PASSWD '"prestium"' --setenv TOR_HIDE_UPDATE_CHECK_UI 1
+   --chdir "$TB/Browser")
+[ -n "${LC_ALL:-}" ] && B+=(--setenv LC_ALL "$LC_ALL")
+# onion-grater accepts any password (access is decided by process identity: the real
+# /opt/tor-browser/Browser/firefox.real, checked by device and inode)
+exec ${PRESTIUM_BWRAP:-bwrap} "${B[@]}" -- ./start-tor-browser "$@" -profile "$P"

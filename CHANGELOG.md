@@ -5,6 +5,33 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r9 (Tails parity: admin password, sandboxed Tor Browser, app confinement)
+
+- **Administration password (optional, Tails-style).** A welcome dialog at login offers to set one.
+  It can only be set then (within 15 minutes of boot, before an app is started). With it, the
+  settings that change how anonymous you are ask for it every time: the Tor connection (bridges,
+  transport, revert), the I2P tunnel hops, a manual I2P reseed file and the clock. Before r9 any
+  program running as the desktop user could change these silently (for example point Tor at a
+  bridge it controls, or drop I2P to one hop). Without a password they work as before, but never
+  from a confined app. The screen-lock password is separate and grants nothing.
+- **Confined apps can't ask for root.** Every app profile denies sudo, su, pkexec, Prestium's helpers,
+  Tor's control socket and the system bus.
+- **Tor Browser sandbox.** Tor Browser runs in bubblewrap: its own empty network namespace (only
+  loopback; Tor's SOCKS port is a Unix socket bound in, so it can reach nothing else at all), a
+  private filesystem with only ~/.tor-browser and ~/Tor Browser from your home, no D-Bus, its own
+  PID/IPC/hostname namespaces and no_new_privs. The AppArmor profile still applies inside. Known
+  limit: X11 is shared with the desktop.
+- **onion-grater:** apps are now recognised by the file they really run (device and inode), not by a
+  path. Before r9 any program could pose as Tor Browser or OnionShare by binding another file over
+  that path in its own mount namespace.
+- **More apps confined (AppArmor, enforced):** Gajim, OnionShare, Feather, LibreOffice (no network at
+  all), The Lounge (also via its systemd unit) and the local-only Firefox. Pidgin is enforced.
+- **No swap, ever:** swapon is a no-op (as in Tails) and `systemd.gpt_auto=0` is on the kernel command line.
+- **Internal NVMe disks are hidden,** like SATA disks already were (`modprobe.blacklist=nvme` and modprobe.d).
+- Tests: `tests/test_admin_password.sh`, `tests/test_tor_browser_sandbox.sh`,
+  `tests/test_onion_grater_identity.py`; all AppArmor profiles parse with apparmor_parser 4.1.
+- Not tested on a booted ISO yet. The new AppArmor profiles may still miss rules an app needs.
+
 ## 2.0 r8 (firewall stop fails closed)
 
 - Stopping or restarting the firewall (ferm), including at shutdown, now falls back to the boot-time

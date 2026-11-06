@@ -7,7 +7,7 @@
 st=$(sudo -n /usr/local/sbin/prestium-session-password status 2>/dev/null)
 if [ "$st" != set ]; then
   out=$(zenity --forms --title "Lock Screen" \
-        --text "Set a password to lock the screen.\nYou'll need it to unlock the screen and for administration prompts.\nIt lasts until you shut down." \
+        --text "Set a password to lock the screen.\nYou'll need it to unlock the screen.\nIt lasts until you shut down." \
         --add-password "Password" --add-password "Confirm password" --separator '
 ' 2>/dev/null) || exit 0
   p1=$(printf '%s\n' "$out" | sed -n 1p); p2=$(printf '%s\n' "$out" | sed -n 2p)

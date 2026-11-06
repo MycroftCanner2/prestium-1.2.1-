@@ -1,0 +1,7 @@
+#!/bin/sh
+# Prestium 2.0 r9: sudo askpass helper for protected settings. PRESTIUM_ASK_REASON names the change.
+r=$(printf '%s' "${PRESTIUM_ASK_REASON:-This change is protected.}" | tr -d '<>&' | cut -c1-200)
+exec zenity --entry --hide-text --title "Administration password" \
+  --text "$r
+
+Enter the administration password you set at login." 2>/dev/null

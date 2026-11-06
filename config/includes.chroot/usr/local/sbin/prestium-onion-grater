@@ -100,6 +100,16 @@ PROFILES = {
     },
 }
 
+def same_file(a, b):
+    """True when both paths are the same file (device and inode), e.g. /proc/PID/exe and the
+    system binary; a bind mount keeps device and inode, a substituted file doesn't."""
+    try:
+        x, y = os.stat(a), os.stat(b)
+    except OSError:
+        return False
+    return (x.st_dev, x.st_ino) == (y.st_dev, y.st_ino)
+
+
 def identify(conn):
     creds = conn.getsockopt(socket.SOL_SOCKET, socket.SO_PEERCRED, struct.calcsize("3i"))
     pid, uid, gid = struct.unpack("3i", creds)
@@ -126,10 +136,20 @@ def identify(conn):
             argv = [a.decode(errors="replace") for a in f.read().split(b"\0") if a]
     except OSError as e:
         return None, "cannot inspect pid: %s" % e, pid
+    # 2.0 r9: a path can be faked with an unprivileged mount namespace (bind another file over
+    # /opt/tor-browser/Browser/firefox.real inside it), and Tor Browser now runs in such a
+    # namespace (its sandbox) itself. So the file the process really runs, and the script Python
+    # really reads (through the process's own root), must be the very file of the system.
     if exe == TB_EXE:
-        return "tor-browser", exe, pid
+        if same_file("/proc/%d/exe" % pid, TB_EXE):
+            return "tor-browser", exe, pid
+        return None, "fake %s (different file)" % exe, pid
     if re.fullmatch(r"/usr/bin/python3(\.\d+)?", exe) and len(argv) >= 2:
+        if not same_file("/proc/%d/exe" % pid, exe):
+            return None, "fake %s (different file)" % exe, pid
         script = argv[1]
+        if not script.startswith("/") or not same_file("/proc/%d/root%s" % (pid, script), script):
+            return None, "unknown client %s %s (script is not the system file)" % (exe, script), pid
         if script in ("/usr/bin/onionshare", "/usr/bin/onionshare-cli"):
             return "onionshare", script, pid
         if script == "/usr/bin/nyx":

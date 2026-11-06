@@ -33,6 +33,7 @@ sysuser onion-grater /nonexistent "Prestium Tor control filter"
 sysuser prestium-htp /nonexistent ""
 sysuser prestium-ptdns /nonexistent "Prestium DoH lookups for Tor bridges (via I2P)"
 grp autologin; grp i2ptorrents; grp prestium-localweb
+grp prestium-tbb   # 2.0 r9: may use Tor's SOCKS socket for the Tor Browser sandbox
 
 if ! getent passwd user >/dev/null; then
 	groupadd --gid 1000 user
@@ -40,6 +41,7 @@ if ! getent passwd user >/dev/null; then
 fi
 passwd -d user >/dev/null          # empty until the user sets a session password
 usermod -aG i2pd,autologin,i2ptorrents,prestium-localweb user
+usermod -aG prestium-tbb user       # 2.0 r9
 usermod -aG video user              # 2.0: backlight (brightnessctl, 90-prestium-backlight.rules)
 usermod -aG i2pd,i2ptorrents i2pd 2>/dev/null || true
 gpasswd -a i2pd i2ptorrents >/dev/null

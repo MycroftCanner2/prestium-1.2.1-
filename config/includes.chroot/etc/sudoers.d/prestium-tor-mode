@@ -1,2 +1,4 @@
-# Prestium 2.0: Tor Connection Assistant (validated JSON on stdin; no free-form arguments)
-user ALL=(root) NOPASSWD: /usr/local/sbin/prestium-tor-mode apply, /usr/local/sbin/prestium-tor-mode cancel, /usr/local/sbin/prestium-tor-mode revert, /usr/local/sbin/prestium-tor-mode reconnect, /usr/local/sbin/prestium-tor-mode status, /usr/local/sbin/prestium-tor-mode features
+# Prestium 2.0: Tor Connection Assistant (validated JSON on stdin; no free-form arguments).
+# 2.0 r9: "apply" and "revert" change the Tor connection (bridges, transport): protected settings,
+# see /etc/sudoers.d/prestium-sensitive. Cancel, reconnect and status stay allowed.
+user ALL=(root) NOPASSWD: /usr/local/sbin/prestium-tor-mode cancel, /usr/local/sbin/prestium-tor-mode reconnect, /usr/local/sbin/prestium-tor-mode status, /usr/local/sbin/prestium-tor-mode features

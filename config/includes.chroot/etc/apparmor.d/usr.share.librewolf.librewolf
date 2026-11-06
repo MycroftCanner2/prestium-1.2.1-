@@ -174,5 +174,8 @@ profile librewolf /usr/share/librewolf/librewolf{,-bin} {
   deny @{HOME}/.gnupg/** rw,
   deny @{HOME}/.ssh/** rw,
 
+  # 2.0 r9: no sudo/su/pkexec, no Prestium helpers, no system bus
+  include <abstractions/prestium-no-admin>
+
   include if exists <local/usr.share.librewolf.librewolf>
 }

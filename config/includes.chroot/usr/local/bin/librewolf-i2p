@@ -1,4 +1,6 @@
 #!/bin/sh
+# 2.0 r9: an app is starting, so the window for setting the administration password ends now
+sudo -n /usr/local/sbin/prestium-admin-password close >/dev/null 2>&1 || true
 # Prestium: "I2P Browser" - LibreWolf through the
 # I2P HTTP proxy 127.0.0.1:4444. .i2p sites go through I2P; other (clearnet)
 # sites go through ONE I2P outproxy (acetone, http://proxy4uwdijqxac2bvdx4fuhem6njmiwukuk2gelejv2nzxka2xq.b32.i2p:3128), which sees every

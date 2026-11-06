@@ -25,7 +25,9 @@ if [ -z "$N" ]; then
   fi
 fi
 [[ "$N" =~ ^[1-7]$ ]] || { echo "Hops must be 1-7" >&2; exit 1; }
-[ "$(id -u)" -eq 0 ] || exec sudo -n /usr/local/bin/prestium-tunnel-hops "$N"
+# 2.0 r9: a protected setting (asks for the administration password, if one was set at login)
+[ "$(id -u)" -eq 0 ] || exec env SUDO_ASKPASS=/usr/local/lib/prestium/askpass \
+  PRESTIUM_ASK_REASON="Set the I2P tunnel hops to $N." sudo -A /usr/local/bin/prestium-tunnel-hops "$N"
 # sudo keeps the caller's working directory: never run (Python) code from it as root
 cd / || exit 1
 exec 9>/run/prestium-hops.lock

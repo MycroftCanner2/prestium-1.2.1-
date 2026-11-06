@@ -5,6 +5,8 @@ adwaita-icon-theme
 alsa-topology-conf
 alsa-ucm-conf
 apparmor
+# 2.0 r9: Tor Browser sandbox (own empty network namespace, private mounts, no_new_privs)
+bubblewrap
 apparmor-profiles
 apparmor-profiles-extra
 apparmor-utils

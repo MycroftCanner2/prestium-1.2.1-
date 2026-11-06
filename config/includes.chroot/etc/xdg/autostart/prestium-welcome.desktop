@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Prestium welcome (administration password)
+Exec=/usr/local/bin/prestium-welcome
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
