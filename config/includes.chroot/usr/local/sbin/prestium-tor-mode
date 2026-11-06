@@ -190,9 +190,19 @@ def ferm_text(mode):
         rules.append("outerface ! lo mod owner uid-owner $tor_uid proto udp ACCEPT;")
     return "\n".join(rules) + "\n"
 
+class FirewallError(RuntimeError):
+    pass
+
 def ferm_reload():
-    subprocess.run(["/usr/bin/systemctl", "reload-or-restart", "ferm.service"], timeout=60,
-                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    """2.0 r7: the result matters. A failed reload means the firewall may not match the files on disk,
+    so callers must never report success (or start Tor) after one."""
+    try:
+        r = subprocess.run(["/usr/bin/systemctl", "reload-or-restart", "ferm.service"], timeout=60,
+                           capture_output=True, text=True)
+    except Exception as e:
+        raise FirewallError("the firewall reload did not run: %s" % e.__class__.__name__)
+    if r.returncode != 0:
+        raise FirewallError("the firewall reload failed (ferm.service): %s" % (r.stderr or "").strip()[-300:])
 
 def torrc_text(mode, lines):
     t = ["# Prestium 2.0: written by the Tor Connection Assistant (prestium-tor-mode). Mode: %s" % mode]
@@ -208,24 +218,46 @@ def torrc_text(mode, lines):
 def backup():
     """Snapshot the live config into PREV at apply start (one step back for revert/cancel-during-apply).
     Not refreshed after success; cancel-after-success no longer restores PREV (see cmd_cancel)."""
+    # 2.0 r7: PREV is only trusted when complete; a file that did not exist is recorded as absent so
+    # restore() removes it again (complete previous state, not "previous files laid over new ones").
     os.makedirs(PREV, exist_ok=True)
+    try: os.unlink(os.path.join(PREV, ".complete"))
+    except FileNotFoundError: pass
     for src, name in ((DROPIN, "dropin"), (FERM_INC, "ferm"), (HOSTS, "hosts"), (STATE, "state")):
         dst = os.path.join(PREV, name)
+        for p in (dst, dst + ".absent"):
+            if os.path.exists(p):
+                os.unlink(p)
         if os.path.exists(src):
             shutil.copy2(src, dst)
-        elif os.path.exists(dst):
-            os.unlink(dst)
+        else:
+            open(dst + ".absent", "w").close()
+    atomic_write(os.path.join(PREV, ".complete"), "1\n")
 
 def restore():
-    if not os.path.isdir(PREV):
+    """Put the complete previous configuration back. Returns False when there is no complete snapshot.
+    Raises FirewallError when the files are back but the firewall could not be reloaded."""
+    if not os.path.exists(os.path.join(PREV, ".complete")):
         return False
     for dst, name, mode in ((DROPIN, "dropin", 0o644), (FERM_INC, "ferm", 0o644), (HOSTS, "hosts", 0o644),
                             (STATE, "state", 0o644)):
         src = os.path.join(PREV, name)
         if os.path.exists(src):
             atomic_write(dst, open(src).read(), mode)
+        elif os.path.exists(src + ".absent") and os.path.exists(dst) and name != "hosts":
+            os.unlink(dst)
     ferm_reload()
     return True
+
+def fail_closed(msg):
+    """Firewall state is unknown: Tor stays stopped and the state file says why."""
+    tor("stop")
+    st = {}
+    try: st = json.load(open(STATE))
+    except Exception: pass
+    st.update({"tor_stopped": True, "firewall_error": msg})
+    try: write_state(st)
+    except Exception: pass
 
 def tor(action):
     r = subprocess.run(["/usr/bin/systemctl", action, TOR_UNIT], capture_output=True, text=True, timeout=120)
@@ -296,7 +328,9 @@ def cmd_apply():
     backup()
     try:
         event("stopping", "Stopping Tor ...")
-        tor("stop")
+        ok, err = tor("stop")
+        if not ok:
+            raise RuntimeError("Tor could not be stopped: %s" % err)
         event("stopped", "Tor is stopped.")
         need, opt = hosts_for(mode, lines)
         pins, errs = resolve(need + opt) if (need or opt) else ({}, {})
@@ -337,20 +371,41 @@ def cmd_apply():
     except KeyboardInterrupt:
         for sg in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
             signal.signal(sg, signal.SIG_IGN)
-        restore()
+        tor("stop")
+        try:
+            restored = restore()
+        except FirewallError as fe:
+            fail_closed(str(fe))
+            out({"ok": False, "cancelled": True, "firewall_error": str(fe), "tor_stopped": True,
+                 "error": "cancelled, but the firewall could not be reloaded; Tor stays stopped"})
+            return 4
         st = {}
         try: st = json.load(open(STATE))
         except Exception: pass
         st.update({"cancelled": True, "tor_stopped": True})
         write_state(st)
-        out({"ok": False, "cancelled": True, "error": "cancelled; the previous configuration is back, Tor is stopped"})
+        out({"ok": False, "cancelled": True, "restored": restored,
+             "error": "cancelled; the previous configuration is back, Tor is stopped" if restored
+                      else "cancelled; no previous configuration to restore, Tor is stopped"})
         return 3
     except Exception as e:
-        # a failed change must not leave the user offline: previous configuration, Tor started again
+        # a failed change must not leave the user offline: previous configuration, Tor started again --
+        # but only when the previous firewall is verifiably back (2.0 r7: never start Tor on a failed reload)
         signal.signal(signal.SIGTERM, signal.SIG_DFL)
-        restore()
-        tor("start")
-        out({"ok": False, "error": str(e), "reverted": True})
+        try:
+            restored = restore()
+        except FirewallError as fe:
+            fail_closed(str(fe))
+            out({"ok": False, "error": str(e), "reverted": False, "tor_stopped": True, "firewall_error": str(fe)})
+            return 4
+        if not restored:
+            tor("stop")
+            out({"ok": False, "error": str(e), "reverted": False, "tor_stopped": True,
+                 "message": "no complete previous configuration; Tor stays stopped"})
+            return 1
+        started, serr = tor("start")
+        out({"ok": False, "error": str(e), "reverted": True, "tor_started": started,
+             "tor_error": "" if started else serr})
         return 1
     finally:
         try: os.unlink(PIDFILE)
@@ -432,6 +487,16 @@ def cmd_cancel():
             if not os.path.exists("/proc/%d" % pid):
                 break
             time.sleep(0.1)
+        st = {}
+        try: st = json.load(open(STATE))
+        except Exception: pass
+        if st.get("firewall_error"):
+            out({"ok": False, "tor": "stopped", "firewall_error": st["firewall_error"],
+                 "error": "cancelled, but the firewall could not be reloaded; Tor stays stopped"})
+            return 4
+        if os.path.exists("/proc/%d" % pid):
+            out({"ok": False, "error": "the change did not stop within 10 s; Tor state unknown"})
+            return 1
         out({"ok": True, "tor": "stopped", "message": "cancelled while applying", "restored": True})
         return 0
     pct, circ = tor_bootstrap()
@@ -453,9 +518,15 @@ def cmd_cancel():
 def cmd_revert():
     if wait_running_apply():
         die("a change is still being applied; cancel it first")
-    restored = restore()
     try:
-        st = json.load(open(STATE)); st.pop("cancelled", None); st.pop("tor_stopped", None); write_state(st)
+        restored = restore()
+    except FirewallError as fe:
+        fail_closed(str(fe))
+        out({"ok": False, "error": str(fe) + "; Tor stays stopped", "firewall_error": str(fe), "tor_stopped": True})
+        return 4
+    try:
+        st = json.load(open(STATE)); st.pop("cancelled", None); st.pop("tor_stopped", None)
+        st.pop("firewall_error", None); write_state(st)
     except Exception:
         pass
     ok, err = tor("restart")

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Prestium safety notices
+Comment=Prestium: warn when the USB watchdog or the shutdown memory wipe is not active
+Exec=/usr/local/bin/prestium-safety-notify
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

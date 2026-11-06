@@ -8,6 +8,8 @@ Wants=memlockd.service
 Type=simple
 ExecStart=/usr/local/sbin/prestium-usb-watchdog
 Restart=on-failure
+# 2.0 r7: exit 3 = could not arm (flagged to the desktop); restarting would not help
+RestartPreventExitStatus=3
 OOMScoreAdjust=-1000
 
 [Install]

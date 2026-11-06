@@ -5,6 +5,19 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r7 (failure handling)
+
+- **Tor mode never reports success after a failed firewall reload:** `ferm_reload()` now checks its result. A failed reload during apply rolls back; Tor is started again only after the previous firewall reloads cleanly. If that reload fails too, Tor stays **stopped**, the state file records `firewall_error`, and the assistant tells the user to restart before going online. `revert` and cancel-during-apply fail closed the same way.
+- **Tor mode restores the complete previous state:** the backup records files that did not exist (they are removed on restore, instead of leaving the new ones in place) and is only used when complete (`.complete` marker). A failed `tor stop` at the start of apply aborts the change.
+- **i2pd port: complete rollback:** once `i2pd.conf` is touched, any failure (including `set -e` exits) restores the previous `i2pd.conf` **and** the previous `/run/prestium/i2pd.port` and `i2pd-console.pass` (or their absence), reloads ferm to match, and exits non-zero so i2pd does not start. A failed rollback is reported as such (exit 2).
+- **Reseed refresh keeps a usable fallback:** the build-shipped/previous `.su3` (possibly stale) and the existing netDb are kept aside, not deleted, until i2pd has started with the freshly verified file downloaded through Tor. On any failure both come back and the message says the previous (possibly stale) data is in use. If the current file cannot be backed up, nothing is changed. A failed `systemctl stop i2pd` aborts before netDb is touched.
+- **USB watchdog non-arming is visible:** only `toram` is an expected reason not to arm. No medium, an unresolvable medium, or a fallback process that did not start → unit fails (exit 3, no restart loop) and a safety flag is raised.
+- **Shutdown memory-wipe preparation is visible:** `prestium-initramfs-unpack` fails on any decompress or cpio error or a missing `/shutdown`, and raises a safety flag.
+- **New `prestium-safety-notify` (session autostart):** shows a persistent critical notification and a warning dialog for every safety flag, a watchdog unit that is not running (non-`toram` boots), and a failed `prestium-initramfs-shutdown.service`. Flags are written by `/usr/local/lib/prestium/safety-flag` to `/run/prestium/safety/` and logged to the kernel log and auth log.
+- **Build locking and cache integrity:** `build.sh` holds an exclusive lock for the whole run (`--resume` removes live-build's `.lock`, which is only safe when nothing else builds). `fetch-thirdparty.sh` locks the shared cache. Cached The Lounge installs are reused only when their whole tree matches the hash recorded right after the lockfile-verified `npm ci`; the cached tar has a recorded SHA-256 that is checked after staging. Cached lurch work trees must be clean against their pinned commits. Staged Tor Browser, Firefox, Node and Feather copies are re-checked against their pins after copying.
+- **Tests:** `tests/test_tor_mode_failures.py` (runs the real helper with mocked systemctl and ferm) and `tests/test_i2pd_port_rollback.sh` (runs the real script with redirected paths).
+- **Not tested on a booted ISO yet.**
+
 ## 2.0 r6 (security / state-machine)
 
 - **Tor mode cancel:** cancel with no apply no longer restores PREV and stops a connected Tor; connected → refuse (use revert); connecting → stop Tor, keep config; apply-in-progress → signal apply (restore PREV). Lock/PID race: cancel waits briefly if the apply lock is held.

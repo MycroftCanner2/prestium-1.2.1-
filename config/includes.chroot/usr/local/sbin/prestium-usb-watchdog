@@ -23,14 +23,22 @@
 # memlocked find, so their RAM is freed and zeroed (A2). During suspend the
 # watchdog is paused (/usr/lib/systemd/system-sleep/prestium-usb-watchdog).
 
-grep -qw toram /proc/cmdline && { echo "toram boot: watchdog not armed"; exit 0; }
+# 2.0 r7: only "toram" is an expected reason not to arm. Anything else is a failure the user must see:
+# exit 3 (unit failed, no restart loop: RestartPreventExitStatus=3) and a safety flag for the desktop.
+FLAG=/usr/local/lib/prestium/safety-flag
+not_armed() {
+  echo "NOT ARMED: $1" >&2
+  $FLAG set usb-watchdog "The boot-medium watchdog did not arm: $1. Pulling the USB stick will NOT power the computer off. Shut down normally when you are done."
+  exit 3
+}
+grep -qw toram /proc/cmdline && { echo "toram boot: watchdog not armed (expected)"; $FLAG clear usb-watchdog; exit 0; }
 
 src=$(findmnt -n -o SOURCE /run/live/medium 2>/dev/null)
-[ -n "$src" ] || { echo "no live medium found: watchdog not armed"; exit 0; }
+[ -n "$src" ] || not_armed "no live boot medium is mounted at /run/live/medium"
 dev=${src#/dev/}
 disk=$(lsblk -ndo PKNAME "$src" 2>/dev/null)
 [ -n "$disk" ] || disk=$dev
-[ -e "/sys/block/$disk" ] || { echo "cannot resolve $src: watchdog not armed"; exit 0; }
+[ -e "/sys/block/$disk" ] || not_armed "the boot medium $src could not be resolved to a disk"
 case $disk in sr*) optical=1 ;; *) optical= ;; esac
 
 # fallback, started now; only builtins inside
@@ -49,6 +57,9 @@ case $disk in sr*) optical=1 ;; *) optical= ;; esac
     read -r -t 1 -u 4
     echo o > /proc/sysrq-trigger' ) </dev/null >/dev/null 2>&1 &
 fallback=$!
+sleep 0.3
+kill -0 "$fallback" 2>/dev/null || not_armed "the emergency fallback process did not start"
+$FLAG clear usb-watchdog
 echo "armed on /dev/$disk (live medium $src), fallback pid $fallback"
 
 emergency() {

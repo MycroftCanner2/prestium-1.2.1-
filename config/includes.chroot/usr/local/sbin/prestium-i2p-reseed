@@ -115,35 +115,50 @@ else
 fi
 
 step "Installing the reseed file"
-# Keep the previous su3 for rollback if i2pd fails to start with the new one.
+# 2.0 r7: the shipped/previous reseed file is the fallback (it may be stale, but it is usable), and the
+# existing netDb is the router's knowledge of the network. Neither is destroyed until i2pd has started
+# with the freshly verified file. If anything fails, both come back and the message says the fallback
+# is in use (never that the network data is fresh).
 OLD=$T/old.su3
-if "$SAFE" read "$(dirname "$DEST")" "$(basename "$DEST")" > "$OLD" 2>/dev/null; then
+HAVE_OLD=0
+if [ -e "$DEST" ] || [ -L "$DEST" ]; then
+  "$SAFE" read "$(dirname "$DEST")" "$(basename "$DEST")" > "$OLD" \
+    || die 1 "cannot back up the current reseed file $DEST, so nothing was changed"
   HAVE_OLD=1
-else
-  HAVE_OLD=0
 fi
+NDB_OLD="$NETDB.prestium-old"
+if [ -L "$NDB_OLD" ]; then die 1 "$NDB_OLD is a symbolic link; nothing was changed"; fi
+rm -rf -- "$NDB_OLD"
 # /var/lib/i2pd is owned by i2pd: never install by path. safefile refuses a symlink, directory or
 # special file at DEST and writes through an O_EXCL temp file + fchown/fchmod + renameat.
 "$SAFE" write "$(dirname "$DEST")" "$(basename "$DEST")" 2000 2000 0644 < "$NEW" \
   || die 1 "cannot install $DEST (the existing entry is not a regular file?)"
 step "Restarting I2P (i2pd) so it reseeds"
-systemctl stop i2pd
-# an empty netDb makes i2pd reseed from the file at start
-if [ -d "$NETDB" ] && [ ! -L "$NETDB" ]; then find "$NETDB" -mindepth 1 -delete; fi
+restore_old() {   # $1 = reason; puts the fallback su3 and the previous netDb back, starts i2pd
+  systemctl stop i2pd 2>/dev/null || true
+  r=""
+  if [ "$HAVE_OLD" = 1 ]; then
+    "$SAFE" write "$(dirname "$DEST")" "$(basename "$DEST")" 2000 2000 0644 < "$OLD" || r="$r; the previous reseed file could NOT be restored"
+  fi
+  if [ -d "$NDB_OLD" ] && [ ! -L "$NDB_OLD" ]; then
+    { [ ! -e "$NETDB" ] || [ -L "$NETDB" ] || rm -rf -- "$NETDB"; } && mv -T -- "$NDB_OLD" "$NETDB" || r="$r; the previous netDb could NOT be restored"
+  fi
+  if systemctl start i2pd; then
+    die 1 "$1. The previous (possibly stale) reseed file and network database are back and i2pd is running$r"
+  fi
+  die 1 "$1. Restoring the previous reseed file and network database also left i2pd stopped$r (Network > Restart I2P)"
+}
+systemctl stop i2pd || restore_old "i2pd could not be stopped, so the new reseed file was not used"
+# an empty netDb makes i2pd reseed from the file at start; the old one is kept aside until it works
+if [ -d "$NETDB" ] && [ ! -L "$NETDB" ]; then
+  mv -T -- "$NETDB" "$NDB_OLD" || restore_old "the network database could not be set aside"
+  install -d -o 2000 -g 2000 -m "$(stat -c %a "$NDB_OLD")" "$NETDB" || restore_old "a fresh network database directory could not be created"
+fi
 if ! systemctl start i2pd; then
   echo "WARN: i2pd did not start with the new reseed file; trying once more" >&2
   sleep 2
-  if systemctl start i2pd; then
-    echo "DONE: installed $DEST from $FROM; netDb cleared, i2pd restarted (second attempt)"
-    exit 0
-  fi
-  if [ "$HAVE_OLD" = 1 ]; then
-    step "Restoring the previous reseed file after failed start"
-    "$SAFE" write "$(dirname "$DEST")" "$(basename "$DEST")" 2000 2000 0644 < "$OLD" || true
-    systemctl start i2pd || die 1 "the new reseed file was installed, start failed twice, and restoring the previous file also left i2pd stopped (Network > Restart I2P)"
-    die 1 "i2pd would not start with the new reseed file; the previous file was restored and i2pd was started again"
-  fi
-  die 1 "the reseed file was installed, but i2pd did not start again (Network > Restart I2P)"
+  systemctl start i2pd || restore_old "i2pd would not start with the new reseed file (two attempts)"
 fi
+rm -rf -- "$NDB_OLD"
 echo "DONE: installed $DEST from $FROM; netDb cleared, i2pd restarted"
 exit 0

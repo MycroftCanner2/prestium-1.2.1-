@@ -13,6 +13,10 @@ OUT=Prestium-2.0-amd64.iso
 LOG=${PRESTIUM_BUILD_LOG:-$TOP/build.log}
 [ "$(id -u)" = 0 ] || { echo "run as root (sudo)"; exit 1; }
 MODE=${1:-}
+# 2.0 r7: one build per tree. --resume removes live-build's own .lock, which is only safe while
+# nothing else builds here, so hold an exclusive lock for the whole run (released on exit).
+exec 9>"$TOP/.prestium-build.lock"
+flock -n 9 || { echo "another build.sh is running in $TOP (lock $TOP/.prestium-build.lock)"; exit 1; }
 
 if [ "$(dpkg --print-architecture)" != amd64 ]; then
 	[ -e /proc/sys/fs/binfmt_misc/qemu-x86_64 ] || { echo "non-amd64 host: register qemu-x86_64 in binfmt_misc (qemu-user-static)"; exit 1; }

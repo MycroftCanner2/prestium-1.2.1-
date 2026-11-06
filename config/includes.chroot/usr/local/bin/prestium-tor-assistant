@@ -545,8 +545,15 @@ class Assistant(Gtk.ApplicationWindow):
             self.set_phase("idle")
             msg = res.get("error") or "unknown error"
             self.log("error: " + msg)
-            if res.get("reverted"):
+            if res.get("firewall_error"):
+                msg += ("\nThe firewall could not be reloaded (%s), so Tor was left STOPPED. "
+                        "Restart the computer before going online." % res["firewall_error"])
+            elif res.get("reverted") and res.get("tor_started", True):
                 msg += "\nThe previous settings were restored and Tor was started again."
+            elif res.get("reverted"):
+                msg += "\nThe previous settings were restored, but Tor did not start: " + (res.get("tor_error") or "")
+            elif res.get("tor_stopped"):
+                msg += "\nTor is stopped."
             self.show_info("Could not apply the change: " + msg, Gtk.MessageType.ERROR, retry=True, revert=False)
             self.describe(dict(read_json(STATE, {}), mode=read_dropin()[0], bridges=len(read_dropin()[1])))
         return False
@@ -583,6 +590,12 @@ class Assistant(Gtk.ApplicationWindow):
                 self.show_info("Tor was stopped; the new configuration was kept. "
                                "Use Reconnect to start Tor again, Retry to re-apply, or Revert for the previous settings.",
                                retry=True, revert=True)
+        elif res.get("firewall_error"):
+            self.status.set_text("Tor is stopped: firewall reload failed.")
+            self.log("cancel: firewall reload failed: " + res["firewall_error"])
+            self.show_info("The firewall could not be reloaded (%s), so Tor was left stopped. "
+                           "Restart the computer before going online." % res["firewall_error"],
+                           Gtk.MessageType.ERROR, retry=False, revert=False)
         else:
             # Connected: cancel is a no-op by design
             err = res.get("error") or "unknown error"

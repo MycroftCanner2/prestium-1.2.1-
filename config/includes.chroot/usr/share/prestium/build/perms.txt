@@ -359,3 +359,6 @@
 0644 root root /usr/share/prestium/tint2/tint2rc
 0755 root root /usr/local/lib/prestium/safefile
 0644 root root /usr/share/prestium/torrents-theme/prestium-dark.css
+0755 root root /usr/local/lib/prestium/safety-flag
+0755 root root /usr/local/bin/prestium-safety-notify
+0644 root root /etc/xdg/autostart/prestium-safety-notify.desktop

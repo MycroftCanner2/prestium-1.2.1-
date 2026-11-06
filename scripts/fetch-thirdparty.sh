@@ -13,6 +13,9 @@ TOP=$(cd "$(dirname "$0")/.." && pwd)
 . "$TOP/thirdparty/versions.sh"
 REPIN=0; [ "${1:-}" = "--repin" ] && REPIN=1
 C=${PRESTIUM_CACHE:-$TOP/cache/thirdparty}; mkdir -p "$C"
+# 2.0 r7: the cache can be shared between trees; only one fetch may write it at a time
+exec 8>"$C/.fetch.lock"
+flock -w 3600 8 || { echo "ERROR: another fetch-thirdparty.sh holds $C/.fetch.lock"; exit 1; }
 S=$TOP/config/includes.chroot/usr/src/prestium-thirdparty
 export GNUPGHOME=$(mktemp -d); trap 'rm -rf "$GNUPGHOME"' EXIT
 gpg -q --import "$TOP"/thirdparty/keys/*.asc 2>/dev/null
@@ -26,6 +29,9 @@ pinhash(){ # name sha256 expected
   [ -n "$3" ] || { echo "ERROR: no SHA-256 pinned for $1 (run --repin)"; exit 1; }
   [ "$got" = "$3" ] || { echo "ERROR: $1 SHA-256 $got != pinned $3"; exit 1; }
   echo "OK $1 $got"; }
+treehash(){ # sha256 over package.json, package-lock.json, .npmrc and every file under node_modules
+  (cd "$1" && { find node_modules -type f -print0; printf '%s\0' package.json package-lock.json .npmrc; } \
+    | LC_ALL=C sort -z | xargs -0 sha256sum) | sha256sum | cut -c1-64; }
 sigok(){ # sigfile datafile fpr
   gpg --status-fd 1 --verify "$1" "$2" 2>/dev/null | grep -q "VALIDSIG.*$3" || { echo "ERROR: bad signature on $2"; exit 1; }; }
 
@@ -62,13 +68,17 @@ sigok "$C/$FEF.asc" "$C/$FEF" "$FEATHER_KEY"; pin FEATHER "$C/$FEF" "$FEATHER_SH
 # The Lounge: npm ci from the committed lockfile (registry tarballs checked against their sha512 integrity;
 # .npmrc: ignore-scripts, save-exact, min-release-age=7 for lockfile regeneration, see BUILDING.md)
 L=$C/thelounge-$THELOUNGE_VERSION
-if [ ! -e "$L/.done" ]; then
+if [ ! -s "$L/.done" ]; then   # 2.0 r7: empty .done (older builds) = no recorded tree hash, install again
   rm -rf "$L"; mkdir -p "$L"
   cp "$TOP/thirdparty/thelounge/package.json" "$TOP/thirdparty/thelounge/package-lock.json" "$TOP/thirdparty/thelounge/.npmrc" "$L/"
   ( cd "$L" && npm ci --omit=dev --omit=optional --ignore-scripts --no-audit --no-fund >/dev/null )
   grep -q "\"version\": \"$THELOUNGE_VERSION\"" "$L/node_modules/thelounge/package.json" || { echo "ERROR: thelounge version"; exit 1; }
-  touch "$L/.done"
+  treehash "$L" > "$L/.done"
 fi
+# 2.0 r7: a cached install is reused only if its whole tree still matches the hash recorded right
+# after the lockfile-verified npm ci (catches cache corruption or later edits; .done itself is
+# not a signature: a cache writer could rewrite both, so keep the cache on storage only the builder writes)
+[ "$(treehash "$L")" = "$(cat "$L/.done")" ] || { echo "ERROR: cached The Lounge tree changed since npm ci (delete $L)"; exit 1; }
 # irc-framework comes from git (commit-pinned, no lockfile integrity): check its installed tree on every build,
 # cached or fresh. Tree hash = sha256 of "sha256sum" over every file, paths relative, sorted bytewise.
 IRCF=$L/node_modules/irc-framework
@@ -85,6 +95,11 @@ if [ ! -e "$LS/.done" ]; then
 fi
 [ "$(git -C "$LS" rev-parse HEAD)" = "$LURCH_COMMIT" ] && [ "$(git -C "$LS/lib/axc" rev-parse HEAD)" = "$AXC_COMMIT" ] && \
   [ "$(git -C "$LS/lib/libomemo" rev-parse HEAD)" = "$LIBOMEMO_COMMIT" ] || { echo "ERROR: lurch commits"; exit 1; }
+# 2.0 r7: HEAD alone does not cover the checked-out files; the work trees must match their commits
+for r in "$LS" "$LS/lib/axc" "$LS/lib/libomemo"; do
+  [ -z "$(git -C "$r" status --porcelain --untracked-files=all --ignore-submodules=none)" ] \
+    || { echo "ERROR: cached lurch work tree $r differs from its pinned commit (delete $LS)"; exit 1; }
+done
 echo "OK LURCH $LURCH_COMMIT"
 
 [ "$REPIN" = 1 ] && exit 0
@@ -110,11 +125,17 @@ chmod 644 "$SU3.part"; mv -f "$SU3.part" "$SU3"
 rm -rf "$S"; mkdir -p "$S"
 cp "$C/$TBF" "$S/tor-browser.tar.xz"; cp "$C/$FFF" "$S/firefox.tar.xz"; cp "$C/$NF" "$S/node.tar.xz"
 cp "$C/$FEF" "$S/feather.zip"; echo "$FEATHER_VERSION" > "$S/feather.version"
+# 2.0 r7: re-check what was actually staged (closes the verify-then-copy gap)
+for x in "tor-browser.tar.xz $TB_SHA256" "firefox.tar.xz $FF_SHA256" "node.tar.xz $NODE_SHA256" "feather.zip $FEATHER_SHA256"; do
+  [ "$(sha "$S/${x%% *}")" = "${x#* }" ] || { echo "ERROR: staged ${x%% *} does not match its pinned SHA-256"; exit 1; }
+done
 # tar once per The Lounge version (node_modules has thousands of small files; slow on network filesystems)
 LT="$C/thelounge-$THELOUNGE_VERSION.tar"
-if [ ! -s "$LT" ] || [ "$L/.done" -nt "$LT" ]; then
+if [ ! -s "$LT" ] || [ ! -s "$LT.sha256" ] || [ "$L/.done" -nt "$LT" ]; then
   tar -C "$L" -cf "$LT.tmp" package.json package-lock.json node_modules && mv -f "$LT.tmp" "$LT"
+  sha "$LT" > "$LT.sha256"
 fi
 cp "$LT" "$S/thelounge.tar"
+[ "$(sha "$S/thelounge.tar")" = "$(cat "$LT.sha256")" ] || { echo "ERROR: cached The Lounge tar is corrupt (delete $LT)"; exit 1; }
 tar -C "$LS" --exclude=.git -cf "$S/lurch-src.tar" .
 echo "STAGED $S"; ls -la "$S"
