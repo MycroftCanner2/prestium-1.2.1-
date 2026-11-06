@@ -49,7 +49,7 @@ class Dialog(Gtk.Window):
         self.status = Gtk.Label(xalign=0); box.pack_start(self.status, False, False, 0)
         bb = Gtk.Box(spacing=6)
         apply_ = Gtk.Button(label="Apply"); apply_.connect("clicked", self.on_apply)
-        disp = Gtk.Button(label="Display Settings ..."); disp.connect("clicked", lambda *_: subprocess.Popen(["/usr/local/bin/prestium-display-settings"]))
+        disp = Gtk.Button(label="Display Settings ..."); disp.connect("clicked", lambda *_: subprocess.Popen(["/usr/local/bin/prestium-wl", "display-settings"]))
         close = Gtk.Button(label="Close"); close.connect("clicked", lambda *_: self.destroy())
         bb.pack_start(apply_, False, False, 0); bb.pack_start(disp, False, False, 0); bb.pack_end(close, False, False, 0)
         box.pack_start(bb, False, False, 0)

@@ -1,6 +1,6 @@
 #!/bin/bash
-# 2.0 r9/r10: runs the real browser launchers (tor-browser, librewolf-i2p) with bwrap and the real
-# Wayland security-context helper against a headless labwc, with a probe (tests/sandbox_probe.py) in
+# 2.0 r9/r10/r11: runs the real browser launchers (tor-browser, librewolf-i2p) with bwrap, and the
+# real Wayland broker (root, via sudo) against a headless labwc, with a probe (tests/sandbox_probe.py) in
 # place of the browser, and checks what a browser would see inside its sandbox.
 # Needs bwrap, labwc, wayland-utils, socat, python3, tor and sudo (creates /opt/tor-browser,
 # /run/prestium-tbb, /usr/local/share/prestium-{tor-browser,nssdb} when absent and removes them).
@@ -19,16 +19,16 @@ mk /opt/tor-browser/Browser/TorBrowser/Data/Browser/profile.default/extensions
 mk /run/prestium-tbb; mk /usr/local/share/prestium-tor-browser; mk /usr/local/share/prestium-nssdb
 sudo -n chown "$(id -u)" /run/prestium-tbb /opt/tor-browser/Browser
 sudo -n sh -c 'echo "user_pref(\"browser.download.dir\", \"@DOWNLOADS@\");" > /usr/local/share/prestium-tor-browser/user.js; : > /usr/local/share/prestium-nssdb/cert9.db; : > /usr/local/share/prestium-nssdb/key4.db'
-T=$(mktemp -d); export HOME=$T/home; mkdir -p "$HOME"; echo secret > "$HOME/keepass.kdbx"; mkdir -p "$HOME/.ssh"
-export XDG_RUNTIME_DIR=$T/xdg; mkdir -m 700 "$XDG_RUNTIME_DIR"
+T=$(mktemp -d); chmod 755 "$T"; export HOME=$T/home; mkdir -p "$HOME"; echo secret > "$HOME/keepass.kdbx"; mkdir -p "$HOME/.ssh"
+export XDG_RUNTIME_DIR=$T/xdg$(id -u); mkdir -m 700 "$XDG_RUNTIME_DIR"
 export PRESTIUM_SANDBOX_LIB=$I/usr/local/lib/prestium/browser-sandbox.sh
-export PRESTIUM_WL_CONTEXT=$I/usr/local/lib/prestium/wl-context
+export PRESTIUM_WL_BASE=$T/wlbase
 pids=()
 cleanup() {
-  kill "${pids[@]}" 2>/dev/null; wait 2>/dev/null
+  kill "${pids[@]}" 2>/dev/null; [ -s "$T/broker.pid" ] && sudo -n kill "$(cat "$T/broker.pid")" 2>/dev/null; wait 2>/dev/null
   rm -f /opt/tor-browser/Browser/start-tor-browser
   for ((i=${#created[@]}-1; i>=0; i--)); do sudo -n rm -rf "${created[$i]}"; done
-  rm -rf "$T"
+  sudo -n rm -rf "$T"
 }
 trap cleanup EXIT
 
@@ -36,6 +36,11 @@ trap cleanup EXIT
 WLR_BACKENDS=headless WLR_RENDERER=pixman WLR_LIBINPUT_NO_DEVICES=1 labwc -c /dev/null >/dev/null 2>&1 & pids+=($!)
 for i in $(seq 50); do [ -S "$XDG_RUNTIME_DIR/wayland-0" ] && break; sleep 0.1; done
 export WAYLAND_DISPLAY=wayland-0
+# the Wayland broker (root) locks the full socket and makes the restricted one the browsers get
+sudo -n env PRESTIUM_WL_BASE="$PRESTIUM_WL_BASE" PRESTIUM_WL_RUNTIME="$T/xdg%d" sh -c 'echo $$ > "$1"; exec python3 -I "$2"' _ \
+  "$T/broker.pid" "$I/usr/local/sbin/prestium-wl-broker" >/dev/null 2>&1 < /dev/null &
+for i in $(seq 50); do [ -S "$PRESTIUM_WL_BASE/broker" ] && break; sleep 0.1; done
+r=$(python3 "$I/usr/local/bin/prestium-wl" start); [ "${r%% *}" = ok ] && ok "broker: $r" || bad "broker start: $r"
 # a real Tor SOCKS listener on the Unix socket (no network needed for the greeting)
 printf 'DataDirectory %s/tor\nSocksPort unix:/run/prestium-tbb/socks GroupWritable RelaxDirModeCheck\nUseBridges 1\nBridge 127.0.0.1:9\nControlPort 0\nLog err stderr\n' "$T" > "$T/torrc"
 mkdir -m 700 "$T/tor"; chmod 2750 /run/prestium-tbb
@@ -70,7 +75,7 @@ common() {   # $1 browser, $2 json
   check "$b: no X11 (no socket dir, Xwayland abstract socket unreachable)" "$j" 'not r["x11_dir"] and r["x11_abstract"] != "connected" and "DISPLAY" not in r["env"]'
   check "$b: Wayland works (compositor, windows)" "$j" 'isinstance(r["wl"], list) and "wl_compositor" in r["wl"] and "xdg_wm_base" in r["wl"]'
   check "$b: privileged Wayland protocols hidden (capture, input injection, clipboard, other windows)" "$j" "isinstance(r['wl'], list) and not set($PRIV) & set(r['wl'])"
-  check "$b: only its own Wayland socket in XDG_RUNTIME_DIR" "$j" 'set(r["rundir"]) <= {"wayland-0", "pulse", "pipewire-0"} and "wayland-0" in r["rundir"]'
+  check "$b: only the restricted Wayland socket in XDG_RUNTIME_DIR" "$j" 'set(r["rundir"]) <= {"wayland-0", "pulse", "pipewire-0"} and "wayland-0" in r["rundir"]'
   check "$b: no_new_privs set, sudo useless" "$j" 'r["nnp"] == "1" and r["sudo"] != 0'
   check "$b: hostname localhost, own PID namespace" "$j" 'r["hostname"] == "localhost" and r["pid1"] in ("bwrap", "python3", "sh", "bash")'
   check "$b: no D-Bus, no ssh agent" "$j" '"DBUS_SESSION_BUS_ADDRESS" not in r["env"] and "SSH_AUTH_SOCK" not in r["env"]'
@@ -107,9 +112,11 @@ if [ -z "$j" ]; then bad "LibreWolf probe did not run: $out"; else
   check "LibreWolf: profile and arguments passed through" "$j" 'r["args"][:3] == ["--profile", "'"$HOME"'/.librewolf/prestium", "http://example.i2p/"]'
 fi
 ls "$XDG_RUNTIME_DIR/prestium-sandbox" 2>/dev/null | grep -q . && bad "sandbox sockets left behind" || ok "sandbox sockets removed after exit"
+sudo -n mv "$PRESTIUM_WL_BASE/$(id -u)/apps" "$T/apps.moved"
+bash "$I/usr/local/bin/tor-browser" >/dev/null 2>&1 && bad "starts without the restricted socket" || ok "refuses to start without the restricted Wayland socket"
+sudo -n mv "$T/apps.moved" "$PRESTIUM_WL_BASE/$(id -u)/apps"
 
 echo "== refusals"
 sudo -n rm -f /run/prestium-tbb/socks
 bash "$I/usr/local/bin/tor-browser" >/dev/null 2>&1 && bad "Tor Browser starts without Tor's socket" || ok "Tor Browser refuses to start without Tor's socket"
-WAYLAND_DISPLAY= bash "$I/usr/local/bin/tor-browser" >/dev/null 2>&1 && bad "starts without Wayland" || ok "refuses to start without Wayland"
 exit $fail

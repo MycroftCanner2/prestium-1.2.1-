@@ -169,9 +169,9 @@ profile prestium-localfox /opt/firefox/firefox{,-bin} {
   deny @{HOME}/.ssh/** rw,
 
   # 2.0 r10: the restricted Wayland socket only (see prestium-run)
-  owner /run/user/[0-9]*/wayland-apps rw,
+  /run/prestium-wl/[0-9]*/apps rw,
   deny /run/user/[0-9]*/wayland-[0-9]* rw,
-  deny /run/user/[0-9]*/prestium-wayland-display r,
+  deny /run/prestium-wl/broker rw,
   include <abstractions/prestium-no-admin>
 
   include if exists <local/opt.firefox.firefox>

@@ -59,9 +59,9 @@
 
   # 2.0 r10: Wayland only through the restricted socket (security context: no screen capture, no
   # input injection, no clipboard snooping, no other windows); never the session's full socket
-  owner @{run}/user/[0-9]*/wayland-apps rw,
+  @{run}/prestium-wl/[0-9]*/apps rw,
   deny @{run}/user/[0-9]*/wayland-[0-9]* rw,
-  deny @{run}/user/[0-9]*/prestium-wayland-display r,
+  deny @{run}/prestium-wl/broker rw,
   deny @{run}/user/[0-9]*/prestium-sandbox/** rw,
 
   # never: other apps' secrets (KeePassXC databases, wallets, browser and mail profiles, keys)

@@ -5,7 +5,7 @@
 # and Super+L. The live user has no password at boot (autologin), so the first
 # time we ask for one, as Tails does; without a password the screen isn't
 # locked (an empty password would unlock it).
-pgrep -u "$(id -u)" -x swaylock >/dev/null && exit 0
+pgrep -x swaylock >/dev/null && exit 0
 st=$(sudo -n /usr/local/sbin/prestium-session-password status 2>/dev/null)
 if [ "$st" != set ]; then
   out=$(prestium-run zenity --forms --title "Lock Screen" \
@@ -23,4 +23,4 @@ if [ "$st" != set ]; then
   fi
   unset p1 p2 out
 fi
-exec swaylock -f -c 101010 --show-failed-attempts
+exec /usr/local/bin/prestium-wl lock

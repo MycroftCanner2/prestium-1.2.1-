@@ -1,45 +1,22 @@
 #!/usr/bin/python3
-# Prestium 2.0: display scale (HiDPI). 2.0 r10: Wayland (labwc). The compositor scales each output
+# Prestium 2.0: display scale (HiDPI). 2.0 r10: Wayland (labwc). 2.0 r11: output management needs the
+# compositor's full socket, so the Wayland broker applies the scale (it imports this file for
+# parse_setting and detect_from). The compositor scales each output
 # (fractional scaling), so every Wayland application, the panel and the browsers follow at once;
 # no X resources, XSETTINGS, environment variables or panel rewrites are needed any more.
 #   prestium-scale --apply      apply the setting to every output now (also run at login)
 #   prestium-scale --login      the same (kept for compatibility)
-#   prestium-scale --detect     print the automatic scale (100/125/150/175/200)
-#   prestium-scale --effective  print the scale in use (setting, or the automatic one)
+#   prestium-scale --effective  print the setting ("auto" or a percentage)
 # Setting: ~/.config/prestium/scale contains "auto" (default) or a percentage.
 # Automatic: DPI of the built-in (else first) output from its physical size (EDID):
 # dpi = pixels / millimetres * 25.4, then the largest step <= dpi/96. Bogus sizes (VMs, projectors)
-# give 100 %. Needs the full Wayland socket (output management): run from the session, not apps.
+# give 100 %.
 import json, os, subprocess, sys
 
 HOME = os.path.expanduser("~")
 CONF_DIR = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.join(HOME, ".config"), "prestium")
 SETTING = os.path.join(CONF_DIR, "scale")
 STEPS = (100, 125, 150, 175, 200)
-WLR_RANDR = os.environ.get("PRESTIUM_WLR_RANDR", "wlr-randr")
-
-def full_socket_env():
-    env = dict(os.environ)
-    rt = env.get("XDG_RUNTIME_DIR", "")
-    try:
-        name = open(os.path.join(rt, "prestium-wayland-display")).read().strip()
-        if name and "/" not in name and not name.startswith("."):
-            env["WAYLAND_DISPLAY"] = name
-    except OSError:
-        pass
-    return env
-
-def outputs():
-    try:
-        r = subprocess.run([WLR_RANDR, "--json"], capture_output=True, text=True, timeout=10, env=full_socket_env())
-    except (OSError, subprocess.SubprocessError):
-        return None
-    if r.returncode != 0:
-        return None
-    try:
-        return [o for o in json.loads(r.stdout) if o.get("enabled")]
-    except ValueError:
-        return None
 
 def detect_from(outs):
     if not outs:
@@ -64,17 +41,8 @@ def detect_from(outs):
     s = max([x for x in STEPS if x / 100.0 <= ratio + 0.001] or [100])
     return s, "%s: %dx%d px, %dx%d mm, %.0f dpi" % (o["name"], pw, ph, mw, mh, dpi)
 
-def detect():
-    o = outputs()
-    if o is None:
-        return 100, "wlr-randr unavailable"
-    return detect_from(o)
-
-def setting():
-    try:
-        v = open(SETTING).read().strip().lower()
-    except OSError:
-        return "auto"
+def parse_setting(v):
+    v = (v or "").strip().lower()
     if v in ("auto", ""):
         return "auto"
     try:
@@ -83,35 +51,28 @@ def setting():
     except ValueError:
         return "auto"
 
-def effective():
-    s = setting()
-    return detect()[0] if s == "auto" else s
+def setting():
+    try:
+        return parse_setting(open(SETTING).read())
+    except OSError:
+        return "auto"
 
-def apply():
-    outs = outputs()
-    if outs is None:
-        print("prestium-scale: no Wayland output management (wlr-randr)", file=sys.stderr)
-        return 1
-    s = setting()
-    rc = 0
-    for o in outs:
-        scale = (detect_from([o])[0] if s == "auto" else s) / 100.0
-        r = subprocess.run([WLR_RANDR, "--output", o["name"], "--scale", "%.2f" % scale],
-                           capture_output=True, text=True, timeout=10, env=full_socket_env())
-        if r.returncode != 0:
-            print("prestium-scale: %s: %s" % (o["name"], r.stderr.strip()), file=sys.stderr)
-            rc = 1
-    if rc == 0:
-        print(s if s != "auto" else detect_from(outs)[0])
-    return rc
+def broker(req):
+    try:
+        r = subprocess.run(["/usr/local/bin/prestium-wl", req], capture_output=True, text=True, timeout=60)
+        return r.returncode, r.stdout.strip()
+    except (OSError, subprocess.SubprocessError) as e:
+        return 1, str(e)
 
 def main(a):
-    if a == "--detect":
-        s, why = detect(); print("%d %s" % (s, why)); return 0
-    if a == "--effective":
-        print(effective()); return 0
     if a in ("--apply", "--login"):
-        return apply()
+        rc, out = broker("scale")
+        if rc != 0:
+            print("prestium-scale: %s" % out, file=sys.stderr)
+            return 1
+        print(setting()); return 0
+    if a == "--effective":
+        print(setting()); return 0
     print("usage: prestium-scale --apply|--detect|--effective", file=sys.stderr)
     return 2
 

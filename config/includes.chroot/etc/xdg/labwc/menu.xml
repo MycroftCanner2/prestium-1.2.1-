@@ -153,7 +153,7 @@
       <action name="Execute" command="/usr/local/bin/prestium-lock-screen" />
     </item>
     <item label="Display Settings">
-      <action name="Execute" command="/usr/local/bin/prestium-display-settings" />
+      <action name="Execute" command="/usr/local/bin/prestium-wl display-settings" />
     </item>
     <item label="Display Scale">
       <action name="Execute" command="prestium-run /usr/local/bin/prestium-display-scale" />

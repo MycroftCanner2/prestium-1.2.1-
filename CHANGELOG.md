@@ -5,6 +5,33 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r11 (no program can reach the compositor's full Wayland socket)
+
+- **Wayland broker** (`prestium-wl-broker`, root). At login it makes labwc's own socket
+  root-owned (mode 600) after checking it really is labwc's, so no process of the user, confined or
+  not, can connect to it, chmod it back or take it over by renaming. It creates the restricted
+  socket for applications in a root-owned directory (`/run/prestium-wl/<uid>/apps`), so it can't be
+  replaced by a fake that would sit between applications and the compositor.
+- The trusted parts that need the full protocol set (panel, notifications, wallpaper, idle lock,
+  screen lock, on-screen keyboard, display settings, scaling, screenshots) are started by the
+  broker, each with one connection passed as an inherited file descriptor (`WAYLAND_SOCKET`). Their
+  own children get the restricted socket. They run with fixed config files and an empty root-owned
+  `XDG_CONFIG_HOME`, so nothing an application can write changes what they do.
+- **Screenshots** need a real click on a screen (Print) or a drag (Alt+Print) on an overlay;
+  applications can't fake input, so none can take a screenshot unnoticed.
+- **labwc reads only a root-owned configuration** (`labwc -C /run/prestium-wl/<uid>/labwc`, written
+  by `prestium-wl-config` through sudo). Before, `~/.config/labwc` (writable by any application) could
+  add key bindings, window rules or an autostart that run commands with the full socket. Touchpad
+  settings are copied in as four checked values.
+- Browsers use the shared restricted socket (no per-browser context helper any more).
+- Taking the socket out of another process (pidfd_getfd, /proc/PID/mem) is blocked by Yama
+  `ptrace_scope=2`, which Prestium already sets. The safety notifier alerts if it's lower, if the
+  full socket isn't root-owned or if the broker isn't running.
+- Tests: `tests/test_wayland_broker.sh` (28 checks, plus one skipped on this build host: its kernel
+  has no Yama), `tests/test_wayland_session.sh` (10, including a control showing that plain labwc does
+  run `~/.config/labwc/autostart`), `tests/test_browser_sandbox.sh` (35).
+- Not tested on a booted ISO yet.
+
 ## 2.0 r10 (Wayland desktop, MAC guard, LibreWolf sandbox; boot password removed)
 
 - **The administration password from r9 is removed** (no welcome dialog at login, protected settings

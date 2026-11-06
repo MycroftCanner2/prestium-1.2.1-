@@ -1,6 +1,0 @@
-#!/bin/sh
-# Prestium 2.0 r10: display settings (wdisplays; replaces xfce4-display-settings). Output management
-# is a privileged Wayland protocol, so this uses the session's full socket.
-n=$(cat "$XDG_RUNTIME_DIR/prestium-wayland-display" 2>/dev/null)
-case "$n" in ''|*/*|.*) ;; *) export WAYLAND_DISPLAY="$n" ;; esac
-exec wdisplays "$@"
