@@ -5,6 +5,14 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r8 (firewall stop fails closed)
+
+- Stopping or restarting the firewall (ferm), including at shutdown, now falls back to the boot-time
+  drop-all (loopback only, IPv4 and IPv6) instead of Debian's default, which cleared every rule and
+  allowed all traffic until ferm started again. Policies are set to DROP before the old rules are
+  cleared, so there is no open moment. Firewall reloads were already atomic and are unchanged.
+- Not tested on a booted ISO yet.
+
 ## 2.0 r7 (failure handling)
 
 - **Tor mode never reports success after a failed firewall reload:** `ferm_reload()` now checks its result. A failed reload during apply rolls back; Tor is started again only after the previous firewall reloads cleanly. If that reload fails too, Tor stays **stopped**, the state file records `firewall_error`, and the assistant tells the user to restart before going online. `revert` and cancel-during-apply fail closed the same way.

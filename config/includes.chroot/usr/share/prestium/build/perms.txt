@@ -65,6 +65,7 @@
 0644 root root /etc/systemd/system/i2pd.service.d/zz-torrents.conf
 0644 root root /etc/systemd/system/prestium-clockfix.service
 0644 root root /etc/systemd/system/prestium-firewall-early.service
+0644 root root /etc/systemd/system/ferm.service.d/prestium-failclosed.conf
 0644 root root /etc/systemd/system/prestium-initramfs-shutdown.service
 0644 root root /etc/systemd/system/prestium-onion-grater.service
 0644 root root /etc/systemd/system/prestium-timesync.service
