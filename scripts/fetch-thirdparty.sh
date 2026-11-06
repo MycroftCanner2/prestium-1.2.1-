@@ -88,10 +88,11 @@ echo "OK THELOUNGE $THELOUNGE_VERSION (npm ci, lockfile integrity + irc-framewor
 
 # lurch source at pinned commits (submodules checked too)
 LS=$C/lurch-src
-if [ ! -e "$LS/.done" ]; then
-  rm -rf "$LS"; git clone -q --recursive https://github.com/gkdr/lurch "$LS"
+# 2.0 r12: the marker sits beside the tree, not in it (an untracked .done made the clean-tree check below always fail)
+if [ ! -e "$LS.done" ] || [ ! -d "$LS" ]; then
+  rm -rf "$LS" "$LS.done"; git clone -q --recursive https://github.com/gkdr/lurch "$LS"
   git -C "$LS" checkout -q "$LURCH_COMMIT"; git -C "$LS" submodule -q update --init --recursive
-  touch "$LS/.done"
+  touch "$LS.done"
 fi
 [ "$(git -C "$LS" rev-parse HEAD)" = "$LURCH_COMMIT" ] && [ "$(git -C "$LS/lib/axc" rev-parse HEAD)" = "$AXC_COMMIT" ] && \
   [ "$(git -C "$LS/lib/libomemo" rev-parse HEAD)" = "$LIBOMEMO_COMMIT" ] || { echo "ERROR: lurch commits"; exit 1; }
