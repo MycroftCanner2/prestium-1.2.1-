@@ -12,7 +12,6 @@ alsa-utils
 alsa-ucm-conf
 alsa-topology-conf
 firmware-sof-signed
-pasystray
 pavucontrol
 # Tor Connection Assistant (Python + GTK 3)
 python3
@@ -27,4 +26,24 @@ xfce4-settings
 brightnessctl
 xinput
 # accessibility: Onboard on-screen keyboard (Orca was removed: it did not work)
-onboard
+# 2.0 r10: Wayland desktop (labwc replaces Openbox; waybar tint2; swaylock/swayidle i3lock/xss-lock;
+# mako notification-daemon; grim/slurp scrot; wvkbd Onboard; foot the X terminal; wdisplays and
+# wlr-randr the X display settings). Xwayland runs the remaining X11-only programs.
+labwc
+waybar
+swaylock
+swayidle
+swaybg
+mako-notifier
+grim
+slurp
+wvkbd
+foot
+wlr-randr
+wdisplays
+xwayland
+wayland-utils
+qt6-wayland
+libreoffice-gtk3
+# 2.0 r10: relay for LibreWolf's sandbox (I2P HTTP proxy over a Unix socket)
+socat

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Prestium 2.0 r10: on-screen keyboard (wvkbd; replaces Onboard). Toggles it on and off.
+# It needs the full Wayland socket (virtual keyboard), so it is started from the menu directly.
+pkill -x wvkbd-mobintl && exit 0
+exec wvkbd-mobintl -L 280

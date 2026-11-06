@@ -1,6 +1,4 @@
 #!/bin/sh
-# 2.0 r9: an app is starting, so the window for setting the administration password ends now
-sudo -n /usr/local/sbin/prestium-admin-password close >/dev/null 2>&1 || true
 # Prestium: open The Lounge (IRC web client on 127.0.0.1:9000) in the local-only Firefox,
 # signed in automatically. The per-boot login token is readable by "user" only; it is
 # passed in the URL fragment (never sent to the server or written to The Lounge's logs)

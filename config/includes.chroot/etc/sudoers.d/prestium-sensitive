@@ -1,8 +1,0 @@
-# Prestium 2.0 r9: protected settings, the ones that change how anonymous you are: the Tor
-# connection (bridges, transport), the I2P tunnel hops, a manual I2P reseed file, the clock.
-# No administration password was set at login, so user may run them without one (this file).
-# Apps never can: AppArmor denies sudo to every confined app and the Tor Browser sandbox sets
-# no_new_privs. If a password is set at login, prestium-admin-password replaces this file with
-# /usr/share/prestium/sudoers/sensitive-password, which asks for it every time.
-Cmnd_Alias PRESTIUM_SENSITIVE = /usr/local/sbin/prestium-tor-mode apply, /usr/local/sbin/prestium-tor-mode revert, /usr/local/bin/prestium-tunnel-hops ^[1-7]$, /usr/local/sbin/prestium-i2p-reseed --file /*, /usr/bin/date ^(-u )?(-s|--set) [0-9][0-9A-Za-z.+_\:-]*( [0-9A-Za-z.+_\:][0-9A-Za-z.+_\:-]*)*$
-user ALL=(root) NOPASSWD: PRESTIUM_SENSITIVE

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Prestium 2.0 r10: start an application on the restricted Wayland socket (security context):
+# it can't capture the screen, inject keyboard or mouse input, read the clipboard in the
+# background or see other windows. If that socket is missing, the application gets no Wayland
+# connection at all and falls back to Xwayland, where it can't touch Wayland windows either.
+[ $# -gt 0 ] || { echo "usage: prestium-run COMMAND [ARG...]" >&2; exit 2; }
+S=$(/usr/local/lib/prestium/apps-socket name)
+if [ -n "$XDG_RUNTIME_DIR" ] && [ -S "$XDG_RUNTIME_DIR/$S" ]; then
+  export WAYLAND_DISPLAY="$S"
+else
+  export WAYLAND_DISPLAY=prestium-no-wayland GDK_BACKEND=x11 QT_QPA_PLATFORM=xcb MOZ_ENABLE_WAYLAND=0
+fi
+exec "$@"

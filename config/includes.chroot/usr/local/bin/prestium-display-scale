@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Prestium 2.0: "Display Scale" dialog. Auto (from the screen's physical size) or a fixed
 # 100-200 %. Saved in ~/.config/prestium/scale and applied at every login by prestium-scale
-# (from /etc/xdg/openbox/environment); "Apply" also applies what can change at once.
+# (from the session autostart); "Apply" applies it at once (2.0 r10: Wayland scales every app).
 import os, subprocess, sys, threading
 import gi
 gi.require_version("Gtk", "3.0")
@@ -49,7 +49,7 @@ class Dialog(Gtk.Window):
         self.status = Gtk.Label(xalign=0); box.pack_start(self.status, False, False, 0)
         bb = Gtk.Box(spacing=6)
         apply_ = Gtk.Button(label="Apply"); apply_.connect("clicked", self.on_apply)
-        disp = Gtk.Button(label="Display Settings ..."); disp.connect("clicked", lambda *_: subprocess.Popen(["xfce4-display-settings"]))
+        disp = Gtk.Button(label="Display Settings ..."); disp.connect("clicked", lambda *_: subprocess.Popen(["/usr/local/bin/prestium-display-settings"]))
         close = Gtk.Button(label="Close"); close.connect("clicked", lambda *_: self.destroy())
         bb.pack_start(apply_, False, False, 0); bb.pack_start(disp, False, False, 0); bb.pack_end(close, False, False, 0)
         box.pack_start(bb, False, False, 0)
@@ -72,7 +72,7 @@ class Dialog(Gtk.Window):
         self.status.set_text("Applying ...")
         def work():
             s = scale_cmd("--apply")
-            GLib.idle_add(self.status.set_text, "Scale %s %% applied. Log out and in again for all applications." % (s or "?"))
+            GLib.idle_add(self.status.set_text, "Scale %s %% applied." % (s or "?"))
         threading.Thread(target=work, daemon=True).start()
 
 if __name__ == "__main__":

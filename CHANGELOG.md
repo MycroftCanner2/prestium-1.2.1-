@@ -5,6 +5,41 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r10 (Wayland desktop, MAC guard, LibreWolf sandbox; boot password removed)
+
+- **The administration password from r9 is removed** (no welcome dialog at login, protected settings
+  work without a password as in r8). Confined apps still can't use sudo (AppArmor, no_new_privs).
+- **Wayland desktop.** labwc replaces Openbox (same menu and key bindings), waybar replaces tint2,
+  swaylock/swayidle replace i3lock/xss-lock, mako replaces notification-daemon, grim/slurp replace
+  scrot, wvkbd replaces Onboard, foot is the terminal, wdisplays/wlr-randr replace the X display
+  settings. Display scaling is done by the compositor, so every app follows at once. X11-only
+  programs still run through Xwayland, and they can't see or inject into Wayland windows.
+- **Restricted Wayland socket for applications** (security-context-v1). Apps started from the
+  menu, the panel or the file manager get a socket on which the compositor hides screen capture,
+  input injection (virtual keyboard and pointer), clipboard managers, the list of other windows,
+  overlays (layer-shell), the session lock and output/gamma control. The full socket is only used by
+  the panel, notifications, the screen lock, the on-screen keyboard, screenshots (Print) and display
+  settings. Confined apps (AppArmor) can't open the full socket at all.
+- **Browsers: Wayland only, each in its own security context**, with no X11 socket inside the
+  sandbox (and Xwayland's abstract socket is unreachable from their network namespace).
+- **LibreWolf (I2P Browser) gets the Tor Browser sandbox**: its own empty network namespace, of
+  $HOME only ~/.librewolf and ~/Downloads, no D-Bus, no_new_privs, own PID/IPC/hostname namespaces.
+  Its only way out is i2pd's HTTP proxy, through a Unix-socket relay (socat). The default browser
+  (x-www-browser) is the sandboxed launcher.
+- **MAC address guard** (`prestium-mac-guard`, root service). NetworkManager connections may still
+  be edited by the desktop user, so a connection set to the real ("permanent") or a fixed MAC
+  address is reset to the spoofed one at once, an active device using it is disconnected, and a
+  safety alert is shown. A device about to use its real address is disconnected. An nftables egress
+  filter on each card drops frames sent with the real address. The safety notifier alerts if the
+  guard isn't running. Boot option `nomacspoof` still turns spoofing (and the guard) off.
+- Tests: `tests/test_browser_sandbox.sh` (both browsers against a headless labwc, 34 checks),
+  `tests/test_wayland_session.sh` (the session's config and restricted socket, 11 checks),
+  `tests/test_mac_guard_policy.py` (11) and `tests/test_mac_guard_dbus.py` (5, against a mocked
+  NetworkManager on D-Bus). All AppArmor profiles parse.
+- Not tested on a booted ISO yet: real hardware/QEMU graphics, LightDM starting the Wayland
+  session, real NetworkManager and nftables egress (the sandbox has no netfilter), Tor Browser
+  and LibreWolf actually rendering under Wayland in the sandbox.
+
 ## 2.0 r9 (Tails parity: admin password, sandboxed Tor Browser, app confinement)
 
 - **Administration password (optional, Tails-style).** A welcome dialog at login offers to set one.

@@ -24,7 +24,6 @@ bubblewrap
 busybox
 bzip2
 ca-certificates
-cbatticon
 claws-mail
 claws-mail-pgpinline
 claws-mail-pgpmime
@@ -124,7 +123,6 @@ hostname
 htop
 hunspell-en-us
 i2pd
-i3lock
 ifupdown
 inetutils-ping
 init-system-helpers
@@ -240,16 +238,10 @@ netbase
 network-manager
 network-manager-gnome
 nftables
-notification-daemon
 ntfs-3g
 nyx
-obconf
-obsession
-onboard
-onboard-common
 onionshare
 onionshare-cli
-openbox
 openssh-client
 openssl
 openssl-provider-legacy
@@ -290,7 +282,6 @@ qtwayland5
 readline-common
 ristretto
 runit-helper
-scrot
 sed
 sensible-utils
 sgml-base
@@ -303,7 +294,6 @@ systemd
 systemd-sysv
 sysvinit-utils
 tar
-tint2
 tor
 tor-geoipdb
 tzdata
@@ -339,7 +329,6 @@ xbitmaps
 xdg-dbus-proxy
 xdg-user-dirs
 xdg-utils
-xdotool
 xfconf
 xfonts-100dpi
 xfonts-75dpi
@@ -369,8 +358,6 @@ xserver-xorg-video-qxl
 xserver-xorg-video-radeon
 xserver-xorg-video-vesa
 xserver-xorg-video-vmware
-xss-lock
-xterm
 xz-utils
 zenity
 zenity-common

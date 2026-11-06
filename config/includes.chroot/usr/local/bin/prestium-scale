@@ -1,54 +1,74 @@
 #!/usr/bin/python3
-# Prestium 2.0: display scale (HiDPI) for the Openbox/tint2 desktop.
-#   prestium-scale --login     at login (sourced from /etc/xdg/openbox/environment, before Openbox
-#                              starts): apply the X settings and print the shell "export" lines
-#   prestium-scale --apply     apply now (Display Scale dialog): X resources, XSETTINGS (xfsettingsd),
-#                              tint2, Openbox; environment variables only reach apps started later
-#                              in a new session, so some apps need a re-login
-#   prestium-scale --detect    print the automatic scale (100/125/150/175/200)
-#   prestium-scale --effective print the scale in use (setting, or the automatic one)
+# Prestium 2.0: display scale (HiDPI). 2.0 r10: Wayland (labwc). The compositor scales each output
+# (fractional scaling), so every Wayland application, the panel and the browsers follow at once;
+# no X resources, XSETTINGS, environment variables or panel rewrites are needed any more.
+#   prestium-scale --apply      apply the setting to every output now (also run at login)
+#   prestium-scale --login      the same (kept for compatibility)
+#   prestium-scale --detect     print the automatic scale (100/125/150/175/200)
+#   prestium-scale --effective  print the scale in use (setting, or the automatic one)
 # Setting: ~/.config/prestium/scale contains "auto" (default) or a percentage.
-# Automatic: DPI of the primary (else first connected) output from xrandr's physical size (EDID):
+# Automatic: DPI of the built-in (else first) output from its physical size (EDID):
 # dpi = pixels / millimetres * 25.4, then the largest step <= dpi/96. Bogus sizes (VMs, projectors)
-# give 100 %.
-import os, re, shutil, subprocess, sys
+# give 100 %. Needs the full Wayland socket (output management): run from the session, not apps.
+import json, os, subprocess, sys
 
 HOME = os.path.expanduser("~")
 CONF_DIR = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.join(HOME, ".config"), "prestium")
 SETTING = os.path.join(CONF_DIR, "scale")
-TINT2_BASE = "/usr/share/prestium/tint2/tint2rc"
-TINT2_USER = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.join(HOME, ".config"), "tint2", "tint2rc")
 STEPS = (100, 125, 150, 175, 200)
+WLR_RANDR = os.environ.get("PRESTIUM_WLR_RANDR", "wlr-randr")
 
-def run(cmd, **kw):
+def full_socket_env():
+    env = dict(os.environ)
+    rt = env.get("XDG_RUNTIME_DIR", "")
     try:
-        return subprocess.run(cmd, capture_output=True, text=True, timeout=10, **kw)
-    except Exception:
+        name = open(os.path.join(rt, "prestium-wayland-display")).read().strip()
+        if name and "/" not in name and not name.startswith("."):
+            env["WAYLAND_DISPLAY"] = name
+    except OSError:
+        pass
+    return env
+
+def outputs():
+    try:
+        r = subprocess.run([WLR_RANDR, "--json"], capture_output=True, text=True, timeout=10, env=full_socket_env())
+    except (OSError, subprocess.SubprocessError):
+        return None
+    if r.returncode != 0:
+        return None
+    try:
+        return [o for o in json.loads(r.stdout) if o.get("enabled")]
+    except ValueError:
         return None
 
-def detect():
-    r = run(["xrandr", "--query"])
-    if not r or r.returncode != 0:
-        return 100, "xrandr unavailable"
-    outs = []
-    for l in r.stdout.splitlines():
-        m = re.match(r"^(\S+) connected( primary)? (\d+)x(\d+)\+\d+\+\d+ .*?(\d+)mm x (\d+)mm", l)
-        if m:
-            outs.append((bool(m.group(2)), m.group(1), int(m.group(3)), int(m.group(4)), int(m.group(5)), int(m.group(6))))
+def detect_from(outs):
     if not outs:
         return 100, "no active output"
-    outs.sort(key=lambda o: (not o[0], not o[1].startswith(("eDP", "LVDS", "DSI"))))
-    _p, name, pw, ph, mw, mh = outs[0]
-    if (pw > ph) != (mw > mh):       # rotated: xrandr reports the unrotated physical size
+    outs = sorted(outs, key=lambda o: not o["name"].startswith(("eDP", "LVDS", "DSI")))
+    o = outs[0]
+    mode = next((m for m in o.get("modes", []) if m.get("current")), None)
+    if not mode:
+        return 100, "%s: no current mode" % o["name"]
+    pw, ph = mode["width"], mode["height"]
+    mw, mh = o.get("physical_size", {}).get("width", 0), o.get("physical_size", {}).get("height", 0)
+    if o.get("transform") in ("90", "270", "flipped-90", "flipped-270"):
+        pw, ph = ph, pw
+    if (pw > ph) != (mw > mh):
         mw, mh = mh, mw
     if mw < 100 or mh < 60 or mw > 1000:
-        return 100, "%s: physical size %dx%d mm not plausible" % (name, mw, mh)
+        return 100, "%s: physical size %dx%d mm not plausible" % (o["name"], mw, mh)
     dpi = pw / mw * 25.4
     if abs(dpi - ph / mh * 25.4) > dpi * 0.2:
-        return 100, "%s: inconsistent physical size" % name
+        return 100, "%s: inconsistent physical size" % o["name"]
     ratio = dpi / 96.0
     s = max([x for x in STEPS if x / 100.0 <= ratio + 0.001] or [100])
-    return s, "%s: %dx%d px, %dx%d mm, %.0f dpi" % (name, pw, ph, mw, mh, dpi)
+    return s, "%s: %dx%d px, %dx%d mm, %.0f dpi" % (o["name"], pw, ph, mw, mh, dpi)
+
+def detect():
+    o = outputs()
+    if o is None:
+        return 100, "wlr-randr unavailable"
+    return detect_from(o)
 
 def setting():
     try:
@@ -67,111 +87,32 @@ def effective():
     s = setting()
     return detect()[0] if s == "auto" else s
 
-def values(s):
-    # 2.0 r4: GTK gets the integer window scale g (GDK_SCALE and XSETTINGS Gdk/WindowScalingFactor)
-    # plus the *remaining* factor as its XSETTINGS DPI (96 * s / 100 / g): 200 % = scale 2 at 96 dpi,
-    # 175 % = scale 2 at 84 dpi, 150 % = scale 1 at 144 dpi. Before r4 GTK got scale 2 *and* 192 dpi
-    # with GDK_DPI_SCALE=0.5 to undo it, which only GTK 3 knows: GTK 4/libadwaita programs (zenity
-    # dialogs) and Firefox-based browsers came out four times too big. The X resource Xft.dpi
-    # (Openbox, xterm and other Xft programs) stays the full 96 * s / 100.
-    g = 2 if s >= 175 else 1
-    dpi = int(round(96 * s / 100.0))
-    return {
-        "dpi": dpi, "gdk_scale": g, "gtk_dpi": int(round(96 * s / 100.0 / g)),
-        "cursor": int(round(24 * s / 100.0)), "qt": s / 100.0,
-    }
-
-def env_lines(s):
-    v = values(s)
-    ex = {"PRESTIUM_SCALE": str(s), "XCURSOR_SIZE": str(v["cursor"])}
-    if s != 100:
-        ex.update({"GDK_SCALE": str(v["gdk_scale"]), "QT_AUTO_SCREEN_SCALE_FACTOR": "0",
-                   "QT_SCALE_FACTOR": ("%g" % v["qt"]), "QT_FONT_DPI": "96"})
-    unset = [k for k in ("GDK_SCALE", "GDK_DPI_SCALE", "QT_AUTO_SCREEN_SCALE_FACTOR", "QT_SCALE_FACTOR", "QT_FONT_DPI")
-             if k not in ex]      # GDK_DPI_SCALE is never set any more (2.0 r4)
-    lines = ["export %s=%s" % (k, v_) for k, v_ in ex.items()]
-    lines += ["unset %s" % k for k in unset]
-    # D-Bus/systemd-activated programs get the same environment
-    lines.append("dbus-update-activation-environment --systemd %s >/dev/null 2>&1 || true" % " ".join(ex))
-    return lines
-
-def apply_x(s):
-    v = values(s)
-    res = "Xft.dpi: %d\nXcursor.size: %d\n" % (v["dpi"], v["cursor"])
-    run(["xrdb", "-merge", "-nocpp"], input=res)
-    # XSETTINGS (published by xfsettingsd for GTK 3 and GTK 4): integer window scale + remaining DPI,
-    # so programs that do not inherit the session environment (D-Bus activated) scale the same way
-    if shutil.which("xfconf-query"):
-        for prop, typ, val in (("/Xft/DPI", "int", str(v["gtk_dpi"])),
-                               ("/Gdk/WindowScalingFactor", "int", str(v["gdk_scale"])),
-                               ("/Gtk/CursorThemeSize", "int", str(v["cursor"]))):
-            run(["xfconf-query", "-c", "xsettings", "-p", prop, "-n", "-t", typ, "-s", val])
-
-# tint2 17 draws its text with Pango at a fixed 96 dpi (it ignores Xft.dpi) and without explicit
-# fonts uses Gtk/FontName with these offsets (src/clock/clock.c, taskbar/*.c, battery/battery.c,
-# tooltip/tooltip.c): so at other scales every font is written out, scaled.
-TINT2_FONTS = (("task_font", "", -1), ("taskbar_name_font", "Bold ", 0), ("time1_font", "Bold ", 0),
-               ("time2_font", "", -1), ("bat1_font", "", -1), ("bat2_font", "", -1), ("tooltip_font", "", 0))
-
-def gtk_font():
-    """Family and size of the session's Gtk/FontName (xsettings.xml), default Sans 10."""
-    name = "Sans 10"
-    r = run(["xfconf-query", "-c", "xsettings", "-p", "/Gtk/FontName"]) if shutil.which("xfconf-query") else None
-    if r and r.returncode == 0 and r.stdout.strip():
-        name = r.stdout.strip()
-    m = re.match(r"^(.*?)\s+([0-9.]+)$", name)
-    return (m.group(1), float(m.group(2))) if m else ("Sans", 10.0)
-
-def scale_tint2(s):
-    """~/.config/tint2/tint2rc = Prestium's panel scaled (sizes, paddings and fonts; not colours)."""
-    try:
-        base = open(TINT2_BASE).read()
-    except OSError:
-        return
-    f = s / 100.0
-    def sc(n):
-        return str(int(round(int(n) * f)))
-    out = []
-    for l in base.splitlines():
-        m = re.match(r"^(\s*)(panel_size|task_maximum_size|systray_icon_size|launcher_icon_size|"
-                     r"task_thumbnail_size|panel_padding|taskbar_padding|task_padding|systray_padding|"
-                     r"launcher_padding|clock_padding|battery_padding|tooltip_padding|taskbar_name_padding)"
-                     r"(\s*=\s*)(.*)$", l)
-        if m and s != 100:
-            vals = m.group(4).split()
-            vals = [v if v.endswith("%") or not v.isdigit() else sc(v) for v in vals]
-            l = m.group(1) + m.group(2) + m.group(3) + " ".join(vals)
-        out.append(l)
-    if s != 100:
-        fam, size = gtk_font()
-        out.append("# fonts scaled to %d %% (tint2 itself ignores the DPI)" % s)
-        for key, style, off in TINT2_FONTS:
-            out.append("%s = %s %s%g" % (key, fam, style, round((size + off) * f, 1)))
-    os.makedirs(os.path.dirname(TINT2_USER), exist_ok=True)
-    tmp = TINT2_USER + ".tmp"
-    with open(tmp, "w") as fh:
-        fh.write("# generated by prestium-scale (%d %%) from %s\n" % (s, TINT2_BASE) + "\n".join(out) + "\n")
-    os.replace(tmp, TINT2_USER)
+def apply():
+    outs = outputs()
+    if outs is None:
+        print("prestium-scale: no Wayland output management (wlr-randr)", file=sys.stderr)
+        return 1
+    s = setting()
+    rc = 0
+    for o in outs:
+        scale = (detect_from([o])[0] if s == "auto" else s) / 100.0
+        r = subprocess.run([WLR_RANDR, "--output", o["name"], "--scale", "%.2f" % scale],
+                           capture_output=True, text=True, timeout=10, env=full_socket_env())
+        if r.returncode != 0:
+            print("prestium-scale: %s: %s" % (o["name"], r.stderr.strip()), file=sys.stderr)
+            rc = 1
+    if rc == 0:
+        print(s if s != "auto" else detect_from(outs)[0])
+    return rc
 
 def main(a):
     if a == "--detect":
-        s, why = detect(); print("%d\t%s" % (s, why)); return 0
+        s, why = detect(); print("%d %s" % (s, why)); return 0
     if a == "--effective":
         print(effective()); return 0
-    if a == "--login":
-        s = effective()
-        apply_x(s)
-        scale_tint2(s)
-        print("\n".join(env_lines(s)))
-        return 0
-    if a == "--apply":
-        s = effective()
-        apply_x(s)
-        scale_tint2(s)
-        run(["pkill", "-USR1", "-x", "tint2"])          # tint2 reloads its config on SIGUSR1
-        run(["openbox", "--reconfigure"])
-        print(s); return 0
-    print("usage: prestium-scale --login|--apply|--detect|--effective", file=sys.stderr)
+    if a in ("--apply", "--login"):
+        return apply()
+    print("usage: prestium-scale --apply|--detect|--effective", file=sys.stderr)
     return 2
 
 if __name__ == "__main__":

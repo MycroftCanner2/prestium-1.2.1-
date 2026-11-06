@@ -1,6 +1,4 @@
 #!/bin/sh
-# 2.0 r9: an app is starting, so the window for setting the administration password ends now
-sudo -n /usr/local/sbin/prestium-admin-password close >/dev/null 2>&1 || true
 # Prestium: local-only Firefox for Prestium's own web pages:
 #   I2P Router Console  http://127.0.0.1:7070/  (optional http://i2pd:pass@...)
 #   I2P Torrents        http://127.0.0.1:7685/<per-boot secret>/web/

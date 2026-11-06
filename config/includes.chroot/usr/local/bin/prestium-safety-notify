@@ -21,6 +21,12 @@ while :; do
     st=$(systemctl show -p ActiveState --value prestium-usb-watchdog.service)
     [ "$st" = activating ] || alert unit:watchdog "The boot-medium watchdog is not running ($st). Pulling the USB stick will NOT power the computer off. Shut down normally when you are done."
   fi
+  # 2.0 r10: the MAC guard must run while NetworkManager runs (unless booted with nomacspoof)
+  if ! grep -qw nomacspoof /proc/cmdline && systemctl -q is-active NetworkManager.service \
+     && ! systemctl -q is-active prestium-mac-guard.service; then
+    st=$(systemctl show -p ActiveState --value prestium-mac-guard.service)
+    [ "$st" = activating ] || alert unit:macguard "The MAC address guard is not running ($st). A changed network setting could reveal your computer's real MAC address. Disconnect from the network and restart Prestium."
+  fi
   if systemctl -q is-failed prestium-initramfs-shutdown.service; then
     alert unit:wipe "The shutdown memory wipe could not be prepared. Memory will NOT be overwritten at shutdown; the kernel still zeroes freed memory (init_on_free=1), but no final wipe pass runs."
   fi

@@ -1,0 +1,11 @@
+#!/bin/sh
+# Prestium 2.0 r10: Wayland session (labwc). Started by LightDM (autologin, session "prestium").
+export XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=labwc:wlroots XDG_SESSION_DESKTOP=prestium
+# native Wayland wherever a toolkit can; X11 programs still run through Xwayland, but they can't
+# see or inject into Wayland windows (the browsers and every GTK/Qt app).
+export MOZ_ENABLE_WAYLAND=1 GDK_BACKEND=wayland,x11 QT_QPA_PLATFORM='wayland;xcb' \
+       SDL_VIDEODRIVER=wayland,x11 CLUTTER_BACKEND=wayland _JAVA_AWT_WM_NONREPARENTING=1 \
+       ELECTRON_OZONE_PLATFORM_HINT=wayland QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+unset DISPLAY
+# -m: merge ~/.config/labwc (touchpad settings) with /etc/xdg/labwc
+exec labwc -m

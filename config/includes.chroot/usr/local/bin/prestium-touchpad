@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-# Prestium 2.0: touchpad settings. Defaults (tap to click, natural scrolling, disable while typing)
-# come from /etc/X11/xorg.conf.d/40-libinput-touchpad.conf; changes made here are saved in
-# ~/.config/prestium/touchpad.json and applied with xinput now and at every login
-# ("prestium-touchpad --apply" from Openbox's autostart).
-import json, os, re, subprocess, sys
+# Prestium 2.0: touchpad settings. Defaults (tap to click, natural scrolling, disable while typing):
+# /etc/xdg/labwc/rc.xml. 2.0 r10: Wayland (labwc). Changes made here are saved in
+# ~/.config/prestium/touchpad.json and written as the <libinput> section of ~/.config/labwc/rc.xml,
+# which labwc merges with the system file; labwc then reloads its configuration ("labwc -r"), so
+# they apply at once and at every login.
+import html, json, os, re, signal, subprocess, sys
 
-CONF = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config"), "prestium", "touchpad.json")
+XDG = os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config")
+CONF = os.path.join(XDG, "prestium", "touchpad.json")
+LABWC_RC = os.path.join(XDG, "labwc", "rc.xml")
 DEFAULTS = {"tapping": True, "natural_scrolling": True, "disable_while_typing": True, "speed": 0.0}
-PROPS = {"tapping": "libinput Tapping Enabled", "natural_scrolling": "libinput Natural Scrolling Enabled",
-         "disable_while_typing": "libinput Disable While Typing Enabled", "speed": "libinput Accel Speed"}
 
 def load():
     c = dict(DEFAULTS)
@@ -18,31 +19,43 @@ def load():
         pass
     return c
 
-def xinput(*a):
-    try:
-        return subprocess.run(["xinput"] + list(a), capture_output=True, text=True, timeout=5)
-    except Exception:
-        return None
-
 def touchpads():
-    r = xinput("list", "--id-only")
-    ids = []
-    for i in (r.stdout.split() if r and r.returncode == 0 else []):
-        p = xinput("list-props", i)
-        if p and PROPS["tapping"] in p.stdout:
-            name = xinput("list", "--name-only", i)
-            ids.append((i, name.stdout.strip() if name else i))
-    return ids
+    """Names of the touchpads libinput knows (best effort: /proc/bus/input/devices)."""
+    names = []
+    try:
+        for block in open("/proc/bus/input/devices").read().split("\n\n"):
+            m = re.search(r'^N: Name="(.*)"$', block, re.M)
+            if m and re.search(r"touchpad|trackpad|synaptics|elan.*tp|glidepoint", m.group(1), re.I):
+                names.append(m.group(1))
+    except OSError:
+        pass
+    return [(n, n) for n in names]
+
+def rc_xml(c):
+    yn = lambda v: "yes" if v else "no"
+    sp = max(-1.0, min(1.0, float(c["speed"])))
+    return ("<?xml version=\"1.0\"?>\n<!-- written by prestium-touchpad; merged with /etc/xdg/labwc/rc.xml -->\n"
+            "<labwc_config>\n  <libinput>\n    <device category=\"touchpad\">\n"
+            "      <tap>%s</tap>\n      <naturalScroll>%s</naturalScroll>\n"
+            "      <disableWhileTyping>%s</disableWhileTyping>\n      <pointerSpeed>%.2f</pointerSpeed>\n"
+            "    </device>\n  </libinput>\n</labwc_config>\n"
+            % (yn(c["tapping"]), yn(c["natural_scrolling"]), yn(c["disable_while_typing"]), sp))
 
 def apply(c):
-    n = 0
-    for i, _name in touchpads():
-        xinput("set-prop", i, PROPS["tapping"], "1" if c["tapping"] else "0")
-        xinput("set-prop", i, PROPS["natural_scrolling"], "1" if c["natural_scrolling"] else "0")
-        xinput("set-prop", i, PROPS["disable_while_typing"], "1" if c["disable_while_typing"] else "0")
-        xinput("set-prop", i, PROPS["speed"], "%.2f" % max(-1.0, min(1.0, float(c["speed"]))))
-        n += 1
-    return n
+    os.makedirs(os.path.dirname(LABWC_RC), exist_ok=True)
+    tmp = LABWC_RC + ".tmp"
+    with open(tmp, "w") as f:
+        f.write(rc_xml(c))
+    os.replace(tmp, LABWC_RC)
+    pid = os.environ.get("LABWC_PID", "")
+    if pid.isdigit():
+        try:
+            os.kill(int(pid), signal.SIGHUP)        # what "labwc --reconfigure" does
+        except OSError:
+            pass
+    else:
+        subprocess.run(["labwc", "--reconfigure"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return len(touchpads())
 
 def save(c):
     os.makedirs(os.path.dirname(CONF), exist_ok=True)
@@ -88,7 +101,7 @@ def gui():
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--apply":
-        if os.path.exists(CONF):          # nothing saved: the xorg.conf.d defaults already apply
+        if os.path.exists(CONF):          # nothing saved: the defaults in /etc/xdg/labwc/rc.xml apply
             apply(load())
         sys.exit(0)
     gui()

@@ -6,7 +6,7 @@ D=/run/prestium/safety
 case "$2" in ''|*/*|.*) echo "safety-flag: bad name" >&2; exit 2 ;; esac
 case "$1" in
   set)
-    install -d -o root -g root -m 0755 /run/prestium "$D" || exit 1
+    [ -d "$D" ] || install -d -o root -g root -m 0755 /run/prestium "$D" || exit 1
     T=$(mktemp "$D/.flag.XXXXXX") || exit 1
     printf '%s\n' "$3" > "$T" && chmod 0644 "$T" && mv -f "$T" "$D/$2"
     echo "<3>prestium: SAFETY: $3" > /dev/kmsg 2>/dev/null

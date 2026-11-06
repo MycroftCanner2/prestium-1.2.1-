@@ -1,6 +1,4 @@
 #!/bin/sh
-# 2.0 r9: an app is starting, so the window for setting the administration password ends now
-sudo -n /usr/local/sbin/prestium-admin-password close >/dev/null 2>&1 || true
 # Prestium: start Pidgin only when Tor SOCKS is up; global proxy is SOCKS5 127.0.0.1:9050 (prefs.xml)
 if ! systemctl is-active -q tor@default 2>/dev/null && ! systemctl is-active -q tor 2>/dev/null; then
   notify-send "Pidgin" "Tor is not running - Pidgin not started." 2>/dev/null; exit 1

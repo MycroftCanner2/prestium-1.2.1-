@@ -91,14 +91,7 @@ class Progress(Gtk.Window):
 
     def work(self, args):
         try:
-            # 2.0 r9: a manual reseed file is a protected setting (administration password, if set)
-            if args[:1] == ["--file"]:
-                cmd = ["sudo", "-A", HELPER] + args
-                env = dict(os.environ, SUDO_ASKPASS="/usr/local/lib/prestium/askpass",
-                           PRESTIUM_ASK_REASON="Reseed I2P from the file you chose.")
-            else:
-                cmd, env = ["sudo", "-n", HELPER] + args, None
-            p = subprocess.Popen(cmd, stdout=subprocess.PIPE, env=env,
+            p = subprocess.Popen(["sudo", "-n", HELPER] + args, stdout=subprocess.PIPE,
                                  stderr=subprocess.STDOUT, text=True, errors="replace")
             for line in p.stdout:
                 line = line.rstrip("\n"); self.lines.append(line)

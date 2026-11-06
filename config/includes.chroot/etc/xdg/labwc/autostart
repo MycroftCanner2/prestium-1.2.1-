@@ -1,0 +1,22 @@
+# Prestium 2.0 r10: session start (run by labwc with the full Wayland socket, $WAYLAND_DISPLAY).
+# 1. the restricted socket for applications (security context: no screen capture, no input
+#    injection, no clipboard managers, no access to other windows). Applications started from
+#    the menu, the panel or the file manager use it (prestium-run).
+/usr/local/lib/prestium/apps-socket start
+# the full socket's name, for the browser launchers (they create their own security contexts)
+printf '%s\n' "$WAYLAND_DISPLAY" > "$XDG_RUNTIME_DIR/prestium-wayland-display"
+# 2. trusted session parts: full socket
+swaybg -c '#303030' >/dev/null 2>&1 &
+waybar >/dev/null 2>&1 &
+mako >/dev/null 2>&1 &
+swayidle -w timeout 600 /usr/local/bin/prestium-lock-screen \
+            before-sleep /usr/local/bin/prestium-lock-screen \
+            lock /usr/local/bin/prestium-lock-screen >/dev/null 2>&1 &
+/usr/local/bin/prestium-scale --apply >/dev/null 2>&1 &
+# 3. D-Bus-activated programs (portals, notifications from apps) get the restricted socket
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY="$(/usr/local/lib/prestium/apps-socket name)" \
+  XDG_CURRENT_DESKTOP XDG_SESSION_TYPE MOZ_ENABLE_WAYLAND GDK_BACKEND QT_QPA_PLATFORM >/dev/null 2>&1
+# 4. desktop programs: restricted socket
+prestium-run nm-applet --indicator >/dev/null 2>&1 &
+prestium-run lxpolkit >/dev/null 2>&1 &
+prestium-run /usr/local/bin/prestium-safety-notify >/dev/null 2>&1 &

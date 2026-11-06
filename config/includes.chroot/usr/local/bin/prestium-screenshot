@@ -1,0 +1,13 @@
+#!/bin/sh
+# Prestium 2.0 r10: screenshot (grim; replaces scrot). Print: whole screen. Alt+Print: an area.
+# Saved in ~/Pictures. Needs the full Wayland socket (screen capture), so only the key binding
+# runs it; applications can't capture the screen.
+D="$HOME/Pictures"; mkdir -p "$D"
+F="$D/Screenshot-$(date +%Y-%m-%d-%H%M%S).png"
+if [ "$1" = --area ]; then
+  g=$(slurp) || exit 0
+  grim -g "$g" "$F" || exit 1
+else
+  grim "$F" || exit 1
+fi
+notify-send -a Prestium -i image-x-generic "Screenshot saved" "$F" 2>/dev/null || true

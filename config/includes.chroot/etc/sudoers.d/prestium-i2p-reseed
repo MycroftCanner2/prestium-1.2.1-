@@ -1,4 +1,4 @@
-# Prestium 2.0: Network > Refresh I2P reseed (via Tor). user may run this helper with no arguments
-# (download over Tor, signature-checked). 2.0 r9: "--file PATH" (manual reseed file) is a protected
-# setting now, see /etc/sudoers.d/prestium-sensitive.
-user ALL=(root) NOPASSWD: /usr/local/sbin/prestium-i2p-reseed ""
+# Prestium 2.0: Network > Refresh I2P reseed (via Tor) / Manual reseed file. user may run only this
+# helper, either with no arguments (download over Tor) or with "--file PATH" (the helper takes exactly
+# two arguments, refuses symlinks and reads PATH as the invoking user, never as root).
+user ALL=(root) NOPASSWD: /usr/local/sbin/prestium-i2p-reseed "", /usr/local/sbin/prestium-i2p-reseed --file /*
