@@ -53,6 +53,11 @@ since 1.8) follow below.
 - i2pd's per-boot port is opened inbound for IPv4 only (1.8 to 2.0 drafts opened it for IPv4 and
   IPv6). The rule now lives in ferm.conf, which reads the port from /run/prestium/i2pd.port, so a
   firewall reload (for example by the Tor Connection Assistant) no longer drops it. IPv6 stays closed.
+  Both the TCP and UDP rules accept only new connections. The rule is in place before i2pd starts.
+- The spare /etc/i2pd/i2pd.conf template now matches the live config (bandwidth L, share 30).
+- I2P Torrents page: reworked dark theme with a header bar, card panels, a sticky table header,
+  right-aligned numbers, softer status colours on the progress bars, red delete buttons, a
+  highlighted totals row, focus rings, dark scrollbars and a narrow-window layout.
 - i2pd UPnP is explicitly off (`[upnp] enabled = false`) instead of relying on the Linux default.
 - i2pd sets `floodfill = false` and `notransit = false` explicitly (never a floodfill, still relays transit tunnels).
 - polkit: the desktop user gets an allow-list of NetworkManager actions (connect, disconnect,

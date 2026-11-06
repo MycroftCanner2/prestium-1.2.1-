@@ -28,6 +28,8 @@ echo "$PORT" > "$PF"
 chmod 0644 "$PF"
 mv -f "$PF" /run/prestium/i2pd.port
 set +e
-# --no-block: this runs inside i2pd's start job; ferm reloads atomically (iptables-restore)
-/usr/bin/systemctl --no-block reload-or-restart ferm.service
+# Blocking, so the rule is in place before i2pd starts. Safe inside i2pd's start job: i2pd is
+# ordered After=ferm, never the reverse, so ferm's reload never waits on i2pd. ferm reloads
+# atomically (iptables-restore). The timeout only guards against a hung reload.
+timeout 60 /usr/bin/systemctl reload-or-restart ferm.service
 exit 0
