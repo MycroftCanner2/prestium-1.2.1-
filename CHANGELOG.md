@@ -5,6 +5,17 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r15 (--resume no longer hits duplicate apt sources)
+
+- `--resume` failed with apt's `Conflicting values set for option Signed-By`. The cleanup hook had already installed the
+  final sources (package keyrings), and live-build re-added its build-time lists for the same repositories (trusted.gpg.d keys).
+- `build.sh` now runs `lb bootstrap`, `lb chroot`, `lb installer` and `lb binary` itself. It removes the final sources
+  before each run, and installs them only after the chroot stage, once live-build has removed its build-time lists
+  (checked). The cleanup hook no longer installs them. The image ends up with the same sources as before.
+- `--resume` unmounts leftover chroot mounts recursively (`umount -R`), so nested mounts under `chroot/sys` don't
+  block the installer copy.
+- Not changed: building in rootless podman (sysfs mounts are refused there). Use a root container or a VM.
+
 ## 2.0 r14 (reseed download survives rate limits)
 
 - StormyCloud rate-limits reseed downloads per IP (HTTP 429), so rebuilds and `--resume` runs failed after the first.

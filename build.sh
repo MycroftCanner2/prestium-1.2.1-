@@ -42,7 +42,7 @@ if [ "$MODE" = --resume ]; then
 	# So undo an interrupted swap first and let binary_chroot redo it.
 	if [ -d chroot/chroot ] && { [ -e chroot/chroot_for_installer.cache ] || [ -e chroot/chroot.cache ]; }; then
 		for m in chroot/chroot/dev/pts chroot/chroot/proc chroot/chroot/sys chroot/dev/pts chroot/proc chroot/sys; do
-			mountpoint -q "$m" && umount -l "$m" || true
+			mountpoint -q "$m" && { umount -R "$m" || umount -R -l "$m"; } || true
 		done
 		mv chroot/chroot chroot.real && rm -rf chroot && mv chroot.real chroot
 		rm -f .build/installer_chroot .build/binary_chroot .build/binary_rootfs
@@ -64,8 +64,25 @@ if [ "$MODE" = --resume ]; then
 		umount chroot/sys chroot/dev chroot/proc
 	fi
 fi
-lb build 2>&1 | tee -a "$LOG"
-[ "${PIPESTATUS[0]}" = 0 ] || { echo "lb build failed, see $LOG"; exit 1; }
+# 2.0 r15: "lb build" split into its stages so the final apt sources go in after the chroot stage.
+# They use the packages' own keyrings (signed-by /usr/share/keyrings/...), and live-build's build-time lists for
+# the same repositories use its trusted.gpg.d keys: with both present apt refuses to run ("Conflicting values set
+# for option Signed-By"). Installed by a chroot hook (r14 and earlier) they broke any --resume that re-entered
+# chroot_archives. Now they are taken out before each run and installed once the chroot stage is complete.
+run_lb(){ lb "$@" 2>&1 | tee -a "$LOG"; [ "${PIPESTATUS[0]}" = 0 ] || { echo "lb $* failed, see $LOG"; exit 1; }; }
+APTF=config/includes.chroot/usr/share/prestium/build/apt
+if [ -d chroot/etc/apt/sources.list.d ]; then
+	for f in "$APTF"/*; do rm -f "chroot/etc/apt/sources.list.d/$(basename "$f")"; done
+fi
+run_lb bootstrap
+run_lb chroot
+for f in config/archives/*.list.chroot; do
+	[ ! -e "chroot/etc/apt/sources.list.d/$(basename "$f" .chroot)" ] || { echo "build-time apt list $(basename "$f" .chroot) still in the chroot"; exit 1; }
+done
+install -m 644 "$APTF"/* chroot/etc/apt/sources.list.d/
+run_lb installer
+run_lb binary
+run_lb source   # no-op unless sources are enabled (same stages as "lb build")
 
 # 4. name + checksum
 ISO=$(ls -t Prestium-2.0-amd64.hybrid.iso live-image-amd64.hybrid.iso Prestium-2.0*.iso 2>/dev/null | head -1 || true)

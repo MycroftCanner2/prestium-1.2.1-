@@ -44,7 +44,7 @@ which works but is several times slower.
    `config/includes.chroot/usr/local/lib/prestium/verify-su3` (SU3 format, RSA-4096/SHA-512 signature against `thirdparty/keys/reseed/`,
    at most 14 days old) and puts it at `config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3`;
 2. runs `lb config` (options in `auto/config`);
-3. runs `lb build` and writes `Prestium-2.0-amd64.iso` and `Prestium-2.0-amd64.iso.sha256`.
+3. runs `lb bootstrap`, `lb chroot`, `lb installer` and `lb binary` (the final apt sources go in between chroot and installer) and writes `Prestium-2.0-amd64.iso` and `Prestium-2.0-amd64.iso.sha256`.
 
 An interrupted build can be continued with `sudo ./build.sh --resume`; `sudo ./build.sh --clean`
 starts over (`lb clean --purge`). Expect 1-2 hours on a normal amd64 machine (much longer emulated).

@@ -1,8 +1,8 @@
 #!/bin/sh
-# Prestium 2.0: final apt sources (signed-by keyrings), remove build-only material, clean caches.
+# Prestium 2.0: remove build-only material, clean caches. (r15: build.sh installs the final apt sources after
+# the chroot stage, so a --resume never sees them next to live-build's build-time lists.)
 set -e
 B=/usr/share/prestium/build
-install -m 644 "$B"/apt/* /etc/apt/sources.list.d/
 # record what went in (kept in the image for reference)
 dpkg-query -W -f='${Package}\t${Version}\n' > /usr/share/prestium/packages-2.0.txt
 [ -f "$B/optional-skipped.txt" ] && cp "$B/optional-skipped.txt" /usr/share/prestium/optional-skipped-2.0.txt
