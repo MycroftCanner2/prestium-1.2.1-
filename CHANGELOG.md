@@ -5,6 +5,23 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r12 (Claws Mail confined)
+
+- **Claws Mail** (I2P mail) now has an enforced AppArmor profile (`usr.bin.claws-mail`), like the
+  other apps. Before, it ran unconfined, so a malicious message that compromised it could have used
+  the passwordless protected settings (Tor mode, tunnel hops, reseed, clock) and the user's whole
+  home directory. Now it gets the shared rules (no sudo/su/pkexec, no Prestium helpers, no Tor
+  control socket, no system bus, no full Wayland socket, no browser, wallet, chat or KeePassXC
+  data) and of `$HOME` only `~/.claws-mail`, its mailbox `~/Mail` and `~/Downloads`. GnuPG runs in a
+  child profile that alone may use `~/.gnupg`; links open in the sandboxed browsers.
+- `/etc/apparmor.d/local/usr.bin.claws-mail` can add rules (for example another folder for
+  attachments).
+- `fetch-thirdparty.sh` (r11.1): the lurch "done" marker is kept beside the source tree, not in it;
+  the untracked file made the r7 clean-tree check fail on every fresh clone.
+- CHANGELOG: the Display section described the X11 desktop (tint2, Openbox, Onboard,
+  xfce4-display-settings); it now describes the Wayland one.
+- Profile compiles (`apparmor_parser -QK`); not tested on a booted ISO yet.
+
 ## 2.0 r11 (no program can reach the compositor's full Wayland socket)
 
 - **Wayland broker** (`prestium-wl-broker`, root). At login it makes labwc's own socket
@@ -253,22 +270,25 @@ since 1.8) follow below.
   from deb.torproject.org: **snowflake-client 2.15.1+tpo**, **lyrebird 0.9.0**, **webtunnel 0.0.7**.
 
 ## Display, laptops and accessibility
-- **Display Settings** (xfce4-display-settings, replaces arandr): resolution, arrangement and
-  mirroring, with automatic handling of monitors plugged in or out.
-- **HiDPI:** **Display Scale** (Auto from the screen's physical size, or 100-200 %), applied at
-  every login to GTK/Qt apps, the panel (tint2) and Openbox. At 175/200 % GTK now gets the window
-  scale together with the matching DPI, so GTK 4 dialogs and the Firefox-based browsers are no
-  longer drawn too big, and the taskbar's text scales with its height (tint2 ignores the DPI, so
-  its fonts are written out scaled).
-- The I2P reseed windows (**Refresh I2P reseed**, **Manual reseed file**) are normal windows with a
-  title bar and open centred; other zenity dialogs open centred too.
-- **Laptop keys:** volume, mute, mic mute and brightness keys work, with an on-screen notification;
-  **Brightness** slider in the menu (brightnessctl; the live user is in group `video`, and a udev
-  rule makes the backlight writable for it).
+(2.0 r10 replaced the X11 desktop with Wayland: labwc instead of Openbox, waybar instead of tint2,
+wdisplays instead of xfce4-display-settings, wvkbd instead of Onboard. This section describes the
+current desktop.)
+- **Display Settings** (wdisplays, started by the Wayland broker): resolution, arrangement and
+  mirroring; labwc handles monitors plugged in or out.
+- **HiDPI:** **Display Scale** (Auto from the screen's physical size, or 100-200 %), applied by the
+  compositor at every login, so the panel (waybar), GTK/Qt apps and the browsers follow at once.
+  X11-only programs run through Xwayland at the same scale.
+- The I2P reseed windows (**Refresh I2P reseed**, **Manual reseed file**) and other zenity dialogs
+  get a title bar and open centred (labwc window rule).
+- **Laptop keys:** volume, mute, mic mute and brightness keys work, with an on-screen notification
+  (mako); **Brightness** slider in the menu (brightnessctl; the live user is in group `video`, and a
+  udev rule makes the backlight writable for it). The display key opens Display Settings.
 - **Touchpad:** tap to click, natural scrolling and disable-while-typing by default; **Touchpad**
-  settings in the menu (saved and re-applied at login).
-- **Accessibility:** **Onboard** on-screen keyboard, in the menu. (The Orca screen reader was
-  tried and removed: it did not work.)
+  settings in the menu, saved to `~/.config/prestium/touchpad.json` and copied into labwc's
+  root-owned configuration as four checked values.
+- **Screenshots:** Print (click a screen) or Alt+Print (drag an area), saved to `~/Pictures`.
+- **Accessibility:** **Screen Keyboard** (wvkbd) in the menu. (The Orca screen reader was tried
+  and removed: it did not work.)
 
 ## Apps
 - **IRC (The Lounge)** no longer connects to IRC by itself. At boot the I2P tunnels are not up yet,

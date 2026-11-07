@@ -6,10 +6,11 @@ set -e
 # would conflict with Prestium's confined profile for the local-only Firefox; drop it (no other
 # Firefox is installed).
 rm -f /etc/apparmor.d/firefox /etc/apparmor.d/local/firefox
+# 2.0 r12: Claws Mail (I2P mail) is confined too
 # 2.0 r9: Gajim, OnionShare, Feather, LibreOffice, The Lounge and the local-only Firefox are confined too
 for p in usr.share.librewolf.librewolf torbrowser.Browser.firefox usr.bin.pidgin system_tor usr.bin.i2pd \
 	usr.bin.gajim usr.bin.onionshare usr.local.bin.feather usr.lib.libreoffice.program prestium.thelounge \
-	opt.firefox.firefox; do
+	opt.firefox.firefox usr.bin.claws-mail; do
 	f=/etc/apparmor.d/$p
 	[ -e "$f" ] || { echo "W: no profile $p"; continue; }
 	sed -i 's/ flags=(complain)//; s/flags=(complain) //' "$f"
@@ -20,6 +21,7 @@ grep -q 'flags=(complain)' /etc/apparmor.d/usr.share.librewolf.librewolf && { ec
 touch /etc/apparmor.d/local/usr.share.librewolf.librewolf
 # 2.0 r9: every confined app denies sudo/su/pkexec and Prestium's helpers
 for p in usr.share.librewolf.librewolf usr.bin.pidgin usr.bin.gajim usr.bin.onionshare usr.local.bin.feather \
-	usr.lib.libreoffice.program prestium.thelounge opt.firefox.firefox local/torbrowser.Browser.firefox; do
+	usr.lib.libreoffice.program prestium.thelounge opt.firefox.firefox local/torbrowser.Browser.firefox \
+	usr.bin.claws-mail; do
 	grep -q 'prestium-no-admin\|prestium-app-base' "/etc/apparmor.d/$p" || { echo "E: $p does not deny sudo"; exit 1; }
 done

@@ -5,7 +5,8 @@
   prestium-run, which connects them to the restricted Wayland socket (no screen capture, no input
   injection, no clipboard snooping, no reading other windows). Trusted session parts (panel,
   screen lock, on-screen keyboard, screenshots, display settings) use the full socket.
-  Touchpad settings: ~/.config/labwc/rc.xml (written by prestium-touchpad, merged with this file).
+  Touchpad settings: ~/.config/prestium/touchpad.json (prestium-touchpad), copied as checked values
+  into the root-owned copy of this file that labwc reads (prestium-wl-config); ~/.config/labwc is not read.
 -->
 <labwc_config>
   <core>

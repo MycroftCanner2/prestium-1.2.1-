@@ -8,6 +8,7 @@
 0644 root root /etc/apparmor.d/torbrowser.Browser.firefox
 0644 root root /etc/apparmor.d/tunables/torbrowser
 0644 root root /etc/apparmor.d/usr.bin.pidgin
+0644 root root /etc/apparmor.d/usr.bin.claws-mail
 0644 root root /etc/apparmor.d/usr.share.librewolf.librewolf
 0644 root root /etc/apt/preferences.d/prestium
 0644 root root /usr/share/prestium/build/apt/librewolf.sources
