@@ -17,8 +17,8 @@ NODE_SHA256=48cc0e21e048790e54c0cf5749c2725005313d652651c40b7a21feb9697aaf75   #
 
 THELOUNGE_VERSION=4.5.2                                  # npm; package-lock.json integrity hashes pinned in thirdparty/thelounge/
 # irc-framework 4.14.0 is a git dependency of The Lounge (kiwiirc/irc-framework#9578e59a1056499e4a03a0f0fd2c260e9aadc541)
-# with no integrity in package-lock.json: SHA-256 of its installed tree (see fetch-thirdparty.sh; --repin prints it)
-IRC_FRAMEWORK_TREE_SHA256=b4591fc976e1d27dc4095893d1203ac82a7c20b68bd3e2b871bc53f16465c5a7
+# with no integrity in package-lock.json: fetch-thirdparty.sh checks each installed file against this commit's git checkout
+IRC_FRAMEWORK_COMMIT=9578e59a1056499e4a03a0f0fd2c260e9aadc541
 
 FEATHER_VERSION=2.9.1
 FEATHER_SHA256=f1d40d619664d9e6318c086b9015ee72bc69741ec86148ce2ea2ef75ef47feed

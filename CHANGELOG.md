@@ -5,6 +5,18 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r13 (irc-framework check works with any npm)
+
+- The build failed on hosts with a different npm with `IRC_FRAMEWORK_TREE SHA-256 ... != pinned`. Cause: npm runs
+  irc-framework's `prepare` script (babel + webpack) when it packs this git dependency, so its `dist/` browser bundle
+  depends on the toolchain versions npm resolves that day. The server never loads `dist/` (Node uses `main`: `src/`).
+- `fetch-thirdparty.sh` now deletes `irc-framework/dist` after `npm ci` and checks every remaining file against a git
+  checkout of `IRC_FRAMEWORK_COMMIT` (same path, same bytes, `package.json` equal as JSON, no extra files). It also
+  checks that `package-lock.json` resolves to that commit. `IRC_FRAMEWORK_TREE_SHA256` is gone, so there is nothing to repin.
+- The Lounge cache directory is now `thelounge-<version>-r13`, so trees from older builds are installed again.
+- Known residual: `npm ci` still runs irc-framework's `prepare` on the build host with unpinned dev dependencies.
+  Its output is deleted, but the code runs. Vendoring irc-framework would remove this.
+
 ## 2.0 r12 (Claws Mail confined)
 
 - **Claws Mail** (I2P mail) now has an enforced AppArmor profile (`usr.bin.claws-mail`), like the

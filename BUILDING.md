@@ -101,9 +101,12 @@ Edit the version in `thirdparty/versions.sh`, set its `*_SHA256` to `""`, run
 the value in, rebuild. The Lounge is updated by regenerating `thirdparty/thelounge/package-lock.json`
 (`npm install thelounge@<version> --package-lock-only` in `thirdparty/thelounge/`, with npm
 11.10 or newer so `.npmrc`'s `min-release-age=7` is enforced: older npm ignores it and may pick a
-release published minutes ago; review the lockfile diff), then refresh `IRC_FRAMEWORK_TREE_SHA256`
-in `versions.sh` with `scripts/fetch-thirdparty.sh --repin` if irc-framework changed. The build
-itself only runs `npm ci --ignore-scripts`, which installs exactly the lockfile with any npm. LibreWolf, i2pd and Tor come from their
+release published minutes ago; review the lockfile diff), then set `IRC_FRAMEWORK_COMMIT` in `versions.sh` to the commit the
+lockfile resolves irc-framework to, if it changed. The build itself only runs `npm ci --ignore-scripts`,
+which installs exactly the lockfile with any npm. irc-framework is a git dependency with no lockfile
+integrity: npm still runs its `prepare` script (babel + webpack) to pack it, so its `dist/` browser
+bundle differs between hosts and npm versions. The build deletes `dist/` (Node loads `src/`) and checks
+every remaining file against a git checkout of `IRC_FRAMEWORK_COMMIT`, so no hash needs repinning. LibreWolf, i2pd and Tor come from their
 signed apt repositories and are always the newest at build time.
 
 ## Tor Connection Assistant and DNS
