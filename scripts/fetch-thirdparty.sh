@@ -3,7 +3,7 @@
 # for the chroot hooks in config/includes.chroot/usr/src/prestium-thirdparty/ (not committed).
 #   scripts/fetch-thirdparty.sh            verify signature + pinned SHA-256 (fails on any mismatch)
 #   scripts/fetch-thirdparty.sh --repin    verify signature only, print the SHA-256 values to pin
-#   It also downloads a fresh I2P reseed file (StormyCloud su3, signature-checked) into config/includes.chroot/var/lib/i2pd/.
+#   It also stages a signature-checked I2P reseed file (StormyCloud su3; a verified download under 24 h old is reused) into config/includes.chroot/var/lib/i2pd/.
 # Needs: curl gpg gpgv git sha256sum unzip npm python3 openssl (the host's npm only runs "npm ci --ignore-scripts": pure JS,
 # architecture-independent). Every registry tarball is checked against the lockfile's sha512 integrity; the one git
 # dependency (irc-framework, pinned to a commit, no integrity in the lockfile) is checked file by file against a git
@@ -127,21 +127,42 @@ echo "OK LURCH $LURCH_COMMIT"
 
 [ "$REPIN" = 1 ] && exit 0
 
-# I2P reseed file: fetched fresh on every build (never cached), then checked: SU3 format, StormyCloud
-# signer, RSA-4096/SHA-512 signature against i2pd's reseed certificate (thirdparty/keys/reseed/), at
-# most 14 days old, routerInfo entries in the zip. Any failure stops the build (no stale fallback).
-# i2pd.conf [reseed] file= points at it; owner i2pd (2000) comes from perms.txt.
+# I2P reseed file, checked every time before use: SU3 format, StormyCloud signer, RSA-4096/SHA-512
+# signature against i2pd's reseed certificate (thirdparty/keys/reseed/), routerInfo entries in the zip,
+# and an age limit on the signed version timestamp. i2pd.conf [reseed] file= points at it; owner i2pd
+# (2000) comes from perms.txt.
+# 2.0 r14: the server rate-limits per IP (HTTP 429), so rebuilds and --resume runs kept failing. The last
+# verified download is kept in the cache and reused, re-verified, when it was downloaded less than
+# PRESTIUM_RESEED_REUSE_HOURS ago (default 24; 0 always downloads). If a download fails, a cached copy is
+# used only if its signed version is at most 3 days old. Otherwise the build stops, as before.
 SU3=$TOP/config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3
 SU3URL=https://reseed.stormycloud.org/i2pseeds.su3
+SU3C=$C/reseed/stormycloud-i2pseeds.su3; mkdir -p "$C/reseed"
+SU3V="$TOP/config/includes.chroot/usr/local/lib/prestium/verify-su3"
+su3ok(){ python3 "$SU3V" "$1" --max-age "$2" --signers admin@stormycloud.org,idk@stormycloud.org "$TOP/thirdparty/keys/reseed"; }
+REUSE_H=${PRESTIUM_RESEED_REUSE_HOURS:-24}
+case "$REUSE_H" in ''|*[!0-9]*) echo "ERROR: PRESTIUM_RESEED_REUSE_HOURS must be a whole number"; exit 1;; esac
 rm -f "$SU3" "$SU3.part"
-# reseed servers only answer I2P's reseed user agent
-# (the server rate-limits per IP with HTTP 429 + Retry-After; curl waits as told, up to 25 min in all)
-curl -sfL --proto =https --proto-redir =https --retry 8 --retry-all-errors --retry-max-time 1500 -m 300 -A "Wget/1.11.4" \
-  -o "$SU3.part" "$SU3URL" \
-  || { rm -f "$SU3.part"; echo "ERROR: cannot download the I2P reseed file $SU3URL"; exit 1; }
-python3 "$TOP/config/includes.chroot/usr/local/lib/prestium/verify-su3" "$SU3.part" \
-  --max-age 14 --signers admin@stormycloud.org,idk@stormycloud.org "$TOP/thirdparty/keys/reseed" \
-  || { rm -f "$SU3.part"; echo "ERROR: I2P reseed file $SU3URL failed verification"; exit 1; }
+if [ "$REUSE_H" -gt 0 ] && [ -s "$SU3C" ] && [ -n "$(find "$SU3C" -mmin -$((REUSE_H * 60)))" ] && su3ok "$SU3C" 14; then
+  echo "OK RESEED reusing the copy verified $(date -u -r "$SU3C" +%FT%TZ) (under ${REUSE_H}h old)"
+  cp "$SU3C" "$SU3.part"
+else
+  # reseed servers only answer I2P's reseed user agent; curl honours Retry-After, up to 25 min in all
+  if curl -sfL --proto =https --proto-redir =https --retry 8 --retry-all-errors --retry-max-time 1500 -m 300 -A "Wget/1.11.4" \
+      -o "$SU3.part" "$SU3URL"; then
+    su3ok "$SU3.part" 14 || { rm -f "$SU3.part"; echo "ERROR: I2P reseed file $SU3URL failed verification"; exit 1; }
+    cp "$SU3.part" "$SU3C.tmp" && mv -f "$SU3C.tmp" "$SU3C"
+  else
+    rm -f "$SU3.part"
+    if [ -s "$SU3C" ] && su3ok "$SU3C" 3; then
+      echo "WARN: cannot download $SU3URL; using the cached copy verified $(date -u -r "$SU3C" +%FT%TZ) (signed under 3 days ago)"
+      cp "$SU3C" "$SU3.part"
+    else
+      echo "ERROR: cannot download the I2P reseed file $SU3URL and no verified copy under 3 days old is cached"; exit 1
+    fi
+  fi
+fi
+su3ok "$SU3.part" 14 || { rm -f "$SU3.part"; echo "ERROR: I2P reseed file failed verification"; exit 1; }
 chmod 644 "$SU3.part"; mv -f "$SU3.part" "$SU3"
 
 # stage for the hooks

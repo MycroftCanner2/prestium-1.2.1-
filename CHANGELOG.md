@@ -5,6 +5,14 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r14 (reseed download survives rate limits)
+
+- StormyCloud rate-limits reseed downloads per IP (HTTP 429), so rebuilds and `--resume` runs failed after the first.
+- `fetch-thirdparty.sh` keeps the last verified su3 in `cache/thirdparty/reseed/` and reuses it, verified again,
+  when it was downloaded less than `PRESTIUM_RESEED_REUSE_HOURS` ago (default 24; `0` always downloads).
+- When a download fails, a cached copy is used only if its signed version is at most 3 days old (with a WARN line).
+  Otherwise the build stops as before. Every file used still passes signature, signer, format and age checks.
+
 ## 2.0 r13 (irc-framework check works with any npm)
 
 - The build failed on hosts with a different npm with `IRC_FRAMEWORK_TREE SHA-256 ... != pinned`. Cause: npm runs
