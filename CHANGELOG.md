@@ -5,6 +5,15 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r16 (no Signed-By clash in the binary stage)
+
+- r15 was not enough: `lb binary` sets up its tool chroot with `chroot_archives chroot install`. Without
+  `cache/bootstrap`, that tool chroot is a full copy of the image chroot, final sources included, so apt hit the Signed-By clash.
+- The final sources now have the same file names as live-build's build-time lists (`prestium-tor.list`,
+  `prestium-i2pd.list`, `prestium-librewolf.list`, all one-line format). Whenever live-build adds its lists, it overwrites
+  them in that chroot instead of adding a second entry. The image chroot that becomes the squashfs keeps the final files.
+- `build.sh` removes leftover final copies (and r14's old names) before each run, and installs them after the chroot stage.
+
 ## 2.0 r15 (--resume no longer hits duplicate apt sources)
 
 - `--resume` failed with apt's `Conflicting values set for option Signed-By`. The cleanup hook had already installed the

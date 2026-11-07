@@ -64,15 +64,23 @@ if [ "$MODE" = --resume ]; then
 		umount chroot/sys chroot/dev chroot/proc
 	fi
 fi
-# 2.0 r15: "lb build" split into its stages so the final apt sources go in after the chroot stage.
-# They use the packages' own keyrings (signed-by /usr/share/keyrings/...), and live-build's build-time lists for
-# the same repositories use its trusted.gpg.d keys: with both present apt refuses to run ("Conflicting values set
-# for option Signed-By"). Installed by a chroot hook (r14 and earlier) they broke any --resume that re-entered
-# chroot_archives. Now they are taken out before each run and installed once the chroot stage is complete.
+# 2.0 r15/r16: "lb build" split into its stages so the final apt sources go in after the chroot stage.
+# They use the packages' own keyrings (signed-by /usr/share/keyrings/...); live-build's build-time lists for the
+# same repositories use its trusted.gpg.d keys, and with both present apt refuses to run ("Conflicting values set
+# for option Signed-By"). r16: the final files carry the build-time lists' names (prestium-tor.list,
+# prestium-i2pd.list, prestium-librewolf.list), so whenever live-build re-adds its lists (a --resume, or
+# "lb binary" configuring its tool chroot, which may be a full copy of the image chroot) it overwrites them
+# instead of adding a second entry. Final copies left from an earlier run are removed first, and the older
+# names (r14 and earlier) too; they are installed again once the chroot stage is complete.
 run_lb(){ lb "$@" 2>&1 | tee -a "$LOG"; [ "${PIPESTATUS[0]}" = 0 ] || { echo "lb $* failed, see $LOG"; exit 1; }; }
 APTF=config/includes.chroot/usr/share/prestium/build/apt
-if [ -d chroot/etc/apt/sources.list.d ]; then
-	for f in "$APTF"/*; do rm -f "chroot/etc/apt/sources.list.d/$(basename "$f")"; done
+SLD=chroot/etc/apt/sources.list.d
+if [ -d "$SLD" ]; then
+	rm -f "$SLD/tor.list" "$SLD/purplei2p.list" "$SLD/librewolf.sources"
+	for f in "$APTF"/*; do
+		t="$SLD/$(basename "$f")"
+		if [ -e "$t" ] && grep -q 'signed-by=/usr/share/keyrings/' "$t"; then rm -f "$t"; fi
+	done
 fi
 run_lb bootstrap
 run_lb chroot
