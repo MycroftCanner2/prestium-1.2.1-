@@ -5,6 +5,20 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r18 (MAC spoofing: "NetworkManager runs but won't connect")
+
+- MAC spoofing could silently not happen. The udev rule handed the spoofing script the device's kernel name (`%k`), but udev
+  expands `RUN+=` when it reads the rule, before `80-net-setup-link.rules` renames the device (`eth0` to `enp1s0`). The script
+  then found no such device and exited without spoofing, and the MAC guard, seeing the card about to use its real address,
+  disconnected it every time. The rule now passes the interface index, which survives the rename, and the script looks the
+  current name up from it.
+- The `nomacspoof` boot option had no effect on the udev side: within one rule line udev tests `ENV{}` before it runs
+  `IMPORT{cmdline}` (keys are sorted by type), so the option was never seen. The import now has a line of its own.
+- The spoofing script leaves a device alone if it already has a spoofed address (a second "add" event no longer takes a
+  connected card down), and logs every outcome.
+- Firewall: NetworkManager's DHCP lease renewal (root, UDP 68 to 67) is allowed out. The first lease never needed a rule (it
+  goes over a packet socket); without this, renewals were refused and the lease fell back to a full re-discovery.
+
 ## 2.0 r17 (fixes from the first boot of an r16 build)
 
 - Tor Browser: "Tor is not running (no SOCKS socket)". Tor skipped the Unix SOCKS socket, because with `GroupWritable` it
