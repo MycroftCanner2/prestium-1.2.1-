@@ -86,6 +86,7 @@ profile librewolf /usr/share/librewolf/librewolf{,-bin} {
   owner /run/user/[0-9]*/dconf/ rw,
   owner /run/user/[0-9]*/dconf/user rwk,
   owner @{HOME}/.config/dconf/user r,
+  /etc/dconf/** r,   # 2.0 r17: system dconf profile/db (read-only); denial seen on the r16 ISO
 
   # the only user folder for saving and uploading files
   owner @{HOME}/Downloads/ rw,

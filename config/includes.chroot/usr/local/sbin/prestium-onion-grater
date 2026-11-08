@@ -314,9 +314,15 @@ async def main():
     try: os.unlink(LISTEN)
     except FileNotFoundError: pass
     server = await asyncio.start_unix_server(handle, path=LISTEN)
-    # 2.0 r6: 0660 root:user — PEERCRED still decides the profile; world no longer connects.
-    if USER_UID is not None:
-        os.chown(LISTEN, 0, USER_UID)
+    # 2.0 r6: 0660 — PEERCRED still decides the profile; world no longer connects.
+    # 2.0 r17: group prestium-tbb (the desktop user; the service has it as a supplementary group).
+    # r6-r16 called chown(LISTEN, 0, uid of "user"), which needs CAP_CHOWN the service doesn't have,
+    # so the filter exited with PermissionError at every start (seen on the r16 ISO; the Tor
+    # assistant then showed "control port: FileNotFoundError"). Fail closed if the group is missing.
+    tbb = gid_of("prestium-tbb")
+    if tbb is None:
+        log("group prestium-tbb missing; refusing to start"); sys.exit(1)
+    os.chown(LISTEN, -1, tbb)
     os.chmod(LISTEN, 0o660)
     log("listening on %s" % LISTEN)
     async with server:

@@ -5,6 +5,20 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r17 (fixes from the first boot of an r16 build)
+
+- Tor Browser: "Tor is not running (no SOCKS socket)". Tor skipped the Unix SOCKS socket, because with `GroupWritable` it
+  requires the directory's group to be its own or root, and `/run/prestium-tbb` is group `prestium-tbb`. The socket is now
+  `WorldWritable` and the directory (2750 debian-tor:prestium-tbb) decides who can reach it. Reproduced with Tor 0.4.9.15:
+  `GroupWritable` refuses the directory, `WorldWritable` opens the socket.
+- Tor Connection Assistant: "control port: FileNotFoundError". The control filter (onion-grater) exited at every start: it
+  tried `chown(socket, root, user)` without CAP_CHOWN. The socket is now 0660 group `prestium-tbb` (a supplementary group of
+  the service), and the filter refuses to start if that group is missing.
+- Local Firefox (i2pd console, IRC, torrents): "Profile Missing". Firefox 147+ keeps profiles.ini under `~/.config/mozilla`
+  and `~/.local/share/mozilla` when `~/.mozilla` doesn't exist. Its AppArmor profile now allows those two directories.
+- Browsers: no more `/etc/dconf` denials (read-only access in the LibreWolf and local Firefox profiles). LibreWolf and Tor Browser
+  no longer start Firefox's Wayland proxy inside the sandbox (`MOZ_DISABLE_WAYLAND_PROXY=1`).
+
 ## 2.0 r16 (no Signed-By clash in the binary stage)
 
 - r15 was not enough: `lb binary` sets up its tool chroot with `chroot_archives chroot install`. Without

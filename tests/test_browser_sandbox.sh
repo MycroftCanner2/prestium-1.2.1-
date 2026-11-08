@@ -42,7 +42,7 @@ sudo -n env PRESTIUM_WL_BASE="$PRESTIUM_WL_BASE" PRESTIUM_WL_RUNTIME="$T/xdg%d" 
 for i in $(seq 50); do [ -S "$PRESTIUM_WL_BASE/broker" ] && break; sleep 0.1; done
 r=$(python3 "$I/usr/local/bin/prestium-wl" start); [ "${r%% *}" = ok ] && ok "broker: $r" || bad "broker start: $r"
 # a real Tor SOCKS listener on the Unix socket (no network needed for the greeting)
-printf 'DataDirectory %s/tor\nSocksPort unix:/run/prestium-tbb/socks GroupWritable RelaxDirModeCheck\nUseBridges 1\nBridge 127.0.0.1:9\nControlPort 0\nLog err stderr\n' "$T" > "$T/torrc"
+printf 'DataDirectory %s/tor\nSocksPort unix:/run/prestium-tbb/socks WorldWritable\nUseBridges 1\nBridge 127.0.0.1:9\nControlPort 0\nLog err stderr\n' "$T" > "$T/torrc"
 mkdir -m 700 "$T/tor"; chmod 2750 /run/prestium-tbb
 tor -f "$T/torrc" >/dev/null 2>&1 & pids+=($!)
 for i in $(seq 40); do [ -S /run/prestium-tbb/socks ] && break; sleep 0.25; done

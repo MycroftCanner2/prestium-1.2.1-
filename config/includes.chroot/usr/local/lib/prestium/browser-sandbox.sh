@@ -47,6 +47,7 @@ sbx_init() {
       --setenv PATH /usr/bin:/bin --setenv LANG "${LANG:-C.UTF-8}"
       --setenv XDG_RUNTIME_DIR "$inner" --setenv WAYLAND_DISPLAY wayland-0
       --setenv XDG_SESSION_TYPE wayland --setenv MOZ_ENABLE_WAYLAND 1 --setenv GDK_BACKEND wayland
+      --setenv MOZ_DISABLE_WAYLAND_PROXY 1
       --unsetenv DISPLAY)
   [ -n "${LC_ALL:-}" ] && B+=(--setenv LC_ALL "$LC_ALL")
   return 0

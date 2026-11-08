@@ -58,6 +58,13 @@ profile prestium-localfox /opt/firefox/firefox{,-bin} {
   owner @{HOME}/.cache/mozilla/** rwk,
   owner @{HOME}/.mozilla/ rw,
   owner @{HOME}/.mozilla/** rwk,
+  # 2.0 r17: Firefox 147+ keeps profiles.ini/installs.ini under the XDG dirs when ~/.mozilla doesn't
+  # exist; without these it showed "Profile Missing" on the r16 ISO even with --profile.
+  owner @{HOME}/.config/ r,
+  owner @{HOME}/.config/mozilla/ rw,
+  owner @{HOME}/.config/mozilla/** rwk,
+  owner @{HOME}/.local/share/mozilla/ rw,
+  owner @{HOME}/.local/share/mozilla/** rwk,
   deny @{HOME}/.local/share/prestium-localfox/**.so m,
   deny @{HOME}/.librewolf/** rw,
   owner @{HOME}/.cache/fontconfig/ rw,
@@ -80,6 +87,7 @@ profile prestium-localfox /opt/firefox/firefox{,-bin} {
   owner /run/user/[0-9]*/dconf/ rw,
   owner /run/user/[0-9]*/dconf/user rwk,
   owner @{HOME}/.config/dconf/user r,
+  /etc/dconf/** r,   # 2.0 r17
 
   # the only user folder for saving and uploading files
   owner @{HOME}/Downloads/ rw,

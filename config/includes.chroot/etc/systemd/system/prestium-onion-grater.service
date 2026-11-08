@@ -9,7 +9,7 @@ Type=simple
 ExecStart=/usr/local/sbin/prestium-onion-grater
 User=onion-grater
 Group=onion-grater
-SupplementaryGroups=debian-tor
+SupplementaryGroups=debian-tor prestium-tbb
 RuntimeDirectory=onion-grater
 RuntimeDirectoryMode=0755
 # read /proc/<pid>/exe of the connecting app (another uid)
