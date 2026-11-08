@@ -16,6 +16,7 @@ since 1.8) follow below.
   `IMPORT{cmdline}` (keys are sorted by type), so the option was never seen. The import now has a line of its own.
 - The spoofing script leaves a device alone if it already has a spoofed address (a second "add" event no longer takes a
   connected card down), and logs every outcome.
+- Boot menu: new entry "Prestium 2.0 (MAC address spoofing off)" (boot option `nomacspoof`), in both the UEFI and BIOS menus.
 - Firewall: NetworkManager's DHCP lease renewal (root, UDP 68 to 67) is allowed out. The first lease never needed a rule (it
   goes over a packet socket); without this, renewals were refused and the lease fell back to a full re-discovery.
 

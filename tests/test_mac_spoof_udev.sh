@@ -45,4 +45,8 @@ grep -q 'already spoofed' "$T/log" || { echo "FAIL: re-spoof"; cat "$T/log"; exi
 : > "$T/log"
 "$T/spoof" 9
 grep -q 'gone' "$T/log" || { echo "FAIL: missing device"; exit 1; }
+# boot menu: a "spoofing off" entry in both menus
+B=$R/../bootloaders
+grep -q '@APPEND_LIVE@ nomacspoof' "$B/grub-pc/grub.cfg"
+grep -q '@APPEND_LIVE@ nomacspoof' "$B/syslinux_common/live.cfg.in"
 echo "mac spoof udev: OK"

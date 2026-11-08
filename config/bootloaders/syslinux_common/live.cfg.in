@@ -16,3 +16,9 @@ label live-@FLAVOUR@-nocammic
 	linux @LINUX@
 	initrd @INITRD@
 	append @APPEND_LIVE@ prestium.nocammic
+
+label live-@FLAVOUR@-nomacspoof
+	menu label Prestium 2.0 (MAC address spoofing off)
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE@ nomacspoof
