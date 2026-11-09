@@ -28,6 +28,10 @@ profile claws-mail /usr/bin/claws-mail {
   owner @{HOME}/.claws-mail/** rwkl,
   owner @{HOME}/Mail/ rw,
   owner @{HOME}/Mail/** rwkl,
+  # 2.0 r20: Claws Mail 4.x keeps its single-instance control socket in $XDG_RUNTIME_DIR/claws-mail/
+  # (older versions used /tmp); without this it can't create the directory and exits at start
+  owner @{run}/user/[0-9]*/claws-mail/ rw,
+  owner @{run}/user/[0-9]*/claws-mail/* rwk,
   owner @{HOME}/Downloads/ r,
   owner @{HOME}/Downloads/** rwk,
 

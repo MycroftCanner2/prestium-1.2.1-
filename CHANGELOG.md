@@ -12,6 +12,8 @@ since 1.8) follow below.
   `thelounge` AppArmor profile that fd is a disconnected path, AppArmor denied Node's `fstat(0)`, and Node aborts when
   fd 0 to 2 can't be checked (systemd issue #12302). The profile now has `flags=(attach_disconnected)`; its rules are unchanged.
   The same Node and The Lounge started fine under the profile through `aa-exec` on the r18 boot, which ruled out the rules themselves.
+- Mail (I2P) did not start: Claws Mail 4.3.1 creates its control socket in `$XDG_RUNTIME_DIR/claws-mail/`, which its AppArmor
+  profile did not allow ("Error creating socket_dir /run/user/1000/claws-mail"). The profile now allows that directory only.
 
 ## 2.0 r19 (desktop fixes from the first r18 boot)
 
