@@ -8,4 +8,6 @@ grep -q '^profile thelounge flags=(attach_disconnected) {$' "$R/etc/apparmor.d/p
 if command -v apparmor_parser >/dev/null; then apparmor_parser -Q -K "$R/etc/apparmor.d/prestium.thelounge" >/dev/null; fi
 # 2.0 r20: Claws Mail 4.x control socket dir
 grep -q "owner @{run}/user/\[0-9\]\*/claws-mail/\* rwk," "$R/etc/apparmor.d/usr.bin.claws-mail"
-echo "thelounge + claws apparmor: OK"
+# 2.0 r20: Gajim multiprocessing semaphores
+grep -q "owner /dev/shm/sem.\* rwkl," "$R/etc/apparmor.d/usr.bin.gajim"
+echo "thelounge + claws + gajim apparmor: OK"

@@ -14,6 +14,8 @@ since 1.8) follow below.
   The same Node and The Lounge started fine under the profile through `aa-exec` on the r18 boot, which ruled out the rules themselves.
 - Mail (I2P) did not start: Claws Mail 4.3.1 creates its control socket in `$XDG_RUNTIME_DIR/claws-mail/`, which its AppArmor
   profile did not allow ("Error creating socket_dir /run/user/1000/claws-mail"). The profile now allows that directory only.
+- Gajim did not start: its multiprocessing pool needs POSIX semaphores, and glibc creates them with link() in /dev/shm,
+  which the profile did not allow (PermissionError 13 in SemLock). The Gajim profile now allows `owner /dev/shm/sem.* rwkl`.
 
 ## 2.0 r19 (desktop fixes from the first r18 boot)
 
