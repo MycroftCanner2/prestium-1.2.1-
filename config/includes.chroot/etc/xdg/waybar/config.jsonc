@@ -17,8 +17,10 @@
     "on-click-right": "/usr/bin/wtype -M logo -k space -m logo"
   },
   "wlr/taskbar": {
-    "format": "{icon} {title:.24}",
-    "icon-size": 18,
+    // 2.0 r20: icons only, so many open windows no longer push the tray, volume and clock off screen.
+    // The title shows on hover; Alt+Tab lists every window with its title.
+    "format": "{icon}",
+    "icon-size": 20,
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",

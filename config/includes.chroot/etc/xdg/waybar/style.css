@@ -1,7 +1,7 @@
 /* Prestium 2.0 r10: panel colours as the tint2 panel (black, white text) */
 * { font-family: sans-serif; font-size: 13px; min-height: 0; }
 window#waybar { background: #000000; color: #ffffff; }
-#taskbar button { padding: 0 6px; color: #dddddd; border-radius: 0; }
+#taskbar button { padding: 0 4px; min-width: 0; color: #dddddd; border-radius: 0; }
 #taskbar button.active { background: #333333; color: #ffffff; }
 #taskbar button:hover { background: #222222; }
 #tray, #pulseaudio, #battery, #clock { padding: 0 8px; }

@@ -16,6 +16,7 @@ since 1.8) follow below.
   profile did not allow ("Error creating socket_dir /run/user/1000/claws-mail"). The profile now allows that directory only.
 - Gajim did not start: its multiprocessing pool needs POSIX semaphores, and glibc creates them with link() in /dev/shm,
   which the profile did not allow (PermissionError 13 in SemLock). The Gajim profile now allows `owner /dev/shm/sem.* rwkl`.
+- Panel: window buttons are icons only (title on hover), so many windows no longer push the tray, volume and clock off screen.
 
 ## 2.0 r19 (desktop fixes from the first r18 boot)
 
