@@ -12,3 +12,5 @@ user_pref("app.update.enabled", false);
 // launcher overrides Tor Browser's built-in root list. Firefox no longer stores
 // intermediate certificates there.
 user_pref("security.nocertdb", false);
+// Prestium 2.0 r19: no tabs in the title bar; the compositor draws the frame (minimise, maximise, close)
+user_pref("browser.tabs.inTitlebar", 0);

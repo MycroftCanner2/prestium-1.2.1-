@@ -77,7 +77,10 @@
     <windowRule identifier="zenity" serverDecoration="yes">
       <action name="AutoPlace" policy="center" />
     </windowRule>
-    <!-- the browsers' sandboxes: always keep the frame so the window can't pose as the desktop -->
-    <windowRule sandboxEngine="org.prestium.bwrap" serverDecoration="yes" />
+    <!-- apps on the restricted socket (browsers included): always keep the frame (title bar with
+         minimise, maximise, close) so a window can't pose as the desktop. 2.0 r19: the engine name
+         is the one prestium-wl-broker registers ("org.prestium.apps"); the old "org.prestium.bwrap"
+         matched nothing, so Firefox-based browsers drew their own title bar without buttons. -->
+    <windowRule sandboxEngine="org.prestium.apps" serverDecoration="yes" />
   </windowRules>
 </labwc_config>

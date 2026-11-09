@@ -5,6 +5,15 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r19 (desktop fixes from the first r18 boot)
+
+- Browsers had no title bar with minimise, maximise and close. The labwc window rule that forces a frame on apps from the
+  restricted Wayland socket matched the security-context engine "org.prestium.bwrap", but the broker registers
+  "org.prestium.apps", so it matched nothing. The rule now uses the broker's name (a test checks they agree), and Tor Browser,
+  LibreWolf and the local Firefox no longer put tabs in the title bar (`browser.tabs.inTitlebar` 0).
+- Panel: a "Menu" button at the left opens the desktop menu (it sends Super+Space with `wtype`, the same shortcut as before,
+  because labwc has no command to open a menu). Right-clicking the desktop still works too.
+
 ## 2.0 r18 (MAC spoofing: "NetworkManager runs but won't connect")
 
 - MAC spoofing could silently not happen. The udev rule handed the spoofing script the device's kernel name (`%k`), but udev

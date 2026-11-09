@@ -36,3 +36,5 @@ user_pref("browser.newtabpage.activity-stream.asrouter.providers.onboarding", "{
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
+// Prestium 2.0 r19: no tabs in the title bar; the compositor draws the frame (minimise, maximise, close)
+user_pref("browser.tabs.inTitlebar", 0);

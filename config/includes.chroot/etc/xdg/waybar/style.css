@@ -8,3 +8,6 @@ window#waybar { background: #000000; color: #ffffff; }
 #battery.warning:not(.charging) { color: #ffcc00; }
 #battery.critical:not(.charging) { color: #ff4444; font-weight: bold; }
 #pulseaudio.muted { color: #888888; }
+/* 2.0 r19: menu button */
+#custom-menu { padding: 0 10px; background: #1a1a1a; font-weight: bold; }
+#custom-menu:hover { background: #333333; }

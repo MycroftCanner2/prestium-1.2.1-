@@ -1,13 +1,21 @@
 // Prestium 2.0 r10: panel (replaces tint2): windows, tray, volume, battery, clock.
-// Right-click the desktop (or Super+Space) for the menu.
+// Menu: the "Menu" button at the left, right-click the desktop, or Super+Space.
+// 2.0 r19: the button sends Super+Space (wtype, through the panel's trusted Wayland socket), which
+// labwc answers with its root menu at the pointer; labwc has no command to open a menu directly.
 {
   "layer": "top",
   "position": "bottom",
   "height": 30,
   "spacing": 6,
-  "modules-left": ["wlr/taskbar"],
+  "modules-left": ["custom/menu", "wlr/taskbar"],
   "modules-center": [],
   "modules-right": ["tray", "pulseaudio", "battery", "clock"],
+  "custom/menu": {
+    "format": "\u2630  Menu",
+    "tooltip-format": "Applications and settings (Super+Space)",
+    "on-click": "/usr/bin/wtype -M logo -k space -m logo",
+    "on-click-right": "/usr/bin/wtype -M logo -k space -m logo"
+  },
   "wlr/taskbar": {
     "format": "{icon} {title:.24}",
     "icon-size": 18,
