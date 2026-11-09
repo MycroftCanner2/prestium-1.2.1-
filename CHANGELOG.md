@@ -17,7 +17,9 @@ since 1.8) follow below.
 - Gajim did not start: its multiprocessing pool needs POSIX semaphores, and glibc creates them with link() in /dev/shm,
   which the profile did not allow (PermissionError 13 in SemLock). The Gajim profile now allows `owner /dev/shm/sem.* rwkl`.
 - Panel: window buttons are icons only (title on hover), so many windows no longer push the tray, volume and clock off screen.
-- Panel Menu button: waits until the click ends before opening the menu (labwc closed it again on the button release).
+- Panel Menu button did nothing: waybar's children only get the restricted Wayland socket, where labwc offers no
+  virtual keyboard, so `wtype` could not connect. The button now runs `prestium-wl menu`; the broker presses
+  Super+Space on a full-socket connection.
 - Panel: the local-only Firefox (The Lounge, I2P console, torrents) has an icon (`prestium-localfox.desktop`).
 
 ## 2.0 r19 (desktop fixes from the first r18 boot)

@@ -18,6 +18,7 @@ each with one connection to the full socket passed as an inherited file descript
 start in turn is restricted again. Requests (one line on /run/prestium-wl/broker):
 
   start              lock the full socket, create the restricted one (idempotent)
+  menu               open the labwc root menu (panel Menu button)
   panel              start the panel, notifications, wallpaper and idle lock (once per session)
   lock               lock the screen (swaylock); answers when the lock is in place
   osk                toggle the on-screen keyboard (wvkbd)
@@ -275,6 +276,15 @@ class Session:
             self.kids["osk"].terminate(); return "ok hidden"
         self.spawn(["wvkbd-mobintl", "-L", "280"], key="osk"); return "ok shown"
 
+    def menu(self):
+        # 2.0 r20: open labwc's root menu (Super+Space) for the panel's Menu button. wtype needs the
+        # virtual-keyboard protocol, which labwc does not offer on the restricted socket that waybar's
+        # children get, so the broker runs it on a full-socket connection. Fixed keys only.
+        if self.running("menu"):
+            return "ok running"
+        rc, _ = self.spawn(["wtype", "-M", "logo", "-k", "space", "-m", "logo"], wait=True, timeout=10, key="menu")
+        return "ok" if rc == 0 else "error wtype exit %d" % rc
+
     def display_settings(self):
         if not self.running("wdisplays"):
             self.spawn(["wdisplays"], key="wdisplays")
@@ -357,6 +367,8 @@ def dispatch(uid, cmd):
             return s.osk()
         if cmd == "display-settings":
             return s.display_settings()
+        if cmd == "menu":
+            return s.menu()
     if cmd == "lock":
         return s.lock_screen()
     if cmd == "scale":

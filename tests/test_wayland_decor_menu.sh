@@ -16,7 +16,7 @@ import json, sys
 c = json.load(sys.stdin)
 assert c["modules-left"][0] == "custom/menu", c["modules-left"]
 m = c["custom/menu"]
-assert m["on-click"] == "/usr/bin/wtype -M logo -k space -m logo", m
+assert m["on-click"] == "sleep 0.3; exec /usr/local/bin/prestium-wl menu", m
 '
 grep -qx wtype "$R/../package-lists/prestium-2.0.list.chroot"
 # Firefox-based browsers: no tabs in the title bar
