@@ -28,31 +28,7 @@ The 2.0 ISO is available through `Prestium-2.0-amd64.iso.torrent` on this branch
 
 ### What changes in 2.0
 
-1. **LibreWolf (I2P Browser) under an enforced AppArmor profile** (1.9.1.3: complain mode only).
-   It can write only its own profile, cache and config, `~/Downloads` and temporary files.
-2. **Feather back on I2P**: Feather uses its I2P proxy mode through i2pd's SOCKS proxy
-   127.0.0.1:4447 again (as in 1.7/1.8); 1.9.x had switched it to Tor (9050, onion nodes only).
-3. **Audio on more hardware**: PipeWire + WirePlumber with pipewire-pulse and pipewire-alsa (1.9.1.3
-   had plain ALSA with an ALSA-only volume icon), SOF firmware, current ALSA UCM profiles, and a
-   PulseAudio-compatible volume icon in the panel (pasystray). Started per user session by systemd.
-4. **Current packages and firmware** at build time: trixie + updates + security, firmware from
-   trixie-backports (Tails parity or better), and the newest Tor Browser, Firefox, Node.js,
-   The Lounge, Feather, LibreWolf, i2pd and Tor, each checked against its publisher's signature and a
-   pinned SHA-256.
-5. **Tor Connection Assistant** (menu: Network → Tor Connection Assistant), described below.
-   Its errors now stay in a fixed-size area, and the window always fits the screen above the taskbar.
-   **Refresh I2P reseed (via Tor)** and **Manual reseed file** (menu: Network) replace the reseed
-   file with a fresh, signature-checked one (downloaded over Tor, or a .su3 you downloaded from
-   https://reseed2.i2p.net/), then clear the netDb and restart i2pd.
-6. **Display, laptops, accessibility**: Display Settings (xfce4-display-settings, monitor hotplug)
-   instead of arandr, HiDPI Display Scale (Auto or 100-200 %), working volume/brightness keys and a
-   Brightness slider, touchpad settings (tap to click, natural scrolling) and the Onboard on-screen
-   keyboard.
-7. **Security audit fixes** (2.0 audit): a local root escalation through the I2P Torrents helper
-   is fixed, root helpers no longer follow symlinks in i2pd's or The Lounge's directories, and
-   OnionShare's onion services are limited to its own ports. See CHANGELOG.md.
-8. **Fixes**: The Lounge waits for you to click Connect, I2P Torrents has a dark theme, the local
-   Firefox shows no first-run screens, and the reseed windows and taskbar scale properly at 200 %.
+See [CHANGELOG.md](CHANGELOG.md) for the full, unified list of changes since 1.9.1.3.
 
 ### Tor Connection Assistant
 
