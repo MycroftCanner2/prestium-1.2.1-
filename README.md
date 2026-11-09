@@ -1,3 +1,15 @@
+# Prestium
+
+> **Ongoing development has moved to [PrestiumOS](https://github.com/MycroftCanner2/PrestiumOS).**
+
+This `main` branch holds the original Prestium 1.2.1. The newer versions are on two other branches:
+
+- **[`prestium-1.6-update`](https://github.com/MycroftCanner2/prestium-1.2.1-/tree/prestium-1.6-update)** (1.6 to 1.9.1.3): the original build, slightly modernized and still running X11.
+- **[`prestium-2.0`](https://github.com/MycroftCanner2/prestium-1.2.1-/tree/prestium-2.0)** (2.0, final): fully modernized, rebuilt with live-build on Debian 13, Wayland desktop.
+- **[PrestiumOS](https://github.com/MycroftCanner2/PrestiumOS)**: the new repository for ongoing development, continuing from 2.0.
+
+---
+
 # Prestium 1.2.1 (amd64), extracted
 
 Source image: `Prestium-1.2.1-amd64.iso`, 1,242,460,160 bytes,
