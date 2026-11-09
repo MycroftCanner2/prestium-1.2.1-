@@ -1,5 +1,11 @@
 Disclaimer: This project and all associated materials (including software, repositories, scripts, and ISO files) are provided strictly "as is" and "as available," for informational, educational, and experimental purposes only, without any express or implied warranties of any kind—including, but not limited to, fitness for a particular purpose, security, accuracy, or non-infringement. The creator and publisher make no claims regarding the safety, integrity, or audit status of any code or binaries, explicitly disclaim any expertise or maintenance obligations, and shall not be held liable for any direct, indirect, incidental, or consequential damages, security breaches, data loss, or legal issues arising from downloading, compiling, or using this material. You assume all responsibility and risk for your use of this software, and you are solely responsible for ensuring compliance with all applicable local, state, and international laws.
 
+## Known issues
+
+- **No browser updater:** Tor Browser, LibreWolf and Firefox are fixed at the versions in this build, so they will become out of date over time.
+- **Claws Mail PGP:** PGP does not work in Claws Mail at the moment and shows errors.
+- **No more security audits or updates:** this branch is final and no longer receives security audits or updates. Use [PrestiumOS](https://github.com/MycroftCanner2/PrestiumOS) for ongoing development.
+
 ## Branch `prestium-2.0`: Prestium 2.0 (complete, final version)
 
 Prestium 2.0 rebuilds Prestium from scratch with Debian's **live-build** instead of patching an
