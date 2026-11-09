@@ -5,6 +5,14 @@ and works the same. Not released yet: the download, size and SHA-256 will be add
 ISO is published. Changes listed are against the last release, 1.9.1.3; the 1.9.1.3 notes (changes
 since 1.8) follow below.
 
+## 2.0 r20 (The Lounge starts again)
+
+- The Lounge crashed at once (SIGABRT, core-dump, restarting every 5 s), so "IRC (The Lounge)" said the service was not running.
+  systemd opens the service's stdin (/dev/null) before it moves the process into its private /dev and /tmp; under the
+  `thelounge` AppArmor profile that fd is a disconnected path, AppArmor denied Node's `fstat(0)`, and Node aborts when
+  fd 0 to 2 can't be checked (systemd issue #12302). The profile now has `flags=(attach_disconnected)`; its rules are unchanged.
+  The same Node and The Lounge started fine under the profile through `aa-exec` on the r18 boot, which ruled out the rules themselves.
+
 ## 2.0 r19 (desktop fixes from the first r18 boot)
 
 - Browsers had no title bar with minimise, maximise and close. The labwc window rule that forces a frame on apps from the

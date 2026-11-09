@@ -5,7 +5,12 @@
 abi <abi/4.0>,
 include <tunables/global>
 
-profile thelounge {
+# 2.0 r20: attach_disconnected. systemd opens the service's stdin (/dev/null) on the host before it
+# moves the process into its private mount namespace (PrivateDevices=, PrivateTmp=), so in there
+# fd 0 is a "disconnected path". Without this flag AppArmor denies Node's fstat(0) with EACCES and
+# Node aborts at once in PlatformInit (SIGABRT, core-dump), which is what the first r18 boot showed.
+# See systemd issue #12302. The profile's path rules are unchanged.
+profile thelounge flags=(attach_disconnected) {
   include <abstractions/base>
   include <abstractions/nameservice>
   include <abstractions/ssl_certs>
