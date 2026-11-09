@@ -13,8 +13,10 @@
   "custom/menu": {
     "format": "\u2630  Menu",
     "tooltip-format": "Applications and settings (Super+Space)",
-    "on-click": "/usr/bin/wtype -M logo -k space -m logo",
-    "on-click-right": "/usr/bin/wtype -M logo -k space -m logo"
+    // 2.0 r20: wait until the mouse button is released. labwc closes a menu on a button release
+    // outside it, so a menu opened during the click was closed again at once.
+    "on-click": "sleep 0.35; exec /usr/bin/wtype -M logo -k space -m logo",
+    "on-click-right": "sleep 0.35; exec /usr/bin/wtype -M logo -k space -m logo"
   },
   "wlr/taskbar": {
     // 2.0 r20: icons only, so many open windows no longer push the tray, volume and clock off screen.

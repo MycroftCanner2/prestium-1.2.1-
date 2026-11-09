@@ -29,6 +29,12 @@ tar -xJf "$S/firefox.tar.xz" -C /opt
 cp -a "$O/firefox/." /opt/firefox/
 chown -R root:root /opt/firefox; chmod -R u+rwX,go+rX,go-w /opt/firefox
 echo "P: Firefox $(grep -m1 '^Version=' /opt/firefox/application.ini)"
+# 2.0 r20: panel icon for the local-only Firefox (The Lounge, I2P console, torrents); see prestium-localfox.desktop
+for n in 16 32 48 64 128; do
+  f=/opt/firefox/browser/chrome/icons/default/default$n.png
+  [ -f "$f" ] && install -D -m 0644 "$f" /usr/share/icons/hicolor/${n}x${n}/apps/prestium-localfox.png
+done
+command -v gtk-update-icon-cache >/dev/null && gtk-update-icon-cache -q -f /usr/share/icons/hicolor || true
 
 # Node.js runtime
 rm -rf /opt/nodejs "$T/node"; mkdir -p "$T/node"
