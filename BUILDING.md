@@ -1,6 +1,6 @@
-# Building Prestium 2.1 (live-build)
+# Building Prestium 2.0 (live-build)
 
-Prestium 2.1 is built from scratch with Debian's **live-build**, the same tool Debian's own live
+Prestium 2.0 is built from scratch with Debian's **live-build**, the same tool Debian's own live
 images use. Everything that makes it Prestium is in this repository: the package lists, the
 customised files, the setup hooks and the pinned third-party downloads. 1.9.x was built by
 upgrading and patching an unpacked root filesystem (kept in the `prestium-1.6-update` branch).
@@ -46,7 +46,7 @@ which works but is several times slower.
    `config/includes.chroot/usr/local/lib/prestium/verify-su3` (SU3 format, RSA-4096/SHA-512 signature against `thirdparty/keys/reseed/`,
    at most 14 days old) and puts it at `config/includes.chroot/var/lib/i2pd/stormycloud-i2pseeds.su3`;
 2. runs `lb config` (options in `auto/config`);
-3. runs `lb bootstrap`, `lb chroot`, `lb installer` and `lb binary` (the final apt sources go in between chroot and installer) and writes `Prestium-2.1-amd64.iso` and `Prestium-2.1-amd64.iso.sha256`.
+3. runs `lb bootstrap`, `lb chroot`, `lb installer` and `lb binary` (the final apt sources go in between chroot and installer) and writes `Prestium-2.0-amd64.iso` and `Prestium-2.0-amd64.iso.sha256`.
 
 An interrupted build can be continued with `sudo ./build.sh --resume`; `sudo ./build.sh --clean`
 starts over (`lb clean --purge`). Expect 1-2 hours on a normal amd64 machine (much longer emulated).
@@ -66,7 +66,7 @@ starts over (`lb clean --purge`). Expect 1-2 hours on a normal amd64 machine (mu
 | `config/includes.chroot/usr/share/prestium/build/` | build-only data used by the hooks (owners/modes manifest, enabled units, optional packages, final apt sources); deleted from the image |
 | `config/hooks/live/*.hook.chroot` | setup steps, in order (below) |
 | `config/hooks/live/9000-prestium-boot-menu.hook.binary` | boot menu labels |
-| `config/bootloaders/` | boot menu entries: Prestium 2.1, nomodeset, camera and microphone off |
+| `config/bootloaders/` | boot menu entries: Prestium 2.0, nomodeset, camera and microphone off |
 | `thirdparty/` | pinned versions/SHA-256 (`versions.sh`; Tor Browser is resolved at fetch time), publisher keys, The Lounge's npm lockfile |
 | `scripts/fetch-thirdparty.sh` | download + verify + stage third-party software |
 | `build.sh` | the whole build |

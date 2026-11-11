@@ -1,4 +1,4 @@
-# Prestium 2.1 live-build: build products, caches and staged downloads (never committed)
+# Prestium 2.0 live-build: build products, caches and staged downloads (never committed)
 /chroot/
 /binary/
 /.build/
