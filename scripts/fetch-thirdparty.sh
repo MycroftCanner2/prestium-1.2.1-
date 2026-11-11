@@ -1,8 +1,9 @@
 #!/bin/bash
 # Prestium 2.0: download and verify the third-party software that is not in Debian, then stage it
 # for the chroot hooks in config/includes.chroot/usr/src/prestium-thirdparty/ (not committed).
-#   scripts/fetch-thirdparty.sh            verify signature + pinned SHA-256 (fails on any mismatch)
-#   scripts/fetch-thirdparty.sh --repin    verify signature only, print the SHA-256 values to pin
+#   scripts/fetch-thirdparty.sh            verify signatures; pin SHA-256 for Firefox, Node.js and Feather
+#   scripts/fetch-thirdparty.sh --repin    verify signatures, print the SHA-256 values to pin
+#   Tor Browser: always the current signed stable linux-x86_64 release (not SHA-pinned)
 #   It also stages a signature-checked I2P reseed file (StormyCloud su3; a verified download under 24 h old is reused) into config/includes.chroot/var/lib/i2pd/.
 # Needs: curl gpg gpgv git sha256sum unzip npm python3 openssl (the host's npm only runs "npm ci --ignore-scripts": pure JS,
 # architecture-independent). Every registry tarball is checked against the lockfile's sha512 integrity; the one git
@@ -17,7 +18,9 @@ C=${PRESTIUM_CACHE:-$TOP/cache/thirdparty}; mkdir -p "$C"
 exec 8>"$C/.fetch.lock"
 flock -w 3600 8 || { echo "ERROR: another fetch-thirdparty.sh holds $C/.fetch.lock"; exit 1; }
 S=$TOP/config/includes.chroot/usr/src/prestium-thirdparty
-export GNUPGHOME=$(mktemp -d); trap 'rm -rf "$GNUPGHOME"' EXIT
+export GNUPGHOME=$(mktemp -d); TB_META=
+cleanup(){ rm -rf "$GNUPGHOME"; [ -n "${TB_META:-}" ] && rm -f "$TB_META"; }
+trap cleanup EXIT
 gpg -q --import "$TOP"/thirdparty/keys/*.asc 2>/dev/null
 get(){ [ -s "$C/$2" ] || { curl -sfL --proto =https --proto-redir =https --retry 3 -m 1800 -o "$C/$2.part" "$1" && mv "$C/$2.part" "$C/$2"; }; }
 sha(){ sha256sum "$1" | cut -c1-64; }
@@ -35,11 +38,25 @@ treehash(){ # sha256 over package.json, package-lock.json, .npmrc and every file
 sigok(){ # sigfile datafile fpr
   gpg --status-fd 1 --verify "$1" "$2" 2>/dev/null | grep -q "VALIDSIG.*$3" || { echo "ERROR: bad signature on $2"; exit 1; }; }
 
-# Tor Browser
-TBF=tor-browser-linux-x86_64-$TB_VERSION.tar.xz
-get https://dist.torproject.org/torbrowser/$TB_VERSION/$TBF $TBF
-get https://dist.torproject.org/torbrowser/$TB_VERSION/$TBF.asc $TBF.asc
-sigok "$C/$TBF.asc" "$C/$TBF" "$TB_KEY"; pin TB "$C/$TBF" "$TB_SHA256"
+# Tor Browser: always use the current signed stable release. Tor removes retired
+# point-release tarballs from dist.torproject.org (16.0 already 404s), so a pinned
+# version would fail the build. Metadata is fetched fresh every run; the tarball is
+# still checked against TB_KEY. Set PRESTIUM_TB_VERSION=x.y.z to use a specific
+# still-published release instead of the latest.
+TB_META_URL=https://aus1.torproject.org/torbrowser/update_3/release/download-linux-x86_64.json
+if [ -n "${PRESTIUM_TB_VERSION:-}" ]; then
+  eval "$(python3 "$TOP/scripts/lib/tor-browser-release.py" --version "$PRESTIUM_TB_VERSION")"
+else
+  TB_META=$(mktemp)
+  curl -sfL --proto =https --proto-redir =https --retry 3 -m 60 -o "$TB_META" "$TB_META_URL" \
+    || { echo "ERROR: cannot download Tor Browser release metadata $TB_META_URL"; exit 1; }
+  eval "$(python3 "$TOP/scripts/lib/tor-browser-release.py" "$TB_META")"
+fi
+get "$TB_URL" "$TBF"
+get "$TB_SIG_URL" "$TBF.asc"
+sigok "$C/$TBF.asc" "$C/$TBF" "$TB_KEY"
+TB_GOT=$(sha "$C/$TBF")
+if [ "$REPIN" = 1 ]; then echo "PIN TB $TB_VERSION $TB_GOT"; else echo "OK TB $TB_VERSION $TB_GOT"; fi
 
 # Firefox (local-only browser for Prestium's own pages)
 FFF=firefox-$FF_VERSION.tar.xz
@@ -170,7 +187,7 @@ rm -rf "$S"; mkdir -p "$S"
 cp "$C/$TBF" "$S/tor-browser.tar.xz"; cp "$C/$FFF" "$S/firefox.tar.xz"; cp "$C/$NF" "$S/node.tar.xz"
 cp "$C/$FEF" "$S/feather.zip"; echo "$FEATHER_VERSION" > "$S/feather.version"
 # 2.0 r7: re-check what was actually staged (closes the verify-then-copy gap)
-for x in "tor-browser.tar.xz $TB_SHA256" "firefox.tar.xz $FF_SHA256" "node.tar.xz $NODE_SHA256" "feather.zip $FEATHER_SHA256"; do
+for x in "tor-browser.tar.xz $TB_GOT" "firefox.tar.xz $FF_SHA256" "node.tar.xz $NODE_SHA256" "feather.zip $FEATHER_SHA256"; do
   [ "$(sha "$S/${x%% *}")" = "${x#* }" ] || { echo "ERROR: staged ${x%% *} does not match its pinned SHA-256"; exit 1; }
 done
 # tar once per The Lounge version (node_modules has thousands of small files; slow on network filesystems)

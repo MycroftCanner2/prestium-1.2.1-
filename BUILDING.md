@@ -38,7 +38,9 @@ which works but is several times slower.
 
 1. runs `scripts/fetch-thirdparty.sh`: downloads Tor Browser, Firefox, Node.js, Feather, The Lounge
    (npm) and the lurch source, checks each one against its publisher's OpenPGP signature
-   (`thirdparty/keys/`) **and** the SHA-256 pinned in `thirdparty/versions.sh`, and stages them in
+   (`thirdparty/keys/`), pins SHA-256 values from `thirdparty/versions.sh` for Firefox, Node.js and
+   Feather, and always fetches the current signed stable Tor Browser so a retired point-release URL
+   cannot fail the build. It stages them in
    `config/includes.chroot/usr/src/prestium-thirdparty/` (not committed; removed from the image by
    the last hook); it also stages a StormyCloud I2P reseed file (a verified download under 24 h old is reused, see CHANGELOG r14), checks it with
    `config/includes.chroot/usr/local/lib/prestium/verify-su3` (SU3 format, RSA-4096/SHA-512 signature against `thirdparty/keys/reseed/`,
@@ -65,7 +67,7 @@ starts over (`lb clean --purge`). Expect 1-2 hours on a normal amd64 machine (mu
 | `config/hooks/live/*.hook.chroot` | setup steps, in order (below) |
 | `config/hooks/live/9000-prestium-boot-menu.hook.binary` | boot menu labels |
 | `config/bootloaders/` | boot menu entries: Prestium 2.0, nomodeset, camera and microphone off |
-| `thirdparty/` | pinned versions/SHA-256 (`versions.sh`), publisher keys, The Lounge's npm lockfile |
+| `thirdparty/` | pinned versions/SHA-256 (`versions.sh`; Tor Browser is resolved at fetch time), publisher keys, The Lounge's npm lockfile |
 | `scripts/fetch-thirdparty.sh` | download + verify + stage third-party software |
 | `build.sh` | the whole build |
 
@@ -96,9 +98,12 @@ third-party trees in `/opt` are not copied: they are downloaded and verified at 
 
 ## Updating third-party software
 
-Edit the version in `thirdparty/versions.sh`, set its `*_SHA256` to `""`, run
-`scripts/fetch-thirdparty.sh --repin` (it checks the signature and prints the new SHA-256), paste
-the value in, rebuild. The Lounge is updated by regenerating `thirdparty/thelounge/package-lock.json`
+For Firefox, Node.js or Feather, edit the version in `thirdparty/versions.sh`, set its `*_SHA256`
+to `""`, run `scripts/fetch-thirdparty.sh --repin` (it checks the signature and prints the new
+SHA-256), paste the value in, rebuild. Tor Browser is not pinned: each build fetches the current
+signed stable linux-x86_64 release from Tor's official metadata and verifies the tarball against
+the Tor Browser Developers key. Set `PRESTIUM_TB_VERSION=x.y.z` to use a specific still-published
+release instead. The Lounge is updated by regenerating `thirdparty/thelounge/package-lock.json`
 (`npm install thelounge@<version> --package-lock-only` in `thirdparty/thelounge/`, with npm
 11.10 or newer so `.npmrc`'s `min-release-age=7` is enforced: older npm ignores it and may pick a
 release published minutes ago; review the lockfile diff), then set `IRC_FRAMEWORK_COMMIT` in `versions.sh` to the commit the

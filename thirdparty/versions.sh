@@ -1,19 +1,21 @@
 # Prestium 2.0: third-party software that is not in Debian (sourced by scripts/fetch-thirdparty.sh).
-# Each download is checked against the publisher's OpenPGP signature (keys in thirdparty/keys/)
-# AND against the SHA-256 pinned here. To update: change the version, set the SHA to "" and run
-# scripts/fetch-thirdparty.sh --repin (it verifies the signature, then prints the new SHA to pin).
+# Firefox, Node.js and Feather are checked against the publisher's OpenPGP signature
+# (keys in thirdparty/keys/) AND against the SHA-256 pinned here. To update one of those:
+# change the version, set the SHA to "" and run scripts/fetch-thirdparty.sh --repin
+# (it verifies the signature, then prints the new SHA to pin).
+# Tor Browser is not pinned to a SHA-256: fetch-thirdparty.sh always takes the current
+# signed stable linux-x86_64 release (see TB_KEY below) so a retired point-release URL
+# cannot fail the build. Override with PRESTIUM_TB_VERSION=x.y.z if needed.
 # LibreWolf, i2pd and Tor come from their signed apt repositories (config/archives/), not from here.
 
-TB_VERSION=16.0
-TB_SHA256=de3370b67389c2848738cdd515bb2e3b232a4ae93290eae74185c4c43a291a24
 TB_KEY=EF6E286DDA85EA2A4BA7DE684E2C6E8793298290          # Tor Browser Developers (signing key)
 
 FF_VERSION=159.0.1
 FF_SHA256=469ce17120018e1c95411d254cf3c5f8db2dd1768a7acde5a2a089b00072ac65
 FF_KEY=14F26682D0916CDD81E37B6D61B7B526D98F0353          # Mozilla Software Releases
 
-NODE_VERSION=v24.22.2
-NODE_SHA256=48cc0e21e048790e54c0cf5749c2725005313d652651c40b7a21feb9697aaf75   # node-$V-linux-x64.tar.xz; SHASUMS256.txt.asc signed by a Node.js releaser
+NODE_VERSION=v24.22.3
+NODE_SHA256=4f2b175a6d53a5c617a80dba2676238a0688cef28c6da4eba35c7d844e66fcfb   # node-$V-linux-x64.tar.xz; SHASUMS256.txt.asc signed by a Node.js releaser
 
 THELOUNGE_VERSION=4.5.2                                  # npm; package-lock.json integrity hashes pinned in thirdparty/thelounge/
 # irc-framework 4.14.0 is a git dependency of The Lounge (kiwiirc/irc-framework#9578e59a1056499e4a03a0f0fd2c260e9aadc541)
