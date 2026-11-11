@@ -1,11 +1,25 @@
-# Prestium 2.0 (final): changes since 1.9.1.3
+# Prestium 2.1: changes since 2.0
 
-Prestium 2.0 is the final version of this repository's Prestium line. Its goal was to fully modernize
-the original 2023 Prestium build. It is rebuilt from scratch with Debian's live-build on Debian 13
-"trixie" (see BUILDING.md), and it moves the desktop to Wayland with app sandboxing and stricter
-failure handling. Future work continues in **PrestiumOS**: https://github.com/MycroftCanner2/PrestiumOS
+Prestium 2.1 is the current release on this branch. It keeps the Prestium 2.0 base — a from-scratch
+Debian 13 live-build, the Wayland desktop, and the 2.0 privacy and sandboxing work — and adds the
+following.
 
-This is one combined list of everything that changed since the last release, 1.9.1.3.
+- **Tor Browser is no longer pinned to a single release.** Each build fetches the current signed
+  stable linux-x86_64 tarball from Tor's official release metadata and verifies it against the
+  Tor Browser Developers key. Prestium 2.0 pinned Tor Browser 16.0; that file was later removed
+  from dist.torproject.org and broke the build. Future Tor Browser point releases do not need a
+  repository update. Set `PRESTIUM_TB_VERSION=x.y.z` to use a specific still-published release.
+- **Node.js is pinned to v24.22.3** (linux-x64), with SHA-256
+  `4f2b175a6d53a5c617a80dba2676238a0688cef28c6da4eba35c7d844e66fcfb` from the signed
+  `SHASUMS256.txt`. Prestium 2.0 used v24.22.2.
+
+# Prestium 2.0: changes since 1.9.1.3
+
+Prestium 2.0 modernized the original 2023 Prestium build. It is rebuilt from scratch with Debian's
+live-build on Debian 13 "trixie" (see BUILDING.md), and it moves the desktop to Wayland with app
+sandboxing and stricter failure handling.
+
+This is one combined list of everything that changed in 2.0 since the previous release, 1.9.1.3.
 
 ## Build system and supply chain
 - **Built with live-build** from a configuration in git (package lists, Prestium's files, hooks)
@@ -15,10 +29,8 @@ This is one combined list of everything that changed since the last release, 1.9
 - The legacy 1.9.1.3 trees (`rootfs/`, `iso/`, `build-1.9.1.3/`) are gone from this branch. They remain
   in `prestium-1.6-update` and in git history.
 - **Every third-party download** (Tor Browser, Firefox, Node.js, The Lounge, Feather, lurch, the I2P
-  reseed file) is checked against its publisher's signature. Firefox, Node.js and Feather also have a
-  SHA-256 pinned in the repository. Tor Browser is the current signed stable linux-x86_64 release at
-  build time, so a retired point-release URL cannot fail the build. Downloads are HTTPS-only,
-  redirects included, and the Debian mirrors use `https://`.
+  reseed file) is checked against its publisher's signature and a SHA-256 pinned in the repository.
+  Downloads are HTTPS-only, redirects included, and the Debian mirrors use `https://`.
 - i2pd, LibreWolf and Tor come from their own signed apt repositories. Each is `signed-by` its own key,
   and apt pins let each repository supply only its own packages, at build time and in the image.
 - The Lounge is pinned exactly (4.5.2) and installed from a committed lockfile. Its git dependency,
@@ -31,7 +43,7 @@ This is one combined list of everything that changed since the last release, 1.9
 ## Base system, hardware and audio
 - Debian 13 trixie with updates and security fixes, kernel from the 6.12 line (Tails' line), firmware
   from trixie-backports (the Tails 7.15 set or newer) plus extra network, TV tuner, Qualcomm and Samsung firmware.
-- the latest signed stable Tor Browser at build time, Firefox 159.0.1 (local pages only), Node.js 24.22.3, The Lounge 4.5.2, Feather 2.9.1,
+- Tor Browser 16.0, Firefox 159.0.1 (local pages only), Node.js 24.22.2, The Lounge 4.5.2, Feather 2.9.1,
   and current LibreWolf, i2pd and Tor. uBlock Origin 1.75.4 and NoScript 13.6.37.
 - Secure Boot (shim + GRUB), BIOS boot and the hybrid ISO are kept.
 - **PipeWire** with WirePlumber, pipewire-pulse and pipewire-alsa replaces plain ALSA (USB, HDMI and

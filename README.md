@@ -2,30 +2,26 @@ Disclaimer: This project and all associated materials (including software, repos
 
 ## Known issues
 
-- **No browser updater:** Tor Browser, LibreWolf and Firefox are fixed at the versions in this build, so they will become out of date over time.
+- **No in-system browser updater:** LibreWolf and Firefox stay at the versions in the image. Tor
+  Browser is the current signed stable release at build time, but a running system does not update
+  it later.
 - **Claws Mail PGP:** PGP does not work in Claws Mail at the moment and shows errors.
-- **No more security audits or updates:** this branch is final and no longer receives security audits or updates. Use [PrestiumOS](https://github.com/MycroftCanner2/PrestiumOS) for ongoing development.
 
-## Branch `prestium-2.0`: Prestium 2.0 (complete, final version)
+## Branch `prestium-2.0`: Prestium 2.1
 
-Prestium 2.0 rebuilds Prestium from scratch with Debian's **live-build** instead of patching an
-unpacked root filesystem. It is based on Debian 13 "trixie" (amd64) and follows Tails for hardware
+Prestium 2.1 is the current release on this branch. It is based on Prestium 2.0: a from-scratch
+rebuild with Debian's **live-build**, Debian 13 "trixie" (amd64), and Tails-aligned hardware
 support: same Debian release, kernel line and firmware set, Secure Boot through shim/GRUB.
 
-**Status: complete.** This branch is the final version of Prestium 2.0. Its objective, fully
-modernizing the original 2023 Prestium build, has been met, and no further changes will be made here.
-
-**Future development continues in the new repository, PrestiumOS:**
-https://github.com/MycroftCanner2/PrestiumOS (its `main` branch starts from this 2.0 branch).
-Please open issues and send changes there.
-
-The 2.0 ISO is available through `Prestium-2.0-amd64.iso.torrent` on this branch. The previous release,
+Build the 2.1 ISO with `sudo ./build.sh` (output: `Prestium-2.1-amd64.iso`). The previous 2.0 ISO
+remains available through `Prestium-2.0-amd64.iso.torrent` on this branch. The earlier release,
 **1.9.1.3**, stays on branch `prestium-1.6-update` (`Prestium-1.9.1.3-amd64.iso`, SHA-256
 `0ef5cd8bc1129b75a932eb76d1ef0f0031cc4160faab625beba480ae17a1913f`).
 
 - How to build: [BUILDING.md](BUILDING.md) (`sudo ./build.sh`)
-- What changes in 2.0: [CHANGELOG.md](CHANGELOG.md)
+- What changed in 2.1, and earlier in 2.0: [CHANGELOG.md](CHANGELOG.md)
 
-### What changes in 2.0
+### What changes in 2.1
 
-See [CHANGELOG.md](CHANGELOG.md) for the full, unified list of changes since 1.9.1.3.
+See [CHANGELOG.md](CHANGELOG.md) for the combined list of changes since 2.0, and for the earlier
+2.0 changes since 1.9.1.3.
